@@ -1,0 +1,16 @@
+{
+  "kind": "coc:hair",
+  "default": "coc:normal",
+  "types": [
+    { "id": "coc:normal" },
+    { "id": "coc:feather", "short": "Feathers", "descript": "Feather" },
+    { "id": "coc:ghost", "descript": "Ghost" },
+    { "id": "coc:goo", "descript": "Goo" },
+    { "id": "coc:anemone", "short": "TentacleHair", "descript": "Anemone" },
+    { "id": "coc:quill", "short": "QuillHair", "descript": "Quill" },
+    { "id": "coc:basilisk_spines", "short": "Spines", "descript": "BasiliskSpines" },
+    { "id": "coc:basilisk_plume", "short": "Feathers", "descript": "BasiliskPlume" },
+    { "id": "coc:wool", "short": "Wool", "descript": "Wool" },
+    { "id": "coc:vine", "short": "VineHair", "descript": "Vine" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  id: "coc:dullahan"
+  nameKey: "Npcs.Dullahan.Name"
+  scene: "coc:dullahan"
+  combat: ""
+  hostile: false
+}

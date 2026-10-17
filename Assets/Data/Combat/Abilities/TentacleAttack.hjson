@@ -1,0 +1,9 @@
+{
+  id: "coc:tentacle_attack"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  power: 2
+  handler: "coc:tentacle_attack"
+}

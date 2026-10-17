@@ -1,0 +1,12 @@
+{
+  // 原版 ImaginaryMiffix.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:imaginary_miffix_ai"
+  actions: [
+    {
+      ability: "coc:imaginary_miffix_onepunch"
+      weight: 1
+      cost: 10
+      fatigueType: "none"
+    }
+  ]
+}

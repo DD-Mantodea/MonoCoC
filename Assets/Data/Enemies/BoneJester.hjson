@@ -1,0 +1,34 @@
+{
+  // 原版 BoneJester（scenes/dungeons/manor/BoneJester.hx:105 new()）
+  // 数值来自构造函数；权重 AI 走数据表，隐匿/背刺状态由 BoneJesterEnemy.ChooseCombatAction 处理。
+  enemies: [
+    {
+      id: "coc:bone_jester"
+      type: "coc:bone_jester"
+      nameKey: "Npcs.BoneJester.Name"
+      descriptionKey: "Npcs.BoneJester.Desc"
+      article: "the"
+      level: 20
+      bonusHealth: 1000
+      lust: 0
+      strength: 60
+      toughness: 40
+      speed: 100
+      intelligence: 42
+      libido: 45
+      sensitivity: 45
+      corruption: 100
+      // gems 原版是 Utils.rand(5) + 100，Configure 里现算，这里只是占位。
+      gems: 100
+      experience: 0
+      // 原版 pronoun1-3 = it/it/its（BoneJester.hx:115-117）
+      pronoun1: "it"
+      pronoun2: "it"
+      pronoun3: "its"
+      ai: "coc:bone_jester_ai"
+      // 原版 drop = new WeightedDrop()（空表）：不掉落。
+      weightedLoot: false
+      loot: []
+    }
+  ]
+}

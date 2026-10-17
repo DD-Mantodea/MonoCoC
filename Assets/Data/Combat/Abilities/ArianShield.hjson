@@ -1,0 +1,12 @@
+{
+  // 原版 CombatAbilities.hx:2729 Arian's Talisman - Shield（护盾法术）
+  id: "coc:arian_shield"
+  nameKey: "Combat.Arian.Talisman.Shield.Name"
+  descriptionKey: "Combat.Arian.Talisman.Shield.Description"
+  type: "magical"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:arian_shield"
+  availableWhen: "coc:arian_shield_available"
+}

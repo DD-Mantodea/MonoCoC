@@ -1,0 +1,9 @@
+{
+  id: "coc:scorpion_attack"
+  type: "physical"
+  range: "charging_melee"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  handler: "coc:scorpion_attack"
+}

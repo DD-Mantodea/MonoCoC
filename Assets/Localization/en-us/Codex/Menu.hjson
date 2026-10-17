@@ -1,0 +1,11 @@
+{
+  "Codex.Menu.CategoryHint": "Browse the entries in this category."
+  "Codex.Menu.Empty": "You haven't unlocked any codex entries yet.[pg]"
+  "Codex.Menu.EntryHint": "Read this entry."
+  "Codex.Menu.LockedHint": "You haven't unlocked this entry yet."
+  "Codex.Menu.LockedName": "???"
+  "Codex.Menu.NextPage": "Next Page"
+  "Codex.Menu.PrevPage": "Previous Page"
+  "Codex.Menu.Progress": "Unlocked: {0} / {1}"
+  "Codex.Menu.Title": "Codex"
+}

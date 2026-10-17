@@ -1,0 +1,8 @@
+{
+  id: "coc:shouldra_magic_lazers"
+  type: "magical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:shouldra_magic_lazers"
+}

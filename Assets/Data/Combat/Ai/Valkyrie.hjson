@@ -1,0 +1,30 @@
+{
+  // 原版 Valkyrie.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:valkyrie_ai"
+  actions: [
+    {
+      ability: "coc:valkyrie_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:valkyrie_shield_bash"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:valkyrie_aerial_rave"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:valkyrie_spear_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

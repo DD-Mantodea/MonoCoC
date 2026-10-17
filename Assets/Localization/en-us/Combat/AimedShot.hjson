@@ -1,0 +1,8 @@
+{
+  "Combat.Special.AimedShot.Name": "Aimed Shot",
+  "Combat.Special.AimedShot.Description": "Attempt to hit your foe in a weak spot. More difficult at close range.",
+  "Combat.Special.AimedShot.Intro": "You take a deep breath, zeroing out the rest of the world until all that's left is your target and your weapon. Your finger caresses the trigger as you line up the perfect shot.",
+  "Combat.Special.AimedShot.MissFar": "However, the shot just barely misses its mark, whizzing by with an audible buzz and mercifully sparing [themonster] a grievous blow.",
+  "Combat.Special.AimedShot.MissClose": "However, you don't have enough space to properly line up the shot, causing it to go wide as you try to create some distance.",
+  "Combat.Special.AimedShot.Hit": "And with deadly accuracy, your bullet finds its mark, ripping into [themonster] and causing immense damage. [b:Critical hit!]"
+}

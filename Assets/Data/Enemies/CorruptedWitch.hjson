@@ -1,0 +1,29 @@
+{
+  // 原版 CorruptedWitch（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:corrupted_witch"
+      type: "coc:corrupted_witch"
+      nameKey: "Npcs.CorruptedWitch.Name"
+      descriptionKey: "Npcs.CorruptedWitch.Desc"
+      article: "the"
+      level: 18
+      bonusHealth: 300
+      lust: -5
+      strength: 55
+      toughness: 65
+      speed: 35
+      intelligence: 85
+      libido: 55
+      sensitivity: 40
+      corruption: 80
+      gems: 15
+      experience: 0
+      ai: "coc:corrupted_witch_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

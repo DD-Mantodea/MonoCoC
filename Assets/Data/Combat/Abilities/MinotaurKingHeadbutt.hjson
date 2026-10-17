@@ -1,0 +1,9 @@
+{
+  id: "coc:minotaur_king_headbutt"
+  type: "physical"
+  // 原版 performCombatAction 里 headbutt 的 range 是 ChargingMelee（MinotaurKing.hx:116）
+  range: "charging_melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:minotaur_king_headbutt"
+}

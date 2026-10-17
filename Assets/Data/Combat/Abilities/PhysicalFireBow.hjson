@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1665-1682 / :4356-4490 Fire Bow（cost 25-5*弓精通上限15，range Ranged）
+  id: "coc:special_fire_bow"
+  nameKey: "Combat.Special.FireBow.Name"
+  descriptionKey: "Combat.Special.FireBow.Description"
+  type: "physical"
+  category: "physical"
+  range: "ranged"
+  cost: 25
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:can_fire_bow"
+  handler: "coc:special_fire_bow"
+}

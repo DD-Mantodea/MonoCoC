@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:918-934 / :5993-5999 Shell（cost tfFatigue(20,3)，cooldown 4，需 Molten Plate 连携）
+  id: "coc:tf_shell"
+  nameKey: "Combat.Terra.Shell.Name"
+  descriptionKey: "Combat.Terra.Shell.Description"
+  type: "magical"
+  category: "magical"
+  range: "self"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 4
+  availableWhen: "coc:can_tf_shell"
+  disabledWhen: "coc:tf_shell_active"
+  disabledTooltip: "Combat.Terra.Shell.Disabled"
+  handler: "coc:tf_shell"
+}

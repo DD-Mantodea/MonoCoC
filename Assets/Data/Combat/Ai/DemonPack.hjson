@@ -1,0 +1,20 @@
+{
+  // 原版 DemonPack.hx:10 performCombatAction：rand(2)==0 走 special1，否则 special2
+  // 原版 DemonPack.hx:129-130：this.special1 = combat.packAttack；this.special2 = combat.lustAttack
+  // 两者实现见 Combat.hx:658 packAttack / Combat.hx:710 lustAttack（已迁移为 coc:pack_attack / coc:pack_lust_attack）
+  id: "coc:demon_pack_ai"
+  actions: [
+    {
+      ability: "coc:pack_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:pack_lust_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

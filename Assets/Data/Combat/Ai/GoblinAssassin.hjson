@@ -1,0 +1,36 @@
+{
+  // 原版 GoblinAssassin.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:goblin_assassin_ai"
+  actions: [
+    {
+      ability: "coc:goblin_assassin_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:goblin_assassin_goblin_drug_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:goblin_assassin_lust_needle"
+      weight: 1
+      cost: 5
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:goblin_assassin_dual_shot"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:goblin_assassin_goblin_explosion"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  // 原版 CombatAbilities.hx:2004-2020 Grand Thrust（cost 45-5*枪精通，cooldown 3，
+  // range ChargingMelee，要求长枪+精通≥2，且只可在远处使用）
+  id: "coc:special_grand_thrust"
+  nameKey: "Combat.Special.GrandThrust.Name"
+  descriptionKey: "Combat.Special.GrandThrust.Description"
+  type: "physical"
+  category: "physical"
+  range: "charging_melee"
+  cost: 45
+  fatigueType: "physical"
+  cooldown: 3
+  availableWhen: "coc:can_grand_thrust"
+  disabledWhen: "coc:enemy_not_distant"
+  disabledTooltip: "Combat.Special.GrandThrust.Disabled"
+  handler: "coc:special_grand_thrust"
+}

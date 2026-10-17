@@ -1,0 +1,31 @@
+{
+  // 原版 EncapsulationPod（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:encapsulation_pod"
+      type: "coc:encapsulation_pod"
+      nameKey: "Npcs.EncapsulationPod.Name"
+      descriptionKey: "Npcs.EncapsulationPod.Desc"
+      article: "the"
+      level: 12
+      // 原版 bonusHP = 450 在 EncapsulationPodEnemy.Configure 里加成（这里留 0，避免重复叠加）
+      bonusHealth: 0
+      lust: 10
+      strength: 90
+      toughness: 1
+      speed: 1
+      intelligence: 1
+      libido: 1
+      sensitivity: 1
+      corruption: 100
+      gems: 0
+      experience: 0
+      ai: "coc:encapsulation_pod_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop(weapons.JRAPIER, 1)
+        { item: "coc:jeweled_rapier", weight: 1 }
+      ]
+    }
+  ]
+}

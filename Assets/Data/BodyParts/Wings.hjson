@@ -1,0 +1,23 @@
+{
+  "kind": "coc:wings",
+  "default": "coc:none",
+  "types": [
+    { "id": "coc:none" },
+    { "id": "coc:bee_like_small", "appearance": "WingsBeeSmall", "flight": true },
+    { "id": "coc:bee_like_large", "appearance": "WingsBeeLarge", "flight": true },
+    { "id": "coc:harpy", "appearance": "WingsHarpy", "flight": true },
+    { "id": "coc:imp", "appearance": "WingsImp", "flight": true },
+    { "id": "coc:bat_like_tiny", "appearance": "WingsBatTiny", "flight": true },
+    { "id": "coc:bat_like_large", "appearance": "WingsBatLarge", "flight": true },
+    { "id": "coc:feathered_large", "appearance": "WingsFeathered", "flight": true },
+    { "id": "coc:draconic_small", "appearance": "WingsDraconicSmall", "flight": true },
+    { "id": "coc:draconic_large", "appearance": "WingsDraconicLarge", "flight": true },
+    { "id": "coc:giant_dragonfly", "appearance": "WingsDragonfly", "flight": true },
+    { "id": "coc:imp_large", "appearance": "WingsImpLarge", "flight": true },
+    { "id": "coc:faerie_small", "appearance": "WingsFaerieSmall", "flight": true },
+    { "id": "coc:faerie_large", "appearance": "WingsFaerieLarge", "flight": true },
+    { "id": "coc:wooden", "appearance": "WingsWooden" },
+    { "id": "coc:willow", "appearance": "WingsWillow" },
+    { "id": "coc:weeping", "appearance": "WingsWeeping" }
+  ]
+}

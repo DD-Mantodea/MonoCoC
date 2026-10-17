@@ -1,0 +1,11 @@
+{
+  "Combat.Spell.CleansingPalm.Name": "Cleansing Palm",
+  "Combat.Spell.CleansingPalm.Description": "Unleash the power of your cleansing aura! More effective against corrupted opponents and stronger when unarmed. Doesn't work on the pure.",
+  "Combat.Spell.CleansingPalm.Disabled": "You are too corrupt to use this spell.",
+  "Combat.Spell.CleansingPalm.JojoCancel": "You thrust your palm forward, sending a blast of pure energy towards Jojo. At the last second he sends a blast of his own against yours, canceling it out.",
+  "Combat.Spell.CleansingPalm.LivingStatue": "You thrust your palm forward, causing a blast of pure energy to slam against the giant stone statue--to no effect!",
+  "Combat.Spell.CleansingPalm.Hit": "You thrust your palm forward, causing a blast of pure energy to slam against [themonster], tossing {0} back a few feet.",
+  "Combat.Spell.CleansingPalm.SuperEffective": "[pg-]It's super effective!",
+  "Combat.Spell.CleansingPalm.Ignored": "You thrust your palm forward, causing a blast of pure energy to slam against [themonster], which they ignore. It is probably best you don't use this technique on the pure.",
+  "Combat.Spell.CleansingPalm.MonkLust": "[pg-]The lingering energy clears your mind of lustful thoughts. {0}"
+}

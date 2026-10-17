@@ -1,0 +1,35 @@
+{
+  // 原版 PhoenixPlatoon（scenes/dungeons/helDungeon/PhoenixPlatoon.hx:53 new()）
+  // 数值来自构造函数；运行时会被 Configure 覆盖的字段已注明。
+  enemies: [
+    {
+      id: "coc:phoenix_platoon"
+      type: "coc:phoenix_platoon"
+      nameKey: "Npcs.PhoenixPlatoon.Name"
+      descriptionKey: "Npcs.PhoenixPlatoon.Desc"
+      article: "the"
+      level: 20
+      bonusHealth: 400
+      lust: 20
+      strength: 60
+      toughness: 60
+      speed: 120
+      intelligence: 40
+      libido: 40
+      sensitivity: 45
+      corruption: 50
+      // gems 原版是 Utils.rand(25) + 160，Configure 里现算，这里只是占位。
+      gems: 160
+      experience: 0
+      // 原版 plural = true / pronoun1-3 = they/them/their
+      plural: true
+      pronoun1: "they"
+      pronoun2: "them"
+      pronoun3: "their"
+      ai: "coc:phoenix_platoon_ai"
+      // 原版 drop = NO_DROP：不掉落。
+      weightedLoot: false
+      loot: []
+    }
+  ]
+}

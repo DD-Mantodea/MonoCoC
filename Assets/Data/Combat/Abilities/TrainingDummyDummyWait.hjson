@@ -1,0 +1,8 @@
+{
+  id: "coc:training_dummy_dummy_wait"
+  type: "physical"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:training_dummy_dummy_wait"
+}

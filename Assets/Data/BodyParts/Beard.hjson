@@ -1,0 +1,10 @@
+{
+  "kind": "coc:beard",
+  "default": "coc:normal",
+  "types": [
+    { "id": "coc:normal" },
+    { "id": "coc:goatee", "style": "Goatee" },
+    { "id": "coc:cleancut", "style": "CleanCut" },
+    { "id": "coc:mountainman", "style": "MountainMan" }
+  ]
+}

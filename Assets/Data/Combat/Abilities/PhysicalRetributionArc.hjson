@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:2032-2054 / :5625-5650 Arc of Retribution（cost 50-5*武器精通，cooldown 3）
+  id: "coc:special_retribution_arc"
+  nameKey: "Combat.Special.Retribution.Name"
+  descriptionKey: "Combat.Special.Retribution.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 50
+  fatigueType: "physical"
+  cooldown: 3
+  availableWhen: "coc:can_retribution_arc"
+  handler: "coc:special_retribution_arc"
+}

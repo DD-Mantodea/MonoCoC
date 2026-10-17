@@ -1,0 +1,23 @@
+{
+  enemies: [
+    {
+      id: "coc:jojo"
+      type: "coc:jojo"
+      nameKey: "Npcs.Jojo.Name"
+      descriptionKey: "Npcs.Jojo.Desc"
+      level: 4
+      bonusHealth: 0
+      lust: 15
+      strength: 35
+      toughness: 40
+      speed: 65
+      intelligence: 55
+      libido: 15
+      sensitivity: 40
+      corruption: 0
+      gems: 4
+      experience: 0
+      ai: ""
+    }
+  ]
+}

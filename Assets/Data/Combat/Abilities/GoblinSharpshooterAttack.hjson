@@ -1,0 +1,9 @@
+{
+  id: "coc:goblin_sharpshooter_attack"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  handler: "coc:goblin_sharpshooter_attack"
+}

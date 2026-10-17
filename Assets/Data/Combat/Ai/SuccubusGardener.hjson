@@ -1,0 +1,45 @@
+{
+  // 原版 SuccubusGardener.performCombatAction（SuccubusGardener.hx:78-122）
+  // 注意：原版是手写的阶段战选招（冷却 / DoT / 低血回血 / 欲望分档），C# 侧由
+  // SuccubusGardenerEnemy.BeforeCombatAction + ChooseCombatAction 完整覆写，
+  // 这条表只保留招式清单与权重记录，不参与实际运行。
+  id: "coc:succubus_gardener_ai"
+  actions: [
+    {
+      ability: "coc:succubus_gardener_sicem"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:succubus_gardener_corruptive_shower"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:succubus_gardener_lust_aura"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:succubus_gardener_taunt"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:succubus_gardener_motorboat"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:succubus_gardener_taste_the_ecstasy"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

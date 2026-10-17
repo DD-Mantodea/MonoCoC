@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:4209-4226 Test Resolve（家族护符，免费）
+  id: "coc:special_test_resolve"
+  nameKey: "Combat.Special.TestResolve.Name"
+  descriptionKey: "Combat.Special.TestResolve.Description"
+  type: "magical"
+  category: "magical"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:has_family_talisman"
+  disabledWhen: "coc:resolve_active"
+  disabledTooltip: "Combat.Special.TestResolve.Disabled"
+  handler: "coc:special_test_resolve"
+}

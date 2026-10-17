@@ -1,0 +1,29 @@
+{
+  // 原版 PhoenixSapper（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:phoenix_sapper"
+      type: "coc:phoenix_sapper"
+      nameKey: "Npcs.PhoenixSapper.Name"
+      descriptionKey: "Npcs.PhoenixSapper.Desc"
+      article: "the"
+      level: 20
+      bonusHealth: 200
+      lust: 20
+      strength: 60
+      toughness: 60
+      speed: 100
+      intelligence: 40
+      libido: 40
+      sensitivity: 45
+      corruption: 50
+      gems: 25
+      experience: 0
+      ai: "coc:phoenix_sapper_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

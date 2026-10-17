@@ -1,0 +1,10 @@
+{
+  id: "coc:tamanis_daughters_goblin_tease_attack"
+  // 原版 goblinTeaseAttack 对 "Tamani's daughters" 没有专属文案分支，只有通用的挑逗结算；
+  // 这里用 Goblin 的 Tease 文案，交给通用 tease 伤害公式（power = 8，见原版伤害公式）。
+  type: "tease"
+  range: "tease"
+  cost: 0
+  cooldown: 0
+  power: 8
+}

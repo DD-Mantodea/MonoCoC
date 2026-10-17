@@ -1,0 +1,14 @@
+{
+  id: "coc:spell_whitefire"
+  nameKey: "Combat.Spell.Whitefire.Name"
+  descriptionKey: "Combat.Spell.Whitefire.Description"
+  type: "magical"
+  category: "white"
+  range: "ranged"
+  cost: 30
+  fatigueType: "magical"
+  cooldown: 3
+  knownWhen: "coc:knows_whitefire"
+  dominikaOrder: 6
+  handler: "coc:spell_whitefire"
+}

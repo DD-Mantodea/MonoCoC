@@ -1,0 +1,8 @@
+{
+  id: "coc:minotaur_lord_cum_press"
+  type: "tease"
+  range: "tease"
+  cost: 0
+  cooldown: 0
+  handler: "coc:minotaur_lord_cum_press"
+}

@@ -1,0 +1,25 @@
+{
+  // 原版 classes/scenes/monsters/GoblinSharpshooter.hx
+  enemies: [
+    {
+      id: "coc:goblin_sharpshooter"
+      type: "coc:goblin_sharpshooter"
+      nameKey: "Scenes.Goblinsharpshooter.Name"
+      descriptionKey: "Scenes.Goblinsharpshooter.Description"
+      article: "the"
+      level: 20
+      bonusHealth: 300
+      lust: 50
+      strength: 45
+      toughness: 55
+      speed: 110
+      intelligence: 95
+      libido: 65
+      sensitivity: 35
+      corruption: 60
+      gems: 45
+      experience: 0
+      weaponAttack: 130
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  // 原版 Minotaur（数值照 Minotaur.hx 构造函数「无斧」版本；斧版为 str 75 / level 6 / lustVuln 0.84）
+  enemies: [
+    {
+      id: "coc:minotaur"
+      type: "coc:minotaur"
+      nameKey: "Npcs.Minotaur.Name"
+      descriptionKey: "Npcs.Minotaur.Desc"
+      article: "the"
+      level: 5
+      bonusHealth: 28
+      lust: 24
+      strength: 50
+      toughness: 60
+      speed: 30
+      intelligence: 20
+      libido: 56
+      sensitivity: 31
+      corruption: 35
+      gems: 5
+      experience: 0
+      ai: "coc:minotaur_ai"
+      // 原版 Minotaur.hx:94-99：掉落是依 hasAxe 分支的 ChainedDrop，由 MinotaurEnemy.Loot 覆盖提供
+      chainLoot: true
+      loot: []
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  // 原版 Doppelganger（scenes/dungeons/lethicesKeep/Doppelganger.hx:172-270 new()）
+  // 属性 / 身体 / 装备全部在 DoppelgangerEnemy.Configure 里从玩家复制，数据表只给固定部分。
+  enemies: [
+    {
+      id: "coc:doppelganger"
+      type: "coc:doppelganger"
+      nameKey: "Npcs.Doppelganger.Name"
+      article: "the"
+      // 原版 bonusHP = 250（Doppelganger.hx:213）
+      bonusHealth: 250
+      level: 1
+      lust: 0
+      strength: 0
+      toughness: 0
+      speed: 0
+      intelligence: 0
+      libido: 0
+      sensitivity: 0
+      corruption: 50
+      gems: 0
+      experience: 0
+      // 原版不普攻：doAI 覆写里只说骚话（DoppelgangerEnemy.BeforeCombatAction）
+      ai: ""
+      // 原版 drop = NO_DROP（Doppelganger.hx:267）
+      loot: []
+    }
+  ]
+}

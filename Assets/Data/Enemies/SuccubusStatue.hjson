@@ -1,0 +1,29 @@
+{
+  // 原版 SuccubusStatue（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:succubus_statue"
+      type: "coc:succubus_statue"
+      nameKey: "Npcs.SuccubusStatue.Name"
+      descriptionKey: "Npcs.SuccubusStatue.Desc"
+      article: ""
+      level: 22
+      bonusHealth: 600
+      lust: 30
+      strength: 40
+      toughness: 100
+      speed: 80
+      intelligence: 100
+      libido: 60
+      sensitivity: 60
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:succubus_statue_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

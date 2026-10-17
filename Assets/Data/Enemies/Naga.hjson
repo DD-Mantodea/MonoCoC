@@ -1,0 +1,39 @@
+{
+  // 原版 classes/scenes/areas/desert/Naga.hx：level 2、str28/tou20/spe35/inte42、lib55/sens55/cor40
+  // weaponAttack 3、armorDef 5、lust 30、gems rand(5)+8
+  // drop：1/10 无、5/10 Reptlum、4/10 SnakeOil
+  enemies: [
+    {
+      id: "coc:naga"
+      type: "coc:naga"
+      nameKey: "Scenes.Naga.Name"
+      article: "the"
+      level: 2
+      bonusHealth: 0
+      lust: 30
+      strength: 28
+      toughness: 20
+      speed: 35
+      intelligence: 42
+      libido: 55
+      sensitivity: 55
+      corruption: 40
+      gems: 10
+      experience: 0
+      weaponAttack: 3
+      armorDefense: 5
+      ai: "coc:naga_ai"
+      weightedLoot: true
+      loot: [
+        {
+          item: "coc:reptlum"
+          weight: 5
+        }
+        {
+          item: "coc:snake_oil"
+          weight: 4
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "Combat.Disabled.ApproachClose": "You cannot approach this enemy!"
+  "Combat.Disabled.CannotFlee": "You can't escape this fight!"
+  "Combat.Disabled.CannotMove": "You're unable to move!"
+  "Combat.Disabled.CannotUse": "You cannot use this right now."
+  "Combat.Disabled.DistanceFar": "You cannot distance yourself any more!"
+  "Combat.Disabled.MagicSealed": "Your magical attacks are sealed!"
+  "Combat.Disabled.NoHandler": "Nothing happens. ({0} has no handler.)"
+  "Combat.Disabled.NoMagicalSpecials": "You don't have any magical specials available."
+  "Combat.Disabled.NoPhysicalSpecials": "You don't have any physical specials available."
+  "Combat.Disabled.NoSpells": "You don't know any spells."
+  "Combat.Disabled.NoSpellsSchool": "You don't know any spells of this school."
+  "Combat.Disabled.OnCooldown": "On cooldown ({0} turns)."
+  "Combat.Disabled.PhysicalSealed": "Your physical attacks are sealed!"
+  "Combat.Disabled.TeaseSealed": "Your tease ability is sealed!"
+  "Combat.Disabled.TooTired": "You are too tired to use this."
+}

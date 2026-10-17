@@ -1,0 +1,9 @@
+{
+  // 原版 LivingStatue.backhand()（LivingStatue.hx:111-131）
+  id: "coc:living_statue_backhand"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:living_statue_backhand"
+}

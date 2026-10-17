@@ -1,0 +1,8 @@
+{
+  id: "coc:cum_witch_gender_confusion_attack"
+  type: "magical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:cum_witch_gender_confusion_attack"
+}

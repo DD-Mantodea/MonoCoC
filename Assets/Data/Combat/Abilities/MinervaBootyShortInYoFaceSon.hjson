@@ -1,0 +1,8 @@
+{
+  id: "coc:minerva_booty_short_in_yo_face_son"
+  type: "tease"
+  range: "tease"
+  cost: 0
+  cooldown: 0
+  handler: "coc:minerva_booty_short_in_yo_face_son"
+}

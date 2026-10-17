@@ -1,0 +1,42 @@
+{
+  // 原版 RandomSuccubus.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:random_succubus_ai"
+  actions: [
+    {
+      ability: "coc:random_succubus_grapple"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:random_succubus_swipe"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:random_succubus_lust_magic_attack"
+      weight: 0.5
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:random_succubus_tail_whip"
+      weight: 0.5
+      cost: 5
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:random_succubus_heel_kick"
+      weight: 0.5
+      cost: 5
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:random_succubus_hl_grapple"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

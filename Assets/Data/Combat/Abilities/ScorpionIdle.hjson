@@ -1,0 +1,10 @@
+{
+  id: "coc:scorpion_idle"
+  type: "support"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  isSelf: true
+  handler: "coc:scorpion_idle"
+}

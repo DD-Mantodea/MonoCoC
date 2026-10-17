@@ -1,0 +1,12 @@
+{
+  // 原版 Terra 形态 Quake 标记（用于 Eruption 连携）
+  id: "coc:tfquake"
+  nameKey: "Combat.Effect.TFQuake.Name"
+  descriptionKey: "Combat.Effect.TFQuake.Description"
+  kind: "timed"
+  duration: 3
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_tfquake_round"
+}

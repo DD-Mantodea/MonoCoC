@@ -1,0 +1,23 @@
+{
+  "Items.Beondegi.Desc": "Dark colored and squishy pasta-like bulbs."
+  "Items.Beondegi.Long": "a beondegi"
+  "Items.Beondegi.Short": "Beondegi"
+
+  // 原版 items/consumables/Beondegi.hx:22
+  "Items.Beondegi.Use": "You take the beondegi from your bag and inspect it. It smells vaguely nutty with a slight touch of sea. Placing it in your mouth, you note the taste is similar to the scent, and the texture is like pasta. It would likely be at home in a soup, but you have no problem eating it as it is."
+
+  // 原版 Beondegi.hx:25 —— 战斗中对豆荚使用
+  "Items.Beondegi.Pod": "[pg]As soon as you're done chewing, the pod feels oddly cozy to you, and no longer like a threat you must fight against. Obviously you will have to leave, but maybe the danger is overblown."
+
+  // 原版 Beondegi.hx:40 —— 蝙蝠耳
+  "Items.Beondegi.Ears": "[pg]Your ears stretch and bend as all sensation of sound becomes deafening for a moment, causing you to wince. When you open your eyes, you find yourself on the ground and pick yourself up. Checking your head, you seem to have [b:large bat-like ears] with little ridges on the inside. Fortunately, noises aren't as deafening as they were mid-transformation."
+
+  // 原版 Beondegi.hx:46 —— 蝙蝠翼
+  "Items.Beondegi.Wings": "[pg]The muscles around your shoulders bunch up uncomfortably, changing to support your wings as you feel their weight increasing. You twist your head as far as you can for a look and realize they've changed into [b:large bat-like demon-wings]!"
+
+  // 原版 Beondegi.hx:57 —— 蝙蝠腿
+  "Items.Beondegi.Legs": "[pg]Your knees break! You're on your back in shock for the briefest moment before the legs you once had twist and morph into the sinewy [b:legs of a bat with clawed feet]!"
+
+  // 原版 Beondegi.hx:63 —— 蝙蝠脸
+  "Items.Beondegi.Face": "[pg]A burning, stuffy sensation in your nose has you groan aloud as the structure twists itself until your face resembles a [b:bat's]."
+}

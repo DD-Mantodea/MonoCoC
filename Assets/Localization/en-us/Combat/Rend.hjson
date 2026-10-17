@@ -1,0 +1,10 @@
+{
+  "Combat.Special.Rend.Name": "Rend",
+  "Combat.Special.Rend.Description": "Use your axe to rip through your enemy's defenses.",
+  "Combat.Special.Rend.Intro": "You shift your arm back and then bring your [weapon] down in a deadly diagonal slash that ",
+  "Combat.Special.Rend.Dodge": "just barely goes wide as [themonster] dodges back.",
+  "Combat.Special.Rend.Block": "[themonster] just barely manages to block in time.",
+  "Combat.Special.Rend.Hit": "hits square on, tearing into [themonster]",
+  "Combat.Special.Rend.Bleed": " and causing a rush of blood to flow forth",
+  "Combat.Special.Rend.Armor": ". The force of the blow seems to have damaged [monster.his] [monster.armor]!"
+}

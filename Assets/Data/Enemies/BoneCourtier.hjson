@@ -1,0 +1,36 @@
+{
+  // 原版 BoneCourtier（scenes/dungeons/manor/BoneCourtier.hx:114 new()）
+  // 数值来自构造函数；AI 由 BoneCourtierEnemy.ChooseCombatAction 接管（原版权重表）。
+  enemies: [
+    {
+      id: "coc:bone_courtier"
+      type: "coc:bone_courtier"
+      nameKey: "Npcs.BoneCourtier.Name"
+      descriptionKey: "Npcs.BoneCourtier.Desc"
+      article: "the"
+      level: 17
+      bonusHealth: 1000
+      lust: 0
+      strength: 12
+      toughness: 0
+      speed: 35
+      intelligence: 42
+      libido: 45
+      sensitivity: 45
+      corruption: 100
+      // gems 原版是 Utils.rand(5) + 5，Configure 里现算，这里只是占位。
+      gems: 5
+      experience: 0
+      // 原版 pronoun1-3 = it/it/its（BoneCourtier.hx:123-125）
+      pronoun1: "it"
+      pronoun2: "it"
+      pronoun3: "its"
+      // 不走数据 AI：原版 performCombatAction（BoneCourtier.hx:14）的权重与 when 条件
+      // 全部在 BoneCourtierEnemy.ChooseCombatAction 里，所有分支都返回动作，不会落到空 AI。
+      ai: ""
+      // 原版 drop = new WeightedDrop()（空表）：不掉落。
+      weightedLoot: false
+      loot: []
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  id: "coc:plague_rat_gnash"
+  type: "physical"
+  range: "melee"
+  cost: 25
+  cooldown: 0
+  handler: "coc:plague_rat_gnash"
+}

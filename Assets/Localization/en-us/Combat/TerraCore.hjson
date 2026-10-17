@@ -1,0 +1,12 @@
+{
+  "Combat.Effect.TFTerraCore.Name": "Terrestrial Core",
+  "Combat.Effect.TFTerraCore.Description": "The molten core arcs back for another attempt.",
+  "Combat.Terra.TerraCore.Name": "Terra Core",
+  "Combat.Terra.TerraCore.Description": "In unified earth and flame, deal devastating damage.",
+  "Combat.Terra.TerraCore.Intro": "Emerald inferno spirals up from your hands. Your body's core is summoned forth in the form of indomitable rock, molten with spirit. A great heave of your arms sends the mighty terrestrial core flying ",
+  "Combat.Terra.TerraCore.Miss": "towards [themonster], but it fails to hit its target. It continues flying, making a wide arc as it turns for another attempt.",
+  "Combat.Terra.TerraCore.Hit": "into [themonster], knocking [monster.him] back with the incredible force of your fury!",
+  "Combat.Terra.TerraCore.RetryMiss": "[pg]The molten core makes its second attempt as it streaks towards [themonster], missing yet again before it crashes harmlessly into the ground, no energy left for another pass.",
+  "Combat.Terra.TerraCore.RetryWeak": "[pg]The molten core makes its second attempt as it streaks towards [themonster], bursting as it slams into [monster.him]! Unfortunately it lost some of its power after the long flight, hitting with less force than expected.",
+  "Combat.Terra.TerraCore.RetryHit": "[pg]The molten core makes its second attempt as it streaks towards [themonster], slamming into [monster.him] with incredible force!"
+}

@@ -1,0 +1,7 @@
+{
+  // 原版 SuccubusStatue.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:succubus_statue_ai"
+  actions: [
+
+  ]
+}

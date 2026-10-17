@@ -1,0 +1,28 @@
+{
+  enemies: [
+    {
+      id: "coc:farmers"
+      type: "coc:farmers"
+      nameKey: "Enemies.Farmers.Name"
+      descriptionKey: "Enemies.Farmers.Desc"
+      article: "the "
+      level: 10
+      bonusHealth: 500
+      lust: 0
+      strength: 40
+      toughness: 50
+      speed: 99
+      intelligence: 99
+      libido: 35
+      sensitivity: 35
+      corruption: 20
+      gems: 52
+      experience: 100
+      plural: true
+      pronoun1: "they"
+      pronoun2: "them"
+      pronoun3: "their"
+      ai: ""
+    }
+  ]
+}

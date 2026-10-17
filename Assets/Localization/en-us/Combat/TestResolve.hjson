@@ -1,0 +1,7 @@
+{
+  "Combat.Special.TestResolve.Name": "Test Resolve",
+  "Combat.Special.TestResolve.Description": "Peer into the cursed talisman and test your own psyche.",
+  "Combat.Special.TestResolve.Disabled": "Your mind is already tested!",
+  "Combat.Special.TestResolve.Intro": "You take the talisman and peer deeply into it. You're granted a brief glimpse into terrible truths, of impending doom and of revelations beyond your comprehension. You stagger backwards as your mind is twisted, attempting to deal with the horrors you've just witnessed.[pg]",
+  "Combat.Special.TestResolve.Testing": "Your resolve is being tested...\\n"
+}

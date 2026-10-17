@@ -1,0 +1,13 @@
+{
+  "Combat.Special.SpiderBite.Name": "Spider Bite",
+  "Combat.Special.SpiderBite.Description": "Attempt to bite your opponent and inject venom that arouses them.",
+  "Combat.Special.SpiderBite.PoisonImmune": "[Themonster] is immune to any type of poison! Your bite does nothing![pg]",
+  "Combat.Special.SpiderBite.BiteImmune": "You lunge forwards, fangs bared, and bite [themonster] with all your might. A piercing pain shoots up your skull as soon as you connect, your teeth unable to break through [monster.his] hide. You recoil in pain.",
+  "Combat.Special.SpiderBite.Hit": "You lunge at the foe headfirst, fangs bared. You manage to catch [themonster] off guard, your needle-like fangs penetrating deep into [monster.his] body.",
+  "Combat.Special.SpiderBite.HitPlural": "You lunge at the foes headfirst, fangs bared. You manage to catch one of [themonster] off guard, your needle-like fangs penetrating deep into [monster.his] body.",
+  "Combat.Special.SpiderBite.Fail": "You lunge headfirst, fangs bared. Your attempt fails horrendously, as [themonster] manages to counter your lunge, pushing you back out of range.",
+  "Combat.Special.SpiderBite.NoEffect": " Your aphrodisiac toxin has no effect!",
+  "Combat.Special.SpiderBite.FlushPlural": " The one you bit flushes hotly, though the entire group seems to become more aroused in sympathy to their now-lusty compatriot.",
+  "Combat.Special.SpiderBite.FlushMale": " He flushes hotly and touches his suddenly-stiff member, moaning lewdly for a moment.",
+  "Combat.Special.SpiderBite.FlushFemale": " She flushes hotly and touches a suddenly stiff nipple, moaning lewdly. You can smell her arousal in the air."
+}

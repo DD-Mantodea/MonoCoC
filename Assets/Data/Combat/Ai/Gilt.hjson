@@ -1,0 +1,30 @@
+{
+  // 原版 Gilt.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:gilt_ai"
+  actions: [
+    {
+      ability: "coc:gilt_dive"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:gilt_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:gilt_attack_two"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:gilt_fly"
+      weight: 0.1
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:2486-2502 / :5668-5688 Whip Trip（cost 15-鞭精通，鞭+精通≥2）
+  id: "coc:special_whip_trip"
+  nameKey: "Combat.Special.WhipTrip.Name"
+  descriptionKey: "Combat.Special.WhipTrip.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 15
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:can_whip_trip"
+  handler: "coc:special_whip_trip"
+}

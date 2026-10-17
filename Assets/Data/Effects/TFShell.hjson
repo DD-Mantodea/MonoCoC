@@ -1,0 +1,11 @@
+{
+  // 原版 TFShellBuff.hx：一回合内免疫所有 HP 变化
+  id: "coc:tfshell"
+  nameKey: "Combat.Effect.TFShell.Name"
+  descriptionKey: "Combat.Effect.TFShell.Description"
+  kind: "timed"
+  duration: 1
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

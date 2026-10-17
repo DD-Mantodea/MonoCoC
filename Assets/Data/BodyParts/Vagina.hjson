@@ -1,0 +1,13 @@
+{
+  kind: coc:vagina
+  collection: true
+  default: coc:human
+  types:
+  [
+    { id: "coc:human" },
+    { id: "coc:equine" },
+    { id: "coc:black_sand_trap", descript: "BlackSandTrap" }
+    { id: "coc:equine" }
+    { id: "coc:black_sand_trap", descript: "BlackSandTrap" }
+  ]
+}

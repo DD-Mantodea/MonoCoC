@@ -1,0 +1,8 @@
+{
+  id: "coc:mora_shroud_attack"
+  type: "physical"
+  range: "self"
+  cost: 10
+  cooldown: 0
+  handler: "coc:mora_shroud_attack"
+}

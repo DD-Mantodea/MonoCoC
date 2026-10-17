@@ -1,0 +1,17 @@
+{
+  id: "coc:spell_charge_weapon"
+  nameKey: "Combat.Spell.ChargeWeapon.Name"
+  descriptionKey: "Combat.Spell.ChargeWeapon.Description"
+  type: "magical"
+  category: "white"
+  range: "self"
+  cost: 15
+  fatigueType: "magical"
+  cooldown: 0
+  isSelf: true
+  knownWhen: "coc:knows_charge"
+  dominikaOrder: 4
+  disabledWhen: "coc:charge_weapon"
+  disabledTooltip: "Combat.Spell.ChargeWeapon.Disabled"
+  handler: "coc:spell_charge_weapon"
+}

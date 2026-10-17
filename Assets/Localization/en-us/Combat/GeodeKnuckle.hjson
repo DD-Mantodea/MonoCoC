@@ -1,0 +1,11 @@
+{
+  "Combat.Effect.TFGeodeKnuckle.Name": "Geode Knuckle",
+  "Combat.Effect.TFGeodeKnuckle.Description": "Your fists are encased in stone and crystal.",
+  "Combat.Terra.GeodeKnuckle.Name": "Geode Knuckle",
+  "Combat.Terra.GeodeKnuckle.Description": "Imbued with the might of earth, punch them. Uses 10 gems to cast.",
+  "Combat.Terra.GeodeKnuckle.Disabled": "Requires 10 gems.",
+  "Combat.Terra.GeodeKnuckle.Text": "Your arms become engulfed in stone and crystal, lining your knuckles in shards of gemstone. With earth-imbued strength, you lunge forward in furious might, mustering a devastating punch!",
+  "Combat.Terra.GeodeDispel.Name": "Dispel Geode Knuckle",
+  "Combat.Terra.GeodeDispel.Description": "Dispel your equipped Geode Knuckle. Doesn't use up your turn.",
+  "Combat.Terra.GeodeDispel.Text": "The earth falls away from your fists as you dismiss the spell."
+}

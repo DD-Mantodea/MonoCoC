@@ -1,0 +1,10 @@
+{
+  "Combat.Spell.Terror.Name": "Terror",
+  "Combat.Spell.Terror.Description": "Instill fear into your opponent with eldritch horrors. The more you cast this in a battle, the lesser effective it becomes.",
+  "Combat.Spell.Terror.Silence": "You cannot focus to reach the enemy's mind while you're having so much difficult breathing.",
+  "Combat.Spell.Terror.NoMind": "You reach for the enemy's mind, but cannot find anything. You frantically search around, but there is no consciousness as you know it in the room.[pg]",
+  "Combat.Spell.Terror.Intro": "The world goes dark, an inky shadow blanketing everything in sight as you fill [themonster]'s mind with visions of otherworldly terror that defy description.",
+  "Combat.Spell.Terror.Success": " They cower in horror as they succumb to your illusion, believing themselves beset by eldritch horrors beyond their wildest nightmares.[pg]",
+  "Combat.Spell.Terror.Fail": " The dark fog recedes as quickly as it rolled in as they push back your illusions, resisting your hypnotic influence.",
+  "Combat.Spell.Terror.Resistant": " Your foe might be resistant by now."
+}

@@ -1,0 +1,31 @@
+{
+  "kind": "coc:ears",
+  "default": "coc:human",
+  "types": [
+    { "id": "coc:human", "ear": "Human" },
+    { "id": "coc:horse", "ear": "Horse", "descript": "Furry" },
+    { "id": "coc:dog", "ear": "Dog", "descript": "Furry" },
+    { "id": "coc:cow", "ear": "Cow", "descript": "Furry" },
+    { "id": "coc:elfin", "ear": "Elfin", "descript": "Elfin" },
+    { "id": "coc:cat", "ear": "Cat", "descript": "Furry" },
+    { "id": "coc:lizard", "ear": "Lizard", "descript": "EarHole" },
+    { "id": "coc:bunny", "ear": "Bunny", "descript": "Furry" },
+    { "id": "coc:kangaroo", "ear": "Kangaroo", "descript": "Furry" },
+    { "id": "coc:fox", "ear": "Fox", "descript": "Furry" },
+    { "id": "coc:dragon", "ear": "Dragon", "descript": "BonyFin" },
+    { "id": "coc:raccoon", "ear": "Raccoon", "descript": "Furry" },
+    { "id": "coc:mouse", "ear": "Mouse", "descript": "Furry" },
+    { "id": "coc:ferret", "ear": "Ferret", "descript": "Furry" },
+    { "id": "coc:pig", "ear": "Pig", "descript": "Furry" },
+    { "id": "coc:rhino", "ear": "Rhino", "descript": "Rhino" },
+    { "id": "coc:echidna", "ear": "Echidna", "descript": "EarHole" },
+    { "id": "coc:deer", "ear": "Deer", "descript": "Furry" },
+    { "id": "coc:wolf", "ear": "Wolf", "descript": "Furry" },
+    { "id": "coc:sheep", "ear": "Sheep", "descript": "Furry" },
+    { "id": "coc:imp", "ear": "Imp", "descript": "Elfin" },
+    { "id": "coc:cockatrice", "ear": "Cockatrice", "descript": "EarHole" },
+    { "id": "coc:red_panda", "ear": "RedPanda", "descript": "Furry" },
+    { "id": "coc:gnoll", "ear": "Gnoll" },
+    { "id": "coc:bat", "ear": "Bat" }
+  ]
+}

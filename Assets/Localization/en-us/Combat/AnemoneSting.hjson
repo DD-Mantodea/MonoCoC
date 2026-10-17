@@ -1,0 +1,10 @@
+{
+  "Combat.Special.AnemoneSting.Name": "Anemone Sting",
+  "Combat.Special.AnemoneSting.Description": "Attempt to strike an opponent with the stinging tentacles growing from your scalp. Increases enemy lust while reducing their speed.",
+  "Combat.Special.AnemoneSting.Miss": "You rush [themonster], whipping your hair around to catch it with your tentacles, but [monster.he] easily dodges. Oy, you hope you didn't just give yourself away.",
+  "Combat.Special.AnemoneSting.MissPlural": "You rush [themonster], whipping your hair around to catch them with your tentacles, but [monster.he] easily dodge. Oy, you hope you didn't just give yourself away.",
+  "Combat.Special.AnemoneSting.Intro": "You rush [themonster], whipping your hair around like a genie",
+  "Combat.Special.AnemoneSting.Swipes": ", and manage to land a few swipes with your tentacles. ",
+  "Combat.Special.AnemoneSting.Venom": "As the venom infiltrates [monster.his] body, [monster.he] twitches and begins to move more slowly, hampered half by paralysis and half by arousal.",
+  "Combat.Special.AnemoneSting.VenomPlural": "As the venom infiltrates [monster.his] bodies, [monster.he] twitch and begin to move more slowly, hampered half by paralysis and half by arousal."
+}

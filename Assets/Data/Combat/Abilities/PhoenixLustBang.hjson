@@ -1,0 +1,8 @@
+{
+  id: "coc:phoenix_lust_bang"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:phoenix_lust_bang"
+}

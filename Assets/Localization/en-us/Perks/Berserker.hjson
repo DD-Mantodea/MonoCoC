@@ -1,0 +1,4 @@
+{
+  "Perks.Berserker.Desc": "[if (str>=75) {Grants 'Berserk' ability.|<b>You aren't strong enough to benefit from this anymore.</b>}]"
+  "Perks.Berserker.Name": "Berserker"
+}

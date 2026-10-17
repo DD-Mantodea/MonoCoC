@@ -1,0 +1,8 @@
+{
+  id: "coc:rhino_bouncer_charge_start"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:rhino_bouncer_charge_start"
+}

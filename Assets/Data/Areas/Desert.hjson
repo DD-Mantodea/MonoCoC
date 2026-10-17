@@ -1,0 +1,16 @@
+{
+  id: "coc:desert"
+  scene: "coc:desert"
+  order: 40
+  nameKey: "Areas.Desert.Name"
+  descriptionKey: "Areas.Desert.Description"
+  discoveryKey: "Areas.Desert.Discovery"
+  exploreKey: "Areas.Desert.Explore"
+  condition: {
+    type: compare
+    flag: "coc:times_explored_desert"
+    op: ">="
+    value: 1
+  }
+  explorationFlag: "coc:times_explored_desert"
+}

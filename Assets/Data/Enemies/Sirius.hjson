@@ -1,0 +1,28 @@
+{
+  // 原版 Sirius（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:sirius"
+      type: "coc:sirius"
+      nameKey: "Npcs.Sirius.Name"
+      descriptionKey: "Npcs.Sirius.Desc"
+      article: ""
+      level: 12
+      bonusHealth: 400
+      lust: 30
+      strength: 75
+      toughness: 70
+      speed: 75
+      intelligence: 92
+      libido: 45
+      sensitivity: 35
+      corruption: 40
+      gems: 5
+      experience: 0
+      ai: "coc:sirius_ai"
+      // 原版 drop = NO_DROP（Sirius.hx:119）
+      loot: [
+      ]
+    }
+  ]
+}

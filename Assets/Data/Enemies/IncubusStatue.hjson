@@ -1,0 +1,29 @@
+{
+  // 原版 IncubusStatue（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:incubus_statue"
+      type: "coc:incubus_statue"
+      nameKey: "Npcs.IncubusStatue.Name"
+      descriptionKey: "Npcs.IncubusStatue.Desc"
+      article: ""
+      level: 22
+      bonusHealth: 600
+      lust: 30
+      strength: 100
+      toughness: 100
+      speed: 50
+      intelligence: 50
+      libido: 60
+      sensitivity: 60
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:incubus_statue_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

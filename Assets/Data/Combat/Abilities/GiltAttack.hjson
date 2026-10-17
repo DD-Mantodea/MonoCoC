@@ -1,0 +1,8 @@
+{
+  id: "coc:gilt_attack"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:gilt_attack"
+}

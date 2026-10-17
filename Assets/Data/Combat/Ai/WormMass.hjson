@@ -1,0 +1,19 @@
+{
+  // 原版 WormMass.performCombatAction（WormMass.hx:62-69）：纯 50/50，两种招式各 weight 1。
+  // 实际抽签在 WormMassEnemy.ChooseCombatAction 里做（performCombatAction 不走 MonsterAI）。
+  id: "coc:worm_mass_ai"
+  actions: [
+    {
+      ability: "coc:worm_mass_worm_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:worm_mass_worms_entice"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

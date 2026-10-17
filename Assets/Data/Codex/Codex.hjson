@@ -1,0 +1,583 @@
+{
+  // 原版 classes/scenes/Codex.hx:50 init() 的 30 个条目（Gnoll / Fetish Cult 在原版里是注释掉的）
+  // 每个条目的正文由 codexEntryXxx() 的多段输出组成，故用 textKeys 数组按原版顺序引用既有本地化段落。
+  // 解锁旗标对应 VanillaFlags.CodexEntry*（见 Assets/ContentManagers/CodexManager.cs 的 KnownUnlockFlags）。
+  entries: [
+    {
+      id: "coc:codex_entry_alice"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Alices.Name"
+      unlockFlag: "codex_entry_alice"
+      order: 10
+      textKeys: [
+        "Scenes.Codex.CodexEntryAlices.GendersLine"
+        "Scenes.Codex.CodexEntryAlices.HeightLine"
+        "Scenes.Codex.CodexEntryAlices.BuildLine"
+        "Scenes.Codex.CodexEntryAlices.SkinHairEyesLine"
+        "Scenes.Codex.CodexEntryAlices.DemonsOftenAppearTo"
+        "Scenes.Codex.CodexEntryAlices.AliceCreatedWhen"
+        "Scenes.Codex.CodexEntryAlices.SuccessfulAliceAppear"
+        "Scenes.Codex.CodexEntryAlices.ConcoctionCanVary"
+      ]
+    }
+    {
+      id: "coc:codex_entry_alraune"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Alraune.Name"
+      unlockFlag: "codex_entry_alraune"
+      order: 20
+      textKeys: [
+        "Scenes.Codex.CodexEntryAlraune.GendersLine"
+        "Scenes.Codex.CodexEntryAlraune.HeightLine"
+        "Scenes.Codex.CodexEntryAlraune.BuildLine"
+        "Scenes.Codex.CodexEntryAlraune.FloralHumanoidsSprout"
+        "Scenes.Codex.CodexEntryAlraune.PlantGirlsVaryGreatly"
+        "Scenes.Codex.CodexEntryAlraune.RootsOfTheGoddesses"
+      ]
+    }
+    {
+      id: "coc:codex_entry_anemone"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Anemone.Name"
+      unlockFlag: "codex_entry_anemones"
+      order: 30
+      textKeys: [
+        "Scenes.Codex.CodexEntryAnemone.GendersLine"
+        "Scenes.Codex.CodexEntryAnemone.HeightLine"
+        "Scenes.Codex.CodexEntryAnemone.BuildLine"
+        "Scenes.Codex.CodexEntryAnemone.SkinLine"
+        "Scenes.Codex.CodexEntryAnemone.HairLine"
+        "Scenes.Codex.CodexEntryAnemone.EyesLine"
+        "Scenes.Codex.CodexEntryAnemone.SvelteFeminineFrame"
+        "Scenes.Codex.CodexEntryAnemone.MutantOffshootOf"
+        "Scenes.Codex.CodexEntryAnemone.InternalConstructionMore"
+        "Scenes.Codex.CodexEntryAnemone.RetainForMostPart"
+        "Scenes.Codex.CodexEntryAnemone.ReproductionFavorsWarm"
+        "Scenes.Codex.CodexEntryAnemone.MayHaveAFair"
+      ]
+    }
+    {
+      id: "coc:codex_entry_spiders"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Spiders.Name"
+      unlockFlag: "codex_entry_arachnes"
+      order: 40
+      textKeys: [
+        "Scenes.Codex.CodexEntrySpiders.GendersLine"
+        "Scenes.Codex.CodexEntrySpiders.SkinLine"
+        "Scenes.Codex.CodexEntrySpiders.HairLine"
+        "Scenes.Codex.CodexEntrySpiders.EyesLine"
+        "Scenes.Codex.CodexEntrySpiders.FacialFeaturesLine"
+        "Scenes.Codex.CodexEntrySpiders.LegsLine"
+        "Scenes.Codex.CodexEntrySpiders.ArachneAndMorphsHave"
+        "Scenes.Codex.CodexEntrySpiders.AphrodisiacVenom"
+        "Scenes.Codex.CodexEntrySpiders.SprayWebbingFrom"
+        "Scenes.Codex.CodexEntrySpiders.RelativelyNewRace"
+        "Scenes.Codex.CodexEntrySpiders.ReproductionFairly"
+        "Scenes.Codex.CodexEntrySpiders.RisingTideOfCorruption"
+        "Scenes.Codex.CodexEntrySpiders.VenomBelievedTo"
+      ]
+    }
+    {
+      id: "coc:codex_entry_basilisk"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Basilisks.Name"
+      unlockFlag: "codex_entry_basilisks"
+      order: 50
+      textKeys: [
+        "Scenes.Codex.CodexEntryBasilisks.GendersLine"
+        "Scenes.Codex.CodexEntryBasilisks.HeightLine"
+        "Scenes.Codex.CodexEntryBasilisks.BuildLine"
+        "Scenes.Codex.CodexEntryBasilisks.HairLine"
+        "Scenes.Codex.CodexEntryBasilisks.SkinLine"
+        "Scenes.Codex.CodexEntryBasilisks.FacialStructureLine"
+        "Scenes.Codex.CodexEntryBasilisks.LookSimilarToLizans"
+        "Scenes.Codex.CodexEntryBasilisks.TendToBreed"
+        "Scenes.Codex.CodexEntryBasilisks.DespisedByRaces"
+        "Scenes.Codex.CodexEntryBasilisks.BeforeDemonsCouldOnly"
+      ]
+    }
+    {
+      id: "coc:codex_entry_cockatrice"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Cockatrices.Name"
+      unlockFlag: "codex_entry_cockatrices"
+      order: 60
+      textKeys: [
+        "Scenes.Codex.CodexEntryCockatrices.GendersLine"
+        "Scenes.Codex.CodexEntryCockatrices.HeightLine"
+        "Scenes.Codex.CodexEntryCockatrices.BuildLine"
+        "Scenes.Codex.CodexEntryCockatrices.HairFeathersLine"
+        "Scenes.Codex.CodexEntryCockatrices.HairFeathersLineAgain"
+        "Scenes.Codex.CodexEntryCockatrices.SkinToneLine"
+        "Scenes.Codex.CodexEntryCockatrices.FacialStructureLine"
+        "Scenes.Codex.CodexEntryCockatrices.FacialStructureLineAgain"
+        "Scenes.Codex.CodexEntryCockatrices.VibrantFeathersCoating"
+        "Scenes.Codex.CodexEntryCockatrices.VibrantFeathersCovering"
+        "Scenes.Codex.CodexEntryCockatrices.AroundTheirNeck"
+        "Scenes.Codex.CodexEntryCockatrices.UpperPortionsOfArms"
+        "Scenes.Codex.CodexEntryCockatrices.GenitalsContained"
+        "Scenes.Codex.CodexEntryCockatrices.LayEggsUsuallyIn"
+        "Scenes.Codex.CodexEntryCockatrices.IfNotFertilized"
+        "Scenes.Codex.CodexEntryCockatrices.SharePetrifyingGaze"
+      ]
+    }
+    {
+      id: "coc:codex_entry_faerie"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Faerie.Name"
+      unlockFlag: "codex_entry_faerie"
+      order: 70
+      textKeys: [
+        "Scenes.Codex.CodexEntryFaerie.GendersLine"
+        "Scenes.Codex.CodexEntryFaerie.HeightLine"
+        "Scenes.Codex.CodexEntryFaerie.BuildLine"
+        "Scenes.Codex.CodexEntryFaerie.SkinToneLine"
+        "Scenes.Codex.CodexEntryFaerie.HairLine"
+        "Scenes.Codex.CodexEntryFaerie.WellKnownMiniature"
+        "Scenes.Codex.CodexEntryFaerie.WritingsBeforeCorruption"
+        "Scenes.Codex.CodexEntryFaerie.DespiteLandCorruption"
+      ]
+    }
+    {
+      id: "coc:codex_entry_bee"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Bees.Name"
+      unlockFlag: "codex_entry_giantbees"
+      order: 80
+      textKeys: [
+        "Scenes.Codex.CodexEntryBees.GendersLine"
+        "Scenes.Codex.CodexEntryBees.HeightLine"
+        "Scenes.Codex.CodexEntryBees.HairLine"
+        "Scenes.Codex.CodexEntryBees.EyesLine"
+        "Scenes.Codex.CodexEntryBees.FairlyHumanLike"
+        "Scenes.Codex.CodexEntryBees.QueensManyVaginas"
+        "Scenes.Codex.CodexEntryBees.EggsIncubatedThey"
+        "Scenes.Codex.CodexEntryBees.DividedIntoCastes"
+        "Scenes.Codex.CodexEntryBees.VenomousStinger"
+      ]
+    }
+    {
+      id: "coc:codex_entry_goblin"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Goblins.Name"
+      unlockFlag: "codex_entry_goblins"
+      order: 90
+      textKeys: [
+        "Scenes.Codex.CodexEntryGoblins.GendersLine"
+        "Scenes.Codex.CodexEntryGoblins.HeightLine"
+        "Scenes.Codex.CodexEntryGoblins.EyeColorsLine"
+        "Scenes.Codex.CodexEntryGoblins.HairColorsLine"
+        "Scenes.Codex.CodexEntryGoblins.SkinColorsLine"
+        "Scenes.Codex.CodexEntryGoblins.AppendagesLine"
+        "Scenes.Codex.CodexEntryGoblins.LitheLittleCreatures"
+        "Scenes.Codex.CodexEntryGoblins.DoNotGetOld"
+        "Scenes.Codex.CodexEntryGoblins.AlwaysHornyAndReady"
+        "Scenes.Codex.CodexEntryGoblins.LifeOfYoungGoblin"
+        "Scenes.Codex.CodexEntryGoblins.TechnologicalLeaders"
+        "Scenes.Codex.CodexEntryGoblins.WithinAWeekMinds"
+        "Scenes.Codex.CodexEntryGoblins.LiveInGroups"
+      ]
+    }
+    {
+      id: "coc:codex_entry_goo_girl"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.GooGirls.Name"
+      unlockFlag: "codex_entry_googirls"
+      order: 100
+      textKeys: [
+        "Scenes.Codex.CodexEntryGooGirls.GendersLine"
+        "Scenes.Codex.CodexEntryGooGirls.ComeInVariety"
+        "Scenes.Codex.CodexEntryGooGirls.SlimesMimicAppearance"
+        "Scenes.Codex.CodexEntryGooGirls.FeaturelessAtBirth"
+        "Scenes.Codex.CodexEntryGooGirls.BodyTypesChange"
+        "Scenes.Codex.CodexEntryGooGirls.ShiftingStatesArms"
+        "Scenes.Codex.CodexEntryGooGirls.InCombatUsually"
+        "Scenes.Codex.CodexEntryGooGirls.ReproductiveCycle"
+        "Scenes.Codex.CodexEntryGooGirls.DoNotHaveA"
+        "Scenes.Codex.CodexEntryGooGirls.MostChallengingParts"
+        "Scenes.Codex.CodexEntryGooGirls.SensitiveToHeat"
+      ]
+    }
+    {
+      id: "coc:codex_entry_harpy"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Harpies.Name"
+      unlockFlag: "codex_entry_harpies"
+      order: 110
+      textKeys: [
+        "Scenes.Codex.CodexEntryHarpies.GendersLine"
+        "Scenes.Codex.CodexEntryHarpies.BuildLine"
+        "Scenes.Codex.CodexEntryHarpies.SkinLine"
+        "Scenes.Codex.CodexEntryHarpies.HairLine"
+        "Scenes.Codex.CodexEntryHarpies.EyesLine"
+        "Scenes.Codex.CodexEntryHarpies.WingsLine"
+        "Scenes.Codex.CodexEntryHarpies.LegsLine"
+        "Scenes.Codex.CodexEntryHarpies.ReproductiveSystemsCan"
+        "Scenes.Codex.CodexEntryHarpies.NeverBeenCivilized"
+        "Scenes.Codex.CodexEntryHarpies.FondOfWearingA"
+      ]
+    }
+    {
+      id: "coc:codex_entry_hellhound"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Hellhounds.Name"
+      unlockFlag: "codex_entry_hellhounds"
+      order: 120
+      textKeys: [
+        "Scenes.Codex.CodexEntryHellhounds.LengthLine"
+        "Scenes.Codex.CodexEntryHellhounds.BodyTypeLine"
+        "Scenes.Codex.CodexEntryHellhounds.FurLine"
+        "Scenes.Codex.CodexEntryHellhounds.EyeColorLine"
+        "Scenes.Codex.CodexEntryHellhounds.ResemblesMonstrousTwo"
+        "Scenes.Codex.CodexEntryHellhounds.PredatorsTypicallyPrey"
+        "Scenes.Codex.CodexEntryHellhounds.PairOfEightInch"
+        "Scenes.Codex.CodexEntryHellhounds.CorruptFlamesTo"
+        "Scenes.Codex.CodexEntryHellhounds.MindOfAHellhound"
+        "Scenes.Codex.CodexEntryHellhounds.FeralWithoutMasters"
+      ]
+    }
+    {
+      id: "coc:codex_entry_hellmouth"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Hellmouth.Name"
+      unlockFlag: "codex_entry_hellmouth"
+      order: 130
+      textKeys: [
+        "Scenes.Codex.CodexEntryHellmouth.GendersAndHeightLine"
+        "Scenes.Codex.CodexEntryHellmouth.HellmouthAppearTo"
+        "Scenes.Codex.CodexEntryHellmouth.DifficultToFind"
+        "Scenes.Codex.CodexEntryHellmouth.UniqueDemon"
+      ]
+    }
+    {
+      id: "coc:codex_entry_imp"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Imps.Name"
+      unlockFlag: "codex_entry_imps"
+      order: 140
+      textKeys: [
+        "Scenes.Codex.CodexEntryImps.GendersLine"
+        "Scenes.Codex.CodexEntryImps.HeightLine"
+        "Scenes.Codex.CodexEntryImps.BuildLine"
+        "Scenes.Codex.CodexEntryImps.SkinToneLine"
+        "Scenes.Codex.CodexEntryImps.HairColorLine"
+        "Scenes.Codex.CodexEntryImps.EyeColorLine"
+        "Scenes.Codex.CodexEntryImps.SaveForALoincloth"
+        "Scenes.Codex.CodexEntryImps.ClawedHandsAndFeet"
+        "Scenes.Codex.CodexEntryImps.FourInchHorns"
+        "Scenes.Codex.CodexEntryImps.LargeHumanlikePenis"
+      ]
+    }
+    {
+      id: "coc:codex_entry_lactabovine"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.LaBovines.Name"
+      unlockFlag: "codex_entry_labovines"
+      order: 150
+      textKeys: [
+        "Scenes.Codex.CodexEntryLaBovines.GendersLine"
+        "Scenes.Codex.CodexEntryLaBovines.SkinFurLine"
+        "Scenes.Codex.CodexEntryLaBovines.AllFemaleBovine"
+        "Scenes.Codex.CodexEntryLaBovines.BehaviorOfBovine"
+        "Scenes.Codex.CodexEntryLaBovines.ManyMayBelieve"
+        "Scenes.Codex.CodexEntryLaBovines.LightlyCorruptedCreature"
+        "Scenes.Codex.CodexEntryLaBovines.ReproduceByFindingA"
+        "Scenes.Codex.CodexEntryLaBovines.MinotaursCommonPartner"
+      ]
+    }
+    {
+      id: "coc:codex_entry_lizan"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Lizans.Name"
+      unlockFlag: "codex_entry_lizans"
+      order: 160
+      textKeys: [
+        "Scenes.Codex.CodexEntryLizans.GendersLine"
+        "Scenes.Codex.CodexEntryLizans.HeightLine"
+        "Scenes.Codex.CodexEntryLizans.BuildLine"
+        "Scenes.Codex.CodexEntryLizans.SkinLine"
+        "Scenes.Codex.CodexEntryLizans.ScalesLine"
+        "Scenes.Codex.CodexEntryLizans.SkinLineAgain"
+        "Scenes.Codex.CodexEntryLizans.HairLine"
+        "Scenes.Codex.CodexEntryLizans.EyeColorLine"
+        "Scenes.Codex.CodexEntryLizans.ResembleHumansDigitigrade"
+        "Scenes.Codex.CodexEntryLizans.ResembleHumanoidLizards"
+        "Scenes.Codex.CodexEntryLizans.TwoPenises"
+        "Scenes.Codex.CodexEntryLizans.CorruptionManifestsMentally"
+        "Scenes.Codex.CodexEntryLizans.PredominantlyCarnivorous"
+        "Scenes.Codex.CodexEntryLizans.AreOviparous"
+        "Scenes.Codex.CodexEntryLizans.TwoDifferentLizan"
+        "Scenes.Codex.CodexEntryLizans.PreciseHistory"
+        "Scenes.Codex.CodexEntryLizans.NothingOfNote"
+        "Scenes.Codex.CodexEntryLizans.HistoricallyDispersed"
+        "Scenes.Codex.CodexEntryLizans.UncorruptedHateDemons"
+      ]
+    }
+    {
+      id: "coc:codex_entry_minotaur"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Minotaurs.Name"
+      unlockFlag: "codex_entry_minotaurs"
+      order: 170
+      textKeys: [
+        "Scenes.Codex.CodexEntryMinotaurs.GendersLine"
+        "Scenes.Codex.CodexEntryMinotaurs.HeightLine"
+        "Scenes.Codex.CodexEntryMinotaurs.BodyTypeLine"
+        "Scenes.Codex.CodexEntryMinotaurs.SkinToneLine"
+        "Scenes.Codex.CodexEntryMinotaurs.FurHairColorLine"
+        "Scenes.Codex.CodexEntryMinotaurs.EyeColorLine"
+        "Scenes.Codex.CodexEntryMinotaurs.NotableFeatureLine"
+        "Scenes.Codex.CodexEntryMinotaurs.FavorLooseFittingSkins"
+        "Scenes.Codex.CodexEntryMinotaurs.FistsHornsAnd"
+        "Scenes.Codex.CodexEntryMinotaurs.TwoToThreeFoot"
+        "Scenes.Codex.CodexEntryMinotaurs.MostThinkOfMinotaurs"
+        "Scenes.Codex.CodexEntryMinotaurs.BastardRunts"
+      ]
+    }
+    {
+      id: "coc:codex_entry_naga"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Nagas.Name"
+      unlockFlag: "codex_entry_nagas"
+      order: 180
+      textKeys: [
+        "Scenes.Codex.CodexEntryNagas.GendersLine"
+        "Scenes.Codex.CodexEntryNagas.LengthLine"
+        "Scenes.Codex.CodexEntryNagas.BuildLine"
+        "Scenes.Codex.CodexEntryNagas.HairLine"
+        "Scenes.Codex.CodexEntryNagas.EyesLine"
+        "Scenes.Codex.CodexEntryNagas.SkinBodyLine"
+        "Scenes.Codex.CodexEntryNagas.SkinTailLine"
+        "Scenes.Codex.CodexEntryNagas.HumansWithSnakeBody"
+        "Scenes.Codex.CodexEntryNagas.LikeSnakesHaveNo"
+        "Scenes.Codex.CodexEntryNagas.LiveInGroupsOf"
+        "Scenes.Codex.CodexEntryNagas.StereotypePortraysNagas"
+      ]
+    }
+    {
+      id: "coc:codex_entry_orc"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Orcs.Name"
+      unlockFlag: "codex_entry_orcs"
+      order: 190
+      textKeys: [
+        "Scenes.Codex.CodexEntryOrcs.GendersLine"
+        "Scenes.Codex.CodexEntryOrcs.BodyStructureLine"
+        "Scenes.Codex.CodexEntryOrcs.FacialLine"
+        "Scenes.Codex.CodexEntryOrcs.HairEyeColorationLine"
+        "Scenes.Codex.CodexEntryOrcs.OneOfMorePeaceful"
+        "Scenes.Codex.CodexEntryOrcs.AverageOrcBisexual"
+        "Scenes.Codex.CodexEntryOrcs.MenAndWomenEqual"
+      ]
+    }
+    {
+      id: "coc:codex_entry_phouka"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Phouka.Name"
+      unlockFlag: "codex_entry_phouka"
+      order: 200
+      textKeys: [
+        "Scenes.Codex.CodexEntryPhouka.GendersLine"
+        "Scenes.Codex.CodexEntryPhouka.HeightLine"
+        "Scenes.Codex.CodexEntryPhouka.BuildLine"
+        "Scenes.Codex.CodexEntryPhouka.SkinToneLine"
+        "Scenes.Codex.CodexEntryPhouka.HairLine"
+        "Scenes.Codex.CodexEntryPhouka.EyeColorLine"
+        "Scenes.Codex.CodexEntryPhouka.OpposedToFaerieCousins"
+        "Scenes.Codex.CodexEntryPhouka.FamouslyAppearedTo"
+        "Scenes.Codex.CodexEntryPhouka.WhatOneAssumes"
+      ]
+    }
+    {
+      id: "coc:codex_entry_salamander"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Salamanders.Name"
+      unlockFlag: "codex_entry_salamanders"
+      order: 210
+      textKeys: [
+        "Scenes.Codex.CodexEntrySalamanders.GendersLine"
+        "Scenes.Codex.CodexEntrySalamanders.BodyStructuresLine"
+        "Scenes.Codex.CodexEntrySalamanders.FacialStructuresLine"
+        "Scenes.Codex.CodexEntrySalamanders.HairEyeColorationLine"
+        "Scenes.Codex.CodexEntrySalamanders.NaturalElementalMastery"
+        "Scenes.Codex.CodexEntrySalamanders.NotoriousFiery"
+        "Scenes.Codex.CodexEntrySalamanders.RemoteNatureOf"
+        "Scenes.Codex.CodexEntrySalamanders.LessCivilized"
+      ]
+    }
+    {
+      id: "coc:codex_entry_satyr"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Satyrs.Name"
+      unlockFlag: "codex_entry_satyrs"
+      order: 220
+      textKeys: [
+        "Scenes.Codex.CodexEntrySatyrs.GendersLine"
+        "Scenes.Codex.CodexEntrySatyrs.OriginallyDualGendered"
+        "Scenes.Codex.CodexEntrySatyrs.AlsoNotoriousForTheir"
+        "Scenes.Codex.CodexEntrySatyrs.FaunsLiveToWorship"
+        "Scenes.Codex.CodexEntrySatyrs.FaunsContactedBy"
+        "Scenes.Codex.CodexEntrySatyrs.CorruptionDrasticEffect"
+        "Scenes.Codex.CodexEntrySatyrs.AbandonedFormerCreed"
+        "Scenes.Codex.CodexEntrySatyrs.SeedInfusedHighly"
+        "Scenes.Codex.CodexEntrySatyrs.ExposedToOuterWorld"
+        "Scenes.Codex.CodexEntrySatyrs.NowHighlyAntisocial"
+      ]
+    }
+    {
+      id: "coc:codex_entry_shark_girl"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.SharkGirls.Name"
+      unlockFlag: "codex_entry_sharkgirls"
+      order: 230
+      textKeys: [
+        "Scenes.Codex.CodexEntrySharkGirls.GendersLine"
+        "Scenes.Codex.CodexEntrySharkGirls.HeightLine"
+        "Scenes.Codex.CodexEntrySharkGirls.BuildLine"
+        "Scenes.Codex.CodexEntrySharkGirls.SkinToneLine"
+        "Scenes.Codex.CodexEntrySharkGirls.HairColorLine"
+        "Scenes.Codex.CodexEntrySharkGirls.EyeColorLine"
+        "Scenes.Codex.CodexEntrySharkGirls.WeaponryLine"
+        "Scenes.Codex.CodexEntrySharkGirls.SkimpySwimwear"
+        "Scenes.Codex.CodexEntrySharkGirls.RetractableTeethFin"
+        "Scenes.Codex.CodexEntrySharkGirls.DespiteSluttyNature"
+        "Scenes.Codex.CodexEntrySharkGirls.BeforeCorruptionBegan"
+      ]
+    }
+    {
+      id: "coc:codex_entry_succubus"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Succubus.Name"
+      unlockFlag: "codex_entry_succubus"
+      order: 240
+      textKeys: [
+        "Scenes.Codex.CodexEntrySuccubus.GendersLine"
+        "Scenes.Codex.CodexEntrySuccubus.HeightLine"
+        "Scenes.Codex.CodexEntrySuccubus.HairLine"
+        "Scenes.Codex.CodexEntrySuccubus.EyesLine"
+        "Scenes.Codex.CodexEntrySuccubus.AlwaysAppearAttractive"
+        "Scenes.Codex.CodexEntrySuccubus.WhatCouldBeDescribed"
+        "Scenes.Codex.CodexEntrySuccubus.DoNotReproduce"
+        "Scenes.Codex.CodexEntrySuccubus.OccupyTheSecond"
+        "Scenes.Codex.CodexEntrySuccubus.MilkCanBe"
+        "Scenes.Codex.CodexEntrySuccubus.LikeMostDemons"
+      ]
+    }
+    {
+      id: "coc:codex_entry_zebra"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.Zebras.Name"
+      unlockFlag: "codex_entry_zebras"
+      order: 250
+      textKeys: [
+        "Scenes.Codex.CodexEntryZebras.GendersLine"
+        "Scenes.Codex.CodexEntryZebras.HeightLine"
+        "Scenes.Codex.CodexEntryZebras.BuildLine"
+        "Scenes.Codex.CodexEntryZebras.SkinLine"
+        "Scenes.Codex.CodexEntryZebras.FurLine"
+        "Scenes.Codex.CodexEntryZebras.EyesLine"
+        "Scenes.Codex.CodexEntryZebras.DietLine"
+        "Scenes.Codex.CodexEntryZebras.MostlyHumanException"
+        "Scenes.Codex.CodexEntryZebras.HeadFaceSimilar"
+        "Scenes.Codex.CodexEntryZebras.StallionTreatsAll"
+        "Scenes.Codex.CodexEntryZebras.PolygamousOneStallion"
+        "Scenes.Codex.CodexEntryZebras.RankAmongMares"
+        "Scenes.Codex.CodexEntryZebras.AcquisitionOfNewMare"
+        "Scenes.Codex.CodexEntryZebras.StallionsPassive"
+        "Scenes.Codex.CodexEntryZebras.ShowAnxietyWhen"
+      ]
+    }
+    {
+      id: "coc:codex_entry_sand_witches"
+      category: "Codex.Category.Factions"
+      nameKey: "Codex.Entry.SandWitches.Name"
+      unlockFlag: "codex_entry_sandwitches"
+      order: 260
+      textKeys: [
+        "Scenes.Codex.CodexEntrySandWitches.GendersLine"
+        "Scenes.Codex.CodexEntrySandWitches.HeightLine"
+        "Scenes.Codex.CodexEntrySandWitches.HairLine"
+        "Scenes.Codex.CodexEntrySandWitches.EyesLine"
+        "Scenes.Codex.CodexEntrySandWitches.DressInLoose"
+        "Scenes.Codex.CodexEntrySandWitches.FourHeavily"
+        "Scenes.Codex.CodexEntrySandWitches.PregnantNeverBeen"
+        "Scenes.Codex.CodexEntrySandWitches.LiveInRemoteCovens"
+        "Scenes.Codex.CodexEntrySandWitches.AdeptUsersOf"
+      ]
+    }
+    {
+      id: "coc:codex_entry_magic"
+      category: "Codex.Category.Magic"
+      nameKey: "Codex.Entry.Magic.Name"
+      unlockFlag: "codex_entry_magic"
+      order: 270
+      textKeys: [
+        "Scenes.Codex.CodexEntryMagic.MostCommonType"
+        "Scenes.Codex.CodexEntryMagic.PowerOfBlackMagic"
+        "Scenes.Codex.CodexEntryMagic.PowerOfWhiteMagic"
+        "Scenes.Codex.CodexEntryMagic.DiscipliningOnesSelf"
+      ]
+    }
+    {
+      id: "coc:codex_entry_terrestrial_fire"
+      category: "Codex.Category.Magic"
+      nameKey: "Codex.Entry.TerrestrialFire.Name"
+      unlockFlag: "codex_entry_terrestrial_fire"
+      order: 280
+      textKeys: [
+        "Scenes.Codex.CodexEntryTerrestrialFire.SchoolWasCreated"
+        "Scenes.Codex.CodexEntryTerrestrialFire.PowerOfEarth"
+        "Scenes.Codex.CodexEntryTerrestrialFire.PowerOfFire"
+      ]
+    }
+    {
+      id: "coc:codex_entry_journal"
+      category: "Codex.Category.Misc."
+      nameKey: "Codex.Entry.Journal.Name"
+      unlockFlag: "codex_ephraim_journal"
+      order: 290
+      textKeys: [
+        "Scenes.Codex.CodexEntryJournal.ArrivedInTheManor"
+        "Scenes.Codex.CodexEntryJournal.GrimTopicsHard"
+        "Scenes.Codex.CodexEntryJournal.ManorStillHabitable"
+        "Scenes.Codex.CodexEntryJournal.SeveralDaysOfWork"
+        "Scenes.Codex.CodexEntryJournal.MostOfManorCleared"
+        "Scenes.Codex.CodexEntryJournal.HauntedByNightmares"
+        "Scenes.Codex.CodexEntryJournal.DreamsDistressGreatly"
+        "Scenes.Codex.CodexEntryJournal.InsistentGnawing"
+        "Scenes.Codex.CodexEntryJournal.ExcavationsThroughTunnels"
+        "Scenes.Codex.CodexEntryJournal.WorkersUncoveredRoom"
+        "Scenes.Codex.CodexEntryJournal.TakenOverByDesire"
+        "Scenes.Codex.CodexEntryJournal.DraggedCorpseThrough"
+        "Scenes.Codex.CodexEntryJournal.ContinuedFailuresWear"
+        "Scenes.Codex.CodexEntryJournal.ArrivedInHiding"
+        "Scenes.Codex.CodexEntryJournal.SharedSeveralVolumes"
+        "Scenes.Codex.CodexEntryJournal.OverwhelmingSuccess"
+        "Scenes.Codex.CodexEntryJournal.LuredInnocentGirl"
+        "Scenes.Codex.CodexEntryJournal.HerSoulIBrought"
+        "Scenes.Codex.CodexEntryJournal.TheirSoulsEnchanted"
+        "Scenes.Codex.CodexEntryJournal.YearsOfSuccessfulHarvest"
+        "Scenes.Codex.CodexEntryJournal.InDreamsISee"
+        "Scenes.Codex.CodexEntryJournal.SpheresAligned"
+        "Scenes.Codex.CodexEntryJournal.WorldWillBehold"
+      ]
+    }
+    {
+      id: "coc:codex_entry_rat_mice"
+      category: "Codex.Category.Races"
+      nameKey: "Codex.Entry.RatMice.Name"
+      unlockFlag: "codex_entry_rat_mice"
+      order: 300
+      textKeys: [
+        "Scenes.Codex.CodexEntryRatMice.GendersLine"
+        "Scenes.Codex.CodexEntryRatMice.HeightLine"
+        "Scenes.Codex.CodexEntryRatMice.SkinFurLine"
+        "Scenes.Codex.CodexEntryRatMice.EyesLine"
+        "Scenes.Codex.CodexEntryRatMice.MiceShorterThanHumans"
+        "Scenes.Codex.CodexEntryRatMice.RodentsKeepInGroups"
+        "Scenes.Codex.CodexEntryRatMice.LittleDifferencesCommoner"
+      ]
+    }
+  ]
+}

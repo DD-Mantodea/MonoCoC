@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:984-999 / :6141-6200 Stone Knives（cost tfFatigue(30,3)，cooldown 4）
+  id: "coc:tf_stone_knives"
+  nameKey: "Combat.Terra.StoneKnives.Name"
+  descriptionKey: "Combat.Terra.StoneKnives.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 30
+  fatigueType: "magical"
+  cooldown: 4
+  availableWhen: "coc:can_tf_stone_knives"
+  handler: "coc:tf_stone_knives"
+}

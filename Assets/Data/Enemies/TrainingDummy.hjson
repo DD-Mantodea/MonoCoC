@@ -1,0 +1,28 @@
+{
+  // 原版 TrainingDummy（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:training_dummy"
+      type: "coc:training_dummy"
+      nameKey: "Npcs.TrainingDummy.Name"
+      descriptionKey: "Npcs.TrainingDummy.Desc"
+      article: ""
+      level: 100
+      bonusHealth: 98449
+      lust: 0
+      strength: 0
+      toughness: 0
+      speed: 0
+      intelligence: 1
+      libido: 0
+      sensitivity: 0
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:training_dummy_ai"
+      // 原版 drop = new WeightedDrop()（空表，TrainingDummy.hx:168）
+      loot: [
+      ]
+    }
+  ]
+}

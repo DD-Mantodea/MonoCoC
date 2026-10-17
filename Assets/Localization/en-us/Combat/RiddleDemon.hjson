@@ -1,0 +1,14 @@
+{
+  "Combat.RiddleDemon.Feint.AllowingHimTo": "allowing him to get a cheap hit in that smarts all the more for his trickery."
+  "Combat.RiddleDemon.Feint.ButYouRe": "but you're able to predict his move and still avoid the slash."
+  "Combat.RiddleDemon.Feint.TheSlyDemon": "The sly demon speeds right at you, but just before his attack lands, he bends his body unnaturally, "
+  "Combat.RiddleDemon.React.ASlightMurmur": "A slight murmur from behind you draws your attention. You turn to see Dolores, her eyes closed and her face flushed from what looks like more than just concentration. After a moment, she extends her hands out towards you, and you can feel some of your wounds stitching together.[pg]"
+  "Combat.RiddleDemon.React.TheDemonIs": "The demon is currently focusing on you and you alone, giving your daughter the opportunity to chant a short incantation. She thrusts out all four of her hands, and a spout of pale fire blossoms forth, scorching the demon.[pg]"
+  "Combat.RiddleDemon.React.TheDemonMakes": "The demon makes a deft faint and then starts to close in for an attack, but just before he can reach you, your daughter swipes past him from behind, setting him off-balance and forcing him to retreat for the moment.[pg]"
+  "Combat.RiddleDemon.Slash.AndBeforeYou": "and before you're able to do anything, his claws [if (hasarmor) {work their way past your defenses|bite into your naked flesh}], digging deep and sending a searing pain throughout your body. Even after you pull away, clutching your wounded side, your body continues to throb, each pulse setting you off-balance."
+  "Combat.RiddleDemon.Slash.AvoidBlind": "but without his vision, he can barely even tell where you are, allowing you to easily avoid his attack."
+  "Combat.RiddleDemon.Slash.AvoidDodge": "and you just barely manage to get out of the way before his claws dig into you."
+  "Combat.RiddleDemon.Slash.TheDemonBears": "The demon bears down on you, "
+  "Combat.RiddleDemon.Slash.TurnAside": "but you manage to turn aside his rending slash before you're hit."
+  "Combat.RiddleDemon.Whisper.TheDemonDashes": "The demon dashes in close, but rather than attack, he simply starts to whisper. You can't quite make out the words, but you start to feel woozy, staggering back and nearly [if (hasweapon) {dropping your weapon|lowering your fists}]. A voice in your head begins babbling nonsense, and it takes all of your effort to keep [if (singleleg) {upright|on your feet}]. When you look up, the whole world just seems confusing, as if nothing is quite put together right."
+}

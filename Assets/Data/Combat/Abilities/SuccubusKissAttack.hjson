@@ -1,0 +1,9 @@
+{
+  id: "coc:succubus_kiss_attack"
+  type: "physical"
+  // 原版 MonsterAI.add(kissAttack, ..., ChargingMelee)：命中后把距离拉近
+  range: "charging_melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:succubus_kiss_attack"
+}

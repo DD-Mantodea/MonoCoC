@@ -1,0 +1,15 @@
+{
+  "Combat.Menu.Bound": "<b>You're bound up and can't do anything but try to struggle free!</b>"
+  "Combat.Menu.Condition.Dying": "is unsteady and close to death"
+  "Combat.Menu.Condition.Fine": "isn't very hurt"
+  "Combat.Menu.Condition.Hurt": "is seriously hurt"
+  "Combat.Menu.Condition.Perfect": "is in perfect health"
+  "Combat.Menu.Condition.Wounded": "is slightly wounded"
+  "Combat.Menu.Fighting": "<b>You are fighting {0}:</b>"
+  "Combat.Menu.MultiEnemies": "Also present: {0}"
+  "Combat.Menu.Overwhelmed": "You see {0} is too overwhelmed by lust to care about fighting."
+  "Combat.Menu.See": "You see {0} {1}."
+  "Combat.Menu.Spells": "<b>Spells</b>\\\n\\\nChoose a school of magic.\\\n"
+  "Combat.Menu.Status": "<b><u>{0}'s Status</u></b>"
+  "Combat.Menu.Turn": "<b>Turn: </b>{0}"
+}

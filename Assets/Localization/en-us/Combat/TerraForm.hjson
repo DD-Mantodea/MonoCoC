@@ -1,0 +1,16 @@
+{
+  "Combat.Effect.TFPlate.Name": "Earthen Plate",
+  "Combat.Effect.TFPlate.Description": "Covered in shards of earth, granting extra armor.",
+  "Combat.Effect.TFPlate.Expire": "Your earthen armor crumbles and falls away.",
+  "Combat.Effect.TFInflame.Name": "Inflame",
+  "Combat.Effect.TFInflame.Description": "Infused with fire, dealing extra damage but harming yourself each turn.",
+  "Combat.Effect.TFInflame.Burning": "[pg-]Searing pain ripples across your skin from the flames covering your body.[pg]",
+  "Combat.Terra.Plate.Name": "Plate",
+  "Combat.Terra.Plate.Description": "Cover yourself in shards of earth, granting extra armor.",
+  "Combat.Terra.Plate.Disabled": "You're already coated in earthen armor.",
+  "Combat.Terra.Plate.Text": "Your body attunes to the earth, summoning plates of rock around your flesh.",
+  "Combat.Terra.Inflame.Name": "Inflame",
+  "Combat.Terra.Inflame.Description": "Infuse your physical attacks with fire, dealing extra damage but harming yourself in the process.",
+  "Combat.Terra.Inflame.Disabled": "You're already on fire.",
+  "Combat.Terra.Inflame.Text": "The fire in your eyes brightens for a moment. In an instant, wisps of emerald flame spill from the core of your form, igniting along the contours of your every muscle, until sliding over your [weapon]."
+}

@@ -1,0 +1,14 @@
+{
+  "Combat.Special.ShieldBash.Name": "Shield Bash",
+  "Combat.Special.ShieldBash.Description": "Bash your opponent with a shield. Has a chance to stun. The more you stun your opponent, the harder it is to stun them again.",
+  "Combat.Special.ShieldBash.Ready": "You ready your [shield] and prepare to slam it towards [themonster]. ",
+  "Combat.Special.ShieldBash.DodgeFast": "[Themonster] dodges your attack with superior quickness!",
+  "Combat.Special.ShieldBash.DodgeDextrous": "[Themonster] deftly avoids your slow attack.",
+  "Combat.Special.ShieldBash.DodgeNarrow": "[Themonster] narrowly avoids your attack!",
+  "Combat.Special.ShieldBash.Hit": "Your [shield] slams against [themonster], dealing {0} damage! ",
+  "Combat.Special.ShieldBash.Stunned": "[b: Your impact also manages to stun [themonster]!]",
+  "Combat.Special.ShieldBash.GolemStun1": "With the monster bent over trying to remove its fist from the ground, you manage to deal a devastatingly effective blow to its head, causing it to topple and fall.",
+  "Combat.Special.ShieldBash.GolemStun2": "[pg]The golem's rock plates slide off, revealing its molten interior. [b:This is your chance to attack!]",
+  "Combat.Special.ShieldBash.GolemFrenzy": "With the monster bent over trying to remove its fist from the ground, you manage to deal a devastatingly effective blow to its head. However, in its frenzy, the Golem ignores the impact and retains focus!",
+  "Combat.Special.ShieldBash.GolemPlates": "Your impact dissipates harmlessly against the impenetrable rock plates, and the Golem is not stunned."
+}

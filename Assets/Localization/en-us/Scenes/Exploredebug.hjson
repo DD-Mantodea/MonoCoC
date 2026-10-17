@@ -1,0 +1,7 @@
+{
+  "Scenes.Exploredebug.DoExploreDebug.MonstersMenuLabel": "<b>Monsters</b> &nbsp; combat each monster.[pg]"
+  "Scenes.Exploredebug.DoFight.CombatStartingLabel": "[pg]Starting combat..."
+  "Scenes.Exploredebug.ExploreDebugMonsters.AllMonstersFought": "You have fought every monster."
+  "Scenes.Exploredebug.ExploreDebugMonsters.FightAllWarning": "<b>WARNING.</b> You are going to fight (probably) all the monsters. You won't be penalized for defeat or awarded for victory. Even though the monsters' victory and defeat events are removed, fighting certain quest monsters/NPCs through this debug scene may put their scenes into inconsistent state.[pg]"
+  "Scenes.Exploredebug.ExploreDebugMonsters.NextMonsterAnnounce": "You are going to fight {0} {1}."
+}

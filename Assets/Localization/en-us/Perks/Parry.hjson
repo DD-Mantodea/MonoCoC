@@ -1,0 +1,4 @@
+{
+  "Perks.Parry.Desc": "[if (spe>=50) {Increases deflect chance by up to 10% while wielding a weapon. (Speed-based).|<b>You are not durable enough to gain benefit from this perk.</b>}]"
+  "Perks.Parry.Name": "Parry"
+}

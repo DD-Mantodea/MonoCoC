@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1636-1650 / :3868-3943 Naga Bite（cost 10，cooldown 2，蛇牙）
+  id: "coc:special_naga_bite"
+  nameKey: "Combat.Special.NagaBite.Name"
+  descriptionKey: "Combat.Special.NagaBite.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 10
+  fatigueType: "physical"
+  cooldown: 2
+  availableWhen: "coc:has_snake_fangs"
+  handler: "coc:special_naga_bite"
+}

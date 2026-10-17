@@ -1,0 +1,8 @@
+{
+  id: "coc:brigid_ass_grind_two"
+  type: "tease"
+  range: "tease"
+  cost: 5
+  cooldown: 0
+  handler: "coc:brigid_ass_grind_two"
+}

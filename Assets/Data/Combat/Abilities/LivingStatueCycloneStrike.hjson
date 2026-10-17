@@ -1,0 +1,9 @@
+{
+  // 原版 LivingStatue.cycloneStrike()（LivingStatue.hx:172-189）
+  id: "coc:living_statue_cyclone_strike"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:living_statue_cyclone_strike"
+}

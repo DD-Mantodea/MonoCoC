@@ -1,0 +1,28 @@
+{
+  // 原版 classes/scenes/areas/desert/Scorpion.hx
+  // 数值来自构造函数；武器/护甲名与数值由 ScorpionEnemy.Configure 设置
+  enemies: [
+    {
+      id: "coc:scorpion"
+      type: "coc:scorpion"
+      nameKey: "Scenes.Scorpion.Name"
+      descriptionKey: "Scenes.Scorpion.Description"
+      article: "the"
+      level: 30
+      bonusHealth: 5260
+      lust: 0
+      strength: 95
+      toughness: 120
+      speed: 100
+      intelligence: 35
+      libido: 0
+      sensitivity: 0
+      corruption: 35
+      gems: 0
+      experience: 0
+      weaponAttack: 35
+      armorDefense: 35
+      // 挑逗完全无效（原版 lustVuln = 0），在 ScorpionEnemy.Configure 里设置
+    }
+  ]
+}

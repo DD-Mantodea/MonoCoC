@@ -1,0 +1,16 @@
+{
+  id: "coc:lake"
+  scene: "coc:lake"
+  order: 30
+  nameKey: "Areas.Lake.Name"
+  descriptionKey: "Areas.Lake.Description"
+  discoveryKey: "Areas.Lake.Discovery"
+  exploreKey: "Areas.Lake.Explore"
+  condition: {
+    type: compare
+    flag: "coc:times_explored_lake"
+    op: ">="
+    value: 1
+  }
+  explorationFlag: "coc:times_explored_lake"
+}

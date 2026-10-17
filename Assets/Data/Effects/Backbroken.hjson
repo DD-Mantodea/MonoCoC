@@ -1,0 +1,15 @@
+{
+  // 原版 classes/statusEffects/combat/BackbrokenDebuff.hx:7-25。
+  // 原版 cripple()（BackbrokenDebuff.hx:20）通过 player 的物理技禁用接口生效；
+  // C# 用 EffectFlags.PreventsPhysical 在 CombatStatusHooks.BeforePlayerAbilityUse 消费。
+  // duration 留 0：计数由 RhinoBouncerEnemy.TickStatuses 管理（value1=剩余回合）。
+  id: "coc:backbroken"
+  nameKey: "Combat.Effect.Backbroken.Name"
+  descriptionKey: "Combat.Effect.Backbroken.Description"
+  kind: "combat"
+  duration: 0
+  stacking: "refresh"
+  combatOnly: true
+  flags: ["prevents_physical"]
+  blockedText: "Combat.Effect.Backbroken.Blocked"
+}

@@ -1,0 +1,8 @@
+{
+  id: "coc:naga_constrict"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:naga_constrict"
+}

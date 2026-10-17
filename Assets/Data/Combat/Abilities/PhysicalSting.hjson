@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1843-1858 / :4930-5004 stingerCalc / playerStinger（蜂腹部尾巴）
+  id: "coc:special_sting"
+  nameKey: "Combat.Special.Sting.Name"
+  descriptionKey: "Combat.Special.Sting.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:has_bee_abdomen"
+  disabledWhen: "coc:not_enough_venom"
+  disabledTooltip: "Combat.Special.Sting.NoVenom"
+  handler: "coc:special_sting"
+}

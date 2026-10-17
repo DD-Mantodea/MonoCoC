@@ -1,0 +1,31 @@
+{
+  // 原版 JeanClaude（JeanClaude.hx:141-189，由 monster.mjs 生成骨架后人工校正）
+  enemies: [
+    {
+      id: "coc:jean_claude"
+      type: "coc:jean_claude"
+      nameKey: "Npcs.JeanClaude.Name"
+      descriptionKey: "Npcs.JeanClaude.Desc"
+      article: ""
+      level: 20
+      // 原版 bonusHP = 400 在 JeanClaudeEnemy.Configure 里加成（这里留 0，避免重复叠加）
+      bonusHealth: 0
+      lust: 5
+      strength: 80
+      toughness: 100
+      speed: 80
+      intelligence: 60
+      libido: 40
+      sensitivity: 40
+      corruption: 80
+      // 原版 gems = 300 + Utils.rand(55)，实例化时在 Configure 里摇；这里只当占位
+      gems: 300
+      experience: 0
+      ai: "coc:jean_claude_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 this.drop = NO_DROP（JeanClaude.hx:184）：什么都不掉
+      ]
+    }
+  ]
+}

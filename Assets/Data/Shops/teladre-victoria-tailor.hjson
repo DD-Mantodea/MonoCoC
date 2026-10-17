@@ -1,0 +1,30 @@
+{
+  id: coc:victoria_tailor
+  titleKey: "Scenes.VictoriaTailorShop.Title"
+  descriptionKey: "Scenes.VictoriaTailorShop.Desc"
+  markup: 1.0
+  items: [
+      { item: coc:suit_clothes }
+      { item: coc:fetish_wear }
+      { item: coc:kokiri_clothes }
+      { item: coc:tube_top }
+      { item: coc:overall }
+      { item: coc:ballroom_dress }
+      { item: coc:bodysuit }
+      { item: coc:modest_robes }
+      { item: coc:leather_pants }
+      { item: coc:bimbo_outfit }
+      { item: coc:kimono }
+      { item: coc:comfy_bra }
+      { item: coc:comfy_panties }
+      { item: coc:comfy_loincloth }
+      { item: coc:child_panties }
+      { item: coc:training_bra }
+      { item: coc:fundosh }
+      { item: coc:fur_loincloth }
+      { item: coc:garters }
+      { item: coc:latex_bra }
+      { item: coc:latex_shorts }
+      { item: coc:latex_thong }
+  ]
+}

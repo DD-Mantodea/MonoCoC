@@ -1,0 +1,77 @@
+{
+  pane: fetish
+  global: true
+  title: "Scenes.Options.Pane.2.Title"
+  button: "Scenes.Options.Tab.Fetishes"
+  description: "Scenes.Options.Pane.2.Desc"
+
+  settings: [
+    {
+      id: addiction
+      label: "Scenes.Options.Setting.Addiction"
+      default: 1
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.AddictionOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.AddictionOff" }
+      ]
+    }
+    {
+      id: furry
+      label: "Scenes.Options.Setting.Furry"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.FurryOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.FurryOff" }
+      ]
+    }
+    {
+      id: watersports
+      label: "Scenes.Options.Setting.Watersports"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.WatersportsOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.WatersportsOff" }
+      ]
+    }
+    {
+      id: gore
+      label: "Scenes.Options.Setting.Gore"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.GoreOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.GoreOff" }
+      ]
+    }
+    {
+      id: filth
+      label: "Scenes.Options.Setting.Filth"
+      default: 1
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.FilthOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.FilthOff" }
+      ]
+    }
+    {
+      id: parasites
+      label: "Scenes.Options.Setting.Parasites"
+      desc: "Scenes.Options.Desc.Parasites"
+      default: 0
+      values: [
+        { value: 2, label: "Scenes.Options.On" }
+        { value: 1, label: "Scenes.Options.Option.Low" }
+        { value: 0, label: "Scenes.Options.Off" }
+      ]
+    }
+    {
+      id: underage
+      label: "Scenes.Options.Setting.Underage"
+      desc: "Scenes.Options.Desc.Underage"
+      default: 1
+      values: [
+        { value: 2, label: "Scenes.Options.On" }
+        { value: 1, label: "Scenes.Options.Option.Half" }
+        { value: 0, label: "Scenes.Options.Off" }
+      ]
+    }
+  ]
+}

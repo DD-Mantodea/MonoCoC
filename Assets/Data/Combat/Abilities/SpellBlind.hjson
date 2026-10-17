@@ -1,0 +1,14 @@
+{
+  id: "coc:spell_blind"
+  nameKey: "Combat.Spell.Blind.Name"
+  descriptionKey: "Combat.Spell.Blind.Description"
+  type: "magical"
+  category: "white"
+  range: "ranged"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 3
+  knownWhen: "coc:knows_blind"
+  dominikaOrder: 5
+  handler: "coc:spell_blind"
+}

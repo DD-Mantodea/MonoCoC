@@ -1,0 +1,18 @@
+{
+  // 原版 CombatAbilities.hx:1378 Dragon Breath（cost 20，availableWhen Dragonfire，
+  // disabledWhen DragonBreathCooldown，range Ranged）
+  id: "coc:spell_dragon_breath"
+  nameKey: "Combat.DragonBreath.Name"
+  descriptionKey: "Combat.DragonBreath.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 0
+  isSelf: true
+  availableWhen: "coc:has_dragonfire"
+  disabledWhen: "coc:dragon_breath_cooldown"
+  disabledTooltip: "Combat.DragonBreath.Disabled"
+  handler: "coc:spell_dragon_breath"
+}

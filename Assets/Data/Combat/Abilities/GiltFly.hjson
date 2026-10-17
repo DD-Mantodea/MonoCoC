@@ -1,0 +1,8 @@
+{
+  id: "coc:gilt_fly"
+  type: "physical"
+  range: "self"
+  cost: 10
+  cooldown: 0
+  handler: "coc:gilt_fly"
+}

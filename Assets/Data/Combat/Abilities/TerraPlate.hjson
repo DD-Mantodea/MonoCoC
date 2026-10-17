@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:862-878 tfPlate（cost tfFatigue(25,1)，TerrestrialFire）
+  id: "coc:tf_plate"
+  nameKey: "Combat.Terra.Plate.Name"
+  descriptionKey: "Combat.Terra.Plate.Description"
+  type: "magical"
+  category: "magical"
+  range: "self"
+  cost: 25
+  fatigueType: "magical"
+  cooldown: 0
+  availableWhen: "coc:can_tf_plate"
+  disabledWhen: "coc:tf_plate_active"
+  disabledTooltip: "Combat.Terra.Plate.Disabled"
+  handler: "coc:tf_plate"
+}

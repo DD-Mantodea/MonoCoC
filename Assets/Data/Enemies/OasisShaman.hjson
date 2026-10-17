@@ -1,0 +1,27 @@
+{
+  // 原版 classes/scenes/areas/desert/OasisShaman.hx：level 6、bonusHP 120、bonusLust 100
+  // str40/tou40/spe30/inte60、lib55/sens40/cor100、weaponAttack 10、lust 30、gems rand(15)+25、NO_DROP
+  enemies: [
+    {
+      id: "coc:oasis_shaman"
+      type: "coc:oasis_shaman"
+      nameKey: "Scenes.Oasisshaman.Name"
+      article: "the"
+      level: 6
+      bonusHealth: 120
+      bonusLust: 100
+      lust: 30
+      strength: 40
+      toughness: 40
+      speed: 30
+      intelligence: 60
+      libido: 55
+      sensitivity: 40
+      corruption: 100
+      gems: 32
+      experience: 0
+      weaponAttack: 10
+      ai: "coc:oasis_shaman_ai"
+    }
+  ]
+}

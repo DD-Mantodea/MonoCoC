@@ -1,0 +1,8 @@
+{
+  id: "coc:random_succubus_hl_grapple"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:random_succubus_hl_grapple"
+}

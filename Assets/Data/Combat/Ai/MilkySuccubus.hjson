@@ -1,0 +1,36 @@
+{
+  // 原版 MilkySuccubus.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:milky_succubus_ai"
+  actions: [
+    {
+      ability: "coc:milky_succubus_cow_cubi_milk_spray_attack"
+      weight: 0.3
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:milky_succubus_drink_mino_cum"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:milky_succubus_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:milky_succubus_succubus_tease"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:milky_succubus_attack_two"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

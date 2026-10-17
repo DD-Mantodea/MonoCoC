@@ -1,0 +1,12 @@
+{
+  // 原版 Brawler StanceBuff.hx：拳法姿态，装备变化时自动解除
+  id: "coc:brawler_stance"
+  nameKey: "Combat.Effect.BrawlerStance.Name"
+  descriptionKey: "Combat.Effect.BrawlerStance.Description"
+  kind: "combat"
+  duration: 0
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_brawlerstance_round"
+}

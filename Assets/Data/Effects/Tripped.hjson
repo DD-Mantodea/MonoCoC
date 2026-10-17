@@ -1,0 +1,12 @@
+{
+  // 原版 Tripped.hx：被绊倒，速度减半，2 回合
+  id: "coc:tripped"
+  nameKey: "Combat.Effect.Tripped.Name"
+  descriptionKey: "Combat.Effect.Tripped.Description"
+  kind: "timed"
+  duration: 2
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onExpire: "coc:effect_tripped_expire"
+}

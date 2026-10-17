@@ -1,0 +1,36 @@
+{
+  // 原版 Kelt.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:kelt_ai"
+  actions: [
+    {
+      ability: "coc:kelt_shoot_bow"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:kelt_day_dream_kelly"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:kelt_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:kelt_kellyura_attack"
+      weight: 1.5
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:kelt_tramples_joo"
+      weight: 1.5
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

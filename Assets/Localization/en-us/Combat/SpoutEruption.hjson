@@ -1,0 +1,9 @@
+{
+  "Combat.Terra.Spout.Name": "Spout",
+  "Combat.Terra.Spout.Description": "Launch flames up from the ground.",
+  "Combat.Terra.Spout.Text": "Your hands grip the ground, sending waves of light rippling through. Seconds later, spirals of emerald engulf [themonster]!",
+  "Combat.Terra.Eruption.Name": "Eruption",
+  "Combat.Terra.Eruption.Description": "Combo: Quake + Spout. Take advantage of the sundered earth to release flames over a wide area.",
+  "Combat.Terra.Eruption.Text": "Summoning great verdant light, the cracks across the earth shimmer as the battlefield is bathed in terrestrial fire!",
+  "Combat.Terra.Eruption.Engulf": "[pg-][Themonster] is engulfed in flames!"
+}

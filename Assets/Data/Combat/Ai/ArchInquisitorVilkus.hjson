@@ -1,0 +1,60 @@
+{
+  // 原版 ArchInquisitorVilkus.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:arch_inquisitor_vilkus_ai"
+  actions: [
+    {
+      ability: "coc:arch_inquisitor_vilkus_whitefire"
+      weight: 99
+      cost: 0
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:arch_inquisitor_vilkus_blind"
+      weight: 99
+      cost: 0
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:arch_inquisitor_vilkus_arouse"
+      weight: 99
+      cost: 0
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:arch_inquisitor_vilkus_heal"
+      weight: 1
+      cost: 10
+      fatigueType: "magicalHeal"
+    }
+    {
+      ability: "coc:arch_inquisitor_vilkus_heal_two"
+      weight: 1
+      cost: 10
+      fatigueType: "magicalHeal"
+    }
+    {
+      ability: "coc:arch_inquisitor_vilkus_heal_three"
+      weight: 2
+      cost: 10
+      fatigueType: "magicalHeal"
+    }
+    {
+      ability: "coc:arch_inquisitor_vilkus_charge_weapon"
+      weight: 1
+      cost: 0
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:arch_inquisitor_vilkus_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:arch_inquisitor_vilkus_energy_wave"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

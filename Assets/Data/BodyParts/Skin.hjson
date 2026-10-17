@@ -1,0 +1,17 @@
+{
+  "kind": "coc:skin",
+  "default": "coc:plain",
+  "types": [
+    { "id": "coc:plain", "skinKind": "plain", "fur": false, "wool": false, "feathers": false, "scales": false, "furry": false, "fluffy": false, "appearance": "FaceHumanPlain", "desc": "Skin.Desc.skin" },
+    { "id": "coc:fur", "armorBonus": 1, "skinKind": "fur", "fur": true, "wool": false, "feathers": false, "scales": false, "furry": true, "fluffy": true, "appearance": "FaceHumanFur", "desc": "Skin.Desc.fur" },
+    { "id": "coc:lizard_scales", "armorBonus": 3, "skinKind": "scales", "fur": false, "wool": false, "feathers": false, "scales": true, "furry": false, "fluffy": false, "appearance": "FaceHumanScales", "desc": "Skin.Desc.Scales" },
+    { "id": "coc:goo", "skinKind": "plain", "fur": false, "wool": false, "feathers": false, "scales": false, "furry": false, "fluffy": false, "appearance": "FaceHumanPlain", "desc": "Skin.Desc.skin" },
+    { "id": "coc:undefined", "skinKind": "plain", "fur": false, "wool": false, "feathers": false, "scales": false, "furry": false, "fluffy": false, "appearance": "FaceHumanPlain", "desc": "Skin.Desc.skin" },
+    { "id": "coc:dragon_scales", "dragonScales": true, "armorBonus": 3, "skinKind": "scales", "fur": false, "wool": false, "feathers": false, "scales": true, "furry": false, "fluffy": false, "appearance": "FaceHumanScales", "desc": "Skin.Desc.Scales" },
+    { "id": "coc:fish_scales", "skinKind": "scales", "fur": false, "wool": false, "feathers": false, "scales": true, "furry": false, "fluffy": false, "appearance": "FaceHumanScales", "desc": "Skin.Desc.Scales" },
+    { "id": "coc:wool", "skinKind": "wool", "fur": false, "wool": true, "feathers": false, "scales": false, "furry": true, "fluffy": true, "desc": "Skin.Desc.wool" },
+    { "id": "coc:feathered", "skinKind": "feathers", "fur": false, "wool": false, "feathers": true, "scales": false, "furry": false, "fluffy": true, "desc": "Skin.Desc.Feathers" },
+    { "id": "coc:stalk", "skinKind": "plain", "fur": false, "wool": false, "feathers": false, "scales": false, "furry": false, "fluffy": false, "desc": "Skin.Desc.stalk" },
+    { "id": "coc:wooden", "armorBonus": 2, "skinKind": "plain", "fur": false, "wool": false, "feathers": false, "scales": false, "furry": false, "fluffy": false, "desc": "Skin.Desc.WoodGrain" }
+  ]
+}

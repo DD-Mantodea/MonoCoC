@@ -1,0 +1,101 @@
+{
+  furniture: [
+    {
+      id: "coc:cabin_furniture_bed"
+      nameKey: "Cabin.Furniture.Bed.Name"
+      flag: "coc:camp_cabin_furniture_bed"
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 45 }
+        { resource: "coc:cabin_wood", amount: 25 }
+      ]
+    }
+    {
+      id: "coc:cabin_furniture_nightstand"
+      nameKey: "Cabin.Furniture.Nightstand.Name"
+      flag: "coc:camp_cabin_furniture_nightstand"
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 20 }
+        { resource: "coc:cabin_wood", amount: 10 }
+      ]
+    }
+    {
+      id: "coc:cabin_furniture_dresser"
+      nameKey: "Cabin.Furniture.Dresser.Name"
+      flag: "coc:camp_cabin_furniture_dresser"
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 50 }
+        { resource: "coc:cabin_wood", amount: 30 }
+      ]
+    }
+    {
+      id: "coc:cabin_furniture_table"
+      nameKey: "Cabin.Furniture.Table.Name"
+      flag: "coc:camp_cabin_furniture_table"
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 20 }
+        { resource: "coc:cabin_wood", amount: 15 }
+      ]
+    }
+    {
+      id: "coc:cabin_furniture_chair"
+      nameKey: "Cabin.Furniture.Chair.Name"
+      flag: "coc:camp_cabin_furniture_chair1"
+      secondFlag: "coc:camp_cabin_furniture_chair2"
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 40 }
+        { resource: "coc:cabin_wood", amount: 10 }
+      ]
+    }
+    {
+      id: "coc:cabin_furniture_bookshelf"
+      nameKey: "Cabin.Furniture.Bookshelf.Name"
+      flag: "coc:camp_cabin_furniture_bookshelf"
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 75 }
+        { resource: "coc:cabin_wood", amount: 25 }
+      ]
+    }
+    {
+      id: "coc:cabin_furniture_desk"
+      nameKey: "Cabin.Furniture.Desk.Name"
+      flag: "coc:camp_cabin_furniture_desk"
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 60 }
+        { resource: "coc:cabin_wood", amount: 20 }
+      ]
+    }
+    {
+      id: "coc:cabin_furniture_desk_chair"
+      nameKey: "Cabin.Furniture.DeskChair.Name"
+      flag: "coc:camp_cabin_furniture_deskchair"
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 40 }
+        { resource: "coc:cabin_wood", amount: 10 }
+      ]
+    }
+  ]
+}

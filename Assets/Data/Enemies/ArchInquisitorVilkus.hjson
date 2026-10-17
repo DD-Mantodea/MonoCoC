@@ -1,0 +1,29 @@
+{
+  // 原版 ArchInquisitorVilkus（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:arch_inquisitor_vilkus"
+      type: "coc:arch_inquisitor_vilkus"
+      nameKey: "Npcs.ArchInquisitorVilkus.Name"
+      descriptionKey: "Npcs.ArchInquisitorVilkus.Desc"
+      article: ""
+      level: 27
+      bonusHealth: 1000
+      lust: 30
+      strength: 100
+      toughness: 100
+      speed: 80
+      intelligence: 120
+      libido: 55
+      sensitivity: 40
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:arch_inquisitor_vilkus_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

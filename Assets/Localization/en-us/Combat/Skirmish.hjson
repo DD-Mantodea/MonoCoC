@@ -1,0 +1,8 @@
+{
+  "Combat.Special.Skirmish.Name": "Skirmish",
+  "Combat.Special.Skirmish.Description": "Attempt to take distance while firing a weaker shot that cannot land a critical hit.",
+  "Combat.Special.Skirmish.Intro": "You hurriedly dash back, dexterously readying your [weapon] and attacking as you build distance from your opponent![pg]",
+  "Combat.Special.Skirmish.Damage": " ({0} damage)",
+  "Combat.Special.Skirmish.Distance": "[pg]You manage to distance yourself from [themonster].",
+  "Combat.Special.Skirmish.CloseIn": "[pg][Themonster] stays hot on your heels and closes the distance immediately!"
+}

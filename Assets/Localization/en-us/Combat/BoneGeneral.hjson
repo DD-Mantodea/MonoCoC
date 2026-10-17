@@ -1,0 +1,18 @@
+{
+  "Combat.BoneGeneral.CrushingBlow.TheBoneGuardian": "The Bone Guardian raises its enormous mace aloft, and brings it down on the ground next to you, crushing it with a massive, staggering hit!"
+  "Combat.BoneGeneral.CrushingBlow.YouLoseYour": " You lose your balance and fall to the ground, becoming <b>stunned</b> in the process!"
+  "Combat.BoneGeneral.CrushingBlow.YouManageTo": " You manage to keep your balance and avoid being stunned by the shockwave."
+  "Combat.BoneGeneral.DescribeAttacked.DamageText": " <b>(<font color=\"{0}\">{1}</font>)</b>"
+  "Combat.BoneGeneral.GuardAlly.OneIs": "\n{0}{1} is protected by the Bone Guardian! Getting an attack on {2} now will be impossible!"
+  "Combat.BoneGeneral.GuardAlly.TheBoneGuardian": "The Bone Guardian moves back, positioning himself to defend an ally."
+  "Combat.BoneGeneral.GuardAlly.TheNecromancerIs": "\nThe Necromancer is protected by the Bone Guardian! Getting an attack on him now will be impossible!"
+  "Combat.BoneGeneral.HandleFear.TheSkeletonSeems": "The skeleton seems to be unfazed by your display of illusionary terror. It continues its attack as normal![pg]"
+  "Combat.BoneGeneral.HandleStun.YourFoeIs": "Your foe is too dazed from your last hit to strike back!"
+  "Combat.BoneGeneral.ReplacesDescribeAttacked.Text": " [b:Critical hit!]"
+  "Combat.BoneGeneral.ReplacesDescribeAttacked.You01": "You {0} {1}, sending shards of {2} flying!"
+  "Combat.BoneGeneral.ReplacesDescribeAttacked.You0With": "You [b:shatter] {0} with your powerful {1}!"
+  "Combat.BoneGeneral.ReplacesDescribeAttacked.YouStrikeA": "You strike a glancing blow on {0}!"
+  "Combat.BoneGeneral.ReplacesDescribeAttacked.Your0Bounces": "Your {0} bounces harmlessly off {1}."
+  "Combat.BoneGeneral.ReplacesDescribeAttacked.Zero": "{0}"
+  "Combat.BoneGeneral.ReplacesDescribeAttacked.ZeroCracksUnder": "{0} cracks under your powerful {1}!"
+}

@@ -1,0 +1,29 @@
+{
+  // 原版 FemaleSpiderMorph（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:female_spider_morph"
+      type: "coc:female_spider_morph"
+      nameKey: "Npcs.FemaleSpiderMorph.Name"
+      descriptionKey: "Npcs.FemaleSpiderMorph.Desc"
+      article: "the"
+      level: 13
+      bonusHealth: 200
+      lust: 20
+      strength: 60
+      toughness: 50
+      speed: 99
+      intelligence: 99
+      libido: 35
+      sensitivity: 35
+      corruption: 20
+      gems: 10
+      experience: 0
+      ai: "coc:female_spider_morph_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

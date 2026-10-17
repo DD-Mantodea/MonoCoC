@@ -1,0 +1,11 @@
+{
+  "Combat.PackAttack.BackFewFeet": " back a few feet."
+  "Combat.PackAttack.NtheSpellHitsBut": "\nThe spell hits [themonster], but [monster.he] manages to conjure enough spiritual fortitude to rebuke the effects, canceling them completely!"
+  "Combat.PackAttack.NtheSpellHitsYour": "\nThe spell hits your [themonster], and [monster.he] fails to resist! The profane hex courses through [monster.his]'s body, corrupting any healing into damage!"
+  "Combat.PackAttack.SuperEffective": "[pg-]It's super effective!"
+  "Combat.PackAttack.Testtest": "testtest"
+  "Combat.PackAttack.Them": "them"
+  "Combat.PackAttack.YouRaiseFistYour": "You raise a fist to your mouth and focus your mind, channeling healing energies within it. Your hand glows with clear, pure magic, but you whisper profane incantations into it, warping the spell completely! Your hand glows with a purple and black aura as you launch the spell against [themonster]!"
+  "Combat.PackAttack.YouThrustYourPalm": "You thrust your palm forward, causing a blast of pure energy to slam against [themonster], tossing "
+  "Combat.PackAttack.YouThrustYourPalmForward": "You thrust your palm forward, causing a blast of pure energy to slam against [themonster], which they ignore. It is probably best you don't use this technique against the pure."
+}

@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1139-1156 / :6623-6663 Supernova（免费，需 Terrestrial Star）
+  id: "coc:tf_supernova"
+  nameKey: "Combat.Terra.Supernova.Name"
+  descriptionKey: "Combat.Terra.Supernova.Description"
+  type: "magical"
+  category: "magical"
+  range: "omni"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:has_terra_star"
+  handler: "coc:tf_supernova"
+}

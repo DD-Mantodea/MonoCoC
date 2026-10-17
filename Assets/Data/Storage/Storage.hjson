@@ -1,0 +1,15 @@
+{
+  areas: [
+    { id: "coc:items", nameKey: "Scenes.Storage.ChestName", slots: 4, accepts: "all", fallback: true, order: 0 }
+    { id: "coc:gear_weapons", nameKey: "Scenes.Storage.WeaponsName", slots: 9, accepts: "weapon", keyItem: "coc:equipment_rack_weapons", order: 10 }
+    { id: "coc:gear_armor", nameKey: "Scenes.Storage.ArmorName", slots: 9, accepts: "armor", keyItem: "coc:equipment_rack_armor", order: 20 }
+    { id: "coc:gear_shields", nameKey: "Scenes.Storage.ShieldsName", slots: 9, accepts: "shield", keyItem: "coc:equipment_rack_shields", order: 30 }
+    { id: "coc:gear_undergarments", nameKey: "Scenes.Storage.UndergarmentsName", slots: 9, accepts: "undergarment", flag: "coc:camp_cabin_furniture_dresser", order: 40 }
+    { id: "coc:gear_jewelry", nameKey: "Scenes.Storage.JewelryName", slots: 9, accepts: "jewelry", keyItem: "coc:equipment_storage_jewelry_box", order: 50 }
+  ]
+  // Player defaults (not compile-time constants; edit here, no rebuild needed)
+  player: {
+    itemStackSlots: 10
+    unlockedItemStacks: 3
+  }
+}

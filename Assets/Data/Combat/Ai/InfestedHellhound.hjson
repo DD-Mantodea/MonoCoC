@@ -1,0 +1,10 @@
+{
+  id: "coc:infested_hellhound_ai"
+  actions: [
+    // 原版 InfestedHellhound.hx:103 performCombatAction
+    { ability: "coc:basic_attack", weight: 1, fatigueType: "none" }
+    { ability: "coc:hell_hound_fire", weight: 1, cost: 15, fatigueType: "magical" }
+    { ability: "coc:hell_hound_scent", weight: 1, cost: 10, fatigueType: "none" }
+    { ability: "coc:infested_hellhound_worm_cannon", weight: 1, cost: 10, fatigueType: "physical" }
+  ]
+}

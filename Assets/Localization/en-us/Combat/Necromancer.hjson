@@ -1,0 +1,8 @@
+{
+  "Combat.Necromancer.HandleFear.TheNecromancerIsn": "The necromancer isn't affected by any visions of terror![pg]"
+  "Combat.Necromancer.RaiseDead.TheNecromancerRaises": "The Necromancer raises his arms, chanting some incantation. [say: We are all One, and the One is eternal.] Several bones move on their own, building themselves into another skeleton!"
+  "Combat.Necromancer.RaiseElite.TheNecromancerStabs": "[say: Mortality is an illusion of the unenlightened.] The Necromancer stabs his own arm with his cursed dagger and points to a dark corner of the chamber.\n"
+  "Combat.Necromancer.RaiseElite.YouHearMore": "You hear more eldritch whispers coming from the shadows; the <b>Bone Sorcerer</b> has been reanimated!"
+  "Combat.Necromancer.RaiseElite.YouHearThe": "You hear the stomping of the hulking skeleton you've defeated before; the <b>Bone Guardian</b> has been reanimated!"
+  "Combat.Necromancer.RaiseElite.YouHearThe2": "You hear the jingling of the undead jester's headdress; the <b>Bone Jester</b> has been reanimated!"
+}

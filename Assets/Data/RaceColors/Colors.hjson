@@ -1,0 +1,20 @@
+{
+  palettes: [
+    {
+      id: "coc:goblin_skin"
+      colors: ["pale yellow", "grayish-blue", "green", "dark green"]
+    }
+    {
+      id: "coc:basic_kitsune_hair"
+      colors: ["white", "black", "red"]
+    }
+    {
+      id: "coc:basic_kitsune_outer_fur"
+      colors: ["orange", "black", "red", "white"]
+    }
+    {
+      id: "coc:elder_kitsune"
+      colors: ["metallic golden", "golden blonde", "metallic silver", "silver blonde", "snow white", "iridescent gray"]
+    }
+  ]
+}

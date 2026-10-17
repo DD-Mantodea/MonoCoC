@@ -1,0 +1,29 @@
+{
+  // 原版 GnollSpearThrower（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:gnoll_spear_thrower"
+      type: "coc:gnoll_spear_thrower"
+      nameKey: "Npcs.GnollSpearThrower.Name"
+      descriptionKey: "Npcs.GnollSpearThrower.Desc"
+      article: "the"
+      level: 10
+      bonusHealth: 250
+      lust: 30
+      strength: 85
+      toughness: 60
+      speed: 100
+      intelligence: 50
+      libido: 65
+      sensitivity: 45
+      corruption: 60
+      gems: 0
+      experience: 0
+      ai: "coc:gnoll_spear_thrower_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

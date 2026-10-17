@@ -1,0 +1,29 @@
+{
+  // 原版 HarpyMob（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:harpy_mob"
+      type: "coc:harpy_mob"
+      nameKey: "Npcs.HarpyMob.Name"
+      descriptionKey: "Npcs.HarpyMob.Desc"
+      article: "the"
+      level: 18
+      bonusHealth: 1000
+      lust: 20
+      strength: 50
+      toughness: 50
+      speed: 120
+      intelligence: 40
+      libido: 60
+      sensitivity: 45
+      corruption: 50
+      gems: 25
+      experience: 0
+      ai: "coc:harpy_mob_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

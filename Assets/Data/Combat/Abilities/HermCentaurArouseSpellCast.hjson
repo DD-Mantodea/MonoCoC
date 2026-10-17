@@ -1,0 +1,8 @@
+{
+  id: "coc:herm_centaur_arouse_spell_cast"
+  type: "magical"
+  range: "omni"
+  cost: 10
+  cooldown: 0
+  handler: "coc:herm_centaur_arouse_spell_cast"
+}

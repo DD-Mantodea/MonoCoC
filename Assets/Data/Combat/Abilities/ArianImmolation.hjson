@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx Arian's Talisman 系列
+  id: "coc:arian_immolation"
+  nameKey: "Combat.Arian.Talisman.Immolation.Name"
+  descriptionKey: "Combat.Arian.Talisman.Immolation.Name.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:arian_immolation_available"
+  handler: "coc:arian_immolation"
+}

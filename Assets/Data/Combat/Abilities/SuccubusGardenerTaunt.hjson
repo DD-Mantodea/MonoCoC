@@ -1,0 +1,9 @@
+{
+  // 原版 SuccubusGardener.taunt()（SuccubusGardener.hx:333-335）
+  id: "coc:succubus_gardener_taunt"
+  type: "tease"
+  range: "tease"
+  cost: 0
+  cooldown: 0
+  handler: "coc:succubus_gardener_taunt"
+}

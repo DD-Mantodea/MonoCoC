@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1875-1893 / :5313-5340 Tail Slap（cost 30，cooldown 3，蜥蜴尾）
+  id: "coc:special_tail_slap"
+  nameKey: "Combat.Special.TailSlap.Name"
+  descriptionKey: "Combat.Special.TailSlap.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 30
+  fatigueType: "physical"
+  cooldown: 3
+  availableWhen: "coc:has_salamander_tail"
+  handler: "coc:special_tail_slap"
+}

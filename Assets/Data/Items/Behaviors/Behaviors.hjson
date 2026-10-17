@@ -1,0 +1,22 @@
+{
+  behaviors: [
+    { id: "coc:goo_armor", type: "coc:goo_armor" }
+    { id: "coc:beautiful_sword", type: "coc:beautiful_sword" }
+    { id: "coc:marae_armor", type: "coc:tentacle_bark" }
+    { id: "coc:vine_armor", type: "coc:vine_armor" }
+    { id: "coc:akbal_shield", type: "coc:akbal_shield" }
+    { id: "coc:inquisitors_corset", type: "coc:inquisitors_corset" }
+    { id: "coc:naughty_nuns_habit", type: "coc:naughty_nuns_habit" }
+    { id: "coc:lusty_maidens_armor", type: "coc:lusty_maidens_armor" }
+    { id: "coc:de_bimbo", type: "coc:de_bimbo" }
+    { id: "coc:liddellium", type: "coc:liddellium" }
+    { id: "coc:jewelry_effects", type: "coc:jewelry" }
+    { id: "coc:ice_axe", type: "coc:ice_weapon" }
+    { id: "coc:ice_mace", type: "coc:ice_weapon" }
+    { id: "coc:ice_spear", type: "coc:ice_weapon" }
+    { id: "coc:ice_sword", type: "coc:ice_weapon" }
+    { id: "coc:ice_dagger", type: "coc:ice_weapon" }
+    { id: "coc:ice_scythe", type: "coc:ice_weapon" }
+    { id: "coc:ice_staff", type: "coc:ice_weapon" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  // 原版 classes/statusEffects/combat/DazedDebuff.hx:9-25。
+  // duration 留 0：计数与 Accuracy/PhysDamage 修饰由 DemonFistFighterEnemy.TickStatuses / ApplyDazed 管理；
+  // 这里只登记成 combatOnly，保证脱战时状态被 ClearCombatStatuses 清掉。
+  id: "coc:dazed"
+  nameKey: "Combat.Effect.Dazed.Name"
+  descriptionKey: "Combat.Effect.Dazed.Description"
+  kind: "combat"
+  duration: 0
+  stacking: "refresh"
+  combatOnly: true
+}

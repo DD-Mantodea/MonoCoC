@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1651-1664 / :4290-4352 Spider Bite（cost 10，cooldown 2，蜘蛛牙）
+  id: "coc:special_spider_bite"
+  nameKey: "Combat.Special.SpiderBite.Name"
+  descriptionKey: "Combat.Special.SpiderBite.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 10
+  fatigueType: "physical"
+  cooldown: 2
+  availableWhen: "coc:has_spider_fangs"
+  handler: "coc:special_spider_bite"
+}

@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1525-1544 / :3504-3571 Paralyzing Stare（cost 20，cooldown 3）
+  id: "coc:spell_paralyzing_stare"
+  nameKey: "Combat.Spell.ParalyzingStare.Name"
+  descriptionKey: "Combat.Spell.ParalyzingStare.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 3
+  availableWhen: "coc:can_use_stare"
+  handler: "coc:spell_paralyzing_stare"
+}

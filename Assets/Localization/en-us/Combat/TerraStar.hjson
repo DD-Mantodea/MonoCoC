@@ -1,0 +1,15 @@
+{
+  "Combat.Effect.TFTerraStar.Name": "Terrestrial Star",
+  "Combat.Effect.TFTerraStar.Description": "A miniature emerald star that attacks your foes each turn.",
+  "Combat.Effect.TFTerraStarCooldown.Name": "Terrestrial Star Cooldown",
+  "Combat.Effect.TFTerraStarCooldown.Description": "You cannot summon another terrestrial star until you recover.",
+  "Combat.Terra.TerraStar.Name": "Terrestrial Star",
+  "Combat.Terra.TerraStar.Description": "Gather flames into a miniature star. It will attack your foes each turn, and can be guided or detonated.",
+  "Combat.Terra.TerraStar.Disabled": "You cannot cast this again so soon, or you are too fatigued.",
+  "Combat.Terra.TerraStar.Text1": "You slit your palms with a jagged rock before slamming your hands into the ground, letting your blood soak into the quaking earth as you gather flames deep in your chest. A deep fissure opens up in front of you, and you pour all your energy into the ground, exhaling a torrent of emerald flames to fill the rift.",
+  "Combat.Terra.TerraStar.Text2": "[pg]Blood is drained rapidly from your body and the fissure seals itself while you focus on compressing the energies trapped beneath the earth. The tremors die down and the flames criss-crossing the battlefield are absorbed back into the ground, causing a brief moment of peace, until a blazing sphere bursts out of the earth in front of you, a tightly-packed ball of brilliant emerald flames surrounding a solid earthen core.[pg-]",
+  "Combat.Terra.TerraStar.AttackHit": "[pg]The emerald star streaks through the air, flames surging as it collides with [themonster] with bone-shattering force!",
+  "Combat.Terra.TerraStar.AttackDodge": "[pg]The emerald star flies swiftly towards [themonster], but it's easily dodged.",
+  "Combat.Terra.TerraStar.AttackParry": "[pg][Themonster] manages to deflect the star and avoid a direct hit, but the exertion and close contact with the flames still leaves [themonster] drained.",
+  "Combat.Terra.TerraStar.AttackBlock": "[pg][Themonster] raises [themonster]'s shield and stands firm as the emerald star barrels towards [themonster]. The shield absorbs most of the impact!"
+}

@@ -1,0 +1,13 @@
+{
+  "Scenes.Impgangbang.GangbangCheck.BoldEndTag": "[bend][pg]"
+  "Scenes.Impgangbang.GangbangCheck.BoldStartTag": "[pg][bstart]"
+  "Scenes.Impgangbang.GangbangCheck.ClawedFeetSkitter": "Your sleep is momentarily disturbed by the sound of tiny clawed feet skittering away in all directions. When you sit up, you can make out Kid A holding a struggling, concussed imp in a headlock and wearing a famished expression. You catch her eye and she sheepishly retreats to a more urbane distance before beginning her noisy meal."
+  "Scenes.Impgangbang.GangbangCheck.HeliaWhuppedImps": "Helia informs you over a mug of beer that she whupped some major imp asshole last night. She wiggles her tail for emphasis."
+  "Scenes.Impgangbang.GangbangCheck.HolliCanoeImps": "During the night, you hear distant screeches of surprise, followed by orgasmic moans. It seems some imps found their way into Holli's canopy..."
+  "Scenes.Impgangbang.GangbangCheck.JojoDispatchedImps": "Jojo informs you that he dispatched a crowd of imps as they tried to sneak into camp in the night."
+  "Scenes.Impgangbang.GangbangCheck.KihaCharredImps": "You find charred imp carcasses all around the camp once you wake. It looks like Kiha repelled a swarm of the little bastards."
+  "Scenes.Impgangbang.GangbangCheck.LockedDoorImps": "Your sleep is momentarily disturbed by the sound of imp hands banging against your cabin door. Fortunately, you've locked the door before you've went to sleep."
+  "Scenes.Impgangbang.GangbangCheck.NieveFrozenImps": "You're woken by an unusual chill, and looking [if (builtcabin) {outside|around the camp}], you catch sight of a crowd of frozen imps and Nieve smiling proudly at you from atop her ice fort."
+  "Scenes.Impgangbang.GangbangCheck.SpendNightOutsidePrompt": "[pg]Do you spend the rest of the night outside?"
+  "Scenes.Impgangbang.GangbangCheck.WombCallsAgain": "[pg]The sensation of your womb calls to you again, it's a shame the traps deter the imps now. You could change that."
+}

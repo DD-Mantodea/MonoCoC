@@ -1,0 +1,8 @@
+{
+  id: "coc:valkyrie_shield_bash"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:valkyrie_shield_bash"
+}

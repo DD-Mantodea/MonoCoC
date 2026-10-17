@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1630-1645 / :3786-3864 biteCalc / bite（cost 25，cooldown 2，鲨鱼牙）
+  id: "coc:special_shark_bite"
+  nameKey: "Combat.Special.SharkBite.Name"
+  descriptionKey: "Combat.Special.SharkBite.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 25
+  fatigueType: "physical"
+  cooldown: 2
+  availableWhen: "coc:has_shark_teeth"
+  handler: "coc:special_shark_bite"
+}

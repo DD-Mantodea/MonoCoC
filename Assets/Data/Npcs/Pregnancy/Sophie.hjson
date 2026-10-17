@@ -1,0 +1,9 @@
+{
+  // SophieScene.hx:13 new PregnancyStore(SOPHIE_PREGNANCY_TYPE, SOPHIE_INCUBATION)
+  // SophieScene.hx:14 addPregnancyEventSet(PREGNANCY_PLAYER, [150, 120, 100])
+  // SophieBimbo.hx:131 knockUpForce(PREGNANCY_PLAYER, INCUBATION_HARPY)；PregnancyStore.hx:91 INCUBATION_HARPY = 168
+  // SophieBimbo.hx:70-73 / SophieFollowerScene.hx:12 的 pregnancy 均转调 sophieScene.pregnancy
+  id: "coc:sophie"
+  incubation: 168
+  events: [150, 120, 100]
+}

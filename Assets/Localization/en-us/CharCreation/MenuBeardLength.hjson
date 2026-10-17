@@ -1,0 +1,11 @@
+{
+  "CharCreation.MenuBeardLength.Button1": "No Beard"
+  "CharCreation.MenuBeardLength.Button2": "Trim"
+  "CharCreation.MenuBeardLength.Button3": "Short"
+  "CharCreation.MenuBeardLength.Button4": "Medium"
+  "CharCreation.MenuBeardLength.Button5": "Mod. Long"
+  "CharCreation.MenuBeardLength.Button6": "Long"
+  "CharCreation.MenuBeardLength.Button7": "Very Long"
+  "CharCreation.MenuBeardLength.HowLongWouldYou": "How long would you like your beard be?"
+  "CharCreation.MenuBeardLength.NoteBeardWillSlowly": "[pg]Note: Beard will slowly grow over time, just like in the real world. Unless you have no beard. You can change your beard style later in the game."
+}

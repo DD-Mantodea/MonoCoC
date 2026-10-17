@@ -1,0 +1,5 @@
+{
+  "CharCreation.ConfirmHeight.PleaseInputYourHeight": "Please input your height."
+  "CharCreation.ConfirmHeight.ThatAboveYourMaximum": "That is above your maximum height choices!"
+  "CharCreation.ConfirmHeight.ThatBelowYourMinimum": "That is below your minimum height choices!"
+}

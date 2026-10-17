@@ -1,0 +1,8 @@
+{
+  id: "coc:chameleon_girl_chameleon_tongue_attack"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:chameleon_girl_chameleon_tongue_attack"
+}

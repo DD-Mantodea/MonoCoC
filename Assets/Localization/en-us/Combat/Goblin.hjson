@@ -1,0 +1,11 @@
+{
+  "Combat.Goblin.Black": "\\\nThe black fluid splashes all over you and wicks into your skin near-instantly. It makes you feel tired and drowsy."
+  "Combat.Goblin.Blue": " She pulls out a blue vial and uncaps it, swiftly downing its contents."
+  "Combat.Goblin.BlueHeal": " She looks to have recovered from some of her wounds!"
+  "Combat.Goblin.BlueNoEffect": " There doesn't seem to be any effect."
+  "Combat.Goblin.Dodge": "\\\nYou narrowly avoid the gush of alchemic fluids!"
+  "Combat.Goblin.Green": "\\\nThe greenish fluids splash over you, making you feel slimy and gross. Nausea plagues you immediately - you have been poisoned!"
+  "Combat.Goblin.Red": "\\\nThe red fluids hit you and instantly soak into your skin, disappearing. Your skin flushes and you feel warm. Oh no..."
+  "Combat.Goblin.Throw": " {0} uncorks a glass bottle full of {0} fluid and swings her arm, flinging a wave of fluid at you."
+  "Combat.Goblin.White": "\\\nYou try to avoid it, but it splatters the ground around you with very sticky white fluid, making it difficult to run. You'll have a hard time escaping now!"
+}

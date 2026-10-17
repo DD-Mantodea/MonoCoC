@@ -1,0 +1,29 @@
+{
+  // 原版 Phouka（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:phouka"
+      type: "coc:phouka"
+      nameKey: "Npcs.Phouka.Name"
+      descriptionKey: "Npcs.Phouka.Desc"
+      article: "the"
+      level: 14
+      bonusHealth: 300
+      lust: 30
+      strength: 55
+      toughness: 25
+      speed: 80
+      intelligence: 40
+      libido: 75
+      sensitivity: 35
+      corruption: 100
+      gems: 0
+      experience: 0
+      ai: "coc:phouka_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

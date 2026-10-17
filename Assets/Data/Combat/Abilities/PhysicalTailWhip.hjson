@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1897-1911 / :5203-5255 Tail Whip（cost 15，cooldown 3，多种尾巴）
+  id: "coc:special_tail_whip"
+  nameKey: "Combat.Special.TailWhip.Name"
+  descriptionKey: "Combat.Special.TailWhip.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 15
+  fatigueType: "physical"
+  cooldown: 3
+  availableWhen: "coc:has_whip_tail"
+  handler: "coc:special_tail_whip"
+}

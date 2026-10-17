@@ -1,0 +1,36 @@
+# 只跟踪源代码与 Assets。
+# 忽略仓库中的其他一切（构建产物、IDE 缓存、脚本输出、任务文档、临时文件等）。
+
+*
+!*/
+
+# 保留 git 忽略规则本身，避免规则文件自己消失
+!.gitignore
+!.gitattributes
+!.editorconfig
+
+# C# 源代码
+!*.cs
+
+# 项目文件/解决方案
+!*.csproj
+!*.sln
+!*.slnx
+!*.props
+!*.targets
+!*.manifest
+
+# 游戏资源与本地化/数据
+!Assets/
+!Assets/**
+
+# 这些目录整体忽略，避免上面的源文件规则把生成文件重新放出来
+[Bb]in/
+[Oo]bj/
+.vs/
+.vscode/
+.config/
+.session-backup/
+.dsh-plugins/
+Tasks/
+Tools/

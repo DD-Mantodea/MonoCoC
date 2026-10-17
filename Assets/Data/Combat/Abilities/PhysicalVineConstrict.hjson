@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:6735 vineConstrict（束缚状态下可用，消耗 10 体力）
+  id: "coc:vine_constrict"
+  nameKey: "Combat.VineGrab.ConstrictName"
+  descriptionKey: "Combat.VineGrab.ConstrictDescription"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:enemy_constricted"
+  handler: "coc:vine_constrict"
+}

@@ -1,0 +1,7 @@
+{
+  id: "coc:akbal"
+  nameKey: "Npcs.Akbal.Name"
+  scene: "coc:akbal"
+  combat: ""
+  hostile: false
+}

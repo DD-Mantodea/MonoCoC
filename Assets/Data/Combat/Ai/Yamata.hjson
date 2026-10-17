@@ -1,0 +1,68 @@
+{
+  // 原版 Yamata.performCombatAction 的权重与条件
+  id: "coc:yamata_ai"
+  actions: [
+    {
+      ability: "coc:yamata_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:yamata_basic"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:yamata_dark_foxfire"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:yamata_nightmare"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:yamata_illusion_lust"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:yamata_lust_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:yamata_seal"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:yamata_foxfire_cannon_two"
+      weight: 100
+      cost: 10
+      fatigueType: "magical"
+      when: "coc:yamata_cannon_primed"
+    }
+    {
+      ability: "coc:yamata_foxfire_cannon_one"
+      weight: 0.25
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:yamata_entwine"
+      weight: 0.3
+      cost: 0
+      fatigueType: "none"
+      when: "coc:yamata_can_entwine"
+    }
+  ]
+}

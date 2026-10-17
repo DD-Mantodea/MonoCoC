@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1952-1968 / :5454-5476 / :5599-5610 Reap（cost 20，杜拉罕镰刀）
+  id: "coc:special_reap"
+  nameKey: "Combat.Special.Reap.Name"
+  descriptionKey: "Combat.Special.Reap.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 20
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:has_dullahan_scythe"
+  handler: "coc:special_reap"
+}

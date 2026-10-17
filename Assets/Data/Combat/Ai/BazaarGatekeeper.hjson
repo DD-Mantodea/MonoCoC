@@ -1,0 +1,18 @@
+{
+  // 原版 BazaarGatekeeper.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:gatekeeper_ai"
+  actions: [
+    {
+      ability: "coc:gatekeeper_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:gatekeeper_scimitar_special"
+      weight: 1
+      cost: 15
+      fatigueType: "none"
+    }
+  ]
+}

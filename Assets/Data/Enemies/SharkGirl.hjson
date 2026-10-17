@@ -1,0 +1,34 @@
+{
+  // 原版 SharkGirl（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:shark_girl"
+      type: "coc:shark_girl"
+      nameKey: "Npcs.SharkGirl.Name"
+      descriptionKey: "Npcs.SharkGirl.Desc"
+      article: "the"
+      level: 4
+      bonusHealth: 20
+      lust: 40
+      strength: 40
+      toughness: 40
+      speed: 55
+      intelligence: 42
+      libido: 75
+      sensitivity: 35
+      corruption: 40
+      gems: 15
+      experience: 0
+      ai: "coc:shark_girl_ai"
+      // 原版 WeightedDrop（SharkGirl.hx:90）：lust_draft 3 / skimpy_swimwear 1 / shark_tooth 5 / 空 1。
+      // shark_tooth 指的是普通变体（Haxe id "Shark.T" → coc:shark_tooth）；老虎鲨是另一条 coc:tigershark_tooth。
+      weightedLoot: true
+      loot: [
+        { item: "coc:lust_draft", weight: 3 }
+        { item: "coc:skimpy_swimwear", weight: 1 }
+        { item: "coc:shark_tooth", weight: 5 }
+        { nothing: true, weight: 1 }
+      ]
+    }
+  ]
+}

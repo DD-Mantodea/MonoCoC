@@ -1,0 +1,12 @@
+{
+  "Combat.Special.Web.Name": "Web",
+  "Combat.Special.Web.Description": "Spray a mass of sticky webbing at your opponent, greatly slowing them down.",
+  "Combat.Special.Web.NoWebbing": "You do not have enough webbing to shoot right now!",
+  "Combat.Special.Web.Blind": "You attempt to attack, but as blinded as you are right now, you doubt you'll have much luck! ",
+  "Combat.Special.Web.Intro": "Turning and clenching muscles that no human should have, you expel a spray of sticky webs at [themonster]! ",
+  "Combat.Special.Web.Miss": "You miss [themonster] completely - [monster.he] moved out of the way![pg]",
+  "Combat.Special.Web.Block": "[Themonster] manages to raise [monster.his] shield in time, catching your sticky strands![pg]",
+  "Combat.Special.Web.Overweb": "[Themonster] is completely covered in webbing, but you hose [monster.him] down again anyway.",
+  "Combat.Special.Web.OverwebPlural": "[Themonster] are completely covered in webbing, but you hose them down again anyway.",
+  "Combat.Special.Web.Hit": "The adhesive strands cover [themonster] with restrictive webbing, greatly slowing [monster.him]. "
+}

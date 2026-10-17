@@ -1,0 +1,8 @@
+{
+  id: "coc:helspawn_called_shot"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:helspawn_called_shot"
+}

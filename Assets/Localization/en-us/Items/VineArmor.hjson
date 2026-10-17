@@ -1,0 +1,9 @@
+{
+  "Items.VineArmor.Desc": "Ominously dark vines wrapped tightly against your [skinshort], many of which find the ideal spots to emphasize your assets rather than cover them."
+  "Items.VineArmor.Grab": "Grants vine grab attack."
+  "Items.VineArmor.Long": "tight wrappings of onyx-black vines"
+  "Items.VineArmor.Short": "Black Vines"
+  "Items.VineArmor.Special": "Special: Taking fire damage increases fatigue."
+  "Items.VineArmor.Thorns": "Thorns hurt melee attackers."
+  "Items.VineArmor.Trip": "Grants vine trip attack."
+}

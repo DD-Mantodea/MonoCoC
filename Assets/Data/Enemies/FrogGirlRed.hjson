@@ -1,0 +1,29 @@
+{
+  // 原版 FrogGirlRed（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:frog_girl_red"
+      type: "coc:frog_girl_red"
+      nameKey: "Npcs.FrogGirlRed.Name"
+      descriptionKey: "Npcs.FrogGirlRed.Desc"
+      article: "the"
+      level: 10
+      bonusHealth: 150
+      lust: 30
+      strength: 50
+      toughness: 55
+      speed: 85
+      intelligence: 45
+      libido: 50
+      sensitivity: 40
+      corruption: 50
+      gems: 0
+      experience: 0
+      ai: "coc:frog_girl_red_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

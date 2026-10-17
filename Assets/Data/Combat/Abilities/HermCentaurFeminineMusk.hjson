@@ -1,0 +1,8 @@
+{
+  id: "coc:herm_centaur_feminine_musk"
+  type: "tease"
+  range: "tease"
+  cost: 10
+  cooldown: 0
+  handler: "coc:herm_centaur_feminine_musk"
+}

@@ -1,0 +1,9 @@
+{
+  // 原版 SuccubusGardener.sapSpeed()（SuccubusGardener.hx:349-357）
+  id: "coc:succubus_gardener_sap_speed"
+  type: "support"
+  range: "omni"
+  cost: 0
+  cooldown: 0
+  handler: "coc:succubus_gardener_sap_speed"
+}

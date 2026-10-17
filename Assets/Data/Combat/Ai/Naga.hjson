@@ -1,0 +1,10 @@
+{
+  id: "coc:naga_ai"
+  actions: [
+    // 原版 Naga.hx:106 performCombatAction
+    { ability: "coc:naga_poison_bite", weight: 1, cost: 5, fatigueType: "physical" }
+    { ability: "coc:naga_constrict", weight: 1, cost: 10, fatigueType: "physical" }
+    { ability: "coc:naga_tail_whip", weight: 1, cost: 5, fatigueType: "physical" }
+    { ability: "coc:basic_attack", weight: 2, fatigueType: "none" }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  // 原版 statusEffects/combat/LurkBuff.hx：潜伏，1 回合内提升暴击与命中
+  id: "coc:lurk"
+  nameKey: "Combat.Effect.Lurk.Name"
+  descriptionKey: "Combat.Effect.Lurk.Description"
+  kind: "timed"
+  duration: 1
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

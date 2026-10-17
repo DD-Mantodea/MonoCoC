@@ -1,0 +1,10 @@
+{
+  id: "coc:goblin_drug"
+  type: "support"
+  range: "ranged"
+  cost: 10
+  fatigueType: "physical"
+  cooldown: 10
+  power: 0
+  handler: "coc:goblin_drug"
+}

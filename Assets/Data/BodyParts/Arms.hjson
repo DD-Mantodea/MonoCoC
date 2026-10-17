@@ -1,0 +1,22 @@
+{
+  "kind": "coc:arms",
+  "default": "coc:human",
+  "types": [
+    { "id": "coc:human" },
+    { "id": "coc:harpy", "appearance": "ArmsHarpy" },
+    { "id": "coc:spider", "armorBonus": 2, "appearance": "ArmsSpider" },
+    { "id": "coc:bee", "appearance": "ArmsBee" },
+    { "id": "coc:predator", "appearance": "ArmsPredator" },
+    { "id": "coc:salamander", "appearance": "ArmsSalamander" },
+    { "id": "coc:wolf", "appearance": "ArmsWolf" },
+    { "id": "coc:cockatrice", "appearance": "ArmsCockatrice" },
+    { "id": "coc:red_panda", "appearance": "ArmsRedPanda" },
+    { "id": "coc:ferret", "appearance": "ArmsFerret" },
+    { "id": "coc:cat", "appearance": "ArmsCat" },
+    { "id": "coc:dog", "appearance": "ArmsDog" },
+    { "id": "coc:fox", "appearance": "ArmsFox" },
+    { "id": "coc:dragon", "appearance": "ArmsDragon" },
+    { "id": "coc:lizard", "appearance": "ArmsLizard" },
+    { "id": "coc:gnoll", "appearance": "ArmsGnoll" }
+  ]
+}

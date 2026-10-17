@@ -1,0 +1,4 @@
+{
+  "Perks.ImmovableObject.Desc": "[if (tou>=75) {Grants 10% physical damage reduction.|<b>You aren't tough enough to benefit from this anymore.</b>}]"
+  "Perks.ImmovableObject.Name": "Immovable Object"
+}

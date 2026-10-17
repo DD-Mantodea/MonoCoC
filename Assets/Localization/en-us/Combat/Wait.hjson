@@ -1,0 +1,5 @@
+{
+  "Combat.Wait.Recover": "You wait and recover some fatigue."
+  // 原版 Combat.hx:770：爪姿态下的等待
+  "Combat.Wait.Lurk": "You control your breathing and carefully watch the enemy, preparing to strike.[pg]"
+}

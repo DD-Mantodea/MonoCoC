@@ -1,0 +1,8 @@
+{
+  id: "coc:gnoll_spear_thrower_hyena_javelin_attack"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:gnoll_spear_thrower_hyena_javelin_attack"
+}

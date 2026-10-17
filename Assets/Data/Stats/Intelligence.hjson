@@ -1,0 +1,7 @@
+{
+  "id": "coc:intelligence",
+  "default": 0,
+  "higherIsBetter": true,
+  "format": "int",
+  "visible": true
+}

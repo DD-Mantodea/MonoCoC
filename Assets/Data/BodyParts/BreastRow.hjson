@@ -1,0 +1,9 @@
+{
+  kind: coc:breast_row
+  collection: true
+  default: coc:normal
+  types:
+  [
+    { id: "coc:normal" }
+  ]
+}

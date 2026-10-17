@@ -1,0 +1,18 @@
+{
+  "Combat.Special.FireBow.Name": "Fire Bow",
+  "Combat.Special.FireBow.Description": "Use a bow to fire an arrow at your opponent.",
+  "Combat.Special.FireBow.Disabled": "You can't use your bow right now!",
+  "Combat.Special.FireBow.Prep0": "Fumbling a bit, you nock an arrow and fire![pg-]",
+  "Combat.Special.FireBow.Prep1": "You pull an arrow and fire it at [themonster]![pg-]",
+  "Combat.Special.FireBow.Prep2": "With one smooth motion you draw, nock, and fire your deadly arrow at your opponent![pg-]",
+  "Combat.Special.FireBow.Prep3": "In the blink of an eye you draw and fire your bow directly at [themonster].[pg-]",
+  "Combat.Special.FireBow.Prep4": "You casually fire an arrow at [themonster] with supreme skill.[pg-]",
+  "Combat.Special.FireBow.Prep5": "With almost supernatural skill, you loose an arrow at [themonster].[pg-]",
+  "Combat.Special.FireBow.PrepBug": "Your mastery level seems to be bugged somehow, but you decide to ignore it and fire your bow anyway.[pg-]",
+  "Combat.Special.FireBow.Blind": "[pg-]The arrow hits something, but blind as you are, you don't have a chance in hell of hitting anything specific with a bow.",
+  "Combat.Special.FireBow.Sandstorm": "[pg-]Your shot is blown off target by the tornado of sand and wind. Damn!",
+  "Combat.Special.FireBow.Miss": "[pg-]The arrow goes wide, disappearing behind your foe.",
+  "Combat.Special.FireBow.Hit": "[pg-]The arrow strikes true, embedding itself in [themonster].",
+  "Combat.Special.FireBow.Crit": " [b:Critical Hit!]",
+  "Combat.Special.FireBow.MiniCrit": " [b:Opportunity Hit!]"
+}

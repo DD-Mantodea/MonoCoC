@@ -1,0 +1,9 @@
+{
+  "CharCreation.GenericGenderChoice.AreYou": "Are you a [if (ischild) {boy or a girl|man or a woman}]?"
+  "CharCreation.GenericGenderChoice.Boy": "Boy"
+  "CharCreation.GenericGenderChoice.Button1": "Herm"
+  "CharCreation.GenericGenderChoice.Girl": "Girl"
+  "CharCreation.GenericGenderChoice.HermaphroditeYou'veUnlockedHermaphrodite": "[pg]Or a hermaphrodite, as you've unlocked hermaphrodite option!"
+  "CharCreation.GenericGenderChoice.Man": "Man"
+  "CharCreation.GenericGenderChoice.Woman": "Woman"
+}

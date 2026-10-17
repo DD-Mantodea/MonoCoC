@@ -1,0 +1,8 @@
+{
+  id: "coc:arch_inquisitor_vilkus_charge_weapon"
+  type: "magical"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:arch_inquisitor_vilkus_charge_weapon"
+}

@@ -1,0 +1,10 @@
+{
+  "kind": "coc:gills",
+  "default": "coc:none",
+  "types": [
+    { "id": "coc:none" },
+    { "id": "coc:fish", "appearance": "GillsNeck" },
+    { "id": "coc:mermaid", "appearance": "GillsNeck" },
+    { "id": "coc:anemone", "appearance": "GillsAnemone" }
+  ]
+}

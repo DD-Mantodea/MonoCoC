@@ -1,0 +1,38 @@
+{
+  // 原版 SkeletonHorde（scenes/dungeons/manor/SkeletonHorde.hx:70 new()）
+  // 数值来自构造函数；bonusHealth 原版是 230，但 C# 侧最大生命被改写成 unitAmount*100，
+  // 所以这里给 0（见 SkeletonHordeEnemy.Configure 的 MaxHealth 动态加成）。
+  enemies: [
+    {
+      id: "coc:skeleton_horde"
+      type: "coc:skeleton_horde"
+      nameKey: "Npcs.SkeletonHorde.Name"
+      descriptionKey: "Npcs.SkeletonHorde.Desc"
+      article: "the"
+      level: 15
+      bonusHealth: 0
+      lust: 0
+      strength: 20
+      toughness: 60
+      speed: 35
+      intelligence: 42
+      libido: 45
+      sensitivity: 45
+      corruption: 60
+      // gems 原版是 Utils.rand(5) + 5，Configure 里现算，这里只是占位。
+      gems: 5
+      experience: 0
+      // 原版 plural = true / pronoun1-3 = they/them/their
+      plural: true
+      pronoun1: "they"
+      pronoun2: "them"
+      pronoun3: "their"
+      // 不走数据 AI：原版 performCombatAction（SkeletonHorde.hx:11）全部由 C# 的
+      // BeforeCombatAction 接管并必定 return true，所以 ai 留空（否则会落到一个空 AI 表）。
+      ai: ""
+      // 原版 drop = new WeightedDrop()（空表）：不掉落。
+      weightedLoot: false
+      loot: []
+    }
+  ]
+}

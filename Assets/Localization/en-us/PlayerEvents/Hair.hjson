@@ -1,0 +1,6 @@
+{
+  "PlayerEvents.Hair.GrowthResumed": " <b>You hair is now growing normally again.</b>"
+  "PlayerEvents.Hair.NewThreshold": "[pg][b:Your hair's growth has reached a new threshold, giving you {0}.][pg]"
+  "PlayerEvents.Hair.NoLongerBald": "[pg][b:You are no longer bald. You now have {0} coating your head.][pg]"
+  "PlayerEvents.Hair.SerumWearsOff": "<b>The tingling on your scalp slowly fades away as the hair extension serum wears off. Maybe it's time to go back to the salon for more?</b>"
+}

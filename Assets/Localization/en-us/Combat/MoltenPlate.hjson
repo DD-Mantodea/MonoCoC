@@ -1,0 +1,12 @@
+{
+  "Combat.Terra.MoltenPlate.Name": "Molten Plate",
+  "Combat.Terra.MoltenPlate.Description": "Combo: Plate + Inflame. Blend earth and fire, increasing your armor and attack damage, and burning enemies that strike you.",
+  "Combat.Terra.MoltenPlate.Disabled": "You're already coated in molten armor.",
+  "Combat.Terra.MoltenPlate.Text1": "Calling on the flames within, every crack between your armor plates begins to glow brilliant green until the flames spill out over your [weapon].",
+  "Combat.Terra.MoltenPlate.Text2": "Earthen plates grow around your flesh, compressing the emerald flames imbuing you. Hot, dark stones adorn you, deep green shining through the cracks between plates.",
+  "Combat.Terra.MoltenPlate.React": "\\nYour armor reacts against the damage and expels lava against your attacker!",
+  "Combat.Terra.MoltenPlate.Burn": "\\n[Themonster] is burned by the lava.",
+  "Combat.Terra.MoltenPlate.BurnPlural": "\\n[Themonster] are burned by the lava.",
+  "Combat.Terra.MoltenPlate.Damage": " <b>({0})</b>",
+  "Combat.Terra.MoltenPlate.SelfBurn": "\\nUnfortunately the lava burns you as well. "
+}

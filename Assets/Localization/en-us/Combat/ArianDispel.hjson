@@ -1,0 +1,21 @@
+{
+  "Combat.Arian.Talisman.Dispel.Name": "Arian's Talisman - Dispel",
+  "Combat.Arian.Talisman.Dispel.Description": "Remove most magical effects, positive or negative, from both you and the targeted enemy.",
+  "Combat.Arian.Talisman.Dispel.Intro": "You gather energy in your Talisman and unleash the spell contained within. An orange light appears and flashes briefly before vanishing.\\n",
+  "Combat.Arian.Talisman.Dispel.ChargeWeapon": "\\nYour weapon no longer glows as your spell is dispelled.",
+  "Combat.Arian.Talisman.Dispel.Leeching": "[b:The incantation surrounding your [weapon] fades away.]\\n",
+  "Combat.Arian.Talisman.Dispel.TFInflame": "\\nThe fire surrounding you and your weapon fizzles out.",
+  "Combat.Arian.Talisman.Dispel.TFPlate": "\\nYour earthen armor crumbles and falls to the ground.",
+  "Combat.Arian.Talisman.Dispel.TFMoltenPlate": "\\nYou're no longer coated in molten rock.",
+  "Combat.Arian.Talisman.Dispel.ParasiteQueen": "\\nThe parasites are no longer boosting your energy.",
+  "Combat.Arian.Talisman.Dispel.NephilaQueen": "\\nThe parasites are no longer boosting your energy.",
+  "Combat.Arian.Talisman.Dispel.TrueWhispered": "\\nYour mind is now free of the horrible whispering.",
+  "Combat.Arian.Talisman.Dispel.Marked": "\\nYou feel the Courtier's hex wear off - you're no longer cursed!",
+  "Combat.Arian.Talisman.Dispel.Nothingness": "\\nThe talisman successfully removes the creature's spell, restoring your existence!",
+  "Combat.Arian.Talisman.Dispel.Might": "\\nYou feel a bit weaker as your strength-enhancing spell wears off.",
+  "Combat.Arian.Talisman.Dispel.EnemyChargeWeapon": "\\nThe glow around [themonster]'s weapon fades completely.",
+  "Combat.Arian.Talisman.Dispel.GolemShield": "\\nThe golem's shimmering shield dissipates - he can be attacked again!",
+  "Combat.Arian.Talisman.Dispel.Fear": "\\nThe dark illusion around [themonster] finally dissipates, leaving [monster.him] no longer fearful as [monster.he] regains confidence.",
+  "Combat.Arian.Talisman.Dispel.Illusion": "\\nThe reality around [themonster] finally snaps back in place as [monster.his] illusion spell fades.",
+  "Combat.Arian.Talisman.Dispel.Shell": "\\nThe magical shell around [themonster] shatters!"
+}

@@ -1,0 +1,8 @@
+{
+  id: "coc:fetish_cultist_cultist_lust_transfer"
+  type: "magical"
+  range: "ranged"
+  cost: 5
+  cooldown: 0
+  handler: "coc:fetish_cultist_cultist_lust_transfer"
+}

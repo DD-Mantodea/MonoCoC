@@ -1,0 +1,20 @@
+{
+  "kind": "coc:horns",
+  "default": "coc:none",
+  "types": [
+    { "id": "coc:none" },
+    { "id": "coc:demon", "appearance": "HornsDemon" },
+    { "id": "coc:cow_minotaur", "appearance": "HornsMinotaur" },
+    { "id": "coc:draconic_x2", "appearance": "HornsDraconicX2" },
+    { "id": "coc:draconic_x4_12_inch_long", "appearance": "HornsDraconicX4" },
+    { "id": "coc:antlers", "appearance": "HornsAntlers" },
+    { "id": "coc:goat", "appearance": "HornsGoat" },
+    { "id": "coc:unicorn", "appearance": "HornsUnicorn" },
+    { "id": "coc:rhino", "appearance": "HornsRhino" },
+    { "id": "coc:sheep", "appearance": "HornsSheep" },
+    { "id": "coc:ram", "appearance": "HornsRam" },
+    { "id": "coc:imp", "appearance": "HornsImp" },
+    { "id": "coc:wooden", "appearance": "HornsWooden" },
+    { "id": "coc:antelope", "appearance": "HornsAntelope" }
+  ]
+}

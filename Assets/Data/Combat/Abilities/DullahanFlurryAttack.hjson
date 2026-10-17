@@ -1,0 +1,8 @@
+{
+  id: "coc:dullahan_flurry_attack"
+  type: "physical"
+  range: "melee"
+  cost: 15
+  cooldown: 0
+  handler: "coc:dullahan_flurry_attack"
+}

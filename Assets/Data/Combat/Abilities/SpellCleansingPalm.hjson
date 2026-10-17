@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1198-1216 / :628-695 Cleansing Palm（cost 30，cooldown 3）
+  id: "coc:spell_cleansing_palm"
+  nameKey: "Combat.Spell.CleansingPalm.Name"
+  descriptionKey: "Combat.Spell.CleansingPalm.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 30
+  fatigueType: "magical"
+  cooldown: 3
+  availableWhen: "coc:knows_cleansing_palm"
+  disabledWhen: "coc:too_corrupt_for_cleansing_palm"
+  disabledTooltip: "Combat.Spell.CleansingPalm.Disabled"
+  handler: "coc:spell_cleansing_palm"
+}

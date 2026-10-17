@@ -1,0 +1,8 @@
+{
+  id: "coc:phoenix_commander_ai"
+  actions: [
+    { ability: "coc:phoenix_commander_attack", weight: 3, cost: 0, fatigueType: "none" }
+    { ability: "coc:phoenix_commander_protect", weight: 1, cost: 10, fatigueType: "magical" }
+    { ability: "coc:phoenix_commander_inspire", weight: 1, cost: 15, fatigueType: "magical" }
+  ]
+}

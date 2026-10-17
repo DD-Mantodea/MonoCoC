@@ -1,0 +1,8 @@
+{
+  id: "coc:lumberjack_arouse"
+  type: "tease"
+  range: "tease"
+  cost: 10
+  cooldown: 0
+  handler: "coc:lumberjack_arouse"
+}

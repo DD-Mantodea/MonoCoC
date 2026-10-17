@@ -1,0 +1,12 @@
+{
+  // 原版 statusEffects/combat/RetributionBuff.hx：蓄力一回合，回合结束按本回合受伤追加伤害
+  id: "coc:retribution_buff"
+  nameKey: "Combat.Effect.Retribution.Name"
+  descriptionKey: "Combat.Effect.Retribution.Description"
+  kind: "timed"
+  duration: 1
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onExpire: "coc:effect_retribution_expire"
+}

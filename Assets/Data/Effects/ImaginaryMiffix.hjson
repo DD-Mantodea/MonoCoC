@@ -1,0 +1,17 @@
+{
+  // 原版 classes/statusEffects/combat/ImaginaryMiffixDebuff.hx
+  //   TYPE = StatusEffect.register("Imaginary Miffix", ImaginaryMiffixDebuff)
+  //   onCombatRound: host.silence()/cripple()/unfocus()/clumsy()/prude()/corner()/immobilize()
+  //   onRemove: 复位上述 isXxx 标志
+  // C# 侧无 CombatBuff 子类机制，改为 EffectDefinition + 注册处理器（CombatStatusTicker 每回合调用 onRound）。
+  // duration 略 0：与原版一致（战斗期常驻，由 ClearCombatStatuses 在战终清除）。
+  id: "coc:imaginary_miffix"
+  nameKey: "Combat.Effect.ImaginaryMiffix.Name"
+  kind: "combat"
+  duration: 0
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_imaginary_miffix_round"
+  onExpire: "coc:effect_imaginary_miffix_expire"
+}

@@ -1,0 +1,74 @@
+{
+  // 原版 Kitsune：三种发色形态分别建条目（原版 new Kitsune(hairColor)）
+  enemies: [
+    {
+      id: "coc:kitsune_blonde"
+      type: "coc:kitsune"
+      nameKey: "Npcs.Kitsune.Name"
+      descriptionKey: "Npcs.Kitsune.Desc"
+      level: 6
+      bonusHealth: 120
+      lust: 20
+      strength: 35
+      toughness: 45
+      speed: 90
+      intelligence: 95
+      libido: 60
+      sensitivity: 65
+      corruption: 45
+      gems: 15
+      experience: 100
+      ai: "coc:kitsune_ai"
+      weightedLoot: true
+      loot: [
+        { item: "coc:fox_jewel", weight: 1 }
+      ]
+    }
+    {
+      id: "coc:kitsune_black"
+      type: "coc:kitsune"
+      nameKey: "Npcs.Kitsune.Name"
+      descriptionKey: "Npcs.Kitsune.Desc"
+      level: 6
+      bonusHealth: 120
+      lust: 20
+      strength: 35
+      toughness: 45
+      speed: 90
+      intelligence: 95
+      libido: 60
+      sensitivity: 65
+      corruption: 45
+      gems: 15
+      experience: 100
+      ai: "coc:kitsune_ai"
+      weightedLoot: true
+      loot: [
+        { item: "coc:fox_jewel", weight: 1 }
+      ]
+    }
+    {
+      id: "coc:kitsune_red"
+      type: "coc:kitsune"
+      nameKey: "Npcs.Kitsune.Name"
+      descriptionKey: "Npcs.Kitsune.Desc"
+      level: 6
+      bonusHealth: 120
+      lust: 20
+      strength: 35
+      toughness: 45
+      speed: 90
+      intelligence: 95
+      libido: 60
+      sensitivity: 65
+      corruption: 45
+      gems: 15
+      experience: 100
+      ai: "coc:kitsune_ai"
+      weightedLoot: true
+      loot: [
+        { item: "coc:fox_jewel", weight: 1 }
+      ]
+    }
+  ]
+}

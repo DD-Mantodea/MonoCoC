@@ -1,0 +1,11 @@
+{
+  // 原版 StatusEffects.NephilaQueen：寄生虫牺牲后的属性强化
+  id: "coc:nephila_queen"
+  nameKey: "Combat.Effect.NephilaQueen.Name"
+  descriptionKey: "Combat.Effect.NephilaQueen.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

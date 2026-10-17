@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1485-1505 / :3260-3298 Foxfire（cost 35，cooldown 3，EnlightenedNinetails）
+  id: "coc:spell_foxfire"
+  nameKey: "Combat.Spell.Foxfire.Name"
+  descriptionKey: "Combat.Spell.Foxfire.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 35
+  fatigueType: "magical"
+  cooldown: 3
+  availableWhen: "coc:has_enlightened_ninetails"
+  handler: "coc:spell_foxfire"
+}

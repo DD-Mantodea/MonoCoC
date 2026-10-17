@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net10.0-windows</TargetFramework>
+		<RollForward>Major</RollForward>
+		<PublishReadyToRun>false</PublishReadyToRun>
+		<TieredCompilation>false</TieredCompilation>
+		<UseWindowsForms>true</UseWindowsForms>
+	</PropertyGroup>
+	<PropertyGroup>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<ApplicationIcon>Icon.ico</ApplicationIcon>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="FontStashSharp.MonoGame" Version="1.6.1" />
+		<PackageReference Include="Hjson" Version="3.0.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.14.0" />
+		<PackageReference Include="MonoGame.Framework.Content.Pipeline" Version="3.8.6" />
+		<PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.*" />
+		<PackageReference Include="MonoMod.RuntimeDetour" Version="22.7.31.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+	</ItemGroup>
+	<!-- 资源文件：随项目一起保存，生成时按“有变化则复制”放到 <输出目录>\Assets\ 下。
+       Paths.Root 取 exe 所在目录，所以目标路径必须与 Assets 下的相对结构一致。 -->
+	<ItemGroup>
+		<None Update="Assets\Data\**\*.*" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="Assets\Fonts\**\*.*" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="Assets\Localization\**\*.*" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="Assets\Textures\**\*.*" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="Assets\UI\**\*.*" CopyToOutputDirectory="PreserveNewest" />
+		<None Update="Assets\Shaders\**\*.*" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Graphics\Materials\" />
+	</ItemGroup>
+</Project>

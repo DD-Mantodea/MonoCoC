@@ -1,0 +1,10 @@
+{
+  id: "coc:poison"
+  nameKey: "Combat.Effect.Poison.Name"
+  descriptionKey: "Combat.Effect.Poison.Description"
+  kind: "combat"
+  duration: 10
+  stacking: "refresh"
+  combatOnly: true
+  onRound: "coc:effect_poison_round"
+}

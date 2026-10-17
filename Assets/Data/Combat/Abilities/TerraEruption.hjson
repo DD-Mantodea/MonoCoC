@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:969-982 / :6102-6119 Eruption（cost tfFatigue(50,3)，cooldown 4，Quake 连携）
+  id: "coc:tf_eruption"
+  nameKey: "Combat.Terra.Eruption.Name"
+  descriptionKey: "Combat.Terra.Eruption.Description"
+  type: "magical"
+  category: "magical"
+  range: "omni"
+  cost: 50
+  fatigueType: "magical"
+  cooldown: 4
+  availableWhen: "coc:can_tf_eruption"
+  handler: "coc:tf_eruption"
+}

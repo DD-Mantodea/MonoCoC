@@ -1,0 +1,16 @@
+{
+  id: "coc:volcanic_crag"
+  scene: "coc:volcanic_crag"
+  order: 130
+  nameKey: "Areas.VolcanicCrag.Name"
+  descriptionKey: "Areas.VolcanicCrag.Description"
+  discoveryKey: "Areas.VolcanicCrag.Discovery"
+  exploreKey: "Areas.VolcanicCrag.Explore"
+  condition: {
+    type: compare
+    flag: "coc:discovered_volcano_crag"
+    op: ">="
+    value: 1
+  }
+  explorationFlag: "coc:discovered_volcano_crag"
+}

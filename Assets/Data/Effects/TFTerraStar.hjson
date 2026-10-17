@@ -1,0 +1,12 @@
+{
+  // 原版 TerraStarBuff.hx：每回合自动攻击敌人
+  id: "coc:tfterrastar"
+  nameKey: "Combat.Effect.TFTerraStar.Name"
+  descriptionKey: "Combat.Effect.TFTerraStar.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_terra_star_round"
+}

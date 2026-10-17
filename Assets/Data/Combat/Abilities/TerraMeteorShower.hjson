@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1000-1010 / :6215-6265 Meteor Shower（cost tfFatigue(40,4)，cooldown 4，Scorch 连携）
+  id: "coc:tf_meteor_shower"
+  nameKey: "Combat.Terra.MeteorShower.Name"
+  descriptionKey: "Combat.Terra.MeteorShower.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 40
+  fatigueType: "magical"
+  cooldown: 4
+  availableWhen: "coc:can_tf_meteor_shower"
+  handler: "coc:tf_meteor_shower"
+}

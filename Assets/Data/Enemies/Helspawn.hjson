@@ -1,0 +1,29 @@
+{
+  // 原版 Helspawn（src/classes/scenes/npcs/Helspawn.hx，数值来自构造函数）
+  // 名字 / 武器 / 人格由全局旗标 HELSPAWN_NAME / HELSPAWN_WEAPON / HELSPAWN_PERSONALITY 在 Configure 里现读。
+  enemies: [
+    {
+      id: "coc:helspawn"
+      type: "coc:helspawn"
+      nameKey: "Npcs.Helspawn.Name"
+      descriptionKey: "Npcs.Helspawn.Desc"
+      article: ""
+      level: 12
+      // 原版 Helspawn.hx:186 bonusHP = 175
+      bonusHealth: 175
+      lust: 30
+      strength: 50
+      toughness: 50
+      speed: 65
+      intelligence: 40
+      libido: 35
+      sensitivity: 55
+      corruption: 20
+      // 原版 gems = 10 + Utils.rand(5)：实际值在 HelspawnEnemy.Configure 里现算
+      gems: 12
+      experience: 0
+      ai: "coc:helspawn_ai"
+      // 原版 Helspawn.hx:194 drop = NO_DROP → 不配 loot
+    }
+  ]
+}

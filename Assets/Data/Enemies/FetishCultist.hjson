@@ -1,0 +1,29 @@
+{
+  // 原版 FetishCultist（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:fetish_cultist"
+      type: "coc:fetish_cultist"
+      nameKey: "Npcs.FetishCultist.Name"
+      descriptionKey: "Npcs.FetishCultist.Desc"
+      article: "the"
+      level: 2
+      bonusHealth: 0
+      lust: 25
+      strength: 35
+      toughness: 25
+      speed: 30
+      intelligence: 1
+      libido: 75
+      sensitivity: 80
+      corruption: 90
+      gems: 0
+      experience: 0
+      ai: "coc:fetish_cultist_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

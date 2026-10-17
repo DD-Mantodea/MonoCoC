@@ -1,0 +1,9 @@
+{
+  id: "coc:nephila_slime_ai"
+  actions: [
+    // 原版 NephilaSlime.hx:89 performCombatAction
+    { ability: "coc:nephila_slime_combo", weight: 1, fatigueType: "none" }
+    { ability: "coc:nephila_slime_tease", weight: 1, fatigueType: "none" }
+    { ability: "coc:nephila_slime_goo_blind", weight: 1, cost: 10, fatigueType: "physical" }
+  ]
+}

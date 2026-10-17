@@ -1,0 +1,8 @@
+{
+  id: "coc:phoenix_commander_order_sapper"
+  type: "support"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:phoenix_commander_order_sapper"
+}

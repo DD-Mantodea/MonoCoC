@@ -1,0 +1,17 @@
+{
+  // 可购买专长需求文案（Perk.Requirement.*），由 PerkRequirementRegistry 生成描述时使用
+  "Perk.Requirement.Attribute": "{0} {1}"
+  "Perk.Requirement.AttributeLess": "{0} below {1}"
+  "Perk.Requirement.Level": "Level {0}"
+  "Perk.Requirement.MinLust": "Min. Lust {0}"
+  "Perk.Requirement.Status": "Requires status: {0}"
+  "Perk.Requirement.Mastery": "{0} mastery {1}"
+  "Perk.Requirement.Hunger": "Hunger enabled"
+  "Perk.Requirement.Item": "Has {0}"
+  "Perk.Requirement.Any": "Any of: {0}"
+  "Perk.Requirement.Libido": "Libido"
+  "Perk.Requirement.Corruption": "Corruption"
+  "Perk.Requirement.MightSpell": "Might spell"
+  "Perk.Requirement.ChargeWeapon": "Charge Weapon spell"
+  "Perk.Requirement.Whitefire": "Knows Whitefire"
+}

@@ -1,0 +1,15 @@
+{
+  // 原版 classes.scenes.areas.DeepWoods：森林探索 20 次后，由森林遭遇 discover() 解锁
+  id: "coc:deepwoods"
+  scene: "coc:deepwoods"
+  order: 25
+  nameKey: "Areas.Deepwoods.Name"
+  descriptionKey: "Areas.Deepwoods.Description"
+  discoveryKey: "Scenes.Deepwoods.Discover.PushDeeperWoods"
+  exploreKey: "Scenes.Deepwoods.DeepwoodsWalkFn.PeacefulWalkReflection"
+  condition: {
+    type: code
+    unlockFlag: "coc:deepwoods_unlocked"
+  }
+  explorationFlag: "coc:times_explored_deepwoods"
+}

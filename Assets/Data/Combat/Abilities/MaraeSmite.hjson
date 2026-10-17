@@ -1,0 +1,8 @@
+{
+  id: "coc:marae_smite"
+  type: "physical"
+  range: "self"
+  cost: 15
+  cooldown: 0
+  handler: "coc:marae_smite"
+}

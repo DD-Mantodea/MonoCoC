@@ -1,0 +1,43 @@
+{
+  // Deep Cave（原版 classes/scenes/dungeons/DeepCave.hx）
+  // 字符画：'#' 墙，'.' 可走空地，字母由 symbols 映射到房间。
+  // 相邻格子自动连通；单向/上锁的通道写在 links。
+  id: "coc:deep_cave"
+  nameKey: "Dungeons.DeepCave.Name"
+  start: "entrance"
+  onDefeat: "coc:deep_cave_defeat"
+  floors: [
+    {
+      map: [
+        "#####"
+        "##ab#"
+        "#cde#"
+        "##f##"
+        "##g##"
+      ]
+      symbols: {
+        a: "zetaz_chamber"
+        b: "secret_passage"
+        c: "fungus_cavern"
+        d: "gathering_hall"
+        e: "torture_room"
+        f: "tunnel"
+        g: "entrance"
+      }
+      rooms: {
+        // iconSmall 用小地图的 icon*；iconLarge 用占位大地图图标（Assets/Textures/DungeonLarge）
+        entrance:       { handler: "coc:deep_cave_entrance", iconSmall: "return", iconLarge: "entrance" }
+        tunnel:         { handler: "coc:deep_cave_tunnel", iconLarge: "room" }
+        gathering_hall: { handler: "coc:deep_cave_gathering_hall", iconLarge: "room" }
+        fungus_cavern:  { handler: "coc:deep_cave_fungus_cavern", iconLarge: "room" }
+        torture_room:   { handler: "coc:deep_cave_torture_room", iconLarge: "room" }
+        secret_passage: { handler: "coc:deep_cave_secret_passage", iconLarge: "room" }
+        zetaz_chamber:  { handler: "coc:deep_cave_zetaz_chamber", iconLarge: "room" }
+      }
+      links: [
+        // 原版北门没有被锁死：进密室时（roomZetazChamber）才把门闩拉开，
+        // 所以这里不再挂 lockedBy，避免永远进不去。
+      ]
+    }
+  ]
+}

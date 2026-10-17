@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:2192-2218 / :6925-6935 Monk Stance（cost 5）
+  id: "coc:monk_stance"
+  nameKey: "Combat.Ability.MonkStance.Name"
+  descriptionKey: "Combat.Ability.MonkStance.Description"
+  type: "physical"
+  category: "physical"
+  range: "self"
+  cost: 5
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:can_fist_stance"
+  handler: "coc:monk_stance"
+}

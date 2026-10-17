@@ -1,0 +1,16 @@
+{
+  id: "coc:spell_heal"
+  nameKey: "Combat.Spell.Heal.Name"
+  descriptionKey: "Combat.Spell.Heal.Description"
+  type: "magical"
+  category: "black"
+  range: "self"
+  cost: 20
+  fatigueType: "magical_heal"
+  cooldown: 3
+  isSelf: true
+  isHeal: true
+  knownWhen: "coc:knows_heal"
+  dominikaOrder: 2
+  handler: "coc:spell_heal"
+}

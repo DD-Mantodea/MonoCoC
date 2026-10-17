@@ -1,0 +1,11 @@
+{
+  "Combat.ChameleonGirl.CameWorms": "[pg]The chameleon girl recoils. [say: Ew, gross!] she screeches as she runs away, leaving you to recover from your defeat alone."
+  "Combat.ChameleonGirl.Claws.Absorbed": "The chameleon swings her arm at you, catching you with her claws. You defend against the razor sharp attack."
+  "Combat.ChameleonGirl.Claws.Blind": "The chameleon girl completely misses you with a blind claw-attack!\n"
+  "Combat.ChameleonGirl.Claws.Hit": "The chameleon swings her arm at you, catching you with her claws. You wince as they scratch your skin, leaving thin cuts in their wake."
+  "Combat.ChameleonGirl.Claws.Miss": "The chameleon girl's claws slash towards you, but you lean away from them and they fly by in a harmless blur."
+  "Combat.ChameleonGirl.RollKick.Absorbed": "The chameleon rolls in your direction and kicks up at your chest, but you knock her aside without taking any damage..."
+  "Combat.ChameleonGirl.RollKick.Blind": "The chameleon girl completely misses you with a blind roll-kick!\n"
+  "Combat.ChameleonGirl.RollKick.Dodged": "The chameleon girl leaps in your direction, rolls, and kicks at you. You sidestep her flying charge and give her a push from below to ensure she lands face-first in the bog."
+  "Combat.ChameleonGirl.RollKick.Hit": "The chameleon leaps in your direction, rolls, and kicks you square in the shoulder as she ascends, sending you reeling. You grunt in pain as a set of sharp claws rake across your chest."
+}

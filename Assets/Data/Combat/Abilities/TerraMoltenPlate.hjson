@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:899-916 / :5977-5996 Molten Plate（连携技）
+  id: "coc:tf_molten_plate"
+  nameKey: "Combat.Terra.MoltenPlate.Name"
+  descriptionKey: "Combat.Terra.MoltenPlate.Description"
+  type: "magical"
+  category: "magical"
+  range: "self"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 0
+  availableWhen: "coc:can_tf_molten_plate"
+  disabledWhen: "coc:tf_molten_plate_active"
+  disabledTooltip: "Combat.Terra.MoltenPlate.Disabled"
+  handler: "coc:tf_molten_plate"
+}

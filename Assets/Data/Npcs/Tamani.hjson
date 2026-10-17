@@ -1,0 +1,7 @@
+{
+  id: "coc:tamani"
+  nameKey: "Npcs.Tamani.Name"
+  scene: "coc:tamani"
+  combat: ""
+  hostile: false
+}

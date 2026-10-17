@@ -1,0 +1,29 @@
+{
+  // 原版 BeeGirl（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:bee_girl"
+      type: "coc:bee_girl"
+      nameKey: "Npcs.BeeGirl.Name"
+      descriptionKey: "Npcs.BeeGirl.Desc"
+      article: "a"
+      level: 4
+      bonusHealth: 0
+      lust: 20
+      strength: 30
+      toughness: 30
+      speed: 30
+      intelligence: 20
+      libido: 60
+      sensitivity: 55
+      corruption: 0
+      gems: 15
+      experience: 0
+      ai: "coc:bee_girl_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

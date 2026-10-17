@@ -1,0 +1,35 @@
+{
+  // 原版 JellyFishGirl（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:jelly_fish_girl"
+      type: "coc:jelly_fish_girl"
+      nameKey: "Npcs.JellyFishGirl.Name"
+      descriptionKey: "Npcs.JellyFishGirl.Desc"
+      article: "the"
+      level: 4
+      bonusHealth: 50
+      lust: 10
+      strength: 40
+      toughness: 25
+      speed: 50
+      intelligence: 10
+      libido: 75
+      sensitivity: 35
+      corruption: 40
+      // 原版 gems = Utils.rand(15) + 5，运行时在 Configure 里摇
+      gems: 5
+      experience: 0
+      ai: "coc:jelly_fish_girl_ai"
+      // 原版 fireRes = 0.3（抗火）
+      fireResistance: 0.3
+      // 原版 ChainedDrop（JellyFishGirl.hx:152-154）：pipe 1/10 → slimy cloth 1/2 → green gel 兜底
+      chainLoot: true
+      loot: [
+        { item: "coc:pipe", chance: 0.1 }
+        { item: "coc:slimy_clothoth", chance: 0.5 }
+        { item: "coc:green_gel" }
+      ]
+    }
+  ]
+}

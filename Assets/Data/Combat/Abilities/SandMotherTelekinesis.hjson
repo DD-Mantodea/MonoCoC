@@ -1,0 +1,8 @@
+{
+  id: "coc:sand_mother_telekinesis"
+  type: "magical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:sand_mother_telekinesis"
+}

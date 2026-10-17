@@ -1,0 +1,7 @@
+{
+  id: "coc:jojo"
+  nameKey: "Npcs.Jojo.Name"
+  scene: "coc:jojo"
+  combat: "coc:jojo"
+  hostile: false
+}

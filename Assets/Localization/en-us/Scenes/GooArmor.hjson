@@ -1,0 +1,14 @@
+{
+  "Scenes.GooArmor.GooArmorAttackPhysical.FlexibilityTwist": "The goo-armor swings a greatsword at you in a mighty arc, but your cat-like flexibility makes it easy to twist out of the way."
+  "Scenes.GooArmor.GooArmorAttackPhysical.GoopyBladeHit": "The goo-armor rushes forward and swings her sword in a mighty arc. You aren't quite quick enough to dodge her blow, and the goopy sword slams into you, throwing you back and leaving a nasty welt. "
+  "Scenes.GooArmor.GooArmorAttackPhysical.RaphaelMisdirect": "The goo-armor swings a sword at you in a mighty arc, but your training with Raphael allows you to misdirect her into a miss!"
+  "Scenes.GooArmor.GooArmorAttackPhysical.SwordArcDodged": "The goo-armor rushes forward and swings her sword in a mighty arc, but you dodge it!"
+  "Scenes.GooArmor.GooArmorAttackPhysical.SwordArcEvaded": "The goo-armor rushes forward and swings her sword in a mighty arc, but you evade the attack!"
+  "Scenes.GooArmor.GooArmorAttackPhysical.SwordArcParried": "The goo-armor rushes forward and swings her sword in a mighty arc, but you parry it!"
+  "Scenes.GooArmor.GooArmorAttackTwoGooConsume.GooConsumeLunge": "Suddenly, the goo-girl leaks half-way out of her heavy armor and lunges at you. You attempt to dodge her attack, but she doesn't try and hit you - instead, she wraps around you, pinning your arms to your chest. More and more goo latches onto you - you'll have to fight to get out of this."
+  "Scenes.GooArmor.GooSilenceAttack.GooMouthSilence": "The goo pulls a hand off her greatsword and shoots her left wrist out towards you. You recoil as a bit of goop slaps onto your mouth, preventing you from speaking - looks like you're silenced until you can pull it off!"
+  "Scenes.GooArmor.React.GooBindLunge": "Suddenly, the goo-girl leaks half-way out of her heavy armor and lunges at you. You attempt to dodge her attack, but she doesn't try and hit you - instead, she wraps around you, pinning your arms to your chest. More and more goo latches onto you - you'll have to fight to get out of this."
+  "Scenes.GooArmor.StruggleAtGooBind.GoopPulledOff": "You finally pull the goop off of you and dive out of her reach before the goo-girl can re-attach herself to you. Pouting, she refills her suit of armor and reassumes her fighting stance."
+  "Scenes.GooArmor.StruggleAtGooBind.GoopRegrows": "You try and get out of the goo's grasp, but every bit of goop you pull off you seems to be replaced by twice as much!"
+  "Scenes.GooArmor.Won.ArmoredGooSighs": "[pg]The armored goo sighs while you exhaust yourself..."
+}

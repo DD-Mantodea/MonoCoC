@@ -1,0 +1,8 @@
+{
+  "Items.GrayBook.Desc": "This gray grimoire is adorned with beveled white and black runes. The pages are edged with gold, like some of the fancy books in the monastery back home."
+  "Items.GrayBook.Long": "a small gray book with white and black runes"
+  "Items.GrayBook.Short": "Gray Book"
+  "Items.GrayBook.SpellLeech": "You blink in surprise, assaulted by the knowledge of a <b>new spell: Leech.</b>"
+  "Items.GrayBook.SpellTKBlast": "You blink in surprise, assaulted by the knowledge of a <b>new spell: Telekinetic Blast.</b>"
+  "Items.GrayBook.Use": "You open the grimoire. It explains a unique type of magic - a hybrid of black and white magic - that becomes more powerful if you're affected, but not overwhelmed, by your emotions. In no time at all you've read the whole thing, but it disappears into thin air before you can put it away."
+}

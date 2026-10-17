@@ -1,0 +1,24 @@
+{
+  // 原版 PhoenixPyro.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:phoenix_pyro_ai"
+  actions: [
+    {
+      ability: "coc:phoenix_pyro_phoenix_platoon_fire_breath"
+      weight: 1
+      cost: 15
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:phoenix_pyro_attack"
+      weight: 3
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:phoenix_pyro_phoenix_platoon_fire_breath_two"
+      weight: 1
+      cost: 15
+      fatigueType: "physical"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  resources: [
+    { id: "coc:cabin_wood", nameKey: "Cabin.Resource.Wood", flag: "coc:camp_cabin_wood_resources", max: 999 }
+    { id: "coc:cabin_stone", nameKey: "Cabin.Resource.Stone", flag: "coc:camp_cabin_stone_resources", max: 999 }
+    { id: "coc:cabin_nails", nameKey: "Cabin.Resource.Nails", keyItem: "coc:carpenters_toolbox", value: 0, max: 200 }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "Combat.Distance.Fail": "{0} stays hot on your heels and closes the distance immediately!"
+  "Combat.Distance.Self": "You ready yourself and dash away, distancing yourself from the enemy!"
+  "Combat.Distance.Success": "You manage to distance yourself from {0}."
+}

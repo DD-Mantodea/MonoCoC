@@ -1,0 +1,27 @@
+{
+  "Scenes.SaveLoad.Delete": "Delete"
+  "Scenes.SaveLoad.Empty": "No saves yet."
+  "Scenes.SaveLoad.Load": "Load"
+  "Scenes.SaveLoad.LoadFailed": "This save could not be loaded."
+  "Scenes.SaveLoad.Name": "Saves"
+  "Scenes.SaveLoad.NewSave": "New save"
+  "Scenes.SaveLoad.Next": "Next"
+  "Scenes.SaveLoad.Previous": "Previous"
+  "Scenes.SaveLoad.Selected": "{0} ({1})"
+  "Scenes.SaveLoad.Title": "Saved games"
+  "Scenes.SaveLoad.MainInfo": "[color:#800000][b:Remember to play using a flash projector if you want things to work properly.][/color]\\nPlaying through a browser is liable to cause many different issues. Please use the official flash projector from Adobe, or else you will likely encounter bugs.\\n\\n[b:Where are my saves located?]\\nYour save files are stored in your browser's local storage.\\n\\nThe save files will be labeled CoC_1.sol, CoC_2.sol, CoC_3.sol, etc.\\n\\n[b:Why do my saves disappear all the time?]\\nThere are numerous things that will wipe out flash local shared files. If your browser or player is set to delete flash cookies or data, that will do it. CCleaner will also remove them. CoC or its updates will never remove your savegames—if they disappear, something else is wiping them out.\\n",
+  "Scenes.SaveLoad.Location": "Your save files are located in: [b:{0}]",
+  "Scenes.SaveLoad.LabelInfo": "Each save is stored as a separate JSON file in that folder.",
+  "Scenes.SaveLoad.CannotSave": "No game is loaded.",
+  "Scenes.SaveLoad.ConfirmDelete": "You are about to delete the following save: [b:{0}][pg]Are you sure you want to delete it?",
+  "Scenes.SaveLoad.Button.Save": "Save",
+  "Scenes.SaveLoad.Button.Load": "Load",
+  "Scenes.SaveLoad.Button.Delete": "Delete",
+  "Scenes.SaveLoad.Button.AutoSave": "AutoSave: {0}",
+  "Scenes.SaveLoad.Button.SaveToFile": "Save to File",
+  "Scenes.SaveLoad.Button.LoadFile": "Load File",
+  "Scenes.SaveLoad.NotesHint": "Leave the notes box at the bottom blank if you don't wish to change notes.",
+  "Scenes.SaveLoad.Button.Import": "Legacy",
+  "Scenes.SaveLoad.ImportFailed": "This original save could not be imported.",
+  "Scenes.SaveLoad.NoLegacySaves": "No legacy saves found. Put .sol/.coc files into: [b:{0}]",
+}

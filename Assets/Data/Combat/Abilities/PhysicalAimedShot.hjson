@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:2101-2115 / :6841-6872 Aimed Shot（cost 45-5*枪械精通，range Ranged）
+  id: "coc:special_aimed_shot"
+  nameKey: "Combat.Special.AimedShot.Name"
+  descriptionKey: "Combat.Special.AimedShot.Description"
+  type: "physical"
+  category: "physical"
+  range: "ranged"
+  cost: 45
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:can_aimed_shot"
+  handler: "coc:special_aimed_shot"
+}

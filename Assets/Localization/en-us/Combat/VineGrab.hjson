@@ -1,0 +1,23 @@
+{
+  "Combat.VineGrab.Name": "Vine Grab",
+  "Combat.VineGrab.Description": "Attempt to bind an enemy with your whip-like vines.",
+  "Combat.VineGrab.ConstrictName": "Constrict",
+  "Combat.VineGrab.ConstrictDescription": "Tighten your vines around the bound enemy.",
+  "Combat.VineGrab.ReleaseName": "Let Go",
+  "Combat.VineGrab.ReleaseDescription": "Release the enemy from your vines.",
+  "Combat.VineGrab.TooMany": "There are too many enemies.",
+  "Combat.VineGrab.Concentration": "Amily easily glides around your attack thanks to her complete concentration on your movements.",
+  "Combat.VineGrab.GolemWrap": "\\nSeeing the golem's arm half buried in the ground, you decide to wrap your vines around it and pull with all your strength, cringing while you resist the searing heat.",
+  "Combat.VineGrab.GolemRip": "\\nUsing your inhuman strength, you manage to rip out the golem's arm! The construct stumbles back, magma spraying from its arm socket. It doesn't seem too bothered by the loss, but it's certainly less dangerous now!",
+  "Combat.VineGrab.GolemTooWeak": "\\nYou're just not strong enough to beat the Golem's might. You unwrap your vines before the construct has a chance to strike you.",
+  "Combat.VineGrab.GolemSwat": "The golem swats you away as you attempt to grab it.",
+  "Combat.VineGrab.Grab": "You sling your vines violently at [themonster], twirling their thorny length around [monster.his] form. Yanking, you jolt [monster.him] toward you.",
+  "Combat.VineGrab.GrabFail": "Your vines lash out at [themonster], but [monster.he] manages to slip away before they can bind [monster.him].",
+  "Combat.VineGrab.Struggle": "Your prey pushes at your vines, twisting and writhing in an effort to escape from your grasp.",
+  "Combat.VineGrab.ReleaseText": "[Themonster] proves to be too much for your vines to handle, breaking free of your tightly bound tendrils.",
+  "Combat.VineGrab.StruggleFail": "Despite [themonster]'s efforts, your grasp on [monster.him] persists.",
+  "Combat.VineGrab.LetGo": "You release [themonster] from [monster.his] bonds, and [monster.he] drops to the ground, catching [monster.his] breath before [monster.he] stands back up, apparently prepared to fight some more.",
+  "Combat.VineGrab.ConstrictTired": "You are too tired to constrict [themonster].",
+  "Combat.VineGrab.ConstrictText": "Tensing up, the obsidian vines bite into [themonster]'s flesh.",
+  "Combat.VineGrab.ConstrictFaint": "You can feel [themonster]'s life signs beginning to fade, and before you crush all the life from [monster.him], you let go, dropping [monster.him] to the floor, unconscious but alive. In no time, [monster.his] eyelids begin fluttering, and you've no doubt [monster.he]'ll regain consciousness soon. "
+}

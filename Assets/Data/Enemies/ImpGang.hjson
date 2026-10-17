@@ -1,0 +1,38 @@
+{
+  // 原版 ImpGang（src/classes/scenes/camp/ImpGang.hx）
+  // 数值来自构造函数；血量不走基类公式，由 ImpGangEnemy.Configure 用 unitAmount*100 覆写。
+  enemies: [
+    {
+      id: "coc:imp_gang"
+      type: "coc:imp_gang"
+      nameKey: "Npcs.ImpGang.Name"
+      descriptionKey: "Npcs.ImpGang.Desc"
+      article: "a"
+      // 原版 Monster.plural = true；pronoun1-3 = they/them/their
+      plural: true
+      pronoun1: "they"
+      pronoun2: "them"
+      pronoun3: "their"
+      level: 10
+      // 原版 maxHP() = unitAmount * 100（ImpGang.hx:18-20），bonusHP/基类公式都不参与
+      bonusHealth: 0
+      lust: 30
+      strength: 70
+      toughness: 40
+      speed: 75
+      intelligence: 42
+      libido: 55
+      sensitivity: 35
+      corruption: 100
+      // 原版 gems = Utils.rand(15) + 25，运行时在 Configure 里摇
+      gems: 25
+      experience: 0
+      ai: "coc:imp_gang_ai"
+      weaponAttack: 10
+      armorDefense: 3
+      // 原版 drop = NO_DROP（ImpGang.hx:74）
+      loot: [
+      ]
+    }
+  ]
+}

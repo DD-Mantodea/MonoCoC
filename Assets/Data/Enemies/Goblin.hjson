@@ -1,0 +1,29 @@
+{
+  // 原版 Goblin（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:goblin"
+      type: "coc:goblin"
+      nameKey: "Npcs.Goblin.Name"
+      descriptionKey: "Npcs.Goblin.Desc"
+      article: "the"
+      level: 1
+      bonusHealth: 0
+      lust: 50
+      strength: 12
+      toughness: 13
+      speed: 35
+      intelligence: 42
+      libido: 45
+      sensitivity: 45
+      corruption: 60
+      gems: 5
+      experience: 0
+      ai: "coc:goblin_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  // 原版 CombatAbilities.hx:3769 mermaidChant()（美人鱼之歌，需 MermaidChant 天赋）
+  id: "coc:mermaid_chant"
+  type: "magical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:mermaid_chant"
+  availableWhen: "coc:mermaid_chant_available"
+}

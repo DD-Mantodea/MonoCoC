@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:2117-2127 / :6815-6835 Skirmish（cost 15，任意远程武器）
+  id: "coc:special_skirmish"
+  nameKey: "Combat.Special.Skirmish.Name"
+  descriptionKey: "Combat.Special.Skirmish.Description"
+  type: "physical"
+  category: "physical"
+  range: "ranged"
+  cost: 15
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:can_skirmish"
+  handler: "coc:special_skirmish"
+}

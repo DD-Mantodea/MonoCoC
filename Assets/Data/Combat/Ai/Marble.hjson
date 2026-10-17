@@ -1,0 +1,24 @@
+{
+  // 原版 Marble.performCombatAction（Marble.hx:75）：三招等权 1，后两招各 15 点物理疲劳
+  id: "coc:marble_ai"
+  actions: [
+    {
+      ability: "coc:marble_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:marble_special_attack_one"
+      weight: 1
+      cost: 15
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:marble_special_attack_two"
+      weight: 1
+      cost: 15
+      fatigueType: "physical"
+    }
+  ]
+}

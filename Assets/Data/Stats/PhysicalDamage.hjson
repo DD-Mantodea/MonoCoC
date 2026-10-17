@@ -1,0 +1,7 @@
+{
+  "id": "coc:physical_damage",
+  "default": 0,
+  "higherIsBetter": true,
+  "format": "percent",
+  "visible": true
+}

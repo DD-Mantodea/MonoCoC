@@ -1,0 +1,7 @@
+{
+  id: "coc:erl_king"
+  nameKey: "Npcs.ErlKing.Name"
+  scene: "coc:erl_king"
+  combat: ""
+  hostile: false
+}

@@ -1,0 +1,34 @@
+{
+  // 原版 classes/scenes/areas/desert/Ghoul.hx
+  // 数值来自构造函数：level 4、bonusHP 100、gems rand(25)+5、weaponAttack rand(4)+2、armorDef rand(5)+2
+  // lustVuln = 0（幽灵不吃挑逗）、temperment = AVOID_GRAPPLES、drop = Ectoplasm
+  enemies: [
+    {
+      id: "coc:ghoul"
+      type: "coc:ghoul"
+      article: "the"
+      level: 4
+      bonusHealth: 100
+      lust: 0
+      strength: 20
+      toughness: 15
+      speed: 20
+      intelligence: 15
+      libido: 0
+      sensitivity: 0
+      corruption: 60
+      gems: 15
+      experience: 0
+      weaponAttack: 4
+      armorDefense: 4
+      ai: "coc:ghoul_ai"
+      weightedLoot: true
+      loot: [
+        {
+          item: "coc:ectoplasm"
+          chance: 1
+        }
+      ]
+    }
+  ]
+}

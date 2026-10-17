@@ -1,0 +1,8 @@
+{
+  id: "coc:naga_poison_bite"
+  type: "physical"
+  range: "melee"
+  cost: 5
+  cooldown: 0
+  handler: "coc:naga_poison_bite"
+}

@@ -1,0 +1,6 @@
+{
+  // 火焰：造成伤害后，若玩家穿藤甲或自然分数高，按伤害比例涨疲劳（原版 Player.hx:882）
+  id: "coc:fire"
+  nameKey: "Combat.DamageType.Fire"
+  handler: "coc:damage_fire"
+}

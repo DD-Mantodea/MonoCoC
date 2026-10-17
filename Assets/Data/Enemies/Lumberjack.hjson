@@ -1,0 +1,29 @@
+{
+  // 原版 Lumberjack（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:lumberjack"
+      type: "coc:lumberjack"
+      nameKey: "Npcs.Lumberjack.Name"
+      descriptionKey: "Npcs.Lumberjack.Desc"
+      article: "the"
+      level: 6
+      bonusHealth: 100
+      lust: 50
+      strength: 40
+      toughness: 40
+      speed: 25
+      intelligence: 35
+      libido: 80
+      sensitivity: 70
+      corruption: 100
+      gems: 25
+      experience: 0
+      ai: "coc:lumberjack_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

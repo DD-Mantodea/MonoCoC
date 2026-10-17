@@ -1,0 +1,8 @@
+{
+  "Combat.Special.GrandThrust.Name": "Grand Thrust",
+  "Combat.Special.GrandThrust.Description": "Close the gap and pierce your foe with your spear with a powerful thrust that completely ignores armor and deals extra damage.",
+  "Combat.Special.GrandThrust.Disabled": "You cannot execute this ability at melee range!",
+  "Combat.Special.GrandThrust.Intro": "You jump back, twirling your [weapon] around your arms before landing, your body ready to spring forward and the tip of your spear pointed at [themonster].",
+  "Combat.Special.GrandThrust.Miss": "[pg][Themonster] is ready, and [monster.he] manages to twist its body out of the way just in time to frustrate your fierce attack!",
+  "Combat.Special.GrandThrust.Hit": "[pg]Your attack is successful, your [weapon] brutally and swiftly piercing through any defense [themonster] had and causing a grievous wound!"
+}

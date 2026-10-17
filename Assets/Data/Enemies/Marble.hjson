@@ -1,0 +1,32 @@
+{
+  // 原版 Marble（src/classes/scenes/npcs/Marble.hx，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:marble"
+      type: "coc:marble"
+      nameKey: "Npcs.Marble.Name"
+      descriptionKey: "Npcs.Marble.Desc"
+      article: ""
+      level: 7
+      // 原版没有 bonusHP（Marble.hx:83-118 的 new() 里没有 bonusHP 赋值）
+      bonusHealth: 0
+      lust: 0
+      strength: 75
+      toughness: 70
+      speed: 35
+      intelligence: 40
+      libido: 25
+      sensitivity: 45
+      corruption: 40
+      // 原版 gems = Utils.rand(5) + 25：实际值在 MarbleEnemy.Configure 里现算，这里只当占位
+      gems: 30
+      experience: 0
+      ai: "coc:marble_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 Marble.hx:113 drop = new WeightedDrop(weapons.L_HAMMR, 1)
+        { item: "coc:marbles_hammer", weight: 1 }
+      ]
+    }
+  ]
+}

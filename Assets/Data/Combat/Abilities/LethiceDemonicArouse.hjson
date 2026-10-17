@@ -1,0 +1,8 @@
+{
+  id: "coc:lethice_demonic_arouse"
+  type: "magical"
+  range: "ranged"
+  cost: 15
+  cooldown: 0
+  handler: "coc:lethice_demonic_arouse"
+}

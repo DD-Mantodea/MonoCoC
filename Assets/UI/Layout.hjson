@@ -1,0 +1,35 @@
+{
+  screenWidth: 1600
+  screenHeight: 900
+
+  buttonWidth: 150
+  buttonHeight: 40
+  buttonLabelY: 11
+
+  textFont: "pala"
+  textSize: 16
+
+  textZoneX: 208
+  textZoneY: 52
+  textZoneWidth: 770
+  textZoneHeight: 602
+  textZonePadding: 16
+
+  combatStatsX: 760
+  combatStatsY: 52
+  combatStatsWidth: 230
+  combatStatsHeight: 190
+  combatTextZoneWidth: 548
+
+  slotCount: 15
+  bottomColumns: 5
+  bottomRows: 3
+  bottomX: 211
+  bottomY: 668
+  bottomWidth: 770
+  bottomHeight: 132
+
+  inputWidth: 165
+  inputHeight: 25
+  inputNameMaxChars: 16
+}

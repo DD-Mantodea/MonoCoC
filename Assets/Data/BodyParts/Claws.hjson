@@ -1,0 +1,19 @@
+{
+  "kind": "coc:claws",
+  "default": "coc:normal",
+  "types": [
+    { "id": "coc:normal" },
+    { "id": "coc:lizard", "form": "short" },
+    { "id": "coc:dragon", "form": "dragon" },
+    { "id": "coc:salamander", "form": "short" },
+    { "id": "coc:cat", "form": "cat" },
+    { "id": "coc:dog", "form": "short" },
+    { "id": "coc:fox", "form": "short" },
+    { "id": "coc:mantis" },
+    { "id": "coc:imp", "form": "coc:imp" },
+    { "id": "coc:cockatrice" },
+    { "id": "coc:red_panda", "form": "short" },
+    { "id": "coc:ferret", "form": "short" },
+    { "id": "coc:wolf", "form": "short" }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "Combat.Common.Goblin.Child": "A goblin saunters out of the bushes with a dangerous glint in her eyes.[pg][say: Seldom see a traveler so close to my size, and you certainly don't look like any imp I've ever seen,] she says, continuing, [say: That makes it all the more fun to hold you down and fuck you like the little slut you are.]"
+  "Combat.Common.Goblin.Default": "A goblin saunters out of the bushes with a dangerous glint in her eyes.[pg]She says, [say: Time to get fucked, {0}.]"
+  "Combat.Common.Goblin.Genderless": "A goblin saunters out of the bushes with a dangerous glint in her eyes.[pg]She says, [say: Time to get fuc-oh shit, you don't even have anything to play with! This is for wasting my time!]"
+  "Combat.Common.Imp.Descend": "Imps descend from the sky, malice and lust in their eyes."
+  "Combat.Common.Imp.One": "An imp wings out of the sky and attacks!"
+  "Combat.Common.Imp.Three.A": "A trio of imps scampering around catches your attention, and when one notices you, he falls backward in unexpected shock. The group readies for a fight."
+  "Combat.Common.Imp.Three.B": "Three imps scramble on the ground a distance away, making a bit of a ruckus. One, looking annoyed as he lies prone, sees you. [say: We'll take this one instead, guys!] he yells. The other two abandon their fight and begin to approach."
+  "Combat.Common.Imp.Three.C": "Flapping overhead are three imps, and as \"luck\" would have it, two bump into each other and tumble rapidly down, nearly colliding with you. The third lands shortly after, slapping the others and directing them your way."
+  "Combat.Common.Imp.Two.A": "A pair of scuffling imps can be heard a short ways away, and as misfortune has it, they catch you in their sights, abandoning whatever argument they were engaged with."
+  "Combat.Common.Imp.Two.B": "The sound of two prattling imps perks your [ears], and one of them notices you shortly after, devolving into a fight in short order."
+  "Combat.Common.Imp.Two.C": "With a loud flap from small wings, an imp dashes out of hiding ahead of you! As you raise your [weapon], a second imp attempts to fly over you, landing on the other side clumsily. It's two on one."
+  "Combat.Common.TwoImps.Text": "A small imp bursts from behind a rock and buzzes towards you. You prepare for a fight, but it stays high and simply flies above you. Suddenly another imp appears from nowhere and attacks the first. In the tussle one of them drops an item, which you handily catch, as the scrapping demons fight their way out of sight. "
+}

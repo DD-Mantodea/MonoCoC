@@ -1,0 +1,8 @@
+{
+  id: "coc:yeti_tackle_tumble"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:yeti_tackle_tumble"
+}

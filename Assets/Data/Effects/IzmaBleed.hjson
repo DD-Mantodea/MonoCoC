@@ -1,0 +1,12 @@
+{
+  id: "coc:izma_bleed"
+  nameKey: "Combat.Effect.Bleed.Name"
+  descriptionKey: "Combat.Effect.Bleed.Description"
+  kind: "combat"
+  // 持续时间由施加方决定（Bleed 的 duration 参数），所以这里不写默认值
+  duration: 0
+  stacking: "refresh"
+  combatOnly: true
+  onRound: "coc:effect_bleed_round"
+  onExpire: "coc:effect_bleed_expire"
+}

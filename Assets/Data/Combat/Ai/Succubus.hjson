@@ -1,0 +1,24 @@
+{
+  // 原版 Succubus.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:succubus_ai"
+  actions: [
+    {
+      ability: "coc:succubus_kiss_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:succubus_seduce_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:succubus_barrage"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

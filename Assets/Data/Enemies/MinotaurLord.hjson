@@ -1,0 +1,35 @@
+{
+  // 原版 MinotaurLord（src/classes/scenes/quests/urtaQuest/MinotaurLord.hx）
+  // 数值来自构造函数；形态描述与掉落随 URTA_QUEST_STATUS 变化（数据表按非任务线写）。
+  enemies: [
+    {
+      id: "coc:minotaur_lord"
+      type: "coc:minotaur_lord"
+      nameKey: "Npcs.MinotaurLord.Name"
+      descriptionKey: "Npcs.MinotaurLord.Desc"
+      article: "the"
+      level: 15
+      bonusHealth: 700
+      lust: 50
+      strength: 125
+      toughness: 90
+      speed: 30
+      intelligence: 30
+      libido: 70
+      sensitivity: 25
+      corruption: 85
+      // 原版 gems = Utils.rand(15) + 25，运行时在 Configure 里摇
+      gems: 25
+      experience: 0
+      ai: "coc:minotaur_lord_ai"
+      // 原版非任务线 ChainedDrop：MINOCUM 1/5 → MINOBLO 1/2 → 空（MinotaurLord.hx:227-233）
+      // 任务线（URTA_QUEST_STATUS==0.75）是 NO_DROP；Urta 任务线未移植，数据表按非任务线写。
+      chainLoot: true
+      loot: [
+        { item: "coc:minotaur_cum", chance: 0.2 }
+        { item: "coc:minotaur_blood", chance: 0.5 }
+        { nothing: true }
+      ]
+    }
+  ]
+}

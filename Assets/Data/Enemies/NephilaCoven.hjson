@@ -1,0 +1,23 @@
+{
+  enemies: [
+    {
+      id: "coc:nephila_coven"
+      type: "coc:nephila_coven"
+      nameKey: "Enemies.NephilaCoven.Name"
+      descriptionKey: "Enemies.NephilaCoven.Desc"
+      level: 9
+      bonusHealth: 200
+      lust: 30
+      strength: 65
+      toughness: 40
+      speed: 80
+      intelligence: 80
+      libido: 75
+      sensitivity: 15
+      corruption: 100
+      gems: 40
+      experience: 80
+      ai: ""
+    }
+  ]
+}

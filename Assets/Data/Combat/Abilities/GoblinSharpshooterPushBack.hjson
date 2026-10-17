@@ -1,0 +1,9 @@
+{
+  id: "coc:goblin_sharpshooter_push_back"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  fatigueType: "physical"
+  cooldown: 0
+  handler: "coc:goblin_sharpshooter_push_back"
+}

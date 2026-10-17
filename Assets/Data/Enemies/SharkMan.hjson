@@ -1,0 +1,28 @@
+{
+  // 原版 SharkMan（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:shark_man"
+      type: "coc:shark_man"
+      nameKey: "Npcs.SharkMan.Name"
+      descriptionKey: "Npcs.SharkMan.Desc"
+      article: "the"
+      level: 15
+      bonusHealth: 300
+      lust: 10
+      strength: 75
+      toughness: 85
+      speed: 80
+      intelligence: 40
+      libido: 75
+      sensitivity: 25
+      corruption: 40
+      gems: 15
+      experience: 0
+      ai: "coc:shark_man_ai"
+      // 原版 drop = NO_DROP（SharkMan.hx:143）
+      loot: [
+      ]
+    }
+  ]
+}

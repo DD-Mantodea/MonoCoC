@@ -1,0 +1,8 @@
+{
+  id: "coc:nameless_horror_conjoin"
+  type: "magical"
+  range: "omni"
+  cost: 0
+  cooldown: 0
+  handler: "coc:nameless_horror_conjoin"
+}

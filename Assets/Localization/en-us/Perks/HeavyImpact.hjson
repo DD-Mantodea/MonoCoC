@@ -1,0 +1,4 @@
+{
+  "Perks.HeavyImpact.Desc": "[if (str>60) {Doubles damage bonus of weapons classified as 'Large'.|<b>You aren't strong enough to benefit from this anymore.</b>}]"
+  "Perks.HeavyImpact.Name": "Heavy Impact"
+}

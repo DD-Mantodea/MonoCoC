@@ -1,0 +1,8 @@
+{
+  id: "coc:ivory_succubus_arouse"
+  type: "magical"
+  range: "omni"
+  cost: 10
+  cooldown: 0
+  handler: "coc:ivory_succubus_arouse"
+}

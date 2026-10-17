@@ -1,0 +1,14 @@
+{
+  "Combat.Monster.Attack.Absorbed": "You absorb and deflect every {0} with your {1}."
+  "Combat.Monster.Attack.BrutalBlows": "\n[Themonster]'s hits are so brutal that they damage your defenses!"
+  "Combat.Monster.Attack.Critical": "<b>Critical hit! </b>"
+  "Combat.Monster.Attack.Damage": "<b>({0})</b>"
+  "Combat.Monster.Attack.Deflected": "You deflect and block every blow [themonster] throws at you. "
+  "Combat.Monster.Attack.Glancing": "You are struck a glancing blow by [themonster]! "
+  "Combat.Monster.Attack.Mutilate": "[themonster] <b>mutilates</b> you with {0} powerful {1}! "
+  "Combat.Monster.Attack.ParryCounter": "You parry and counter the enemy's attack!"
+  "Combat.Monster.Attack.SeverTendons": "\n[Themonster]'s precision strikes partially cripple you, damaging your strength and speed!"
+  "Combat.Monster.Attack.Stagger": "[themonster] staggers you with the force of {0} {1}! "
+  "Combat.Monster.Attack.Wound": "[themonster] wounds you! "
+  "Combat.Monster.CameWormsIndifferent": "[pg]Your opponent doesn't seem to care."
+}

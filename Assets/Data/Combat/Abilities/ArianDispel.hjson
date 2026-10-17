@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1277-1283 / :2575-2661 dispellingSpell
+  id: "coc:arian_dispel"
+  nameKey: "Combat.Arian.Talisman.Dispel.Name"
+  descriptionKey: "Combat.Arian.Talisman.Dispel.Description"
+  type: "magical"
+  category: "magical"
+  range: "omni"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:arian_dispel_available"
+  handler: "coc:arian_dispel"
+}

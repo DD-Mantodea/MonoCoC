@@ -1,0 +1,16 @@
+{
+  "Combat.DragonBreath.Name": "Dragon Breath",
+  "Combat.DragonBreath.Description": "Unleash fire from your mouth. This can only be done once a day.",
+  "Combat.DragonBreath.Disabled": "Your burning throat reminds you that you're not yet ready to unleash dragonfire again.",
+  "Combat.DragonBreath.Roar": "Tapping into the power deep within you, you let loose a bellowing roar at your enemy, so forceful that even the environs crumble around [monster.him]![pg-]",
+  "Combat.DragonBreath.LivingStatue": "The fire courses by the stone skin harmlessly. It does leave the surface of the statue glossier in its wake.",
+  "Combat.DragonBreath.GolemNoCare": "The Golem doesn't seem to care about the flames.",
+  "Combat.DragonBreath.GolemStun1": "[pg-]Unable to cover itself, the massive shockwave caused by the roar hits the golem, stunning and toppling him!",
+  "Combat.DragonBreath.GolemStun2": "[pg-]The golem's rock plates slide off, revealing its molten interior. [b:This is your chance to attack!]",
+  "Combat.DragonBreath.GolemFrenzy": "[pg-]In its anger, the Golem is able to power through the massive shockwave caused by your roar, losing a few rock plates in the process, but resisting being stunned.",
+  "Combat.DragonBreath.Intro": "[Themonster] does [monster.his] best to avoid it, but the wave of force is too fast.",
+  "Combat.DragonBreath.Sandstorm": " [b:Your breath is massively dissipated by the swirling vortex, causing it to hit with far less force!]",
+  "Combat.DragonBreath.Miss": " Despite the heavy impact caused by your roar, [themonster] manages to take it at an angle and remain on [monster.his] feet and focuses on you, ready to keep fighting.",
+  "Combat.DragonBreath.Stunned": " [Themonster] reels as your wave of force slams into [monster.him] like a ton of rock! The impact sends [monster.him] crashing to the ground, too dazed to strike back!",
+  "Combat.DragonBreath.Resolute": " [Themonster] reels as your wave of force slams into [monster.him] like a ton of rock! The impact sends [monster.him] staggering back, but [monster.he] {0} too resolute to be stunned by your attack."
+}

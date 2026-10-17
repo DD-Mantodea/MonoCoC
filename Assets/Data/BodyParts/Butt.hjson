@@ -1,0 +1,35 @@
+{
+  kind: coc:butt
+  default: coc:normal
+  types:
+  [
+    {
+      id: "coc:normal"
+      // 臀围档位表：rating >= min 时取该档；keys 按 toneLevel（0/1/2）给候选 key，随机取一个。
+      // 数据来自原 Appearance.ButtDescript 的 if 链 + Pick 列表，顺序与原版一致。
+      ratings: [
+        { min: 20, keys: { "2": ["Appearance.Butt.ColossalMusclyAss", "Appearance.Butt.GinormousMuscleBound", "Appearance.Butt.ColossalYetToned", "Appearance.Butt.StrongTremendouslyLarge", "Appearance.Butt.TremendousMuscled", "Appearance.Butt.GinormousToned", "Appearance.Butt.ColossalWellDefined"], "1": ["Appearance.Butt.Ginormous", "Appearance.Butt.Colossal", "Appearance.Butt.Tremendous", "Appearance.Butt.Gigantic"], "0": ["Appearance.Butt.GinormousJiggly", "Appearance.Butt.PlushGinormous", "Appearance.Butt.SeamDestroying", "Appearance.Butt.TremendousRounded", "Appearance.Butt.BouncyColossal", "Appearance.Butt.ThongDevouring", "Appearance.Butt.TremendousThicklyPadded", "Appearance.Butt.GinormousSlappable", "Appearance.Butt.GiganticRippling", "Appearance.Butt.Gigantic", "Appearance.Butt.Ginormous", "Appearance.Butt.Colossal", "Appearance.Butt.Tremendous"] } }
+        { min: 16, keys: { "2": ["Appearance.Butt.HugeToned", "Appearance.Butt.VastMuscular", "Appearance.Butt.VastWellBuilt", "Appearance.Butt.HugeMuscular", "Appearance.Butt.StrongImmense", "Appearance.Butt.MuscleBound"], "1": ["Appearance.Butt.JigglingExpanseOfAss", "Appearance.Butt.CopiousAssFlesh", "Appearance.Butt.Huge", "Appearance.Butt.Vast", "Appearance.Butt.Giant"], "0": ["Appearance.Butt.VastCushiony", "Appearance.Butt.HugePlump", "Appearance.Butt.ExpansiveJiggling", "Appearance.Butt.HugeCushiony", "Appearance.Butt.HugeSlappable", "Appearance.Butt.SeamBursting", "Appearance.Butt.PlushVast", "Appearance.Butt.GiantSlappable", "Appearance.Butt.Giant", "Appearance.Butt.Huge", "Appearance.Butt.SwollenPillowLike"] } }
+        { min: 13, keys: { "2": ["Appearance.Butt.ExpansiveMuscled", "Appearance.Butt.VoluminousRippling", "Appearance.Butt.GenerousPowerful", "Appearance.Butt.BigBurly", "Appearance.Butt.WellBuiltVoluminous", "Appearance.Butt.Powerful", "Appearance.Butt.Muscular", "Appearance.Butt.PowerfulExpansive"], "1": ["Appearance.Butt.Expansive", "Appearance.Butt.Generous", "Appearance.Butt.Voluminous", "Appearance.Butt.Wide"], "0": ["Appearance.Butt.PillowLike", "Appearance.Butt.GenerousCushiony", "Appearance.Butt.WidePlush", "Appearance.Butt.SoftGenerous", "Appearance.Butt.ExpansiveSqueezable", "Appearance.Butt.Slappable", "Appearance.Butt.ThicklyPadded", "Appearance.Butt.WideJiggling", "Appearance.Butt.Wide", "Appearance.Butt.Voluminous", "Appearance.Butt.SoftPadded"] } }
+        { min: 10, keys: { "2": ["Appearance.Butt.ThickMuscular", "Appearance.Butt.BigBurly", "Appearance.Butt.HeavyPowerful", "Appearance.Butt.SpaciousMuscular", "Appearance.Butt.TonedClothStraining", "Appearance.Butt.Thick", "Appearance.Butt.ThickStrong"], "1": ["Appearance.Butt.Jiggling", "Appearance.Butt.Spacious", "Appearance.Butt.Heavy", "Appearance.Butt.ClothStraining"], "0": ["Appearance.Butt.SuperSoftJiggling", "Appearance.Butt.SpaciousCushy", "Appearance.Butt.PlushClothStraining", "Appearance.Butt.SqueezableOverSized", "Appearance.Butt.Spacious", "Appearance.Butt.HeavyCushiony", "Appearance.Butt.SlappableThick", "Appearance.Butt.Jiggling", "Appearance.Butt.Spacious", "Appearance.Butt.SoftPlump"] } }
+        { min: 8, keys: { "2": ["Appearance.Butt.LargeMuscular", "Appearance.Butt.SubstantialToned", "Appearance.Butt.BigButTight", "Appearance.Butt.SqueezableToned", "Appearance.Butt.LargeBrawny", "Appearance.Butt.BigButFit", "Appearance.Butt.PowerfulSqueezable", "Appearance.Butt.Large"], "1": ["Appearance.Butt.Squeezable", "Appearance.Butt.Large", "Appearance.Butt.Substantial"], "0": ["Appearance.Butt.LargeBouncy", "Appearance.Butt.SoftEyeCatching", "Appearance.Butt.BigSlappable", "Appearance.Butt.SoftPinchable", "Appearance.Butt.LargePlush", "Appearance.Butt.Squeezable", "Appearance.Butt.Cushiony", "Appearance.Butt.Plush", "Appearance.Butt.PleasantlyPlump"] } }
+        { min: 6, keys: { "2": ["Appearance.Butt.FullToned", "Appearance.Butt.MusclyHandfulOf", "Appearance.Butt.ShapelyToned", "Appearance.Butt.MuscularHandFilling", "Appearance.Butt.ShapelyChiseled", "Appearance.Butt.Full", "Appearance.Butt.Chiseled"], "1": ["Appearance.Butt.HandfulOf", "Appearance.Butt.Full", "Appearance.Butt.Shapely", "Appearance.Butt.HandFilling"], "0": ["Appearance.Butt.SuppleHandfulOfAss", "Appearance.Butt.SomewhatJiggly", "Appearance.Butt.SoftHandFilling", "Appearance.Butt.CushionyFull", "Appearance.Butt.PlushShapely", "Appearance.Butt.Full", "Appearance.Butt.SoftShapely", "Appearance.Butt.RoundedSpongy"] } }
+        { min: 4, keys: { "2": ["Appearance.Butt.NicelyMuscled", "Appearance.Butt.NiceToned", "Appearance.Butt.Muscly", "Appearance.Butt.NiceToned", "Appearance.Butt.Toned", "Appearance.Butt.Fair"], "1": ["Appearance.Butt.Nice", "Appearance.Butt.Fair"], "0": ["Appearance.Butt.NiceCushiony", "Appearance.Butt.Soft", "Appearance.Butt.NicelyRoundedHeartShaped", "Appearance.Butt.Cushy", "Appearance.Butt.SoftSqueezable"] } }
+        { min: 2, keys: { "2": ["Appearance.Butt.PerkyMuscular", "Appearance.Butt.TightToned", "Appearance.Butt.CompactMuscular", "Appearance.Butt.Tight", "Appearance.Butt.MuscularToned"], "1": ["Appearance.Butt.Tight", "Appearance.Butt.Firm", "Appearance.Butt.Compact", "Appearance.Butt.Petite"], "0": ["Appearance.Butt.SmallHeartShaped", "Appearance.Butt.SoftCompact", "Appearance.Butt.SoftHeartShaped", "Appearance.Butt.SmallCushy", "Appearance.Butt.Small", "Appearance.Butt.Petite", "Appearance.Butt.Snug"] } }
+      ]
+      // 最低档（< Tight）的特殊处理：高 Tone 直接给字符串，否则随机；另有随机「仍柔软」后缀
+      lowest: {
+        firmText: "incredibly tight, perky "
+        keys: ["Appearance.Butt.Tiny", "Appearance.Butt.VerySmall", "Appearance.Butt.Dainty"]
+        softKey: "Appearance.Butt.YetSoft"
+      }
+      // 结尾随机重复的词（原版 description 以空格结尾时补一个名词）
+      suffixKeys: ["Appearance.Butt.Butt", "Appearance.Butt.Butt", "Appearance.Butt.Butt", "Appearance.Butt.Butt", "Appearance.Butt.Ass", "Appearance.Butt.Ass", "Appearance.Butt.Ass", "Appearance.Butt.Ass", "Appearance.Butt.Backside", "Appearance.Butt.Backside", "Appearance.Butt.Derriere", "Appearance.Butt.Rump", "Appearance.Butt.Bottom"]
+      // 具名锚点：内容代码按名字取评分（不再用 ButtRating 常量类）
+      anchors: {
+        buttless: 0, tight: 2, average: 4, noticeable: 6, large: 8,
+        jiggly: 10, expansive: 13, huge: 16, inconceivablyBig: 20
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  // 原版 Gnoll（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:gnoll"
+      type: "coc:gnoll"
+      nameKey: "Npcs.Gnoll.Name"
+      descriptionKey: "Npcs.Gnoll.Desc"
+      article: "the"
+      level: 14
+      bonusHealth: 250
+      lust: 30
+      strength: 80
+      toughness: 70
+      speed: 75
+      intelligence: 60
+      libido: 65
+      sensitivity: 25
+      corruption: 60
+      gems: 0
+      experience: 0
+      ai: "coc:gnoll_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

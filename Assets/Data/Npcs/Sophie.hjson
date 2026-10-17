@@ -1,0 +1,7 @@
+{
+  id: "coc:sophie"
+  nameKey: "Npcs.Sophie.Name"
+  scene: "coc:sophie"
+  combat: ""
+  hostile: false
+}

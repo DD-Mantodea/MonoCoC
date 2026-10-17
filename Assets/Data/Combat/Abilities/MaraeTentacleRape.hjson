@@ -1,0 +1,8 @@
+{
+  id: "coc:marae_tentacle_rape"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:marae_tentacle_rape"
+}

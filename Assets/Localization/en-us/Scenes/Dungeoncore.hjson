@@ -1,0 +1,4 @@
+{
+  "Scenes.Dungeoncore.Move.RoomFunctionMissing": "Error: Room entry function for room indexed as '{0}' was not set."
+  "Scenes.Dungeoncore.Move.RoomNotFoundError": "Error: Couldn't find the room indexed as: {0}"
+}

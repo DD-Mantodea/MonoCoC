@@ -1,0 +1,39 @@
+{
+  // 原版 FetishZealot（src/classes/scenes/areas/lake/FetishZealot.hx:84 的构造函数）
+  // level/lust/属性/gems 都在 FetishZealotEnemy.Configure 里现算（gems 是 5 + rand(10)），
+  // 这里的数值只是占位，不要在数据侧再叠一次。
+  enemies: [
+    {
+      id: "coc:fetish_zealot"
+      type: "coc:fetish_zealot"
+      nameKey: "Npcs.FetishZealot.Name"
+      descriptionKey: "Npcs.FetishZealot.Desc"
+      article: "the"
+      level: 5
+      bonusHealth: 0
+      lust: 25
+      strength: 35
+      toughness: 35
+      speed: 30
+      intelligence: 1
+      libido: 75
+      sensitivity: 80
+      corruption: 90
+      gems: 5
+      experience: 0
+      ai: "coc:fetish_zealot_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop().add(armors.C_CLOTH, 1).add(consumables.L_DRAFT, 4)
+        //                   .add(weapons.L_DAGGR, 1)
+        //                   .add((undergarments.SEA_SHIRT.isGoneCompletely() ? SEA_SHIRT : null), 4)
+        { item: "coc:comfortable_clothes", weight: 1 }
+        { item: "coc:lust_draft", weight: 4 }
+        { item: "coc:lust_dagger", weight: 1 }
+        // 原版最后一条是「若 Sea Shirt 已经用掉就再掉一件，否则什么都不掉」。
+        // 这个条件依赖玩家衣柜状态，数据表表达不了，暂按「什么都不掉」处理，条件版本待补。
+        { nothing: true, weight: 4 }
+      ]
+    }
+  ]
+}

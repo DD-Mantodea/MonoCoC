@@ -1,0 +1,8 @@
+{
+  id: "coc:sentinel_of_apostasy_piercing_strike"
+  type: "physical"
+  range: "charging_melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:sentinel_of_apostasy_piercing_strike"
+}

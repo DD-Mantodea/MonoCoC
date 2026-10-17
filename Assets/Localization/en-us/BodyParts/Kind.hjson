@@ -1,0 +1,17 @@
+{
+  "BodyParts.Kind.Arms.Name": "Arms"
+  "BodyParts.Kind.Beard.Name": "Beard"
+  "BodyParts.Kind.Claws.Name": "Claws"
+  "BodyParts.Kind.Eyes.Name": "Eyes"
+  "BodyParts.Kind.Face.Name": "Face"
+  "BodyParts.Kind.Hair.Name": "Hair"
+  "BodyParts.Kind.Horns.Name": "Horns"
+  "BodyParts.Kind.LowerBody.Name": "Lower Body"
+  "BodyParts.Kind.Neck.Name": "Neck"
+  "BodyParts.Kind.RearBody.Name": "Rear Body"
+  "BodyParts.Kind.Skin.Name": "Skin"
+  "BodyParts.Kind.Tail.Name": "Tail"
+  "BodyParts.Kind.Tongue.Name": "Tongue"
+  "BodyParts.Kind.UnderBody.Name": "Under Body"
+  "BodyParts.Kind.Wings.Name": "Wings"
+}

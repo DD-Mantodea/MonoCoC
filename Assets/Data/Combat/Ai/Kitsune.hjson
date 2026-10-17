@@ -1,0 +1,10 @@
+{
+  id: "coc:kitsune_ai"
+  actions: [
+    { ability: "coc:kitsune_fox_fire", weight: 2, fatigueType: "none" }
+    { ability: "coc:kitsune_tease", weight: 2, fatigueType: "none" }
+    { ability: "coc:kitsune_seal", weight: 2, cost: 10, fatigueType: "magical" }
+    { ability: "coc:kitsune_entwine", weight: 1, cost: 10, fatigueType: "physical" }
+    { ability: "coc:kitsune_illusion", weight: 1, cost: 10, fatigueType: "magical" }
+  ]
+}

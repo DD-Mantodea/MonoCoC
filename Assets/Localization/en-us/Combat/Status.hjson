@@ -1,0 +1,7 @@
+{
+  "Combat.Status.Blind.EyesCleared": "<b>Your eyes have cleared and you are no longer blind!</b>[pg]"
+  "Combat.Status.Blind.StillBlind": "<b>You are blind, and many physical attacks will miss much more often.</b>[pg]"
+  "Combat.Status.TooAddled": "<b>Your mind is too addled to focus on combat!</b>"
+  "Combat.Status.TooConfused": "<b>You're too confused</b> about who you are to try to attack!"
+  "Combat.Status.TooStunned": "<b>You're too stunned to attack!</b> All you can do is wait and try to recover!"
+}

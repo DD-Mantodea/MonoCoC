@@ -1,0 +1,9 @@
+{
+  // 原版 Combat.hx:710 lustAttack()：群体摩擦挑逗（DemonPack / ImpHorde 等共用）
+  id: "coc:pack_lust_attack"
+  type: "tease"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:pack_lust_attack"
+}

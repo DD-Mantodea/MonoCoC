@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:4189 nagaLeggoMyEggo（束缚状态下可用）
+  id: "coc:vine_release"
+  nameKey: "Combat.VineGrab.ReleaseName"
+  descriptionKey: "Combat.VineGrab.ReleaseDescription"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:enemy_constricted"
+  handler: "coc:vine_release"
+}

@@ -1,0 +1,7 @@
+{
+  "Combat.Special.EndlessFlurry.Name": "Endless Flurry",
+  "Combat.Special.EndlessFlurry.Description": "Unleash a flurry of attacks for half damage. The number of attacks for the next Endless Flurry is increased by 1 for the entire combat, up to a maximum of 5.",
+  "Combat.Special.EndlessFlurry.Intro": "You bring your [weapon] to readiness with a practiced flourish and narrow your eyes, focusing on your target. In a flash, you lash out, attacking multiple times in quick succession![pg-]",
+  "Combat.Special.EndlessFlurry.Hit": "Your attack strikes [themonster] for {0} damage![pg-]",
+  "Combat.Special.EndlessFlurry.Miss": "Your attack misses [themonster]![pg-]"
+}

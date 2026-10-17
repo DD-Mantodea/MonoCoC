@@ -1,0 +1,27 @@
+{
+  // 原版 Holli（src/classes/scenes/npcs/Holli.hx，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:holli"
+      type: "coc:holli"
+      nameKey: "Npcs.Holli.Name"
+      descriptionKey: "Npcs.Holli.Desc"
+      article: ""
+      level: 20
+      // 原版 Holli.hx:278 bonusHP = 1000
+      bonusHealth: 1000
+      lust: 20
+      strength: 150
+      toughness: 80
+      speed: 80
+      intelligence: 85
+      libido: 75
+      sensitivity: 40
+      corruption: 80
+      gems: 0
+      experience: 0
+      ai: "coc:holli_ai"
+      // 原版 Holli.hx:284 drop = NO_DROP → 不配 loot
+    }
+  ]
+}

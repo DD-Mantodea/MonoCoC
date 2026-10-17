@@ -1,0 +1,35 @@
+{
+  // 原版 classes/scenes/monsters/Miffix.hx（由 monster.mjs 生成骨架后人工补 loot/type）
+  enemies: [
+    {
+      id: "coc:miffix"
+      // type 必须与 Contents/Enemies/Vanilla/MiffixEnemy.cs 的 [Register] id 完全一致
+      type: "coc:miffix"
+      nameKey: "Npcs.Miffix.Name"
+      descriptionKey: "Npcs.Miffix.Desc"
+      article: ""
+      level: 3
+      bonusHealth: 0
+      lust: 20
+      strength: 25
+      toughness: 25
+      speed: 90
+      intelligence: 80
+      libido: 45
+      sensitivity: 45
+      corruption: 150
+      // 原版 gems = Utils.rand(5) + 5，随机值在 MiffixEnemy.Configure 里掷；这里只是占位
+      gems: 5
+      experience: 0
+      ai: "coc:miffix_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop().add(consumables.SUCMILK, 3).add(consumables.INCUBID, 3).add(consumables.IMPFOOD, 4).add(shields.WOODSHL, 1)
+        { item: "coc:succubi_milk", weight: 3 }
+        { item: "coc:incubi_draft", weight: 3 }
+        { item: "coc:imp_food", weight: 4 }
+        { item: "coc:wooden_shield", weight: 1 }
+      ]
+    }
+  ]
+}

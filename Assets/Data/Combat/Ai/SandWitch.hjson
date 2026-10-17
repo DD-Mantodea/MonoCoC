@@ -1,0 +1,8 @@
+{
+  id: "coc:sand_witch_ai"
+  actions: [
+    // 原版 SandWitch.hx:44 performCombatAction：普攻 + 欲望魔法（cost 10）
+    { ability: "coc:basic_attack", weight: 1, fatigueType: "none" }
+    { ability: "coc:sand_witch_lust_magic", weight: 1, cost: 10, fatigueType: "magical" }
+  ]
+}

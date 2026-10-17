@@ -1,0 +1,12 @@
+{
+  id: "coc:ghoul_ai"
+  actions: [
+    // 原版 Ghoul.hx:97 performCombatAction：未揭穿前只用土狼招式
+    { ability: "coc:ghoul_hyena_claw", weight: 1, fatigueType: "physical", forbidsStatus: "coc:ghoul_reveal" }
+    { ability: "coc:ghoul_hyena_bite", weight: 1, fatigueType: "physical", forbidsStatus: "coc:ghoul_reveal" }
+    // 揭穿后：对未致盲的玩家施放黑焰，否则致盲；其余用普攻
+    { ability: "coc:ghoul_magic", weight: 2, cost: 12, fatigueType: "magical", requiresStatus: "coc:ghoul_reveal" }
+    { ability: "coc:ghoul_blind", weight: 2, cost: 8, fatigueType: "magical", requiresStatus: "coc:ghoul_reveal" }
+    { ability: "coc:basic_attack", weight: 6, fatigueType: "none", requiresStatus: "coc:ghoul_reveal" }
+  ]
+}

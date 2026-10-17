@@ -1,0 +1,67 @@
+{
+  pane: gameplay
+  global: true
+  title: "Scenes.Options.Pane.0.Title"
+  button: "Scenes.Options.Tab.Gameplay"
+  description: "Scenes.Options.Pane.0.Desc"
+
+  settings: [
+    {
+      id: autoLevel
+      label: "Scenes.Options.Setting.AutoLevel"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.AutoLevelOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.AutoLevelOff" }
+      ]
+    }
+    {
+      id: debug
+      label: "Scenes.Options.Setting.Debug"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.DebugOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.DebugOff" }
+      ]
+    }
+    {
+      id: quickloadAnywhere
+      label: "Scenes.Options.Setting.QuickloadAnywhere"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.QuickloadAnywhereOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.QuickloadAnywhereOff" }
+      ]
+    }
+    {
+      id: quicksaveConfirm
+      label: "Scenes.Options.Setting.QuicksaveConfirm"
+      default: 1
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.QuicksaveConfirmOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.QuicksaveConfirmOff" }
+      ]
+    }
+    {
+      id: quickloadConfirm
+      label: "Scenes.Options.Setting.QuickloadConfirm"
+      default: 1
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.QuickloadConfirmOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.QuickloadConfirmOff" }
+      ]
+    }
+    {
+      id: preload
+      label: "Scenes.Options.Setting.Preload"
+      desc: "Scenes.Options.Desc.Preload"
+      overridesLabel: true
+      default: 1
+      values: [
+        { value: 1, label: "Scenes.Options.Option.Auto" }
+        { value: 2, label: "Scenes.Options.Option.Custom" }
+        { value: 0, label: "Scenes.Options.Option.Off" }
+      ]
+    }
+  ]
+}

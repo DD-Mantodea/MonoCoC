@@ -1,0 +1,8 @@
+{
+  id: "coc:hell_hound_scent"
+  type: "support"
+  range: "self"
+  cost: 10
+  cooldown: 0
+  handler: "coc:hell_hound_scent"
+}

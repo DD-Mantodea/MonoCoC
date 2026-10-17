@@ -1,0 +1,8 @@
+{
+  id: "coc:phoenix_commander_inspire"
+  type: "support"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:phoenix_commander_inspire"
+}

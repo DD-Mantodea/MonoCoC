@@ -1,0 +1,8 @@
+{
+  id: "coc:lethicite_crystal_pulse"
+  type: "tease"
+  range: "omni"
+  cost: 0
+  cooldown: 0
+  handler: "coc:lethicite_crystal_pulse"
+}

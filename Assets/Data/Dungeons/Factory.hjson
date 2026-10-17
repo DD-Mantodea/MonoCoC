@@ -1,0 +1,64 @@
+{
+  id: "coc:factory"
+  start: "lobby"
+  onDefeat: "coc:factory_defeat"
+  floors: [
+    {
+      map: [
+        "#a#"
+        "bcd"
+        "efg"
+      ]
+      symbols: {
+        a: "repair_closet"
+        b: "main_chamber"
+        c: "pump_room"
+        d: "furnace_room"
+        e: "bathroom"
+        f: "lobby"
+        g: "break_room"
+      }
+      rooms: {
+        repair_closet: { handler: "coc:factory_repair_closet", stairsTo: "" }
+        main_chamber:  { handler: "coc:factory_main_chamber", stairsTo: "1:foreman_office" }
+        pump_room:     { handler: "coc:factory_pump_room" }
+        furnace_room:  { handler: "coc:factory_furnace_room" }
+        bathroom:      { handler: "coc:factory_bathroom" }
+        lobby:         { handler: "coc:factory_lobby" }
+        break_room:    { handler: "coc:factory_break_room" }
+      }
+      links: [
+        {
+          from: "lobby"
+          to: "pump_room"
+          direction: North
+          lockedBy: "coc:factory_iron_key"
+        }
+      ]
+    }
+    {
+      map: [
+        "ab"
+        "c#"
+      ]
+      symbols: {
+        a: "foreman_office"
+        b: "control_room"
+        c: "premium_storage"
+      }
+      rooms: {
+        foreman_office: { handler: "coc:factory_foreman_office", stairsTo: "0:main_chamber" }
+        control_room:   { handler: "coc:factory_control_room" }
+        premium_storage:{ handler: "coc:factory_premium_storage" }
+      }
+      links: [
+        {
+          from: "foreman_office"
+          to: "premium_storage"
+          direction: South
+          lockedBy: "coc:factory_supervisor_key"
+        }
+      ]
+    }
+  ]
+}

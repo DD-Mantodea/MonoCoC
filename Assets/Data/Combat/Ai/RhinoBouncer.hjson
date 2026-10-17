@@ -1,0 +1,26 @@
+{
+  // 原版 RhinoBouncer.performCombatAction（RhinoBouncer.hx:15-21）
+  id: "coc:rhino_bouncer_ai"
+  actions: [
+    {
+      ability: "coc:rhino_bouncer_charge_start"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+      when: "coc:rhino_bouncer_at_distant"
+    }
+    {
+      ability: "coc:rhino_bouncer_charge_grab"
+      weight: 99
+      cost: 10
+      fatigueType: "physical"
+      when: "coc:rhino_bouncer_charging"
+    }
+    {
+      ability: "coc:rhino_bouncer_drop_kick"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

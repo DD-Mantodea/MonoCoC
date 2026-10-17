@@ -1,0 +1,8 @@
+{
+  id: "coc:herm_centaur_heal_up"
+  type: "physical"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:herm_centaur_heal_up"
+}

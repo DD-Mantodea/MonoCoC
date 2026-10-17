@@ -1,0 +1,4 @@
+{
+  "Npcs.Gilt.Desc": "[if (isflying) {Gliding between open air and clouds of ash|Splayed widely on all fours}], the large bat-like wings dominate this monster's silhouette. The gilt has glossy bronzed skin as if roasted in the heat of the crag, and her head sports a plume of shimmering dark feathers parted by long, ridged bat-ears. Her large barrel chest is clad in an array of discolored metal plates laced together, protecting the strong muscles powering those fleshy wings. Pronounced hip bones frame the thin well of her exposed abs, and her legs have some sparse sections of armor. Chained to her shin is a [if (isflying) {swinging sickle|sickle held firmly by her talon}]."
+  "Npcs.Gilt.Name": "Gilt"
+}

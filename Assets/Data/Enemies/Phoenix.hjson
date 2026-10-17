@@ -1,0 +1,29 @@
+{
+  // 原版 Phoenix（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:phoenix"
+      type: "coc:phoenix"
+      nameKey: "Npcs.Phoenix.Name"
+      descriptionKey: "Npcs.Phoenix.Desc"
+      article: "the"
+      level: 23
+      bonusHealth: 750
+      lust: 10
+      strength: 100
+      toughness: 70
+      speed: 100
+      intelligence: 65
+      libido: 50
+      sensitivity: 30
+      corruption: 45
+      gems: 0
+      experience: 0
+      ai: "coc:phoenix_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

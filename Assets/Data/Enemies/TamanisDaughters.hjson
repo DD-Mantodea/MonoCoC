@@ -1,0 +1,41 @@
+{
+  // 原版 TamanisDaughters（由 monster.mjs 生成骨架，数值来自构造函数）。
+  // 等级/额外血量随 TamaniNumberOfDaughters 变化，在 TamanisDaughtersEnemy.Configure 里算，
+  // 所以这里 level 只写基础值、bonusHealth 留 0（避免和动态加成重复）。
+  enemies: [
+    {
+      id: "coc:tamanis_daughters"
+      type: "coc:tamanis_daughters"
+      nameKey: "Scenes.Forest.Tamanisdaughters.Name"
+      article: "the group of"
+      // 原版 Monster.plural = true，pronoun1-3 = they/them/their
+      plural: true
+      pronoun1: "they"
+      pronoun2: "them"
+      pronoun3: "their"
+      level: 8
+      bonusHealth: 0
+      lust: 30
+      strength: 55
+      toughness: 30
+      speed: 45
+      intelligence: 50
+      libido: 70
+      sensitivity: 70
+      corruption: 50
+      gems: 15
+      experience: 0
+      ai: "coc:tamanis_daughters_ai"
+      // 原版 WeightedDrop：哥布林麦酒 5，其余五件各 1。
+      weightedLoot: true
+      loot: [
+        { item: "coc:goblin_ale", weight: 5 }
+        { item: "coc:lust_draft", weight: 1 }
+        { item: "coc:pink_dye", weight: 1 }
+        { item: "coc:blue_dye", weight: 1 }
+        { item: "coc:orange_dye", weight: 1 }
+        { item: "coc:purple_dye", weight: 1 }
+      ]
+    }
+  ]
+}

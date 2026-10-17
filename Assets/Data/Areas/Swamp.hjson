@@ -1,0 +1,16 @@
+{
+  id: "coc:swamp"
+  scene: "coc:swamp"
+  order: 60
+  nameKey: "Areas.Swamp.Name"
+  descriptionKey: "Areas.Swamp.Description"
+  discoveryKey: "Areas.Swamp.Discovery"
+  exploreKey: "Areas.Swamp.Explore"
+  condition: {
+    type: compare
+    flag: "coc:times_explored_swamp"
+    op: ">="
+    value: 1
+  }
+  explorationFlag: "coc:times_explored_swamp"
+}

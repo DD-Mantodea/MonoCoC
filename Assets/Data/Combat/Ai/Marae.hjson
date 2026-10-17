@@ -1,0 +1,24 @@
+{
+  // 原版 Marae.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:marae_ai"
+  actions: [
+    {
+      ability: "coc:marae_smite"
+      weight: 3
+      cost: 15
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:marae_tentacle_attack"
+      weight: 3
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:marae_tentacle_rape"
+      weight: 3
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

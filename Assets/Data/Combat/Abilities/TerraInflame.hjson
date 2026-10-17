@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:880-897 tfInflame（cost tfFatigue(20,1)，TerrestrialFire）
+  id: "coc:tf_inflame"
+  nameKey: "Combat.Terra.Inflame.Name"
+  descriptionKey: "Combat.Terra.Inflame.Description"
+  type: "magical"
+  category: "magical"
+  range: "self"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 0
+  availableWhen: "coc:can_tf_inflame"
+  disabledWhen: "coc:tf_inflame_active"
+  disabledTooltip: "Combat.Terra.Inflame.Disabled"
+  handler: "coc:tf_inflame"
+}

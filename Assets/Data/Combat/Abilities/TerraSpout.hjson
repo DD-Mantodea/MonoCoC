@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:954-967 / :6071-6090 Spout（cost tfFatigue(40,2)，cooldown 4）
+  id: "coc:tf_spout"
+  nameKey: "Combat.Terra.Spout.Name"
+  descriptionKey: "Combat.Terra.Spout.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 40
+  fatigueType: "magical"
+  cooldown: 4
+  availableWhen: "coc:can_tf_spout"
+  handler: "coc:tf_spout"
+}

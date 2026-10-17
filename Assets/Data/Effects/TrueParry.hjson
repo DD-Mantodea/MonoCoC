@@ -1,0 +1,11 @@
+{
+  // 原版 TrueParryBuff.hx：一回合内招架率 +100
+  id: "coc:trueparry"
+  nameKey: "Combat.Effect.TrueParry.Name"
+  descriptionKey: "Combat.Effect.TrueParry.Description"
+  kind: "timed"
+  duration: 1
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

@@ -1,0 +1,9 @@
+{
+  id: "coc:phoenix_platoon_fire_breath"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  damageType: "coc:fire"
+  handler: "coc:phoenix_platoon_fire_breath"
+}

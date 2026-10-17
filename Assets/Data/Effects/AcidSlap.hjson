@@ -1,0 +1,11 @@
+{
+  id: "coc:acid_slap"
+  nameKey: "Combat.Effect.AcidSlap.Name"
+  descriptionKey: "Combat.Effect.AcidSlap.Description"
+  kind: "combat"
+  duration: 0
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_acid_slap_round"
+}

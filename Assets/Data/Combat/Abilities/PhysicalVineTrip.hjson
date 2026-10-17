@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:2496-2512 / :6665-6685 Vine Trip（cost 10，藤甲 stage>3）
+  id: "coc:special_vine_trip"
+  nameKey: "Combat.Special.VineTrip.Name"
+  descriptionKey: "Combat.Special.VineTrip.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 10
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:has_vine_trip"
+  handler: "coc:special_vine_trip"
+}

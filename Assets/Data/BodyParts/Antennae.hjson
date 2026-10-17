@@ -1,0 +1,9 @@
+{
+  "kind": "coc:antennae",
+  "default": "coc:none",
+  "types": [
+    { "id": "coc:none" },
+    { "id": "coc:bee", "appearance": "AntennaeBee" },
+    { "id": "coc:cockatrice", "appearance": "AntennaeCockatrice" }
+  ]
+}

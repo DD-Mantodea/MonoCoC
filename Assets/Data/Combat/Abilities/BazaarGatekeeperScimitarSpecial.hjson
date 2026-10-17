@@ -1,0 +1,8 @@
+{
+  id: "coc:gatekeeper_scimitar_special"
+  type: "physical"
+  range: "omni"
+  cost: 15
+  cooldown: 0
+  handler: "coc:bazaar_gatekeeper_scimitar_special"
+}

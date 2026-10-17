@@ -1,0 +1,8 @@
+{
+  id: "coc:kelt_shoot_bow"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:kelt_shoot_bow"
+}

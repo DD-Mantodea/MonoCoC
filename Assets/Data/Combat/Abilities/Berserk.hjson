@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1349-1367 / :2766-2774 Berserk（免费，Berserker perk）
+  id: "coc:special_berserk"
+  nameKey: "Combat.Special.Berserk.Name"
+  descriptionKey: "Combat.Special.Berserk.Description"
+  type: "physical"
+  category: "physical"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:can_berserk"
+  disabledWhen: "coc:is_berserking"
+  disabledTooltip: "Combat.Special.Berserk.Disabled"
+  handler: "coc:special_berserk"
+}

@@ -1,0 +1,30 @@
+{
+  // 原版 Zetaz.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:zetaz_ai"
+  actions: [
+    {
+      ability: "coc:zetaz_potion"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:zetaz_gust"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:zetaz_giga_arouse"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:zetaz_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "physical"
+    }
+  ]
+}

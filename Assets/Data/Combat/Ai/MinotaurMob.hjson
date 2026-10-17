@@ -1,0 +1,36 @@
+{
+  // 原版 MinotaurMob.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:minotaur_mob_ai"
+  actions: [
+    {
+      ability: "coc:minotaur_mob_precum_tease"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minotaur_mob_minotaur_gang_grope_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minotaur_mob_minotaur_gang_gang_grope_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minotaur_mob_mino_pheromones"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minotaur_mob_minotaur_gang_waste"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

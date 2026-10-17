@@ -1,0 +1,42 @@
+{
+  // 原版 items/consumables/SkinOil.hx:24-154 —— 部位选择界面
+  "Scenes.Items.SkinOil.UnderbodyDifferent": "The skin on your underbody is different from the rest. "
+  "Scenes.Items.SkinOil.WhereToApply": "Where do you want to apply the {0} skin oil?"
+  "Scenes.Items.SkinOil.Body": "Body"
+  "Scenes.Items.SkinOil.Underbody": "Underbody"
+  "Scenes.Items.SkinOil.NoUnderbody": "You have no special underbody!"
+  "Scenes.Items.SkinOil.Wings": "Wings"
+  "Scenes.Items.SkinOil.Wings2": "Wings 2"
+  "Scenes.Items.SkinOil.NoWings": "[pg]You have no wings."
+  "Scenes.Items.SkinOil.NoWingsHint": "You have no wings."
+  "Scenes.Items.SkinOil.WingsHave": "[pg]Your wings have [wingColor] [wingColorDesc]."
+  "Scenes.Items.SkinOil.Wings2Have": "[pg]Your wings have [wingColor2] [wingColor2Desc]."
+  "Scenes.Items.SkinOil.WingsCantOil": "[pg]Your wings can't be oiled."
+  "Scenes.Items.SkinOil.WingsCantOilHint": "Your wings can't be oiled!"
+  "Scenes.Items.SkinOil.WingsAlready": "Your wings' {0} already are {1} colored!"
+  "Scenes.Items.SkinOil.Wings2NoSecondary": "Your wings have no secondary color to apply skin oil to!"
+  "Scenes.Items.SkinOil.OilWingsHint": "Apply oil to your wings' {0}."
+  "Scenes.Items.SkinOil.OilWings2Hint": "Apply oil to your wings' {0}."
+
+  // 原版 :53 oilSkin()
+  "Scenes.Items.SkinOil.SameBody": "You {0} the smooth liquid across your body. Once you've finished you feel rejuvenated."
+  "Scenes.Items.SkinOil.PlainBody": "You {0} the smooth liquid across your body. Even before you've covered your arms and [chest] your skin begins to tingle pleasantly all over. After your skin darkens a little, it begins to change until you have {1} skin."
+  "Scenes.Items.SkinOil.FurBody": "{0} begin massaging it into your skin despite yourself being covered with fur. Once you've finished... nothing happens. Then your skin begins to tingle and soon you part your fur to reveal {1} skin."
+  "Scenes.Items.SkinOil.ScalesBody": "You {0} the smooth liquid across your body. Even before you've covered your arms and [chest] your scaly skin begins to tingle pleasantly all over. After your skin darkens a little, it begins to change until you have {1} skin."
+  "Scenes.Items.SkinOil.GooBody": "You take the oil and pour the contents into your skin. The clear liquid dissolves, leaving your gooey skin unchanged. You do feel a little less thirsty though."
+
+  // 原版 :93 oilUnderBodySkin()
+  "Scenes.Items.SkinOil.SameUnderBody": "You {0} the smooth liquid across your underbody. Once you've finished you feel rejuvenated."
+  "Scenes.Items.SkinOil.PlainUnderBody": "You {0} the smooth liquid across your underbody. Even before you've covered your [chest] your skin begins to tingle pleasantly all over. After your skin darkens a little, it begins to change until you have {1} skin on your underbody."
+  "Scenes.Items.SkinOil.FurUnderBody": "{0} begin massaging it into the skin on your underbody despite yourself being covered with fur. Once you've finished... nothing happens. Then your skin begins to tingle and soon you part your fur on your [chest] to reveal {1} skin."
+  "Scenes.Items.SkinOil.ScalesUnderBody": "You {0} the smooth liquid across your underbody. Even before you've covered your [chest] your scaly skin begins to tingle pleasantly all over. After your skin darkens a little, it begins to change until you have {1} skin on your underbody."
+
+  // 原版 :127 / :134 翅膀上油
+  "Scenes.Items.SkinOil.OilWings": "You rub the oil into the [wingColorDesc] of your [wings]. "
+  "Scenes.Items.SkinOil.WingsOiled": "Your wings now have [wingColor] [wingColorDesc]."
+  "Scenes.Items.SkinOil.OilWings2": "You rub the oil into the [wingColor2Desc] of your [wings]. "
+  "Scenes.Items.SkinOil.Wings2Oiled": "Your wings now have [wingColor2] [wingColor2Desc]."
+
+  // 原版 :150 oilCancel()
+  "Scenes.Items.SkinOil.Cancel": "You put the skin oil away.[pg]"
+}

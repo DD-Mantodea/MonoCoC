@@ -1,0 +1,24 @@
+{
+  enemies: [
+    {
+      id: "coc:incubus_mechanic"
+      type: "coc:incubus_mechanic"
+      nameKey: "Enemies.IncubusMechanic.Name"
+      descriptionKey: "Enemies.IncubusMechanic.Desc"
+      article: "the "
+      level: 8
+      bonusHealth: 375
+      lust: 50
+      strength: 65
+      toughness: 40
+      speed: 45
+      intelligence: 85
+      libido: 80
+      sensitivity: 70
+      corruption: 100
+      gems: 20
+      experience: 100
+      ai: ""
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  // 原版 classes/scenes/monsters/RhinoBouncer.hx（由 monster.mjs 生成骨架后人工补 loot）
+  enemies: [
+    {
+      id: "coc:rhino_bouncer"
+      // type 必须与 Contents/Enemies/Vanilla/RhinoBouncerEnemy.cs 的 [Register] id 完全一致
+      type: "coc:rhino_bouncer"
+      nameKey: "Npcs.RhinoBouncer.Name"
+      descriptionKey: "Npcs.RhinoBouncer.Desc"
+      article: ""
+      level: 20
+      bonusHealth: 0
+      lust: 5
+      strength: 160
+      toughness: 150
+      speed: 35
+      intelligence: 75
+      libido: 30
+      sensitivity: 30
+      corruption: 25
+      // 原版 gems = Utils.rand(5) + 250，随机值在 RhinoBouncerEnemy.Configure 里掷；这里只是占位
+      gems: 5
+      experience: 0
+      ai: "coc:rhino_bouncer_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop().add(consumables.CCUPCAK, 2)
+        { item: "coc:chocolate_cupcake", weight: 2 }
+      ]
+    }
+  ]
+}

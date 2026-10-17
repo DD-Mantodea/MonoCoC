@@ -1,0 +1,24 @@
+{
+  // 原版 GooGirl.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:goo_girl_ai"
+  actions: [
+    {
+      ability: "coc:goo_girl_goo_gal_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:goo_girl_goo_engulph"
+      weight: 1
+      cost: 5
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:goo_girl_goo_play"
+      weight: 2
+      cost: 5
+      fatigueType: "none"
+    }
+  ]
+}

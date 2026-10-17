@@ -1,0 +1,8 @@
+{
+  id: "coc:nameless_horror_reveal"
+  type: "magical"
+  range: "omni"
+  cost: 10
+  cooldown: 0
+  handler: "coc:nameless_horror_reveal"
+}

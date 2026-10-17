@@ -1,0 +1,15 @@
+{
+  id: "coc:web_silence"
+  nameKey: "Combat.Effect.WebSilence.Name"
+  descriptionKey: "Combat.Effect.WebSilence.Description"
+  kind: "combat"
+  // 0 = 由 onRound 的挣脱判定决定何时结束
+  duration: 0
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  flags: ["blocks_magic"]
+  blockedText: "Combat.Effect.WebSilence.BlocksMagic"
+  onRound: "coc:web_silence_round"
+  onExpire: "coc:web_silence_expire"
+}

@@ -1,0 +1,17 @@
+{
+  "Combat.Effect.MonkStance.Name": "Monk Stance",
+  "Combat.Effect.MonkStance.Description": "You're poised to meet any attack, improving dodge, parry and accuracy.",
+  "Combat.Effect.BrawlerStance.Name": "Brawler Stance",
+  "Combat.Effect.BrawlerStance.Description": "You're ready to beat down your opponent, improving damage.",
+  "Combat.Effect.TrueParry.Name": "True Parry",
+  "Combat.Effect.TrueParry.Description": "Every motion of your opponent is tracked by your keen eyes.",
+  "Combat.Ability.MonkStance.Name": "Monk Stance",
+  "Combat.Ability.MonkStance.Description": "Focus your mind and enter a defensive stance.",
+  "Combat.Ability.MonkStance.Text": "You control your breathing and focus your mind as you shift your weight, preparing to meet any attack.",
+  "Combat.Ability.MonkStance.Activation": "[pg-]Every motion of your opponent is tracked by your keen [eyes].",
+  "Combat.Ability.BrawlerStance.Name": "Brawler Stance",
+  "Combat.Ability.BrawlerStance.Description": "Ready your fists to beat down your opponent.",
+  "Combat.Ability.BrawlerStance.Text": "You drop your shoulders and raise your hands, readying yourself for a proper fistfight.",
+  "Combat.Ability.BrawlerStance.Activation": " You immediately charge at the enemy and throw a right hook.[pg-]",
+  "Combat.Ability.Stance.Broken": "[pg-]You can no longer maintain your stance due to the change in equipment.[pg-]"
+}

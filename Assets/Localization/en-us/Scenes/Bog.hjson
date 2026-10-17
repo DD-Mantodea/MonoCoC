@@ -1,0 +1,7 @@
+{
+  "Scenes.Bog.Discover.BogUnlockAnnouncement": "[pg](<b>Bog exploration location unlocked!</b>)"
+  "Scenes.Bog.Discover.DiscoverDarkBiome": "While exploring the swamps, you find yourself into a particularly dark, humid area of this already fetid biome. You judge that you could find your way back here pretty easily in the future, if you wanted to. With your newfound discovery fresh in your mind, you return to camp."
+  "Scenes.Bog.FindMurkyChest.StorageSlotsGained": "[pg]<b>You now have {0} storage item slots at camp.</b>"
+  "Scenes.Bog.FindMurkyChest.WaterloggedChestFind": "While you're minding your own business, you spot a waterlogged chest. You wade in the murky waters until you finally reach the chest. As you open the chest, you find {0} gems inside the chest! You pocket the gems and haul the chest home. It would make a good storage once you clean the inside of the chest. "
+  "Scenes.Bog.Walk.UneventfulMuckWalk": "You wander around through the humid muck, but you don't run into anything interesting."
+}

@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1580-1596 / :3738-3781 Chant（cost 10，MermaidChant perk）
+  id: "coc:spell_chant"
+  nameKey: "Combat.Spell.Chant.Name"
+  descriptionKey: "Combat.Spell.Chant.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 10
+  fatigueType: "magical"
+  cooldown: 0
+  availableWhen: "coc:mermaid_chant_available"
+  handler: "coc:mermaid_chant"
+}

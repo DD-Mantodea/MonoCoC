@@ -1,0 +1,9 @@
+{
+  "kind": "coc:neck",
+  "default": "coc:normal",
+  "types": [
+    { "id": "coc:normal" },
+    { "id": "coc:draconic", "appearance": "NeckDraconic" },
+    { "id": "coc:cockatrice", "appearance": "NeckCockatrice" }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "PlayerEvents.Beard.FirstGrowth": "[pg][b:You feel a tingling in your cheeks and chin. You now have {0} coating your cheeks and chin.][pg]"
+  "PlayerEvents.Beard.NewThreshold": "[pg][b:Your beard's growth has reached a new threshold, giving you {0}.][pg]"
+}

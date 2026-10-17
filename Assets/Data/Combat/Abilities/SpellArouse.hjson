@@ -1,0 +1,14 @@
+{
+  id: "coc:spell_arouse"
+  nameKey: "Combat.Spell.Arouse.Name"
+  descriptionKey: "Combat.Spell.Arouse.Description"
+  type: "magical"
+  category: "black"
+  range: "ranged"
+  cost: 15
+  fatigueType: "magical"
+  cooldown: 3
+  knownWhen: "coc:knows_arouse"
+  dominikaOrder: 1
+  handler: "coc:spell_arouse"
+}

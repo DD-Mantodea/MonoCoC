@@ -1,0 +1,142 @@
+{
+  "Items.Equinum.Desc": "This is a long flared vial with a small label that reads, \"Equinum\". It is likely this potion is tied to horses in some way."
+  "Items.Equinum.Long": "a vial of Equinum"
+  "Items.Equinum.Short": "Equinum"
+
+  // 原版 items/consumables/Equinum.hx:31
+  "Items.Equinum.Use": "You down the potion, grimacing at the strong taste."
+
+  // 原版 Equinum.hx:38 / :41 / :47 —— 马化警告
+  "Items.Equinum.Warn.Chill": "[pg][b:You feel a creeping chill down your back as your entire body shivers, as if rejecting something foreign. Maybe you ought to cut back on the horse potions.]"
+  "Items.Equinum.Warn.HowMany": "[pg][b:You wonder how many more of these you can drink before you become a horse...]"
+  "Items.Equinum.Warn.First": "[pg][b:While you drink the tasty potion, you realize how horse-like you already are, and wonder what else the potion could possibly change...]"
+
+  // 原版 Equinum.hx:58-84 —— 坏结局（有屌）
+  "Items.Equinum.BadEnd.StartCock": "[pg]Soon after you drink the Equinum, a burning sensation fills your chest. You have consumed too much of the potion, and the overdose starts to provoke dramatic changes in your body. You collapse suddenly, twitching in pain as all the bones and muscles in your body break and reform. Eventually, you pass out from the strain you are put through."
+  // 原版 Equinum.hx:91-117 —— 坏结局（无屌）
+  "Items.Equinum.BadEnd.StartNoCock": "[pg]Soon after you drink the Equinum, a burning sensation fills your chest. You have consumed too much of the drink, and the overdose starts to provoke dramatic changes in your body. You collapse suddenly, twitching in pain as all the bones and all the muscles in your body break and reform. Eventually, you pass out from the strain you are put through."
+  "Items.Equinum.BadEnd.Pond": "[pg]You wake up after a few minutes. Once you get up on your legs, doubt fills your mind. You rush to a nearby pond and look down, nearly jumping when the reflection of a "
+  "Items.Equinum.BadEnd.GenderHorse": "horse "
+  "Items.Equinum.BadEnd.GenderStallion": "stallion "
+  "Items.Equinum.BadEnd.GenderMare": "mare "
+  "Items.Equinum.BadEnd.LookCock": " with beautiful [haircolor] [skindesc] covering its body gazes back up at you. That's you, and yet the doubt in your mind remains. Strange images fill your mind, and you feel as if you have not always been a horse, but some kind of funny fur-less creature standing on two legs. Your equine mind rapidly dismisses that doubt as a daydream however, and you trot away, oblivious to who you once were.[pg]"
+  "Items.Equinum.BadEnd.LookNoCock": "with beautiful [haircolor] [skindesc] covering its body looks back at you. That's you, and yet the doubt in your mind remains. Strange mental images fill your mind. You feel as if you have not always been a horse, but some kind of funny fur-less creature standing on two legs. But your equine mind rapidly dismisses that doubt as a daydream, and you trot away, oblivious to who you once were.[pg]"
+  "Items.Equinum.BadEnd.YearCock": "<b>One year later...</b>"
+  "Items.Equinum.BadEnd.YearNoCock": "<b>One year after...</b>"
+  "Items.Equinum.BadEnd.GrazeCock": "[pg]As you graze upon the small plants that coat the open plains of your home, you hear a noise on your right side. As you raise your head to check where the noise comes from, preparing to run from a potential predator, you see a strange creature. It stands on its two feet, its furless pink skin appearing beneath its clothes. With a start, you realize you can identify the strange creature's gender. "
+  "Items.Equinum.BadEnd.GrazeNoCock": "[pg]As you graze small plants in the open plains that became your home, you hear a noise on your right side. As you raise your head to check where the noise comes from, preparing to run from a potential predator, you see a strange creature. It stands on two feet, its furless pink skin appearing beneath its clothes. "
+  "Items.Equinum.BadEnd.Male": "He is clearly a male, but you are somewhat confused as you can see not one but three bulges where his manhood would be.[pg]"
+  "Items.Equinum.BadEnd.Female": "She is clearly a female, as you can see her six breasts jiggle as she walks towards you, small stains appearing on her shirt where her nipples are.[pg]"
+  "Items.Equinum.BadEnd.Herm": "You are somewhat confused as you can see a bulge near her thighs but also huge boobs jiggling as she walks, and you can't say if she's a male or female.[pg]"
+  "Items.Equinum.BadEnd.Nostalgia": "As soon as you lay eyes on the creature, a wave of nostalgia overtakes you. Somehow, looking at that creature makes you sad, as if you forgot something important."
+  "Items.Equinum.BadEnd.DialogCock": "[pg][say: How strange to see a horse here all alone,] the creature muses, [say: In any case, you're still the least bizarre creature I've met here. Not to mention the only one that hasn't tried to rape me,] it says with a sigh.[pg]You answer with an interrogative whinny.[pg][say: Hey, I've got an idea. I'll take you back to the camp. I'll feed you and in return you can help me complete my quest. What do you say?]"
+  "Items.Equinum.BadEnd.DialogNoCock": "[pg][say: How strange to see a horse here all alone,] the creature muses, [say: In any case, you're still the least bizarre creature I've met here. Not to mention the only one that hasn't tried to rape me,] it says with a sigh.[pg]You answer with an interrogative whinny.[pg][say: Hey, I've got an idea. I'll take you back to the camp. I'll feed you and in return you can help me to complete my quest. What do you say?]"
+  "Items.Equinum.BadEnd.WhinnyCock": "[pg]Instinctively, you utter a happy and approving whinny."
+  "Items.Equinum.BadEnd.WhinnyNoCock": "[pg]Instinctively, you utter a happy and approving whinny."
+  "Items.Equinum.BadEnd.FailCock": "[pg]You failed in your quest, losing your focus and more importantly, losing yourself. But, even so, you found a new meaning to your life, and have a new chance to succeed where you once failed."
+  "Items.Equinum.BadEnd.FailNoCock": "[pg]You failed in your quest, losing your focus and more importantly, losing yourself. But, even so, you found a new meaning to your life, and have a new chance to achieve what you once failed."
+
+  // 原版 Equinum.hx:129-151 —— 力量 / 韧性
+  "Items.Equinum.StrMax": "[pg]You feel strong enough to single-handedly pull a fully-loaded wagon."
+  "Items.Equinum.StrUp": "[pg]Your muscles clench and surge, making you feel as strong as a horse."
+  "Items.Equinum.TouMaxStallion": "[pg]Your body is as tough and solid as a stallion's."
+  "Items.Equinum.TouMaxMare": "[pg]Your body is as tough and solid as a mare's."
+  "Items.Equinum.TouUp": "[pg]Your body suddenly feels tougher and more resilient."
+
+  // 原版 Equinum.hx:157-177 —— 智力
+  "Items.Equinum.InteMute": "[pg]You let out a throaty \"Neiiiigh\" as your animalistic instincts take over."
+  "Items.Equinum.InteDumb": "[pg]You smile vacantly as you drink the potion, knowing you're just a big dumb animal who loves to fuck."
+  "Items.Equinum.InteBlank": "[pg]You find yourself looking down at the empty bottle in your hand and realize you haven't thought ANYTHING since your first sip."
+  "Items.Equinum.InteBimbo": "[pg]You smile broadly as your cares seem to melt away. A small part of you worries that you're getting dumber."
+  "Items.Equinum.InteSlow": "[pg]It becomes harder to keep your mind focused as your intellect diminishes."
+  "Items.Equinum.InteSluggish": "[pg]Your usually intelligent mind feels much more sluggish."
+
+  // 原版 Equinum.hx:212-241 —— 单屌转化
+  "Items.Equinum.CockHumanToHorse": "[pg]Your [cock] begins to feel strange... you pull down your pants to take a look and see it darkening as you feel a tightness near the base where your skin seems to be bunching up. A sheath begins forming around your cock's base, tightening and pulling your cock inside its depths. A hot feeling envelops your member as it suddenly grows into a horse penis, dwarfing its old size. The skin is mottled brown and black and feels more sensitive than normal. Your hands are irresistibly drawn to it, and you jerk yourself off, splattering cum with intense force."
+  "Items.Equinum.CockDogToHorse": "[pg]Your {0} begins to feel odd... you pull down your clothes to take a look and see it darkening. You feel a growing tightness in the tip of your {1} as it flattens, flaring outwards. Your cock pushes out of your sheath, inch after inch of animal-flesh growing beyond its traditional size. You notice your knot vanishing, the extra flesh pushing more horsecock out from your sheath. Your hands are drawn to the strange new {2}, and you jerk yourself off, splattering thick ropes of cum with intense force."
+  "Items.Equinum.CockOtherToHorse": "[pg]Your {0} begins to feel odd... you pull down your clothes to take a look and see it darkening. You feel a growing tightness in the tip of your [cock] as it flattens, flaring outwards. Your skin folds and bunches around the base, forming an animalistic sheath. The slick inhuman texture you recently had fades, taking on a more leathery texture. Your hands are drawn to the strange new {1}, and you jerk yourself off, splattering thick ropes of cum with intense force."
+  "Items.Equinum.CockTransformed": " <b>Your penis has transformed into a horse's!</b>"
+
+  // 原版 Equinum.hx:247-261 —— 多屌转化
+  "Items.Equinum.MultiCockStart": "[pg]One of your penises begins to feel strange. You pull down your clothes to take a look and see the skin of your {0} darkening to a mottled brown and black pattern."
+  "Items.Equinum.MultiCockError": "FUKKKK ERROR NO COCK XFORMED"
+  "Items.Equinum.MultiCockSheath": " Your sheath tingles and begins growing larger as the cock's base shifts to lie inside it."
+  "Items.Equinum.MultiCockNewSheath": " You feel a tightness near the base where your skin seems to be bunching up. A sheath begins forming around your {0}'s root, tightening and pulling your {1} inside its depths."
+  "Items.Equinum.MultiCockGrow": " The shaft suddenly explodes with movement, growing longer and developing a thick flared head leaking steady stream of animal-cum."
+  "Items.Equinum.MultiCockDone": " <b>You now have a horse-cock.</b>"
+
+  // 原版 Equinum.hx:298-305 —— 加长文本
+  "Items.Equinum.CockGrowBig": "Your {0} tightens painfully, inches of taut horse-flesh pouring out from your sheath as it grows longer. Thick animal-pre forms at the flared tip, drawn out from the pleasure of the change."
+  "Items.Equinum.CockGrowMid": "Aching pressure builds within your sheath, suddenly releasing as an inch or more of extra dick flesh spills out. A dollop of pre beads on the head of your enlarged {0} from the pleasure of the growth."
+  "Items.Equinum.CockGrowSmall": "A slight pressure builds and releases as your {0} pushes a bit further out of your sheath."
+
+  // 原版 Equinum.hx:312-337 —— 变粗 + 白日梦
+  "Items.Equinum.CockThickenLead": "[pg]Your {0} thickens inside its sheath, growing larger and fatter as your veins thicken, becoming more noticeable. It feels right"
+  "Items.Equinum.CockThicken.Str0": " to have such a splendid tool. You idly daydream about cunts and pussies, your {0} plowing them relentlessly, stuffing them pregnant with cum."
+  "Items.Equinum.CockThicken.Str1": " to be this way... You breathe in the powerful animalistic scent and fantasize about fucking centaurs night and day until their bellies slosh with your cum."
+  "Items.Equinum.CockThicken.Str2": " to be a rutting stud. You ache to find a mare or centaur to breed with. Longing to spend your evenings plunging a {0} deep into their musky passages, dumping load after load of your thick animal-cum into them. You'd be happy just fucking horsecunts morning, noon, and night. Maybe somewhere there is a farm needing a breeder..."
+  "Items.Equinum.CockThicken.Str3": " to whinny loudly like a rutting stallion. Your {0} is perfect for fucking centaurs and mares. You imagine the feel of plowing an equine pussy deeply, bottoming out and unloading sticky jets of horse-jizz into its fertile womb. Your hand strokes your horsecock of its own accord, musky pre dripping from the flared tip with each stroke. Your mind wanders to the thought of you with a harem of pregnant centaurs."
+  "Items.Equinum.CockThicken.Cor0": " You shudder in revulsion at the strange thoughts and vow to control yourself better."
+  "Items.Equinum.CockThicken.Cor1": " You wonder why you thought such odd things, but they have a certain appeal."
+  "Items.Equinum.CockThicken.Cor2": " You relish your twisted fantasies, hoping to dream of them again."
+  "Items.Equinum.CockThicken.Cor3": " You flush hotly and give a twisted smile, resolving to find a fitting subject to rape and relive your fantasies."
+
+  // 原版 Equinum.hx:344-352 —— 蛋蛋
+  "Items.Equinum.BallsNew": "[pg]A nauseating pressure forms just under the base of your maleness. With agonizing pain the flesh bulges and distends, pushing out a rounded lump of flesh that you recognize as a testicle! A moment later relief overwhelms you as the second drops into your newly formed sack."
+  "Items.Equinum.BallsGrow": "[pg]A flash of warmth passes through you and a sudden weight develops in your groin. You pause to examine the changes and your roving fingers discover your {0} have grown larger than a human's."
+  "Items.Equinum.BallsGrow2": "[pg]A sudden onset of heat envelops your groin, focusing on your [sack]. Walking becomes difficult as you discover your {0} have enlarged again."
+
+  // 原版 Equinum.hx:364-410 —— 阴道
+  "Items.Equinum.VaginaLoosen": "[pg]You grip your gut in pain as you feel your organs shift slightly. When the pressure passes, you realize your {0} has grown larger, in depth AND size."
+  "Items.Equinum.VaginaWet": "[pg]Your {0} moistens perceptably, giving off an animalistic scent."
+  "Items.Equinum.VaginaMultiWet": "[pg]One of your {0} moistens perceptably, giving off an animalistic scent."
+  "Items.Equinum.VaginaMultiLoosen": "[pg]You grip your gut in pain as you feel your organs shift slightly. When the pressure passes, you realize one of your {0} has grown larger, in depth AND size."
+
+  // 原版 Equinum.hx:437-475 —— 缩胸
+  "Items.Equinum.BreastShrink1": "[pg]You feel a weight lifted from you, and realize your [breasts] have shrunk to a [breastcup]."
+  "Items.Equinum.BreastShrink2": "[pg]You feel significantly lighter. Looking down, you realize your breasts are MUCH smaller, down to [breastcup]s."
+  "Items.Equinum.BreastShrinkRowY": "\nYour {0} shrink, dropping to {1}s."
+  "Items.Equinum.BreastShrinkRowAnd": "\n...and your {0} shrink, dropping to {1}s."
+  "Items.Equinum.BreastLighter": "\nYou feel so much lighter after the change."
+  "Items.Equinum.BreastLimber": "\nWithout the extra weight you feel particularly limber."
+  "Items.Equinum.BreastWeightless": "\nIt feels as if the weight of the world has been lifted from your shoulders, or in this case, your chest."
+
+  // 原版 Equinum.hx:489-495 —— 眼球
+  "Items.Equinum.EyesSandTrap": "[pg]You feel a twinge in your eyes and you blink. It feels like black cataracts have just fallen away from you, and you know without needing to see your reflection that your eyes have gone back to looking human."
+  "Items.Equinum.EyesChanged": "[pg]You blink and stumble, a wave of vertigo threatening to pull your [feet] from under you. As you steady and open your eyes, you realize something seems different. Your vision is changed somehow."
+  "Items.Equinum.EyesArachnid": " Your arachnid eyes are gone!</b>"
+  "Items.Equinum.EyesHuman": " <b>You have normal, humanoid eyes again.</b>"
+
+  // 原版 Equinum.hx:504-506 —— 马脸
+  "Items.Equinum.FaceFromDog": "[pg]Mind-numbing pain shatters through you as you feel your facial bones rearranging. You clutch at your face in agony as your skin crawls and shifts, your visage reshaping to replace your dog-like characteristics with those of a horse. <b>You now have a horse's face.</b>"
+  "Items.Equinum.FaceEquine": "[pg]Mind-numbing pain shatters through you as you feel your facial bones breaking and shifting. You clutch at yourself in agony as you feel your skin crawl and elongate under your fingers. Eventually the pain subsides, leaving you with a face that seamlessly blends human and equine features. <b>You have a very equine-looking face.</b>"
+
+  // 原版 Equinum.hx:515-519 —— 马毛
+  "Items.Equinum.FurGrow": "[pg]An itchy feeling springs up over every inch of your skin. As you scratch yourself madly, you feel fur grow out of your skin until <b>you have a fine coat of [furcolor]-colored fur.</b>"
+  "Items.Equinum.FurFromScales": "[pg]Your [skintone] scales begin to itch insufferably. You reflexively scratch yourself, setting off an avalanche of discarded scales. The itching intensifies as you madly scratch and tear at yourself, revealing a coat of {0} [skindesc]. At last the itching stops as <b>you brush a few more loose scales from your new coat of [furcolor]-colored fur.</b>"
+
+  // 原版 Equinum.hx:530-541 —— 蹄子
+  "Items.Equinum.HoovesFeet": "[pg]You stagger as your feet change, curling up into painful angry lumps of flesh. They get tighter and tighter, harder and harder, until at last they solidify into hooves!"
+  "Items.Equinum.HoovesPaws": "[pg]You stagger as your paws change, curling up into painful angry lumps of flesh. They get tighter and tighter, harder and harder, until at last they solidify into hooves!"
+  "Items.Equinum.HoovesTail": "[pg]You collapse as your sinuous [if (isNaga) {snake-}]tail tears in half, shifting into legs. The pain is immense, particularly in your new feet as they curl inward and transform into hooves!"
+  "Items.Equinum.HoovesOther": "[pg]You stagger as your [feet] change, curling up into painful angry lumps of flesh. They get tighter and tighter, harder and harder, until at last they solidify into hooves!"
+  "Items.Equinum.HoovesFur": " A fine coat of fur grows out below your waist, itching briefly as it fills in."
+  "Items.Equinum.HoovesDone": "<b> You now have hooves in place of your feet!</b>"
+
+  // 原版 Equinum.hx:550-562 —— 马耳
+  "Items.Equinum.EarsNone": "[pg]Two painful lumps sprout on the top of your head, forming into tear-drop shaped ears, covered with short fur. "
+  "Items.Equinum.EarsHuman": "[pg]Your ears tug painfully on your face as they begin shifting, moving upwards to the top of your head and transforming into an upright animalistic ears. "
+  "Items.Equinum.EarsDog": "[pg]Your ears change shape, morphing into from their doglike shape into equine-like ears! "
+  "Items.Equinum.EarsOther": "[pg]Your ears change shape, morphing into teardrop-shaped horse ears! "
+  "Items.Equinum.EarsDone": "<b>You now have horse ears.</b>"
+
+  // 原版 Equinum.hx:569-582 —— 马尾
+  "Items.Equinum.TailNew": "[pg]There is a sudden tickling on your ass, and you notice you have sprouted a long shiny horsetail of the same [haircolor] color as your hair."
+  "Items.Equinum.TailMorph": "[pg]Pain lances up your [asshole] as your tail shifts and morphs disgustingly. With one last wave of pain, it splits into hundreds of tiny filaments, transforming into a horsetail."
+  "Items.Equinum.TailInsect": "[pg]Your insect-like abdomen bunches up as it begins shrinking, exoskeleton flaking off like a snake sheds its skin. It bunches up until it is as small as a tennis ball, then explodes outwards, growing into an animalistic tail shape. Moments later, it explodes into filaments of pain, dividing into hundreds of strands and turning into a shiny horsetail."
+  "Items.Equinum.TailShark": "[pg]Pain lances up your [asshole] as your tail shifts and morphs disgustingly. With one last wave of pain, it splits into hundreds of tiny filaments, transforming into a horsetail."
+  "Items.Equinum.TailDone": " <b>You now have a horse-tail.</b>"
+
+  // 原版 Equinum.hx:598 —— 保底变化
+  "Items.Equinum.Failsafe": "[pg]Inhuman vitality spreads through your body, invigorating you!\n"
+}

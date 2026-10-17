@@ -1,0 +1,30 @@
+{
+  // 原版 Izumi.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:izumi_ai"
+  actions: [
+    {
+      ability: "coc:izumi_straight_jab"
+      weight: 3
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:izumi_roundhouse_kick"
+      weight: 3
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:izumi_choke_slam"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:izumi_ground_pound"
+      weight: 2
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

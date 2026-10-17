@@ -1,0 +1,30 @@
+{
+  // 原版 PlaceholderDodgyMonster.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:placeholder_dodgy_monster_ai"
+  actions: [
+    {
+      ability: "coc:placeholder_dodgy_monster_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:placeholder_dodgy_monster_dodge_exec"
+      weight: 99
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:placeholder_dodgy_monster_toss_dagger"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:placeholder_dodgy_monster_retrieve_dagger"
+      weight: 3
+      cost: 5
+      fatigueType: "physical"
+    }
+  ]
+}

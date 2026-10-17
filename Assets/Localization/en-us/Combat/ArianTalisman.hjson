@@ -1,0 +1,14 @@
+{
+  "Combat.Arian.Talisman.Heal.Name": "Arian's Talisman - Heal",
+  "Combat.Arian.Talisman.Heal.Description": "Use Arian's talisman to heal yourself.",
+  "Combat.Arian.Talisman.Immolation.Name": "Arian's Talisman - Immolation",
+  "Combat.Arian.Talisman.Immolation.Description": "Use Arian's talisman to immolate a target.",
+  "Combat.Arian.Talisman.Lust.Name": "Arian's Talisman - Lust",
+  "Combat.Arian.Talisman.Lust.Description": "Use Arian's talisman to calm yourself and reduce your lust.",
+  "Combat.Arian.Talisman.Heal.Text": "You gather energy in your Talisman and unleash the spell contained within. A green aura washes over you and your wounds begin to close quickly. By the time the aura fully fades, you feel much better. ",
+  "Combat.Arian.Talisman.Immolation.Text": "You gather energy in your Talisman and unleash the spell contained within. A wave of burning flames gathers around [themonster], slowly burning [monster.him].",
+  "Combat.Arian.Talisman.Immolation.Golem": "[pg-]The Golem doesn't seem to care about the flames.",
+  "Combat.Arian.Talisman.Lust.Text": "You gather energy in your Talisman and unleash the spell contained within. A pink aura washes all over you and as soon as the aura fades, you feel much less horny."
+  "Combat.Arian.Talisman.Shield.Name": "Arian's Talisman - Shield",
+  "Combat.Arian.Talisman.Shield.Description": "Use Arian's talisman to fortify yourself with a magical shield."
+}

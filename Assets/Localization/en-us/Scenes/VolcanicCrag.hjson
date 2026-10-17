@@ -1,0 +1,9 @@
+{
+  "Scenes.VolcanicCrag.Discover.DemonRealmAscent": "You walk for some time, roaming the hard-packed and pink-tinged earth of the demon-realm of Mareth. As you progress, you can feel the air getting warm. It gets hotter as you progress until you finally stumble across a blackened landscape. You reward yourself with a sight of the endless series of a volcanic landscape. Crags dot the landscape.[pg]"
+  "Scenes.VolcanicCrag.Discover.VolcanicCragUnlocked": "<b>You've discovered the Volcanic Crag!</b>"
+  "Scenes.VolcanicCrag.LootDrakHrt.DragonHeartFlower": "While exploring the crag, you happen upon a lone flower blooming from a crack in the earth. Intrigued by the sheer tenacity required to thrive in such a hostile environment, you [walk] over and pick it up, finding it to be strangely warm to the touch. When you smell it, you're hit with the odd impression that its scent, its very essence is fiery, almost... draconic. "
+  "Scenes.VolcanicCrag.LootObsidianShard.ObsidianShardFind": "While you're minding your own business, something shiny dazes you momentarily and you turn your head to spot the shining object. You walk over to it, pick it up and look it over. It's dark purple and smooth-feeling, moving your fingers confirm that. "
+  "Scenes.VolcanicCrag.LootObsidianShard.ShardCutsFingers": "Unfortunately, you cut your fingers over the sharp edge and you quickly jerk your fingers back painfully, looking at the minor bleeding cut that formed on your finger. Ouch! "
+  "Scenes.VolcanicCrag.LootObsidianShard.SharpShardWeapon": "You do know that the obsidian shard is very sharp, maybe someone can use it to create deadly weapons?"
+  "Scenes.VolcanicCrag.Walk.UneventfulCragHour": "You spend one hour exploring the infernal landscape but you don't manage to find anything interesting."
+}

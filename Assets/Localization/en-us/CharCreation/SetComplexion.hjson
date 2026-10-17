@@ -1,0 +1,10 @@
+{
+  "CharCreation.SetComplexion.Button1": "Blonde"
+  "CharCreation.SetComplexion.Button2": "Brown"
+  "CharCreation.SetComplexion.Button3": "Black"
+  "CharCreation.SetComplexion.Button4": "Red"
+  "CharCreation.SetComplexion.Button5": "Gray"
+  "CharCreation.SetComplexion.Button6": "White"
+  "CharCreation.SetComplexion.Button7": "Auburn"
+  "CharCreation.SetComplexion.WhatColorYourHair": "[pg]What color is your hair?"
+}

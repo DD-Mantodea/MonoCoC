@@ -1,0 +1,11 @@
+{
+  "CharCreation.IsAHerm.Button1": "Fem. Slender"
+  "CharCreation.IsAHerm.Button2": "Fem. Average"
+  "CharCreation.IsAHerm.Button3": "Fem. $curvy"
+  "CharCreation.IsAHerm.Button4": "Fem. Tomboy"
+  "CharCreation.IsAHerm.Button5": "Mas. Lean"
+  "CharCreation.IsAHerm.Button6": "Mas. Average"
+  "CharCreation.IsAHerm.Button7": "Mas. Thick"
+  "CharCreation.IsAHerm.Button8": "Mas. Girly"
+  "CharCreation.IsAHerm.WhatTypeBuildYou": "[pg]What type of build do you have?"
+}

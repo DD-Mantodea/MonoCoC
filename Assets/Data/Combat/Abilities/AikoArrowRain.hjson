@@ -1,0 +1,8 @@
+{
+  id: "coc:aiko_arrow_rain"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:aiko_arrow_rain"
+}

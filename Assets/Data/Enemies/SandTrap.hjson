@@ -1,0 +1,29 @@
+{
+  // 原版 SandTrap（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:sand_trap"
+      type: "coc:sand_trap"
+      nameKey: "Npcs.SandTrap.Name"
+      descriptionKey: "Npcs.SandTrap.Desc"
+      article: "the"
+      level: 4
+      bonusHealth: 100
+      lust: 20
+      strength: 55
+      toughness: 10
+      speed: 45
+      intelligence: 55
+      libido: 60
+      sensitivity: 45
+      corruption: 50
+      gems: 0
+      experience: 0
+      ai: "coc:sand_trap_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  "Perks.Resolute.Desc": "[if (tou>=75) {Grants immunity to some statuses and allows you to ignore stuns by spending fatigue.|<b>You aren't tough enough to benefit from this anymore.</b>}]"
+  "Perks.Resolute.Name": "Resolute"
+}

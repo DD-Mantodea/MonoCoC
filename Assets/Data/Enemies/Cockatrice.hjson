@@ -1,0 +1,29 @@
+{
+  // 原版 Cockatrice（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:cockatrice"
+      type: "coc:cockatrice"
+      nameKey: "Npcs.Cockatrice.Name"
+      descriptionKey: "Npcs.Cockatrice.Desc"
+      article: "the"
+      level: 14
+      bonusHealth: 200
+      lust: 30
+      strength: 85
+      toughness: 70
+      speed: 35
+      intelligence: 70
+      libido: 50
+      sensitivity: 35
+      corruption: 60
+      gems: 10
+      experience: 0
+      ai: "coc:cockatrice_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

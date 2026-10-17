@@ -1,0 +1,12 @@
+{
+  // 原版 ImpGang.performCombatAction（ImpGang.hx:22-29）：只有「群体普攻」一种动作。
+  id: "coc:imp_gang_ai"
+  actions: [
+    {
+      ability: "coc:imp_gang_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

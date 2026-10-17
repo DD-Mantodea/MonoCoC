@@ -1,0 +1,10 @@
+{
+  // 原版 CombatAbilities.hx 起：Arian 护符法术（存储值 4）
+  id: "coc:arian_lust_reduce"
+  type: "magical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:arian_lust_reduce"
+  availableWhen: "coc:arian_talisman_four"
+}

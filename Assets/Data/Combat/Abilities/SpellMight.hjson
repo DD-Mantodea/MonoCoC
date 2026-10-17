@@ -1,0 +1,17 @@
+{
+  id: "coc:spell_might"
+  nameKey: "Combat.Spell.Might.Name"
+  descriptionKey: "Combat.Spell.Might.Description"
+  type: "magical"
+  category: "black"
+  range: "self"
+  cost: 25
+  fatigueType: "magical"
+  cooldown: 0
+  isSelf: true
+  knownWhen: "coc:knows_might"
+  dominikaOrder: 3
+  disabledWhen: "coc:might"
+  disabledTooltip: "Combat.Spell.Might.Disabled"
+  handler: "coc:spell_might"
+}

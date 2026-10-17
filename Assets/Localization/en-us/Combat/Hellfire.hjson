@@ -1,0 +1,19 @@
+{
+  "Combat.Spell.Hellfire.Name": "Hellfire",
+  "Combat.Spell.Hellfire.Description": "Unleash hellfire from your mouth.",
+  "Combat.Spell.Hellfire.LivingStatue": "The fire courses over the stone behemoth's skin harmlessly. It does leave the surface of the statue glossier in its wake.",
+  "Combat.Spell.Hellfire.Intro": "You take in a deep breath and unleash a wave of corrupt red flames from deep within.",
+  "Combat.Spell.Hellfire.WebBurns": " [b:The fire burns through the webs blocking your mouth!]",
+  "Combat.Spell.Hellfire.GooBurns": "A growl rumbles from deep within as you charge the fire, and you force it from your chest and into the slime. The goop bubbles and steams as it evaporates, drawing a surprised yelp from your opponent.",
+  "Combat.Spell.Hellfire.SimpleFoe": " Your foe lets out a shriek as their form is engulfed in the blistering flames.",
+  "Combat.Spell.Hellfire.LustFoe": " Your foe cries out in surprise and then gives a sensual moan as the flames of your passion surround them and fill their body with unnatural lust.",
+  "Combat.Spell.Hellfire.NoEffect": " The corrupted fire doesn't seem to have effect on [themonster]!",
+  "Combat.Spell.Hellfire.Akbal": "You take in a deep breath and unleash a wave of corrupt red flames from deep within. Akbal, in turn, unleashes a breath of his terrestrial fire, completely enveloping your scarlet flames.",
+  "Combat.Spell.Hellfire.AkbalChuckle": "[pg-]Akbal chuckles, [say: You insult me with the flames of a lesser lord than I.]",
+  "Combat.Spell.Hellfire.IsabellaShield": " Isabella shoulders her shield into the path of the crimson flames. They burst over the wall of steel, splitting around the impenetrable obstruction and washing out harmlessly to the sides.[pg]",
+  "Combat.Spell.Hellfire.IsabellaTauntAccent": "[say: Is zat all you've got? It'll take more than a flashy magic trick to beat Izabella!] taunts the cow-girl.[pg]",
+  "Combat.Spell.Hellfire.IsabellaTaunt": "[say: Is that all you've got? It'll take more than a flashy magic trick to beat Isabella!] taunts the cow-girl.[pg]",
+  "Combat.Spell.Hellfire.ValaBlow": " Vala beats her wings with surprising strength, blowing the fireball back at you! ",
+  "Combat.Spell.Hellfire.ValaDodge": "You dive out of the way and evade it!",
+  "Combat.Spell.Hellfire.ValaHit": "Your own fire smacks into your face, arousing you!"
+}

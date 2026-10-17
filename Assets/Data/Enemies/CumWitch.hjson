@@ -1,0 +1,29 @@
+{
+  // 原版 CumWitch（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:cum_witch"
+      type: "coc:cum_witch"
+      nameKey: "Npcs.CumWitch.Name"
+      descriptionKey: "Npcs.CumWitch.Desc"
+      article: "the"
+      level: 6
+      bonusHealth: 100
+      lust: 30
+      strength: 35
+      toughness: 35
+      speed: 35
+      intelligence: 85
+      libido: 55
+      sensitivity: 40
+      corruption: 30
+      gems: 15
+      experience: 0
+      ai: "coc:cum_witch_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

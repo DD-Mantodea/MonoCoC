@@ -1,0 +1,8 @@
+{
+  id: "coc:minerva_tail_whip"
+  type: "physical"
+  range: "melee"
+  cost: 5
+  cooldown: 0
+  handler: "coc:minerva_tail_whip"
+}

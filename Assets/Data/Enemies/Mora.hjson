@@ -1,0 +1,29 @@
+{
+  // 原版 Mora（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:mora"
+      type: "coc:mora"
+      nameKey: "Npcs.Mora.Name"
+      descriptionKey: "Npcs.Mora.Desc"
+      article: "the"
+      level: 20
+      bonusHealth: 400
+      lust: 5
+      strength: 95
+      toughness: 80
+      speed: 30
+      intelligence: 30
+      libido: 40
+      sensitivity: 20
+      corruption: 100
+      gems: 0
+      experience: 0
+      ai: "coc:mora_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

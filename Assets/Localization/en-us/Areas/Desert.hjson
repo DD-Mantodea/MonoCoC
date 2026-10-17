@@ -1,0 +1,10 @@
+{
+  "Areas.Desert.Description": "Hot, dry sand stretches to the horizon."
+  "Areas.Desert.Discovery": "You stumble as the ground shifts a bit underneath you. Groaning in frustration, you straighten up and discover the rough feeling of sand {0}.[pg]<b>You've discovered the Desert!</b>"
+  "Areas.Desert.Explore": "You spend an hour crossing the hot, dry desert."
+  "Areas.Desert.Name": "Desert"
+  "Areas.Desert.SandDog": "in your paws"
+  "Areas.Desert.SandHoofed": "in your hooves"
+  "Areas.Desert.SandHuman": "inside your footwear, between your toes"
+  "Areas.Desert.SandNaga": "in your scales"
+}

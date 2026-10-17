@@ -1,0 +1,16 @@
+{
+  id: "coc:high_mountains"
+  scene: "coc:high_mountains"
+  order: 110
+  nameKey: "Areas.HighMountains.Name"
+  descriptionKey: "Areas.HighMountains.Description"
+  discoveryKey: "Areas.HighMountains.Discovery"
+  exploreKey: "Areas.HighMountains.Explore"
+  condition: {
+    type: compare
+    flag: "coc:discovered_high_mountain"
+    op: ">="
+    value: 1
+  }
+  explorationFlag: "coc:discovered_high_mountain"
+}

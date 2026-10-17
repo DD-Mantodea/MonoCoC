@@ -1,0 +1,9 @@
+{
+  id: "coc:oasis_shaman_ai"
+  actions: [
+    // 原版 OasisShaman.hx:61：普攻 2 / 挑逗 1 / 挑逗法术 1（cost 20）
+    { ability: "coc:basic_attack", weight: 2, fatigueType: "none" }
+    { ability: "coc:oasis_shaman_tease", weight: 1, fatigueType: "magical" }
+    { ability: "coc:oasis_shaman_arouse", weight: 1, cost: 20, fatigueType: "magical" }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  // 原版 MaleSpiderMorph.performCombatAction 没有专属招式（走 Monster 基类的普通攻击）。
+  // 早先 monster.mjs 把 `this.drop = new WeightedDrop().add(consumables.X, …)` 当成 AI 动作，
+  // 生成了 s_gossr / t_ssilk / null 三个伪招式（无 handler 正文、无伤害），已删除；
+  // 空动作表 = AI 每回合回退到普通攻击。
+  id: "coc:male_spider_morph_ai"
+  actions: []
+}

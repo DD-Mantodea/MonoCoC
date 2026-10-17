@@ -1,0 +1,8 @@
+{
+  id: "coc:succubus_barrage"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:succubus_barrage"
+}

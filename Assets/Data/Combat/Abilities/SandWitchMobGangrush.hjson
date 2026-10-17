@@ -1,0 +1,8 @@
+{
+  id: "coc:sand_witch_mob_gangrush"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:sand_witch_mob_gangrush"
+}

@@ -1,0 +1,4 @@
+{
+  "Perks.Archmage.Desc": "[if (inte>=75) {Increases base spell strength by 50%.|<b>You are too dumb to gain benefit from this perk.</b>}]"
+  "Perks.Archmage.Name": "Archmage"
+}

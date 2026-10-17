@@ -1,0 +1,8 @@
+{
+  id: "coc:sand_witch_mob_sand_storm_attack"
+  type: "magical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:sand_witch_mob_sand_storm_attack"
+}

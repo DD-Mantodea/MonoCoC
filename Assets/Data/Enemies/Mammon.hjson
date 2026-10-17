@@ -1,0 +1,30 @@
+{
+  // 原版 classes/scenes/monsters/Mammon.hx（由 monster.mjs 生成骨架后人工补属性）
+  enemies: [
+    {
+      id: "coc:mammon"
+      // type 必须与 Contents/Enemies/Vanilla/MammonEnemy.cs 的 [Register] id 完全一致
+      type: "coc:mammon"
+      nameKey: "Npcs.Mammon.Name"
+      descriptionKey: "Npcs.Mammon.Desc"
+      article: ""
+      level: 40
+      bonusHealth: 2500
+      lust: 30
+      strength: 60
+      toughness: 75
+      speed: 75
+      intelligence: 200
+      libido: 40
+      sensitivity: 40
+      corruption: 95
+      // 原版 this.gems = 2500（固定值，Mammon.hx:39）
+      gems: 2500
+      experience: 0
+      ai: "coc:mammon_ai"
+      // 原版 drop = NO_DROP（Mammon.hx:26）
+      weightedLoot: true
+      loot: []
+    }
+  ]
+}

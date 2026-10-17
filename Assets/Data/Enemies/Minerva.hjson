@@ -1,0 +1,29 @@
+{
+  // 原版 Minerva（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:minerva"
+      type: "coc:minerva"
+      nameKey: "Npcs.Minerva.Name"
+      descriptionKey: "Npcs.Minerva.Desc"
+      article: ""
+      level: 16
+      bonusHealth: 470
+      lust: 20
+      strength: 50
+      toughness: 65
+      speed: 95
+      intelligence: 75
+      libido: 30
+      sensitivity: 25
+      corruption: 45
+      gems: 25
+      experience: 0
+      ai: "coc:minerva_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

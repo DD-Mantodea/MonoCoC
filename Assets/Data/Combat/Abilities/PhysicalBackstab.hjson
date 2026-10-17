@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:2016-2030 / :5571-5597 Backstab（cost 35-5*匕首精通，cooldown 3）
+  id: "coc:special_backstab"
+  nameKey: "Combat.Special.Backstab.Name"
+  descriptionKey: "Combat.Special.Backstab.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 35
+  fatigueType: "physical"
+  cooldown: 3
+  availableWhen: "coc:can_backstab"
+  handler: "coc:special_backstab"
+}

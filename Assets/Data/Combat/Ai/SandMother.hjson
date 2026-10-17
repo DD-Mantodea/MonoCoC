@@ -1,0 +1,36 @@
+{
+  // 原版 SandMother.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:sand_mother_ai"
+  actions: [
+    {
+      ability: "coc:sand_mother_get_whispered"
+      weight: 1
+      cost: 15
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:sand_mother_eat_alightning_bolt"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:sand_mother_giga_fire"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:sand_mother_earth_shield"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:sand_mother_telekinesis"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+  ]
+}

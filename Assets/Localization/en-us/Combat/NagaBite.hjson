@@ -1,0 +1,12 @@
+{
+  "Combat.Effect.NagaBite.Name": "Naga Venom",
+  "Combat.Effect.NagaBite.Description": "Your venom courses through the enemy's veins, sapping their strength and speed.",
+  "Combat.Effect.NagaBite.Round": "[pg-]As your venom courses through [monster.his] veins, [themonster] slows and weakens.",
+  "Combat.Special.NagaBite.Name": "Naga Bite",
+  "Combat.Special.NagaBite.Description": "Attempt to bite your opponent and inject venom, reducing Strength and Speed. Effect is doubled if you have your foe constricted.",
+  "Combat.Special.NagaBite.PoisonImmune": "[Themonster] is immune to any type of poison! Your bite does nothing![pg]",
+  "Combat.Special.NagaBite.BiteImmune": "You lunge forwards, fangs bared, and bite [themonster] with all your might. A piercing pain shoots up your skull as soon as you connect, your teeth unable to break through [monster.his] hide. You recoil in pain.",
+  "Combat.Special.NagaBite.Hit": "You lunge at the foe headfirst, fangs bared. You manage to catch [themonster] off guard, your needle-like fangs penetrating deep into [monster.his] body. You inject your venom and pull back.",
+  "Combat.Special.NagaBite.Fail": "You lunge headfirst, fangs bared. Your attempt fails horrendously, as [themonster] manages to counter your lunge, knocking your head away with enough force to make your ears ring.",
+  "Combat.Special.NagaBite.Reduced": "[pg]The poison reduced [monster.his] strength and speed!"
+}

@@ -1,0 +1,9 @@
+{
+  "Items.WhiteBook.Desc": "This white book is totally unmarked, and the cover is devoid of any lettering or title. A shiny brass clasp keeps the covers closed until you are ready to read it."
+  "Items.WhiteBook.Long": "a small book with a pristine white cover"
+  "Items.WhiteBook.Short": "White Book"
+  "Items.WhiteBook.SpellBlind": "You blink in surprise, assaulted by the knowledge of a new spell: Blind."
+  "Items.WhiteBook.SpellCharge": "You blink in surprise, assaulted by the knowledge of a new spell: Charge Weapon."
+  "Items.WhiteBook.SpellWhitefire": "You blink in surprise, assaulted by the knowledge of a new spell: Whitefire."
+  "Items.WhiteBook.Use": "You open the white tome, and discover it to be an instructional book on the use of white magic. Most of it is filled with generic information about white magic - how it is drawn for mental focus, is difficult to use when tired or aroused, and can be used to create and control energy. In no time at all you've read the whole thing, but it disappears into thin air before you can put it away.[pg]"
+}

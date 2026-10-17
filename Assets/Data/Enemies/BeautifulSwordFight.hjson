@@ -1,0 +1,28 @@
+{
+  // 原版 BeautifulSwordFight（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:beautiful_sword_fight"
+      type: "coc:beautiful_sword_fight"
+      nameKey: "Npcs.BeautifulSwordFight.Name"
+      descriptionKey: "Npcs.BeautifulSwordFight.Desc"
+      article: "the"
+      level: 17
+      bonusHealth: 400
+      lust: 0
+      strength: 80
+      toughness: 100
+      speed: 75
+      intelligence: 50
+      libido: 0
+      sensitivity: 0
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:beautiful_sword_fight_ai"
+      // 原版 drop = new WeightedDrop()（空表，BeautifulSwordFight.hx:131）
+      loot: [
+      ]
+    }
+  ]
+}

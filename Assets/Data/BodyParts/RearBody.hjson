@@ -1,0 +1,11 @@
+{
+  "kind": "coc:rear_body",
+  "default": "coc:none",
+  "types": [
+    { "id": "coc:none" },
+    { "id": "coc:draconic_mane", "appearance": "RearMane" },
+    { "id": "coc:draconic_spikes", "appearance": "RearSpikes" },
+    { "id": "coc:shark_fin", "appearance": "RearFin" },
+    { "id": "coc:bark", "armorBonus": 3, "appearance": "RearBark" }
+  ]
+}

@@ -1,0 +1,5069 @@
+{
+  items:
+  [
+    {
+      id: coc:dagger
+      shortNameKey: Items.Dagger.Short
+      longNameKey: Items.Dagger.Long
+      descriptionKey: Items.Dagger.Desc
+      value: 40
+      attack: 4
+      accuracy: 1
+      tags:
+      [
+        knife
+        cunning
+      ]
+      legacyId: "Dagger "
+      type: "coc:dagger"
+      verb: stab
+    }
+    {
+      id: coc:spear
+      shortNameKey: Items.Spear.Short
+      longNameKey: Items.Spear.Long
+      descriptionKey: Items.Spear.Desc
+      value: 450
+      attack: 8
+      accuracy: 0.6
+      tags:
+      [
+        spear
+      ]
+      legacyId: "Spear  "
+      type: "coc:spear"
+      verb: stab
+    }
+    {
+      id: coc:mace
+      shortNameKey: Items.Mace.Short
+      longNameKey: Items.Mace.Long
+      descriptionKey: Items.Mace.Desc
+      value: 100
+      attack: 9
+      accuracy: 0.6
+      tags:
+      [
+        blunt1h
+      ]
+      legacyId: "Mace   "
+      type: "coc:blunt"
+      verb: smash
+    }
+    {
+      id: coc:comfy_clothes
+      shortNameKey: Items.ComfyClothes.Short
+      longNameKey: Items.ComfyClothes.Long
+      descriptionKey: Items.ComfyClothes.Desc
+      value: 0
+      defense: 0
+      perk: Light
+      supportsBulge: true
+      legacyId: C.Cloth
+      type: "coc:armor"
+    }
+    {
+      id: coc:leather_armor
+      shortNameKey: Items.LeatherArmor.Short
+      longNameKey: Items.LeatherArmor.Long
+      descriptionKey: Items.LeatherArmor.Desc
+      value: 76
+      defense: 5
+      perk: Light
+      legacyId: LeathrA
+      type: "coc:armor"
+    }
+    {
+      id: coc:modest_robes
+      shortNameKey: Items.ModestRobes.Short
+      longNameKey: Items.ModestRobes.Long
+      descriptionKey: Items.ModestRobes.Desc
+      value: 120
+      defense: 0
+      perk: Light
+      legacyId: M.Robes
+      type: "coc:armor"
+    }
+    {
+      id: coc:leather_pants
+      shortNameKey: Items.LeatherPants.Short
+      longNameKey: Items.LeatherPants.Long
+      descriptionKey: Items.LeatherPants.Desc
+      value: 450
+      defense: 0
+      perk: Light
+      legacyId: LthrPnt
+      type: "coc:armor"
+    }
+    {
+      id: coc:chainmail
+      shortNameKey: Items.Chainmail.Short
+      longNameKey: Items.Chainmail.Long
+      descriptionKey: Items.Chainmail.Desc
+      value: 150
+      defense: 8
+      perk: Medium
+      legacyId: FullChn
+      type: "coc:armor"
+    }
+    {
+      id: coc:goo_armor
+      useTextKey: "Items.GooArmor.UseText"
+      shortNameKey: Items.GooArmor.Short
+      longNameKey: Items.GooArmor.Long
+      descriptionKey: Items.GooArmor.Desc
+      value: 1
+      defense: 22
+      perk: Heavy
+      legacyId: GooArmr
+      type: "coc:armor"
+      behavior: coc:goo_armor
+    }
+    {
+      id: coc:tentacle_bark
+      shortNameKey: Items.TentacleBark.Short
+      longNameKey: Items.TentacleBark.Long
+      descriptionKey: Items.TentacleBark.Desc
+      value: 1000
+      defense: 35
+      perk: Heavy
+      legacyId: TB.Armr
+      type: "coc:armor"
+      behavior: coc:marae_armor
+    }
+    {
+      id: coc:buckler
+      shortNameKey: Items.Buckler.Short
+      longNameKey: Items.Buckler.Long
+      descriptionKey: Items.Buckler.Desc
+      value: 50
+      block: 5
+      legacyId: Buckler
+      type: "coc:shield"
+    }
+    {
+      id: coc:kite_shield
+      shortNameKey: Items.KiteShield.Short
+      longNameKey: Items.KiteShield.Long
+      descriptionKey: Items.KiteShield.Desc
+      value: 150
+      block: 8
+      legacyId: Kite Sh
+      type: "coc:shield"
+    }
+    {
+      id: coc:comfy_bra
+      slot: upper
+      shortNameKey: Items.ComfyBra.Short
+      longNameKey: Items.ComfyBra.Long
+      descriptionKey: Items.ComfyBra.Desc
+      value: 6
+      legacyId: C. Bra
+      type: "coc:undergarment"
+    }
+    {
+      id: coc:sea_shirt
+      slot: upper
+      shortNameKey: "Items.SeaShirt.Short"
+      longNameKey: "Items.SeaShirt.Long"
+      descriptionKey: "Items.SeaShirt.Desc"
+      value: 20
+      legacyId: Sea Shirt
+      type: "coc:undergarment"
+    }
+    {
+      id: coc:training_bra
+      slot: upper
+      shortNameKey: Items.TrainingBra.Short
+      longNameKey: Items.TrainingBra.Long
+      descriptionKey: Items.TrainingBra.Desc
+      value: 20
+      legacyId: LoliBra
+      type: "coc:undergarment"
+    }
+    {
+      id: coc:comfy_panties
+      slot: lower
+      shortNameKey: Items.ComfyPanties.Short
+      longNameKey: Items.ComfyPanties.Long
+      descriptionKey: Items.ComfyPanties.Desc
+      value: 6
+      legacyId: C.Panty
+      type: "coc:undergarment"
+    }
+    {
+      id: coc:child_panties
+      slot: lower
+      shortNameKey: Items.ChildPanties.Short
+      longNameKey: Items.ChildPanties.Long
+      descriptionKey: Items.ChildPanties.Desc
+      value: 20
+      legacyId: LoliPan
+      type: "coc:undergarment"
+    }
+    {
+      id: coc:comfy_loincloth
+      slot: lower
+      shortNameKey: Items.ComfyLoincloth.Short
+      longNameKey: Items.ComfyLoincloth.Long
+      descriptionKey: Items.ComfyLoincloth.Desc
+      value: 6
+      legacyId: C. Loin
+      type: "coc:undergarment"
+    }
+    {
+      id: coc:healing_pill
+      shortNameKey: Items.HealingPill.Short
+      longNameKey: Items.HealingPill.Long
+      descriptionKey: Items.HealingPill.Desc
+      value: 6
+      maxStackSize: 5
+      tags:
+      [
+        healing
+      ]
+      legacyId: H. Pill
+      effects:
+      [
+        coc:healing_pill
+      ]
+      type: "coc:consumable"
+    }
+    {
+      id: coc:white_book
+      shortNameKey: Items.WhiteBook.Short
+      longNameKey: Items.WhiteBook.Long
+      descriptionKey: Items.WhiteBook.Desc
+      value: 40
+      maxStackSize: 5
+      tags:
+      [
+        book
+      ]
+      legacyId: W. Book
+      effects:
+      [
+        coc:white_book
+      ]
+      type: "coc:consumable"
+    }
+    {
+      id: coc:black_book
+      shortNameKey: Items.BlackBook.Short
+      longNameKey: Items.BlackBook.Long
+      descriptionKey: Items.BlackBook.Desc
+      value: 40
+      maxStackSize: 5
+      tags:
+      [
+        book
+      ]
+      legacyId: B. Book
+      effects:
+      [
+        coc:black_book
+      ]
+      type: "coc:consumable"
+    }
+    {
+      id: coc:beautiful_sword
+      shortNameKey: Items.BeautifulSword.Short
+      longNameKey: Items.BeautifulSword.Long
+      descriptionKey: Items.BeautifulSword.Desc
+      value: 400
+      type: "coc:sword"
+      verb: slash
+      attack: 7
+      behavior: coc:beautiful_sword
+      tags:
+      [
+        holySword
+        1H Sword
+      ]
+      legacyId: B.Sword
+    }
+    {
+      id: coc:blunderbuss
+      shortNameKey: Items.Blunderbuss.Short
+      longNameKey: Items.Blunderbuss.Long
+      descriptionKey: Items.Blunderbuss.Desc
+      value: 600
+      type: "coc:weapon"
+      verb: attack
+      attack: 22
+      tags:
+      [
+        FIREARM
+      ]
+      legacyId: Blunder
+    }
+    {
+      id: coc:cursed_dagger
+      shortNameKey: Items.CursedDagger.Short
+      longNameKey: Items.CursedDagger.Long
+      descriptionKey: Items.CursedDagger.Desc
+      value: 2500
+      type: "coc:dagger"
+      verb: stab
+      attack: 10
+      tags:
+      [
+        Cunning
+        Knife
+      ]
+      legacyId: "Cursed Dagger "
+    }
+    {
+      id: coc:eldritch_staff
+      shortNameKey: Items.EldritchStaff.Short
+      longNameKey: Items.EldritchStaff.Long
+      descriptionKey: Items.EldritchStaff.Desc
+      value: 1000
+      type: "coc:staff"
+      verb: smack
+      attack: 10
+      tags:
+      [
+        Magic
+        Staff
+      ]
+      legacyId: E.Staff
+    }
+    {
+      id: coc:fel_axe
+      shortNameKey: Items.FelAxe.Short
+      longNameKey: Items.FelAxe.Long
+      descriptionKey: Items.FelAxe.Desc
+      value: 150
+      type: "coc:axe"
+      verb: cleave
+      attack: 11
+      tags:
+      [
+        Axe
+      ]
+      legacyId: Fel Axe
+    }
+    {
+      id: coc:flameheart_spear
+      shortNameKey: Items.FlameheartSpear.Short
+      longNameKey: Items.FlameheartSpear.Long
+      descriptionKey: Items.FlameheartSpear.Desc
+      value: 1250
+      type: "coc:spear"
+      verb: stab
+      attack: 15
+      tags:
+      [
+        Spear
+      ]
+      legacyId: FlmHrtSpear
+    }
+    {
+      id: coc:geode_knuckle
+      shortNameKey: Items.GeodeKnuckle.Short
+      longNameKey: Items.GeodeKnuckle.Long
+      descriptionKey: Items.GeodeKnuckle.Desc
+      value: 0
+      type: "coc:fist"
+      verb: punch
+      attack: 15
+      tags:
+      [
+        Fist
+        ATTACHED
+        SUMMONED
+      ]
+      legacyId: Geode Knuckle
+    }
+    {
+      id: coc:warhammer
+      shortNameKey: Items.Warhammer.Short
+      longNameKey: Items.Warhammer.Long
+      descriptionKey: Items.Warhammer.Desc
+      value: 1600
+      type: "coc:blunt"
+      verb: smash
+      attack: 15
+      tags:
+      [
+        2H Blunt
+      ]
+      legacyId: Warhamr
+    }
+    {
+      id: coc:huntsmans_cane
+      shortNameKey: Items.HuntsmansCane.Short
+      longNameKey: Items.HuntsmansCane.Long
+      descriptionKey: Items.HuntsmansCane.Desc
+      value: 400
+      type: "coc:weapon"
+      verb: attack
+      attack: 0
+      behavior: coc:huntsmans_cane
+      legacyId: H. Cane
+    }
+    {
+      id: coc:light_rail_avenger
+      shortNameKey: "Items.LightRailAvenger.Short"
+      longNameKey: "Items.LightRailAvenger.Long"
+      descriptionKey: "Items.LightRailAvenger.Desc"
+      value: 1200
+      type: "coc:weapon"
+      verb: slash
+      attack: 0
+      tags:
+      [
+        SWORD2H
+        KATANA
+      ]
+      legacyId: L.Avngr
+    }
+    {
+      id: coc:jeweled_rapier
+      shortNameKey: Items.JeweledRapier.Short
+      longNameKey: Items.JeweledRapier.Long
+      descriptionKey: Items.JeweledRapier.Desc
+      value: 1400
+      type: "coc:sword"
+      verb: slash
+      attack: 13
+      tags:
+      [
+        1H Sword
+      ]
+      legacyId: JRapier
+    }
+    {
+      id: coc:large_claymore
+      shortNameKey: Items.LargeClaymore.Short
+      longNameKey: Items.LargeClaymore.Long
+      descriptionKey: Items.LargeClaymore.Desc
+      value: 1000
+      type: "coc:sword"
+      verb: slash
+      attack: 15
+      tags:
+      [
+        2H Sword
+      ]
+      legacyId: Claymor
+    }
+    {
+      id: coc:marbles_hammer
+      shortNameKey: Items.MarblesHammer.Short
+      longNameKey: Items.MarblesHammer.Long
+      descriptionKey: Items.MarblesHammer.Desc
+      value: 90
+      type: "coc:blunt"
+      verb: smash
+      attack: 16
+      tags:
+      [
+        2H Blunt
+      ]
+      legacyId: L.Hammr
+    }
+    {
+      id: coc:lethicite_staff
+      shortNameKey: Items.LethiciteStaff.Short
+      longNameKey: Items.LethiciteStaff.Long
+      descriptionKey: Items.LethiciteStaff.Desc
+      value: 1337
+      type: "coc:staff"
+      verb: smack
+      attack: 14
+      tags:
+      [
+        Magic
+        Staff
+      ]
+      legacyId: L.Staff
+    }
+    {
+      id: coc:midnight_rapier
+      shortNameKey: Items.MidnightRapier.Short
+      longNameKey: Items.MidnightRapier.Long
+      descriptionKey: Items.MidnightRapier.Desc
+      value: 1250
+      type: "coc:sword"
+      verb: slash
+      attack: 15
+      tags:
+      [
+        uglySword
+        1H Sword
+      ]
+      legacyId: MRapier
+    }
+    {
+      id: coc:nephila_scepter
+      shortNameKey: Items.NephilaScepter.Short
+      longNameKey: Items.NephilaScepter.Long
+      descriptionKey: Items.NephilaScepter.Desc
+      value: 800
+      type: "coc:staff"
+      verb: smack
+      attack: 8
+      tags:
+      [
+        Magic
+        Staff
+        BLUNT
+      ]
+      legacyId: N.Scepter
+    }
+    {
+      id: coc:raphaels_rapier
+      shortNameKey: Items.RaphaelsRapier.Short
+      longNameKey: Items.RaphaelsRapier.Long
+      descriptionKey: Items.RaphaelsRapier.Desc
+      value: 1000
+      type: "coc:sword"
+      verb: slash
+      attack: 8
+      tags:
+      [
+        1H Sword
+      ]
+      legacyId: RRapier
+    }
+    {
+      id: coc:scarred_blade
+      shortNameKey: Items.ScarredBlade.Short
+      longNameKey: Items.ScarredBlade.Long
+      descriptionKey: Items.ScarredBlade.Desc
+      value: 1000
+      type: "coc:sword"
+      verb: slash
+      attack: 10
+      tags:
+      [
+        1H Sword
+      ]
+      legacyId: ScarBld
+    }
+    {
+      id: coc:spellblade
+      shortNameKey: Items.Spellblade.Short
+      longNameKey: Items.Spellblade.Long
+      descriptionKey: Items.Spellblade.Desc
+      value: 500
+      type: "coc:sword"
+      verb: slash
+      attack: 8
+      tags:
+      [
+        1H Sword
+      ]
+      legacyId: S.Blade
+    }
+    {
+      id: coc:ugly_sword
+      shortNameKey: Items.UglySword.Short
+      longNameKey: Items.UglySword.Long
+      descriptionKey: Items.UglySword.Desc
+      value: 400
+      type: "coc:sword"
+      verb: slash
+      attack: 7
+      tags:
+      [
+        uglySword
+        1H Sword
+      ]
+      legacyId: U.Sword
+    }
+    {
+      id: coc:winged_spear
+      shortNameKey: Items.WingedSpear.Short
+      longNameKey: Items.WingedSpear.Long
+      descriptionKey: Items.WingedSpear.Desc
+      value: 600
+      type: "coc:spear"
+      verb: stab
+      attack: 10
+      tags:
+      [
+        Spear
+      ]
+      legacyId: WingSpr
+    }
+    {
+      id: coc:kokiri_lewd_chain
+      shortNameKey: Items.KokiriLewdChain.Short
+      longNameKey: Items.KokiriLewdChain.Long
+      descriptionKey: Items.KokiriLewdChain.Desc
+      value: 250
+      type: "coc:armor"
+      defense: 7
+      perk: Medium
+      legacyId: AdvLChn
+    }
+    {
+      id: coc:ballet_dress
+      shortNameKey: Items.BalletDress.Short
+      longNameKey: Items.BalletDress.Long
+      descriptionKey: Items.BalletDress.Desc
+      value: 2400
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: BalletD
+    }
+    {
+      id: coc:bee_armor
+      shortNameKey: Items.BeeArmor.Short
+      longNameKey: Items.BeeArmor.Long
+      descriptionKey: Items.BeeArmor.Desc
+      value: 200
+      type: "coc:armor"
+      defense: 18
+      perk: Heavy
+      legacyId: BeeArmr
+    }
+    {
+      id: coc:bestial_armor
+      shortNameKey: Items.BestialArmor.Short
+      longNameKey: Items.BestialArmor.Long
+      descriptionKey: Items.BestialArmor.Desc
+      value: 2000
+      type: "coc:armor"
+      defense: 9
+      perk: Light
+      legacyId: Bestial
+    }
+    {
+      id: coc:cheer_outfit
+      shortNameKey: Items.CheerOutfit.Short
+      longNameKey: Items.CheerOutfit.Long
+      descriptionKey: Items.CheerOutfit.Desc
+      value: 300
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: ChrOtft
+    }
+    {
+      id: coc:demon_hide_armor
+      shortNameKey: Items.DemonHideArmor.Short
+      longNameKey: Items.DemonHideArmor.Long
+      descriptionKey: Items.DemonHideArmor.Desc
+      value: 2000
+      type: "coc:armor"
+      defense: 20
+      perk: Medium
+      legacyId: DmnHide
+    }
+    {
+      id: coc:inquisitors_corset
+      shortNameKey: Items.InquisitorsCorset.Short
+      longNameKey: Items.InquisitorsCorset.Long
+      descriptionKey: Items.InquisitorsCorset.Desc
+      value: 2000
+      type: "coc:armor"
+      behavior: coc:inquisitors_corset
+      defense: 4
+      perk: Light
+      supportsBulge: false
+      legacyId: I.Corst
+    }
+    {
+      id: coc:inquisitor_robes
+      shortNameKey: Items.InquisitorRobes.Short
+      longNameKey: Items.InquisitorRobes.Long
+      descriptionKey: Items.InquisitorRobes.Desc
+      value: 2000
+      type: "coc:armor"
+      defense: 8
+      perk: Light
+      legacyId: I.Robes
+    }
+    {
+      id: coc:ivory_corset
+      shortNameKey: Items.IvoryCorset.Short
+      longNameKey: Items.IvoryCorset.Long
+      descriptionKey: Items.IvoryCorset.Desc
+      value: 1000
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: IvCorset
+    }
+    {
+      id: coc:urtas_armor
+      shortNameKey: Items.UrtasArmor.Short
+      longNameKey: Items.UrtasArmor.Long
+      descriptionKey: Items.UrtasArmor.Desc
+      value: 76
+      type: "coc:armor"
+      defense: 5
+      perk: Light
+      supportsBulge: true
+      legacyId: UrtaLta
+    }
+    {
+      id: coc:lethicite_armor
+      shortNameKey: Items.LethiciteArmor.Short
+      longNameKey: Items.LethiciteArmor.Long
+      descriptionKey: Items.LethiciteArmor.Desc
+      value: 3000
+      type: "coc:armor"
+      defense: 28
+      perk: Heavy
+      legacyId: LthcArm
+    }
+    {
+      id: coc:light_maiden_armor
+      shortNameKey: Items.LightMaidenArmor.Short
+      longNameKey: Items.LightMaidenArmor.Long
+      descriptionKey: Items.LightMaidenArmor.Desc
+      value: 400
+      type: "coc:armor"
+      defense: 6
+      perk: Light
+      behavior: coc:lusty_maidens_armor
+      supportsBulge: false
+      legacyId: LMArmor
+    }
+    {
+      id: coc:maid_silk_dress
+      shortNameKey: Items.MaidSilkDress.Short
+      longNameKey: Items.MaidSilkDress.Long
+      descriptionKey: Items.MaidSilkDress.Desc
+      value: 1000
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: MSDress
+    }
+    {
+      id: coc:nuns_habit
+      shortNameKey: Items.NunsHabit.Short
+      longNameKey: Items.NunsHabit.Long
+      descriptionKey: Items.NunsHabit.Desc
+      value: 200
+      type: "coc:armor"
+      defense: 2
+      perk: Light
+      behavior: coc:naughty_nuns_habit
+      legacyId: NNunHab
+    }
+    {
+      id: coc:nephila_gown
+      shortNameKey: Items.NephilaGown.Short
+      longNameKey: Items.NephilaGown.Long
+      descriptionKey: Items.NephilaGown.Desc
+      value: 200
+      type: "coc:armor"
+      defense: 18
+      perk: Heavy
+      legacyId: NQ.Gwn
+    }
+    {
+      id: coc:nothing
+      shortNameKey: Items.Nothing.Short
+      longNameKey: Items.Nothing.Long
+      descriptionKey: Items.Nothing.Desc
+      value: 0
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: nothing
+    }
+    {
+      id: coc:divine_armor
+      shortNameKey: Items.DivineArmor.Short
+      longNameKey: Items.DivineArmor.Long
+      descriptionKey: Items.DivineArmor.Desc
+      value: 1100
+      type: "coc:armor"
+      defense: 40
+      perk: Heavy
+      legacyId: DB.Armr
+    }
+    {
+      id: coc:seductive_armor
+      shortNameKey: Items.SeductiveArmor.Short
+      longNameKey: Items.SeductiveArmor.Long
+      descriptionKey: Items.SeductiveArmor.Desc
+      value: 1
+      type: "coc:armor"
+      defense: 0
+      perk: Heavy
+      legacyId: SeductA
+    }
+    {
+      id: coc:unusual_seductive_armor
+      shortNameKey: Items.UnusualSeductiveArmor.Short
+      longNameKey: Items.UnusualSeductiveArmor.Long
+      descriptionKey: Items.UnusualSeductiveArmor.Desc
+      value: 1
+      type: "coc:armor"
+      defense: 10
+      perk: Heavy
+      legacyId: SeductU
+    }
+    {
+      id: coc:skimpy_swimwear
+      shortNameKey: Items.SkimpySwimwear.Short
+      longNameKey: Items.SkimpySwimwear.Long
+      descriptionKey: Items.SkimpySwimwear.Desc
+      value: 6
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: S.Swmwr
+    }
+    {
+      id: coc:vine_armor
+      shortNameKey: Items.VineArmor.Short
+      longNameKey: Items.VineArmor.Long
+      descriptionKey: Items.VineArmor.Desc
+      value: 0
+      type: "coc:armor"
+      behavior: coc:vine_armor
+      defense: 0
+      perk: Light
+      legacyId: VinArmr
+    }
+    {
+      id: coc:akbal_shield
+      shortNameKey: Items.AkbalShield.Short
+      longNameKey: Items.AkbalShield.Long
+      descriptionKey: Items.AkbalShield.Desc
+      value: 2000
+      type: "coc:shield"
+      behavior: coc:akbal_shield
+      block: 14
+      legacyId: AkbalShield
+    }
+    {
+      id: coc:clockwork_shield
+      shortNameKey: Items.ClockworkShield.Short
+      longNameKey: Items.ClockworkShield.Long
+      descriptionKey: Items.ClockworkShield.Desc
+      value: 1003
+      type: "coc:shield"
+      block: 6
+      legacyId: ClShield
+    }
+    {
+      id: coc:dragon_shield
+      shortNameKey: Items.DragonShield.Short
+      longNameKey: Items.DragonShield.Long
+      descriptionKey: Items.DragonShield.Desc
+      value: 1500
+      type: "coc:shield"
+      block: 14
+      legacyId: DrgnShl
+    }
+    {
+      id: coc:flamegrit_shield
+      shortNameKey: Items.FlamegritShield.Short
+      longNameKey: Items.FlamegritShield.Long
+      descriptionKey: Items.FlamegritShield.Desc
+      value: 1500
+      type: "coc:shield"
+      block: 14
+      legacyId: Flamegrit Shield
+    }
+    {
+      id: coc:no_shield
+      shortNameKey: Items.NoShield.Short
+      longNameKey: Items.NoShield.Long
+      descriptionKey: Items.NoShield.Desc
+      value: 0
+      type: "coc:shield"
+      block: 0
+      perk: shield
+      legacyId: noshild
+    }
+    {
+      id: coc:tower_shield
+      shortNameKey: Items.TowerShield.Short
+      longNameKey: Items.TowerShield.Long
+      descriptionKey: Items.TowerShield.Desc
+      value: 500
+      type: "coc:shield"
+      block: 16
+      legacyId: TowerSh
+    }
+    {
+      id: coc:wooden_shield
+      shortNameKey: Items.WoodenShield.Short
+      longNameKey: Items.WoodenShield.Long
+      descriptionKey: Items.WoodenShield.Desc
+      value: 10
+      type: "coc:shield"
+      block: 6
+      legacyId: WoodShl
+    }
+    {
+      id: coc:no_jewelry
+      shortNameKey: Items.NoJewelry.Short
+      longNameKey: Items.NoJewelry.Long
+      descriptionKey: Items.NoJewelry.Desc
+      value: 0
+      type: "coc:jewelry"
+      legacyId: nojewel
+    }
+    {
+      id: coc:patience_ring
+      shortNameKey: Items.PatienceRing.Short
+      longNameKey: Items.PatienceRing.Long
+      descriptionKey: Items.PatienceRing.Desc
+      value: 1
+      type: "coc:jewelry"
+      legacyId: PatienceRing
+    }
+    {
+      id: coc:specter_ring
+      shortNameKey: Items.SpecterRing.Short
+      longNameKey: Items.SpecterRing.Long
+      descriptionKey: Items.SpecterRing.Desc
+      value: 5000
+      type: "coc:jewelry"
+      effectId: 13
+      effectMagnitude: 1
+      legacyId: SpectrRing
+    }
+    {
+      id: coc:nobles_shirt
+      shortNameKey: Items.NoblesShirt.Short
+      longNameKey: Items.NoblesShirt.Long
+      descriptionKey: Items.NoblesShirt.Desc
+      value: 100
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 2
+      legacyId: Nob.Shirt
+    }
+    {
+      id: coc:no_undergarment
+      shortNameKey: Items.NoUndergarment.Short
+      longNameKey: Items.NoUndergarment.Long
+      descriptionKey: Items.NoUndergarment.Desc
+      value: 0
+      type: "coc:undergarment"
+      legacyId: nounder
+    }
+    {
+      id: coc:akbal_saliva
+      shortNameKey: Items.AkbalSaliva.Short
+      longNameKey: Items.AkbalSaliva.Long
+      descriptionKey: Items.AkbalSaliva.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: AkbalSl
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:ament
+      shortNameKey: Items.Ament.Short
+      longNameKey: Items.Ament.Long
+      descriptionKey: Items.Ament.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Ament
+      tags:
+      [
+        transformative
+      ]
+    }
+    {
+      id: coc:sword_shard
+      shortNameKey: Items.SwordShard.Short
+      longNameKey: Items.SwordShard.Long
+      descriptionKey: Items.SwordShard.Desc
+      value: 200
+      type: "coc:consumable"
+      legacyId: S. Shard
+    }
+    {
+      id: coc:beondegi
+      shortNameKey: Items.Beondegi.Short
+      longNameKey: Items.Beondegi.Long
+      descriptionKey: Items.Beondegi.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Beondegi
+    }
+    {
+      id: coc:bimbo_champagne
+      shortNameKey: Items.BimboChampagne.Short
+      longNameKey: Items.BimboChampagne.Long
+      descriptionKey: Items.BimboChampagne.Desc
+      value: 1
+      type: "coc:consumable"
+      legacyId: BimboCh
+    }
+    {
+      id: coc:bimbo_liqueur
+      shortNameKey: Items.BimboLiqueur.Short
+      longNameKey: Items.BimboLiqueur.Long
+      descriptionKey: Items.BimboLiqueur.Desc
+      value: 1000
+      type: "coc:consumable"
+      legacyId: BimboLq
+      tags:
+      [
+        special
+        fluid
+        alcohol
+        rare
+      ]
+    }
+    {
+      id: coc:black_cat_beer
+      shortNameKey: Items.BlackCatBeer.Short
+      longNameKey: Items.BlackCatBeer.Long
+      descriptionKey: Items.BlackCatBeer.Desc
+      value: 1
+      type: "coc:consumable"
+      legacyId: BC Beer
+    }
+    {
+      id: coc:clovis
+      shortNameKey: Items.Clovis.Short
+      longNameKey: Items.Clovis.Long
+      descriptionKey: Items.Clovis.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Clovis
+    }
+    {
+      id: coc:coal
+      shortNameKey: Items.Coal.Short
+      longNameKey: Items.Coal.Long
+      descriptionKey: Items.Coal.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: "Coal   "
+    }
+    {
+      id: coc:echidna_cake
+      shortNameKey: Items.EchidnaCake.Short
+      longNameKey: Items.EchidnaCake.Long
+      descriptionKey: Items.EchidnaCake.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: EchidCk
+    }
+    {
+      id: coc:ectoplasm
+      shortNameKey: Items.Ectoplasm.Short
+      longNameKey: Items.Ectoplasm.Long
+      descriptionKey: Items.Ectoplasm.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: EctoPls
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:dragon_egg
+      shortNameKey: Items.DragonEgg.Short
+      longNameKey: Items.DragonEgg.Long
+      descriptionKey: Items.DragonEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: DrgnEgg
+      tags:
+      [
+        egg
+      ]
+    }
+    {
+      id: coc:w_fruit
+      shortNameKey: "Items.WFruit.Short"
+      longNameKey: "Items.WFruit.Long"
+      descriptionKey: "Items.WFruit.Desc"
+      value: 15
+      type: "coc:consumable"
+      legacyId: W.Fruit
+    }
+    {
+      id: coc:equinum
+      shortNameKey: Items.Equinum.Short
+      longNameKey: Items.Equinum.Long
+      descriptionKey: Items.Equinum.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Equinum
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:ferret_fruit
+      shortNameKey: Items.FerretFruit.Short
+      longNameKey: Items.FerretFruit.Long
+      descriptionKey: Items.FerretFruit.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Frrtfrt
+    }
+    {
+      id: coc:fish_fillet
+      shortNameKey: Items.FishFillet.Short
+      longNameKey: Items.FishFillet.Long
+      descriptionKey: Items.FishFillet.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: FishFil
+    }
+    {
+      id: coc:frothy_beer
+      shortNameKey: Items.FrothyBeer.Short
+      longNameKey: Items.FrothyBeer.Long
+      descriptionKey: Items.FrothyBeer.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Fr Beer
+      tags:
+      [
+        fluid
+        alcohol
+      ]
+    }
+    {
+      id: coc:gnoll_spot
+      shortNameKey: Items.GnollSpot.Short
+      longNameKey: Items.GnollSpot.Long
+      descriptionKey: Items.GnollSpot.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: GnollSpot
+    }
+    {
+      id: coc:goblin_ale
+      shortNameKey: Items.GoblinAle.Short
+      longNameKey: Items.GoblinAle.Long
+      descriptionKey: Items.GoblinAle.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Gob.Ale
+      tags:
+      [
+        transformative
+        fluid
+        alcohol
+      ]
+    }
+    {
+      id: coc:gods_mead
+      shortNameKey: Items.GodsMead.Short
+      longNameKey: Items.GodsMead.Long
+      descriptionKey: Items.GodsMead.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: GodMead
+      tags:
+      [
+        fluid
+        alcohol
+      ]
+    }
+    {
+      id: coc:golden_rind
+      shortNameKey: Items.GoldenRind.Short
+      longNameKey: Items.GoldenRind.Long
+      descriptionKey: Items.GoldenRind.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: GldRind
+    }
+    {
+      id: coc:gro_plus
+      shortNameKey: Items.GroPlus.Short
+      longNameKey: Items.GroPlus.Long
+      descriptionKey: Items.GroPlus.Desc
+      value: 50
+      type: "coc:consumable"
+      legacyId: GroPlus
+    }
+    {
+      id: coc:hair_serum
+      shortNameKey: Items.HairSerum.Short
+      longNameKey: Items.HairSerum.Long
+      descriptionKey: Items.HairSerum.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: ExtSerm
+    }
+    {
+      id: coc:herbal_contraceptive
+      shortNameKey: Items.HerbalContraceptive.Short
+      longNameKey: Items.HerbalContraceptive.Long
+      descriptionKey: Items.HerbalContraceptive.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: HrblCnt
+    }
+    {
+      id: coc:icicle
+      shortNameKey: Items.Icicle.Short
+      longNameKey: Items.Icicle.Long
+      descriptionKey: Items.Icicle.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: "Icicle "
+    }
+    {
+      id: coc:imp_food
+      shortNameKey: Items.ImpFood.Short
+      longNameKey: Items.ImpFood.Long
+      descriptionKey: Items.ImpFood.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: ImpFood
+    }
+    {
+      id: coc:isabella_milk
+      shortNameKey: Items.IsabellaMilk.Short
+      longNameKey: Items.IsabellaMilk.Long
+      descriptionKey: Items.IsabellaMilk.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: IzyMilk
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:kitsune_gift
+      shortNameKey: Items.KitsuneGift.Short
+      longNameKey: Items.KitsuneGift.Long
+      descriptionKey: Items.KitsuneGift.Desc
+      value: 0
+      type: "coc:consumable"
+      legacyId: KitGift
+    }
+    {
+      id: coc:lactaid
+      shortNameKey: Items.Lactaid.Short
+      longNameKey: Items.Lactaid.Long
+      descriptionKey: Items.Lactaid.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Lactaid
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:lolipop
+      shortNameKey: Items.Lolipop.Short
+      longNameKey: Items.Lolipop.Long
+      descriptionKey: Items.Lolipop.Desc
+      value: 100
+      type: "coc:consumable"
+      legacyId: Lolipop
+    }
+    {
+      id: coc:golden_lipstick
+      shortNameKey: Items.GoldenLipstick.Short
+      longNameKey: Items.GoldenLipstick.Long
+      descriptionKey: Items.GoldenLipstick.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: LustStk
+    }
+    {
+      id: coc:marble_milk
+      shortNameKey: Items.MarbleMilk.Short
+      longNameKey: Items.MarbleMilk.Long
+      descriptionKey: Items.MarbleMilk.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: M. Milk
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:minotaur_blood
+      shortNameKey: Items.MinotaurBlood.Short
+      longNameKey: Items.MinotaurBlood.Long
+      descriptionKey: Items.MinotaurBlood.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: MinoBlo
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:calming_mint
+      shortNameKey: Items.CalmingMint.Short
+      longNameKey: Items.CalmingMint.Long
+      descriptionKey: Items.CalmingMint.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: C. Mint
+    }
+    {
+      id: coc:mouse_cocoa
+      shortNameKey: Items.MouseCocoa.Short
+      longNameKey: Items.MouseCocoa.Long
+      descriptionKey: Items.MouseCocoa.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: MouseCo
+    }
+    {
+      id: coc:nephila_pink_egg
+      shortNameKey: Items.NephilaPinkEgg.Short
+      longNameKey: Items.NephilaPinkEgg.Long
+      descriptionKey: Items.NephilaPinkEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: NPnkEgg
+    }
+    {
+      id: coc:oculum_arachnae
+      shortNameKey: Items.OculumArachnae.Short
+      longNameKey: Items.OculumArachnae.Long
+      descriptionKey: Items.OculumArachnae.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Oculum
+    }
+    {
+      id: coc:ovi_elixir
+      shortNameKey: Items.OviElixir.Short
+      longNameKey: Items.OviElixir.Long
+      descriptionKey: Items.OviElixir.Desc
+      value: 30
+      type: "coc:consumable"
+      legacyId: OviElix
+    }
+    {
+      id: coc:ovi_max
+      shortNameKey: Items.OviMax.Short
+      longNameKey: Items.OviMax.Long
+      descriptionKey: Items.OviMax.Desc
+      value: 75
+      type: "coc:consumable"
+      legacyId: Ovi Max
+    }
+    {
+      id: coc:mint_white
+      shortNameKey: Items.MintWhite.Short
+      longNameKey: Items.MintWhite.Long
+      descriptionKey: Items.MintWhite.Desc
+      value: 120
+      type: "coc:consumable"
+      legacyId: PeppWht
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:peach_whiskey
+      shortNameKey: Items.PeachWhiskey.Short
+      longNameKey: Items.PeachWhiskey.Long
+      descriptionKey: Items.PeachWhiskey.Desc
+      value: 20
+      type: "coc:consumable"
+      legacyId: P_Whsky
+    }
+    {
+      id: coc:princess_poker
+      shortNameKey: Items.PrincessPoker.Short
+      longNameKey: Items.PrincessPoker.Long
+      descriptionKey: Items.PrincessPoker.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: PrnsPkr
+    }
+    {
+      id: coc:pumpkin_seed
+      shortNameKey: Items.PumpkinSeed.Short
+      longNameKey: Items.PumpkinSeed.Long
+      descriptionKey: Items.PumpkinSeed.Desc
+      value: 200
+      type: "coc:consumable"
+      legacyId: PumpkinS
+    }
+    {
+      id: coc:purple_fruit
+      shortNameKey: Items.PurpleFruit.Short
+      longNameKey: Items.PurpleFruit.Long
+      descriptionKey: Items.PurpleFruit.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: PrFruit
+    }
+    {
+      id: coc:river_root
+      shortNameKey: Items.RiverRoot.Short
+      longNameKey: Items.RiverRoot.Long
+      descriptionKey: Items.RiverRoot.Desc
+      value: 14
+      type: "coc:consumable"
+      legacyId: RdRRoot
+    }
+    {
+      id: coc:reducto
+      shortNameKey: Items.Reducto.Short
+      longNameKey: Items.Reducto.Long
+      descriptionKey: Items.Reducto.Desc
+      value: 30
+      type: "coc:consumable"
+      legacyId: Reducto
+      effects:
+      [
+        coc:reducto_menu
+      ]
+    }
+    {
+      id: coc:reptlum
+      shortNameKey: Items.Reptlum.Short
+      longNameKey: Items.Reptlum.Long
+      descriptionKey: Items.Reptlum.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Reptlum
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:rhino_steak
+      shortNameKey: Items.RhinoSteak.Short
+      longNameKey: Items.RhinoSteak.Long
+      descriptionKey: Items.RhinoSteak.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: RhinoSt
+    }
+    {
+      id: coc:ringtail_fig
+      shortNameKey: Items.RingtailFig.Short
+      longNameKey: Items.RingtailFig.Long
+      descriptionKey: Items.RingtailFig.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: RingFig
+    }
+    {
+      id: coc:rizza_root
+      shortNameKey: Items.RizzaRoot.Short
+      longNameKey: Items.RizzaRoot.Long
+      descriptionKey: Items.RizzaRoot.Desc
+      value: 10
+      type: "coc:consumable"
+      legacyId: RizzaRt
+    }
+    {
+      id: coc:salamander_firewater
+      shortNameKey: Items.SalamanderFirewater.Short
+      longNameKey: Items.SalamanderFirewater.Long
+      descriptionKey: Items.SalamanderFirewater.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: SalamFW
+      tags:
+      [
+        transformative
+        fluid
+        alcohol
+      ]
+    }
+    {
+      id: coc:satyr_wine
+      shortNameKey: Items.SatyrWine.Short
+      longNameKey: Items.SatyrWine.Long
+      descriptionKey: Items.SatyrWine.Desc
+      value: 30
+      type: "coc:consumable"
+      legacyId: SatyrWn
+    }
+    {
+      id: coc:sheep_milk
+      shortNameKey: Items.SheepMilk.Short
+      longNameKey: Items.SheepMilk.Long
+      descriptionKey: Items.SheepMilk.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: SheepMk
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:dried_tentacle
+      shortNameKey: Items.DriedTentacle.Short
+      longNameKey: Items.DriedTentacle.Long
+      descriptionKey: Items.DriedTentacle.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: DryTent
+    }
+    {
+      id: coc:slimy_clothoth
+      shortNameKey: Items.SlimyCloth.Short
+      longNameKey: Items.SlimyCloth.Long
+      descriptionKey: Items.SlimyCloth.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: SlimyCl
+    }
+    {
+      id: coc:snake_oil
+      shortNameKey: Items.SnakeOil.Short
+      longNameKey: Items.SnakeOil.Long
+      descriptionKey: Items.SnakeOil.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: SnakOil
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:spring_water
+      shortNameKey: Items.SpringWater.Short
+      longNameKey: Items.SpringWater.Long
+      descriptionKey: Items.SpringWater.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: S.Water
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:succubus_dream
+      shortNameKey: Items.SuccubusDream.Short
+      longNameKey: Items.SuccubusDream.Long
+      descriptionKey: Items.SuccubusDream.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: S.Dream
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:special_hummanus
+      shortNameKey: Items.SpecialHummus.Short
+      longNameKey: Items.SpecialHummus.Long
+      descriptionKey: Items.SpecialHummus.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Hummus2
+    }
+    {
+      id: coc:tattered_scroll
+      shortNameKey: Items.TatteredScroll.Short
+      longNameKey: Items.TatteredScroll.Long
+      descriptionKey: Items.TatteredScroll.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: TScroll
+    }
+    {
+      id: coc:taurinum
+      shortNameKey: Items.Taurinum.Short
+      longNameKey: Items.Taurinum.Long
+      descriptionKey: Items.Taurinum.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Taurico
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:ton_o_trice
+      shortNameKey: Items.TonOTrice.Short
+      longNameKey: Items.TonOTrice.Long
+      descriptionKey: Items.TonOTrice.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: ToTrice
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:trap_oil
+      shortNameKey: Items.TrapOil.Short
+      longNameKey: Items.TrapOil.Long
+      descriptionKey: Items.TrapOil.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: TrapOil
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:unusual_milk_bottle
+      shortNameKey: Items.UnusualMilkBottle.Short
+      longNameKey: Items.UnusualMilkBottle.Long
+      descriptionKey: Items.UnusualMilkBottle.Desc
+      value: 1000
+      type: "coc:consumable"
+      legacyId: UBMBottle
+    }
+    {
+      id: coc:whisker_fruit
+      shortNameKey: Items.WhiskerFruit.Short
+      longNameKey: Items.WhiskerFruit.Long
+      descriptionKey: Items.WhiskerFruit.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: W.Fruit
+    }
+    {
+      id: coc:wingstick
+      shortNameKey: Items.Wingstick.Short
+      longNameKey: Items.Wingstick.Long
+      descriptionKey: Items.Wingstick.Desc
+      value: 16
+      type: "coc:consumable"
+      legacyId: W.Stick
+    }
+    {
+      id: coc:winter_pudding
+      shortNameKey: Items.WinterPudding.Short
+      longNameKey: Items.WinterPudding.Long
+      descriptionKey: Items.WinterPudding.Desc
+      value: 35
+      type: "coc:consumable"
+      legacyId: W.Pddng
+    }
+    {
+      id: coc:wolf_pepper
+      shortNameKey: Items.WolfPepper.Short
+      longNameKey: Items.WolfPepper.Long
+      descriptionKey: Items.WolfPepper.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Wolf Pp
+    }
+    {
+      id: coc:ebonbloom
+      shortNameKey: "Items.Ebonbloom.Short"
+      longNameKey: "Items.Ebonbloom.Long"
+      descriptionKey: "Items.Ebonbloom.Desc"
+      value: 600
+      type: "coc:useable"
+      legacyId: E.Flower
+    }
+    {
+      id: coc:debug_wand
+      shortNameKey: Items.DebugWand.Short
+      longNameKey: Items.DebugWand.Long
+      descriptionKey: Items.DebugWand.Desc
+      value: 1000
+      type: "coc:useable"
+      legacyId: DbgWand
+    }
+    {
+      id: coc:desert_rose
+      shortNameKey: Items.DesertRose.Short
+      longNameKey: Items.DesertRose.Long
+      descriptionKey: Items.DesertRose.Desc
+      value: 1
+      type: "coc:useable"
+      legacyId: DstRose
+    }
+    {
+      id: coc:teddy_bear
+      shortNameKey: Items.TeddyBear.Short
+      longNameKey: Items.TeddyBear.Long
+      descriptionKey: Items.TeddyBear.Desc
+      value: 50
+      type: "coc:useable"
+      legacyId: TelBear
+    }
+    {
+      id: coc:claws
+      shortNameKey: Items.Claws.Short
+      longNameKey: Items.Claws.Long
+      descriptionKey: Items.Claws.Desc
+      value: 0
+      type: "coc:weapon"
+      verb: attack
+      attack: 1
+      tags:
+      [
+        CLAW
+        UNARMED
+      ]
+      legacyId: Claws
+    }
+    {
+      id: coc:bat
+      shortNameKey: Items.Bat.Short
+      longNameKey: Items.Bat.Long
+      descriptionKey: Items.Bat.Desc
+      value: 50
+      type: "coc:blunt"
+      verb: smash
+      attack: 7
+      tags:
+      [
+        1H Blunt
+      ]
+      legacyId: Bat
+    }
+    {
+      id: coc:broken_scarred_blade
+      shortNameKey: Items.BrokenScarredBlade.Short
+      longNameKey: Items.BrokenScarredBlade.Long
+      descriptionKey: Items.BrokenScarredBlade.Desc
+      value: 1000
+      type: "coc:sword"
+      verb: slash
+      attack: 12
+      tags:
+      [
+        1H Sword
+      ]
+      legacyId: B.ScarB
+    }
+    {
+      id: coc:cheat_sword
+      shortNameKey: Items.CheatSword.Short
+      longNameKey: Items.CheatSword.Long
+      descriptionKey: Items.CheatSword.Desc
+      value: 0
+      type: "coc:sword"
+      verb: slash
+      attack: 9999999
+      tags:
+      [
+        1H Sword
+        RANGED
+      ]
+      legacyId: CheatSword
+    }
+    {
+      id: coc:crossbow
+      shortNameKey: Items.Crossbow.Short
+      longNameKey: Items.Crossbow.Long
+      descriptionKey: Items.Crossbow.Desc
+      value: 200
+      type: "coc:weapon"
+      verb: attack
+      attack: 11
+      tags:
+      [
+        CROSSBOW
+      ]
+      legacyId: Crossbw
+    }
+    {
+      id: coc:dullahan_scythe
+      shortNameKey: Items.DullahanScythe.Short
+      longNameKey: Items.DullahanScythe.Long
+      descriptionKey: Items.DullahanScythe.Desc
+      value: 2500
+      type: "coc:weapon"
+      verb: attack
+      attack: 25
+      tags:
+      [
+        Large
+        SCYTHE
+      ]
+      legacyId: Dullsc
+    }
+    {
+      id: coc:final_argument
+      shortNameKey: Items.FinalArgument.Short
+      longNameKey: Items.FinalArgument.Long
+      descriptionKey: Items.FinalArgument.Desc
+      value: 2000
+      type: "coc:weapon"
+      verb: attack
+      attack: 30
+      tags:
+      [
+        FIREARM
+      ]
+      legacyId: Final Argument
+    }
+    {
+      id: coc:flail
+      shortNameKey: Items.Flail.Short
+      longNameKey: Items.Flail.Long
+      descriptionKey: Items.Flail.Desc
+      value: 200
+      type: "coc:blunt"
+      verb: smash
+      attack: 10
+      tags:
+      [
+        1H Blunt
+      ]
+      legacyId: "Flail  "
+    }
+    {
+      id: coc:flintlock_pistol
+      shortNameKey: Items.FlintlockPistol.Short
+      longNameKey: Items.FlintlockPistol.Long
+      descriptionKey: Items.FlintlockPistol.Desc
+      value: 250
+      type: "coc:weapon"
+      verb: attack
+      attack: 14
+      tags:
+      [
+        FIREARM
+      ]
+      legacyId: Flintlk
+    }
+    {
+      id: coc:fine_longsword
+      shortNameKey: Items.FineLongsword.Short
+      longNameKey: Items.FineLongsword.Long
+      descriptionKey: Items.FineLongsword.Desc
+      value: 1150
+      type: "coc:sword"
+      verb: slash
+      attack: 13
+      tags:
+      [
+        1H Sword
+      ]
+      legacyId: FLngSrd
+    }
+    {
+      id: coc:hooked_gauntlets
+      shortNameKey: Items.HookedGauntlets.Short
+      longNameKey: Items.HookedGauntlets.Long
+      descriptionKey: Items.HookedGauntlets.Desc
+      value: 300
+      type: "coc:fist"
+      verb: punch
+      attack: 8
+      tags:
+      [
+        Fist
+      ]
+      legacyId: H.Gaunt
+    }
+    {
+      id: coc:katana
+      shortNameKey: Items.Katana.Short
+      longNameKey: Items.Katana.Long
+      descriptionKey: Items.Katana.Desc
+      value: 500
+      type: "coc:sword"
+      verb: slash
+      attack: 10
+      tags:
+      [
+        1H Sword
+        Katana
+      ]
+      legacyId: "Katana "
+    }
+    {
+      id: coc:kihas_greataxe
+      shortNameKey: Items.KihasGreataxe.Short
+      longNameKey: Items.KihasGreataxe.Long
+      descriptionKey: Items.KihasGreataxe.Desc
+      value: 1000
+      type: "coc:axe"
+      verb: cleave
+      attack: 15
+      tags:
+      [
+        Axe
+        Large
+      ]
+      legacyId: KihaAxe
+    }
+    {
+      id: coc:large_axe
+      shortNameKey: Items.LargeAxe.Short
+      longNameKey: Items.LargeAxe.Long
+      descriptionKey: Items.LargeAxe.Desc
+      value: 100
+      type: "coc:axe"
+      verb: cleave
+      attack: 20
+      tags:
+      [
+        Axe
+        Large
+      ]
+      legacyId: "L. Axe "
+    }
+    {
+      id: coc:lust_dagger
+      shortNameKey: Items.LustDagger.Short
+      longNameKey: Items.LustDagger.Long
+      descriptionKey: Items.LustDagger.Desc
+      value: 150
+      type: "coc:dagger"
+      verb: stab
+      attack: 3
+      tags:
+      [
+        APHRODISIAC
+        Knife
+      ]
+      legacyId: L.Daggr
+    }
+    {
+      id: coc:rail_avenger
+      shortNameKey: Items.RailAvenger.Short
+      longNameKey: Items.RailAvenger.Long
+      descriptionKey: Items.RailAvenger.Desc
+      value: 0
+      type: "coc:sword"
+      verb: slash
+      attack: 0
+      tags:
+      [
+        2H Sword
+        Katana
+      ]
+      legacyId: L.Avngr
+    }
+    {
+      id: coc:lethices_whip
+      shortNameKey: Items.LethicesWhip.Short
+      longNameKey: Items.LethicesWhip.Long
+      descriptionKey: Items.LethicesWhip.Desc
+      value: 2000
+      type: "coc:whip"
+      verb: whip
+      attack: 16
+      tags:
+      [
+        Whip
+      ]
+      legacyId: L. Whip
+    }
+    {
+      id: coc:pipe
+      shortNameKey: Items.Pipe.Short
+      longNameKey: Items.Pipe.Long
+      descriptionKey: Items.Pipe.Desc
+      value: 25
+      type: "coc:blunt"
+      verb: smash
+      attack: 5
+      tags:
+      [
+        1H Blunt
+      ]
+      legacyId: "Pipe   "
+    }
+    {
+      id: coc:pitchfork
+      shortNameKey: Items.Pitchfork.Short
+      longNameKey: Items.Pitchfork.Long
+      descriptionKey: Items.Pitchfork.Desc
+      value: 200
+      type: "coc:spear"
+      verb: stab
+      attack: 10
+      tags:
+      [
+        Spear
+      ]
+      legacyId: PtchFrk
+    }
+    {
+      id: coc:riding_crop
+      shortNameKey: Items.RidingCrop.Short
+      longNameKey: Items.RidingCrop.Long
+      descriptionKey: Items.RidingCrop.Desc
+      value: 50
+      type: "coc:blunt"
+      verb: smash
+      attack: 5
+      tags:
+      [
+        1H Blunt
+        NOTBLUNT
+      ]
+      legacyId: RidingC
+    }
+    {
+      id: coc:spiked_gauntlets
+      shortNameKey: Items.SpikedGauntlets.Short
+      longNameKey: Items.SpikedGauntlets.Long
+      descriptionKey: Items.SpikedGauntlets.Desc
+      value: 400
+      type: "coc:fist"
+      verb: punch
+      attack: 5
+      tags:
+      [
+        Fist
+      ]
+      legacyId: S.Gaunt
+    }
+    {
+      id: coc:scimitar
+      shortNameKey: Items.Scimitar.Short
+      longNameKey: Items.Scimitar.Long
+      descriptionKey: Items.Scimitar.Desc
+      value: 500
+      type: "coc:sword"
+      verb: slash
+      attack: 15
+      tags:
+      [
+        1H Sword
+      ]
+      legacyId: Scimitr
+    }
+    {
+      id: coc:silver_whip
+      shortNameKey: Items.SilverWhip.Short
+      longNameKey: Items.SilverWhip.Long
+      descriptionKey: Items.SilverWhip.Desc
+      value: 500
+      type: "coc:whip"
+      verb: whip
+      attack: 12
+      tags:
+      [
+        Whip
+      ]
+      legacyId: SilWhip
+    }
+    {
+      id: coc:succubus_whip
+      shortNameKey: Items.SuccubusWhip.Short
+      longNameKey: Items.SuccubusWhip.Long
+      descriptionKey: Items.SuccubusWhip.Desc
+      value: 400
+      type: "coc:whip"
+      verb: whip
+      attack: 10
+      tags:
+      [
+        Whip
+      ]
+      legacyId: SucWhip
+    }
+    {
+      id: coc:urtas_halberd
+      shortNameKey: Items.UrtasHalberd.Short
+      longNameKey: Items.UrtasHalberd.Long
+      descriptionKey: Items.UrtasHalberd.Desc
+      value: 10
+      type: "coc:weapon"
+      verb: attack
+      attack: 11
+      tags:
+      [
+        POLEARM
+        Large
+      ]
+      legacyId: UrtaHlb
+    }
+    {
+      id: coc:wizard_staff
+      shortNameKey: Items.WizardStaff.Short
+      longNameKey: Items.WizardStaff.Long
+      descriptionKey: Items.WizardStaff.Desc
+      value: 350
+      type: "coc:staff"
+      verb: smack
+      attack: 3
+      tags:
+      [
+        Magic
+        Staff
+      ]
+      legacyId: W.Staff
+    }
+    {
+      id: coc:whip
+      shortNameKey: Items.Whip.Short
+      longNameKey: Items.Whip.Long
+      descriptionKey: Items.Whip.Desc
+      value: 500
+      type: "coc:whip"
+      verb: whip
+      attack: 5
+      tags:
+      [
+        Whip
+      ]
+      legacyId: "Whip   "
+    }
+    {
+      id: coc:comfortable_clothes
+      shortNameKey: "Items.ComfortableClothes.Short"
+      longNameKey: "Items.ComfortableClothes.Long"
+      descriptionKey: "Items.ComfortableClothes.Desc"
+      value: 0
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: "C.Cloth"
+    }
+    {
+      id: coc:kokiri_clothes
+      shortNameKey: Items.KokiriClothes.Short
+      longNameKey: Items.KokiriClothes.Long
+      descriptionKey: Items.KokiriClothes.Desc
+      value: 200
+      type: "coc:armor"
+      defense: 2
+      perk: Light
+      legacyId: AdvClth
+    }
+    {
+      id: coc:ballroom_dress
+      shortNameKey: Items.BallroomDress.Short
+      longNameKey: Items.BallroomDress.Long
+      descriptionKey: Items.BallroomDress.Desc
+      value: 1200
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: B.Dress
+    }
+    {
+      id: coc:bimbo_outfit
+      shortNameKey: Items.BimboOutfit.Short
+      longNameKey: Items.BimboOutfit.Long
+      descriptionKey: Items.BimboOutfit.Desc
+      value: 50
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: BimboSk
+    }
+    {
+      id: coc:black_cloak
+      shortNameKey: Items.BlackCloak.Short
+      longNameKey: Items.BlackCloak.Long
+      descriptionKey: Items.BlackCloak.Desc
+      value: 150
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: B.Cloak
+    }
+    {
+      id: coc:bondage_straps
+      shortNameKey: Items.BondageStraps.Short
+      longNameKey: Items.BondageStraps.Long
+      descriptionKey: Items.BondageStraps.Desc
+      value: 600
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      supportsBulge: false
+      legacyId: BonStrp
+    }
+    {
+      id: coc:butler_suit
+      shortNameKey: Items.ButlerSuit.Short
+      longNameKey: Items.ButlerSuit.Long
+      descriptionKey: Items.ButlerSuit.Desc
+      value: 580
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: ButSuit
+    }
+    {
+      id: coc:china_dress
+      shortNameKey: Items.ChinaDress.Short
+      longNameKey: Items.ChinaDress.Long
+      descriptionKey: Items.ChinaDress.Desc
+      value: 400
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: Chngsam
+    }
+    {
+      id: coc:suit_clothes
+      shortNameKey: Items.SuitClothes.Short
+      longNameKey: Items.SuitClothes.Long
+      descriptionKey: Items.SuitClothes.Desc
+      value: 400
+      type: "coc:armor"
+      defense: 1
+      perk: Light
+      legacyId: ClssyCl
+    }
+    {
+      id: coc:kimono
+      shortNameKey: Items.Kimono.Short
+      longNameKey: Items.Kimono.Long
+      descriptionKey: Items.Kimono.Desc
+      value: 500
+      type: "coc:armor"
+      defense: 2
+      perk: Light
+      legacyId: "Kimono "
+    }
+    {
+      id: coc:maid_dress
+      shortNameKey: Items.MaidDress.Short
+      longNameKey: Items.MaidDress.Long
+      descriptionKey: Items.MaidDress.Desc
+      value: 450
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: M.Dress
+    }
+    {
+      id: coc:nurse_outfit
+      shortNameKey: Items.NurseOutfit.Short
+      longNameKey: Items.NurseOutfit.Long
+      descriptionKey: Items.NurseOutfit.Desc
+      value: 800
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: NurseCl
+    }
+    {
+      id: coc:overall
+      shortNameKey: Items.Overall.Short
+      longNameKey: Items.Overall.Long
+      descriptionKey: Items.Overall.Desc
+      value: 60
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      supportsBulge: true
+      legacyId: Overall
+    }
+    {
+      id: coc:red_bodysuit
+      shortNameKey: Items.RedBodysuit.Short
+      longNameKey: Items.RedBodysuit.Long
+      descriptionKey: Items.RedBodysuit.Desc
+      value: 1200
+      type: "coc:armor"
+      defense: 1
+      perk: Light
+      supportsBulge: true
+      legacyId: R.BdySt
+    }
+    {
+      id: coc:fetish_wear
+      shortNameKey: Items.FetishWear.Short
+      longNameKey: Items.FetishWear.Long
+      descriptionKey: Items.FetishWear.Desc
+      value: 1000
+      type: "coc:armor"
+      defense: 3
+      perk: Light
+      supportsBulge: true
+      legacyId: RbbrClt
+    }
+    {
+      id: coc:summer_dress
+      shortNameKey: Items.SummerDress.Short
+      longNameKey: Items.SummerDress.Long
+      descriptionKey: Items.SummerDress.Desc
+      value: 210
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: S.Dress
+    }
+    {
+      id: coc:bodysuit
+      shortNameKey: Items.Bodysuit.Short
+      longNameKey: Items.Bodysuit.Long
+      descriptionKey: Items.Bodysuit.Desc
+      value: 1300
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: T.BSuit
+    }
+    {
+      id: coc:tube_top
+      shortNameKey: Items.TubeTop.Short
+      longNameKey: Items.TubeTop.Long
+      descriptionKey: Items.TubeTop.Desc
+      value: 80
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: TubeTop
+    }
+    {
+      id: coc:turtleneck
+      shortNameKey: Items.Turtleneck.Short
+      longNameKey: Items.Turtleneck.Long
+      descriptionKey: Items.Turtleneck.Desc
+      value: 260
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: Trtlnck
+    }
+    {
+      id: coc:school_uniform
+      shortNameKey: Items.SchoolUniform.Short
+      longNameKey: Items.SchoolUniform.Long
+      descriptionKey: Items.SchoolUniform.Desc
+      value: 200
+      type: "coc:armor"
+      defense: 0
+      perk: Light
+      legacyId: SchlGirl
+    }
+    {
+      id: coc:silk_summer_dress
+      shortNameKey: Items.SilkSummerDress.Short
+      longNameKey: Items.SilkSummerDress.Long
+      descriptionKey: Items.SilkSummerDress.Desc
+      value: 950
+      type: "coc:armor"
+      defense: 5
+      perk: Light
+      legacyId: SSDress
+    }
+    {
+      id: coc:chain_bikini
+      shortNameKey: Items.ChainBikini.Short
+      longNameKey: Items.ChainBikini.Long
+      descriptionKey: Items.ChainBikini.Desc
+      value: 700
+      type: "coc:armor"
+      defense: 2
+      perk: Light
+      supportsBulge: false
+      legacyId: ChBikni
+    }
+    {
+      id: coc:dragon_scale_armor
+      shortNameKey: Items.DragonScaleArmor.Short
+      longNameKey: Items.DragonScaleArmor.Long
+      descriptionKey: Items.DragonScaleArmor.Desc
+      value: 900
+      type: "coc:armor"
+      defense: 18
+      perk: Medium
+      legacyId: DSclArm
+    }
+    {
+      id: coc:dragon_scale_robes
+      shortNameKey: Items.DragonScaleRobes.Short
+      longNameKey: Items.DragonScaleRobes.Long
+      descriptionKey: Items.DragonScaleRobes.Desc
+      value: 900
+      type: "coc:armor"
+      defense: 9
+      perk: Light
+      legacyId: DSclRob
+    }
+    {
+      id: coc:ebon_plate
+      shortNameKey: Items.EbonPlate.Short
+      longNameKey: Items.EbonPlate.Long
+      descriptionKey: Items.EbonPlate.Desc
+      value: 3000
+      type: "coc:armor"
+      defense: 27
+      perk: Heavy
+      legacyId: EWPlate
+    }
+    {
+      id: coc:ebon_jacket
+      shortNameKey: Items.EbonJacket.Short
+      longNameKey: Items.EbonJacket.Long
+      descriptionKey: Items.EbonJacket.Desc
+      value: 3000
+      type: "coc:armor"
+      defense: 18
+      perk: Medium
+      legacyId: EWJackt
+    }
+    {
+      id: coc:ebon_robes
+      shortNameKey: Items.EbonRobes.Short
+      longNameKey: Items.EbonRobes.Long
+      descriptionKey: Items.EbonRobes.Desc
+      value: 3000
+      type: "coc:armor"
+      defense: 9
+      perk: Medium
+      legacyId: EW Robe
+    }
+    {
+      id: coc:inquisitor_ebon_robes
+      shortNameKey: Items.InquisitorEbonRobes.Short
+      longNameKey: Items.InquisitorEbonRobes.Long
+      descriptionKey: Items.InquisitorEbonRobes.Desc
+      value: 3000
+      type: "coc:armor"
+      defense: 6
+      perk: Light
+      supportsBulge: true
+      legacyId: EWIRobe
+    }
+    {
+      id: coc:plate_armor
+      shortNameKey: Items.PlateArmor.Short
+      longNameKey: Items.PlateArmor.Long
+      descriptionKey: Items.PlateArmor.Desc
+      value: 250
+      type: "coc:armor"
+      defense: 21
+      perk: Heavy
+      legacyId: FullPlt
+    }
+    {
+      id: coc:gel_armor
+      shortNameKey: Items.GelArmor.Short
+      longNameKey: Items.GelArmor.Long
+      descriptionKey: Items.GelArmor.Desc
+      value: 150
+      type: "coc:armor"
+      defense: 10
+      perk: Heavy
+      legacyId: GelArmr
+    }
+    {
+      id: coc:golem_armor
+      shortNameKey: Items.GolemArmor.Short
+      longNameKey: Items.GolemArmor.Long
+      descriptionKey: Items.GolemArmor.Desc
+      value: 3000
+      type: "coc:armor"
+      defense: 30
+      perk: Heavy
+      legacyId: GolArmr
+    }
+    {
+      id: coc:skimpy_armor
+      shortNameKey: Items.SkimpyArmor.Short
+      longNameKey: Items.SkimpyArmor.Long
+      descriptionKey: Items.SkimpyArmor.Desc
+      value: 800
+      type: "coc:armor"
+      defense: 5
+      perk: Medium
+      legacyId: IndecSt
+    }
+    {
+      id: coc:leather_robes
+      shortNameKey: Items.LeatherRobes.Short
+      longNameKey: Items.LeatherRobes.Long
+      descriptionKey: Items.LeatherRobes.Desc
+      value: 100
+      type: "coc:armor"
+      defense: 6
+      perk: Light
+      legacyId: LthrRob
+    }
+    {
+      id: coc:samurai_armor
+      shortNameKey: Items.SamuraiArmor.Short
+      longNameKey: Items.SamuraiArmor.Long
+      descriptionKey: Items.SamuraiArmor.Desc
+      value: 300
+      type: "coc:armor"
+      defense: 18
+      perk: Heavy
+      legacyId: SamuArm
+    }
+    {
+      id: coc:scale_armor
+      shortNameKey: Items.ScaleArmor.Short
+      longNameKey: Items.ScaleArmor.Long
+      descriptionKey: Items.ScaleArmor.Desc
+      value: 170
+      type: "coc:armor"
+      defense: 12
+      perk: Heavy
+      legacyId: ScaleMl
+    }
+    {
+      id: coc:silk_robes
+      shortNameKey: Items.SilkRobes.Short
+      longNameKey: Items.SilkRobes.Long
+      descriptionKey: Items.SilkRobes.Desc
+      value: 950
+      type: "coc:armor"
+      defense: 6
+      perk: Light
+      legacyId: SS.Robe
+    }
+    {
+      id: coc:silk_armor
+      shortNameKey: Items.SilkArmor.Short
+      longNameKey: Items.SilkArmor.Long
+      descriptionKey: Items.SilkArmor.Desc
+      value: 950
+      type: "coc:armor"
+      defense: 25
+      perk: Heavy
+      legacyId: SSArmor
+    }
+    {
+      id: coc:wizard_robes
+      shortNameKey: Items.WizardRobes.Short
+      longNameKey: Items.WizardRobes.Long
+      descriptionKey: Items.WizardRobes.Desc
+      value: 50
+      type: "coc:armor"
+      defense: 1
+      perk: Light
+      legacyId: W.Robes
+    }
+    {
+      id: coc:yorham_armor
+      shortNameKey: Items.YorhamArmor.Short
+      longNameKey: Items.YorhamArmor.Long
+      descriptionKey: Items.YorhamArmor.Desc
+      value: 2000
+      type: "coc:armor"
+      defense: 5
+      perk: Light
+      legacyId: Y.Armor
+    }
+    {
+      id: coc:cheat_armor
+      shortNameKey: Items.CheatArmor.Short
+      longNameKey: Items.CheatArmor.Long
+      descriptionKey: Items.CheatArmor.Desc
+      value: 0
+      type: "coc:armor"
+      defense: 85
+      legacyId: Chtarmr
+    }
+    {
+      id: coc:tattered_leather
+      shortNameKey: Items.TatteredLeather.Short
+      longNameKey: Items.TatteredLeather.Long
+      descriptionKey: Items.TatteredLeather.Desc
+      value: 50
+      type: "coc:armor"
+      defense: 3
+      perk: Light
+      legacyId: TatterL
+    }
+    {
+      id: coc:kokiri_chain
+      shortNameKey: Items.KokiriChain.Short
+      longNameKey: Items.KokiriChain.Long
+      descriptionKey: Items.KokiriChain.Desc
+      value: 300
+      type: "coc:armor"
+      defense: 10
+      perk: Medium
+      legacyId: AdvNChn
+    }
+    {
+      id: coc:greatshield
+      shortNameKey: Items.Greatshield.Short
+      longNameKey: Items.Greatshield.Long
+      descriptionKey: Items.Greatshield.Desc
+      value: 300
+      type: "coc:shield"
+      block: 12
+      legacyId: GreatSh
+    }
+    {
+      id: coc:lesser_crimstone_ring
+      shortNameKey: Items.LesserCrimstoneRing.Short
+      longNameKey: Items.LesserCrimstoneRing.Long
+      descriptionKey: Items.LesserCrimstoneRing.Desc
+      value: 1000
+      type: "coc:jewelry"
+      effectId: 1
+      effectMagnitude: 10
+      legacyId: CrimRng
+    }
+    {
+      id: coc:lesser_fertite_ring
+      shortNameKey: Items.LesserFertiteRing.Short
+      longNameKey: Items.LesserFertiteRing.Long
+      descriptionKey: Items.LesserFertiteRing.Desc
+      value: 1000
+      type: "coc:jewelry"
+      legacyId: FertRng
+      effectId: 2
+      effectMagnitude: 20
+    }
+    {
+      id: coc:lesser_icestone_ring
+      shortNameKey: Items.LesserIcestoneRing.Short
+      longNameKey: Items.LesserIcestoneRing.Long
+      descriptionKey: Items.LesserIcestoneRing.Desc
+      value: 2000
+      type: "coc:jewelry"
+      effectId: 1
+      effectMagnitude: -10
+      legacyId: Ice_Rng
+    }
+    {
+      id: coc:lesser_critical_ring
+      shortNameKey: Items.LesserCriticalRing.Short
+      longNameKey: Items.LesserCriticalRing.Long
+      descriptionKey: Items.LesserCriticalRing.Desc
+      value: 1500
+      type: "coc:jewelry"
+      effectId: 3
+      effectMagnitude: 3
+      legacyId: CritRng
+    }
+    {
+      id: coc:lesser_regen_ring
+      shortNameKey: Items.LesserRegenRing.Short
+      longNameKey: Items.LesserRegenRing.Long
+      descriptionKey: Items.LesserRegenRing.Desc
+      value: 2000
+      type: "coc:jewelry"
+      effectId: 4
+      effectMagnitude: 2
+      legacyId: RegnRng
+    }
+    {
+      id: coc:lesser_life_ring
+      shortNameKey: Items.LesserLifeRing.Short
+      longNameKey: Items.LesserLifeRing.Long
+      descriptionKey: Items.LesserLifeRing.Desc
+      value: 1000
+      type: "coc:jewelry"
+      effectId: 5
+      effectMagnitude: 30
+      legacyId: LifeRng
+    }
+    {
+      id: coc:lesser_mystic_ring
+      shortNameKey: Items.LesserMysticRing.Short
+      longNameKey: Items.LesserMysticRing.Long
+      descriptionKey: Items.LesserMysticRing.Desc
+      value: 1500
+      type: "coc:jewelry"
+      effectId: 7
+      effectMagnitude: 20
+      legacyId: MystRng
+    }
+    {
+      id: coc:lesser_power_ring
+      shortNameKey: Items.LesserPowerRing.Short
+      longNameKey: Items.LesserPowerRing.Long
+      descriptionKey: Items.LesserPowerRing.Desc
+      value: 1500
+      type: "coc:jewelry"
+      legacyId: PowrRng
+      effectId: 6
+      effectMagnitude: 6
+    }
+    {
+      id: coc:lesser_focus_ring
+      shortNameKey: Items.LesserFocusRing.Short
+      longNameKey: Items.LesserFocusRing.Long
+      descriptionKey: Items.LesserFocusRing.Desc
+      value: 1500
+      type: "coc:jewelry"
+      effectId: 11
+      effectMagnitude: 10
+      legacyId: FocsRng
+    }
+    {
+      id: coc:crimstone_ring
+      shortNameKey: Items.CrimstoneRing.Short
+      longNameKey: Items.CrimstoneRing.Long
+      descriptionKey: Items.CrimstoneRing.Desc
+      value: 2000
+      type: "coc:jewelry"
+      legacyId: CrimRn2
+      effectId: 1
+      effectMagnitude: 15
+    }
+    {
+      id: coc:fertite_ring
+      shortNameKey: Items.FertiteRing.Short
+      longNameKey: Items.FertiteRing.Long
+      descriptionKey: Items.FertiteRing.Desc
+      value: 2000
+      type: "coc:jewelry"
+      legacyId: FertRn2
+      effectId: 2
+      effectMagnitude: 30
+    }
+    {
+      id: coc:icestone_ring
+      shortNameKey: Items.IcestoneRing.Short
+      longNameKey: Items.IcestoneRing.Long
+      descriptionKey: Items.IcestoneRing.Desc
+      value: 4000
+      type: "coc:jewelry"
+      legacyId: Ice_Rn2
+      effectId: 1
+      effectMagnitude: -15
+    }
+    {
+      id: coc:critical_ring
+      shortNameKey: Items.CriticalRing.Short
+      longNameKey: Items.CriticalRing.Long
+      descriptionKey: Items.CriticalRing.Desc
+      value: 3000
+      type: "coc:jewelry"
+      legacyId: CritRn2
+      effectId: 3
+      effectMagnitude: 5
+    }
+    {
+      id: coc:regen_ring
+      shortNameKey: Items.RegenRing.Short
+      longNameKey: Items.RegenRing.Long
+      descriptionKey: Items.RegenRing.Desc
+      value: 4000
+      type: "coc:jewelry"
+      legacyId: RegnRn2
+      effectId: 4
+      effectMagnitude: 3
+    }
+    {
+      id: coc:life_ring
+      shortNameKey: Items.LifeRing.Short
+      longNameKey: Items.LifeRing.Long
+      descriptionKey: Items.LifeRing.Desc
+      value: 2000
+      type: "coc:jewelry"
+      legacyId: LifeRn2
+      effectId: 5
+      effectMagnitude: 45
+    }
+    {
+      id: coc:mystic_ring
+      shortNameKey: Items.MysticRing.Short
+      longNameKey: Items.MysticRing.Long
+      descriptionKey: Items.MysticRing.Desc
+      value: 3000
+      type: "coc:jewelry"
+      legacyId: MystRn2
+      effectId: 7
+      effectMagnitude: 30
+    }
+    {
+      id: coc:power_ring
+      shortNameKey: Items.PowerRing.Short
+      longNameKey: Items.PowerRing.Long
+      descriptionKey: Items.PowerRing.Desc
+      value: 3000
+      type: "coc:jewelry"
+      legacyId: PowrRn2
+      effectId: 6
+      effectMagnitude: 9
+    }
+    {
+      id: coc:focus_ring
+      shortNameKey: Items.FocusRing.Short
+      longNameKey: Items.FocusRing.Long
+      descriptionKey: Items.FocusRing.Desc
+      value: 3000
+      type: "coc:jewelry"
+      effectId: 11
+      effectMagnitude: 15
+      legacyId: FocsRng2
+    }
+    {
+      id: coc:greater_crimstone_ring
+      shortNameKey: Items.GreaterCrimstoneRing.Short
+      longNameKey: Items.GreaterCrimstoneRing.Long
+      descriptionKey: Items.GreaterCrimstoneRing.Desc
+      value: 4000
+      type: "coc:jewelry"
+      legacyId: CrimRn3
+      effectId: 1
+      effectMagnitude: 20
+    }
+    {
+      id: coc:greater_fertite_ring
+      shortNameKey: Items.GreaterFertiteRing.Short
+      longNameKey: Items.GreaterFertiteRing.Long
+      descriptionKey: Items.GreaterFertiteRing.Desc
+      value: 4000
+      type: "coc:jewelry"
+      legacyId: FertRn3
+      effectId: 2
+      effectMagnitude: 40
+    }
+    {
+      id: coc:greater_icestone_ring
+      shortNameKey: Items.GreaterIcestoneRing.Short
+      longNameKey: Items.GreaterIcestoneRing.Long
+      descriptionKey: Items.GreaterIcestoneRing.Desc
+      value: 8000
+      type: "coc:jewelry"
+      legacyId: Ice_Rn3
+      effectId: 1
+      effectMagnitude: -20
+    }
+    {
+      id: coc:greater_critical_ring
+      shortNameKey: Items.GreaterCriticalRing.Short
+      longNameKey: Items.GreaterCriticalRing.Long
+      descriptionKey: Items.GreaterCriticalRing.Desc
+      value: 6000
+      type: "coc:jewelry"
+      legacyId: CritRn3
+      effectId: 3
+      effectMagnitude: 7
+    }
+    {
+      id: coc:greater_regen_ring
+      shortNameKey: Items.GreaterRegenRing.Short
+      longNameKey: Items.GreaterRegenRing.Long
+      descriptionKey: Items.GreaterRegenRing.Desc
+      value: 8000
+      type: "coc:jewelry"
+      legacyId: RegnRn3
+      effectId: 4
+      effectMagnitude: 4
+    }
+    {
+      id: coc:greater_life_ring
+      shortNameKey: Items.GreaterLifeRing.Short
+      longNameKey: Items.GreaterLifeRing.Long
+      descriptionKey: Items.GreaterLifeRing.Desc
+      value: 4000
+      type: "coc:jewelry"
+      legacyId: LifeRn3
+      effectId: 5
+      effectMagnitude: 60
+    }
+    {
+      id: coc:greater_mystic_ring
+      shortNameKey: Items.GreaterMysticRing.Short
+      longNameKey: Items.GreaterMysticRing.Long
+      descriptionKey: Items.GreaterMysticRing.Desc
+      value: 6000
+      type: "coc:jewelry"
+      legacyId: MystRn3
+      effectId: 7
+      effectMagnitude: 40
+    }
+    {
+      id: coc:greater_power_ring
+      shortNameKey: Items.GreaterPowerRing.Short
+      longNameKey: Items.GreaterPowerRing.Long
+      descriptionKey: Items.GreaterPowerRing.Desc
+      value: 6000
+      type: "coc:jewelry"
+      legacyId: PowrRn3
+      effectId: 6
+      effectMagnitude: 12
+    }
+    {
+      id: coc:greater_focus_ring
+      shortNameKey: Items.GreaterFocusRing.Short
+      longNameKey: Items.GreaterFocusRing.Long
+      descriptionKey: Items.GreaterFocusRing.Desc
+      value: 6000
+      type: "coc:jewelry"
+      effectId: 11
+      effectMagnitude: 20
+      legacyId: FocsRng3
+    }
+    {
+      id: coc:purity_ring
+      shortNameKey: Items.PurityRing.Short
+      longNameKey: Items.PurityRing.Long
+      descriptionKey: Items.PurityRing.Desc
+      value: 3000
+      type: "coc:jewelry"
+      effectId: 8
+      effectMagnitude: 10
+      legacyId: PureRng
+    }
+    {
+      id: coc:lethicite_ring
+      shortNameKey: Items.LethiciteRing.Short
+      longNameKey: Items.LethiciteRing.Long
+      descriptionKey: Items.LethiciteRing.Desc
+      value: 5000
+      type: "coc:jewelry"
+      legacyId: LthcRng
+      effectId: 9
+      effectMagnitude: 10
+    }
+    {
+      id: coc:flamespirit_ring
+      shortNameKey: Items.FlamespiritRing.Short
+      longNameKey: Items.FlamespiritRing.Long
+      descriptionKey: Items.FlamespiritRing.Desc
+      value: 5000
+      type: "coc:jewelry"
+      effectId: 10
+      effectMagnitude: 1
+      legacyId: FlamesprtRng
+    }
+    {
+      id: coc:tearing_ring
+      shortNameKey: Items.TearingRing.Short
+      longNameKey: Items.TearingRing.Long
+      descriptionKey: Items.TearingRing.Desc
+      value: 5000
+      type: "coc:jewelry"
+      effectId: 12
+      effectMagnitude: 1
+      legacyId: Eth.TearRing
+    }
+    {
+      id: coc:aquamarine_ring
+      shortNameKey: Items.AquamarineRing.Short
+      longNameKey: Items.AquamarineRing.Long
+      descriptionKey: Items.AquamarineRing.Desc
+      value: 5000
+      type: "coc:jewelry"
+      legacyId: AquamarineRing
+    }
+    {
+      id: coc:diamond_ring
+      shortNameKey: Items.DiamondRing.Short
+      longNameKey: Items.DiamondRing.Long
+      descriptionKey: Items.DiamondRing.Desc
+      value: 1000
+      type: "coc:jewelry"
+      legacyId: DiamRng
+    }
+    {
+      id: coc:gold_ring
+      shortNameKey: Items.GoldRing.Short
+      longNameKey: Items.GoldRing.Long
+      descriptionKey: Items.GoldRing.Desc
+      value: 400
+      type: "coc:jewelry"
+      legacyId: GoldRng
+    }
+    {
+      id: coc:platinum_ring
+      shortNameKey: Items.PlatinumRing.Short
+      longNameKey: Items.PlatinumRing.Long
+      descriptionKey: Items.PlatinumRing.Desc
+      value: 1000
+      type: "coc:jewelry"
+      legacyId: PlatRng
+    }
+    {
+      id: coc:silver_ring
+      shortNameKey: Items.SilverRing.Short
+      longNameKey: Items.SilverRing.Long
+      descriptionKey: Items.SilverRing.Desc
+      value: 200
+      type: "coc:jewelry"
+      legacyId: SilvRng
+    }
+    {
+      id: coc:fabulous_ring
+      shortNameKey: Items.FabulousRing.Short
+      longNameKey: Items.FabulousRing.Long
+      descriptionKey: Items.FabulousRing.Desc
+      value: 4000
+      type: "coc:jewelry"
+      legacyId: FabRing
+    }
+    {
+      id: coc:blind_rage_ring
+      shortNameKey: Items.BlindRageRing.Short
+      longNameKey: Items.BlindRageRing.Long
+      descriptionKey: Items.BlindRageRing.Desc
+      value: 1
+      type: "coc:jewelry"
+      legacyId: BlindRageRing
+    }
+    {
+      id: coc:comfortable_bra
+      shortNameKey: Items.ComfortableBra.Short
+      longNameKey: Items.ComfortableBra.Long
+      descriptionKey: Items.ComfortableBra.Desc
+      value: 6
+      type: "coc:undergarment"
+      slot: upper
+      legacyId: "C. Bra "
+    }
+    {
+      id: coc:dragon_scale_bra
+      shortNameKey: Items.DragonScaleBra.Short
+      longNameKey: Items.DragonScaleBra.Long
+      descriptionKey: Items.DragonScaleBra.Desc
+      value: 360
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 1
+      armorDefense: 2
+      legacyId: DS. Bra
+    }
+    {
+      id: coc:latex_bra
+      shortNameKey: Items.LatexBra.Short
+      longNameKey: Items.LatexBra.Long
+      descriptionKey: Items.LatexBra.Desc
+      value: 250
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 3
+      legacyId: Ltx.Bra
+    }
+    {
+      id: coc:silk_bra
+      shortNameKey: Items.SilkBra.Short
+      longNameKey: Items.SilkBra.Long
+      descriptionKey: Items.SilkBra.Desc
+      value: 370
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 1
+      armorDefense: 1
+      legacyId: SS. Bra
+    }
+    {
+      id: coc:ebon_vest
+      shortNameKey: Items.EbonVest.Short
+      longNameKey: Items.EbonVest.Long
+      descriptionKey: Items.EbonVest.Desc
+      value: 900
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 2
+      armorDefense: 3
+      legacyId: EW Vest
+    }
+    {
+      id: coc:ebon_corset
+      shortNameKey: Items.EbonCorset.Short
+      longNameKey: Items.EbonCorset.Long
+      descriptionKey: Items.EbonCorset.Desc
+      value: 900
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 2
+      armorDefense: 3
+      legacyId: EW Crst
+    }
+    {
+      id: coc:lace_bra
+      shortNameKey: Items.LaceBra.Short
+      longNameKey: Items.LaceBra.Long
+      descriptionKey: Items.LaceBra.Desc
+      value: 60
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 2
+      legacyId: LaceBra
+    }
+    {
+      id: coc:bbydoll
+      shortNameKey: Items.Bbydoll.Short
+      longNameKey: Items.Bbydoll.Long
+      descriptionKey: Items.Bbydoll.Desc
+      value: 190
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 2
+      legacyId: Bbydoll
+    }
+    {
+      id: coc:sheer_babydoll
+      shortNameKey: Items.SheerBabydoll.Short
+      longNameKey: Items.SheerBabydoll.Long
+      descriptionKey: Items.SheerBabydoll.Desc
+      value: 200
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 3
+      legacyId: ShrBydl
+    }
+    {
+      id: coc:sheer_bra
+      shortNameKey: Items.SheerBra.Short
+      longNameKey: Items.SheerBra.Long
+      descriptionKey: Items.SheerBra.Desc
+      value: 140
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 3
+      legacyId: Shr Bra
+    }
+    {
+      id: coc:frilly_bra
+      shortNameKey: Items.FrillyBra.Short
+      longNameKey: Items.FrillyBra.Long
+      descriptionKey: Items.FrillyBra.Desc
+      value: 50
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 1
+      legacyId: FrilBra
+    }
+    {
+      id: coc:black_striped_bra
+      shortNameKey: Items.BlackStripedBra.Short
+      longNameKey: Items.BlackStripedBra.Long
+      descriptionKey: Items.BlackStripedBra.Desc
+      value: 50
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 1
+      legacyId: BStrBra
+    }
+    {
+      id: coc:purple_striped_bra
+      shortNameKey: Items.PurpleStripedBra.Short
+      longNameKey: Items.PurpleStripedBra.Long
+      descriptionKey: Items.PurpleStripedBra.Desc
+      value: 50
+      type: "coc:undergarment"
+      slot: upper
+      sexiness: 1
+      legacyId: PStrBra
+    }
+    {
+      id: coc:bloomers
+      shortNameKey: Items.Bloomers.Short
+      longNameKey: Items.Bloomers.Long
+      descriptionKey: Items.Bloomers.Desc
+      value: 40
+      type: "coc:undergarment"
+      slot: lower
+      legacyId: Bloomers
+    }
+    {
+      id: coc:dragon_scale_loincloth
+      shortNameKey: Items.DragonScaleLoincloth.Short
+      longNameKey: Items.DragonScaleLoincloth.Long
+      descriptionKey: Items.DragonScaleLoincloth.Desc
+      value: 360
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 1
+      armorDefense: 2
+      legacyId: DS.Loin
+    }
+    {
+      id: coc:dragon_scale_panties
+      shortNameKey: Items.DragonScalePanties.Short
+      longNameKey: Items.DragonScalePanties.Long
+      descriptionKey: Items.DragonScalePanties.Desc
+      value: 360
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 1
+      armorDefense: 2
+      legacyId: DSPanty
+    }
+    {
+      id: coc:fundosh
+      shortNameKey: Items.Fundosh.Short
+      longNameKey: Items.Fundosh.Long
+      descriptionKey: Items.Fundosh.Desc
+      value: 20
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 2
+      legacyId: Fundosh
+    }
+    {
+      id: coc:fur_loincloth
+      shortNameKey: Items.FurLoincloth.Short
+      longNameKey: Items.FurLoincloth.Long
+      descriptionKey: Items.FurLoincloth.Desc
+      value: 6
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 2
+      legacyId: FurLoin
+    }
+    {
+      id: coc:garters
+      shortNameKey: Items.Garters.Short
+      longNameKey: Items.Garters.Long
+      descriptionKey: Items.Garters.Desc
+      value: 6
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 3
+      legacyId: Garters
+    }
+    {
+      id: coc:latex_shorts
+      shortNameKey: Items.LatexShorts.Short
+      longNameKey: Items.LatexShorts.Long
+      descriptionKey: Items.LatexShorts.Desc
+      value: 300
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 3
+      legacyId: LtxShrt
+    }
+    {
+      id: coc:latex_thong
+      shortNameKey: Items.LatexThong.Short
+      longNameKey: Items.LatexThong.Long
+      descriptionKey: Items.LatexThong.Desc
+      value: 300
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 3
+      legacyId: LtxThng
+    }
+    {
+      id: coc:silk_loincloth
+      shortNameKey: Items.SilkLoincloth.Short
+      longNameKey: Items.SilkLoincloth.Long
+      descriptionKey: Items.SilkLoincloth.Desc
+      value: 370
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 1
+      armorDefense: 1
+      legacyId: SS.Loin
+    }
+    {
+      id: coc:silk_panties
+      shortNameKey: Items.SilkPanties.Short
+      longNameKey: Items.SilkPanties.Long
+      descriptionKey: Items.SilkPanties.Desc
+      value: 370
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 1
+      armorDefense: 1
+      legacyId: SSPanty
+    }
+    {
+      id: coc:ebon_jock
+      shortNameKey: Items.EbonJock.Short
+      longNameKey: Items.EbonJock.Long
+      descriptionKey: Items.EbonJock.Desc
+      value: 900
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 2
+      armorDefense: 3
+      legacyId: EWStrap
+    }
+    {
+      id: coc:ebon_thong
+      shortNameKey: Items.EbonThong.Short
+      longNameKey: Items.EbonThong.Long
+      descriptionKey: Items.EbonThong.Desc
+      value: 900
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 2
+      armorDefense: 3
+      legacyId: EWThong
+    }
+    {
+      id: coc:ebon_loincloth
+      shortNameKey: Items.EbonLoincloth.Short
+      longNameKey: Items.EbonLoincloth.Long
+      descriptionKey: Items.EbonLoincloth.Desc
+      value: 900
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 2
+      armorDefense: 3
+      legacyId: EWCloth
+    }
+    {
+      id: coc:runed_jock
+      shortNameKey: Items.RunedJock.Short
+      longNameKey: Items.RunedJock.Long
+      descriptionKey: Items.RunedJock.Desc
+      value: 1200
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 3
+      armorDefense: 3
+      legacyId: RnStrap
+    }
+    {
+      id: coc:runed_thong
+      shortNameKey: Items.RunedThong.Short
+      longNameKey: Items.RunedThong.Long
+      descriptionKey: Items.RunedThong.Desc
+      value: 1200
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 3
+      armorDefense: 3
+      legacyId: RnThong
+    }
+    {
+      id: coc:runed_loincloth
+      shortNameKey: Items.RunedLoincloth.Short
+      longNameKey: Items.RunedLoincloth.Long
+      descriptionKey: Items.RunedLoincloth.Desc
+      value: 1200
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 3
+      armorDefense: 3
+      legacyId: RnCloth
+    }
+    {
+      id: coc:pink_heart_panties
+      shortNameKey: Items.PinkHeartPanties.Short
+      longNameKey: Items.PinkHeartPanties.Long
+      descriptionKey: Items.PinkHeartPanties.Desc
+      value: 30
+      type: "coc:undergarment"
+      slot: lower
+      legacyId: PHPanty
+    }
+    {
+      id: coc:white_heart_panties
+      shortNameKey: Items.WhiteHeartPanties.Short
+      longNameKey: Items.WhiteHeartPanties.Long
+      descriptionKey: Items.WhiteHeartPanties.Desc
+      value: 30
+      type: "coc:undergarment"
+      slot: lower
+      legacyId: WHPanty
+    }
+    {
+      id: coc:lace_panties
+      shortNameKey: Items.LacePanties.Short
+      longNameKey: Items.LacePanties.Long
+      descriptionKey: Items.LacePanties.Desc
+      value: 60
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 2
+      legacyId: LacePan
+    }
+    {
+      id: coc:sheer_panties
+      shortNameKey: Items.SheerPanties.Short
+      longNameKey: Items.SheerPanties.Long
+      descriptionKey: Items.SheerPanties.Desc
+      value: 140
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 3
+      legacyId: Shr Pan
+    }
+    {
+      id: coc:frilly_panties
+      shortNameKey: Items.FrillyPanties.Short
+      longNameKey: Items.FrillyPanties.Long
+      descriptionKey: Items.FrillyPanties.Desc
+      value: 50
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 1
+      legacyId: FrilPan
+    }
+    {
+      id: coc:black_striped_panties
+      shortNameKey: Items.BlackStripedPanties.Short
+      longNameKey: Items.BlackStripedPanties.Long
+      descriptionKey: Items.BlackStripedPanties.Desc
+      value: 50
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 1
+      legacyId: BStrPan
+    }
+    {
+      id: coc:purple_striped_panties
+      shortNameKey: Items.PurpleStripedPanties.Short
+      longNameKey: Items.PurpleStripedPanties.Long
+      descriptionKey: Items.PurpleStripedPanties.Desc
+      value: 50
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 1
+      legacyId: PStrPan
+    }
+    {
+      id: coc:nephila_pantyhose
+      shortNameKey: Items.NephilaPantyhose.Short
+      longNameKey: Items.NephilaPantyhose.Long
+      descriptionKey: Items.NephilaPantyhose.Desc
+      value: 40
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 1
+      legacyId: NPntyHs
+    }
+    {
+      id: coc:pantyhose
+      shortNameKey: Items.Pantyhose.Short
+      longNameKey: Items.Pantyhose.Long
+      descriptionKey: Items.Pantyhose.Desc
+      value: 70
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 1
+      legacyId: PanHose
+    }
+    {
+      id: coc:moth_silk_panties
+      shortNameKey: Items.MothSilkPanties.Short
+      longNameKey: Items.MothSilkPanties.Long
+      descriptionKey: Items.MothSilkPanties.Desc
+      value: 500
+      type: "coc:undergarment"
+      slot: lower
+      sexiness: 4
+      legacyId: MothPan
+    }
+    {
+      id: coc:black_chitin
+      shortNameKey: Items.BlackChitin.Short
+      longNameKey: Items.BlackChitin.Long
+      descriptionKey: Items.BlackChitin.Desc
+      value: 6
+      type: "coc:useable"
+      legacyId: B.Chitn
+    }
+    {
+      id: coc:green_gel
+      shortNameKey: Items.GreenGel.Short
+      longNameKey: Items.GreenGel.Long
+      descriptionKey: Items.GreenGel.Desc
+      value: 6
+      type: "coc:useable"
+      legacyId: GreenGl
+    }
+    {
+      id: coc:tough_silk
+      shortNameKey: Items.ToughSilk.Short
+      longNameKey: Items.ToughSilk.Long
+      descriptionKey: Items.ToughSilk.Desc
+      value: 6
+      type: "coc:useable"
+      legacyId: T.SSilk
+    }
+    {
+      id: coc:dragon_scale
+      shortNameKey: Items.DragonScale.Short
+      longNameKey: Items.DragonScale.Long
+      descriptionKey: Items.DragonScale.Desc
+      value: 45
+      type: "coc:useable"
+      legacyId: D.Scale
+    }
+    {
+      id: coc:lethicite
+      shortNameKey: Items.Lethicite.Short
+      longNameKey: Items.Lethicite.Long
+      descriptionKey: Items.Lethicite.Desc
+      value: 1000
+      type: "coc:useable"
+      legacyId: Lethite
+    }
+    {
+      id: coc:ebon_flower
+      shortNameKey: Items.EbonFlower.Short
+      longNameKey: Items.EbonFlower.Long
+      descriptionKey: Items.EbonFlower.Desc
+      value: 600
+      type: "coc:useable"
+      legacyId: E.Flower
+    }
+    {
+      id: coc:obsidian_shard
+      shortNameKey: Items.ObsidianShard.Short
+      longNameKey: Items.ObsidianShard.Long
+      descriptionKey: Items.ObsidianShard.Desc
+      value: 200
+      type: "coc:useable"
+      legacyId: ObShard
+    }
+    {
+      id: coc:imp_skull
+      shortNameKey: Items.ImpSkull.Short
+      longNameKey: Items.ImpSkull.Long
+      descriptionKey: Items.ImpSkull.Desc
+      value: 25
+      type: "coc:useable"
+      legacyId: ImpSkll
+    }
+    {
+      id: coc:condom
+      shortNameKey: Items.Condom.Short
+      longNameKey: Items.Condom.Long
+      descriptionKey: Items.Condom.Desc
+      value: 6
+      type: "coc:useable"
+      legacyId: "Condom "
+    }
+    {
+      id: coc:eyeball
+      shortNameKey: Items.Eyeball.Short
+      longNameKey: Items.Eyeball.Long
+      descriptionKey: Items.Eyeball.Desc
+      value: 1
+      type: "coc:useable"
+      legacyId: Eyeball
+    }
+    {
+      id: coc:skull
+      shortNameKey: Items.Skull.Short
+      longNameKey: Items.Skull.Long
+      descriptionKey: Items.Skull.Desc
+      value: 10
+      type: "coc:useable"
+      legacyId: Skull
+    }
+    {
+      id: coc:chocolate_cupcake
+      shortNameKey: Items.ChocolateCupcake.Short
+      longNameKey: Items.ChocolateCupcake.Long
+      descriptionKey: Items.ChocolateCupcake.Desc
+      value: 0
+      type: "coc:consumable"
+      legacyId: CCupcak
+    }
+    {
+      id: coc:hard_biscuits
+      shortNameKey: Items.HardBiscuits.Short
+      longNameKey: Items.HardBiscuits.Long
+      descriptionKey: Items.HardBiscuits.Desc
+      value: 0
+      type: "coc:consumable"
+      legacyId: H.Bisct
+    }
+    {
+      id: coc:pure_peach
+      shortNameKey: Items.PurePeach.Short
+      longNameKey: Items.PurePeach.Long
+      descriptionKey: Items.PurePeach.Desc
+      value: 0
+      type: "coc:consumable"
+      legacyId: PurPeac
+    }
+    {
+      id: coc:trail_mix
+      shortNameKey: Items.TrailMix.Short
+      longNameKey: Items.TrailMix.Long
+      descriptionKey: Items.TrailMix.Desc
+      value: 0
+      type: "coc:consumable"
+      legacyId: TrailMx
+    }
+    {
+      id: coc:urtas_cum
+      shortNameKey: Items.UrtasCum.Short
+      longNameKey: Items.UrtasCum.Long
+      descriptionKey: Items.UrtasCum.Desc
+      value: 0
+      type: "coc:consumable"
+      legacyId: UrtaCum
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:ice_axe
+      shortNameKey: Items.IceAxe.Short
+      longNameKey: Items.IceAxe.Long
+      descriptionKey: Items.IceAxe.Desc
+      value: 0
+      type: "coc:axe"
+      verb: cleave
+      behavior: coc:ice_axe
+      attack: 6
+      tags:
+      [
+        melting
+        axe
+      ]
+      legacyId: IceAxe
+    }
+    {
+      id: coc:ice_mace
+      shortNameKey: Items.IceMace.Short
+      longNameKey: Items.IceMace.Long
+      descriptionKey: Items.IceMace.Desc
+      value: 0
+      type: "coc:blunt"
+      verb: smash
+      behavior: coc:ice_mace
+      attack: 6
+      tags:
+      [
+        melting
+        blunt1h
+      ]
+      legacyId: IceMace
+    }
+    {
+      id: coc:ice_spear
+      shortNameKey: Items.IceSpear.Short
+      longNameKey: Items.IceSpear.Long
+      descriptionKey: Items.IceSpear.Desc
+      value: 0
+      type: "coc:spear"
+      verb: stab
+      behavior: coc:ice_spear
+      attack: 6
+      tags:
+      [
+        melting
+        spear
+      ]
+      legacyId: IceSpear
+    }
+    {
+      id: coc:ice_sword
+      shortNameKey: Items.IceSword.Short
+      longNameKey: Items.IceSword.Long
+      descriptionKey: Items.IceSword.Desc
+      value: 0
+      type: "coc:sword"
+      verb: slash
+      behavior: coc:ice_sword
+      attack: 6
+      tags:
+      [
+        melting
+        sword1h
+      ]
+      legacyId: IceSword
+    }
+    {
+      id: coc:ice_dagger
+      shortNameKey: Items.IceDagger.Short
+      longNameKey: Items.IceDagger.Long
+      descriptionKey: Items.IceDagger.Desc
+      value: 0
+      type: "coc:dagger"
+      verb: stab
+      behavior: coc:ice_dagger
+      attack: 6
+      tags:
+      [
+        melting
+        knife
+      ]
+      legacyId: IceDagger
+    }
+    {
+      id: coc:ice_scythe
+      shortNameKey: Items.IceScythe.Short
+      longNameKey: Items.IceScythe.Long
+      descriptionKey: Items.IceScythe.Desc
+      value: 0
+      type: "coc:weapon"
+      verb: attack
+      behavior: coc:ice_scythe
+      attack: 6
+      tags:
+      [
+        melting
+        scythe
+      ]
+      legacyId: IceScythe
+    }
+    {
+      id: coc:ice_staff
+      shortNameKey: Items.IceStaff.Short
+      longNameKey: Items.IceStaff.Long
+      descriptionKey: Items.IceStaff.Desc
+      value: 0
+      type: "coc:staff"
+      verb: smack
+      behavior: coc:ice_staff
+      attack: 6
+      tags:
+      [
+        melting
+        staff
+        magic
+      ]
+      legacyId: IceStaff
+    }
+    {
+      id: coc:auburn_dye
+      shortNameKey: Items.AuburnDye.Short
+      longNameKey: Items.AuburnDye.Long
+      descriptionKey: Items.AuburnDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: AuburnD
+    }
+    {
+      id: coc:black_dye
+      shortNameKey: Items.BlackDye.Short
+      longNameKey: Items.BlackDye.Long
+      descriptionKey: Items.BlackDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: Black D
+    }
+    {
+      id: coc:blond_dye
+      shortNameKey: Items.BlondDye.Short
+      longNameKey: Items.BlondDye.Long
+      descriptionKey: Items.BlondDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: Blond D
+    }
+    {
+      id: coc:blue_dye
+      shortNameKey: Items.BlueDye.Short
+      longNameKey: Items.BlueDye.Long
+      descriptionKey: Items.BlueDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: BlueDye
+    }
+    {
+      id: coc:brown_dye
+      shortNameKey: Items.BrownDye.Short
+      longNameKey: Items.BrownDye.Long
+      descriptionKey: Items.BrownDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: Brown D
+    }
+    {
+      id: coc:gray_dye
+      shortNameKey: Items.GrayDye.Short
+      longNameKey: Items.GrayDye.Long
+      descriptionKey: Items.GrayDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: GrayDye
+    }
+    {
+      id: coc:green_dye
+      shortNameKey: Items.GreenDye.Short
+      longNameKey: Items.GreenDye.Long
+      descriptionKey: Items.GreenDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: Green D
+    }
+    {
+      id: coc:orange_dye
+      shortNameKey: Items.OrangeDye.Short
+      longNameKey: Items.OrangeDye.Long
+      descriptionKey: Items.OrangeDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: OrangDy
+    }
+    {
+      id: coc:pink_dye
+      shortNameKey: Items.PinkDye.Short
+      longNameKey: Items.PinkDye.Long
+      descriptionKey: Items.PinkDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: PinkDye
+    }
+    {
+      id: coc:purple_dye
+      shortNameKey: Items.PurpleDye.Short
+      longNameKey: Items.PurpleDye.Long
+      descriptionKey: Items.PurpleDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: PurpDye
+    }
+    {
+      id: coc:rainbow_dye
+      shortNameKey: Items.RainbowDye.Short
+      longNameKey: Items.RainbowDye.Long
+      descriptionKey: Items.RainbowDye.Desc
+      value: 100
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: RainDye
+    }
+    {
+      id: coc:red_dye
+      shortNameKey: Items.RedDye.Short
+      longNameKey: Items.RedDye.Long
+      descriptionKey: Items.RedDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: Red Dye
+    }
+    {
+      id: coc:russet_dye
+      shortNameKey: Items.RussetDye.Short
+      longNameKey: Items.RussetDye.Long
+      descriptionKey: Items.RussetDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: RussetD
+    }
+    {
+      id: coc:yellow_dye
+      shortNameKey: Items.YellowDye.Short
+      longNameKey: Items.YellowDye.Long
+      descriptionKey: Items.YellowDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: YelloDy
+    }
+    {
+      id: coc:white_dye
+      shortNameKey: Items.WhiteDye.Short
+      longNameKey: Items.WhiteDye.Long
+      descriptionKey: Items.WhiteDye.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        dye
+      ]
+      legacyId: WhiteDy
+    }
+    {
+      id: coc:dark_oil
+      shortNameKey: Items.DarkOil.Short
+      longNameKey: Items.DarkOil.Long
+      descriptionKey: Items.DarkOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: DarkOil
+    }
+    {
+      id: coc:ebony_oil
+      shortNameKey: Items.EbonyOil.Short
+      longNameKey: Items.EbonyOil.Long
+      descriptionKey: Items.EbonyOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: EbonyOl
+    }
+    {
+      id: coc:fair_oil
+      shortNameKey: Items.FairOil.Short
+      longNameKey: Items.FairOil.Long
+      descriptionKey: Items.FairOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: FairOil
+    }
+    {
+      id: coc:light_oil
+      shortNameKey: Items.LightOil.Short
+      longNameKey: Items.LightOil.Long
+      descriptionKey: Items.LightOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: LightOl
+    }
+    {
+      id: coc:mahogany_oil
+      shortNameKey: Items.MahoganyOil.Short
+      longNameKey: Items.MahoganyOil.Long
+      descriptionKey: Items.MahoganyOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: MahogOl
+    }
+    {
+      id: coc:olive_oil
+      shortNameKey: Items.OliveOil.Short
+      longNameKey: Items.OliveOil.Long
+      descriptionKey: Items.OliveOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: OliveOl
+    }
+    {
+      id: coc:russet_oil
+      shortNameKey: Items.RussetOil.Short
+      longNameKey: Items.RussetOil.Long
+      descriptionKey: Items.RussetOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: RussOil
+    }
+    {
+      id: coc:red_oil
+      shortNameKey: Items.RedOil.Short
+      longNameKey: Items.RedOil.Long
+      descriptionKey: Items.RedOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: Red Oil
+    }
+    {
+      id: coc:orange_oil
+      shortNameKey: Items.OrangeOil.Short
+      longNameKey: Items.OrangeOil.Long
+      descriptionKey: Items.OrangeOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: OranOil
+    }
+    {
+      id: coc:yellow_oil
+      shortNameKey: Items.YellowOil.Short
+      longNameKey: Items.YellowOil.Long
+      descriptionKey: Items.YellowOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: YeloOil
+    }
+    {
+      id: coc:green_oil
+      shortNameKey: Items.GreenOil.Short
+      longNameKey: Items.GreenOil.Long
+      descriptionKey: Items.GreenOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: GrenOil
+    }
+    {
+      id: coc:white_oil
+      shortNameKey: Items.WhiteOil.Short
+      longNameKey: Items.WhiteOil.Long
+      descriptionKey: Items.WhiteOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: WhitOil
+    }
+    {
+      id: coc:blue_oil
+      shortNameKey: Items.BlueOil.Short
+      longNameKey: Items.BlueOil.Long
+      descriptionKey: Items.BlueOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: BlueOil
+    }
+    {
+      id: coc:black_oil
+      shortNameKey: Items.BlackOil.Short
+      longNameKey: Items.BlackOil.Long
+      descriptionKey: Items.BlackOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: BlakOil
+    }
+    {
+      id: coc:purple_oil
+      shortNameKey: Items.PurpleOil.Short
+      longNameKey: Items.PurpleOil.Long
+      descriptionKey: Items.PurpleOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: PurpOil
+    }
+    {
+      id: coc:silver_oil
+      shortNameKey: Items.SilverOil.Short
+      longNameKey: Items.SilverOil.Long
+      descriptionKey: Items.SilverOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: SlvrOil
+    }
+    {
+      id: coc:yellow_green_oil
+      shortNameKey: Items.YellowGreenOil.Short
+      longNameKey: Items.YellowGreenOil.Long
+      descriptionKey: Items.YellowGreenOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: YlGrOil
+    }
+    {
+      id: coc:spring_green_oil
+      shortNameKey: Items.SpringGreenOil.Short
+      longNameKey: Items.SpringGreenOil.Long
+      descriptionKey: Items.SpringGreenOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: SpGrOil
+    }
+    {
+      id: coc:cyan_oil
+      shortNameKey: Items.CyanOil.Short
+      longNameKey: Items.CyanOil.Long
+      descriptionKey: Items.CyanOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: CyanOil
+    }
+    {
+      id: coc:ocean_blue_oil
+      shortNameKey: Items.OceanBlueOil.Short
+      longNameKey: Items.OceanBlueOil.Long
+      descriptionKey: Items.OceanBlueOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: OBluOil
+    }
+    {
+      id: coc:electric_violet_oil
+      shortNameKey: Items.ElectricVioletOil.Short
+      longNameKey: Items.ElectricVioletOil.Long
+      descriptionKey: Items.ElectricVioletOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: EVioOil
+    }
+    {
+      id: coc:magenta_oil
+      shortNameKey: Items.MagentaOil.Short
+      longNameKey: Items.MagentaOil.Long
+      descriptionKey: Items.MagentaOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: MagenOl
+    }
+    {
+      id: coc:deep_pink_oil
+      shortNameKey: Items.DeepPinkOil.Short
+      longNameKey: Items.DeepPinkOil.Long
+      descriptionKey: Items.DeepPinkOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: DPnkOil
+    }
+    {
+      id: coc:pink_oil
+      shortNameKey: Items.PinkOil.Short
+      longNameKey: Items.PinkOil.Long
+      descriptionKey: Items.PinkOil.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        oil
+      ]
+      legacyId: PinkOil
+    }
+    {
+      id: coc:black_egg
+      shortNameKey: Items.BlackEgg.Short
+      longNameKey: Items.BlackEgg.Long
+      descriptionKey: Items.BlackEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: BlackEg
+    }
+    {
+      id: coc:blue_egg
+      shortNameKey: Items.BlueEgg.Short
+      longNameKey: Items.BlueEgg.Long
+      descriptionKey: Items.BlueEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: BlueEgg
+    }
+    {
+      id: coc:brown_egg
+      shortNameKey: Items.BrownEgg.Short
+      longNameKey: Items.BrownEgg.Long
+      descriptionKey: Items.BrownEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: BrownEg
+    }
+    {
+      id: coc:pink_egg
+      shortNameKey: Items.PinkEgg.Short
+      longNameKey: Items.PinkEgg.Long
+      descriptionKey: Items.PinkEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: PinkEgg
+    }
+    {
+      id: coc:purple_egg
+      shortNameKey: Items.PurpleEgg.Short
+      longNameKey: Items.PurpleEgg.Long
+      descriptionKey: Items.PurpleEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: PurpleEg
+    }
+    {
+      id: coc:white_egg
+      shortNameKey: Items.WhiteEgg.Short
+      longNameKey: Items.WhiteEgg.Long
+      descriptionKey: Items.WhiteEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: WhiteEg
+    }
+    {
+      id: coc:large_black_egg
+      shortNameKey: Items.LargeBlackEgg.Short
+      longNameKey: Items.LargeBlackEgg.Long
+      descriptionKey: Items.LargeBlackEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: L.BlkEg
+    }
+    {
+      id: coc:large_blue_egg
+      shortNameKey: Items.LargeBlueEgg.Short
+      longNameKey: Items.LargeBlueEgg.Long
+      descriptionKey: Items.LargeBlueEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: L.BluEg
+    }
+    {
+      id: coc:large_brown_egg
+      shortNameKey: Items.LargeBrownEgg.Short
+      longNameKey: Items.LargeBrownEgg.Long
+      descriptionKey: Items.LargeBrownEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: L.BrnEg
+    }
+    {
+      id: coc:large_pink_egg
+      shortNameKey: Items.LargePinkEgg.Short
+      longNameKey: Items.LargePinkEgg.Long
+      descriptionKey: Items.LargePinkEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: L.PnkEg
+    }
+    {
+      id: coc:large_purple_egg
+      shortNameKey: Items.LargePurpleEgg.Short
+      longNameKey: Items.LargePurpleEgg.Long
+      descriptionKey: Items.LargePurpleEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: L.PrpEg
+    }
+    {
+      id: coc:large_white_egg
+      shortNameKey: Items.LargeWhiteEgg.Short
+      longNameKey: Items.LargeWhiteEgg.Long
+      descriptionKey: Items.LargeWhiteEgg.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        egg
+      ]
+      legacyId: L.WhtEg
+    }
+    {
+      id: coc:purified_incubi_draft
+      shortNameKey: Items.PurifiedIncubiDraft.Short
+      longNameKey: Items.PurifiedIncubiDraft.Long
+      descriptionKey: Items.PurifiedIncubiDraft.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        fluid
+      ]
+      legacyId: P.Draft
+    }
+    {
+      id: coc:fuck_draft
+      shortNameKey: Items.FuckDraft.Short
+      longNameKey: Items.FuckDraft.Long
+      descriptionKey: Items.FuckDraft.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        fluid
+      ]
+      legacyId: F.Draft
+    }
+    {
+      id: coc:lust_draft
+      shortNameKey: Items.LustDraft.Short
+      longNameKey: Items.LustDraft.Long
+      descriptionKey: Items.LustDraft.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        fluid
+      ]
+      legacyId: L.Draft
+    }
+    {
+      id: coc:gray_book
+      shortNameKey: Items.GrayBook.Short
+      longNameKey: Items.GrayBook.Long
+      descriptionKey: Items.GrayBook.Desc
+      value: 40
+      type: "coc:consumable"
+      tags:
+      [
+        book
+      ]
+      legacyId: G. Book
+    }
+    {
+      id: coc:bee_chitin
+      shortNameKey: "Items.BeeChitin.Short"
+      longNameKey: "Items.BeeChitin.Long"
+      descriptionKey: "Items.BeeChitin.Desc"
+      value: 6
+      type: "coc:consumable"
+      legacyId: B.Chitn
+    }
+    {
+      id: coc:bee_honey
+      shortNameKey: Items.BeeHoney.Short
+      longNameKey: Items.BeeHoney.Long
+      descriptionKey: Items.BeeHoney.Desc
+      value: 6
+      type: "coc:consumable"
+      tags:
+      [
+        fluid
+        transformative
+      ]
+      legacyId: BeeHony
+    }
+    {
+      id: coc:pure_honey
+      shortNameKey: Items.PureHoney.Short
+      longNameKey: Items.PureHoney.Long
+      descriptionKey: Items.PureHoney.Desc
+      value: 40
+      type: "coc:consumable"
+      tags:
+      [
+        fluid
+        transformative
+      ]
+      legacyId: PurHony
+    }
+    {
+      id: coc:special_honey
+      shortNameKey: Items.SpecialHoney.Short
+      longNameKey: Items.SpecialHoney.Long
+      descriptionKey: Items.SpecialHoney.Desc
+      value: 20
+      type: "coc:consumable"
+      tags:
+      [
+        fluid
+        transformative
+      ]
+      legacyId: SpHoney
+    }
+    {
+      id: coc:canine_pepper
+      shortNameKey: Items.CaninePepper.Short
+      longNameKey: Items.CaninePepper.Long
+      descriptionKey: Items.CaninePepper.Desc
+      value: 10
+      type: "coc:consumable"
+      tags:
+      [
+        pepper
+      ]
+      legacyId: CanineP
+    }
+    {
+      id: coc:large_canine_pepper
+      shortNameKey: Items.LargeCaninePepper.Short
+      longNameKey: Items.LargeCaninePepper.Long
+      descriptionKey: Items.LargeCaninePepper.Desc
+      value: 10
+      type: "coc:consumable"
+      tags:
+      [
+        pepper
+      ]
+      legacyId: LargePp
+    }
+    {
+      id: coc:double_canine_pepper
+      shortNameKey: Items.DoubleCaninePepper.Short
+      longNameKey: Items.DoubleCaninePepper.Long
+      descriptionKey: Items.DoubleCaninePepper.Desc
+      value: 10
+      type: "coc:consumable"
+      tags:
+      [
+        pepper
+      ]
+      legacyId: DblPepp
+    }
+    {
+      id: coc:black_canine_pepper
+      shortNameKey: Items.BlackCaninePepper.Short
+      longNameKey: Items.BlackCaninePepper.Long
+      descriptionKey: Items.BlackCaninePepper.Desc
+      value: 10
+      type: "coc:consumable"
+      tags:
+      [
+        pepper
+      ]
+      legacyId: BlackPp
+    }
+    {
+      id: coc:knotty_canine_pepper
+      shortNameKey: Items.KnottyCaninePepper.Short
+      longNameKey: Items.KnottyCaninePepper.Long
+      descriptionKey: Items.KnottyCaninePepper.Desc
+      value: 10
+      type: "coc:consumable"
+      tags:
+      [
+        pepper
+      ]
+      legacyId: KnottyP
+    }
+    {
+      id: coc:bulbous_canine_pepper
+      shortNameKey: Items.BulbousCaninePepper.Short
+      longNameKey: Items.BulbousCaninePepper.Long
+      descriptionKey: Items.BulbousCaninePepper.Desc
+      value: 10
+      type: "coc:consumable"
+      tags:
+      [
+        pepper
+      ]
+      legacyId: BulbyPp
+    }
+    {
+      id: coc:de_bimbo
+      shortNameKey: Items.DeBimbo.Short
+      longNameKey: Items.DeBimbo.Long
+      descriptionKey: Items.DeBimbo.Desc
+      value: 250
+      type: "coc:consumable"
+      behavior: coc:de_bimbo
+      legacyId: Debimbo
+    }
+    {
+      id: coc:liddellium
+      shortNameKey: Items.Liddellium.Short
+      longNameKey: Items.Liddellium.Long
+      descriptionKey: Items.Liddellium.Desc
+      value: 0
+      type: "coc:consumable"
+      behavior: coc:liddellium
+      legacyId: Liddellium
+    }
+    {
+      id: coc:incubi_draft
+      shortNameKey: Items.IncubiDraft.Short
+      longNameKey: Items.IncubiDraft.Long
+      descriptionKey: Items.IncubiDraft.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: INCUBID
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:succubus_delight
+      shortNameKey: Items.SuccubusDelight.Short
+      longNameKey: Items.SuccubusDelight.Long
+      descriptionKey: Items.SuccubusDelight.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: SDELITE
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:succubi_milk
+      shortNameKey: Items.SuccubiMilk.Short
+      longNameKey: Items.SuccubiMilk.Long
+      descriptionKey: Items.SuccubiMilk.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: SUCMILK
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:purified_succubi_milk
+      shortNameKey: Items.PurifiedSuccubiMilk.Short
+      longNameKey: Items.PurifiedSuccubiMilk.Long
+      descriptionKey: Items.PurifiedSuccubiMilk.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: P_S_MLK
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:purified_succubus_delight
+      shortNameKey: Items.PurifiedSuccubusDelight.Short
+      longNameKey: Items.PurifiedSuccubusDelight.Long
+      descriptionKey: Items.PurifiedSuccubusDelight.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: PSDELIT
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:clear_lotion
+      shortNameKey: Items.ClearLotion.Short
+      longNameKey: Items.ClearLotion.Long
+      descriptionKey: Items.ClearLotion.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: CLEARLN
+    }
+    {
+      id: coc:rough_lotion
+      shortNameKey: Items.RoughLotion.Short
+      longNameKey: Items.RoughLotion.Long
+      descriptionKey: Items.RoughLotion.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: ROUGHLN
+    }
+    {
+      id: coc:sexy_lotion
+      shortNameKey: Items.SexyLotion.Short
+      longNameKey: Items.SexyLotion.Long
+      descriptionKey: Items.SexyLotion.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: SEXY_LN
+    }
+    {
+      id: coc:smooth_lotion
+      shortNameKey: Items.SmoothLotion.Short
+      longNameKey: Items.SmoothLotion.Long
+      descriptionKey: Items.SmoothLotion.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: SMTH_LN
+    }
+    {
+      id: coc:minotaur_cum
+      shortNameKey: Items.MinotaurCum.Short
+      longNameKey: Items.MinotaurCum.Long
+      descriptionKey: Items.MinotaurCum.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: MINOCUM
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:purified_minotaur_cum
+      shortNameKey: Items.PurifiedMinotaurCum.Short
+      longNameKey: Items.PurifiedMinotaurCum.Long
+      descriptionKey: Items.PurifiedMinotaurCum.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: P_M_CUM
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:premium_mead
+      shortNameKey: Items.PremiumMead.Short
+      longNameKey: Items.PremiumMead.Long
+      descriptionKey: Items.PremiumMead.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: PROMEAD
+      tags:
+      [
+        fluid
+        alcohol
+      ]
+    }
+    {
+      id: coc:bro_brew
+      shortNameKey: Items.BroBrew.Short
+      longNameKey: Items.BroBrew.Long
+      descriptionKey: Items.BroBrew.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: BROBREW
+      tags:
+      [
+        special
+        fluid
+        alcohol
+        rare
+      ]
+    }
+    {
+      id: coc:pro_lactaid
+      shortNameKey: Items.ProLactaid.Short
+      longNameKey: Items.ProLactaid.Long
+      descriptionKey: Items.ProLactaid.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: MILKPTN
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:black_gossamer
+      shortNameKey: Items.BlackGossamer.Short
+      longNameKey: Items.BlackGossamer.Long
+      descriptionKey: Items.BlackGossamer.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: B_GOSSR
+    }
+    {
+      id: coc:sweet_gossamer
+      shortNameKey: Items.SweetGossamer.Short
+      longNameKey: Items.SweetGossamer.Long
+      descriptionKey: Items.SweetGossamer.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: S_GOSSR
+    }
+    {
+      id: coc:boar_truffle
+      shortNameKey: Items.BoarTruffle.Short
+      longNameKey: Items.BoarTruffle.Long
+      descriptionKey: Items.BoarTruffle.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: BOARTRU
+    }
+    {
+      id: coc:drake_heart
+      shortNameKey: Items.DrakeHeart.Short
+      longNameKey: Items.DrakeHeart.Long
+      descriptionKey: Items.DrakeHeart.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: DRAKHRT
+    }
+    {
+      id: coc:ember_blossom
+      shortNameKey: Items.EmberBlossom.Short
+      longNameKey: Items.EmberBlossom.Long
+      descriptionKey: Items.EmberBlossom.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: EMBERBL
+    }
+    {
+      id: coc:fox_berry
+      shortNameKey: Items.FoxBerry.Short
+      longNameKey: Items.FoxBerry.Long
+      descriptionKey: Items.FoxBerry.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: FOXBERY
+    }
+    {
+      id: coc:fox_jewel
+      shortNameKey: Items.FoxJewel.Short
+      longNameKey: Items.FoxJewel.Long
+      descriptionKey: Items.FoxJewel.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: FOXJEWL
+    }
+    {
+      id: coc:golden_seed
+      shortNameKey: Items.GoldenSeed.Short
+      longNameKey: Items.GoldenSeed.Long
+      descriptionKey: Items.GoldenSeed.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: GLDSEED
+    }
+    {
+      id: coc:kanga_fruit
+      shortNameKey: Items.KangaFruit.Short
+      longNameKey: Items.KangaFruit.Long
+      descriptionKey: Items.KangaFruit.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: KANGAFT
+    }
+    {
+      id: coc:labova
+      shortNameKey: Items.Labova.Short
+      longNameKey: Items.Labova.Long
+      descriptionKey: Items.Labova.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: LABOVA_
+    }
+    {
+      id: coc:magic_seed
+      shortNameKey: Items.MagicSeed.Short
+      longNameKey: Items.MagicSeed.Long
+      descriptionKey: Items.MagicSeed.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: MAGSEED
+    }
+    {
+      id: coc:mighty_veggie
+      shortNameKey: Items.MightyVeggie.Short
+      longNameKey: Items.MightyVeggie.Long
+      descriptionKey: Items.MightyVeggie.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: MGHTYVG
+    }
+    {
+      id: coc:mystic_jewel
+      shortNameKey: Items.MysticJewel.Short
+      longNameKey: Items.MysticJewel.Long
+      descriptionKey: Items.MysticJewel.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: MYSTJWL
+    }
+    {
+      id: coc:purified_labova
+      shortNameKey: Items.PurifiedLabova.Short
+      longNameKey: Items.PurifiedLabova.Long
+      descriptionKey: Items.PurifiedLabova.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: P_LBOVA
+      tags:
+      [
+        transformative
+        fluid
+      ]
+    }
+    {
+      id: coc:pure_pearl
+      shortNameKey: Items.PurePearl.Short
+      longNameKey: Items.PurePearl.Long
+      descriptionKey: Items.PurePearl.Desc
+      value: 0
+      type: "coc:consumable"
+      legacyId: P.Pearl
+      tags:
+      [
+        rare
+      ]
+    }
+    {
+      id: coc:cerulean_potion
+      shortNameKey: Items.CeruleanPotion.Short
+      longNameKey: Items.CeruleanPotion.Long
+      descriptionKey: Items.CeruleanPotion.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: CerulP
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:numb_oil
+      shortNameKey: Items.NumbOil.Short
+      longNameKey: Items.NumbOil.Long
+      descriptionKey: Items.NumbOil.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: NumbOil
+    }
+    {
+      id: coc:numb_rocks
+      shortNameKey: Items.NumbRocks.Short
+      longNameKey: Items.NumbRocks.Long
+      descriptionKey: Items.NumbRocks.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: NumbRox
+    }
+    {
+      id: coc:purity_philter
+      shortNameKey: Items.PurityPhilter.Short
+      longNameKey: Items.PurityPhilter.Long
+      descriptionKey: Items.PurityPhilter.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: P.Philt
+    }
+    {
+      id: coc:sensitivity_draft
+      shortNameKey: Items.SensitivityDraft.Short
+      longNameKey: Items.SensitivityDraft.Long
+      descriptionKey: Items.SensitivityDraft.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: SensDrf
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:scholar_tea
+      shortNameKey: Items.ScholarTea.Short
+      longNameKey: Items.ScholarTea.Long
+      descriptionKey: Items.ScholarTea.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Smart T
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:vitality_tincture
+      shortNameKey: Items.VitalityTincture.Short
+      longNameKey: Items.VitalityTincture.Long
+      descriptionKey: Items.VitalityTincture.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Vital T
+      tags:
+      [
+        fluid
+      ]
+    }
+    {
+      id: coc:hummanus
+      shortNameKey: Items.Hummanus.Short
+      longNameKey: Items.Hummanus.Long
+      descriptionKey: Items.Hummanus.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: Hummus
+    }
+    {
+      id: coc:akbal_pelt
+      shortNameKey: Items.AkbalPelt.Short
+      longNameKey: Items.AkbalPelt.Long
+      descriptionKey: Items.AkbalPelt.Desc
+      value: 0
+      type: "coc:useable"
+      legacyId: AkbPelt
+    }
+    {
+      id: coc:abyssal_shard
+      shortNameKey: Items.AbyssalShard.Short
+      longNameKey: Items.AbyssalShard.Long
+      descriptionKey: Items.AbyssalShard.Desc
+      value: 0
+      // 原版 classes/items/useables/AbyssalShard.hx 有独立类（useItem 打开虚空），不是通用 useable
+      type: "coc:abyssal_shard"
+      legacyId: A.Shard
+    }
+    {
+      id: coc:golden_statue
+      shortNameKey: Items.GoldenStatue.Short
+      longNameKey: Items.GoldenStatue.Long
+      descriptionKey: Items.GoldenStatue.Desc
+      value: 0
+      type: "coc:useable"
+      legacyId: GldStat
+    }
+    {
+      id: coc:rubber_ball
+      shortNameKey: Items.RubberBall.Short
+      longNameKey: Items.RubberBall.Long
+      descriptionKey: Items.RubberBall.Desc
+      value: 10
+      type: "coc:useable"
+      legacyId: RBRBall
+    }
+    {
+      id: coc:fists
+      shortNameKey: Items.Fists.Short
+      longNameKey: Items.Fists.Long
+      descriptionKey: Items.Fists.Desc
+      value: 0
+      type: "coc:fist"
+      verb: punch
+      legacyId: "Fists  "
+    }
+    {
+      id: coc:pigtail_truffle
+      shortNameKey: Items.PigtailTruffle.Short
+      longNameKey: Items.PigtailTruffle.Long
+      descriptionKey: Items.PigtailTruffle.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: PigTruf
+    }
+    {
+      id: coc:tigershark_tooth
+      shortNameKey: Items.TigersharkTooth.Short
+      longNameKey: Items.TigersharkTooth.Long
+      descriptionKey: Items.TigersharkTooth.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: TSTooth
+      effects:
+      [
+        coc:tigershark_tooth
+      ]
+    }
+    {
+      // 原版 SharkTooth.hx:9-10 的普通变体（tiger=false）：id "Shark.T"
+      id: coc:shark_tooth
+      shortNameKey: Items.SharkTooth.Short
+      longNameKey: Items.SharkTooth.Long
+      descriptionKey: Items.SharkTooth.Desc
+      value: 6
+      type: "coc:consumable"
+      legacyId: "Shark.T"
+      effects:
+      [
+        coc:shark_tooth
+      ]
+    }
+  ]
+}

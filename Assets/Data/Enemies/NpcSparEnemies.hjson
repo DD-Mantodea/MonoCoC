@@ -1,0 +1,104 @@
+{
+  enemies: [
+    {
+      id: "coc:ember"
+      type: "coc:ember"
+      nameKey: "Enemies.Ember.Name"
+      descriptionKey: "Enemies.Ember.Desc"
+      article: " "
+      level: 15
+      bonusHealth: 550
+      lust: 20
+      strength: 75
+      toughness: 75
+      speed: 75
+      intelligence: 75
+      libido: 50
+      sensitivity: 35
+      corruption: 40
+      gems: 0
+      experience: 100
+      ai: ""
+    },
+    {
+      id: "coc:isabella"
+      type: "coc:isabella"
+      nameKey: "Enemies.Isabella.Name"
+      descriptionKey: "Enemies.Isabella.Desc"
+      article: ""
+      level: 15
+      bonusHealth: 700
+      lust: 30
+      strength: 70
+      toughness: 98
+      speed: 75
+      intelligence: 65
+      libido: 65
+      sensitivity: 25
+      corruption: 40
+      gems: 25
+      experience: 200
+      ai: ""
+    },
+    {
+      id: "coc:hel"
+      type: "coc:hel"
+      nameKey: "Enemies.Hel.Name"
+      descriptionKey: "Enemies.Hel.Desc"
+      article: "the "
+      level: 16
+      bonusHealth: 275
+      lust: 30
+      strength: 80
+      toughness: 70
+      speed: 75
+      intelligence: 60
+      libido: 65
+      sensitivity: 25
+      corruption: 30
+      gems: 12
+      experience: 400
+      ai: ""
+    },
+    {
+      id: "coc:sophie"
+      type: "coc:sophie"
+      nameKey: "Enemies.Sophie.Name"
+      descriptionKey: "Enemies.Sophie.Desc"
+      article: ""
+      level: 11
+      bonusHealth: 250
+      lust: 10
+      strength: 55
+      toughness: 40
+      speed: 110
+      intelligence: 60
+      libido: 60
+      sensitivity: 50
+      corruption: 60
+      gems: 32
+      experience: 100
+      ai: ""
+    },
+    {
+      id: "coc:sheila"
+      type: "coc:sheila"
+      nameKey: "Enemies.Sheila.Name"
+      descriptionKey: "Enemies.Sheila.Desc"
+      article: ""
+      level: 14
+      bonusHealth: 400
+      lust: 50
+      strength: 80
+      toughness: 45
+      speed: 95
+      intelligence: 50
+      libido: 30
+      sensitivity: 45
+      corruption: 25
+      gems: 7
+      experience: 100
+      ai: ""
+    }
+  ]
+}

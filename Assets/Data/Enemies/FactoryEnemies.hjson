@@ -1,0 +1,44 @@
+{
+  enemies: [
+    {
+      id: "coc:secretarial_succubus"
+      type: "coc:secretarial_succubus"
+      nameKey: "Enemies.SecretarialSuccubus.Name"
+      descriptionKey: "Enemies.SecretarialSuccubus.Desc"
+      article: "the "
+      level: 7
+      bonusHealth: 100
+      lust: 30
+      strength: 50
+      toughness: 40
+      speed: 75
+      intelligence: 35
+      libido: 80
+      sensitivity: 70
+      corruption: 100
+      gems: 20
+      experience: 50
+      ai: ""
+    },
+    {
+      id: "coc:omnibus_overseer"
+      type: "coc:omnibus_overseer"
+      nameKey: "Enemies.OmnibusOverseer.Name"
+      descriptionKey: "Enemies.OmnibusOverseer.Desc"
+      article: "the "
+      level: 8
+      bonusHealth: 200
+      lust: 20
+      strength: 65
+      toughness: 45
+      speed: 45
+      intelligence: 85
+      libido: 80
+      sensitivity: 70
+      corruption: 100
+      gems: 20
+      experience: 75
+      ai: ""
+    }
+  ]
+}

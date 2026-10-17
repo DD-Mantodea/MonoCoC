@@ -1,0 +1,7 @@
+{
+  "Combat.Approach.FailFemale": "{0} manages to dash back, keeping herself distanced from you!"
+  "Combat.Approach.FailMale": "{0} manages to dash back, keeping himself distanced from you!"
+  "Combat.Approach.FailNeuter": "{0} manages to dash back, keeping itself distanced from you!"
+  "Combat.Approach.Self": "You ready yourself and dash forward, closing the distance from the enemy!"
+  "Combat.Approach.Success": "You manage to close the distance between you and {0}!"
+}

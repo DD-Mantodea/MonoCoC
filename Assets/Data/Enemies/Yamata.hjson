@@ -1,0 +1,28 @@
+{
+  // 原版 classes.scenes.areas.forest.Yamata（Aiko 复仇线的最终战）
+  enemies: [
+    {
+      id: "coc:yamata"
+      type: "coc:yamata"
+      nameKey: "Npcs.Yamata.Name"
+      descriptionKey: "Npcs.Yamata.Desc"
+      level: 30
+      bonusHealth: 2400
+      lust: 25
+      strength: 60
+      toughness: 70
+      speed: 90
+      intelligence: 100
+      libido: 60
+      sensitivity: 65
+      corruption: 100
+      gems: 30
+      experience: 1000
+      ai: "coc:yamata_ai"
+      weightedLoot: true
+      loot: [
+        { item: "coc:mystic_jewel", weight: 1 }
+      ]
+    }
+  ]
+}

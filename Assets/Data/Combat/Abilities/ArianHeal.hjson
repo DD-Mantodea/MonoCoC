@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx Arian's Talisman 系列
+  id: "coc:arian_heal"
+  nameKey: "Combat.Arian.Talisman.Heal.Name"
+  descriptionKey: "Combat.Arian.Talisman.Heal.Name.Description"
+  type: "magical"
+  category: "magical"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:arian_heal_available"
+  handler: "coc:arian_heal"
+}

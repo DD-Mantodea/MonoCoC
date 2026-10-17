@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1239 abilityFunc: wither（cost 20，availableWhen KnowsWither）
+  id: "coc:spell_wither"
+  nameKey: "Combat.Spell.Wither.Name"
+  descriptionKey: "Combat.Spell.Wither.Description"
+  type: "magical"
+  category: "black"
+  range: "ranged"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 3
+  knownWhen: "coc:knows_wither"
+  handler: "coc:spell_wither"
+}

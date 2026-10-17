@@ -1,0 +1,8 @@
+{
+  id: "coc:shark_man_thrust_fuck"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:shark_man_thrust_fuck"
+}

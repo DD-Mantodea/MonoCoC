@@ -1,0 +1,16 @@
+{
+  "kind": "coc:eyes",
+  "default": "coc:human",
+  "types": [
+    { "id": "coc:human" },
+    { "id": "coc:four_spider_eyes" },
+    { "id": "coc:black_eyes_sand_trap", "appearance": "EyesBlackSandTrap" },
+    { "id": "coc:lizard", "eyePrefix": "EyesReptileLizard" },
+    { "id": "coc:dragon", "eyePrefix": "EyesReptileDragon" },
+    { "id": "coc:basilisk", "eyePrefix": "EyesReptileBasilisk", "eyeExtra": "EyesReptileBasiliskExtra" },
+    { "id": "coc:wolf", "appearance": "EyesWolf" },
+    { "id": "coc:spider", "spider": true, "appearance": "EyesSpider", "descript": "spider" },
+    { "id": "coc:cockatrice", "appearance": "EyesCockatrice" },
+    { "id": "coc:cat", "appearance": "EyesCat" }
+  ]
+}

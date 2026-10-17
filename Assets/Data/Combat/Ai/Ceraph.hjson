@@ -1,0 +1,7 @@
+{
+  // 原版 Ceraph.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:ceraph_ai"
+  actions: [
+
+  ]
+}

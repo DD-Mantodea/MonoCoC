@@ -1,0 +1,29 @@
+{
+  // 原版 ArchitectJeremiah（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:architect_jeremiah"
+      type: "coc:architect_jeremiah"
+      nameKey: "Npcs.ArchitectJeremiah.Name"
+      descriptionKey: "Npcs.ArchitectJeremiah.Desc"
+      article: ""
+      level: 22
+      bonusHealth: 4000
+      lust: 30
+      strength: 40
+      toughness: 150
+      speed: 50
+      intelligence: 140
+      libido: 60
+      sensitivity: 60
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:architect_jeremiah_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

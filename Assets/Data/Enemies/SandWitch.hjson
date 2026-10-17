@@ -1,0 +1,55 @@
+{
+  // 原版 classes/scenes/areas/desert/SandWitch.hx：level 3、bonusHP 20
+  // str25/tou25/spe35/inte45、lib55/sens40/cor30、lust 30、gems rand(15)+5
+  // drop：TScroll / OviElixir / Lactaid / LaBova / WhiteBook / BlackBook / 无
+  enemies: [
+    {
+      id: "coc:sand_witch"
+      type: "coc:sand_witch"
+      nameKey: "Scenes.SandWitch.Name"
+      article: "the"
+      level: 3
+      bonusHealth: 20
+      lust: 30
+      strength: 25
+      toughness: 25
+      speed: 35
+      intelligence: 45
+      libido: 55
+      sensitivity: 40
+      corruption: 30
+      gems: 12
+      experience: 0
+      weaponAttack: 5
+      armorDefense: 0
+      ai: "coc:sand_witch_ai"
+      weightedLoot: true
+      loot: [
+        {
+          item: "coc:tattered_scroll"
+          weight: 1
+        }
+        {
+          item: "coc:ovi_elixir"
+          weight: 1
+        }
+        {
+          item: "coc:lactaid"
+          weight: 1
+        }
+        {
+          item: "coc:labova"
+          weight: 1
+        }
+        {
+          item: "coc:white_book"
+          weight: 1
+        }
+        {
+          item: "coc:black_book"
+          weight: 1
+        }
+      ]
+    }
+  ]
+}

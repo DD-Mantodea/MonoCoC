@@ -1,0 +1,4 @@
+{
+  "CharCreation.SetHairLength.SetYourHairLength": "Set your hair length in [if (metric) {centimeters|inches}]."
+  "CharCreation.SetHairLength.Text2": "\nYou can choose any length between 0 (bald) and [if (metric) {244 centimeters (|8 feet (96 inches, }]most likely floor-dragging)."
+}

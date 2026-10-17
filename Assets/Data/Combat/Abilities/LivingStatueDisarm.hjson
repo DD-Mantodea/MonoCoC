@@ -1,0 +1,9 @@
+{
+  // 原版 LivingStatue.disarm()（LivingStatue.hx:151-170）
+  id: "coc:living_statue_disarm"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:living_statue_disarm"
+}

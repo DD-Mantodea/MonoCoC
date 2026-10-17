@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1550 abilityFunc: soulburst（cooldown 5，availableWhen KnowsSoulburst）
+  id: "coc:spell_soulburst"
+  nameKey: "Combat.Spell.Soulburst.Name"
+  descriptionKey: "Combat.Spell.Soulburst.Description"
+  type: "magical"
+  category: "black"
+  range: "self"
+  cost: 0
+  fatigueType: "magical"
+  cooldown: 5
+  knownWhen: "coc:knows_soulburst"
+  handler: "coc:spell_soulburst"
+}

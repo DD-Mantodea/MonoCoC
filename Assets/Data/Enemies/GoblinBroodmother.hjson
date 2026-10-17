@@ -1,0 +1,36 @@
+{
+  // 原版 GoblinBroodmother（src/classes/scenes/quests/urtaQuest/GoblinBroodmother.hx）
+  // 数值来自构造函数；gems 在原版是 Utils.rand(5)+5，运行时在 Configure 里摇，这里只当占位。
+  enemies: [
+    {
+      id: "coc:goblin_broodmother"
+      type: "coc:goblin_broodmother"
+      nameKey: "Npcs.GoblinBroodmother.Name"
+      descriptionKey: "Npcs.GoblinBroodmother.Desc"
+      article: "the"
+      level: 10
+      bonusHealth: 300
+      lust: 50
+      strength: 50
+      toughness: 30
+      speed: 35
+      intelligence: 100
+      libido: 70
+      sensitivity: 20
+      corruption: 70
+      gems: 5
+      experience: 0
+      ai: "coc:goblin_broodmother_ai"
+      // 原版 WeightedDrop：哥布林麦酒 5，其余五件各 1（GoblinBroodmother.hx:65）
+      weightedLoot: true
+      loot: [
+        { item: "coc:goblin_ale", weight: 5 }
+        { item: "coc:lust_draft", weight: 1 }
+        { item: "coc:pink_dye", weight: 1 }
+        { item: "coc:blue_dye", weight: 1 }
+        { item: "coc:orange_dye", weight: 1 }
+        { item: "coc:purple_dye", weight: 1 }
+      ]
+    }
+  ]
+}

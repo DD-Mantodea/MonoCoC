@@ -1,0 +1,8 @@
+{
+  id: "coc:aiko_basic"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:aiko_basic"
+}

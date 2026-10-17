@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1119-1136 / :6605-6620 Terrestrial Star（免费，精通≥5，Terra Star 连携）
+  id: "coc:tf_terra_star"
+  nameKey: "Combat.Terra.TerraStar.Name"
+  descriptionKey: "Combat.Terra.TerraStar.Description"
+  type: "magical"
+  category: "magical"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:can_tf_terra_star"
+  disabledWhen: "coc:tf_terra_star_disabled"
+  disabledTooltip: "Combat.Terra.TerraStar.Disabled"
+  handler: "coc:tf_terra_star"
+}

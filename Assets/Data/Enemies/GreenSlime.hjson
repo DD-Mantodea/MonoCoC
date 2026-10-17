@@ -1,0 +1,29 @@
+{
+  // 原版 GreenSlime（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:green_slime"
+      type: "coc:green_slime"
+      nameKey: "Npcs.GreenSlime.Name"
+      descriptionKey: "Npcs.GreenSlime.Desc"
+      article: "a"
+      level: 2
+      bonusHealth: 30
+      lust: 30
+      strength: 25
+      toughness: 20
+      speed: 10
+      intelligence: 5
+      libido: 50
+      sensitivity: 60
+      corruption: 20
+      gems: 5
+      experience: 0
+      ai: "coc:green_slime_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

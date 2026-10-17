@@ -1,0 +1,8 @@
+{
+  id: "coc:minotaur_lord_minotaur_drank_malk"
+  type: "physical"
+  range: "self"
+  cost: 10
+  cooldown: 0
+  handler: "coc:minotaur_lord_minotaur_drank_malk"
+}

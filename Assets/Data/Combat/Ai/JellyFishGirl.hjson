@@ -1,0 +1,24 @@
+{
+  // 原版 JellyFishGirl.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:jelly_fish_girl_ai"
+  actions: [
+    {
+      ability: "coc:jelly_fish_girl_attack"
+      weight: 3
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:jelly_fish_girl_molest_player"
+      weight: 5
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:jelly_fish_girl_jelly_grapple"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

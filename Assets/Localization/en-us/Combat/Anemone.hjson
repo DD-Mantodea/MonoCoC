@@ -1,0 +1,17 @@
+{
+  "Combat.Anemone.CameWorms": "[pg]Your foe doesn't seem to mind at all..."
+  "Combat.Anemone.EAttack.GigglingPlayfullyThe": "Giggling playfully, the anemone launches several tentacles at you. Most are aimed for your crotch, but a few attempt to caress your chest and face.\n"
+  "Combat.Anemone.EAttack.YouJinkAnd": "You jink and dodge valiantly but the tentacles are too numerous and coming from too many directions. A few get past your guard and caress your skin, leaving a tingling, warm sensation that arouses you further."
+  "Combat.Anemone.React.SeeingYourRaised": "Seeing your [weapon] raised, the anemone looks down at the water, angles her eyes up at you, and puts out a trembling lip. "
+  "Combat.Anemone.React.ThoughYouLose": "Though you lose a bit of steam to the display, the drive for dominance still motivates you to follow through on your swing."
+  "Combat.Anemone.React.ThoughYouManaged": "\nThough you managed to hit the anemone, several of the tentacles surrounding her body sent home jolts of venom when your swing brushed past them."
+  "Combat.Anemone.React.YouStareInto": "You stare into her hangdog expression and lose most of the killing intensity you had summoned up for your attack, stopping a few feet short of hitting her.[pg]"
+  "Combat.Anemone.RunFail.Land": "You try to shake off the fog and run but the anemone slinks over to you and her tentacles wrap around your waist. [say: Stay?] she asks, pressing her small breasts into you as a tentacle slides inside your [armor] and down to your nethers. The combined stimulation of the rubbing and the tingling venom causes your knees to buckle, hampering your resolve and ending your escape attempt."
+  "Combat.Anemone.RunFail.YouTryTo": "You try to shake off the fog and [if (isSwimming) {flee|run}] but the anemone slinks over to you and her tentacles wrap around your waist. [say: Stay?] she asks, pressing her small breasts into you as a tentacle slides inside your [armor] and down to your nethers. The combined stimulation of the rubbing and the tingling venom causes you[if (!singleleg) {r knees}] to buckle, hampering your resolve and ending your escape attempt."
+  "Combat.Anemone.RunSuccess.Land": "Marshalling your thoughts, you frown at the strange girl and turn to march up the beach. After twenty paces inshore you turn back to look at her again. The anemone is clearly crestfallen by your departure, pouting heavily as she sinks beneath the water's surface."
+  "Combat.Anemone.RunSuccess.MarshallingYourThoughts": "Marshalling your thoughts, you frown at the strange girl and turn to [if (isSwimming) {swim toward|march up}] the beach. After twenty paces inshore you turn back to look at her again. The anemone is clearly crestfallen by your departure, pouting heavily as she sinks beneath the water's surface."
+  "Combat.Anemone.WhenAttacked.SeeingYourRaised": "Seeing your [weapon] raised, the anemone looks down at the water, angles her eyes up at you, and puts out a trembling lip. "
+  "Combat.Anemone.WhenAttacked.ThoughYouLose": "Though you lose a bit of steam to the display, the drive for dominance still motivates you to follow through on your swing."
+  "Combat.Anemone.WhenAttacked.YouStareInto": "You stare into her hangdog expression and lose most of the killing intensity you had summoned up for your attack, stopping a few feet short of hitting her.[pg]"
+  "Combat.Anemone.Won.YourFoeDoesn": "[pg]Your foe doesn't seem to mind at all..."
+}

@@ -1,0 +1,8 @@
+{
+  id: "coc:satyr_high_lust_chug_rape"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:satyr_high_lust_chug_rape"
+}

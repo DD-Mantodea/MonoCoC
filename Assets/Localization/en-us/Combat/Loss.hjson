@@ -1,0 +1,9 @@
+{
+  "Combat.Loss.Dungeon": "Somehow you came out of that alive"
+  "Combat.Loss.Missing": ", missing {0} gems."
+  "Combat.Loss.MissingDungeon": ", but after checking your gem pouch, you realize you're missing {0} gems."
+  "Combat.Loss.None": "."
+  "Combat.Loss.OnlyGem": ", missing your only gem."
+  "Combat.Loss.OnlyGemDungeon": ", but after checking your gem pouch, you realize you're missing your only gem."
+  "Combat.Loss.Overworld": "You'll probably come to your senses in eight hours or so"
+}

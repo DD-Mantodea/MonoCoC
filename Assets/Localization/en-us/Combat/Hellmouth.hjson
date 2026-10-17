@@ -1,0 +1,12 @@
+{
+  "Combat.Hellmouth.Bite.Bleed": " She managed to tear into an artery in your body! <b>You are bleeding!</b>"
+  "Combat.Hellmouth.Bite.Hit": "Her fangs sink into your shoulder, easily piercing your body. You groan in pain and push her away, rending your flesh and causing blood to flow."
+  "Combat.Hellmouth.Bite.Lead": "The demoness leaps forward, opening her mouth for a bite! "
+  "Combat.Hellmouth.Bite.Miss": "You anticipate her attack and prepare to strike at the side of her head. The Hellmouth clenches her jaw shut and stumbles off course."
+  "Combat.Hellmouth.FireBreath.Hit": " It careens into you with a jostling amount of force and flesh-charring heat! You're hit in full and are thrown back into the ground."
+  "Combat.Hellmouth.FireBreath.Lead": "Flames whip around between her teeth, giving you your only warning before her jaw unlocks and opens in a hideous maw. A vast ball of fire lances out!"
+  "Combat.Hellmouth.FireBreath.Miss": " It narrowly misses you as you dash around frantically! The fireball crashes into the ground next to you, the resulting explosion singeing you a little."
+  "Combat.Hellmouth.Hellmaw.Unsupported": "The demon lunges with her maw wide open... (Hellmaw is not ported yet.)"
+  "Combat.Hellmouth.Summon.Lead": "The demon stops pursuing you, opting instead to expand her maw. Crimson flames line her throat moments before recognizable claws begin to grasp at whatever they can find. To your surprise, an imp crawls out of Hellmouth's maw, answering her call from whatever depths she's capable of summoning from."
+  "Combat.Hellmouth.Summon.Unsupported": "The demon's maw opens wide, crimson flames lining her throat -- but nothing comes out. (Summoning is not ported yet.)"
+}

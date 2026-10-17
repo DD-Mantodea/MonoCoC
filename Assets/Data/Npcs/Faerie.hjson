@@ -1,0 +1,7 @@
+{
+  id: "coc:faerie"
+  nameKey: "Npcs.Faerie.Name"
+  scene: "coc:faerie"
+  combat: ""
+  hostile: false
+}

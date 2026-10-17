@@ -1,0 +1,13 @@
+{
+  // 原版 statusEffects/combat/DivineWindBuff.hx：4 回合战场治愈风
+  id: "coc:divine_wind"
+  nameKey: "Combat.Effect.DivineWind.Name"
+  descriptionKey: "Combat.Effect.DivineWind.Description"
+  kind: "timed"
+  duration: 4
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_divine_wind_round"
+  onExpire: "coc:effect_divine_wind_expire"
+}

@@ -1,0 +1,14 @@
+{
+  "Combat.Effect.Berserking.Name": "Berserking",
+  "Combat.Effect.Berserking.Description": "Savage fury: weapon damage up, armor reduced.",
+  "Combat.Effect.Lustserking.Name": "Lustserking",
+  "Combat.Effect.Lustserking.Description": "Lustful fury: weapon damage up, armor increased, lust resistance reduced.",
+  "Combat.Special.Berserk.Name": "Berserk",
+  "Combat.Special.Berserk.Description": "Throw yourself into a rage! Greatly increases the strength of your weapon and increases lust resistance, but your armor defense is reduced.",
+  "Combat.Special.Berserk.Disabled": "You're already pretty goddamn mad!",
+  "Combat.Special.Berserk.Text": "You roar and unleash your savage fury before charging forward, forgetting about defense in order to destroy your foe![pg]",
+  "Combat.Special.Lustserk.Name": "Lustserk",
+  "Combat.Special.Lustserk.Description": "Throw yourself into a lust rage! Greatly increases the strength of your weapon and increases armor defense, but your lust resistance is halved!",
+  "Combat.Special.Lustserk.Disabled": "You're already pretty goddamn mad!",
+  "Combat.Special.Lustserk.Text": "You roar and unleash your lustful fury before charging forward, forgetting about defense from any sexual attacks in order to destroy your foe![pg]"
+}

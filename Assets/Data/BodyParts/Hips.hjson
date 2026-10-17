@@ -1,0 +1,29 @@
+{
+  kind: coc:hips
+  default: coc:normal
+  types:
+  [
+    {
+      id: "coc:normal"
+      // 胯宽档位表（数据来自原 Appearance.HipDescript 的 switch，文案顺序与原版一致）。
+      // mode: add = 前缀 + 本体；alt = 二选一（thinPrefix 或 smallPrefix 命中时用前缀，否则用 body）
+      ratings: [
+        { min: 20, mode: "add", thin: 40, thinPrefix: ["Appearance.Hip.Flaring", "Appearance.Hip.IncrediblyWaspish"], body: ["Appearance.Hip.BroodmotherSized", "Appearance.Hip.CowLike", "Appearance.Hip.InhumanlyWide"] }
+        { min: 15, mode: "add", thin: 40, thinPrefix: ["Appearance.Hip.Flared", "Appearance.Hip.Waspish"], body: ["Appearance.Hip.Fertile", "Appearance.Hip.ChildBearing", "Appearance.Hip.Voluptuous"] }
+        { min: 10, mode: "alt", thin: 30, thinPrefix: ["Appearance.Hip.Flared", "Appearance.Hip.Waspish"], body: ["Appearance.Hip.Flared", "Appearance.Hip.Curvy", "Appearance.Hip.Wide"] }
+        { min: 6, mode: "alt", smallPrefix: ["Appearance.Hip.Flared", "Appearance.Hip.Waspish"], body: ["Appearance.Hip.Ample", "Appearance.Hip.Noticeable", "Appearance.Hip.Girly"] }
+        { min: 4, mode: "alt", smallPrefix: ["Appearance.Hip.Flared", "Appearance.Hip.Curvy"], body: ["Appearance.Hip.WellFormed", "Appearance.Hip.Pleasant"] }
+        { min: 2, mode: "alt", smallPrefix: ["Appearance.Hip.SlightlyFlared", "Appearance.Hip.Curved"], body: ["Appearance.Hip.Slender", "Appearance.Hip.Narrow", "Appearance.Hip.Thin"] }
+      ]
+      lowest: {
+        keys: ["Appearance.Hip.Tiny", "Appearance.Hip.Narrow", "Appearance.Hip.Boyish"]
+      }
+      // 结尾随机名词（hips / thighs）
+      suffixKeys: ["Appearance.Hip.Hips", "Appearance.Hip.Thighs"]
+      // 具名锚点：内容代码按名字取评分（不再用 HipsRating 常量类）
+      anchors: {
+        boyish: 0, slender: 2, average: 4, ample: 6, curvy: 10, fertile: 15, inhumanlyWide: 20
+      }
+    }
+  ]
+}

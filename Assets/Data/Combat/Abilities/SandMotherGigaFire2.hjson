@@ -1,0 +1,9 @@
+{
+  id: "coc:sand_mother_giga_fire_two"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  damageType: "coc:fire"
+  handler: "coc:sand_mother_giga_fire_two"
+}

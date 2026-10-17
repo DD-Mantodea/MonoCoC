@@ -1,0 +1,26 @@
+{
+  // 原版 classes/scenes/areas/mountain/HellHound.hx：level 5、str55/tou60/spe40/inte1
+  // lib95/sens20/cor100、weaponAttack 10、lust 25、gems 10+rand(10)
+  enemies: [
+    {
+      id: "coc:hell_hound"
+      type: "coc:hell_hound"
+      nameKey: "Scenes.Hellhound.Name"
+      article: "the"
+      level: 5
+      bonusHealth: 0
+      lust: 25
+      strength: 55
+      toughness: 60
+      speed: 40
+      intelligence: 1
+      libido: 95
+      sensitivity: 20
+      corruption: 100
+      gems: 15
+      experience: 0
+      weaponAttack: 10
+      ai: "coc:hell_hound_ai"
+    }
+  ]
+}

@@ -1,0 +1,761 @@
+{
+  // 升级可购买专长（原版 PerkLib.hx initRequirements() 的数据化版本；由 PerkManager 读取）
+  purchasable: [
+    {
+      perk: "coc:strong_back"
+      nameKey: "Perk.LevelUp.StrongBack.Name"
+      descriptionKey: "Perk.LevelUp.StrongBack.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 25 }
+      ]
+    },
+    {
+      perk: "coc:strong_back2"
+      nameKey: "Perk.LevelUp.StrongBack2.Name"
+      descriptionKey: "Perk.LevelUp.StrongBack2.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 25 }
+        { type: "perk", perk: "coc:strong_back" }
+      ]
+    },
+    {
+      perk: "coc:thunderous_strikes"
+      nameKey: "Perk.LevelUp.ThunderousStrikes.Name"
+      descriptionKey: "Perk.LevelUp.ThunderousStrikes.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 80 }
+        { type: "level", value: 6 }
+      ]
+    },
+    {
+      perk: "coc:heavy_impact"
+      nameKey: "Perk.LevelUp.HeavyImpact.Name"
+      descriptionKey: "Perk.LevelUp.HeavyImpact.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 60 }
+        { type: "level", value: 6 }
+      ]
+    },
+    {
+      perk: "coc:brutal_blows"
+      nameKey: "Perk.LevelUp.BrutalBlows.Name"
+      descriptionKey: "Perk.LevelUp.BrutalBlows.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 75 }
+        { type: "level", value: 6 }
+      ]
+    },
+    {
+      perk: "coc:iron_fists"
+      nameKey: "Perk.LevelUp.IronFists.Name"
+      descriptionKey: "Perk.LevelUp.IronFists.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 50 }
+        { type: "level", value: 6 }
+      ]
+    },
+    {
+      perk: "coc:iron_fists2"
+      nameKey: "Perk.LevelUp.IronFists2.Name"
+      descriptionKey: "Perk.LevelUp.IronFists2.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 65 }
+        { type: "level", value: 6 }
+        { type: "perk", perk: "coc:iron_fists" }
+      ]
+    },
+    {
+      perk: "coc:parry"
+      nameKey: "Perk.LevelUp.Parry.Name"
+      descriptionKey: "Perk.LevelUp.Parry.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 50 }
+        { type: "attribute", stat: "speed", value: 50 }
+        { type: "level", value: 6 }
+      ]
+    },
+    {
+      perk: "coc:berserker"
+      nameKey: "Perk.LevelUp.Berserker.Name"
+      descriptionKey: "Perk.LevelUp.Berserker.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 75 }
+        { type: "level", value: 12 }
+      ]
+    },
+    {
+      perk: "coc:hold_with_both_hands"
+      nameKey: "Perk.LevelUp.HoldWithBothHands.Name"
+      descriptionKey: "Perk.LevelUp.HoldWithBothHands.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 80 }
+        { type: "level", value: 12 }
+      ]
+    },
+    {
+      perk: "coc:iron_fists3"
+      nameKey: "Perk.LevelUp.IronFists3.Name"
+      descriptionKey: "Perk.LevelUp.IronFists3.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 80 }
+        { type: "level", value: 12 }
+        { type: "perk", perk: "coc:iron_fists2" }
+      ]
+    },
+    {
+      perk: "coc:cold_fury"
+      nameKey: "Perk.LevelUp.ColdFury.Name"
+      descriptionKey: "Perk.LevelUp.ColdFury.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 75 }
+        { type: "level", value: 18 }
+        { type: "perk", perk: "coc:berserker" }
+        { type: "perk", perk: "coc:improved_self_control" }
+      ]
+    },
+    {
+      perk: "coc:opportunist"
+      nameKey: "Perk.LevelUp.Opportunist.Name"
+      descriptionKey: "Perk.LevelUp.Opportunist.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 50 }
+        { type: "level", value: 10 }
+      ]
+    },
+    {
+      perk: "coc:tank"
+      nameKey: "Perk.LevelUp.Tank.Name"
+      descriptionKey: "Perk.LevelUp.Tank.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "toughness", value: 25 }
+      ]
+    },
+    {
+      perk: "coc:regeneration"
+      nameKey: "Perk.LevelUp.Regeneration.Name"
+      descriptionKey: "Perk.LevelUp.Regeneration.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "toughness", value: 50 }
+        { type: "perk", perk: "coc:tank" }
+      ]
+    },
+    {
+      perk: "coc:improved_endurance"
+      nameKey: "Perk.LevelUp.ImprovedEndurance.Name"
+      descriptionKey: "Perk.LevelUp.ImprovedEndurance.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 50 }
+        { type: "attribute", stat: "toughness", value: 50 }
+      ]
+    },
+    {
+      perk: "coc:tank2"
+      nameKey: "Perk.LevelUp.Tank2.Name"
+      descriptionKey: "Perk.LevelUp.Tank2.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "toughness", value: 60 }
+        { type: "level", value: 6 }
+        { type: "perk", perk: "coc:tank" }
+      ]
+    },
+    {
+      perk: "coc:regeneration2"
+      nameKey: "Perk.LevelUp.Regeneration2.Name"
+      descriptionKey: "Perk.LevelUp.Regeneration2.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "toughness", value: 70 }
+        { type: "level", value: 6 }
+        { type: "perk", perk: "coc:regeneration" }
+      ]
+    },
+    {
+      perk: "coc:immovable_object"
+      nameKey: "Perk.LevelUp.ImmovableObject.Name"
+      descriptionKey: "Perk.LevelUp.ImmovableObject.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "toughness", value: 75 }
+        { type: "level", value: 6 }
+      ]
+    },
+    {
+      perk: "coc:shield_mastery"
+      nameKey: "Perk.LevelUp.ShieldMastery.Name"
+      descriptionKey: "Perk.LevelUp.ShieldMastery.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "toughness", value: 50 }
+        { type: "level", value: 6 }
+      ]
+    },
+    {
+      perk: "coc:improved_endurance2"
+      nameKey: "Perk.LevelUp.ImprovedEndurance2.Name"
+      descriptionKey: "Perk.LevelUp.ImprovedEndurance2.Desc"
+      cost: 1
+      requirements: [
+        { type: "level", value: 6 }
+        { type: "attribute", stat: "strength", value: 60 }
+        { type: "attribute", stat: "toughness", value: 60 }
+        { type: "perk", perk: "coc:improved_endurance" }
+      ]
+    },
+    {
+      perk: "coc:resolute"
+      nameKey: "Perk.LevelUp.Resolute.Name"
+      descriptionKey: "Perk.LevelUp.Resolute.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "toughness", value: 75 }
+        { type: "level", value: 12 }
+      ]
+    },
+    {
+      perk: "coc:juggernaut"
+      nameKey: "Perk.LevelUp.Juggernaut.Name"
+      descriptionKey: "Perk.LevelUp.Juggernaut.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "toughness", value: 75 }
+        { type: "level", value: 12 }
+      ]
+    },
+    {
+      perk: "coc:iron_man"
+      nameKey: "Perk.LevelUp.IronMan.Name"
+      descriptionKey: "Perk.LevelUp.IronMan.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "toughness", value: 60 }
+        { type: "level", value: 12 }
+      ]
+    },
+    {
+      perk: "coc:evade"
+      nameKey: "Perk.LevelUp.Evade.Name"
+      descriptionKey: "Perk.LevelUp.Evade.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 25 }
+      ]
+    },
+    {
+      perk: "coc:runner"
+      nameKey: "Perk.LevelUp.Runner.Name"
+      descriptionKey: "Perk.LevelUp.Runner.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 25 }
+      ]
+    },
+    {
+      perk: "coc:double_attack"
+      nameKey: "Perk.LevelUp.DoubleAttack.Name"
+      descriptionKey: "Perk.LevelUp.DoubleAttack.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 50 }
+        { type: "perk", perk: "coc:evade" }
+        { type: "perk", perk: "coc:runner" }
+      ]
+    },
+    {
+      perk: "coc:speedy_recovery"
+      nameKey: "Perk.LevelUp.SpeedyRecovery.Name"
+      descriptionKey: "Perk.LevelUp.SpeedyRecovery.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 60 }
+        { type: "level", value: 6 }
+        { type: "perk", perk: "coc:evade" }
+      ]
+    },
+    {
+      perk: "coc:agility"
+      nameKey: "Perk.LevelUp.Agility.Name"
+      descriptionKey: "Perk.LevelUp.Agility.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 75 }
+        { type: "level", value: 6 }
+        { type: "perk", perk: "coc:runner" }
+      ]
+    },
+    {
+      perk: "coc:unhindered"
+      nameKey: "Perk.LevelUp.Unhindered.Name"
+      descriptionKey: "Perk.LevelUp.Unhindered.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 75 }
+        { type: "level", value: 6 }
+        { type: "perk", perk: "coc:evade" }
+        { type: "perk", perk: "coc:agility" }
+      ]
+    },
+    {
+      perk: "coc:lightning_strikes"
+      nameKey: "Perk.LevelUp.LightningStrikes.Name"
+      descriptionKey: "Perk.LevelUp.LightningStrikes.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 60 }
+        { type: "level", value: 6 }
+      ]
+    },
+    {
+      perk: "coc:lunging_attacks"
+      nameKey: "Perk.LevelUp.LungingAttacks.Name"
+      descriptionKey: "Perk.LevelUp.LungingAttacks.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 75 }
+        { type: "level", value: 12 }
+      ]
+    },
+    {
+      perk: "coc:blademaster"
+      nameKey: "Perk.LevelUp.Blademaster.Name"
+      descriptionKey: "Perk.LevelUp.Blademaster.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 60 }
+        { type: "attribute", stat: "speed", value: 80 }
+        { type: "level", value: 12 }
+      ]
+    },
+    {
+      perk: "coc:precision"
+      nameKey: "Perk.LevelUp.Precision.Name"
+      descriptionKey: "Perk.LevelUp.Precision.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 25 }
+      ]
+    },
+    {
+      perk: "coc:spellpower"
+      nameKey: "Perk.LevelUp.Spellpower.Name"
+      descriptionKey: "Perk.LevelUp.Spellpower.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 50 }
+      ]
+    },
+    {
+      perk: "coc:mage"
+      nameKey: "Perk.LevelUp.Mage.Name"
+      descriptionKey: "Perk.LevelUp.Mage.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 50 }
+        { type: "perk", perk: "coc:spellpower" }
+      ]
+    },
+    {
+      perk: "coc:awareness"
+      nameKey: "Perk.LevelUp.Awareness.Name"
+      descriptionKey: "Perk.LevelUp.Awareness.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 5 }
+      ]
+    },
+    {
+      perk: "coc:tactician"
+      nameKey: "Perk.LevelUp.Tactician.Name"
+      descriptionKey: "Perk.LevelUp.Tactician.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 50 }
+        { type: "level", value: 6 }
+      ]
+    },
+    {
+      perk: "coc:medicine"
+      nameKey: "Perk.LevelUp.Medicine.Name"
+      descriptionKey: "Perk.LevelUp.Medicine.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 60 }
+        { type: "level", value: 6 }
+      ]
+    },
+    {
+      perk: "coc:staff_channeling"
+      nameKey: "Perk.LevelUp.StaffChanneling.Name"
+      descriptionKey: "Perk.LevelUp.StaffChanneling.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 60 }
+        { type: "level", value: 6 }
+        { type: "perk", perk: "coc:channeling" }
+      ]
+    },
+    {
+      perk: "coc:archmage"
+      nameKey: "Perk.LevelUp.Archmage.Name"
+      descriptionKey: "Perk.LevelUp.Archmage.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 75 }
+        { type: "level", value: 12 }
+        { type: "perk", perk: "coc:mage" }
+      ]
+    },
+    {
+      perk: "coc:focused_mind"
+      nameKey: "Perk.LevelUp.FocusedMind.Name"
+      descriptionKey: "Perk.LevelUp.FocusedMind.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 75 }
+        { type: "level", value: 12 }
+        { type: "perk", perk: "coc:mage" }
+      ]
+    },
+    {
+      perk: "coc:raging_inferno"
+      nameKey: "Perk.LevelUp.RagingInferno.Name"
+      descriptionKey: "Perk.LevelUp.RagingInferno.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 75 }
+        { type: "level", value: 12 }
+        { type: "perk", perk: "coc:archmage" }
+        { type: "perk", perk: "coc:channeling" }
+        { type: "any", requirements: [
+                { type: "status", status: "coc:knows_whitefire", textKey: "Perk.Requirement.Whitefire" },
+                { type: "perk", perk: "coc:fire_lord" },
+                { type: "perk", perk: "coc:hellfire" },
+                { type: "perk", perk: "coc:enlightened_ninetails" },
+                { type: "perk", perk: "coc:corrupted_ninetails" },
+              ] }
+      ]
+    },
+    {
+      perk: "coc:battlemage"
+      nameKey: "Perk.LevelUp.Battlemage.Name"
+      descriptionKey: "Perk.LevelUp.Battlemage.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 80 }
+        { type: "level", value: 12 }
+        { type: "perk", perk: "coc:channeling" }
+        { type: "status", status: "coc:knows_might", textKey: "Perk.Requirement.MightSpell" }
+      ]
+    },
+    {
+      perk: "coc:spellsword"
+      nameKey: "Perk.LevelUp.Spellsword.Name"
+      descriptionKey: "Perk.LevelUp.Spellsword.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 80 }
+        { type: "level", value: 12 }
+        { type: "perk", perk: "coc:channeling" }
+        { type: "status", status: "coc:knows_charge", textKey: "Perk.Requirement.ChargeWeapon" }
+      ]
+    },
+    {
+      perk: "coc:sever_tendons"
+      nameKey: "Perk.LevelUp.SeverTendons.Name"
+      descriptionKey: "Perk.LevelUp.SeverTendons.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 50 }
+        { type: "level", value: 12 }
+        { type: "attribute", stat: "intelligence", value: 50 }
+      ]
+    },
+    {
+      perk: "coc:fertility_plus"
+      nameKey: "Perk.LevelUp.FertilityPlus.Name"
+      descriptionKey: "Perk.LevelUp.FertilityPlus.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "libido", value: 25 }
+      ]
+    },
+    {
+      perk: "coc:improved_self_control"
+      nameKey: "Perk.LevelUp.ImprovedSelfControl.Name"
+      descriptionKey: "Perk.LevelUp.ImprovedSelfControl.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "intelligence", value: 50 }
+        { type: "attribute", stat: "libido", value: 25 }
+      ]
+    },
+    {
+      perk: "coc:cold_blooded"
+      nameKey: "Perk.LevelUp.ColdBlooded.Name"
+      descriptionKey: "Perk.LevelUp.ColdBlooded.Desc"
+      cost: 1
+      requirements: [
+        { type: "min_lust", value: 20 }
+      ]
+    },
+    {
+      perk: "coc:hot_blooded"
+      nameKey: "Perk.LevelUp.HotBlooded.Name"
+      descriptionKey: "Perk.LevelUp.HotBlooded.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "libido", value: 50 }
+      ]
+    },
+    {
+      perk: "coc:fertility_minus"
+      nameKey: "Perk.LevelUp.FertilityMinus.Name"
+      descriptionKey: "Perk.LevelUp.FertilityMinus.Desc"
+      cost: 1
+      requirements: [
+        { type: "level", value: 6 }
+        { type: "attribute_less", stat: "libido", value: 25 }
+      ]
+    },
+    {
+      perk: "coc:well_adjusted"
+      nameKey: "Perk.LevelUp.WellAdjusted.Name"
+      descriptionKey: "Perk.LevelUp.WellAdjusted.Desc"
+      cost: 1
+      requirements: [
+        { type: "level", value: 6 }
+        { type: "attribute", stat: "libido", value: 60 }
+      ]
+    },
+    {
+      perk: "coc:masochist"
+      nameKey: "Perk.LevelUp.Masochist.Name"
+      descriptionKey: "Perk.LevelUp.Masochist.Desc"
+      cost: 1
+      requirements: [
+        { type: "level", value: 6 }
+        { type: "attribute", stat: "libido", value: 60 }
+        { type: "attribute", stat: "corruption", value: 50 }
+      ]
+    },
+    {
+      perk: "coc:corrupted_libido"
+      nameKey: "Perk.LevelUp.CorruptedLibido.Name"
+      descriptionKey: "Perk.LevelUp.CorruptedLibido.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "corruption", value: 25 }
+      ]
+    },
+    {
+      perk: "coc:seduction"
+      nameKey: "Perk.LevelUp.Seduction.Name"
+      descriptionKey: "Perk.LevelUp.Seduction.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "corruption", value: 50 }
+      ]
+    },
+    {
+      perk: "coc:nymphomania"
+      nameKey: "Perk.LevelUp.Nymphomania.Name"
+      descriptionKey: "Perk.LevelUp.Nymphomania.Desc"
+      cost: 1
+      requirements: [
+        { type: "perk", perk: "coc:corrupted_libido" }
+        { type: "attribute", stat: "corruption", value: 75 }
+      ]
+    },
+    {
+      perk: "coc:acclimation"
+      nameKey: "Perk.LevelUp.Acclimation.Name"
+      descriptionKey: "Perk.LevelUp.Acclimation.Desc"
+      cost: 1
+      requirements: [
+        { type: "perk", perk: "coc:corrupted_libido" }
+        { type: "min_lust", value: 20 }
+        { type: "attribute", stat: "corruption", value: 50 }
+      ]
+    },
+    {
+      perk: "coc:sadist"
+      nameKey: "Perk.LevelUp.Sadist.Name"
+      descriptionKey: "Perk.LevelUp.Sadist.Desc"
+      cost: 1
+      requirements: [
+        { type: "level", value: 6 }
+        { type: "perk", perk: "coc:corrupted_libido" }
+        { type: "attribute", stat: "corruption", value: 60 }
+      ]
+    },
+    {
+      perk: "coc:arousing_aura"
+      nameKey: "Perk.LevelUp.ArousingAura.Name"
+      descriptionKey: "Perk.LevelUp.ArousingAura.Desc"
+      cost: 1
+      requirements: [
+        { type: "level", value: 6 }
+        { type: "perk", perk: "coc:corrupted_libido" }
+        { type: "attribute", stat: "corruption", value: 70 }
+      ]
+    },
+    {
+      perk: "coc:resistance"
+      nameKey: "Perk.LevelUp.Resistance.Name"
+      descriptionKey: "Perk.LevelUp.Resistance.Desc"
+      cost: 1
+      requirements: [
+        { type: "level", value: 6 }
+      ]
+    },
+    {
+      perk: "coc:survivalist"
+      nameKey: "Perk.LevelUp.Survivalist.Name"
+      descriptionKey: "Perk.LevelUp.Survivalist.Desc"
+      cost: 1
+      requirements: [
+        { type: "level", value: 6 }
+        { type: "hunger" }
+      ]
+    },
+    {
+      perk: "coc:fists_of_fury"
+      nameKey: "Perk.LevelUp.FistsOfFury.Name"
+      descriptionKey: "Perk.LevelUp.FistsOfFury.Desc"
+      cost: 1
+      requirements: [
+        { type: "level", value: 12 }
+        { type: "mastery", mastery: "coc:Fist", value: 1 }
+      ]
+    },
+    {
+      perk: "coc:survivalist2"
+      nameKey: "Perk.LevelUp.Survivalist2.Name"
+      descriptionKey: "Perk.LevelUp.Survivalist2.Desc"
+      cost: 1
+      requirements: [
+        { type: "level", value: 12 }
+        { type: "perk", perk: "coc:survivalist" }
+        { type: "hunger" }
+      ]
+    },
+    {
+      perk: "coc:vital_aim"
+      nameKey: "Perk.LevelUp.VitalAim.Name"
+      descriptionKey: "Perk.LevelUp.VitalAim.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 25 }
+        { type: "attribute", stat: "intelligence", value: 25 }
+        { type: "perk", perk: "coc:killer_instinct" }
+        { type: "any", requirements: [
+                { type: "key_item", keyItem: "Bow" },
+                { type: "key_item", keyItem: "Kelt's Bow" },
+              ] }
+      ]
+    },
+    {
+      perk: "coc:strong_draw"
+      nameKey: "Perk.LevelUp.StrongDraw.Name"
+      descriptionKey: "Perk.LevelUp.StrongDraw.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 25 }
+        { type: "any", requirements: [
+                { type: "key_item", keyItem: "Bow" },
+                { type: "key_item", keyItem: "Kelt's Bow" },
+              ] }
+      ]
+    },
+    {
+      perk: "coc:practiced_form"
+      nameKey: "Perk.LevelUp.PracticedForm.Name"
+      descriptionKey: "Perk.LevelUp.PracticedForm.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "toughness", value: 40 }
+        { type: "attribute", stat: "speed", value: 40 }
+        { type: "perk", perk: "coc:strong_draw" }
+        { type: "level", value: 6 }
+        { type: "any", requirements: [
+                { type: "key_item", keyItem: "Bow" },
+                { type: "key_item", keyItem: "Kelt's Bow" },
+              ] }
+      ]
+    },
+    {
+      perk: "coc:eagle_eye"
+      nameKey: "Perk.LevelUp.EagleEye.Name"
+      descriptionKey: "Perk.LevelUp.EagleEye.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 50 }
+        { type: "perk", perk: "coc:vital_aim" }
+        { type: "level", value: 6 }
+        { type: "any", requirements: [
+                { type: "key_item", keyItem: "Bow" },
+                { type: "key_item", keyItem: "Kelt's Bow" },
+              ] }
+      ]
+    },
+    {
+      perk: "coc:no_baggage"
+      nameKey: "Perk.LevelUp.NoBaggage.Name"
+      descriptionKey: "Perk.LevelUp.NoBaggage.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 80 }
+        { type: "attribute", stat: "strength", value: 80 }
+        { type: "level", value: 12 }
+        { type: "perk", perk: "coc:practiced_form" }
+        { type: "any", requirements: [
+                { type: "key_item", keyItem: "Bow" },
+                { type: "key_item", keyItem: "Kelt's Bow" },
+              ] }
+      ]
+    },
+    {
+      perk: "coc:fan_shot"
+      nameKey: "Perk.LevelUp.FanShot.Name"
+      descriptionKey: "Perk.LevelUp.FanShot.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "speed", value: 50 }
+        { type: "attribute", stat: "strength", value: 90 }
+        { type: "level", value: 18 }
+        { type: "perk", perk: "coc:practiced_form" }
+        { type: "any", requirements: [
+                { type: "key_item", keyItem: "Bow" },
+                { type: "key_item", keyItem: "Kelt's Bow" },
+              ] }
+      ]
+    },
+    {
+      perk: "coc:frustration"
+      nameKey: "Perk.LevelUp.Frustration.Name"
+      descriptionKey: "Perk.LevelUp.Frustration.Desc"
+      cost: 1
+      requirements: [
+        { type: "attribute", stat: "strength", value: 60 }
+        { type: "attribute", stat: "corruption", value: 40 }
+        { type: "level", value: 12 }
+      ]
+    }
+  ]
+}

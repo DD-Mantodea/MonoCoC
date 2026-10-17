@@ -1,0 +1,76 @@
+{
+  // 原版 items/consumables/BodyLotion.hx:23-171 —— 部位选择界面
+  "Scenes.Items.BodyLotion.UnderbodyDifferent": "The skin on your underBody is different from the rest. Where do you want to apply the {0} body lotion?"
+  "Scenes.Items.BodyLotion.Body": "Body"
+  "Scenes.Items.BodyLotion.Underbody": "Underbody"
+
+  // 原版 :20 liquidDesc()
+  "Scenes.Items.BodyLotion.Liquid.Smooth1": "smooth liquid"
+  "Scenes.Items.BodyLotion.Liquid.Smooth2": "thick cream"
+  "Scenes.Items.BodyLotion.Liquid.Rough1": "abrasive goop"
+  "Scenes.Items.BodyLotion.Liquid.Rough2": "rough textured goop"
+  "Scenes.Items.BodyLotion.Liquid.Sexy1": "smooth liquid"
+  "Scenes.Items.BodyLotion.Liquid.Sexy2": "attractive cream"
+  "Scenes.Items.BodyLotion.Liquid.Sexy3": "beautiful cream"
+  "Scenes.Items.BodyLotion.Liquid.Clear1": "smooth liquid"
+  "Scenes.Items.BodyLotion.Liquid.Clear2": "thick cream"
+  "Scenes.Items.BodyLotion.Liquid.Default": "cream"
+
+  // 原版 :64 / :123 同种效果再涂
+  "Scenes.Items.BodyLotion.SameBody": "You {0} the {1} across your body. Once you've finished you feel reinvigorated. "
+  "Scenes.Items.BodyLotion.SameUnderBody": "You {0} the {1} across your underbody. Once you've finished you feel reinvigorated. "
+
+  // 原版 :69-116 身体
+  "Scenes.Items.BodyLotion.PlainBody": "You {0} the {1} across your body. As you rub the mixture into your arms and [chest], your whole body begins to tingle pleasantly. "
+  "Scenes.Items.BodyLotion.FurBody": "{0} begin massaging it into your skin despite yourself being covered with fur. It takes little effort but once you've finished... nothing happens. A few moments pass and then your skin begins to tingle. "
+  "Scenes.Items.BodyLotion.ScalesBody": "You {0} the {1} across your body. As you rub the mixture into your arms and [chest], your whole body begins to tingle pleasantly."
+  "Scenes.Items.BodyLotion.GooBody": "You take the lotion and pour the {0} into yourself. The concoction dissolves, leaving your gooey epidermis unchanged. As a matter of fact nothing happens at all."
+  "Scenes.Items.BodyLotion.DragonBody": "You take the lotion and pour the {0} on your scales. The concoction dissolves, leaving your dragon scales unchanged. As a matter of fact nothing happens at all."
+  "Scenes.Items.BodyLotion.DefaultBody": "You {0} the smooth liquid across your body. Even before you've covered your arms and [chest] your skin begins to tingle pleasantly all over. After your skin darkens a little, it begins to change until you have {1} skin."
+
+  // 原版 :132-220 下体
+  "Scenes.Items.BodyLotion.PlainUnderBody": "You {0} the {1} across your underbody. As you rub the mixture onto your [chest], it begins to tingle pleasantly. "
+  "Scenes.Items.BodyLotion.FurUnderBody": "{0} begin massaging it into your skin despite yourself being covered with fur. It takes little effort but once you've finished... nothing happens. A few moments pass and then your skin begins to tingle. "
+  "Scenes.Items.BodyLotion.ScalesUnderBody": "You {0} the {1} across your underbody. As you rub the mixture into your arms and [chest], your whole body begins to tingle pleasantly."
+  "Scenes.Items.BodyLotion.DefaultUnderBody": "You {0} the smooth liquid across your body. Even before you've covered your arms and [chest] your skin begins to tingle pleasantly all over. After your skin darkens a little, it begins to change until you have {1} skin on your underbody."
+
+  // 各 ctx × adj 的结果句
+  "Scenes.Items.BodyLotion.Plain.Smooth": "Soon your skin is smoother but in a natural healthy way."
+  "Scenes.Items.BodyLotion.Plain.Rough": "Soon your skin is rougher as if you've just finished a long day's work."
+  "Scenes.Items.BodyLotion.Plain.Sexy": "Soon your skin is so sexy you find it hard to keep your hands off yourself."
+  "Scenes.Items.BodyLotion.Plain.Clear": "Soon the natural beauty of your [skinFurScales] is revealed without anything extra or unnecessary."
+  "Scenes.Items.BodyLotion.Plain.Failsafe": "<b>This text should not happen. Please let Kitteh6660 know.</b>"
+
+  "Scenes.Items.BodyLotion.Fur.Smooth": "Soon you part your fur to reveal smooth skin that still appears natural."
+  "Scenes.Items.BodyLotion.Fur.Rough": "Soon you part your fur to reveal rough skin that still appears natural."
+  "Scenes.Items.BodyLotion.Fur.Sexy": "Soon you part your fur to reveal sexy skin that makes you want to kiss yourself."
+  "Scenes.Items.BodyLotion.Fur.Clear": "Soon you part your fur to reveal the natural beauty of your skin."
+  "Scenes.Items.BodyLotion.Fur.Failsafe": "<b>This text should not happen. Please let Kitteh6660 know.</b>"
+
+  "Scenes.Items.BodyLotion.Scales.Smooth": "Soon your scales are smoother but in a natural healthy way."
+  "Scenes.Items.BodyLotion.Scales.Rough": "Soon your scales are rougher as if you've just finished a long day's work."
+  "Scenes.Items.BodyLotion.Scales.Sexy": "Soon your scales are so sexy you find it hard to keep your hands off yourself."
+  "Scenes.Items.BodyLotion.Scales.Clear": "Soon the natural beauty of your [skinFurScales] is revealed without anything extra or unnecessary."
+  "Scenes.Items.BodyLotion.Scales.Failsafe": "<b>This text should not happen. Please let Kitteh6660 know.</b>"
+
+  "Scenes.Items.BodyLotion.PlainUnder.Smooth": "Soon your skin on your underbody is smoother but in a natural healthy way."
+  "Scenes.Items.BodyLotion.PlainUnder.Rough": "Soon your skin on your underbody is rougher as if you've just finished a long day's work."
+  "Scenes.Items.BodyLotion.PlainUnder.Sexy": "Soon your skin on your underbody is so sexy you find it hard to keep your hands off yourself."
+  "Scenes.Items.BodyLotion.PlainUnder.Clear": "Soon the natural beauty of your [underBody.skinFurScales] is revealed without anything extra or unnecessary."
+  "Scenes.Items.BodyLotion.PlainUnder.Failsafe": "<b>This text should not happen. Please let Kitteh6660 know.</b>"
+
+  "Scenes.Items.BodyLotion.FurUnder.Smooth": "Soon you part your fur on your underbody to reveal smooth skin that still appears natural."
+  "Scenes.Items.BodyLotion.FurUnder.Rough": "Soon you part your fur on your underbody to reveal rough skin that still appears natural."
+  "Scenes.Items.BodyLotion.FurUnder.Sexy": "Soon you part your fur on your underbody to reveal sexy skin that makes you want to kiss yourself."
+  "Scenes.Items.BodyLotion.FurUnder.Clear": "Soon you part your fur on your underbody to reveal the natural beauty of your skin."
+  "Scenes.Items.BodyLotion.FurUnder.Failsafe": "<b>This text should not happen. Please let Kitteh6660 know.</b>"
+
+  "Scenes.Items.BodyLotion.ScalesUnder.Smooth": "Soon your scales on your underbody are smoother but in a natural healthy way."
+  "Scenes.Items.BodyLotion.ScalesUnder.Rough": "Soon your scales on your underbody are rougher as if you've just finished a long day's work."
+  "Scenes.Items.BodyLotion.ScalesUnder.Sexy": "Soon your scales on your underbody are so sexy you find it hard to keep your hands off yourself."
+  "Scenes.Items.BodyLotion.ScalesUnder.Clear": "Soon the natural beauty of your [underBody.skinFurScales] is revealed without anything extra or unnecessary."
+  "Scenes.Items.BodyLotion.ScalesUnder.Failsafe": "<b>This text should not happen. Please let Kitteh6660 know.</b>"
+
+  // 原版 :262 lotionCancel()
+  "Scenes.Items.BodyLotion.Cancel": "You put the body lotion away.[pg]"
+}

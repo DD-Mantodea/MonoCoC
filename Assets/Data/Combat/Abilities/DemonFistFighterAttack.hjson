@@ -1,0 +1,8 @@
+{
+  id: "coc:demon_fist_fighter_attack"
+  type: "physical"
+  range: "melee"
+  cost: 1
+  cooldown: 0
+  handler: "coc:demon_fist_fighter_attack"
+}

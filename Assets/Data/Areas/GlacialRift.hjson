@@ -1,0 +1,16 @@
+{
+  id: "coc:glacial_rift"
+  scene: "coc:glacial_rift"
+  order: 120
+  nameKey: "Areas.GlacialRift.Name"
+  descriptionKey: "Areas.GlacialRift.Description"
+  discoveryKey: "Areas.GlacialRift.Discovery"
+  exploreKey: "Areas.GlacialRift.Explore"
+  condition: {
+    type: compare
+    flag: "coc:discovered_glacial_rift"
+    op: ">="
+    value: 1
+  }
+  explorationFlag: "coc:discovered_glacial_rift"
+}

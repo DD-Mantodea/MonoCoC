@@ -1,0 +1,81 @@
+{
+  // 由 Tools/PortKit/dungeon.mjs 从 WizardTower.hx 抽取（占位 handler 需人工接）
+  id: "coc:wizard_tower"
+  nameKey: "Dungeons.WizardTower.Name"
+  start: "roomEntrance2"
+  floors: [
+    {
+      map: [
+        "##a#####"
+        "##b#####"
+        "##c#####"
+        "#def####"
+        "#g#h####"
+        "#ijk####"
+        "##l#####"
+        "##m#####"
+      ]
+      symbols: {
+        a: "theChamber"
+        b: "finalDoor"
+        c: "upperCorridor"
+        d: "staircase"
+        e: "studyRoom"
+        f: "staircase"
+        g: "pillar2"
+        h: "pillar2"
+        i: "pillar"
+        j: "corridor"
+        k: "pillar"
+        l: "roomEntrance2"
+        m: "roomEntrance"
+      }
+      rooms: {
+        theChamber: { handler: "coc:wizard_tower_the_chamber" }
+        finalDoor: { handler: "coc:wizard_tower_final_door" }
+        upperCorridor: { handler: "coc:wizard_tower_upper_corridor" }
+        staircase: { handler: "coc:wizard_tower_staircase" }
+        studyRoom: { handler: "coc:wizard_tower_study_room" }
+        pillar2: { handler: "coc:wizard_tower_pillar_two" }
+        pillar: { handler: "coc:wizard_tower_pillar" }
+        corridor: { handler: "coc:wizard_tower_corridor" }
+        roomEntrance2: { handler: "coc:wizard_tower_room_entrance_two" }
+        roomEntrance: { handler: "coc:wizard_tower_room_entrance" }
+      }      links: [
+
+      ]
+    }
+    {
+      map: [
+        "########"
+        "##a#####"
+        "##b#####"
+        "##c#####"
+        "##d#####"
+        "##e#####"
+        "##f#####"
+        "##g#####"
+      ]
+      symbols: {
+        a: "pillar10"
+        b: "pillar18"
+        c: "pillar26"
+        d: "pillar34"
+        e: "pillar42"
+        f: "pillar50"
+        g: "pillar58"
+      }
+      rooms: {
+        pillar10: { handler: "coc:wizard_tower_pillar_ten" }
+        pillar18: { handler: "coc:wizard_tower_pillar_eighteen" }
+        pillar26: { handler: "coc:wizard_tower_pillar_n_twenty_six" }
+        pillar34: { handler: "coc:wizard_tower_pillar_n_thirty_four" }
+        pillar42: { handler: "coc:wizard_tower_pillar_n_forty_two" }
+        pillar50: { handler: "coc:wizard_tower_pillar_fifty" }
+        pillar58: { handler: "coc:wizard_tower_pillar_n_fifty_eight" }
+      }
+      links: [
+      ]
+    }
+  ]
+}

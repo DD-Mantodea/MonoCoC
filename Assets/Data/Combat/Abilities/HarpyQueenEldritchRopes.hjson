@@ -1,0 +1,8 @@
+{
+  id: "coc:harpy_queen_eldritch_ropes"
+  type: "magical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:harpy_queen_eldritch_ropes"
+}

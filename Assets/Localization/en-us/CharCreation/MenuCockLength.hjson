@@ -1,0 +1,4 @@
+{
+  "CharCreation.MenuCockLength.CockTypeAndSize": "[pg]Cock type and size can be altered later in the game through certain items."
+  "CharCreation.MenuCockLength.YouCanChooseCock": "You can choose a cock length between [if (metric) {8 and 20 centimeters|3 and 8 inches}]. Your starting cock length will also affect starting cock thickness."
+}

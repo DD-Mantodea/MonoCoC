@@ -1,0 +1,57 @@
+{
+  // 由 Tools/PortKit/dungeon.mjs 从 DesertCave.hx 抽取（占位 handler 需人工接）
+  id: "coc:desert_cave"
+  nameKey: "Dungeons.DesertCave.Name"
+  start: "roomEntrance"
+  floors: [
+    {
+      map: [
+        "##a##"
+        "bcdef"
+        "ghijk"
+        "lmnop"
+        "#####"
+      ]
+      symbols: {
+        a: "roomSandMotherThrone"
+        b: "roomNursery"
+        c: "roomPlayRoom"
+        d: "roomSacrificalAltar"
+        e: "roomSleepingChamber"
+        f: "roomBathroom"
+        g: "roomWestHall2"
+        h: "roomWestHall1"
+        i: "roomCaveCommons"
+        j: "roomEastHall1"
+        k: "roomEastHall2"
+        l: "roomPharmacy"
+        m: "roomLustRoom"
+        n: "roomEntrance"
+        o: "roomCumWitchOffice"
+        p: "roomCumWitchBedroom"
+      }
+      rooms: {
+        roomSandMotherThrone: { handler: "coc:desert_cave_room_sand_mother_throne" } // roomSandMotherThrone
+        roomNursery: { handler: "coc:desert_cave_room_nursery" } // roomNursery
+        roomPlayRoom: { handler: "coc:desert_cave_room_play_room" } // roomPlayRoom
+        roomSacrificalAltar: { handler: "coc:desert_cave_room_sacrifical_altar" } // roomSacrificalAltar
+        roomSleepingChamber: { handler: "coc:desert_cave_room_sleeping_chamber" } // roomSleepingChamber
+        roomBathroom: { handler: "coc:desert_cave_room_bathroom" } // roomBathroom
+        roomWestHall2: { handler: "coc:desert_cave_room_west_hall_two" } // roomWestHall2
+        roomWestHall1: { handler: "coc:desert_cave_room_west_hall_one" } // roomWestHall1
+        roomCaveCommons: { handler: "coc:desert_cave_room_cave_commons" } // roomCaveCommons
+        roomEastHall1: { handler: "coc:desert_cave_room_east_hall_one" } // roomEastHall1
+        roomEastHall2: { handler: "coc:desert_cave_room_east_hall_two" } // roomEastHall2
+        roomPharmacy: { handler: "coc:desert_cave_room_pharmacy" } // roomPharmacy
+        roomLustRoom: { handler: "coc:desert_cave_room_lust_room" } // roomLustRoom
+        roomEntrance: { handler: "coc:desert_cave_room_entrance" } // roomEntrance
+        roomCumWitchOffice: { handler: "coc:desert_cave_room_cum_witch_office" } // roomCumWitchOffice
+        roomCumWitchBedroom: { handler: "coc:desert_cave_room_cum_witch_bedroom" } // roomCumWitchBedroom
+      }
+      links: [
+        { from: "roomCaveCommons", to: "roomSacrificalAltar", dir: "north", lockedBy: "coc:desert_cave_throne_unlocked" }
+        { from: "roomCaveCommons", to: "roomEntrance", dir: "south", lockedBy: "coc:desert_cave_exit_allowed" }
+      ]
+    }
+  ]
+}

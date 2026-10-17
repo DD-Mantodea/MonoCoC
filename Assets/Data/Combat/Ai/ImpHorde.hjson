@@ -1,0 +1,7 @@
+{
+  // 原版 ImpHorde.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:imp_horde_ai"
+  actions: [
+
+  ]
+}

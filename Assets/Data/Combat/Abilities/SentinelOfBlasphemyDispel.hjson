@@ -1,0 +1,8 @@
+{
+  id: "coc:sentinel_of_blasphemy_dispel"
+  type: "magical"
+  range: "omni"
+  cost: 25
+  cooldown: 0
+  handler: "coc:sentinel_of_blasphemy_dispel"
+}

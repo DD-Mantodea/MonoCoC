@@ -1,0 +1,14 @@
+{
+  "kind": "coc:under_body",
+  "default": "coc:none",
+  "types": [
+    { "id": "coc:none" },
+    { "id": "coc:reptile" },
+    { "id": "coc:dragon" },
+    { "id": "coc:furry" },
+    { "id": "coc:naga" },
+    { "id": "coc:wool" },
+    { "id": "coc:cockatrice" },
+    { "id": "coc:mermaid" }
+  ]
+}

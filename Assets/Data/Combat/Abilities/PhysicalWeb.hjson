@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1860-1875 / :5007-5070 webbingCost / PCWebAttack（蜘蛛腹部尾巴）
+  id: "coc:special_web"
+  nameKey: "Combat.Special.Web.Name"
+  descriptionKey: "Combat.Special.Web.Description"
+  type: "physical"
+  category: "physical"
+  range: "ranged"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:has_spider_abdomen"
+  disabledWhen: "coc:not_enough_webbing"
+  disabledTooltip: "Combat.Special.Web.NoWebbing"
+  handler: "coc:special_web"
+}

@@ -1,0 +1,15 @@
+{
+  "Combat.Resolve.Block": "You block {0}'s attack."
+  "Combat.Resolve.Counter": "You counter {0}'s attack."
+  "Combat.Resolve.CriticalHit": " [b:Critical hit!]"
+  "Combat.Resolve.EnemyBlocks": "{0} blocks your attack."
+  "Combat.Resolve.EnemyCounters": "{0} counters your attack."
+  "Combat.Resolve.EnemyHit": "{0} hits you for {1:0} damage."
+  "Combat.Resolve.EnemyMiss": "{0} misses."
+  "Combat.Resolve.EnemyParries": "{0} parries your attack."
+  "Combat.Resolve.EnemyTease": "{0} teases you for {1:0} lust."
+  "Combat.Resolve.HitEnemy": "You hit {0} for {1:0} damage."
+  "Combat.Resolve.Parry": "You parry {0}'s attack."
+  "Combat.Resolve.PlayerMiss": "Your attack misses."
+  "Combat.Resolve.TeaseEnemy": "You tease {0} for {1:0} lust."
+}

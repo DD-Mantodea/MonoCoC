@@ -1,0 +1,9 @@
+{
+  id: "coc:kitsune_tease"
+  type: "tease"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  isSelf: false
+  handler: "coc:kitsune_tease"
+}

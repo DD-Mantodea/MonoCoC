@@ -1,0 +1,5 @@
+{
+  "CharCreation.ConfirmHairLength.PleaseInputLength": "Please input a length."
+  "CharCreation.ConfirmHairLength.ThatAboveYourMaximum": "That is above your maximum length choices!"
+  "CharCreation.ConfirmHairLength.ThatBelowYourMinimum": "That is below your minimum length choices!"
+}

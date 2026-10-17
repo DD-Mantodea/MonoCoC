@@ -1,0 +1,9 @@
+{
+  // 原版 SuccubusGardener.motorboat()（SuccubusGardener.hx:337-347）
+  id: "coc:succubus_gardener_motorboat"
+  type: "tease"
+  range: "tease"
+  cost: 0
+  cooldown: 0
+  handler: "coc:succubus_gardener_motorboat"
+}

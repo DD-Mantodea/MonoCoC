@@ -1,0 +1,11 @@
+{
+"Items.Tooltip.Type": "Type: {0}"
+"Items.Tooltip.BaseValue": "Base value: {0}"
+"Items.Type.Weapon": "Weapon"
+"Items.Type.Armor": "Armor"
+"Items.Type.Shield": "Shield"
+"Items.Type.Undergarment": "Undergarment"
+"Items.Type.Jewelry": "Jewelry"
+"Items.Type.Consumable": "Consumable"
+"Items.Type.Misc": "Misc"
+}

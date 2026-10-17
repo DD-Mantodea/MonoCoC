@@ -1,0 +1,18 @@
+{
+  "Combat.Cockatrice.CameWorms": "[pg]The cockatrice smirks, but waits for you to finish..."
+  "Combat.Cockatrice.Compulsion.Hit": "You concentrate, but can't help but look into those lightning blue orbs. You look away quickly, but you can picture them in your mind's eye, staring in at your thoughts, making you feel sluggish and unable to coordinate. Something about the helplessness of it feels so good... you can't banish the feeling that really, you want to look in the cockatrice's eyes forever, for it to have total control over you."
+  "Combat.Cockatrice.Compulsion.Immune": "You can't help yourself... you glimpse the cockatrice's lightning blue eyes. However, no matter how much you look into the eyes, you do not see anything wrong. All you can see is the cockatrice. The cockatrice curses as he finds out that you're immune!"
+  "Combat.Cockatrice.Compulsion.Lead": "The cockatrice opens its [if (hasfur) {mouth|beak}] and, staring at you, utters words in its melodic tongue. The song wraps around your mind, working and burrowing at the edges of your resolve, suggesting, compelling, then demanding you to look into the cockatrice's eyes. "
+  "Combat.Cockatrice.Compulsion.LeadFly": "The cockatrice opens its [if (hasfur) {mouth|beak}] and, staring at you, utters words in its melodic tongue. The song wraps around your mind, working and burrowing at the edges of your resolve."
+  "Combat.Cockatrice.Compulsion.Resisted": "You concentrate, focus your mind and resist the cockatrice's musical compulsion."
+  "Combat.Cockatrice.SandAttack.Blocked": "The dirt and rocks engulf you, causing you to cover your eyes. You manage to cover them fast enough to block out the dirt, it showering you for a while before it settles again."
+  "Combat.Cockatrice.SandAttack.Dodged": "You thankfully manage to avoid the attack entirely, the mess of dust and dirt going wide of you."
+  "Combat.Cockatrice.SandAttack.Hit": "The dirt and rocks engulf you, causing you to try to cover your eyes. You fail to move fast enough, dirt getting in your eyes, making them stream with tears and temporarily blinding you."
+  "Combat.Cockatrice.SandAttack.Lead": "The cockatrice sweeps his tail along the ground, whipping up a flurry of loose dirt and small rocks. With a swift movement he then swipes across at you, flinging debris in your direction. "
+  "Combat.Cockatrice.SandAttack.LeadFly": "The cockatrice unfurls his wings, flapping them hard against the ground. He whips up a flurry of loose dirt and rocks, directing it at you as he soars above you. "
+  "Combat.Cockatrice.TailSwipe.Harmless": " Luckily, the fall didn't harm you at all."
+  "Combat.Cockatrice.TailSwipe.Lead": "The cockatrice suddenly whips its tail at you, swiping your [feet] from under you! You quickly stagger upright, being sure to hold the creature's feet in your vision."
+  "Combat.Cockatrice.Tease.Lean": "The cockatrice casually leans against a nearby rock, a scaled finger trailing down his lithe stomach and tracing around the edge of his genital slit as he looks to the distance. As the tip of his thick purple member starts to peek out he looks over at you with a smoldering gaze, cocking his head to the side as if beckoning you to 'come play'. You seriously consider his offer as you feel your loins burn with desire."
+  "Combat.Cockatrice.Tease.Rump": "The cockatrice turns around slowly, looking over his shoulder as he slowly lifts his tail to reveal his tight rump. He rubs his clawed fingers over the taut flesh of his [if (hasfur) {|feathered }]cheeks, before his tail cracks against one cheek like a whip. You can't help but flush at his brazen display."
+  "Combat.Cockatrice.WoundsTooGreat": "Your wounds are too great to bear, and you fall unconscious."
+}

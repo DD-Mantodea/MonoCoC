@@ -1,0 +1,29 @@
+{
+  // 原版 MinotaurMob（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:minotaur_mob"
+      type: "coc:minotaur_mob"
+      nameKey: "Npcs.MinotaurMob.Name"
+      descriptionKey: "Npcs.MinotaurMob.Desc"
+      article: "the"
+      level: 1
+      bonusHealth: 0
+      lust: 30
+      strength: 65
+      toughness: 60
+      speed: 30
+      intelligence: 20
+      libido: 40
+      sensitivity: 15
+      corruption: 35
+      gems: 15
+      experience: 0
+      ai: "coc:minotaur_mob_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

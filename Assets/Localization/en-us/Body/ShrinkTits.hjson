@@ -1,0 +1,9 @@
+{
+  "Body.ShrinkTits.Count2": "\nYou feel so much lighter after the change."
+  "Body.ShrinkTits.Count3": "\nWithout the extra weight you feel particularly limber."
+  "Body.ShrinkTits.CountMany": "\nIt feels as if the weight of the world has been lifted from your shoulders, or in this case, your chest."
+  "Body.ShrinkTits.RowFirst": "Your {0} shrink, dropping to {1}{2}."
+  "Body.ShrinkTits.RowNext": "...and your {0} shrink, dropping to {1}{2}."
+  "Body.ShrinkTits.Single1": "[pg]You feel a weight lifted from you, and realize your breasts have shrunk! With a quick measure, you determine they're now {0}{1}."
+  "Body.ShrinkTits.Single2": "[pg]You feel significantly lighter. Looking down, you realize your breasts are much smaller! With a quick measure, you determine they're now {0}{1}."
+}

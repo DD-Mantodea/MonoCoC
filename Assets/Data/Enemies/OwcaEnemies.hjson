@@ -1,0 +1,52 @@
+{
+  enemies: [
+    {
+      id: "coc:vapula_fight"
+      type: "coc:vapula_fight"
+      nameKey: "Enemies.VapulaFight.Name"
+      descriptionKey: "Enemies.VapulaFight.Desc"
+      article: ""
+      level: 14
+      bonusHealth: 500
+      lust: 30
+      strength: 50
+      toughness: 10
+      speed: 10
+      intelligence: 5
+      libido: 50
+      sensitivity: 60
+      corruption: 100
+      gems: 200
+      experience: 200
+      plural: true
+      pronoun1: "they"
+      pronoun2: "them"
+      pronoun3: "their"
+      ai: ""
+    },
+    {
+      id: "coc:lusty_demons"
+      type: "coc:lusty_demons"
+      nameKey: "Enemies.LustyDemons.Name"
+      descriptionKey: "Enemies.LustyDemons.Desc"
+      article: "the "
+      level: 14
+      bonusHealth: 700
+      lust: 30
+      strength: 30
+      toughness: 10
+      speed: 10
+      intelligence: 5
+      libido: 50
+      sensitivity: 60
+      corruption: 100
+      gems: 200
+      experience: 200
+      plural: true
+      pronoun1: "they"
+      pronoun2: "them"
+      pronoun3: "their"
+      ai: ""
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  // 原版 classes/scenes/areas/swamp/SpiderMorphMob.hx（由 monster.mjs 生成骨架后人工补 plural/drop）
+  enemies: [
+    {
+      id: "coc:spider_morph_mob"
+      // type 必须与 Contents/Enemies/Vanilla/SpiderMorphMobEnemy.cs 的 [Register] id 完全一致
+      type: "coc:spider_morph_mob"
+      nameKey: "Npcs.SpiderMorphMob.Name"
+      descriptionKey: "Npcs.SpiderMorphMob.Desc"
+      article: "the"
+      level: 18
+      bonusHealth: 1200
+      lust: 0
+      strength: 60
+      toughness: 50
+      speed: 99
+      intelligence: 99
+      libido: 35
+      sensitivity: 35
+      corruption: 20
+      // 原版 gems = Utils.rand(25) + 40，随机值在 SpiderMorphMobEnemy.Configure 里掷；这里只是占位
+      gems: 25
+      experience: 0
+      ai: "coc:spider_morph_mob_ai"
+      // 原版 this.plural = true / pronoun1-3 = they/them/their（SpiderMorphMob.hx:121-124）
+      plural: true
+      pronoun1: "they"
+      pronoun2: "them"
+      pronoun3: "their"
+      // 原版 drop = NO_DROP
+      weightedLoot: true
+      loot: []
+    }
+  ]
+}

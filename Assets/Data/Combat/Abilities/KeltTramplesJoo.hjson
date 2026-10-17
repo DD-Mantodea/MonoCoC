@@ -1,0 +1,8 @@
+{
+  id: "coc:kelt_tramples_joo"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:kelt_tramples_joo"
+}

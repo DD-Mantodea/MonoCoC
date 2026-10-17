@@ -1,0 +1,14 @@
+{
+  // 原版 DriderIncubus.performCombatAction（DriderIncubus.hx:80-98）
+  // 注意：原版是手写的多段回合，C# 侧由 DriderIncubusEnemy.ChooseCombatAction 固定返回
+  // coc:drider_incubus_round（整回合的 handler），本表只作记录，不参与实际运行。
+  id: "coc:drider_incubus_ai"
+  actions: [
+    {
+      ability: "coc:drider_incubus_round"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

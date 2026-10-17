@@ -1,0 +1,4 @@
+{
+  "Perks.ShieldMastery.Desc": "[if (tou>=50) {Increases block chance by up to 10% while using a shield (Toughness-based).|<b>You are not durable enough to gain benefit from this perk.</b>}]"
+  "Perks.ShieldMastery.Name": "Shield Mastery"
+}

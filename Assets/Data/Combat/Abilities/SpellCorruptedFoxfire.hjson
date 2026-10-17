@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1468-1483 / :3223-3257 Corrupted Foxfire（cost 35，cooldown 3，CorruptedNinetails）
+  id: "coc:spell_corrupted_foxfire"
+  nameKey: "Combat.Spell.CorruptedFoxfire.Name"
+  descriptionKey: "Combat.Spell.CorruptedFoxfire.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 35
+  fatigueType: "magical"
+  cooldown: 3
+  availableWhen: "coc:has_corrupted_ninetails"
+  handler: "coc:spell_corrupted_foxfire"
+}

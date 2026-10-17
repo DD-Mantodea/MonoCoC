@@ -1,0 +1,8 @@
+{
+  id: "coc:bone_general_attack"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:bone_general_attack"
+}

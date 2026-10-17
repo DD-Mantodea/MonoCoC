@@ -1,0 +1,12 @@
+{
+  // 原版 LustserkBuff.hx：武器/身体伤害 +30，护甲 ×1.5
+  id: "coc:lustserking"
+  nameKey: "Combat.Effect.Lustserking.Name"
+  descriptionKey: "Combat.Effect.Lustserking.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onExpire: "coc:effect_lustserking_expire"
+}

@@ -1,0 +1,6 @@
+{
+  "Combat.SharkGirl.OutputAttack.TheSharkGirl": "\nThe shark-girl's sharp teeth tear through your skin, causing blood to gush out with every beat of your heart! You're <b>bleeding!</b>"
+  "Combat.SharkGirl.SharkTease.YouChargeAt": "You charge at the shark girl, prepared to strike, but [if (isSwimming) {flounder in the water|stop dead in your tracks}] when she bends over and wiggles her toned ass towards you. It distracts you long enough for her tail to swing out and smack you [if (isSwimming) {away|to the ground}]. She coos, [if (isSwimming && silly) {[say: Glu.... Glubb glub!]|[say: Aw... You really do like me!]}]"
+  "Combat.SharkGirl.SharkTease.YouPullYour": "You pull your [weapon] back, [if (isSwimming) {building up speed|getting a running start}] to land an attack. The shark-girl smirks and pulls up her bikini top, shaking her perky breasts in your direction. You [if (isSwimming) {falter|stop abruptly}], aroused by the sight just long enough for the shark girl to kick you across the face and knock you [if (isSwimming) {away|to the ground}]. She teases, [if (isSwimming && silly) {[say:Blu, glub glub, glub glubbb!]|[say: Aw, don't worry baby, you're gonna get the full package in a moment!]}]"
+  "Combat.SharkGirl.Won.YourFoeDoesn": "[pg]Your foe doesn't seem disgusted enough to leave..."
+}

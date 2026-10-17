@@ -1,0 +1,10 @@
+{
+  // 原版 GoblinWarrior.performCombatAction
+  id: "coc:goblin_warrior_ai"
+  actions: [
+    { ability: "coc:goblin_elder_goblin_drug_attack", weight: 1, cost: 10, fatigueType: "physical" }
+    { ability: "coc:goblin_elder_goblin_tease_attack", weight: 1, cost: 0, fatigueType: "none" }
+    { ability: "coc:goblin_warrior_special", weight: 1, cost: 15, fatigueType: "physical" }
+    { ability: "coc:goblin_elder_attack", weight: 1, cost: 0, fatigueType: "none" }
+  ]
+}

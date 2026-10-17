@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1782-1800 / :4227-4247 Parasite Queen（免费，ParasiteQueen perk）
+  id: "coc:special_parasite_queen"
+  nameKey: "Combat.Special.ParasiteQueen.Name"
+  descriptionKey: "Combat.Special.ParasiteQueen.Description"
+  type: "physical"
+  category: "physical"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:can_parasite_queen"
+  disabledWhen: "coc:parasite_queen_disabled"
+  disabledTooltip: "Combat.Special.ParasiteQueen.Disabled"
+  handler: "coc:special_parasite_queen"
+}

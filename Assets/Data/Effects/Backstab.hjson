@@ -1,0 +1,12 @@
+{
+  // 原版 statusEffects/combat/BackstabBuff.hx：潜伏一回合，未被命中则在回合结束时背刺
+  id: "coc:backstab"
+  nameKey: "Combat.Effect.Backstab.Name"
+  descriptionKey: "Combat.Effect.Backstab.Description"
+  kind: "timed"
+  duration: 1
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onExpire: "coc:effect_backstab_expire"
+}

@@ -1,0 +1,12 @@
+{
+  // 原版 Terra 形态 Plate：临时护甲，结束时移除
+  id: "coc:tf_plate"
+  nameKey: "Combat.Effect.TFPlate.Name"
+  descriptionKey: "Combat.Effect.TFPlate.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onExpire: "coc:effect_tf_plate_expire"
+}

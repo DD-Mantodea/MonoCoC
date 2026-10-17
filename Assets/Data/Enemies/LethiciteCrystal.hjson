@@ -1,0 +1,36 @@
+{
+  // 原版 LethiciteCrystal（scenes/dungeons/manor/LethiciteCrystal.hx:97 new()）
+  // 数值来自构造函数；AI 由 LethiciteCrystalEnemy.ChooseCombatAction 接管（只有 pulse 一招）。
+  enemies: [
+    {
+      id: "coc:lethicite_crystal"
+      type: "coc:lethicite_crystal"
+      nameKey: "Npcs.LethiciteCrystal.Name"
+      descriptionKey: "Npcs.LethiciteCrystal.Desc"
+      article: "a"
+      level: 20
+      bonusHealth: 100000
+      lust: 0
+      strength: 12
+      toughness: 0
+      speed: 35
+      intelligence: 42
+      libido: 45
+      sensitivity: 45
+      corruption: 100
+      // gems 原版是 Utils.rand(5) + 5，Configure 里现算，这里只是占位。
+      gems: 5
+      experience: 0
+      // 原版 pronoun1-3 = it/it/its（LethiciteCrystal.hx:106-108）
+      pronoun1: "it"
+      pronoun2: "it"
+      pronoun3: "its"
+      // 不走数据 AI：原版 performCombatAction（LethiciteCrystal.hx:22）只有 pulse，
+      // 由 LethiciteCrystalEnemy.ChooseCombatAction 恒定返回它，不会落到空 AI。
+      ai: ""
+      // 原版 drop = new WeightedDrop()（空表）：不掉落。
+      weightedLoot: false
+      loot: []
+    }
+  ]
+}

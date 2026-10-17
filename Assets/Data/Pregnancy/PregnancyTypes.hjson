@@ -1,0 +1,61 @@
+{
+  "types": [
+    { "id": "coc:izma", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_izma" } },
+    { "id": "coc:mouse", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_mouse" } },
+    { "id": "coc:anemone", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_anemone" } },
+    { "id": "coc:amily", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_amily" } },
+    { "id": "coc:ember", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm" },
+    { "id": "coc:benoit", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_benoit" } },
+    { "id": "coc:cotton", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm" },
+    { "id": "coc:minerva", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_minerva" } },
+    { "id": "coc:jojo", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_mouse" } },
+    { "id": "coc:marble", "kind": "vaginal", "fullTerm": "Pregnancy.Marble.FullTerm", "deliveries": { "vaginal": "coc:delivery_marble" } },
+    { "id": "coc:urta", "kind": "vaginal", "special": "urta" },
+    { "id": "coc:faerie", "kind": "vaginal", "special": "faerie" },
+
+    // 以下三个 father 类型在 VanillaPregnancy.cs 里有常量，但数据层此前缺条目，这里补齐。
+    // incubation / legacyId 均取自原版 PregnancyStore.hx 的常量定义，不是估算值。
+    //   PREGNANCY_SAND_WITCH = 22 / INCUBATION_SAND_WITCH = 360（DesertCave.hx:37 注册为 vaginal）
+    { "id": "coc:sand_witch", "kind": "vaginal", "legacyId": 22, "incubation": 360, "deliveries": { "vaginal": "coc:delivery_sand_witch" } },
+    //   PREGNANCY_PHOENIX = 36 / INCUBATION_PHOENIX = 168（原版除常量定义外无其它引用）
+    { "id": "coc:phoenix", "kind": "vaginal", "legacyId": 36, "incubation": 168 },
+    //   PREGNANCY_ANDY = 37：原版只有类型 id，没有 INCUBATION_ANDY 常量
+    //   （PregnancyStore.hx:46 注释称「功能等同 Satyr，只是更少腐化」），故这里不填 incubation。
+    { "id": "coc:andy", "kind": "vaginal", "legacyId": 37 },
+    { "id": "coc:ovielixir_eggs", "kind": "vaginal", "special": "eggs", "deliveries": { "vaginal": "coc:delivery_ovi_elixir" } },
+    { "id": "coc:satyr", "kind": "butt", "special": "satyr", "deliveries": { "vaginal": "coc:delivery_satyr", "anal": "coc:delivery_satyr" } },
+    { "id": "coc:frog_girl", "kind": "butt", "special": "frog" },
+    { "id": "coc:tentacle_beast_seed", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_tentacle_beast" } },
+    { "id": "coc:bee_eggs", "kind": "butt", "special": "eggs", "deliveries": { "anal": "coc:delivery_bee" } }
+    { "id": "coc:corrupted_witch", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_corrupted_witch" } }
+    // Kelt 与半人马共用同一个分娩类（原版 PlayerCentaurPregnancy 注册两次）。
+    { "id": "coc:kelt", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_centaur" } }
+
+    // 沙陷阱（原版 PREGNANCY_SANDTRAP / PREGNANCY_SANDTRAP_FERTILE）：只有肛门妊娠，
+    // 分娩逻辑在 Contents/Pregnancy/Vanilla/SandTrapPregnancyDeliveries.cs。
+    // id 必须与 VanillaPregnancy.SandTrap / SandTrapFertile 一致（代码写进去的就是这两个 Identifier）。
+    { "id": "coc:sandtrap", "kind": "butt", "deliveries": { "anal": "coc:delivery_sand_trap" } }
+    { "id": "coc:sandtrap_fertile", "kind": "butt", "deliveries": { "anal": "coc:delivery_sand_trap_fertile" } }
+
+    { "id": "coc:goo_girl", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_goo_girl" } }
+
+    { "id": "coc:basilisk", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_basilisk" } }
+
+    { "id": "coc:cockatrice", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_cockatrice" } }
+
+    { "id": "coc:spider", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_spider" } }
+
+    // 蛛化精灵卵：同一条目同时服务阴道与肛门两条线。
+    { "id": "coc:drider_eggs", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_drider", "anal": "coc:delivery_drider" } }
+
+    { "id": "coc:imp", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_imp" } }
+
+    { "id": "coc:centaur", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_centaur" } }
+
+    { "id": "coc:minotaur", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_minotaur" } }
+
+    { "id": "coc:hell_hound", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_hellhound" } }
+
+    { "id": "coc:bunny", "kind": "vaginal", "fullTerm": "Pregnancy.Native.FullTerm", "deliveries": { "vaginal": "coc:delivery_bunny", "anal": "coc:delivery_bunny" } }
+  ]
+}

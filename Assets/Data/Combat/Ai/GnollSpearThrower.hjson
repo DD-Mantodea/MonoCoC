@@ -1,0 +1,36 @@
+{
+  // 原版 GnollSpearThrower.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:gnoll_spear_thrower_ai"
+  actions: [
+    {
+      ability: "coc:gnoll_spear_thrower_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:gnoll_spear_thrower_hyena_physical_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:gnoll_spear_thrower_hyena_javelin_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:gnoll_spear_thrower_hyena_snap_kicku"
+      weight: 1
+      cost: 5
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:gnoll_spear_thrower_hyena_arousal_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

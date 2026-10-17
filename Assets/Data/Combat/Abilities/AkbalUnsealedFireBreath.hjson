@@ -1,0 +1,8 @@
+{
+  id: "coc:akbal_unsealed_fire_breath"
+  type: "magical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:akbal_unsealed_fire_breath"
+}

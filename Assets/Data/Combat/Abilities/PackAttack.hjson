@@ -1,0 +1,9 @@
+{
+  // 原版 Combat.hx:658 packAttack()：群体猛攻（DemonPack / ImpHorde 等共用）
+  id: "coc:pack_attack"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:pack_attack"
+}

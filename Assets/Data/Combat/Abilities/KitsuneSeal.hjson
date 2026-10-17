@@ -1,0 +1,9 @@
+{
+  id: "coc:kitsune_seal"
+  type: "magical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  isSelf: false
+  handler: "coc:kitsune_seal"
+}

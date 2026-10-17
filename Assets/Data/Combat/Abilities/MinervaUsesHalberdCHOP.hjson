@@ -1,0 +1,8 @@
+{
+  id: "coc:minerva_uses_halberd_chop"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:minerva_uses_halberd_chop"
+}

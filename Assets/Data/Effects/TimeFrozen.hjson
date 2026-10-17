@@ -1,0 +1,11 @@
+{
+  // 原版 TimeFrozen：时之盾冻结时间，持续 3 次自身回合
+  id: "coc:time_frozen"
+  nameKey: "Combat.Effect.TimeFrozen.Name"
+  descriptionKey: "Combat.Effect.TimeFrozen.Description"
+  kind: "timed"
+  duration: 3
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

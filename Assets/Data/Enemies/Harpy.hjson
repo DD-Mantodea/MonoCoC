@@ -1,0 +1,29 @@
+{
+  // 原版 Harpy（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:harpy"
+      type: "coc:harpy"
+      nameKey: "Npcs.Harpy.Name"
+      descriptionKey: "Npcs.Harpy.Desc"
+      article: "the"
+      level: 10
+      bonusHealth: 150
+      lust: 10
+      strength: 60
+      toughness: 40
+      speed: 90
+      intelligence: 40
+      libido: 70
+      sensitivity: 30
+      corruption: 80
+      gems: 0
+      experience: 0
+      ai: "coc:harpy_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

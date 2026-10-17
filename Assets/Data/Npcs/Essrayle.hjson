@@ -1,0 +1,7 @@
+{
+  id: "coc:essrayle"
+  nameKey: "Npcs.Essrayle.Name"
+  scene: "coc:essrayle"
+  combat: ""
+  hostile: false
+}

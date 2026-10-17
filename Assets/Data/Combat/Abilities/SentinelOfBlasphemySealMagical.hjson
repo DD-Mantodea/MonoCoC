@@ -1,0 +1,8 @@
+{
+  id: "coc:sentinel_of_blasphemy_seal_magical"
+  type: "magical"
+  range: "omni"
+  cost: 15
+  cooldown: 0
+  handler: "coc:sentinel_of_blasphemy_seal_magical"
+}

@@ -1,0 +1,11 @@
+{
+  "Combat.Spell.Possess.Name": "Possess",
+  "Combat.Spell.Possess.Description": "Attempt to temporarily possess a foe and force them to raise their own lusts.",
+  "Combat.Spell.Possess.Ghost": "With a smile and a wink, your form becomes completely intangible, and you waste no time in throwing yourself toward the opponent's frame. Sadly, it was doomed to fail, as you bounce right off your foe's ghostly form.",
+  "Combat.Spell.Possess.Dullahan": "With a smile and a wink, your form becomes completely intangible, and you waste no time in throwing yourself toward the opponent's frame. Oddly, you phase through as if there was nothing there at all.",
+  "Combat.Spell.Possess.Nothing": "There is nothing to possess inside [themonster].",
+  "Combat.Spell.Possess.Incompatible": "With a smile and a wink, your form becomes completely intangible, and you waste no time in throwing yourself into the opponent's frame. Unfortunately, it seems they have a body that's incompatible with any kind of possession.[pg]",
+  "Combat.Spell.Possess.TooSmart": "With a smile and a wink, your form becomes completely intangible, and you waste no time in throwing yourself into the opponent's frame. Unfortunately, it seems they were FAR more mentally prepared than anything you can handle, and you're summarily thrown out of their body before you're even able to have fun with them. Darn, you muse.[pg]",
+  "Combat.Spell.Possess.Success": "With a smile and a wink, your form becomes completely intangible, and you waste no time in throwing yourself into your opponent's frame. Before they can regain the initiative, you take control of one of their arms, vigorously masturbating for several seconds before you're finally thrown out. Recorporealizing, you notice your enemy's blush, and know your efforts were somewhat successful.[pg]",
+  "Combat.Spell.Possess.Fail": "With a smile and a wink, your form becomes completely intangible, and you waste no time in throwing yourself into the opponent's frame. Unfortunately, it seems they were more mentally prepared than you hoped, and you're summarily thrown out of their body before you're even able to have fun with them. Darn, you muse. Gotta get smarter.[pg]"
+}

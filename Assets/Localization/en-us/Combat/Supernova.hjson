@@ -1,0 +1,12 @@
+{
+  "Combat.Effect.TFSupercharging.Name": "Supernova Charging",
+  "Combat.Effect.TFSupercharging.Description": "Gathering energy within your terrestrial star.",
+  "Combat.Terra.Supernova.Name": "Supernova",
+  "Combat.Terra.Supernova.Description": "Gather energy in your star, then unleash it in a titanic explosion of power to obliterate all who stand before you, entirely disregarding your own safety. Takes multiple turns to charge, during which you can do nothing else.",
+  "Combat.Terra.Supernova.Start": "You and your star both become still, the star emitting a gentle hum as you focus on gathering energy within it.",
+  "Combat.Terra.Supernova.Gather": "The humming of your star gets louder, resonating with the earth, as you continue to focus.",
+  "Combat.Terra.Supernova.Exec1": "The star's humming reaches a climax. Slowly, it begins to expand, nearly doubling in diameter before suddenly exploding with a cataclysmic outburst of force. The earth is rent asunder by the shockwave and the entire area is blanketed by a storm of fire, lava, and solid shards of rock.",
+  "Combat.Terra.Supernova.Exec2": "[pg]Unable to resist the force of the supernova, your charred and mangled body collapses to the ground, barely clinging to life. You can only hope that your enemies are worse off than you.",
+  "Combat.Terra.Supernova.Hit": "[pg-][Themonster] is left badly injured, but regrettably not defeated.",
+  "Combat.Terra.Supernova.GatherButton": "Gather Energy"
+}

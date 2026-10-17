@@ -1,0 +1,10 @@
+{
+  // 原版 Lethice.gropehands()（Lethice.hx:849-855）：
+  // 第三阶段第 5 回合固定使用（不在 MonsterAI 列表里，由 phase3 的分支直接调用）。
+  id: "coc:lethice_gropehands"
+  type: "support"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:lethice_gropehands"
+}

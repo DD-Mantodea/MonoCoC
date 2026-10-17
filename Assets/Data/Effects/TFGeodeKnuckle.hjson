@@ -1,0 +1,11 @@
+{
+  // 原版 Terra 形态 Geode Knuckle 标记
+  id: "coc:tfgeodeknuckle"
+  nameKey: "Combat.Effect.TFGeodeKnuckle.Name"
+  descriptionKey: "Combat.Effect.TFGeodeKnuckle.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

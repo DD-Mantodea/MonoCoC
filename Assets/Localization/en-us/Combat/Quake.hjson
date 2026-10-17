@@ -1,0 +1,14 @@
+{
+  "Combat.Effect.TFQuake.Name": "Quake",
+  "Combat.Effect.TFQuake.Description": "The cracked earth remembers your quake.",
+  "Combat.Terra.Quake.Name": "Quake",
+  "Combat.Terra.Quake.Description": "Exert your magic on the earth, dealing light physical damage and causing foes to stumble.",
+  "Combat.Terra.Quake.Intro": "You slam your arms into the earth, sending tremors and a network of thin cracks across the battlefield, ",
+  "Combat.Terra.Quake.Topple": "toppling your foe as they stumble down against the trembling ground.",
+  "Combat.Terra.Quake.TopplePlural": "toppling your foes as they stumble down against the trembling ground.",
+  "Combat.Terra.Quake.Fail": "accomplishing little more than intimidation.",
+  "Combat.Terra.Quake.Stun": "[pg-][Themonster] [monster.is] stunned by the quake!",
+  "Combat.Terra.Quake.Retain": "[pg-][Themonster] manage[monster.s] to retain [monster.his] footing.",
+  "Combat.Terra.Quake.Damage": " ({0} damage)",
+  "Combat.Terra.Quake.Aftershocks": "[pg]Aftershocks of your quake rumble through the cracked earth.",
+}

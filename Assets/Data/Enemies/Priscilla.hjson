@@ -1,0 +1,28 @@
+{
+  // 原版 Priscilla（classes/scenes/monsters/Priscilla.hx）
+  enemies: [
+    {
+      id: "coc:priscilla"
+      type: "coc:priscilla"
+      nameKey: "Npcs.Priscilla.Name"
+      descriptionKey: "Npcs.Priscilla.Desc"
+      article: "the"
+      level: 20
+      bonusHealth: 425
+      lust: 35
+      strength: 95
+      toughness: 75
+      speed: 70
+      intelligence: 100
+      libido: 55
+      sensitivity: 35
+      corruption: 45
+      gems: 25
+      experience: 0
+      weaponAttack: 25
+      armorDef: 50
+      shieldBlock: 25
+      ai: "coc:priscilla_ai"
+    }
+  ]
+}

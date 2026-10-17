@@ -1,0 +1,30 @@
+{
+  // 原版 Phoenix.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:phoenix_ai"
+  actions: [
+    {
+      ability: "coc:phoenix_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:phoenix_double_slash"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:phoenix_fire_breath"
+      weight: 1
+      cost: 15
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:phoenix_lust_bang"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

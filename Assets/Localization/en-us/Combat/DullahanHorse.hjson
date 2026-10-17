@@ -1,0 +1,16 @@
+{
+  "Combat.DullahanHorse.Charge.Begin": "The dark knight begins charging at you, fearsome scythe outstretched!"
+  "Combat.DullahanHorse.Charge.Blind": "The knight misses you, too blinded for an accurate attack."
+  "Combat.DullahanHorse.Charge.Evade": "You anticipate the swing, dodging it thanks to your incredible evasive ability!"
+  "Combat.DullahanHorse.Charge.Flexibility": "You use your incredible flexibility to barely fold your body and avoid its attack!"
+  "Combat.DullahanHorse.Charge.Hit": "The long curved scythe hits you, tearing your flesh and dealing a tremendous amount of damage."
+  "Combat.DullahanHorse.Charge.Misdirection": "You use the techniques you learned to sidestep and completely avoid its attack!"
+  "Combat.DullahanHorse.Charge.Speed": "You successfully dodge its fearsome charge!"
+  "Combat.DullahanHorse.Charge.Step1": "The dark knight is nearly within your reach!"
+  "Combat.DullahanHorse.Charge.Step2": "The dark knight continues to charge towards you!"
+  "Combat.DullahanHorse.Charge.Swing": "Now within reach, the knight swings its scythe in a wide arc with a devastating attack! "
+  "Combat.DullahanHorse.Charge.Unhandled": "You successfully dodge its fearsome charge!"
+  "Combat.DullahanHorse.Charge.Waited": "Taking your time to prepare to dodge, you swiftly roll out of the way as soon as the knight begins its attack. The scythe merely scratches you, and the knight continues to gallop forward."
+  "Combat.DullahanHorse.Charge.Warn": "\\\nPreparing to dodge is probably a good idea."
+  "Combat.DullahanHorse.Stun": "The knight stops on its tracks and shakes its head before rearing its steed back to begin charging again. You've bought yourself some time!"
+}

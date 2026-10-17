@@ -1,0 +1,43 @@
+{
+  // 原版 classes/scenes/monsters/GoblinShaman.hx（由 monster.mjs 生成骨架后人工补 loot）
+  enemies: [
+    {
+      id: "coc:goblin_shaman"
+      // type 必须与 Contents/Enemies/Vanilla/GoblinShamanEnemy.cs 的 [Register] id 完全一致
+      type: "coc:goblin_shaman"
+      nameKey: "Npcs.GoblinShaman.Name"
+      descriptionKey: "Npcs.GoblinShaman.Desc"
+      article: "the"
+      level: 14
+      bonusHealth: 275
+      lust: 35
+      strength: 75
+      toughness: 50
+      speed: 70
+      intelligence: 87
+      libido: 45
+      sensitivity: 45
+      corruption: 60
+      // 原版 gems = Utils.rand(15) + 15，随机值在 GoblinShamanEnemy.ConfigureBody 里掷；这里只是占位
+      gems: 15
+      experience: 0
+      ai: "coc:goblin_shaman_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop().add(GOB_ALE, 5).add(W_STAFF, 1).add(FURLOIN, 1).add(MYSTRN1, 1).add(LIFERN1, 1)
+        //   .addMany(1, L_DRAFT, PINKDYE, BLUEDYE, ORANGDY, GREEN_D, PURPDYE)
+        { item: "coc:goblin_ale", weight: 5 }
+        { item: "coc:wizard_staff", weight: 1 }
+        { item: "coc:fur_loincloth", weight: 1 }
+        { item: "coc:lesser_mystic_ring", weight: 1 }
+        { item: "coc:lesser_life_ring", weight: 1 }
+        { item: "coc:lust_draft", weight: 1 }
+        { item: "coc:pink_dye", weight: 1 }
+        { item: "coc:blue_dye", weight: 1 }
+        { item: "coc:orange_dye", weight: 1 }
+        { item: "coc:green_dye", weight: 1 }
+        { item: "coc:purple_dye", weight: 1 }
+      ]
+    }
+  ]
+}

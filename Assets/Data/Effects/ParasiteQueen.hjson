@@ -1,0 +1,11 @@
+{
+  // 原版 StatusEffects.ParasiteQueen：寄生虫牺牲后的属性强化
+  id: "coc:parasite_queen"
+  nameKey: "Combat.Effect.ParasiteQueen.Name"
+  descriptionKey: "Combat.Effect.ParasiteQueen.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

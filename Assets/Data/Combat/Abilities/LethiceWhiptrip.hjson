@@ -1,0 +1,8 @@
+{
+  id: "coc:lethice_whiptrip"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:lethice_whiptrip"
+}

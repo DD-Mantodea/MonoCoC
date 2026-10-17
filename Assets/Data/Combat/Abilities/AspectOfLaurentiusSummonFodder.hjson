@@ -1,0 +1,8 @@
+{
+  id: "coc:aspect_of_laurentius_summon_fodder"
+  type: "magical"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:aspect_of_laurentius_summon_fodder"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "coc:corruption",
+  "default": 0,
+  "higherIsBetter": false,
+  "format": "int",
+  "visible": true
+}

@@ -1,0 +1,14 @@
+{
+  // 原版 WeaponEffects.hx 的命中特效文本
+  "Combat.WeaponEffects.DullahanDrain": "\nYou feel the scythe drain your life force.",
+  "Combat.WeaponEffects.Stun": "\n[Themonster] reels from the brutal blow, stunned.",
+  "Combat.WeaponEffects.BleedNo": "\n[Themonster] doesn't appear to be capable of bleeding!",
+  "Combat.WeaponEffects.Bleed": "\n[Themonster] bleeds profusely from the many bloody gashes left behind by your [weapon].",
+  "Combat.WeaponEffects.CorruptTease": "\n[Themonster] shivers and moans involuntarily from the whip's touches.",
+  "Combat.WeaponEffects.CorruptTeasePlural": "\n[Themonster] shiver and moan involuntarily from the whip's touches.",
+  "Combat.WeaponEffects.CorruptThrill": " You get a sexual thrill from it. ",
+  "Combat.WeaponEffects.LustPoison": "\n[Themonster] shivers as your weapon's 'poison' goes to work.",
+  "Combat.WeaponEffects.Coiled": "\n[Themonster] shivers and gets turned on from the whipping.",
+  "Combat.WeaponEffects.SummonedFade": "\nUnable to maintain the spell, your [weapon] vanishes.",
+  "Combat.WeaponEffects.StrongRecoil": "\\nThe weapon's recoil proves too strong for you! The firearm jumps and smacks you in the face, [b:stunning you!]"
+}

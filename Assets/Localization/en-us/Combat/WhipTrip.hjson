@@ -1,0 +1,10 @@
+{
+  "Combat.Effect.Tripped.Name": "Tripped",
+  "Combat.Effect.Tripped.Description": "Target is unbalanced, reducing speed by half.",
+  "Combat.Effect.Tripped.Expire": "[Themonster] is no longer unbalanced!",
+  "Combat.Special.WhipTrip.Name": "Whip Trip",
+  "Combat.Special.WhipTrip.Description": "Use your whip to trip your target! If successful, prevents movement and massively reduces speed for one turn.",
+  "Combat.Special.WhipTrip.Intro": "You react quickly to [themonster]'s attempt to flee, cracking your [weapon] on the ground and then swiftly lashing it towards [themonster]!",
+  "Combat.Special.WhipTrip.Hit": "\\nYou catch [monster.his] legs, halting [monster.him] in [monster.his] tracks! With a mighty pull, you cause [monster.him] to trip, falling face-first on the ground!",
+  "Combat.Special.WhipTrip.Miss": "\\nYou fail to catch [themonster], and [monster.he] manages to distance [monster.himself] from you!"
+}

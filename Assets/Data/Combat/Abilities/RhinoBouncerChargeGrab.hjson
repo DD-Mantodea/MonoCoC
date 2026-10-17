@@ -1,0 +1,9 @@
+{
+  id: "coc:rhino_bouncer_charge_grab"
+  type: "physical"
+  // 原版 MonsterAI.add(chargeGrab, ..., ChargingMelee)
+  range: "charging_melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:rhino_bouncer_charge_grab"
+}

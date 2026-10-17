@@ -1,0 +1,8 @@
+{
+  // Tamani：原版 new PregnancyStore(TAMANI_PREGNANCY_TYPE, TAMANI_PREGNANCY_INCUBATION)，
+  // 事件阈值 [96, 48]，玩家让她怀孕 216 小时（9 天）
+  id: "coc:tamani"
+  incubation: 216
+  events: [96, 48]
+  onBirth: "coc:tamani_birth"
+}

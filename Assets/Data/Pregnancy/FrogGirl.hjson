@@ -1,0 +1,14 @@
+{
+  // 原版 PregnancyStore.PREGNANCY_FROG_GIRL = 23 / INCUBATION_FROG_GIRL = 30
+  // 分娩：FrogGirlScene 自己实现 VaginalPregnancy + AnalPregnancy（Haxe 直接 register scene）。
+  id: "coc:frog_girl"
+  legacyId: 23
+  kind: "both"
+  special: "frog"
+  incubation: 30
+  fullTerm: "Pregnancy.Frog.Full"
+  deliveries: {
+    vaginal: "coc:delivery_frog_girl"
+    anal: "coc:delivery_frog_girl"
+  }
+}

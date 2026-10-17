@@ -1,0 +1,11 @@
+{
+  // 原版 Terra 形态 Scorch：战场火焰，敌人行动时受灼烧
+  id: "coc:tfscorch"
+  nameKey: "Combat.Effect.TFScorch.Name"
+  descriptionKey: "Combat.Effect.TFScorch.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

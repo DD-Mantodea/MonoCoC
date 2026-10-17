@@ -1,0 +1,11 @@
+{
+  // 原版 ChantedDebuff.hx：被咏唱减速
+  id: "coc:chanted"
+  nameKey: "Combat.Effect.Chanted.Name"
+  descriptionKey: "Combat.Effect.Chanted.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

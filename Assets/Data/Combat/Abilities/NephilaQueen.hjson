@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1801-1819 / :4270-4289 Nephila Queen（免费，NephilaQueen perk）
+  id: "coc:special_nephila_queen"
+  nameKey: "Combat.Special.NephilaQueen.Name"
+  descriptionKey: "Combat.Special.NephilaQueen.Description"
+  type: "physical"
+  category: "physical"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:can_nephila_queen"
+  disabledWhen: "coc:nephila_queen_disabled"
+  disabledTooltip: "Combat.Special.NephilaQueen.Disabled"
+  handler: "coc:special_nephila_queen"
+}

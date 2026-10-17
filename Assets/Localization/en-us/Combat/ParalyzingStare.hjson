@@ -1,0 +1,13 @@
+{
+  "Combat.Spell.ParalyzingStare.Name": "Paralyzing Stare",
+  "Combat.Spell.ParalyzingStare.Description": "Focus your gaze at your opponent, lowering their speed. The more you use this in a battle, the lesser effective it becomes.",
+  "Combat.Spell.ParalyzingStare.Silence": "You cannot talk to keep up the compulsion while you're having so much difficulty breathing.",
+  "Combat.Spell.ParalyzingStare.NoMind": "In the tight confines of this pod, there's no use making such an attack!\\n\\n",
+  "Combat.Spell.ParalyzingStare.NoEyes": "You try to find the beast's eyes to stare at them, but you soon realize, that it has none at all!\\n\\n",
+  "Combat.Spell.ParalyzingStare.Immune": "You attempt to apply your paralyzing stare at [themonster], but you soon realize, that [monster.he] is immune to your eyes, so you quickly back up.\\n\\n",
+  "Combat.Spell.ParalyzingStare.Shell": "As soon as your magic touches the multicolored shell around [themonster], it sizzles and fades to nothing. Whatever that thing is, it completely blocks your magic!\\n\\n",
+  "Combat.Spell.ParalyzingStare.Intro": "You open your mouth and, staring at [themonster], uttering calming words to soothe [monster.his] mind. The sounds bore into [themonster]'s mind, working and buzzing at the edges of [monster.his] resolve, suggesting, compelling, then demanding [monster.him] to look into your eyes. ",
+  "Combat.Spell.ParalyzingStare.Success": "[Themonster] can't help [monster.himself]... [monster.he] glimpses your eyes. [monster.he] looks away quickly, but [monster.he] can picture them in [monster.his] mind's eye, staring in at [monster.his] thoughts, making [monster.him] feel sluggish and unable to coordinate. Something about the helplessness of it feels so good... [monster.he] can't banish the feeling that really, [monster.he] wants to look into your eyes forever, for you to have total control over [monster.him]. ",
+  "Combat.Spell.ParalyzingStare.SpeedLoss": " ({0})",
+  "Combat.Spell.ParalyzingStare.Fail": "Like the snapping of a rubber band, reality falls back into its rightful place as [themonster] escapes your gaze.\\n\\n"
+}

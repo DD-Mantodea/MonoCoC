@@ -1,0 +1,13 @@
+{
+  "Scenes.Hellmouth.FireBreath.FireballHits": " careens into you with a jostling amount of force and flesh-charring heat! You're hit in full and are thrown back into the ground, burning and smoking!"
+  "Scenes.Hellmouth.FireBreath.FireballMisses": " narrowly misses you as you dash around frantically! The fireball crashes into the ground next to you, the resulting explosion making you relieved that you managed to dodge it."
+  "Scenes.Hellmouth.FireBreath.FlamesWarnMaw": "Flames whip around between her teeth, giving you your only warning before her jaw unlocks and opens in a hideous maw. A vast ball of fire "
+  "Scenes.Hellmouth.Hellmaw.MawBiteFail": "You fail to dodge or block in time, and she manages to sink her red-hot fangs into your flesh! Her teeth easily pierce your defenses, and you can do nothing but flail and throw her away, tensing your muscles over the absurd pain."
+  "Scenes.Hellmouth.Hellmaw.MawLunge": "The demon opens her hideous maw and growls, wisps of fire surrounding her sharp teeth. She suddenly lunges at you, ready to bite![pg-]"
+  "Scenes.Hellmouth.HellmouthBite.ArteryBleed": " She managed to tear into an artery in your body! <b>You are bleeding!</b>"
+  "Scenes.Hellmouth.HellmouthBite.BiteAnticipated": "You anticipate her attack and prepare to strike at the side of her head. The Hellmouth clenches her jaw shut and stumbles off to the side before you strike."
+  "Scenes.Hellmouth.HellmouthBite.FangsShoulder": "Her fangs sink into your shoulder, easily piercing your body. You groan in pain and push her away, rending your flesh and causing a grievous wound!"
+  "Scenes.Hellmouth.HellmouthBite.LeapingBite": "The demoness leaps forward, opening her mouth for a bite! "
+  "Scenes.Hellmouth.HellmouthSummon.SummonThroughMaw": "The demon stops pursuing you, opting instead to expand her maw. Crimson flames line her throat moments before recognizable claws begin to grasp at whatever they can find. To your surprise, an imp crawls out of Hellmouth's maw, answering her call from whatever depths she's capable of summoning from."
+  "Scenes.Hellmouth.Won.OpponentUncaring": "[pg]Your opponent doesn't seem to care."
+}

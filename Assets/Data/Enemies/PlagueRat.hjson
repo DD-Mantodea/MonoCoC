@@ -1,0 +1,31 @@
+{
+  // 原版 PlagueRat（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:plague_rat"
+      type: "coc:plague_rat"
+      nameKey: "Npcs.PlagueRat.Name"
+      article: "the"
+      level: 7
+      // 原版 bonusHP = 100 在 PlagueRatEnemy.Configure 里加成（这里留 0，避免重复叠加）
+      bonusHealth: 0
+      lust: 30
+      strength: 65
+      toughness: 30
+      speed: 80
+      intelligence: 20
+      libido: 55
+      sensitivity: 35
+      corruption: 100
+      gems: 30
+      experience: 0
+      ai: "coc:plague_rat_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop().add(consumables.MOUSECO, 3).add(consumables.INCUBID, 1)
+        { item: "coc:mouse_cocoa", weight: 3 }
+        { item: "coc:incubi_draft", weight: 1 }
+      ]
+    }
+  ]
+}

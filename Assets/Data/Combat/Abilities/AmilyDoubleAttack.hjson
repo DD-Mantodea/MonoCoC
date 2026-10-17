@@ -1,0 +1,9 @@
+{
+  id: "coc:amily_double_attack"
+  type: "physical"
+  // 原版 MonsterAI.add(..., ChargingMelee)
+  range: "charging_melee"
+  cost: 5
+  cooldown: 0
+  handler: "coc:amily_double_attack"
+}

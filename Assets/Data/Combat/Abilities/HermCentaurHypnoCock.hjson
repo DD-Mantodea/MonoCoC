@@ -1,0 +1,8 @@
+{
+  id: "coc:herm_centaur_hypno_cock"
+  type: "magical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:herm_centaur_hypno_cock"
+}

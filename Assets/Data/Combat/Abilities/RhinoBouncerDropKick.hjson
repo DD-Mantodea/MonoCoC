@@ -1,0 +1,8 @@
+{
+  id: "coc:rhino_bouncer_drop_kick"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:rhino_bouncer_drop_kick"
+}

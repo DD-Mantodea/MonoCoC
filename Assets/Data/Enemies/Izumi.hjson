@@ -1,0 +1,29 @@
+{
+  // 原版 Izumi（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:izumi"
+      type: "coc:izumi"
+      nameKey: "Npcs.Izumi.Name"
+      descriptionKey: "Npcs.Izumi.Desc"
+      article: ""
+      level: 22
+      bonusHealth: 660
+      lust: 10
+      strength: 110
+      toughness: 90
+      speed: 90
+      intelligence: 80
+      libido: 30
+      sensitivity: 25
+      corruption: 15
+      gems: 0
+      experience: 0
+      ai: "coc:izumi_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

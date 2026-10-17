@@ -1,0 +1,24 @@
+{
+  // 原版 FrostGiant.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:frost_giant_ai"
+  actions: [
+    {
+      ability: "coc:frost_giant_giant_attack_punch"
+      weight: 6
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:frost_giant_giant_grab"
+      weight: 3
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:frost_giant_giant_boulder_throw"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

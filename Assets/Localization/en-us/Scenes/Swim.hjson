@@ -1,0 +1,14 @@
+{
+  "Scenes.Swim.FindLightRailAvenger.DeepUnderwaterObject": "[pg]The object is hidden pretty deep underwater, but, [if (isMer) {thanks to your aquatic form|[if (hasGills) {thanks to your gills|for some reason}]}], you don't feel shortness of breath. You've been underwater for several dozen seconds now, but you're absolutely fine. Staring at the reflection gives you breath and energizes you."
+  "Scenes.Swim.FindLightRailAvenger.DiveDownDecision": "[pg]You decide to dive down and see what it is."
+  "Scenes.Swim.FindLightRailAvenger.GlintAtBottom": "[pg]Suddenly, a glint at the bottom of the lake catches your eyes."
+  "Scenes.Swim.FindLightRailAvenger.InvestigateGlint": "[pg]You move in to investigate. It is a rather curious thing; the clouds have congregated in a way that the only ray of sunshine is beaming down onto the submerged metallic object. Its reflection is fierce, almost as bright as the sun itself."
+  "Scenes.Swim.FindLightRailAvenger.LakeCenterExhaustion": "You're near the center of the lake. Your limbs are burning with exhaustion, and it's becoming evident that there's nothing interesting to be found here."
+  "Scenes.Swim.FindLightRailAvenger.RetrieveSword": "[pg]You finally reach the object, and it's a sword, and a sheath nearby! It is stabbed deep on a rock, but you manage to pull it off with remarkable ease. You head back to the surface to better analyze your prize."
+  "Scenes.Swim.FindLightRailAvenger2.DullEdgeless": "[pg]You thumb at the sword's edge to check its sharpness, and, to your surprise, it is absolutely dull. You attempt to cut anything nearby, from wood to cloth to a strand of hair, but nothing works. What a lousy sword! Well, it may sell as decoration."
+  "Scenes.Swim.FindLightRailAvenger2.KatanaDescription": "[pg]It's a katana, with a matching wood sheath. The metal on the blade is marvelous, and the metal was forged in a way that resulted in a wavy pattern resembling a dragon throughout its length. The sheath is black, with exquisite red and gold drawings of dragons, and a red ribbon at its tip."
+  "Scenes.Swim.FindLightRailAvenger2.SurfaceWithSword": "You surface and look at the sword."
+  "Scenes.Swim.NothingSpecial.YouSwimForNearly": "{0}"
+  "Scenes.Swim.SwimExplore.GillsInvigorateDive": "Despite the slight taint to it, your gills invigorate you in water, and so you decide that it is worth the hazards, and dive in. "
+  "Scenes.Swim.TakeSword.TakeSwordDecoration": "Well, it would make for a pretty decent decoration for your camp. You take the sword, a bit disappointed with the result of your exploration."
+}

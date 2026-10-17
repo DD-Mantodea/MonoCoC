@@ -1,0 +1,30 @@
+{
+  // 原版 Sirius.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:sirius_ai"
+  actions: [
+    {
+      ability: "coc:sirius_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:sirius_poison_bite"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:sirius_man_naga_tease"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:sirius_naga_spit_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

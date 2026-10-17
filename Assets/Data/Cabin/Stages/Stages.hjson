@@ -1,0 +1,105 @@
+{
+  stages: [
+    {
+      id: "coc:cabin_stage_1"
+      descriptionKey: "Cabin.Stage.1.Description"
+      order: 1
+      hours: 1
+    }
+    {
+      id: "coc:cabin_stage_2"
+      nameKey: "Cabin.Stage.2.Name"
+      descriptionKey: "Cabin.Stage.2.Description"
+      order: 2
+      fatigue: 50
+      hours: 1
+    }
+    {
+      id: "coc:cabin_stage_3"
+      nameKey: "Cabin.Stage.3.Name"
+      descriptionKey: "Cabin.Stage.3.Description"
+      order: 3
+      hours: 1
+    }
+    {
+      id: "coc:cabin_stage_4"
+      nameKey: "Cabin.Stage.4.Name"
+      descriptionKey: "Cabin.Stage.4.Description"
+      order: 4
+      handler: "coc:cabin_study_guide"
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+    }
+    {
+      id: "coc:cabin_stage_5"
+      descriptionKey: "Cabin.Stage.5.Description"
+      order: 5
+      hours: 1
+    }
+    {
+      id: "coc:cabin_stage_6"
+      nameKey: "Cabin.Stage.6.Name"
+      descriptionKey: "Cabin.Stage.6.Description"
+      order: 6
+      fatigue: 100
+      hours: 8
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 100 }
+        { resource: "coc:cabin_wood", amount: 50 }
+      ]
+    }
+    {
+      id: "coc:cabin_stage_7"
+      nameKey: "Cabin.Stage.7.Name"
+      order: 7
+      fatigue: 100
+      hours: 8
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 200 }
+        { resource: "coc:cabin_wood", amount: 75 }
+      ]
+    }
+    {
+      id: "coc:cabin_stage_8"
+      nameKey: "Cabin.Stage.8.Name"
+      descriptionKey: "Cabin.Stage.8.Description"
+      order: 8
+      fatigue: 100
+      hours: 4
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 100 }
+        { resource: "coc:cabin_wood", amount: 50 }
+      ]
+    }
+    {
+      id: "coc:cabin_stage_9"
+      nameKey: "Cabin.Stage.9.Name"
+      order: 9
+      fatigue: 100
+      handler: "coc:cabin_mark_built"
+      requires: [
+        { type: "keyItem", item: "coc:carpenters_toolbox" }
+      ]
+      costs: [
+        { resource: "coc:cabin_nails", amount: 200 }
+        { resource: "coc:cabin_wood", amount: 50 }
+      ]
+    }
+    {
+      id: "coc:cabin_stage_10"
+      nameKey: "Cabin.Stage.10.Name"
+      descriptionKey: "Cabin.Stage.10.Description"
+      order: 10
+    }
+  ]
+}

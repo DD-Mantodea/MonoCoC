@@ -1,0 +1,8 @@
+{
+  id: "coc:sand_witch_mob_sandstones_are_cool"
+  type: "magical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:sand_witch_mob_sandstones_are_cool"
+}

@@ -1,0 +1,16 @@
+{
+  "Combat.Effect.ParasiteQueen.Name": "Parasite Queen",
+  "Combat.Effect.ParasiteQueen.Description": "Boosted by the sacrifice of your parasites.",
+  "Combat.Effect.NephilaQueen.Name": "Nephila Queen",
+  "Combat.Effect.NephilaQueen.Description": "Boosted by the sacrifice of your nephila parasites.",
+  "Combat.Special.ParasiteQueen.Name": "Parasite Queen",
+  "Combat.Special.ParasiteQueen.Description": "Sacrifice one of your parasites and gain points to Strength, Toughness and Speed.",
+  "Combat.Special.ParasiteQueen.Disabled": "You don't have enough parasites, they won't obey you!",
+  "Combat.Special.ParasiteQueen.Already": "You are already invigorated by the sacrifice of one of your parasites!",
+  "Combat.Special.ParasiteQueen.Text1": "You focus and send a mental order to your spawn to sacrifice themselves for the sake of their broodmother![pg]",
+  "Combat.Special.ParasiteQueen.Text2": "The parasites answer the call and sacrifice themselves for you. You feel your body grow with newfound power!",
+  "Combat.Special.NephilaQueen.Name": "Nephila Queen",
+  "Combat.Special.NephilaQueen.Description": "Sacrifice one of your parasites and gain increased intelligence.",
+  "Combat.Special.NephilaQueen.Disabled": "You don't have enough parasites, they won't obey you!",
+  "Combat.Special.NephilaQueen.Already": "You are already invigorated by the sacrifice of one of your parasites!"
+}

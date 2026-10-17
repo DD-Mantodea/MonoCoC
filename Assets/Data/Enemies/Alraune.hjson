@@ -1,0 +1,48 @@
+{
+  // 原版 classes.scenes.areas.swamp.Alraune
+  // 数值照构造函数；装备走「候选列表按权重抽一件」，数值覆盖写在 weaponAttack / armorDefense / shieldBlock / fireResistance。
+  enemies: [
+    {
+      id: "coc:alraune"
+      type: "coc:alraune"
+      nameKey: "Scenes.Alraune.Name"
+      descriptionKey: "Scenes.Alraune.Description"
+      article: "the"
+      level: 12
+      bonusHealth: 200
+      lust: 0
+      strength: 55
+      toughness: 70
+      speed: 10
+      intelligence: 60
+      libido: 50
+      sensitivity: 30
+      corruption: 60
+      gems: 15
+      experience: 0
+      ai: "coc:alraune_ai"
+
+      // 原版 weaponName = "vines" / weaponAttack = 25
+      // （原版没有对应的装备物品，名字只是显示用，武器/护甲名由 AlrauneEnemy 设置）
+      weaponAttack: 25
+
+      // 原版 armorName = "skin" / armorDef = 15
+      armorDefense: 15
+
+      // 原版 shieldName = "vines" / shieldBlock = 20
+      shieldBlock: 20
+
+      // 原版 fireRes = 1.5
+      fireResistance: 1.5
+
+      // 原版 drop：煤 / 桃子威士忌 / 南瓜籽 各 1，最后一条是空手
+      weightedLoot: true
+      loot: [
+        { item: "coc:coal", weight: 1 }
+        { item: "coc:peach_whiskey", weight: 1 }
+        { item: "coc:pumpkin_seed", weight: 1 }
+        { nothing: true, weight: 1 }
+      ]
+    }
+  ]
+}

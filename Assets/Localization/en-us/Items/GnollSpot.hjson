@@ -1,0 +1,112 @@
+{
+  "Items.GnollSpot.Desc": "A handful of dark chocolate drops. They have a spicy and slightly musky aroma that brings to mind a sunset on the savannah and passionate, wild rutting. These tiny treats seem to be a favourite of the gnolls of the plains."
+  "Items.GnollSpot.Long": "a bag of Gnoll Spots"
+  "Items.GnollSpot.Short": "Gnoll Spot"
+
+  // 原版 items/consumables/GnollSpot.hx:28 —— gnollScore() > 3 与否的两种开局
+  "Items.GnollSpot.Use": "You pop the chocolate drops in your mouth, surprised by the rich taste and smooth consistency. You feel a rush of energy surge through you, coupled with the desire to ambush your enemies."
+  "Items.GnollSpot.UseGnoll": "You pop the chocolate drops in your mouth, surprised by the rich taste and smooth consistency. You let out a cackling laugh as you feel a rush of energy surge through you, coupled with the desire to ambush your prey."
+
+  // 原版 GnollSpot.hx:32 —— 速度
+  "Items.GnollSpot.Speed": "[pg]You feel faster, ready to ambush your next fuck with a hunter's speed."
+
+  // 原版 GnollSpot.hx:37 —— 淫欲
+  "Items.GnollSpot.Libido": "[pg]You feel a rush of desire run through you, making you want to pin down the nearest partner and ride them like your submissive bitch[if (ismale) {, or better yet, to submit to their dominant will}]."
+
+  // 原版 GnollSpot.hx:42 —— 肌肉
+  "Items.GnollSpot.Tone": "[pg]Your muscles burn as they become more toned, making you feel more athletic."
+
+  // 原版 GnollSpot.hx:47 —— 体型
+  "Items.GnollSpot.Thickness": "[pg]You feel as though you've gained a little jiggle to your frame. Your plumper appearance makes you look softer."
+
+  // 原版 GnollSpot.hx:52 —— 淫荡
+  "Items.GnollSpot.Lust": "[pg]You luxuriate in the somewhat spicy undertone of the chocolate, enjoying the primal fantasies of rutting and breeding it conjures. Arousal surges through you, leaving you more turned on than before."
+
+  // 原版 GnollSpot.hx:57 / :61 —— 臀部缩小
+  "Items.GnollSpot.ButtFemale": "[pg]Your [butt] seems to have gotten smaller and more compact. Hopefully it'll be just as sexy."
+  "Items.GnollSpot.ButtMale": "[pg]Your [butt] seems to have gotten smaller and more compact. Hopefully it'll look just as good."
+
+  // 原版 GnollSpot.hx:66 —— 髋部缩小
+  "Items.GnollSpot.Hips": "[pg]Your [hips] seem to have narrowed slightly, your gait altering until you get used to their slimmer size."
+
+  // 原版 GnollSpot.hx:72 / :75 —— 身高向 60 英寸靠拢
+  "Items.GnollSpot.Shorter": "[pg]You groan as you feel yourself become shorter, your body squeezing itself down until the ground is somewhat closer than before."
+  "Items.GnollSpot.Taller": "[pg]You feel dizzy and slightly off, but quickly realize it's due to a sudden increase in height."
+
+  // 原版 GnollSpot.hx:87-94 —— 黏液形态固化
+  "Items.GnollSpot.GooIntro": "[pg]You feel tight, as if a membrane had formed around your liquid-like form. As you look at your [skin] you find that you're solidifying! At first you become more like a gemstone, your form solid and shiny, even finding it hard to move as the vibrant color of your gooey exterior fades. Before long you have become soft and fleshy again, the sensation somewhat alien to you after spending time as such a flexibly structured goo. When your new human form has finished its transition, you notice your"
+  "Items.GnollSpot.GooColor": " skin isn't the same color as it used to be. You now have {0} skin!"
+  "Items.GnollSpot.GooBody": " body isn't built as it used to be!"
+  "Items.GnollSpot.GooLegs": "[pg]You now have human legs!"
+
+  // 原版 GnollSpot.hx:98 —— 肤色成片变化
+  "Items.GnollSpot.Splotch": "[pg]You watch in shock as a {0} splotch appears on your arm, growing bigger by the second. It spreads in patches across your body until your previously [skintone] skin is one uniform color. Your skin is now {0}!"
+
+  // 原版 GnollSpot.hx:106 / :108 —— 鬣狗耳
+  "Items.GnollSpot.EarsMigrate": "[pg]The skin on the sides of your face stretches painfully as your ears migrate upwards, towards the top of your head."
+  "Items.GnollSpot.EarsWarm": "[pg]Your ears suddenly feel warm and as though they are changing shape."
+
+  // 原版 GnollSpot.hx:110 —— [if (hasfurryears)] 两分支
+  "Items.GnollSpot.EarsFurry": " They shift and elongate, before rounding out a little. Their fur shifts, becoming dark and coarse as they settle, your new ears are larger and more sensitive than before. You bet you could hear your prey miles away with these! You now have gnoll-ears!"
+  "Items.GnollSpot.EarsPlain": " They shift and elongate, before rounding out a little. Dark fur rapidly covers them as they settle, your new ears are larger and more sensitive than before. You bet you could hear your prey miles away with these! You now have gnoll-ears!"
+
+  // 原版 GnollSpot.hx:117 / :119 —— 鬣狗尾
+  "Items.GnollSpot.TailMorph": "[pg]You feel an odd sensation in your tail as it changes shape. As you reach to touch it, you're greeted by the sensation of rough fur against your fingertips. When you turn to look at it you see that you now have a foot long canid tail, coated in rough tawny fur. Spots of [skintone] are sprinkled along its length. You now have a gnoll tail!"
+  "Items.GnollSpot.TailNew": "[pg]A pressure builds on your backside. You feel [if (!isnakedlower) {under your clothes|above your [butt]}] and discover an odd bump that seems to be growing larger by the moment. In seconds it passes between your fingers, [if (!isnakedlower) {bursts out the back of your clothes, }]and grows to about a foot long. A coat of rough spotted fur springs up to cover your new tail. You now have a gnoll tail!"
+
+  // 原版 GnollSpot.hx:127 —— 鬣狗腿
+  "Items.GnollSpot.Legs": "[pg]You let out a sharp cry as you feel the bones in your legs cracking and rearranging. Once the pain subsides you look down to find you now have digitigrade feet, ending in padded paws tipped with sharp black claws. As tawny fur rapidly covers them, [skintone] spots also appear from your thighs down. You have feet like that of a gnoll!"
+
+  // 原版 GnollSpot.hx:133 —— 鬣狗手臂
+  "Items.GnollSpot.Arms": "[pg]You scratch your biceps absentmindedly, but no matter how much you try, you can't get rid of the itch. After a longer moment of ignoring it, you finally glance down in irritation, only to discover that your arms are now coated in spotted fur! On further investigation you find your hands now have soft black pads and sharp claws. You now have arms like that of a gnoll!"
+
+  // 原版 GnollSpot.hx:140 —— 鬣狗脸
+  "Items.GnollSpot.Face": "[pg]Your face is wracked with pain. You throw back your head and scream in agony as your cheekbones break and shift, reforming into something...different. You feel a muzzle form and a wet nose press against your exploring hands. Once you feel the pain subside, curiosity blooms. You find a puddle to view your reflection...your face is now like that of a hyena, a perpetual smirk gracing your lips while sharp predatory fangs remind others you're the alpha here. That is if your fiery orange eyes don't make them submit already. You now have a gnoll face!"
+
+  // 原版 GnollSpot.hx:146 —— 鬣狗毛皮
+  "Items.GnollSpot.SkinFur": "[pg]Your skin itches intensely. You gaze down as more and more hairs break forth from your skin, quickly transforming into a coat of short, shaggy fur.[pg]Your body is now coated, head to toe in a rough coat of tawny fur. A pattern of [skintone] spots adorns your new pelt."
+
+  // 原版 GnollSpot.hx:155 —— 鳃闭合
+  "Items.GnollSpot.Gills": "[pg]You suddenly struggle to breathe as you feel a pinching around your neck. As you gasp for air, you realize why. Your gills have closed up and disappeared, leaving only your [skin] behind."
+
+  // 原版 GnollSpot.hx:161 —— 多余眼睛消失
+  "Items.GnollSpot.ExtraEyes": "[pg]You blink and stumble, a wave of vertigo threatening to pull your [feet] from under you. As you steady yourself and open your eyes, you realize something seems different. Your vision is changed somehow. Your extra eyes are gone!"
+
+  // 原版 GnollSpot.hx:173 / :176 —— 蛋蛋收紧
+  "Items.GnollSpot.BallsShrink": "[pg]You feel a delicate tightening around your [balls]. The sensation upon this most sensitive part of your anatomy isn't painful, but the feeling of your balls getting smaller is intense enough that you stifle anything more than a sharp intake of breath only with difficulty."
+  "Items.GnollSpot.Uniball": "[pg]You whimper as once again, your balls tighten and shrink. Your eyes widen when you feel the gentle weight of your testicles pushing against the top of your [thighs], and with a few hesitant swings of your rear, you confirm what you can feel--you've tightened your balls up so much they no longer hang beneath your [cock], but press perkily upwards. With heat ringing in your ears, you explore your new sack with a careful hand. You are deeply grateful you apparently haven't neutered yourself, but you discover that though you still have [ballcount], your balls now look and feel like one: one cute, tight little sissy parcel, its warm, insistent pressure upwards upon the joining of your thighs a never-ending reminder of it."
+
+  // 原版 GnollSpot.hx:214 —— 阴蒂变大
+  "Items.GnollSpot.Clit": "[pg]Your heart begins beating harder and harder as heat floods to your groin. You feel your clit peeking out from under its hood, growing larger and longer as it takes in more and more blood. Eventually it shrinks back down but seems to retain a little of the volume."
+
+  // 原版 GnollSpot.hx:222 —— 乳头变黑
+  "Items.GnollSpot.NipplesBlack": "[pg]A tickling sensation plucks at your nipples, making you cringe as you try not to giggle. Looking down, you are in time to see the last spot of flesh tone disappear from your [nipples]. They have turned an onyx black!"
+
+  // 原版 GnollSpot.hx:229 —— 阴部变黑
+  "Items.GnollSpot.VaginaBlack": "[pg]Your [pussy] feels...odd. You undo your clothes and gingerly inspect your nether regions. The tender pink color of your sex has disappeared, replaced with smooth, marble blackness starting at your lips and working inwards. After a few cautious touches you decide it doesn't feel any different--it does certainly look odd, though. Your vagina is now ebony in color."
+
+  // 原版 GnollSpot.hx:244-248 —— 鬣狗屌
+  "Items.GnollSpot.CockGrow1": "[pg]Your [cock {0}] clenches painfully, becoming achingly, throbbingly erect. "
+  "Items.GnollSpot.CockGrowSheath": "A tightness seems to squeeze around the base, and you wince as you see your skin and flesh shifting forwards into a canine-looking sheath. "
+  "Items.GnollSpot.CockGrow2": "You shudder as the crown of your prick reshapes into a point, the sensations nearly too much for you. You throw back your head as the transformation completes, your gnoll-shaped dong much thicker than it ever was before. You now have a black knotted gnoll-cock."
+
+  // 原版 GnollSpot.hx:259 / :261 —— 精液量
+  "Items.GnollSpot.CumSack": "[pg]You feel a churning in your [balls]. It quickly settles, leaving them feeling somewhat more dense. A bit of milky pre dribbles from your [cock], pushed out by the change."
+  "Items.GnollSpot.CumGut": "[pg]You feel a churning in your gut. A bit of milky pre dribbles from your [cock], pushed out by the change within you."
+
+  // 原版 GnollSpot.hx:286 —— 结变大
+  "Items.GnollSpot.KnotGrow": "[pg]Your [cock {0}] feels unusually tight as your knot grows."
+  "Items.GnollSpot.KnotGrowSheath": "[pg]Your [cock {0}] feels unusually tight in your sheath as your knot grows."
+
+  // 原版 GnollSpot.hx:295 / :299 —— 最小的一根消失/变短
+  "Items.GnollSpot.CockRemove": "[pg]You double over in pain[if (!isnakedlower) {, wrenching off your [armor]}] as you feel something happen to your [cock {0}]. You grip your shaft, watching as it grows smaller, but no matter how you try to get it to stop, the transformation continues. Your manhood shrinks into your body, disappearing completely. You now have {1}."
+  "Items.GnollSpot.CockShorten": "[pg]You feel a tightness in your groin, like someone tugging on your shaft from behind you. Once the sensation fades, you check [if (!isnakedlower) {inside your [armor]|just what happened] and see that your [cock {0}] has shrunk to a slightly shorter length."
+
+  // 原版 GnollSpot.hx:309 / :315 —— 单屌长度
+  "Items.GnollSpot.CockSizeUp": "[pg]Your [cock] suddenly grows hard, dripping pre as it reaches its full length. The sudden hard-on fades as quickly as it arrived, leaving you with a slightly slick member, which you wipe [if (isNaked) {clean.|off before putting back in your [lowergarment]}]. Now that you look at it, it seems to be a bit bigger than before."
+  "Items.GnollSpot.CockSizeDown": "[pg]You double over in pain[if (isNaked) {, wrenching off your [lowergarment]}] as you feel something happen to your [cock]. Your shaft is painfully hard as you grip it, jerking yourself to completion with a feverish compulsion. As you spill your load, the powerful jets of spunk splash against the ground and the tight feeling in your cock fades. You carefully clean yourself up, soon realising your [cock] seems to be shorter."
+
+  // 原版 GnollSpot.hx:326 / :330 —— 胸部
+  "Items.GnollSpot.BreastShrink": "[pg]Your breasts feel tight, [if (!isnakedupper) {your [armor] seeming looser around your upper body.|as if your [skin] was firmly squeezing them.}] You watch in shock as your breast flesh rapidly diminishes, shrinking into your chest. It finally stops when they reach {0} size. You feel a little lighter."
+  "Items.GnollSpot.BreastGrow": "[pg]Your breasts feel tender, filled with pliable heat as they grow larger, finally stopping as they reach {0} size. You rub your sensitive orbs as you get used to your now larger and weightier chest."
+}

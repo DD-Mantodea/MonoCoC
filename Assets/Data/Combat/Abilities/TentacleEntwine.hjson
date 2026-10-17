@@ -1,0 +1,12 @@
+{
+  id: "coc:tentacle_entwine"
+  type: "physical"
+  range: "ranged"
+  cost: 15
+  fatigueType: "physical"
+  cooldown: 0
+  when: "coc:tentacle_ready"
+  power: 1
+  handler: "coc:tentacle_entwine"
+}
+

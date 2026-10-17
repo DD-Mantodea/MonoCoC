@@ -1,0 +1,15 @@
+{
+  "Combat.Special.TailSlam.Name": "Tail Slam",
+  "Combat.Special.TailSlam.Description": "Slam your foe with your mighty dragon tail! This attack causes grievous harm and can stun your opponent or let it bleed. The more you stun your opponent, the harder it is to stun them again.",
+  "Combat.Special.TailSlam.Miss": "You swing your mighty tail, but your attack finds purchase on naught but the air.[pg]",
+  "Combat.Special.TailSlam.Hit": "With a great sweep, you slam your opponent with your powerful tail. [Monster.a][monster.short] reels from the impact, knocked flat on [monster.his] bum, battered and bruised.",
+  "Combat.Special.TailSlam.HitPlural": "With a great sweep, you slam your opponents with your powerful tail. [Monster.a][monster.short] reel from the impact, knocked flat on [monster.his] bum, battered and bruised.",
+  "Combat.Special.TailSlam.Stun": " [b: The harsh blow also manages to stun [themonster]!]",
+  "Combat.Special.TailSlam.Bleed": "[pg-][Themonster] bleeds profusely from the many bloody punctures your tail spikes leave behind.",
+  "Combat.Special.TailSlam.BleedPlural": "[pg-][Themonster] bleed profusely from the many bloody punctures your tail spikes leave behind.",
+  "Combat.Special.TailSlam.NoBleedStatue": "Despite the rents you've torn in its stony exterior, the statue does not bleed."
+  "Combat.TailSlam.YouSwingYourMighty": "You swing your mighty tail, but your attack finds purchase on naught but the air.[pg]",
+  "Combat.TailSlam.WithGreatSweepYou": "With a great sweep, you slam your [if (monster.plural) {opponents|opponent}] with your powerful tail. [Monster.a][monster.short] [if (monster.plural) {reel|reels}] from the impact, knocked flat on [monster.his] bum, battered and bruised.",
+  "Combat.TailSlam.TheHarshBlowAlso": " [b: The harsh blow also manages to stun [themonster]!]",
+  "Combat.TailSlam.MonsterPluralProfuselyFrom": "[pg-][Themonster] [if (monster.plural) {bleed|bleeds}] profusely from the many bloody punctures your tail spikes leave behind."
+}

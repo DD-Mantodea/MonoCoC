@@ -1,0 +1,13 @@
+{
+  // 原版 CirceSummonedScimitar（层数=剑数）+ CirceScimitarBuff（回合末执行斩击）；
+  // C# 合并为一条状态：Values[0] 记剑数，onRound 执行斩击。
+  id: "coc:circe_summoned_scimitar"
+  nameKey: "Combat.Effect.CirceScimitar.Name"
+  descriptionKey: "Combat.Effect.CirceScimitar.Description"
+  kind: "combat"
+  duration: 0
+  stacking: "stack"
+  maxStacks: 3
+  combatOnly: true
+  onRound: "coc:effect_circe_scimitar_round"
+}

@@ -1,0 +1,9 @@
+{
+  // 原版 SuccubusGardener.sicem()（SuccubusGardener.hx:250-269）
+  id: "coc:succubus_gardener_sicem"
+  type: "tease"
+  range: "omni"
+  cost: 0
+  cooldown: 0
+  handler: "coc:succubus_gardener_sicem"
+}

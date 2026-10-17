@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1253 abilityFunc: divineWind（cost 20，availableWhen KnowsDivineWind，
+  // disabledWhen 已有 DivineWind 状态）
+  id: "coc:spell_divine_wind"
+  nameKey: "Combat.Spell.DivineWind.Name"
+  descriptionKey: "Combat.Spell.DivineWind.Description"
+  type: "magical"
+  category: "white"
+  range: "ranged"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 0
+  knownWhen: "coc:knows_divine_wind"
+  disabledWhen: "coc:divine_wind"
+  handler: "coc:spell_divine_wind"
+}

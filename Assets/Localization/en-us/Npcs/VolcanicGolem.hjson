@@ -1,0 +1,4 @@
+{
+  "Npcs.VolcanicGolem.Desc": "Before you stands a colossal construct of stone, easily [if (metric) {5 meters|16 feet}] tall and [if (metric) {almost two meters|more than 6 feet}] wide from shoulder to shoulder. Its body is composed of several rock plates of differing shapes and sizes. In the gap between the plates, you can see into the golem's interior, which is red hot, filled with what appears to be molten lava. Whenever it moves or attacks, magma spills from between the gaps, a result of the incredible pressure and weight in every movement it performs."
+  "Npcs.VolcanicGolem.Name": "Volcanic Golem"
+}

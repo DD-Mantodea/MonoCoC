@@ -1,0 +1,23 @@
+{
+  enemies: [
+    {
+      id: "coc:izma"
+      type: "coc:izma"
+      nameKey: "Enemies.Izma.Name"
+      descriptionKey: "Enemies.Izma.Desc"
+      level: 15
+      bonusHealth: 330
+      lust: 20
+      strength: 80
+      toughness: 90
+      speed: 85
+      intelligence: 65
+      libido: 75
+      sensitivity: 25
+      corruption: 40
+      gems: 1
+      experience: 200
+      ai: ""
+    }
+  ]
+}

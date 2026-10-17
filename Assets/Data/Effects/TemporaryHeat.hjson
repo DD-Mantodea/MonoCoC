@@ -1,0 +1,10 @@
+{
+  id: "coc:temporary_heat"
+  nameKey: "Combat.Effect.TemporaryHeat.Name"
+  descriptionKey: "Combat.Effect.TemporaryHeat.Description"
+  kind: "combat"
+  duration: 24
+  stacking: "refresh"
+  combatOnly: true
+  onRound: "coc:effect_temporary_heat_round"
+}

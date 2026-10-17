@@ -1,0 +1,10 @@
+{
+  id: "coc:sandstorm"
+  nameKey: "Combat.Effect.Sandstorm.Name"
+  descriptionKey: "Combat.Effect.Sandstorm.Description"
+  kind: "combat"
+  duration: 0
+  stacking: "refresh"
+  combatOnly: true
+  onRound: "coc:effect_sandstorm_round"
+}

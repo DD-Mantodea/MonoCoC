@@ -1,0 +1,30 @@
+{
+  code: "en-us"
+  name: "English"
+  order: "0"
+
+  fonts: {
+    body: {
+      family: "pala"
+      fallback: [ "ShanHaiJingLingWuYuW-2" ]
+      size: 20
+      bold: "palab"
+      italic: "palai"
+      boldItalic: "palabi"
+    }
+    input: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 16 }
+    menu: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 16 }
+    menuBold: { family: "palab", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 16 }
+    sidebarTitle: { family: "palab", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 22 }
+    sidebar: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 18 }
+    button: { family: "Shrewsbury-Titling Bold", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 20 }
+    tooltipHeader: { family: "Shrewsbury-Titling Bold", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 20 }
+    tooltipBody: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 15 }
+    search: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 14 }
+    settingsBody: { family: "NotoSerif-Regular", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 20 }
+    settingsSmall: { family: "NotoSerif-Regular", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 14 }
+    settingsBold: { family: "NotoSerif-Bold", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 20 }
+    settingsTitle: { family: "georgia", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 36 }
+    switcher: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 18 }
+  }
+}

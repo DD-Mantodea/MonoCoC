@@ -1,0 +1,8 @@
+{
+  id: "coc:corrupted_witch_force_queen"
+  type: "magical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:corrupted_witch_force_queen"
+}

@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1432-1445 / :3105-3143 Possess（cooldown 3，Incorporeality）
+  id: "coc:spell_possess"
+  nameKey: "Combat.Spell.Possess.Name"
+  descriptionKey: "Combat.Spell.Possess.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 0
+  fatigueType: "magical"
+  cooldown: 3
+  availableWhen: "coc:knows_possess"
+  handler: "coc:spell_possess"
+}

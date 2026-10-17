@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1070-1085 / :6337-6378 Carnal Burn（cost tfFatigue(80,4)，cooldown 4，精通≥3）
+  id: "coc:tf_carnal_burn"
+  nameKey: "Combat.Terra.CarnalBurn.Name"
+  descriptionKey: "Combat.Terra.CarnalBurn.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 80
+  fatigueType: "magical"
+  cooldown: 4
+  availableWhen: "coc:can_tf_carnal_burn"
+  disabledWhen: "coc:carnal_burn_lethal"
+  disabledTooltip: "Combat.Terra.CarnalBurn.Disabled"
+  handler: "coc:tf_carnal_burn"
+}

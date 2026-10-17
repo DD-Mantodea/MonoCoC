@@ -1,0 +1,57 @@
+{
+  // 原版 Alraune.performCombatAction 的权重与条件：
+  //   扎根：entangle×2（玩家还得能动）/ whip×2 / tease×2 / uproot×1
+  //   起身：charge×3 / lash×3 / root×1
+  id: "coc:alraune_ai"
+  actions: [
+    {
+      ability: "coc:alraune_entangle"
+      weight: 2
+      cost: 5
+      fatigueType: "physical"
+      when: "coc:alraune_can_entangle"
+    }
+    {
+      ability: "coc:alraune_whip"
+      weight: 2
+      cost: 5
+      fatigueType: "physical"
+      when: "coc:alraune_is_rooted"
+    }
+    {
+      ability: "coc:alraune_tease"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+      when: "coc:alraune_is_rooted"
+    }
+    {
+      ability: "coc:alraune_uproot"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+      when: "coc:alraune_is_rooted"
+    }
+    {
+      ability: "coc:alraune_charge"
+      weight: 3
+      cost: 15
+      fatigueType: "physical"
+      when: "coc:alraune_is_uprooted"
+    }
+    {
+      ability: "coc:alraune_lash"
+      weight: 3
+      cost: 10
+      fatigueType: "physical"
+      when: "coc:alraune_is_uprooted"
+    }
+    {
+      ability: "coc:alraune_root"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+      when: "coc:alraune_is_uprooted"
+    }
+  ]
+}

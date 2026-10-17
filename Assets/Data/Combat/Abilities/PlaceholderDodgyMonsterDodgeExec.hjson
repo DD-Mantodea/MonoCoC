@@ -1,0 +1,8 @@
+{
+  id: "coc:placeholder_dodgy_monster_dodge_exec"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:placeholder_dodgy_monster_dodge_exec"
+}

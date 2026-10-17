@@ -1,0 +1,7 @@
+{
+  id: "coc:amily"
+  nameKey: "Npcs.Amily.Name"
+  scene: "coc:amily"
+  combat: ""
+  hostile: false
+}

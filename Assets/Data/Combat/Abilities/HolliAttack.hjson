@@ -1,0 +1,9 @@
+{
+  id: "coc:holli_attack"
+  type: "physical"
+  // 原版 MonsterAI.add(..., FlyingMelee)
+  range: "flying_melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:holli_attack"
+}

@@ -1,0 +1,29 @@
+{
+  // 原版 SandWitchMob（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:sand_witch_mob"
+      type: "coc:sand_witch_mob"
+      nameKey: "Npcs.SandWitchMob.Name"
+      descriptionKey: "Npcs.SandWitchMob.Desc"
+      article: "the"
+      level: 4
+      bonusHealth: 80
+      lust: 30
+      strength: 25
+      toughness: 25
+      speed: 35
+      intelligence: 45
+      libido: 55
+      sensitivity: 40
+      corruption: 30
+      gems: 15
+      experience: 0
+      ai: "coc:sand_witch_mob_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

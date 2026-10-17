@@ -1,0 +1,38 @@
+{
+  // 原版 MinotaurKing.performCombatAction（MinotaurKing.hx:107-123）
+  // 注意：原版是手写的带实例计数器的选招，C# 侧由 MinotaurKingEnemy.BeforeCombatAction + ChooseCombatAction
+  // 完整覆写，这张表只保留每条动作的消耗记录（原版全部 0 疲劳），不参与实际运行。
+  id: "coc:minotaur_king_ai"
+  actions: [
+    {
+      ability: "coc:minotaur_king_dickslap"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minotaur_king_headbutt"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minotaur_king_backhand"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minotaur_king_battleaxe"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minotaur_king_mino_pheromones"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

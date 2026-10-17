@@ -1,0 +1,47 @@
+{
+  // 原版 classes/scenes/monsters/IvorySuccubus.hx（由 monster.mjs 生成骨架后人工补 loot）
+  enemies: [
+    {
+      id: "coc:ivory_succubus"
+      // type 必须与 Contents/Enemies/Vanilla/IvorySuccubusEnemy.cs 的 [Register] id 完全一致
+      type: "coc:ivory_succubus"
+      nameKey: "Npcs.IvorySuccubus.Name"
+      descriptionKey: "Npcs.IvorySuccubus.Desc"
+      article: "the"
+      level: 12
+      bonusHealth: 300
+      // 原版 lust = 17 + Utils.rand(7)，随机值在 IvorySuccubusEnemy.Configure 里掷；这里只是占位
+      lust: 17
+      strength: 75
+      toughness: 60
+      speed: 80
+      intelligence: 70
+      libido: 66
+      sensitivity: 30
+      corruption: 100
+      // 原版 gems = Utils.rand(10) + 15，随机值在 IvorySuccubusEnemy.Configure 里掷；这里只是占位
+      gems: 10
+      experience: 0
+      ai: "coc:ivory_succubus_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop()
+        //   .add(consumables.SUCMILK, 19).add(consumables.CLEARLN, 19)
+        //   .add(consumables.W__BOOK, 18).add(consumables.B__BOOK, 18)
+        //   .add(weapons.SILWHIP, 10).add(jewelries.SILVRNG, 5)
+        //   .add(jewelries.MYSTRN1, 5).add(jewelries.PLATRNG, 1)
+        //   .add(jewelries.MYSTRN2, 1).add(armors.IVCRSET, 4)
+        { item: "coc:succubi_milk", weight: 19 }
+        { item: "coc:clear_lotion", weight: 19 }
+        { item: "coc:white_book", weight: 18 }
+        { item: "coc:black_book", weight: 18 }
+        { item: "coc:silver_whip", weight: 10 }
+        { item: "coc:silver_ring", weight: 5 }
+        { item: "coc:lesser_mystic_ring", weight: 5 }
+        { item: "coc:platinum_ring", weight: 1 }
+        { item: "coc:mystic_ring", weight: 1 }
+        { item: "coc:ivory_corset", weight: 4 }
+      ]
+    }
+  ]
+}

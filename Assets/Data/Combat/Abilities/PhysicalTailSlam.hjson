@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1913-1928 / :5253-5305 Tail Slam（cost 20，cooldown 3，龙尾）
+  id: "coc:special_tail_slam"
+  nameKey: "Combat.Special.TailSlam.Name"
+  descriptionKey: "Combat.Special.TailSlam.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 20
+  fatigueType: "physical"
+  cooldown: 3
+  availableWhen: "coc:has_dragon_tail"
+  handler: "coc:special_tail_slam"
+}

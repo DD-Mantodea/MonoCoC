@@ -1,0 +1,5 @@
+{
+  "Combat.Reward.Gems": "You gain {0} gems and {1:0} XP."
+  "Combat.Reward.LootMany": "You found {0}x {1}."
+  "Combat.Reward.LootOne": "You found {0}."
+}

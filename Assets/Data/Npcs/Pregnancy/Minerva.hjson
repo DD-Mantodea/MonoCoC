@@ -1,0 +1,7 @@
+{
+  // 原版 MinervaScene.hx:17 new PregnancyStore(MINERVA_PREGNANCY_TYPE, MINERVA_PREGNANCY_INCUBATION)
+  // 原版 MinervaScene.hx:18 addPregnancyEventSet(PREGNANCY_PLAYER, [216, 144, 72])
+  id: "coc:minerva"
+  incubation: 216
+  events: [216, 144, 72]
+}

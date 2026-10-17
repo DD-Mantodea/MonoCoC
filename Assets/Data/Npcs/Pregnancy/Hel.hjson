@@ -1,0 +1,8 @@
+{
+  // HelScene.hx:19 new PregnancyStore(HELIA_PREGNANCY_TYPE, HEL_PREGNANCY_INCUBATION)
+  // HelScene.hx:20 addPregnancyEventSet(PREGNANCY_PLAYER, [300, 200, 100])
+  // HelSpawnScene.hx:360/474/485 knockUpForce(PREGNANCY_PLAYER, INCUBATION_SALAMANDER)；PregnancyStore.hx:93 INCUBATION_SALAMANDER = 336
+  id: "coc:hel"
+  incubation: 336
+  events: [300, 200, 100]
+}

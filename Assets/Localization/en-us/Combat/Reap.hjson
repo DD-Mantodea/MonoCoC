@@ -1,0 +1,9 @@
+{
+  "Combat.Special.Reap.Name": "Reap",
+  "Combat.Special.Reap.Description": "Use your own health as fuel for your scythe's unholy power and attempt to reap the enemy. Damage is multiplied if it would finish off an enemy.",
+  "Combat.Special.Reap.Intro": "You twist your body, coiling and bringing the razor sharp edge of the Dullahan's scythe to your back. You focus on its unholy power, and you feel it drain your life force as the world around you dims, enveloped by darkness.",
+  "Combat.Special.Reap.Mid": "[pg]After all light vanishes, you uncoil, and a single flash dashes past your foe. The overwhelming darkness dissipates like smoke, crawling back and converging on the glistening silver blade of your scythe.",
+  "Combat.Special.Reap.Miss1": "\\nAs the battlefield lights up again, you notice you've failed to hit your foe!",
+  "Combat.Special.Reap.Miss2": "[pg]You failed to reap your foe, and the scythe's hunger for life damages you!",
+  "Combat.Special.Reap.Hit": "[pg]As the battlefield lights up again, your foe's wound explodes with dark energy, heavily damaging [monster.him]! "
+}

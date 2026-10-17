@@ -1,0 +1,8 @@
+{
+  id: "coc:dullahan_disarm"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:dullahan_disarm"
+}

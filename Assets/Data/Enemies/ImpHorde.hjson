@@ -1,0 +1,29 @@
+{
+  // 原版 ImpHorde（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:imp_horde"
+      type: "coc:imp_horde"
+      nameKey: "Npcs.ImpHorde.Name"
+      descriptionKey: "Npcs.ImpHorde.Desc"
+      article: "the"
+      level: 10
+      bonusHealth: 450
+      lust: 10
+      strength: 20
+      toughness: 10
+      speed: 25
+      intelligence: 12
+      libido: 45
+      sensitivity: 45
+      corruption: 100
+      gems: 0
+      experience: 0
+      ai: "coc:imp_horde_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

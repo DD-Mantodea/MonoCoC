@@ -1,0 +1,13 @@
+{
+  id: "coc:spell_tk_blast"
+  nameKey: "Combat.Spell.TKBlast.Name"
+  descriptionKey: "Combat.Spell.TKBlast.Description"
+  type: "magical"
+  category: "gray"
+  range: "ranged"
+  cost: 30
+  fatigueType: "magical"
+  cooldown: 3
+  knownWhen: "coc:knows_tk_blast"
+  handler: "coc:spell_tk_blast"
+}

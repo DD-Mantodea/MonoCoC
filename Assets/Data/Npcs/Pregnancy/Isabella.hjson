@@ -1,0 +1,9 @@
+{
+  // IsabellaScene.hx:21 new PregnancyStore(ISABELLA_PREGNANCY_TYPE, ISABELLA_PREGNANCY_INCUBATION)
+  // IsabellaScene.hx:22 addPregnancyEventSet(PREGNANCY_PLAYER, [2160, 1920, 1680, 1440, 1200, 960, 720, 480, ISABELLA_PREGNANCY_LAST_STAGE])
+  // IsabellaScene.hx:47 ISABELLA_PREGNANCY_LAST_STAGE = 240
+  // PregnancyStore.hx:97 INCUBATION_ISABELLA = 2160
+  id: "coc:isabella"
+  incubation: 2160
+  events: [2160, 1920, 1680, 1440, 1200, 960, 720, 480, 240]
+}

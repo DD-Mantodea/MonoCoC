@@ -1,0 +1,12 @@
+{
+  // 原版 StatusEffects.OnFire：每回合按记录值受到火焰伤害
+  id: "coc:on_fire"
+  nameKey: "Combat.Effect.OnFire.Name"
+  descriptionKey: "Combat.Effect.OnFire.Description"
+  kind: "timed"
+  duration: 1
+  stacking: "refresh"
+  maxStacks: 10
+  combatOnly: true
+  onRound: "coc:effect_on_fire_round"
+}

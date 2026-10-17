@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1683-1699 / :4484-4505 Fan Shot（cost 100-12*弓精通）
+  id: "coc:special_fan_shot"
+  nameKey: "Combat.Special.FanShot.Name"
+  descriptionKey: "Combat.Special.FanShot.Description"
+  type: "physical"
+  category: "physical"
+  range: "ranged"
+  cost: 100
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:can_fan_shot"
+  handler: "coc:special_fan_shot"
+}

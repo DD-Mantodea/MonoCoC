@@ -1,0 +1,51 @@
+{
+  // 原版 Aiko（BaseKitsune 派生）：纯结/堕落两种形态用两个敌人条目表示
+  enemies: [
+    {
+      id: "coc:aiko_pure"
+      type: "coc:aiko"
+      nameKey: "Npcs.Aiko.Name"
+      descriptionKey: "Npcs.Aiko.DescPure"
+      level: 18
+      bonusHealth: 350
+      lust: 25
+      strength: 25
+      toughness: 30
+      speed: 90
+      intelligence: 100
+      libido: 40
+      sensitivity: 65
+      corruption: 0
+      gems: 35
+      experience: 200
+      ai: "coc:aiko_pure_ai"
+      weightedLoot: true
+      loot: [
+        { item: "coc:fox_jewel", weight: 1 }
+      ]
+    }
+    {
+      id: "coc:aiko_corrupt"
+      type: "coc:aiko"
+      nameKey: "Npcs.Aiko.Name"
+      descriptionKey: "Npcs.Aiko.DescCorrupt"
+      level: 18
+      bonusHealth: 350
+      lust: 25
+      strength: 25
+      toughness: 30
+      speed: 90
+      intelligence: 100
+      libido: 40
+      sensitivity: 65
+      corruption: 100
+      gems: 35
+      experience: 200
+      ai: "coc:aiko_corrupt_ai"
+      weightedLoot: true
+      loot: [
+        { item: "coc:fox_jewel", weight: 1 }
+      ]
+    }
+  ]
+}

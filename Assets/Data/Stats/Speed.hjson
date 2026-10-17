@@ -1,0 +1,7 @@
+{
+  "id": "coc:speed",
+  "default": 0,
+  "higherIsBetter": true,
+  "format": "int",
+  "visible": true
+}

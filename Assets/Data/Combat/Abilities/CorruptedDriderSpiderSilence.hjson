@@ -1,0 +1,8 @@
+{
+  id: "coc:corrupted_drider_spider_silence"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:corrupted_drider_spider_silence"
+}

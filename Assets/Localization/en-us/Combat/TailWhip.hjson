@@ -1,0 +1,10 @@
+{
+  "Combat.Special.TailWhip.Name": "Tail Whip",
+  "Combat.Special.TailWhip.Description": "Whip your foe with your tail to enrage them and lower their defense! Reduces armor by 75%.",
+  "Combat.Special.TailWhip.Miss": "Twirling like a top, you swing your tail, but connect with only empty air.",
+  "Combat.Special.TailWhip.Hit": "Twirling like a top, you bat your opponent with your tail. For a moment, [monster.he] looks disbelieving, as if [monster.his] world turned upside down, but [monster.he] soon becomes irate and redoubles [monster.his] offense, leaving large holes in [monster.his] guard. If you're going to take advantage, it had better be right away; [monster.he]'ll probably cool off very quickly.",
+  "Combat.Special.TailWhip.HitPlural": "Twirling like a top, you bat your opponent with your tail. For a moment, [monster.he] look disbelieving, as if [monster.his] world turned upside down, but [monster.he] soon become irate and redouble [monster.his] offense, leaving large holes in [monster.his] guard. If you're going to take advantage, it had better be right away; [monster.he]'ll probably cool off very quickly.",
+  "Combat.Special.TailWhip.GolemHit": "Twirling like a top, you hit the Golem, and manage to slap away a few of its armor plates before the heat becomes unbearable.",
+  "Combat.Special.TailWhip.WearsOff": "<b>Tail whip wears off!</b>[pg]",
+  "Combat.Special.TailWhip.StillReduced": "<b>Tail whip is currently reducing your foe's defense!</b>[pg]"
+}

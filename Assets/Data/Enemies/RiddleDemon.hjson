@@ -1,0 +1,28 @@
+{
+  // 原版 RiddleDemon（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:riddle_demon"
+      type: "coc:riddle_demon"
+      nameKey: "Npcs.RiddleDemon.Name"
+      descriptionKey: "Npcs.RiddleDemon.Desc"
+      article: "the"
+      level: 30
+      bonusHealth: 3000
+      lust: 0
+      strength: 60
+      toughness: 180
+      speed: 110
+      intelligence: 120
+      libido: 75
+      sensitivity: 50
+      corruption: 100
+      gems: 0
+      experience: 0
+      ai: "coc:riddle_demon_ai"
+      // 原版 drop = NO_DROP（RiddleDemon.hx:122）
+      loot: [
+      ]
+    }
+  ]
+}

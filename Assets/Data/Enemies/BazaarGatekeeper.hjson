@@ -1,0 +1,29 @@
+{
+  // 原版 BazaarGatekeeper（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:gatekeeper"
+      type: "coc:gatekeeper"
+      nameKey: "Npcs.BazaarGatekeeper.Name"
+      descriptionKey: "Npcs.BazaarGatekeeper.Desc"
+      article: "the"
+      level: 30
+      bonusHealth: 1750
+      lust: 0
+      strength: 100
+      toughness: 100
+      speed: 80
+      intelligence: 70
+      libido: 15
+      sensitivity: 10
+      corruption: 55
+      gems: 0
+      experience: 0
+      ai: "coc:gatekeeper_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

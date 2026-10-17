@@ -1,0 +1,9 @@
+{
+  // 原版 SuccubusGardener.vineHeal()（SuccubusGardener.hx:132-174）
+  id: "coc:succubus_gardener_vine_heal"
+  type: "support"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:succubus_gardener_vine_heal"
+}

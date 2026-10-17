@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1592-1608 / :3686-3730 Anemone Sting（cooldown 3，海葵发）
+  id: "coc:special_anemone_sting"
+  nameKey: "Combat.Special.AnemoneSting.Name"
+  descriptionKey: "Combat.Special.AnemoneSting.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 3
+  availableWhen: "coc:has_anemone_hair"
+  handler: "coc:special_anemone_sting"
+}

@@ -1,0 +1,20 @@
+{
+  id: coc:weapon_shop
+  titleKey: "Scenes.Teladre.Weaponshop.Title"
+  descriptionKey: "Scenes.Teladre.Weaponshop.Desc"
+  markup: 1.0
+  items: [
+      { item: coc:wingstick }
+      { item: coc:large_claymore }
+      { item: coc:warhammer }
+      { item: coc:katana }
+      { item: coc:spear }
+      { item: coc:whip }
+      { item: coc:wizard_staff }
+      { item: coc:spiked_gauntlets }
+      { item: coc:dagger }
+      { item: coc:scimitar }
+      { item: coc:mace }
+      { item: coc:flail }
+  ]
+}

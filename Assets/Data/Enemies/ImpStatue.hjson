@@ -1,0 +1,29 @@
+{
+  // 原版 ImpStatue（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:imp_statue"
+      type: "coc:imp_statue"
+      nameKey: "Npcs.ImpStatue.Name"
+      descriptionKey: "Npcs.ImpStatue.Desc"
+      article: ""
+      level: 22
+      bonusHealth: 400
+      lust: 30
+      strength: 40
+      toughness: 50
+      speed: 80
+      intelligence: 50
+      libido: 60
+      sensitivity: 60
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:imp_statue_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

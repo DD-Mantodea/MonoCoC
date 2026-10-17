@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:2073 / :6691 Vine Grab（cost 10，vine armor stage > 4）
+  id: "coc:vine_grab"
+  nameKey: "Combat.VineGrab.Name"
+  descriptionKey: "Combat.VineGrab.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 10
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:vine_grab_ready"
+  handler: "coc:vine_grab"
+}

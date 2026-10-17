@@ -1,0 +1,9 @@
+{
+  "Scenes.Plains.Discover.KneeHighGrassPlains": "You find yourself standing in knee-high grass, surrounded by flat plains on all sides. Though the mountain, forest, and lake are all visible from here, they seem quite distant."
+  "Scenes.Plains.Discover.PlainsUnlocked": "[pg]<b>You've discovered the plains!</b>"
+  "Scenes.Plains.FindKangaFruit.KangaFruitPlant": "While exploring the plains you come across a strange-looking plant. As you peer at it, you realize it has some fruit you can get at. "
+  "Scenes.Plains.FindOviElix.DiscardedOviBottle": "While exploring the plains you nearly trip over a discarded, hexagonal bottle. "
+  "Scenes.Plains.WalkingPlainsStatBoost.PlainsSpeedGain": "The long run has made you quicker."
+  "Scenes.Plains.WalkingPlainsStatBoost.PlainsToughnessGain": "The long run has made you tougher."
+  "Scenes.Plains.WalkingPlainsStatBoost.UneventfulPlainsRun": "You run through the endless plains for an hour, finding nothing.[pg]"
+}

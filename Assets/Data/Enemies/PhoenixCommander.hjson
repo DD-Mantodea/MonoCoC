@@ -1,0 +1,29 @@
+{
+  // 原版 PhoenixCommander（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:phoenix_commander"
+      type: "coc:phoenix_commander"
+      nameKey: "Npcs.PhoenixCommander.Name"
+      descriptionKey: "Npcs.PhoenixCommander.Desc"
+      article: "the"
+      level: 20
+      bonusHealth: 450
+      lust: 20
+      strength: 70
+      toughness: 60
+      speed: 120
+      intelligence: 80
+      libido: 40
+      sensitivity: 45
+      corruption: 50
+      gems: 25
+      experience: 0
+      ai: "coc:phoenix_commander_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

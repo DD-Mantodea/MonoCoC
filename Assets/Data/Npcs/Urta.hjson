@@ -1,0 +1,7 @@
+{
+  id: "coc:urta"
+  nameKey: "Npcs.Urta.Name"
+  scene: "coc:urta"
+  combat: ""
+  hostile: false
+}

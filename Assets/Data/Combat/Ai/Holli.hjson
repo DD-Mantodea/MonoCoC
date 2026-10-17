@@ -1,0 +1,33 @@
+{
+  // 原版 Holli.performCombatAction（Holli.hx:222）：回血权重 .5（限 hp < 50%），
+  // 束缚只在玩家没被束缚时进表，其余两招等权 1。
+  id: "coc:holli_ai"
+  actions: [
+    {
+      ability: "coc:holli_heal_holli"
+      weight: 0.5
+      cost: 0
+      fatigueType: "none"
+      when: "coc:holli_can_heal"
+    }
+    {
+      ability: "coc:holli_constrict_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+      when: "coc:holli_can_constrict"
+    }
+    {
+      ability: "coc:holli_fuckin_jamanji_flower_darts"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:holli_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

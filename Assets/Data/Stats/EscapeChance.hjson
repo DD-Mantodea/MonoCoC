@@ -1,0 +1,7 @@
+{
+  "id": "coc:escape_chance",
+  "default": 0,
+  "higherIsBetter": true,
+  "format": "percent",
+  "visible": true
+}

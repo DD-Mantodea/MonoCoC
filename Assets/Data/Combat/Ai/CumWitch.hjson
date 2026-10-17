@@ -1,0 +1,48 @@
+{
+  // 原版 CumWitch.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:cum_witch_ai"
+  actions: [
+    {
+      ability: "coc:cum_witch_cum_magic_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:cum_witch_bukkake_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:cum_witch_cocknosis_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:cum_witch_shell_defense"
+      weight: 3
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:cum_witch_gender_confusion_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:cum_witch_cum_hunger_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:cum_witch_sand_witch_cunt_heals"
+      weight: 99
+      cost: 10
+      fatigueType: "magicalHeal"
+    }
+  ]
+}

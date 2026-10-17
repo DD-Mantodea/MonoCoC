@@ -1,0 +1,7 @@
+{
+  id: "coc:hel"
+  nameKey: "Npcs.Hel.Name"
+  scene: "coc:hel"
+  combat: ""
+  hostile: false
+}

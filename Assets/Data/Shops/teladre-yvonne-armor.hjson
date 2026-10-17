@@ -1,0 +1,19 @@
+{
+  id: coc:yvonne_armor
+  titleKey: "Scenes.YvonneArmorShop.Title"
+  descriptionKey: "Scenes.YvonneArmorShop.Desc"
+  markup: 1.0
+  items: [
+      { item: coc:chain_bikini }
+      { item: coc:chainmail }
+      { item: coc:plate_armor }
+      { item: coc:skimpy_armor }
+      { item: coc:leather_robes }
+      { item: coc:scale_armor }
+      { item: coc:samurai_armor }
+      { item: coc:buckler }
+      { item: coc:kite_shield }
+      { item: coc:greatshield }
+      { item: coc:tower_shield }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  id: "coc:kitsune_entwine"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  isSelf: false
+  handler: "coc:kitsune_entwine"
+}

@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1762-1776 Infest（cost 40，Infested 状态 5 层 + 有鸡巴）
+  id: "coc:special_infest"
+  nameKey: "Combat.Special.Infest.Name"
+  descriptionKey: "Combat.Special.Infest.Description"
+  type: "physical"
+  category: "physical"
+  range: "ranged"
+  cost: 40
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:can_infest"
+  handler: "coc:special_infest"
+}

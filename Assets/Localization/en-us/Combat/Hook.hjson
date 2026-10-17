@@ -1,0 +1,6 @@
+{
+  "Combat.Hook.FearImmune": "Your foe appears to be immune to your fear."
+  "Combat.Hook.FearRecovered": "Your foe shakes free of its fear and readies itself for battle."
+  "Combat.Hook.FearShivering": "Your foe is too busy shivering with fear to fight."
+  "Combat.Hook.Stunned": "Your foe is too dazed from your last hit to strike back!"
+}

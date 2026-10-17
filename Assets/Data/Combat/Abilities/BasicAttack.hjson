@@ -1,0 +1,7 @@
+{
+  id: "coc:basic_attack"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+}

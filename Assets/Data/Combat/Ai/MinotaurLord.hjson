@@ -1,0 +1,36 @@
+{
+  // 原版 MinotaurLord.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:minotaur_lord_ai"
+  actions: [
+    {
+      ability: "coc:minotaur_lord_minotaur_drank_malk"
+      weight: 1
+      cost: 10
+      fatigueType: "magicalHeal"
+    }
+    {
+      ability: "coc:minotaur_lord_minotaur_disarm"
+      weight: 0.25
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:minotaur_lord_entangle"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:minotaur_lord_minotaur_precum_tease"
+      weight: 0.5
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minotaur_lord_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

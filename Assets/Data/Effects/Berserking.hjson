@@ -1,0 +1,12 @@
+{
+  // 原版 BerserkBuff.hx：武器/身体伤害 +30，护甲按 ColdFury 减半或归零
+  id: "coc:berserking"
+  nameKey: "Combat.Effect.Berserking.Name"
+  descriptionKey: "Combat.Effect.Berserking.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onExpire: "coc:effect_berserking_expire"
+}

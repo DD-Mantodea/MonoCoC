@@ -1,0 +1,240 @@
+{
+  enemies: [
+    {
+      id: "coc:akbal"
+      type: "coc:akbal"
+      nameKey: "Npcs.Akbal.Name"
+      descriptionKey: "Npcs.Akbal.Desc"
+      level: 6
+      bonusHealth: 20
+      lust: 30
+      strength: 55
+      toughness: 53
+      speed: 50
+      intelligence: 75
+      libido: 50
+      sensitivity: 50
+      corruption: 100
+      gems: 15
+      experience: 150
+      ai: "coc:akbal_ai"
+      weightedLoot: true
+      loot: [
+        { item: "coc:incubi_draft", weight: 4 }
+        { item: "coc:whisker_fruit", weight: 3 }
+        { item: "coc:akbal_saliva", weight: 2 }
+        { item: "coc:pipe", weight: 1 }
+      ]
+    }
+    {
+      id: "coc:akbal_fierce"
+      type: "coc:akbal"
+      nameKey: "Npcs.AkbalFierce.Name"
+      descriptionKey: "Npcs.AkbalFierce.Desc"
+      level: 15
+      bonusHealth: 200
+      lust: 20
+      strength: 65
+      toughness: 63
+      speed: 65
+      intelligence: 85
+      libido: 30
+      sensitivity: 30
+      corruption: 100
+      gems: 25
+      experience: 250
+      ai: "coc:akbal_fierce_ai"
+      weightedLoot: true
+      loot: [
+        { item: "coc:incubi_draft", weight: 4 }
+        { item: "coc:whisker_fruit", weight: 3 }
+        { item: "coc:akbal_saliva", weight: 2 }
+        { item: "coc:pipe", weight: 1 }
+      ]
+    }
+    {
+      id: "coc:goblin"
+      type: "coc:goblin"
+      nameKey: "Npcs.Goblin.Name"
+      descriptionKey: "Npcs.Goblin.Desc"
+      level: 1
+      health: 90
+      lust: 50
+      strength: 12
+      toughness: 13
+      speed: 35
+      intelligence: 42
+      libido: 45
+      sensitivity: 45
+      corruption: 60
+      gems: 5
+      experience: 10
+      ai: "coc:goblin_ai"
+      defeatScene: "coc:goblin_victory"
+      victoryScene: "coc:goblin_defeat"
+      loot: [
+        { item: "coc:goblin_ale", chance: 0.2 }
+      ]
+    }
+    {
+      id: "coc:lumberjack"
+      type: "coc:lumberjack"
+      nameKey: "Npcs.Lumberjack.Name"
+      descriptionKey: "Npcs.Lumberjack.Desc"
+      level: 6
+      health: 200
+      lust: 50
+      strength: 40
+      toughness: 40
+      speed: 25
+      intelligence: 35
+      libido: 80
+      sensitivity: 70
+      corruption: 100
+      gems: 15
+      experience: 50
+      ai: "coc:lumberjack_ai"
+      defeatScene: "coc:lumberjack"
+      victoryScene: "coc:lumberjack"
+    }
+      {
+      id: "coc:tentacle_beast"
+      type: "coc:tentacle_beast"
+      nameKey: "Npcs.TentacleBeast.Name"
+      level: 6
+      health: 325
+      lust: 10
+      strength: 58
+      toughness: 25
+      speed: 35
+      intelligence: 45
+      libido: 90
+      sensitivity: 20
+      corruption: 100
+      gems: 5
+      experience: 40
+      ai: "coc:tentacle_beast_ai"
+      // 原版 TentacleBeast.hx：normalAttackAvoid.doParry / doCounter 均关闭
+      attackAvoid: {
+        parry: false
+        counter: false
+      }
+      loot: [
+        { item: "coc:pumpkin_seed", chance: 0.3333 }
+      ]
+    }
+    {
+      id: "coc:bee_girl"
+      type: "coc:bee_girl"
+      nameKey: "Npcs.BeeGirl.Name"
+      descriptionKey: "Npcs.BeeGirl.Desc"
+      level: 4
+      health: 170
+      lust: 20
+      strength: 30
+      toughness: 30
+      speed: 30
+      intelligence: 20
+      libido: 60
+      sensitivity: 55
+      corruption: 0
+      gems: 8
+      // 原版 XP 由 baseXP(4)+bonusXP(4) 得出（同级时 = 80）
+      experience: 80
+      ai: "coc:bee_girl_ai"
+      defeatScene: "coc:bee_girl"
+      victoryScene: "coc:bee_girl"
+      // 原版用 ChainedDrop：依次掷骰，命中即停，最后一条是兜底
+      chainLoot: true
+      loot: [
+        { item: "coc:ovi_elixir", chance: 0.1 }
+        { item: "coc:white_book", chance: 0.1 }
+        { item: "coc:bee_honey", chance: 0.5 }
+        { item: "coc:black_chitin" }
+      ]
+    }
+    {
+      id: "coc:tamani"
+      type: "coc:tamani"
+      nameKey: "Npcs.Tamani.Name"
+      descriptionKey: "Npcs.Tamani.Desc"
+      level: 4
+      // health 留 0 走 MaxHealth 公式，bonusHealth 对应原版 bonusHP = 40
+      health: 0
+      bonusHealth: 40
+      lust: 40
+      strength: 32
+      toughness: 43
+      speed: 55
+      intelligence: 62
+      libido: 65
+      sensitivity: 65
+      corruption: 50
+      gems: 5
+      // 原版 XP 由 baseXP(4)+bonusXP(4) 得出（同级时 = 80）
+      experience: 80
+      ai: "coc:tamani_ai"
+      defeatScene: "coc:tamani"
+      victoryScene: "coc:tamani"
+      // 原版 WeightedDrop：哥布林麦酒权重 4，其余各 1，最后一条是空手
+      weightedLoot: true
+      loot: [
+        { item: "coc:goblin_ale", weight: 4 }
+        { item: "coc:pink_dye", weight: 1 }
+        { item: "coc:blue_dye", weight: 1 }
+        { item: "coc:orange_dye", weight: 1 }
+        { item: "coc:purple_dye", weight: 1 }
+        { item: "coc:incubi_draft", weight: 1 }
+        { item: "coc:reducto", weight: 1 }
+        { item: "coc:blue_egg", weight: 1 }
+        { nothing: true, weight: 1 }
+      ]
+    }
+    {
+      id: "coc:dullahan"
+      type: "coc:dullahan"
+      nameKey: "Npcs.Dullahan.Name"
+      descriptionKey: "Npcs.Dullahan.Desc"
+      level: 18
+      health: 0
+      bonusHealth: 380
+      lust: 5
+      strength: 85
+      toughness: 70
+      speed: 80
+      intelligence: 60
+      libido: 40
+      sensitivity: 50
+      corruption: 15
+      gems: 30
+      // 原版 XP = baseXP(18) + bonusXP(18) = 128 + 98
+      experience: 226
+      ai: "coc:dullahan_ai"
+      defeatScene: "coc:dullahan"
+      victoryScene: "coc:dullahan"
+      // 原版 drop = new WeightedDrop()（空表，什么都不掉），所以这里不给 loot
+    }
+    {
+      id: "coc:dullahan_horse"
+      type: "coc:dullahan_horse"
+      nameKey: "Npcs.DullahanHorse.Name"
+      descriptionKey: "Npcs.DullahanHorse.Desc"
+      level: 18
+      health: 0
+      bonusHealth: 380
+      lust: 25
+      strength: 85
+      toughness: 70
+      speed: 100
+      intelligence: 60
+      libido: 40
+      sensitivity: 50
+      corruption: 15
+      gems: 30
+      // 原版 XP = baseXP(18) + bonusXP(18) = 128 + 98
+      experience: 226
+      defeatScene: "coc:dullahan"
+      victoryScene: "coc:dullahan"
+      // 没有 AI 表：performCombatAction 只调 knightCharge，由 BeforeCombatAction 全权接管
+    }]
+}

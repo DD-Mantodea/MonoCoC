@@ -1,0 +1,8 @@
+{
+  id: "coc:milky_succubus_drink_mino_cum"
+  type: "physical"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:milky_succubus_drink_mino_cum"
+}

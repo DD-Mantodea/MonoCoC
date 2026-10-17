@@ -1,0 +1,36 @@
+{
+  // 原版 Dullahan.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:dullahan_ai"
+  actions: [
+    {
+      ability: "coc:dullahan_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:dullahan_pommel_bash"
+      weight: 3
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:dullahan_disarm"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:dullahan_flurry_attack"
+      weight: 1
+      cost: 15
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:dullahan_horror"
+      weight: 1
+      cost: 15
+      fatigueType: "magical"
+    }
+  ]
+}

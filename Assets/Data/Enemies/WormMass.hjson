@@ -1,0 +1,35 @@
+{
+  // 原版 WormMass（src/classes/scenes/areas/mountain/WormMass.hx）
+  // 血量不走基类公式：WormMassEnemy.Configure 用 maxHP() = 40 + NG+×20 覆写。
+  enemies: [
+    {
+      id: "coc:worm_mass"
+      type: "coc:worm_mass"
+      nameKey: "Npcs.WormMass.Name"
+      descriptionKey: "Npcs.WormMass.Desc"
+      article: "the"
+      // 原版 Monster.plural = true；pronoun1-3 = they/them/their
+      plural: true
+      pronoun1: "they"
+      pronoun2: "them"
+      pronoun3: "their"
+      level: 3
+      // 原版 maxHP() = 40 + newGamePlusMod()*20（WormMass.hx:143-145）
+      bonusHealth: 0
+      lust: 30
+      strength: 35
+      toughness: 5
+      speed: 10
+      intelligence: 1
+      libido: 90
+      sensitivity: 60
+      corruption: 90
+      gems: 0
+      experience: 0
+      ai: "coc:worm_mass_ai"
+      // 原版 drop = NO_DROP（WormMass.hx:181）
+      loot: [
+      ]
+    }
+  ]
+}

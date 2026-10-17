@@ -1,0 +1,8 @@
+{
+  id: "coc:valkyrie_aerial_rave"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:valkyrie_aerial_rave"
+}

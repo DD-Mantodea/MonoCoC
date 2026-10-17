@@ -1,0 +1,17 @@
+{
+  // 原版 Priscilla.performCombatAction
+  id: "coc:priscilla_ai"
+  actions: [
+    { ability: "coc:priscilla_whitefire", weight: 1, cost: 15, fatigueType: "magical" }
+    { ability: "coc:priscilla_blind", weight: 1, cost: 8, fatigueType: "magical" }
+    { ability: "coc:priscilla_charge", weight: 1, cost: 10, fatigueType: "magical" }
+    { ability: "coc:priscilla_heal", weight: 1, cost: 15, fatigueType: "magical" }
+    { ability: "coc:priscilla_might", weight: 1, cost: 10, fatigueType: "magical" }
+    { ability: "coc:priscilla_arouse", weight: 1, cost: 10, fatigueType: "magical" }
+    { ability: "coc:goblin_elder_goblin_drug_attack", weight: 1, cost: 10, fatigueType: "physical" }
+    { ability: "coc:goblin_elder_goblin_tease_attack", weight: 1, cost: 0, fatigueType: "none" }
+    { ability: "coc:priscilla_slash", weight: 1, cost: 10, fatigueType: "physical" }
+    { ability: "coc:priscilla_shield_bash", weight: 1, cost: 10, fatigueType: "physical" }
+    { ability: "coc:goblin_elder_attack", weight: 1, cost: 0, fatigueType: "none" }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  id: "coc:shark_man_charge_pt_one"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:shark_man_charge_pt_one"
+}

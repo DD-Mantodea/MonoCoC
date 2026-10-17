@@ -1,0 +1,8 @@
+{
+  id: "coc:infested_chameleon_girl_goo_blind"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:infested_chameleon_girl_goo_blind"
+}

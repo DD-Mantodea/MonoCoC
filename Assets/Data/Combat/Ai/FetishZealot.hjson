@@ -1,0 +1,24 @@
+{
+  // 原版 FetishZealot.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:fetish_zealot_ai"
+  actions: [
+    {
+      ability: "coc:fetish_zealot_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:fetish_zealot_zealot_special_one"
+      weight: 1
+      cost: 5
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:fetish_zealot_zealot_special_two"
+      weight: 1
+      cost: 5
+      fatigueType: "magical"
+    }
+  ]
+}

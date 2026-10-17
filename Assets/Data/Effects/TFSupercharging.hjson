@@ -1,0 +1,11 @@
+{
+  // 原版 CombatAbilities.hx:6617 起：超新星蓄能标记
+  id: "coc:tf_supercharging"
+  nameKey: "Combat.Effect.TFSupercharging.Name"
+  descriptionKey: "Combat.Effect.TFSupercharging.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

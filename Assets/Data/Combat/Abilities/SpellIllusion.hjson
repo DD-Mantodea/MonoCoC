@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1510-1527 / :3347-3407 Illusion（cost 25，cooldown 3，EnlightenedNinetails）
+  id: "coc:spell_illusion"
+  nameKey: "Combat.Spell.Illusion.Name"
+  descriptionKey: "Combat.Spell.Illusion.Description"
+  type: "magical"
+  category: "magical"
+  range: "omni"
+  cost: 25
+  fatigueType: "magical"
+  cooldown: 3
+  availableWhen: "coc:knows_illusion"
+  handler: "coc:spell_illusion"
+}

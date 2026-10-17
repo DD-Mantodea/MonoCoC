@@ -1,0 +1,11 @@
+{
+  "Combat.Amarok.Claw.Blind": "The amarok lunges for you, attempting to slash you with one of its paws, but misses completely due to its blindness."
+  "Combat.Amarok.Claw.Hit": "The amarok throws itself at you and rakes one of its hefty paws across you. Its claws slice you open and draw blood."
+  "Combat.Amarok.Claw.Miss": "The amarok throws itself at you, attempting to slash you with its claws. Luckily, you manage to move out of the way."
+  "Combat.Amarok.Tail.HitLead": "The hit sends you stumbling back"
+  "Combat.Amarok.Tail.Lead": "The amarok rushes up to you and immediately turns heel, attempting to crash its tail into you. "
+  "Combat.Amarok.Tail.Miss": "You move out of the way before it can hit."
+  "Combat.Amarok.Tail.NotStunned": "."
+  "Combat.Amarok.Tail.Stunned": ", stunning you"
+  "Combat.Amarok.Won.CameWorms": "[pg]The amarok looks down at the worms you came, sniffs them, then snarls and walks away. It must consider you to be tainted meat."
+}

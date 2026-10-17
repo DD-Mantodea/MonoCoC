@@ -1,0 +1,8 @@
+{
+  id: "coc:cockatrice_sand_attack"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:cockatrice_sand_attack"
+}

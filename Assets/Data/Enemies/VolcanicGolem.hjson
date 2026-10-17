@@ -1,0 +1,29 @@
+{
+  // 原版 VolcanicGolem（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:volcanic_golem"
+      type: "coc:volcanic_golem"
+      nameKey: "Npcs.VolcanicGolem.Name"
+      descriptionKey: "Npcs.VolcanicGolem.Desc"
+      article: "the"
+      level: 50
+      bonusHealth: 0
+      lust: 0
+      strength: 125
+      toughness: 100
+      speed: 80
+      intelligence: 105
+      libido: 0
+      sensitivity: 0
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:volcanic_golem_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

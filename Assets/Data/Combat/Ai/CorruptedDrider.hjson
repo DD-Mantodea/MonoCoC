@@ -1,0 +1,54 @@
+{
+  // 原版 CorruptedDrider.performCombatAction（src/classes/scenes/areas/swamp/CorruptedDrider.hx:99）
+  // actionChoices.add(招式, 权重, 条件, 疲劳, 距离)
+  id: "coc:corrupted_drider_ai"
+  actions: [
+    {
+      ability: "coc:corrupted_drider_drider_masturbate"
+      weight: 20
+      cost: 10
+      fatigueType: "none"
+      when: "coc:corrupted_drider_can_masturbate"
+    }
+    {
+      ability: "coc:corrupted_drider_spider_silence"
+      weight: 20
+      cost: 10
+      fatigueType: "physical"
+      when: "coc:corrupted_drider_can_silence"
+    }
+    {
+      ability: "coc:corrupted_drider_spider_disarm"
+      weight: 20
+      cost: 10
+      fatigueType: "physical"
+      when: "coc:corrupted_drider_can_disarm"
+    }
+    {
+      ability: "coc:corrupted_drider_spider_morph_web_attack"
+      weight: 33
+      cost: 10
+      fatigueType: "physical"
+      when: "coc:corrupted_drider_can_web"
+    }
+    {
+      ability: "coc:corrupted_drider_drider_kiss"
+      weight: 25
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:corrupted_drider_attack"
+      weight: 25
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:corrupted_drider_approach"
+      weight: 10
+      cost: 15
+      fatigueType: "physical"
+      when: "coc:corrupted_drider_is_distant"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  // 原版 classes/scenes/camp/ScarredBlade.hx（level 17 被诅咒的剑）
+  // str80/tou100/spe75/inte50、lib0/sens0/cor100、weaponAttack 50、armorDef 15、bonusHP 400
+  // lust 0 且 lustVuln 0（非生物，挑逗无效）、gem 0、drop = B_SCARB（broken_scarred_blade）
+  enemies: [
+    {
+      id: "coc:scarred_blade"
+      type: "coc:scarred_blade"
+      article: "the"
+      level: 17
+      bonusHealth: 400
+      lust: 0
+      strength: 80
+      toughness: 100
+      speed: 75
+      intelligence: 50
+      libido: 0
+      sensitivity: 0
+      corruption: 100
+      gems: 0
+      experience: 0
+      weaponAttack: 50
+      armorDefense: 15
+      weightedLoot: true
+      loot: [
+        {
+          item: "coc:broken_scarred_blade"
+          chance: 1
+        }
+      ]
+    }
+  ]
+}

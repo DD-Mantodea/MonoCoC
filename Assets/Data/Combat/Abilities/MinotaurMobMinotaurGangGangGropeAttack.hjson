@@ -1,0 +1,8 @@
+{
+  id: "coc:minotaur_mob_minotaur_gang_gang_grope_attack"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:minotaur_mob_minotaur_gang_gang_grope_attack"
+}

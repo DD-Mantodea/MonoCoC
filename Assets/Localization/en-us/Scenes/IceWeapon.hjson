@@ -1,0 +1,8 @@
+{
+  // 原版 items/weapons/IceWeapon.hx:46-96 melt()
+  "Scenes.IceWeapon.VolcanicAttack": "[pg-]As you move to attack, the dripping [weapon] in your hands instantly melts, the water evaporating soon after. Maybe bringing a weapon made of ice into this searing heat wasn't the best idea.[pg-]"
+  "Scenes.IceWeapon.AttackMelt": "[pg-]Before you can manage to attack, the melting [weapon] breaks apart from the strain, leaving you weaponless.[pg-]"
+  "Scenes.IceWeapon.MeltAway": "[pg]Your ice weapon has melted away into uselessness.[pg]"
+  "Scenes.IceWeapon.AttackWeak": "[pg-]Your [weapon] is looking pretty weak from the heat and the stress of attacking. It won't last much longer, and probably won't do as much damage like this."
+  "Scenes.IceWeapon.Weak": "[pg]Your ice weapon isn't in very good shape; judging from the water dripping everywhere, it probably won't last much longer.[pg]"
+}

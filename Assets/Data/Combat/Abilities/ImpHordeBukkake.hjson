@@ -1,0 +1,8 @@
+{
+  id: "coc:imp_horde_bukkake"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:imp_horde_bukkake"
+}

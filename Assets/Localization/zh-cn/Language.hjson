@@ -1,0 +1,29 @@
+{
+  "Code": "zh-cn",
+  "Name": "简体中文",
+  "Order": 1,
+  // 还没翻译：缺的 key 回退到 en-us（LocalizationManager.Localize）
+  "Fallback": "en-us",
+  "Fonts": {
+    "Body": {
+      "Family": "pala",
+      "Fallback": [ "ShanHaiJingLingWuYuW-2" ],
+      "Size": 20,
+      "Bold": "palab",
+      "Italic": "palai",
+      "BoldItalic": "palabi"
+    },
+    "Input": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 16 },
+    "Menu": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 16 },
+    "MenuBold": { "family": "palab", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 16 },
+    "Button": { "family": "Shrewsbury-Titling Bold", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 18 },
+    "TooltipHeader": { "family": "Shrewsbury-Titling Bold", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 18 },
+    "TooltipBody": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 15 },
+    "Search": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 14 },
+    "SettingsBody": { "family": "NotoSerif-Regular", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 20 },
+    "SettingsSmall": { "family": "NotoSerif-Regular", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 14 },
+    "SettingsBold": { "family": "NotoSerif-Bold", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 20 },
+    "SettingsTitle": { "family": "georgia", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 36 },
+    "Switcher": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 18 }
+  }
+}

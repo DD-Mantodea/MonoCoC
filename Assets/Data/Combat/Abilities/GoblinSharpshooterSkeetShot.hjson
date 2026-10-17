@@ -1,0 +1,9 @@
+{
+  id: "coc:goblin_sharpshooter_skeet_shot"
+  type: "physical"
+  range: "ranged"
+  cost: 5
+  fatigueType: "physical"
+  cooldown: 0
+  handler: "coc:goblin_sharpshooter_skeet_shot"
+}

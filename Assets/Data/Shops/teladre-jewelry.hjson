@@ -1,0 +1,28 @@
+{
+  id: coc:jewelry
+  titleKey: "Scenes.JewelryShop.Title"
+  descriptionKey: "Scenes.JewelryShop.Desc"
+  markup: 1.0
+  items: [
+      { item: coc:silver_ring }
+      { item: coc:gold_ring }
+      { item: coc:platinum_ring }
+      { item: coc:diamond_ring }
+      { item: coc:lethicite_ring }
+      { item: coc:purity_ring }
+      { item: coc:crimstone_ring }
+      { item: coc:fertite_ring }
+      { item: coc:critical_ring }
+      { item: coc:regen_ring }
+      { item: coc:life_ring }
+      { item: coc:mystic_ring }
+      { item: coc:power_ring }
+      { item: coc:greater_crimstone_ring }
+      { item: coc:greater_fertite_ring }
+      { item: coc:greater_critical_ring }
+      { item: coc:greater_regen_ring }
+      { item: coc:greater_life_ring }
+      { item: coc:greater_mystic_ring }
+      { item: coc:greater_power_ring }
+  ]
+}

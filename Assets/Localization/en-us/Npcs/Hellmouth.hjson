@@ -1,0 +1,4 @@
+{
+  "Npcs.Hellmouth.Desc": "[BLIND] misses completely due to her blindness.[SPEED]You manage to dash to the side, avoiding her fiery lunge.[EVADE]You manage to dash to the side, avoiding her fiery lunge.[MISDIRECTION]Your misleading movements lead the creature to jump in the wrong direction, biting only scorched earth. You smirk, mocking your opponent.[FLEXIBILITY]You twist your body at the very last second, and the creature's teeth merely scratch you before she flies over you, crashing onto the ground.[BLOCK]You manage to raise your shield in the nick of time! Her teeth pierce through the shield, without harming you. You swing your shield-bearing arm outwards, throwing her away from you.[UNHANDLED]You manage to dash to the side, avoiding her fiery lunge.\" // TODO 原文含表达式，只取了字面量"
+  "Npcs.Hellmouth.Name": "Hellmouth"
+}

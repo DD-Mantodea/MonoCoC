@@ -1,0 +1,4 @@
+{
+  "Perks.BrutalBlows.Desc": "[if (str>=75) {Reduces enemy armor with each hit.|<b>You aren't strong enough to benefit from this anymore.</b>}]"
+  "Perks.BrutalBlows.Name": "Brutal Blows"
+}

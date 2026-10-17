@@ -1,0 +1,33 @@
+{
+  // 原版 LivingStatue.performCombatAction（LivingStatue.hx:191-211）
+  // 注意：原版是手写的选招，C# 侧由 LivingStatueEnemy.ChooseCombatAction 完整覆写，
+  // 这张表只保留与手写逻辑一致的权重记录（dirtKick 1 / concussiveBlow 1 / cycloneStrike 2 / overhandSmash 1），
+  // 不参与实际运行。
+  id: "coc:living_statue_ai"
+  actions: [
+    {
+      ability: "coc:living_statue_dirt_kick"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:living_statue_concussive_blow"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:living_statue_cyclone_strike"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:living_statue_overhand_smash"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

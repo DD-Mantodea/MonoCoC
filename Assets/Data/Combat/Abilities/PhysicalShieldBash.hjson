@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1919 Shield Bash（cost 30-2*盾精通，cooldown 3，range Melee）
+  id: "coc:special_shield_bash"
+  nameKey: "Combat.Special.ShieldBash.Name"
+  descriptionKey: "Combat.Special.ShieldBash.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 30
+  fatigueType: "physical"
+  cooldown: 3
+  availableWhen: "coc:has_shield_mastery"
+  handler: "coc:special_shield_bash"
+}

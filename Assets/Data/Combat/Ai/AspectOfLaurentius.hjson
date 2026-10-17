@@ -1,0 +1,7 @@
+{
+  // 原版 AspectOfLaurentius.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:aspect_of_laurentius_ai"
+  actions: [
+
+  ]
+}

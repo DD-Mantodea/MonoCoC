@@ -1,0 +1,8 @@
+{
+  id: "coc:ivory_succubus_lock_up"
+  type: "magical"
+  range: "omni"
+  cost: 20
+  cooldown: 0
+  handler: "coc:ivory_succubus_lock_up"
+}

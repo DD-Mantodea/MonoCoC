@@ -1,0 +1,36 @@
+{
+  // 原版 Cockatrice.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:cockatrice_ai"
+  actions: [
+    {
+      ability: "coc:cockatrice_sand_attack"
+      weight: 40
+      cost: 0
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:cockatrice_cocka_tease"
+      weight: 40
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:cockatrice_tail_swipe"
+      weight: 30
+      cost: 0
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:cockatrice_attack"
+      weight: 20
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:cockatrice_compulsion"
+      weight: 40
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

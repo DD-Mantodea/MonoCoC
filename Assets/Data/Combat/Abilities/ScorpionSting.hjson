@@ -1,0 +1,9 @@
+{
+  id: "coc:scorpion_sting"
+  type: "physical"
+  range: "melee"
+  cost: 15
+  fatigueType: "physical"
+  cooldown: 0
+  handler: "coc:scorpion_sting"
+}

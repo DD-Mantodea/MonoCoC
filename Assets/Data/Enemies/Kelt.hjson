@@ -1,0 +1,28 @@
+{
+  // 原版 Kelt（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:kelt"
+      type: "coc:kelt"
+      nameKey: "Npcs.Kelt.Name"
+      descriptionKey: "Npcs.Kelt.Desc"
+      article: ""
+      level: 6
+      bonusHealth: 200
+      lust: 40
+      strength: 60
+      toughness: 70
+      speed: 40
+      intelligence: 20
+      libido: 40
+      sensitivity: 25
+      corruption: 55
+      gems: 5
+      experience: 0
+      ai: "coc:kelt_ai"
+      // 原版 drop = NO_DROP（Kelt.hx:174），所以没有掉落表
+      loot: [
+      ]
+    }
+  ]
+}

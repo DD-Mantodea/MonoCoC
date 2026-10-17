@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:2505-2520 / :4062-4190 Naga Tease（免费，娜迦下半身）
+  id: "coc:special_naga_tease"
+  nameKey: "Combat.Special.NagaTease.Name"
+  descriptionKey: "Combat.Special.NagaTease.Description"
+  type: "tease"
+  category: "physical"
+  range: "tease"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:has_naga_lower_body"
+  handler: "coc:special_naga_tease"
+}

@@ -1,0 +1,13 @@
+{
+  "CharCreation.IsAMan.Button1": "Lean"
+  "CharCreation.IsAMan.Button2": "Average"
+  "CharCreation.IsAMan.Button3": "Thick"
+  "CharCreation.IsAMan.Button3Child": "Chubby"
+  "CharCreation.IsAMan.Button4": "Girly"
+  "CharCreation.IsAMan.Button4Elder": "Feminine"
+  "CharCreation.IsAMan.TextAdult": "You are a man. Your upbringing has provided you an advantage in strength and toughness."
+  "CharCreation.IsAMan.TextChild": "You are a boy. You have a slight, but noticeable advantage in strength and toughness."
+  "CharCreation.IsAMan.TextElder": "You are an elderly man. Though you have some advantage in strength and toughness, most of your abilities depend on how you've lived your life so far."
+  "CharCreation.IsAMan.TextTeen": "You are a young man. Your upbringing has provided you an advantage in strength and toughness."
+  "CharCreation.IsAMan.WhatTypeBuildYou": "[pg]What type of build do you have?"
+}

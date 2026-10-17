@@ -1,0 +1,6 @@
+{
+  "Combat.Special.FanShot.Name": "Fan Shot",
+  "Combat.Special.FanShot.Description": "Use a bow to fire a fan of arrows at your opponent, each dealing half damage.",
+  "Combat.Special.FanShot.Intro": "You ready and draw six arrows with great strength, loosing all simultaneously at [themonster]![pg-]",
+  "Combat.Special.FanShot.IntroMulti": "You ready and draw a multitude of arrows with tremendous strength, loosing all simultaneously at the many enemies before you![pg-]"
+}

@@ -1,0 +1,10 @@
+{
+  id: "coc:goblin_sharpshooter_reload"
+  type: "support"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  isSelf: true
+  handler: "coc:goblin_sharpshooter_reload"
+}

@@ -1,0 +1,5 @@
+{
+  // 原版 CombatAbilities.hx:1580-1596 Chant
+  "Combat.Spell.Chant.Name": "Chant",
+  "Combat.Spell.Chant.Description": "Sing to slow down and allure all who hear it. Scales with tease bonus."
+}

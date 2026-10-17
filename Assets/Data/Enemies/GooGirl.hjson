@@ -1,0 +1,32 @@
+{
+  // 原版 GooGirl（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:goo_girl"
+      type: "coc:goo_girl"
+      nameKey: "Npcs.GooGirl.Name"
+      descriptionKey: "Npcs.GooGirl.Desc"
+      article: "the"
+      level: 3
+      bonusHealth: 40
+      lust: 45
+      strength: 25
+      toughness: 25
+      speed: 20
+      intelligence: 30
+      libido: 50
+      sensitivity: 40
+      corruption: 10
+      gems: 5
+      experience: 0
+      ai: "coc:goo_girl_ai"
+      // 原版 ChainedDrop：pipe 1/10 → slimy cloth 1/2 → 兜底 green gel
+      chainLoot: true
+      loot: [
+        { item: "coc:pipe", chance: 0.1 }
+        { item: "coc:slimy_clothoth", chance: 0.5 }
+        { item: "coc:green_gel" }
+      ]
+    }
+  ]
+}

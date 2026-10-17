@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1030-1047 / :6314-6332 Geode Knuckle（cost tfFatigue(30,4)，cooldown 4，消耗 10 宝石）
+  id: "coc:tf_geode_knuckle"
+  nameKey: "Combat.Terra.GeodeKnuckle.Name"
+  descriptionKey: "Combat.Terra.GeodeKnuckle.Description"
+  type: "magical"
+  category: "magical"
+  range: "melee"
+  cost: 30
+  fatigueType: "magical"
+  cooldown: 4
+  availableWhen: "coc:can_tf_geode_knuckle"
+  disabledWhen: "coc:not_enough_gems"
+  disabledTooltip: "Combat.Terra.GeodeKnuckle.Disabled"
+  handler: "coc:tf_geode_knuckle"
+}

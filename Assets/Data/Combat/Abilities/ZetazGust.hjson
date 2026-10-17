@@ -1,0 +1,8 @@
+{
+  id: "coc:zetaz_gust"
+  type: "physical"
+  range: "omni"
+  cost: 10
+  cooldown: 0
+  handler: "coc:zetaz_gust"
+}

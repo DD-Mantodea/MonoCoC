@@ -1,0 +1,29 @@
+{
+  // 原版 SentinelOfApostasy（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:sentinel_of_apostasy"
+      type: "coc:sentinel_of_apostasy"
+      nameKey: "Npcs.SentinelOfApostasy.Name"
+      descriptionKey: "Npcs.SentinelOfApostasy.Desc"
+      article: "the"
+      level: 22
+      bonusHealth: 800
+      lust: 10
+      strength: 100
+      toughness: 80
+      speed: 70
+      intelligence: 50
+      libido: 30
+      sensitivity: 30
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:sentinel_of_apostasy_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

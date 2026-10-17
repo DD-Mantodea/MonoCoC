@@ -1,0 +1,8 @@
+{
+  id: "coc:shark_man_charge_pt_two"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:shark_man_charge_pt_two"
+}

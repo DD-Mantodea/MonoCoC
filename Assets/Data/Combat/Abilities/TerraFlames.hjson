@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1102-1117 / :6445-6476 Terra Flames（cost tfFatigue(70,6)，cooldown 5，Terra Star 连携）
+  id: "coc:tf_terra_flames"
+  nameKey: "Combat.Terra.TerraFlames.Name"
+  descriptionKey: "Combat.Terra.TerraFlames.Description"
+  type: "magical"
+  category: "magical"
+  range: "omni"
+  cost: 70
+  fatigueType: "magical"
+  cooldown: 5
+  availableWhen: "coc:can_tf_terra_flames"
+  handler: "coc:tf_terra_flames"
+}

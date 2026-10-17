@@ -1,0 +1,16 @@
+{
+  id: "coc:plains"
+  scene: "coc:plains"
+  order: 10
+  nameKey: "Areas.Plains.Name"
+  descriptionKey: "Areas.Plains.Description"
+  discoveryKey: "Areas.Plains.Discovery"
+  exploreKey: "Areas.Plains.Explore"
+  condition: {
+    type: compare
+    flag: "coc:times_explored_plains"
+    op: ">="
+    value: 1
+  }
+  explorationFlag: "coc:times_explored_plains"
+}

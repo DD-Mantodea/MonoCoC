@@ -1,0 +1,10 @@
+{
+  id: "coc:bee_sting"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  fatigueType: "physical"
+  cooldown: 0
+  power: 0
+  handler: "coc:bee_sting"
+}

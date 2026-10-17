@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1049-1065 / :6308-6313 Dispel Geode Knuckle（免费，不消耗回合）
+  id: "coc:tf_geode_dispel"
+  nameKey: "Combat.Terra.GeodeDispel.Name"
+  descriptionKey: "Combat.Terra.GeodeDispel.Description"
+  type: "magical"
+  category: "magical"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:has_geode_knuckle"
+  handler: "coc:tf_geode_dispel"
+}

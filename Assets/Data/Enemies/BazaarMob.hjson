@@ -1,0 +1,36 @@
+{
+  // 原版 classes/scenes/monsters/BazaarMob.hx（由 monster.mjs 生成骨架后人工补 loot/type/plural）
+  enemies: [
+    {
+      id: "coc:mob"
+      // type 必须与 Contents/Enemies/Vanilla/BazaarMobEnemy.cs 的 [Register] id 完全一致
+      type: "coc:mob"
+      nameKey: "Npcs.BazaarMob.Name"
+      descriptionKey: "Npcs.BazaarMob.Desc"
+      article: "the"
+      level: 15
+      // 原版 maxHP() 覆写为 unitAmount*100，吞掉 bonusHP；加成在 BazaarMobEnemy.Configure 里做（这里留 0）
+      bonusHealth: 0
+      lust: 0
+      strength: 20
+      toughness: 60
+      speed: 35
+      intelligence: 42
+      libido: 45
+      sensitivity: 45
+      corruption: 60
+      // 原版 gems = Utils.rand(5) + 5，随机值在 BazaarMobEnemy.Configure 里掷；这里只是占位
+      gems: 5
+      experience: 0
+      ai: "coc:mob_ai"
+      // 原版 drop = new WeightedDrop()（空表）
+      weightedLoot: true
+      loot: []
+      // 原版 this.plural = true / pronoun1-3 = they/them/their
+      plural: true
+      pronoun1: "they"
+      pronoun2: "them"
+      pronoun3: "their"
+    }
+  ]
+}

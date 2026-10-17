@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:936-952 / :6003-6068 Quake（cost tfFatigue(30,2)，cooldown 4）
+  id: "coc:tf_quake"
+  nameKey: "Combat.Terra.Quake.Name"
+  descriptionKey: "Combat.Terra.Quake.Description"
+  type: "magical"
+  category: "magical"
+  range: "omni"
+  cost: 30
+  fatigueType: "magical"
+  cooldown: 4
+  availableWhen: "coc:can_tf_quake"
+  handler: "coc:tf_quake"
+}

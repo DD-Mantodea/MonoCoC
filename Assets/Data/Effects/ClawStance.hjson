@@ -1,0 +1,12 @@
+{
+  // 原版 statusEffects/combat/ClawStanceBuff.hx：爪姿态，装备变化时自动解除
+  id: "coc:claw_stance"
+  nameKey: "Combat.Effect.ClawStance.Name"
+  descriptionKey: "Combat.Effect.ClawStance.Description"
+  kind: "combat"
+  duration: 0
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_claw_stance_round"
+}

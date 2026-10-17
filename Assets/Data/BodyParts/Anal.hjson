@@ -1,0 +1,9 @@
+{
+  kind: coc:anal
+  collection: false
+  default: coc:normal
+  types:
+  [
+    { id: "coc:normal" }
+  ]
+}

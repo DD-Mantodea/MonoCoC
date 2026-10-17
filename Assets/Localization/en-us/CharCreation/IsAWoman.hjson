@@ -1,0 +1,11 @@
+{
+  "CharCreation.IsAWoman.Button1": "Slender"
+  "CharCreation.IsAWoman.Button2": "Average"
+  "CharCreation.IsAWoman.Button3": "Curvy"
+  "CharCreation.IsAWoman.Button4": "Tomboy"
+  "CharCreation.IsAWoman.TextAdult": "You are a woman. Your upbringing has provided you an advantage in speed and intellect."
+  "CharCreation.IsAWoman.TextChild": "You are a girl. You have a slight, but noticeable advantage in speed and intellect."
+  "CharCreation.IsAWoman.TextElder": "You are an elderly woman. Though you have some advantage in speed and intellect, most of your abilities depend on how you've lived your life so far."
+  "CharCreation.IsAWoman.TextTeen": "You are a young woman. Your upbringing has provided you an advantage in speed and intellect."
+  "CharCreation.IsAWoman.WhatTypeBuildYou": "[pg]What type of build do you have?"
+}

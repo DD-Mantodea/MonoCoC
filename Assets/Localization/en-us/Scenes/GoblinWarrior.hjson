@@ -1,0 +1,10 @@
+{
+  "Scenes.GoblinWarrior.ShieldBash.ConcussionStun": " The impact from the shield has left you with a concussion. <b>You are stunned.</b>"
+  "Scenes.GoblinWarrior.ShieldBash.ShieldBashAvoided": "You avoid her shield bash!"
+  "Scenes.GoblinWarrior.ShieldBash.ShieldBashHit": "Her shield hits you!"
+  "Scenes.GoblinWarrior.ShieldBash.ShieldCharge": "The goblin charges at you with her shield! "
+  "Scenes.GoblinWarrior.Slash.SlashAvoided": "You avoid her slash!"
+  "Scenes.GoblinWarrior.Slash.SlashHit": "You fail to dodge and you get hit."
+  "Scenes.GoblinWarrior.Slash.SwordCharge": "The goblin charges at you with her sword! As soon as she approaches you, she swings her sword! "
+  "Scenes.GoblinWarrior.Won.DefeatCollapse": "You collapse in front of the goblin, too wounded to fight. She growls and kicks you in the head, making your vision swim. As your sight fades, you hear her murmur, [say: Fucking dicks can't even bother to grow a dick or cunt.]"
+}

@@ -1,0 +1,10 @@
+{
+  // 原版 TerraStarCooldown.hx：施放后直到午夜的冷却
+  id: "coc:tfterrastarcooldown"
+  nameKey: "Combat.Effect.TFTerraStarCooldown.Name"
+  descriptionKey: "Combat.Effect.TFTerraStarCooldown.Description"
+  kind: "timed"
+  duration: 24
+  stacking: "refresh"
+  maxStacks: 1
+}

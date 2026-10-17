@@ -1,0 +1,24 @@
+{
+  // 原版 FetishCultist.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:fetish_cultist_ai"
+  actions: [
+    {
+      ability: "coc:fetish_cultist_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:fetish_cultist_cultist_raise_player_lust"
+      weight: 1
+      cost: 5
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:fetish_cultist_cultist_lust_transfer"
+      weight: 1
+      cost: 5
+      fatigueType: "magical"
+    }
+  ]
+}

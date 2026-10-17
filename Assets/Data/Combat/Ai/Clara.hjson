@@ -1,0 +1,31 @@
+{
+  // 原版 Clara.performCombatAction（Clara.hx:95）：四招等权 1。
+  // 「HP<50 回血 / 玩家失明时摸人」这两个先手分支在 ClaraEnemy.BeforeCombatAction 里。
+  id: "coc:clara_ai"
+  actions: [
+    {
+      ability: "coc:clara_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:clara_drug_attack"
+      weight: 1
+      cost: 5
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:clara_tease_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:clara_casts_blind"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "Combat.Effect.TimeFrozen.Name": "Time Frozen",
+  "Combat.Effect.TimeFrozen.Description": "The world stands still.",
+  "Combat.Special.FreezeTime.Name": "Freeze Time",
+  "Combat.Special.FreezeTime.Description": "Use the strange shield to freeze your enemies in place for a brief period of time.",
+  "Combat.Special.FreezeTime.Disabled": "The shield needs time to charge.",
+  "Combat.Special.FreezeTime.DisabledUsed": "The shield needs time to recharge.",
+  "Combat.Special.FreezeTime.Text": "You flick the hidden lever on your shield, and after a brief wind-up, the world around you abruptly freezes with a [i: clack]. You can only hear the faint ticking of your shield as you move freely through the frozen world.",
+  "Combat.Special.FreezeTime.Fade": "[pg-]Another [i: clack] from your shield informs you the spell has faded, sound and motion returning at once.[pg]"
+}

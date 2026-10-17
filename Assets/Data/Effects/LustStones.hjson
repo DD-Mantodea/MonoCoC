@@ -1,0 +1,10 @@
+{
+  id: "coc:lust_stones"
+  nameKey: "Combat.Effect.LustStones.Name"
+  descriptionKey: "Combat.Effect.LustStones.Description"
+  kind: "combat"
+  duration: 0
+  stacking: "refresh"
+  combatOnly: true
+  onRound: "coc:effect_lust_stones_round"
+}

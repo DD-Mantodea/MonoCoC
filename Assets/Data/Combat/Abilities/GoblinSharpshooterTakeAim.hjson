@@ -1,0 +1,10 @@
+{
+  id: "coc:goblin_sharpshooter_take_aim"
+  type: "support"
+  range: "self"
+  cost: 25
+  fatigueType: "none"
+  cooldown: 0
+  isSelf: true
+  handler: "coc:goblin_sharpshooter_take_aim"
+}

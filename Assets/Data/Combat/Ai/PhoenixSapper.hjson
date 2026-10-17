@@ -1,0 +1,36 @@
+{
+  // 原版 PhoenixSapper.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:phoenix_sapper_ai"
+  actions: [
+    {
+      ability: "coc:phoenix_sapper_flash_bang"
+      weight: 1
+      cost: 15
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:phoenix_sapper_armor_rend"
+      weight: 1
+      cost: 15
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:phoenix_sapper_attack"
+      weight: 3
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:phoenix_sapper_flash_bang_two"
+      weight: 1
+      cost: 15
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:phoenix_sapper_armor_rend_two"
+      weight: 1
+      cost: 15
+      fatigueType: "physical"
+    }
+  ]
+}

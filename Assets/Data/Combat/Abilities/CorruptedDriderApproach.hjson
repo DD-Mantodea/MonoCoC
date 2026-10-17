@@ -1,0 +1,8 @@
+{
+  id: "coc:corrupted_drider_approach"
+  type: "physical"
+  range: "self"
+  cost: 15
+  cooldown: 0
+  handler: "coc:corrupted_drider_approach"
+}

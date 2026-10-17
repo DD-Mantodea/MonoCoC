@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1948-1960 / :4215-4223 Counter（免费，CounterAB perk）
+  id: "coc:special_counter"
+  nameKey: "Combat.Special.Counter.Name"
+  descriptionKey: "Combat.Special.Counter.Description"
+  type: "physical"
+  category: "physical"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:has_counter_perk"
+  disabledWhen: "coc:counter_active"
+  disabledTooltip: "Combat.Special.Counter.Disabled"
+  handler: "coc:special_counter"
+}

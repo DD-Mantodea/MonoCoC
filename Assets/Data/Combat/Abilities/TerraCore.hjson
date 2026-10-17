@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1086-1100 / :6377-6442 Terra Core（cost tfFatigue(70,6)，cooldown 5，精通≥4）
+  id: "coc:tf_terra_core"
+  nameKey: "Combat.Terra.TerraCore.Name"
+  descriptionKey: "Combat.Terra.TerraCore.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 70
+  fatigueType: "magical"
+  cooldown: 5
+  availableWhen: "coc:can_tf_terra_core"
+  handler: "coc:tf_terra_core"
+}

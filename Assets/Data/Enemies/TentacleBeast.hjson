@@ -1,0 +1,29 @@
+{
+  // 原版 TentacleBeast（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:tentacle_beast"
+      type: "coc:tentacle_beast"
+      nameKey: "Npcs.TentacleBeast.Name"
+      descriptionKey: "Npcs.TentacleBeast.Desc"
+      article: "the"
+      level: 6
+      bonusHealth: 250
+      lust: 10
+      strength: 58
+      toughness: 25
+      speed: 35
+      intelligence: 45
+      libido: 90
+      sensitivity: 20
+      corruption: 100
+      gems: 15
+      experience: 0
+      ai: "coc:tentacle_beast_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

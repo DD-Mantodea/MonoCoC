@@ -1,0 +1,32 @@
+{
+  // 原版 Amily.performCombatAction（Amily.hx:18）：四招等权 1；
+  // 专注只在没有 Concentration 时进表（原版 when = !hasStatusEffect(Concentration)）。
+  id: "coc:amily_ai"
+  actions: [
+    {
+      ability: "coc:amily_concentration"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+      when: "coc:amily_can_concentrate"
+    }
+    {
+      ability: "coc:amily_dart_go"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:amily_double_attack"
+      weight: 1
+      cost: 5
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:amily_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

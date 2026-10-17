@@ -1,0 +1,18 @@
+{
+  "Combat.Akbal.Attack.Blocked": "Akbal lunges forwards but with your toughness he fails to deal any damage."
+  "Combat.Akbal.Attack.Heavy": "Akbal snarls as he flies towards you, snapping his ivory teeth on your arm. You scream out in pain as you throw him off."
+  "Combat.Akbal.Attack.HeavyBlocked": "Akbal lunges forwards but between your toughness and armor, he fails to deal any damage."
+  "Combat.Akbal.Attack.Miss": "Akbal lunges, but you slip aside."
+  "Combat.Akbal.Attack.Normal": "Akbal rushes at you, his claws like lightning as they leave four red-hot lines of pain across your stomach."
+  "Combat.Akbal.Heal.Full": "Akbal licks himself, ignoring you for now."
+  "Combat.Akbal.Heal.Wounded": "Akbal licks one of his wounds, and you scowl as the injury quickly heals itself."
+  "Combat.Akbal.Lust.First": "You hear whispering in your head. Akbal begins speaking to you as he circles you, telling all the ways he'll dominate you once he beats the fight out of you."
+  "Combat.Akbal.Lust.FirstFierce": "You begin to hear whispering in your head, and Akbal's ethereal voice cuts through your mind. [say: You are in my way, submit now or I will make it very painful for you when I finish what I'm doing.]"
+  "Combat.Akbal.Lust.Repeat": "The whispering in your head grows, many voices of undetermined sex telling you all the things the demon wishes to do to you. You can only blush."
+  "Combat.Akbal.Lust.RepeatFierce": "The whispering in your head grows, many voices of undetermined sex telling you all the things the demon wishes to do to you."
+  "Combat.Akbal.Special.Fire": "Akbal releases an ear-splitting roar, hurling a torrent of emerald green flames towards you."
+  "Combat.Akbal.Special.FireDamage": "You are burned badly by the flames! ({0} damage)"
+  "Combat.Akbal.Special.FireDodged": "You narrowly avoid Akbal's fire!"
+  "Combat.Akbal.Special.FlamePenalty": "The ground he scorched remains consumed in flames! You've got a bit less room to maneuver now."
+  "Combat.Akbal.Special.Speed": "Akbal's eyes fill with light, and a strange sense of fear begins to paralyze your limbs."
+}

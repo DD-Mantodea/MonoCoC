@@ -1,0 +1,28 @@
+{
+  // 原版 Amily（src/classes/scenes/npcs/Amily.hx，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:amily"
+      type: "coc:amily"
+      nameKey: "Npcs.Amily.Name"
+      descriptionKey: "Npcs.Amily.Desc"
+      article: ""
+      level: 4
+      // 原版 Amily.hx:119 bonusHP = 20
+      bonusHealth: 20
+      lust: 20
+      strength: 30
+      toughness: 30
+      speed: 85
+      intelligence: 60
+      libido: 45
+      sensitivity: 45
+      corruption: 10
+      // 原版 gems = 2 + Utils.rand(5)：实际值在 AmilyEnemy.Configure 里现算
+      gems: 4
+      experience: 0
+      ai: "coc:amily_ai"
+      // 原版 Amily.hx:124 drop = NO_DROP → 不配 loot
+    }
+  ]
+}

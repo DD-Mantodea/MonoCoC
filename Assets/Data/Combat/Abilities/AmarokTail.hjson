@@ -1,0 +1,8 @@
+{
+  id: "coc:amarok_tail"
+  type: "physical"
+  range: "melee"
+  cost: 15
+  cooldown: 0
+  handler: "coc:amarok_tail"
+}

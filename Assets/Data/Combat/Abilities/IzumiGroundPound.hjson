@@ -1,0 +1,8 @@
+{
+  id: "coc:izumi_ground_pound"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:izumi_ground_pound"
+}

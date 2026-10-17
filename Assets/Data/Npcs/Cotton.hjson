@@ -1,0 +1,7 @@
+{
+  id: "coc:cotton"
+  nameKey: "Npcs.Cotton.Name"
+  scene: "coc:cotton"
+  combat: ""
+  hostile: false
+}

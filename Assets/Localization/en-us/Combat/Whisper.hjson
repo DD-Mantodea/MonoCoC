@@ -1,0 +1,12 @@
+{
+  "Combat.Spell.Whisper.Name": "Whisper",
+  "Combat.Spell.Whisper.Description": "Whisper and induce fear in your opponent, if your mind is stronger than theirs.",
+  "Combat.Spell.Whisper.Disabled": "Your target is already whispered!",
+  "Combat.Spell.Whisper.Silence": "You cannot focus to reach the enemy's mind while you're having so much difficult breathing.",
+  "Combat.Spell.Whisper.NoMind": "You reach for the enemy's mind, but cannot find anything. You frantically search around, but there is no consciousness as you know it in the room.[pg]",
+  "Combat.Spell.Whisper.NoSoul": "There is nothing inside the golem to whisper to.",
+  "Combat.Spell.Whisper.Focused": "[Themonster] is too focused for your whispers to influence![pg]",
+  "Combat.Spell.Whisper.TooStrong": "You reach for your enemy's mind, but can't break through.\\n",
+  "Combat.Spell.Whisper.Distracted": "As you reach for your enemy's mind, you are distracted and the chorus of voices screams out all at once within your mind. You're forced to hastily silence them and try to regain your focus.",
+  "Combat.Spell.Whisper.Success": "You reach for your enemy's mind, watching as its sudden fear petrifies your foe.[pg]"
+}

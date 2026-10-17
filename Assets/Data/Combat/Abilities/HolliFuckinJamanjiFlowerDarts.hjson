@@ -1,0 +1,8 @@
+{
+  id: "coc:holli_fuckin_jamanji_flower_darts"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:holli_fuckin_jamanji_flower_darts"
+}

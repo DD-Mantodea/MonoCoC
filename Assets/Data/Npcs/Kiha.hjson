@@ -1,0 +1,7 @@
+{
+  id: "coc:kiha"
+  nameKey: "Npcs.Kiha.Name"
+  scene: "coc:kiha"
+  combat: ""
+  hostile: false
+}

@@ -1,0 +1,26 @@
+{
+  // 原版 PhoenixPlatoon.performCombatAction → phoenixPlatoonAI（按 platoonStage 顺序循环）。
+  // 顺序逻辑在 Contents/Enemies/Vanilla/PhoenixPlatoonEnemy.cs 的 ChooseCombatAction 里实现，
+  // 这份表只用来描述三个可选招式（供数据层查看）。
+  id: "coc:phoenix_platoon_ai"
+  actions: [
+    {
+      ability: "coc:phoenix_platoon_rush"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:phoenix_platoon_fire_breath"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:phoenix_platoon_lustbang"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

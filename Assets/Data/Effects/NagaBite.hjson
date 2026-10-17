@@ -1,0 +1,12 @@
+{
+  // 原版 NagaBiteDebuff.hx：蛇毒每回合继续削减力量与速度
+  id: "coc:naga_bite"
+  nameKey: "Combat.Effect.NagaBite.Name"
+  descriptionKey: "Combat.Effect.NagaBite.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 10
+  combatOnly: true
+  onRound: "coc:effect_naga_bite_round"
+}

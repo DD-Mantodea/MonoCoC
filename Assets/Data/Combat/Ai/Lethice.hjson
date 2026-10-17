@@ -1,0 +1,93 @@
+{
+  // 原版 Lethice.performCombatAction（Lethice.hx:131-148 + phase1/2/3 各自的 MonsterAI 表）
+  // 注意：原版每个阶段用不同的权重表，还有 `_roundCount % 10 == 3` 与随机门控，
+  // C# 侧由 LethiceEnemy.ChooseCombatAction 按阶段手写选招，这张表只保留各招的
+  // 消耗（cost / fatigueType）记录，不参与实际运行。
+  id: "coc:lethice_ai"
+  actions: [
+    {
+      ability: "coc:lethice_demonic_arouse"
+      weight: 1
+      cost: 15
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:lethice_demonfire"
+      weight: 1
+      cost: 15
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:lethice_rapetacles"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:lethice_wingbuffet"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:lethice_claw"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:lethice_demon_lust_magic"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:lethice_dirty_dancing"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:lethice_crushing_bodies"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:lethice_horny_poke"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:lethice_bukkake_time"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:lethice_parasite_throwing_stars"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:lethice_whiptrip"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:lethice_sonicwhip"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:lethice_whipchoke"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

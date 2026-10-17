@@ -1,0 +1,17 @@
+{
+  "Combat.Mora.Attack.Critical": " [b:Critical hit!]"
+  "Combat.Mora.Attack.Dodged": "The mora's claws sweep through empty air."
+  "Combat.Mora.Attack.Hit": "The mora swings her claws at you!"
+  "Combat.Mora.Despair.Lead": "The mora leans back and wails! The ground quakes and ice encroaches up your body, biting into you like fangs. Weakness takes you, "
+  "Combat.Mora.Despair.Tail": "but you recover your composure and resume the fight."
+  "Combat.Mora.Despair.WeakenedArmor": "and your [armor] shivers in distress, "
+  "Combat.Mora.Despair.WeakenedValeria": "and Valeria shivers in distress, "
+  "Combat.Mora.Loss.Gems": ", missing {0} gems."
+  "Combat.Mora.Loss.LastGem": ", missing your only gem."
+  "Combat.Mora.Loss.Lead": "[pg]You awake eight hours later in aching pain. There's no sign of the mora. You get up and hurry home"
+  "Combat.Mora.Loss.NoGems": "."
+  "Combat.Mora.Mist.Lead": "The mora pulls her arms in and raises her willow-like wings, shaking them and releasing a cloud of frigid frost."
+  "Combat.Mora.Shroud.Lead": "She turns and sweeps her feather-like tail across the top of the snow, blowing up a snowdrift that obscures your vision! You can see fine up close, but ranged attacks won't be as easy."
+  "Combat.Mora.Shroud.Miss": "The arrow misses [themonster] completely."
+  "Combat.Mora.Surge.Lead": "The ice quakes beneath you, and the mora drops to all fours. She shrieks and then the snow around you gusts up fiercely, like countless tiny spikes!"
+}

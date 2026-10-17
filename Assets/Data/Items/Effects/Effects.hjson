@@ -1,0 +1,199 @@
+{
+  effects: [
+    { id: "coc:healing_pill", type: "coc:healing_pill" }
+
+    // 原版 CustomOviElixir.hx / OvipositionMax.hx（ovi_max = true 走加强版分支）
+    { id: "coc:ovi_elixir", type: "ovi_elixir", ovimax: false }
+    { id: "coc:ovi_max", type: "ovi_elixir", ovimax: true }
+
+    { id: "coc:white_book", type: "spell_book", kind: "white" }
+    { id: "coc:black_book", type: "spell_book", kind: "black" }
+    { id: "coc:gray_book", type: "spell_book", kind: "gray" }
+
+    { id: "coc:auburn_dye", type: "hair_dye", color: "auburn" }
+    { id: "coc:black_dye", type: "hair_dye", color: "black" }
+    { id: "coc:blond_dye", type: "hair_dye", color: "blond" }
+    { id: "coc:blue_dye", type: "hair_dye", color: "blue" }
+    { id: "coc:brown_dye", type: "hair_dye", color: "brown" }
+    { id: "coc:gray_dye", type: "hair_dye", color: "gray" }
+    { id: "coc:green_dye", type: "hair_dye", color: "green" }
+    { id: "coc:orange_dye", type: "hair_dye", color: "orange" }
+    { id: "coc:pink_dye", type: "hair_dye", color: "pink" }
+    { id: "coc:purple_dye", type: "hair_dye", color: "purple" }
+    { id: "coc:rainbow_dye", type: "hair_dye", color: "rainbow" }
+    { id: "coc:red_dye", type: "hair_dye", color: "red" }
+    { id: "coc:russet_dye", type: "hair_dye", color: "russet" }
+    { id: "coc:yellow_dye", type: "hair_dye", color: "yellow" }
+    { id: "coc:white_dye", type: "hair_dye", color: "white" }
+
+    { id: "coc:dark_oil", type: "skin_oil", color: "dark" }
+    { id: "coc:ebony_oil", type: "skin_oil", color: "ebony" }
+    { id: "coc:fair_oil", type: "skin_oil", color: "fair" }
+    { id: "coc:light_oil", type: "skin_oil", color: "light" }
+    { id: "coc:mahogany_oil", type: "skin_oil", color: "mahogany" }
+    { id: "coc:olive_oil", type: "skin_oil", color: "olive" }
+    { id: "coc:russet_oil", type: "skin_oil", color: "russet" }
+    { id: "coc:red_oil", type: "skin_oil", color: "red" }
+    { id: "coc:orange_oil", type: "skin_oil", color: "orange" }
+    { id: "coc:yellow_oil", type: "skin_oil", color: "yellow" }
+    { id: "coc:green_oil", type: "skin_oil", color: "green" }
+    { id: "coc:white_oil", type: "skin_oil", color: "white" }
+    { id: "coc:blue_oil", type: "skin_oil", color: "blue" }
+    { id: "coc:black_oil", type: "skin_oil", color: "black" }
+    { id: "coc:purple_oil", type: "skin_oil", color: "purple" }
+    { id: "coc:silver_oil", type: "skin_oil", color: "silver" }
+    { id: "coc:yellow_green_oil", type: "skin_oil", color: "yellow green" }
+    { id: "coc:spring_green_oil", type: "skin_oil", color: "spring green" }
+    { id: "coc:cyan_oil", type: "skin_oil", color: "cyan" }
+    { id: "coc:ocean_blue_oil", type: "skin_oil", color: "ocean blue" }
+    { id: "coc:electric_violet_oil", type: "skin_oil", color: "electric violet" }
+    { id: "coc:magenta_oil", type: "skin_oil", color: "magenta" }
+    { id: "coc:deep_pink_oil", type: "skin_oil", color: "deep pink" }
+    { id: "coc:pink_oil", type: "skin_oil", color: "pink" }
+
+    { id: "coc:black_egg", type: "egg", large: false }
+    { id: "coc:blue_egg", type: "egg", large: false }
+    { id: "coc:brown_egg", type: "egg", large: false }
+    { id: "coc:pink_egg", type: "egg", large: false }
+    { id: "coc:purple_egg", type: "egg", large: false }
+    { id: "coc:white_egg", type: "egg", large: false }
+    { id: "coc:large_black_egg", type: "egg", large: true }
+    { id: "coc:large_blue_egg", type: "egg", large: true }
+    { id: "coc:large_brown_egg", type: "egg", large: true }
+    { id: "coc:large_pink_egg", type: "egg", large: true }
+    { id: "coc:large_purple_egg", type: "egg", large: true }
+    { id: "coc:large_white_egg", type: "egg", large: true }
+
+    { id: "coc:bee_honey", type: "bee_honey", pure: false, special: false }
+    { id: "coc:pure_honey", type: "bee_honey", pure: true, special: false }
+    { id: "coc:special_honey", type: "bee_honey", pure: false, special: true }
+
+    { id: "coc:canine_pepper", type: "canine_pepper", flavor: "Items.CaninePepperepper.Standard" }
+    { id: "coc:large_canine_pepper", type: "canine_pepper", flavor: "Items.CaninePepperepper.Large" }
+    { id: "coc:double_canine_pepper", type: "canine_pepper", flavor: "Items.CaninePepperepper.Double" }
+    { id: "coc:black_canine_pepper", type: "canine_pepper", flavor: "Items.CaninePepperepper.Black" }
+    { id: "coc:knotty_canine_pepper", type: "canine_pepper", flavor: "Items.CaninePepperepper.Knotty" }
+    { id: "coc:bulbous_canine_pepper", type: "canine_pepper", flavor: "Items.CaninePepperepper.Bulby" }
+
+    { id: "coc:incubi_draft", type: "draft", incubi: true, purified: false, fuck: false }
+    { id: "coc:purified_incubi_draft", type: "draft", incubi: true, purified: true, fuck: false }
+    { id: "coc:lust_draft", type: "draft", incubi: false, purified: false, fuck: false }
+    { id: "coc:fuck_draft", type: "draft", incubi: false, purified: false, fuck: true }
+
+    { id: "coc:clear_lotion", type: "body_lotion", adj: "clear" }
+    { id: "coc:rough_lotion", type: "body_lotion", adj: "rough" }
+    { id: "coc:sexy_lotion", type: "body_lotion", adj: "sexy" }
+    { id: "coc:smooth_lotion", type: "body_lotion", adj: "smooth" }
+
+    { id: "coc:succubus_delight", type: "stat_tonic", libido: 4, sensitivity: 2, corruption: 3, lust: 10 }
+    { id: "coc:succubi_milk", type: "stat_tonic", libido: 5, sensitivity: 2, corruption: 2, lust: 8 }
+    { id: "coc:purified_succubi_milk", type: "stat_tonic", libido: 3, sensitivity: 1, lust: 5 }
+    { id: "coc:purified_succubus_delight", type: "stat_tonic", libido: 3, sensitivity: 1, lust: 5 }
+    { id: "coc:minotaur_cum", type: "stat_tonic", libido: 5, sensitivity: 3, corruption: 4, lust: 12, strength: 2, toughness: 2 }
+    { id: "coc:purified_minotaur_cum", type: "stat_tonic", libido: 3, sensitivity: 2, lust: 8, strength: 2, toughness: 2 }
+    { id: "coc:premium_mead", type: "stat_tonic", libido: 2, sensitivity: 1, lust: 5, strength: 4, toughness: 4 }
+    { id: "coc:bro_brew", type: "stat_tonic", libido: 3, sensitivity: 1, corruption: 2, lust: 6, strength: 6, toughness: 6 }
+    { id: "coc:pro_lactaid", type: "stat_tonic", libido: 2, sensitivity: 2, lust: 4, toughness: 1 }
+    { id: "coc:black_gossamer", type: "stat_tonic", libido: 2, sensitivity: 1, corruption: 2, lust: 4 }
+    { id: "coc:sweet_gossamer", type: "stat_tonic", libido: 2, sensitivity: 1, lust: 4 }
+    { id: "coc:boar_truffle", type: "stat_tonic", corruption: 2, strength: 2, toughness: 2 }
+    { id: "coc:drake_heart", type: "stat_tonic", libido: 1, sensitivity: 1, corruption: 3, lust: 5, strength: 3, toughness: 3 }
+    { id: "coc:ember_blossom", type: "stat_tonic", libido: 2, sensitivity: 1, corruption: 2, lust: 5, strength: 2, toughness: 2 }
+    { id: "coc:fox_berry", type: "stat_tonic", libido: 2, sensitivity: 1, corruption: 2, lust: 6 }
+    { id: "coc:fox_jewel", type: "stat_tonic", libido: 1, sensitivity: 1, corruption: 1, lust: 3 }
+    { id: "coc:golden_seed", type: "stat_tonic", corruption: 1, strength: 3, toughness: 3 }
+    { id: "coc:kanga_fruit", type: "stat_tonic", corruption: 1, strength: 2, toughness: 3 }
+    { id: "coc:labova", type: "stat_tonic", libido: 2, sensitivity: 2, corruption: 2, lust: 5 }
+    { id: "coc:magic_seed", type: "stat_tonic", corruption: 2, strength: 3, toughness: 3 }
+    { id: "coc:mighty_veggie", type: "stat_tonic", corruption: 1, strength: 4, toughness: 4 }
+    { id: "coc:mystic_jewel", type: "stat_tonic", libido: 1, sensitivity: 1, corruption: 2, lust: 3, strength: 2, toughness: 2 }
+    { id: "coc:purified_labova", type: "stat_tonic", libido: 1, sensitivity: 1, lust: 3 }
+
+    { id: "coc:cerulean_potion", type: "coc:cerulean_potion" }
+    { id: "coc:numb_oil", type: "coc:numbing", oil: true }
+    { id: "coc:numb_rocks", type: "coc:numbing", oil: false }
+    { id: "coc:purity_philter", type: "coc:purity_philter" }
+    { id: "coc:sensitivity_draft", type: "coc:sensitivity_draft" }
+    { id: "coc:scholar_tea", type: "coc:scholar_tea" }
+    { id: "coc:vitality_tincture", type: "coc:vitality_tincture" }
+    { id: "coc:de_bimbo", type: "coc:de_bimbo" }
+
+    { id: "coc:golden_rind", type: "food", hunger: 15 }
+    { id: "coc:ferret_fruit", type: "food", hunger: 10 }
+    { id: "coc:chocolate_cupcake", type: "food", hunger: 15 }
+    { id: "coc:hard_biscuits", type: "food", hunger: 10 }
+    { id: "coc:fish_fillet", type: "food", hunger: 12 }
+    { id: "coc:herbal_contraceptive", type: "food", hunger: 8 }
+    { id: "coc:lolipop", type: "food", hunger: 5 }
+    { id: "coc:purple_fruit", type: "food", hunger: 10 }
+    { id: "coc:pumpkin_seed", type: "food", hunger: 12 }
+    { id: "coc:rizza_root", type: "food", hunger: 15 }
+    { id: "coc:trail_mix", type: "food", hunger: 18 }
+    { id: "coc:coal", type: "food", hunger: 2 }
+    { id: "coc:imp_food", type: "food", hunger: 10 }
+    { id: "coc:calming_mint", type: "food", hunger: 5 }
+    { id: "coc:princess_poker", type: "food", hunger: 10 }
+
+    { id: "coc:frothy_beer", type: "drink", hunger: 12, lust: 4 }
+    { id: "coc:goblin_ale", type: "drink", hunger: 15, strength: 1, lust: 3 }
+    { id: "coc:gods_mead", type: "drink", hunger: 20, strength: 1, toughness: 1, lust: 5 }
+    { id: "coc:peach_whiskey", type: "drink", hunger: 8, lust: 2 }
+    { id: "coc:spring_water", type: "drink", hunger: 5 }
+    { id: "coc:marble_milk", type: "drink", hunger: 15 }
+    { id: "coc:tigershark_tooth", type: "coc:shark_tooth" }
+    { id: "coc:shark_tooth", type: "coc:shark_tooth" }
+    { id: "coc:reducto_menu", type: "reducto_menu" }
+    { id: "coc:lactaid", type: "lactaid" }
+    { id: "coc:urtas_cum", type: "urta_cum" }
+    { id: "coc:gro_plus", type: "gro_plus" }
+    { id: "coc:equinum", type: "equinum" }
+    { id: "coc:beondegi", type: "beondegi" }
+    { id: "coc:clovis", type: "clovis" }
+    { id: "coc:ament", type: "ament" }
+    { id: "coc:gnoll_spot", type: "gnoll_spot" }
+    { id: "coc:trap_oil", type: "trap_oil" }
+    { id: "coc:pigtail_truffle", type: "pig_truffle", boar: false }
+    { id: "coc:boar_truffle", type: "pig_truffle", boar: true }
+    { id: "coc:akbal_saliva", type: "akbal_saliva" }
+    { id: "coc:isabella_milk", type: "isabella_milk" }
+    { id: "coc:mint_white", type: "peppermint_white" }
+    { id: "coc:pure_peach", type: "purity_peach" }
+    { id: "coc:sheep_milk", type: "sheep_milk" }
+    { id: "coc:pure_pearl", type: "pure_pearl" }
+    { id: "coc:golden_lipstick", type: "lust_stick" }
+    { id: "coc:dragon_egg", type: "ember_egg" }
+    { id: "coc:oculum_arachnae", type: "oculum_arachnae" }
+    { id: "coc:icicle", type: "ice_shard" }
+    { id: "coc:winter_pudding", type: "winter_pudding" }
+    { id: "coc:hair_serum", type: "hair_serum" }
+    { id: "coc:sword_shard", type: "sword_shard" }
+    { id: "coc:wingstick", type: "wingstick" }
+    { id: "coc:ectoplasm", type: "ectoplasm" }
+    { id: "coc:tattered_scroll", type: "tattered_scroll" }
+    { id: "coc:snake_oil", type: "snake_oil" }
+    { id: "coc:kitsune_gift", type: "kitsune_gift" }
+    { id: "coc:dried_tentacle", type: "dried_tentacle" }
+    { id: "coc:special_hummanus", type: "super_hummus" }
+    { id: "coc:bimbo_champagne", type: "bimbo_champagne" }
+    { id: "coc:black_cat_beer", type: "black_cat_beer" }
+    { id: "coc:succubus_dream", type: "succubis_dream" }
+    { id: "coc:satyr_wine", type: "satyr_wine" }
+    { id: "coc:ringtail_fig", type: "ringtail_fig" }
+    { id: "coc:taurinum", type: "taurinum" }
+    { id: "coc:bimbo_liqueur", type: "bimbo_liqueur" }
+    { id: "coc:river_root", type: "red_river_root" }
+    { id: "coc:unusual_milk_bottle", type: "unlabeled_milk" }
+    { id: "coc:w_fruit", type: "whisker_fruit" }
+    { id: "coc:whisker_fruit", type: "whisker_fruit" }
+    { id: "coc:slimy_clothoth", type: "slimy_cloth" }
+    { id: "coc:mouse_cocoa", type: "mouse_cocoa" }
+    { id: "coc:echidna_cake", type: "echidna_cake" }
+    { id: "coc:wolf_pepper", type: "wolf_pepper" }
+    { id: "coc:salamander_firewater", type: "salamander_firewater" }
+    { id: "coc:rhino_steak", type: "rhino_steak" }
+    { id: "coc:minotaur_blood", type: "minotaur_blood" }
+    { id: "coc:nephila_pink_egg", type: "neon_pink_egg" }
+    { id: "coc:ton_o_trice", type: "ton_o_trice" }
+    { id: "coc:reptlum", type: "reptilum" }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1012-1029 / :6295-6305 Scorch（cost tfFatigue(20,3)，cooldown 4）
+  id: "coc:tf_scorch"
+  nameKey: "Combat.Terra.Scorch.Name"
+  descriptionKey: "Combat.Terra.Scorch.Description"
+  type: "magical"
+  category: "magical"
+  range: "omni"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 4
+  availableWhen: "coc:can_tf_scorch"
+  disabledWhen: "coc:tf_scorch_active"
+  disabledTooltip: "Combat.Terra.Scorch.Disabled"
+  handler: "coc:tf_scorch"
+}

@@ -1,0 +1,32 @@
+{
+  // 原版 MinotaurKing（MinotaurKing.hx:22-53，由 monster.mjs 生成骨架后人工校正）
+  enemies: [
+    {
+      id: "coc:minotaur_king"
+      type: "coc:minotaur_king"
+      nameKey: "Npcs.MinotaurKing.Name"
+      descriptionKey: "Npcs.MinotaurKing.Desc"
+      article: "the"
+      level: 22
+      // 原版 bonusHP = 850 在 MinotaurKingEnemy.Configure 里加成（这里留 0，避免重复叠加）
+      bonusHealth: 0
+      lust: 0
+      strength: 100
+      toughness: 100
+      speed: 50
+      intelligence: 60
+      libido: 66
+      sensitivity: 10
+      corruption: 100
+      // 原版 gems = 75 + Utils.rand(50)，实例化时在 Configure 里摇；这里只当占位
+      gems: 75
+      experience: 0
+      ai: "coc:minotaur_king_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 drop = new WeightedDrop(consumables.PROMEAD, 1)（MinotaurKing.hx:50）
+        { item: "coc:premium_mead", weight: 1 }
+      ]
+    }
+  ]
+}

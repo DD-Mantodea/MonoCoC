@@ -1,0 +1,7 @@
+{
+  id: "coc:marble"
+  nameKey: "Npcs.Marble.Name"
+  scene: "coc:marble_scene"
+  combat: "coc:marble"
+  hostile: false
+}

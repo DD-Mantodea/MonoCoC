@@ -1,0 +1,38 @@
+{
+  // 原版 classes/scenes/monsters/GoblinAssassin.hx（由 monster.mjs 生成骨架后人工补 loot）
+  enemies: [
+    {
+      id: "coc:goblin_assassin"
+      // type 必须与 Contents/Enemies/Vanilla/GoblinAssassinEnemy.cs 的 [Register] id 完全一致
+      type: "coc:goblin_assassin"
+      nameKey: "Npcs.GoblinAssassin.Name"
+      descriptionKey: "Npcs.GoblinAssassin.Desc"
+      article: "the"
+      level: 10
+      bonusHealth: 70
+      lust: 50
+      strength: 45
+      toughness: 55
+      speed: 110
+      intelligence: 95
+      libido: 65
+      sensitivity: 35
+      corruption: 60
+      // 原版 gems = Utils.rand(50) + 25，随机值在 GoblinAssassinEnemy.Configure 里掷；这里只是占位
+      gems: 50
+      experience: 0
+      ai: "coc:goblin_assassin_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop().add(GOB_ALE, 5)
+        //   .addMany(1, L_DRAFT, PINKDYE, BLUEDYE, ORANGDY, PURPDYE)
+        { item: "coc:goblin_ale", weight: 5 }
+        { item: "coc:lust_draft", weight: 1 }
+        { item: "coc:pink_dye", weight: 1 }
+        { item: "coc:blue_dye", weight: 1 }
+        { item: "coc:orange_dye", weight: 1 }
+        { item: "coc:purple_dye", weight: 1 }
+      ]
+    }
+  ]
+}

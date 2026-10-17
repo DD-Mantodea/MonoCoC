@@ -1,0 +1,10 @@
+{
+  id: "coc:brutal_blows"
+  nameKey: "Combat.Effect.BrutalBlows.Name"
+  descriptionKey: "Combat.Effect.BrutalBlows.Description"
+  kind: "combat"
+  duration: 0
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

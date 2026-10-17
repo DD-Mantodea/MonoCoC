@@ -1,0 +1,29 @@
+{
+  // 原版 FrostGiant（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:frost_giant"
+      type: "coc:frost_giant"
+      nameKey: "Npcs.FrostGiant.Name"
+      descriptionKey: "Npcs.FrostGiant.Desc"
+      article: "the"
+      level: 22
+      bonusHealth: 600
+      lust: 10
+      strength: 120
+      toughness: 100
+      speed: 60
+      intelligence: 75
+      libido: 20
+      sensitivity: 15
+      corruption: 35
+      gems: 0
+      experience: 0
+      ai: "coc:frost_giant_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

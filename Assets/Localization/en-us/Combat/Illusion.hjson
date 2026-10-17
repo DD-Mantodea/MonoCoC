@@ -1,0 +1,9 @@
+{
+  "Combat.Spell.Illusion.Name": "Illusion",
+  "Combat.Spell.Illusion.Description": "Warp the reality around your opponent, lowering their speed. The more you cast this in a battle, the less effective it becomes.",
+  "Combat.Spell.Illusion.Silence": "You cannot focus to use this ability while you're having so much difficult breathing.",
+  "Combat.Spell.Illusion.NoMind": "In the tight confines of this pod, there's no use making such an attack![pg-]",
+  "Combat.Spell.Illusion.Intro": "The world begins to twist and distort around you as reality bends to your will, [themonster]'s mind blanketed in the thick fog of your illusions.",
+  "Combat.Spell.Illusion.Success": " [Monster.he] stumble[monster.s] humorously to and fro, unable to keep pace with the shifting illusions that cloud [monster.his] perceptions.[pg-]",
+  "Combat.Spell.Illusion.Fail": " Like the snapping of a rubber band, reality falls back into its rightful place as [monster.he] resist[monster.s] your illusory conjurations.[pg-]"
+}

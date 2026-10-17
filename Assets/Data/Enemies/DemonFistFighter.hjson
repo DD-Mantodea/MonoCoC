@@ -1,0 +1,32 @@
+{
+  // 原版 DemonFistFighter（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:demon_fist_fighter"
+      type: "coc:demon_fist_fighter"
+      nameKey: "Npcs.DemonFistFighter.Name"
+      descriptionKey: "Npcs.DemonFistFighter.Desc"
+      article: "the"
+      level: 20
+      bonusHealth: 0
+      lust: 40
+      strength: 120
+      toughness: 60
+      speed: 90
+      intelligence: 60
+      libido: 45
+      sensitivity: 45
+      corruption: 100
+      gems: 5
+      experience: 0
+      ai: "coc:demon_fist_fighter_ai"
+      // 原版 WeightedDrop：succubi_milk 3 / incubi_draft 3 / imp_food 4（DemonFistFighter.hx:48）
+      weightedLoot: true
+      loot: [
+        { item: "coc:succubi_milk", weight: 3 }
+        { item: "coc:incubi_draft", weight: 3 }
+        { item: "coc:imp_food", weight: 4 }
+      ]
+    }
+  ]
+}

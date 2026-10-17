@@ -1,0 +1,8 @@
+{
+  id: "coc:tentacle_beast_tentacle_entwine"
+  type: "physical"
+  range: "ranged"
+  cost: 15
+  cooldown: 0
+  handler: "coc:tentacle_beast_tentacle_entwine"
+}

@@ -1,0 +1,11 @@
+{
+  "Combat.Gilt.Attack.Damage": " <b>({0})</b>"
+  "Combat.Gilt.Attack.Flying": "The demonic bat glides overhead, trailing the sickle behind to hook you!"
+  "Combat.Gilt.Attack.Ground": "The gilt leaps up, her wings catching the air and swinging her sickle-wielding lower body forward!"
+  "Combat.Gilt.Dive.Blocked": ", throwing you to the ground as she impacts your shield."
+  "Combat.Gilt.Dive.Dodged": ", narrowly missing."
+  "Combat.Gilt.Dive.Hit": ", slamming you into the ground!"
+  "Combat.Gilt.Dive.Lead": "Instead of passing, the gilt dives straight at you, pulling her talons forward for the attack"
+  "Combat.Gilt.Dive.Waited": ", but you ready yourself and dash out of her path, watching the demon land heavy on the dry dirt and rock."
+  "Combat.Gilt.Fly.Lead": "The bat-woman pushes her wings off the ground and flaps, tossing dirt and ash into the air before flying."
+}

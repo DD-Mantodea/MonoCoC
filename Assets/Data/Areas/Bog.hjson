@@ -1,0 +1,16 @@
+{
+  id: "coc:bog"
+  scene: "coc:bog"
+  order: 100
+  nameKey: "Areas.Bog.Name"
+  descriptionKey: "Areas.Bog.Description"
+  discoveryKey: "Areas.Bog.Discovery"
+  exploreKey: "Areas.Bog.Explore"
+  condition: {
+    type: compare
+    flag: "coc:bog_explored"
+    op: ">="
+    value: 1
+  }
+  explorationFlag: "coc:bog_explored"
+}

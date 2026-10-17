@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1824-1840 / :5078-5198 kissAttack（需涂毒唇膏）
+  id: "coc:special_kiss"
+  nameKey: "Combat.Special.Kiss.Name"
+  descriptionKey: "Combat.Special.Kiss.Description"
+  type: "physical"
+  category: "physical"
+  range: "ranged"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:has_lust_stick"
+  handler: "coc:special_kiss"
+}

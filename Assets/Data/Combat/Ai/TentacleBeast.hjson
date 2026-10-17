@@ -1,0 +1,18 @@
+{
+  // 原版 TentacleBeast.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:tentacle_beast_ai"
+  actions: [
+    {
+      ability: "coc:tentacle_beast_tentacle_physical_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:tentacle_beast_tentacle_entwine"
+      weight: 1
+      cost: 15
+      fatigueType: "physical"
+    }
+  ]
+}

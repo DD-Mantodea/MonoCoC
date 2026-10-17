@@ -1,0 +1,8 @@
+{
+  // AmilyScene.hx:174 new PregnancyStore(AMILY_PREGNANCY_TYPE, AMILY_INCUBATION)
+  // AmilyScene.hx:176 addPregnancyEventSet(PREGNANCY_PLAYER, [150, 120, 100, 96, 90, 72, 48])
+  // AmilyScene.hx:2674 knockUpForce(PREGNANCY_PLAYER, INCUBATION_MOUSE - 182)；PregnancyStore.hx:67 INCUBATION_MOUSE = 350
+  id: "coc:amily"
+  incubation: 168
+  events: [150, 120, 100, 96, 90, 72, 48]
+}

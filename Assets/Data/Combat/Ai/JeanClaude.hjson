@@ -1,0 +1,12 @@
+{
+  // 原版 JeanClaude.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:jean_claude_ai"
+  actions: [
+    {
+      ability: "coc:jean_claude_double_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "Combat.Special.Sting.Name": "Sting",
+  "Combat.Special.Sting.Description": "Attempt to use your venomous bee stinger on an enemy.",
+  "Combat.Special.Sting.NoVenom": "You do not have enough venom to sting right now!",
+  "Combat.Special.Sting.Worms": "Taking advantage of your new natural weapons, you quickly thrust your stinger at the freak of nature. Sensing impending danger, the creature willingly drops its defenses and lowers itself to the ground, desperately trying to avoid your sting.",
+  "Combat.Special.Sting.DodgeNarrow": "[Themonster] narrowly avoids your stinger![pg]",
+  "Combat.Special.Sting.DodgeFast": "[Themonster] dodges your stinger with superior quickness![pg]",
+  "Combat.Special.Sting.Block": "[Themonster] manages to raise [monster.his] shield in time, blocking your sting![pg]",
+  "Combat.Special.Sting.Armor": "Despite your best efforts, your sting attack can't penetrate [themonster]'s defenses.[pg]",
+  "Combat.Special.Sting.Hit": "Searing pain lances through [themonster] as you manage to sting [monster.him]! ",
+  "Combat.Special.Sting.HitPlural": "You watch as [monster.he] stagger back a step and nearly trip, flushing hotly.",
+  "Combat.Special.Sting.HitSingular": "You watch as [monster.he] staggers back a step and nearly trips, flushing hotly."
+}

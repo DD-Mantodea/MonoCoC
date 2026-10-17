@@ -1,0 +1,13 @@
+{
+  "kind": "coc:tongue",
+  "default": "coc:human",
+  "types": [
+    { "id": "coc:human" },
+    { "id": "coc:snake", "appearance": "TongueSnake" },
+    { "id": "coc:demonic", "appearance": "TongueDemonic" },
+    { "id": "coc:draconic", "appearance": "TongueDraconic" },
+    { "id": "coc:echidna", "appearance": "TongueEchidna" },
+    { "id": "coc:lizard", "appearance": "TongueLizard" },
+    { "id": "coc:cat", "appearance": "TongueCat" }
+  ]
+}

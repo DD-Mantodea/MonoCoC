@@ -1,0 +1,30 @@
+{
+  // 原版 LivingStatue（LivingStatue.hx:23-55，由 monster.mjs 生成骨架后人工校正）
+  enemies: [
+    {
+      id: "coc:living_statue"
+      type: "coc:living_statue"
+      nameKey: "Npcs.LivingStatue.Name"
+      descriptionKey: "Npcs.LivingStatue.Desc"
+      article: "the"
+      level: 22
+      // 原版 bonusHP = 1000 在 LivingStatueEnemy.Configure 里加成（这里留 0，避免重复叠加）
+      bonusHealth: 0
+      lust: 0
+      strength: 100
+      toughness: 80
+      speed: 25
+      intelligence: 50
+      libido: 10
+      sensitivity: 10
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:living_statue_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 this.drop = NO_DROP（LivingStatue.hx:40）：什么都不掉
+      ]
+    }
+  ]
+}

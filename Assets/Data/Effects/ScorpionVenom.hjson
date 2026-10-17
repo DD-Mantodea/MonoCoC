@@ -1,0 +1,10 @@
+{
+  id: "coc:scorpion_venom"
+  nameKey: "Combat.Effect.ScorpionVenom.Name"
+  descriptionKey: "Combat.Effect.ScorpionVenom.Description"
+  kind: "combat"
+  duration: 6
+  stacking: "refresh"
+  combatOnly: true
+  onRound: "coc:effect_scorpion_venom_round"
+}

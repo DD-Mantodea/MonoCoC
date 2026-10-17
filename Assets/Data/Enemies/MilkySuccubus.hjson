@@ -1,0 +1,28 @@
+{
+  // 原版 MilkySuccubus（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:milky_succubus"
+      type: "coc:milky_succubus"
+      nameKey: "Npcs.MilkySuccubus.Name"
+      descriptionKey: "Npcs.MilkySuccubus.Desc"
+      article: "the"
+      level: 16
+      bonusHealth: 700
+      lust: 40
+      strength: 75
+      toughness: 50
+      speed: 125
+      intelligence: 95
+      libido: 90
+      sensitivity: 60
+      corruption: 99
+      gems: 25
+      experience: 0
+      ai: "coc:milky_succubus_ai"
+      // 原版 drop = NO_DROP（MilkySuccubus.hx:115/123）
+      loot: [
+      ]
+    }
+  ]
+}

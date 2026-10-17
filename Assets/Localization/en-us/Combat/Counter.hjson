@@ -1,0 +1,8 @@
+{
+  "Combat.Effect.CounterAB.Name": "Counter Stance",
+  "Combat.Effect.CounterAB.Description": "You're ready to counter enemy attacks.",
+  "Combat.Special.Counter.Name": "Counter",
+  "Combat.Special.Counter.Description": "Enter a special stance for a few turns, allowing you to counter enemy attacks.",
+  "Combat.Special.Counter.Disabled": "You're already in a counter stance.",
+  "Combat.Special.Counter.Text": "You move into the stance taught to you by the Dullahan. You'll not be able to strike as effectively, but you have a chance of countering enemy attacks!\\n"
+}

@@ -1,0 +1,9 @@
+{
+  "Combat.Terra.CarnalBurn.Name": "Carnal Burn",
+  "Combat.Terra.CarnalBurn.Description": "Release the heat in your blood, converting lust into damage at the cost of health.",
+  "Combat.Terra.CarnalBurn.Disabled": "You wouldn't survive if you cast this now.",
+  "Combat.Terra.CarnalBurn.Intro": "The heat of your loins distills through your blood as you call upon it like flames, becoming waves of emerald. The blaze tears through your flesh to escape, being directed out toward ",
+  "Combat.Terra.CarnalBurn.All": "any and all who dare stand against your power!",
+  "Combat.Terra.CarnalBurn.Single": "[themonster] in a ball of fire!",
+  "Combat.Terra.CarnalBurn.Burnt": "[pg-][Themonster] is burnt by the flames of your lust!"
+}

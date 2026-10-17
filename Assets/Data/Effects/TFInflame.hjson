@@ -1,0 +1,12 @@
+{
+  // 原版 Terra 形态 Inflame：攻击加成，每回合反噬自身
+  id: "coc:tfinflame"
+  nameKey: "Combat.Effect.TFInflame.Name"
+  descriptionKey: "Combat.Effect.TFInflame.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_tf_inflame_round"
+}

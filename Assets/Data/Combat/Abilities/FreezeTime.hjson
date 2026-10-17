@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:2089-2102 / :6808-6813 Freeze Time（cost 20，时之盾，需蓄能 3 回合）
+  id: "coc:special_freeze_time"
+  nameKey: "Combat.Special.FreezeTime.Name"
+  descriptionKey: "Combat.Special.FreezeTime.Description"
+  type: "magical"
+  category: "magical"
+  range: "omni"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 0
+  availableWhen: "coc:has_clockwork_shield"
+  disabledWhen: "coc:freeze_time_disabled"
+  disabledTooltip: "Combat.Special.FreezeTime.Disabled"
+  handler: "coc:special_freeze_time"
+}

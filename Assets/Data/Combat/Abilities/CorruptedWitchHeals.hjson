@@ -1,0 +1,8 @@
+{
+  id: "coc:corrupted_witch_heals"
+  type: "magical"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:corrupted_witch_heals"
+}

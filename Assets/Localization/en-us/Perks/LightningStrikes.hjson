@@ -1,0 +1,4 @@
+{
+  "Perks.LightningStrikes.Desc": "[if (spe>=60) {Increases the attack damage for non-heavy weapons.</b>|<b>You are too slow to benefit from this perk.</b>}]"
+  "Perks.LightningStrikes.Name": "Lightning Strikes"
+}

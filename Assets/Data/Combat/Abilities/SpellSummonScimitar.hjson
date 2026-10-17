@@ -1,0 +1,15 @@
+{
+  // 原版 CombatAbilities.hx:1221 abilityFunc: summonSword（cost 15，cooldown 1，
+  // availableWhen KnowsCSS，disabledWhen 剑数 >= 3）
+  id: "coc:spell_summon_scimitar"
+  nameKey: "Combat.Spell.SummonScimitar.Name"
+  descriptionKey: "Combat.Spell.SummonScimitar.Description"
+  type: "magical"
+  category: "white"
+  range: "self"
+  cost: 15
+  fatigueType: "magical"
+  cooldown: 1
+  knownWhen: "coc:knows_circe_s_summoned_scimitars"
+  handler: "coc:spell_summon_scimitar"
+}

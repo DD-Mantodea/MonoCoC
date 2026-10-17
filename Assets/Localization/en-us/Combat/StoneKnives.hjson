@@ -1,0 +1,16 @@
+{
+  "Combat.Effect.TFScorch.Name": "Scorched Earth",
+  "Combat.Effect.TFScorch.Description": "The battlefield burns with viridescent flames.",
+  "Combat.Terra.StoneKnives.Name": "Stone Knives",
+  "Combat.Terra.StoneKnives.Description": "Channel your strength into earth, propelling shards of stone toward an enemy.",
+  "Combat.Terra.StoneKnives.Intro": "Your dive your hand into the ground, running it forward, then pulling up. Dozens of rocky shards fly out as your hand raises up, riddling your enemy with countless jagged stones!",
+  "Combat.Terra.StoneKnives.None": "[pg-]...But not a single one manages to hit [themonster].",
+  "Combat.Terra.StoneKnives.Most": "[pg-][Themonster] manages to avoid most of the shards, with only {0} striking their target.",
+  "Combat.Terra.StoneKnives.Hit": "[pg-][Themonster] is battered by {0} stone shards.",
+  "Combat.Terra.StoneKnives.Unharmed": "[pg-][Themonster] is battered by {0} stone shards, but seems to be unharmed.",
+  "Combat.Terra.Scorch.Name": "Scorch",
+  "Combat.Terra.Scorch.Description": "Burn the battlefield, causing damage to all moving enemies.",
+  "Combat.Terra.Scorch.Disabled": "Scorch is already active.",
+  "Combat.Terra.Scorch.Text": "Arms aloft, the weaving of magical fire becomes an art; you paint swathes of scorching viridescent flames across the battlefield. All who dare step through your flames will be burned.",
+  "Combat.Terra.Scorch.Burn": "[pg-]The scorching flames covering the battlefield burn [monster.him] as [monster.he] passes through."
+}

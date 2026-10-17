@@ -1,0 +1,34 @@
+{
+  // 原版 classes/scenes/monsters/Succubus.hx（由 monster.mjs 生成骨架后人工补 loot/type）
+  enemies: [
+    {
+      id: "coc:succubus"
+      // type 必须与 Contents/Enemies/Vanilla/SuccubusEnemy.cs 的 [Register] id 完全一致
+      type: "coc:succubus"
+      nameKey: "Npcs.Succubus.Name"
+      descriptionKey: "Npcs.Succubus.Desc"
+      article: "the"
+      level: 3
+      bonusHealth: 0
+      lust: 50
+      strength: 25
+      toughness: 20
+      speed: 35
+      intelligence: 42
+      libido: 75
+      sensitivity: 45
+      corruption: 90
+      // 原版 gems = Utils.rand(5) + 5，随机值在 SuccubusEnemy.Configure 里掷；这里只是占位
+      gems: 5
+      experience: 0
+      ai: "coc:succubus_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop().add(consumables.INCUBID, 1).add(consumables.SUCMILK, 1).add(consumables.SDELITE, 1)
+        { item: "coc:incubi_draft", weight: 1 }
+        { item: "coc:succubi_milk", weight: 1 }
+        { item: "coc:succubus_delight", weight: 1 }
+      ]
+    }
+  ]
+}

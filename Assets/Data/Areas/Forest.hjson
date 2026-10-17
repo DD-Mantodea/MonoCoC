@@ -1,0 +1,16 @@
+{
+  id: "coc:forest"
+  scene: "coc:forest"
+  order: 20
+  nameKey: "Areas.Forest.Name"
+  descriptionKey: "Areas.Forest.Description"
+  discoveryKey: "Areas.Forest.Discovery"
+  exploreKey: "Areas.Forest.Explore"
+  condition: {
+    type: compare
+    flag: "coc:times_explored_forest"
+    op: ">="
+    value: 1
+  }
+  explorationFlag: "coc:times_explored_forest"
+}

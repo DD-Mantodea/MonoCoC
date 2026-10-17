@@ -1,0 +1,11 @@
+{
+  // 原版 StatusEffects.NephilaCompulsion：被蛛群覆盖的标记状态
+  id: "coc:nephila_compulsion"
+  nameKey: "Combat.Effect.NephilaCompulsion.Name"
+  descriptionKey: "Combat.Effect.NephilaCompulsion.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+}

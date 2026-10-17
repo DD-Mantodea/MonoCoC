@@ -1,0 +1,43 @@
+{
+  "Combat.VolcanicGolem.UberCharge": "The golem curls up into a ball and starts glowing brightly. Maybe it's charging something.[pg]",
+  "Combat.VolcanicGolem.Uber1": "[pg]The monster grows even brighter, and you can barely manage to stand near it without being scorched by the extreme heat.",
+  "Combat.VolcanicGolem.UberHint1": "[pg-]You're not sure about continuing to fight.",
+  "Combat.VolcanicGolem.Uber2": "[pg]The monster grows even brighter, and the light around him distorts massively due to the unthinkable heat.",
+  "Combat.VolcanicGolem.UberHint2": "[pg-]You should probably flee!",
+  "Combat.VolcanicGolem.Nuke1": "[pg]The golem suddenly rises with a mighty bellow, and the heat grows to a deadly level. A devastating heat wave expands outwards from the construct. It's too fast and too wide for you to dodge.",
+  "Combat.VolcanicGolem.Nuke2": "[pg]You're hit in full, but you don't have time to feel any pain. You're vaporized in less than a second, completely eliminated. The only thing that remains is your shadow, painted in the earth by the extreme thermal radiation that emanated from the golem.",
+  "Combat.VolcanicGolem.Nuke3": "[pg]The golem, somehow unfazed by its own attack, continues to wander aimlessly through the Volcanic Crag.",
+  "Combat.VolcanicGolem.HealStart": "The golem curls up into a ball and creates a shimmering shield around it. It seems to be preparing a lengthy spell of some kind.[pg]",
+  "Combat.VolcanicGolem.HealContinue": "[pg]The shimmering shield continues to block your attacks.[pg-]",
+  "Combat.VolcanicGolem.HealHint": "The shield can absorb weaker strikes, but perhaps a single, strong enough strike will overpower it.",
+  "Combat.VolcanicGolem.HealDone": "[pg]The golem glows momentarily with a golden aura, and the shimmering shield dissipates. It seems to have healed itself![pg-]",
+  "Combat.VolcanicGolem.ShatterIntro": "The fearsome golem unleashes a mighty bellow and stomps the ground with uncanny force! The earth cracks in your direction as the blast wave of its roar approaches quickly.[pg-]",
+  "Combat.VolcanicGolem.ShatterBlock": "You quickly position your [shield] in front of you and block most of the attack, only suffering a minor stumble.[pg-]",
+  "Combat.VolcanicGolem.ShatterStun": "No amount of agility can help you dodge this enormous shockwave. You're hit, thrown forcefully to the ground, dazed and reeling. <b>You are stunned.</b>[pg-]",
+  "Combat.VolcanicGolem.ShatterHit": "You're hit by the shockwave in full, but manage to balance yourself to not be thrown to the ground.",
+  "Combat.VolcanicGolem.Reinforce": "[pg]The Golem lets out a deafening roar and flashes brightly, turning pure white for a moment. After a brief moment, it returns to its previous glow, and you notice <b>its armor is completely restored.</b> ",
+  "Combat.VolcanicGolem.WeapRegrown": "[pg]The golem's arm fully regrows. Its damage is back to normal![pg-]",
+  "Combat.VolcanicGolem.ArmorReturnSome": "[pg]Some of the missing rock plates slide back up to the golem's exterior, defying gravity. Some of its defense has returned![pg-]",
+  "Combat.VolcanicGolem.ArmorReturnAll": "[pg]The missing rock plates slide back up to the golem's exterior, defying gravity. Its defense has returned to normal.[pg-]",
+  "Combat.VolcanicGolem.FrenzyCalm": "[pg]The golem seems to calm down a bit, and the glow between the rock plates returns to their regular brightness.[pg-]",
+  "Combat.VolcanicGolem.StunnedWait": "[pg]The golem stands still, and the rock plates slowly slide back over the molten interior, defying gravity.[pg-]",
+  "Combat.VolcanicGolem.StunnedEnd": "[pg]The golem's armor fully envelops its body again, and the construct doesn't seem too happy over being stunned like that! The red hot glow between the rock plates grows even brighter, and the golem seems to become stronger![pg-]",
+  "Combat.VolcanicGolem.ChargeBreak": "[pg-]Your attack is so strong it knocks the Golem out of its charging spell! It falls to the ground, <b>stunned</b>!",
+  "Combat.VolcanicGolem.ShieldAbsorb": "[pg-]Your attack is absorbed by the shimmering shield and deals minor damage to it.[pg-]",
+  "Combat.VolcanicGolem.ShieldBreak": "You manage to break through the shield, stopping the golem's ability!",
+  "Combat.VolcanicGolem.ShieldShatter": "Your mighty attack completely shatters the shimmering shield, <b>stunning</b> the golem in the process![pg-]"
+  "Combat.VolcanicGolem.ChargingRetreat": "The golem doesn't care about your retreat, and continues to glow brighter."
+  "Combat.VolcanicGolem.FistStuck": "The slow golem charges and attacks the ground you stood on seconds ago, digging a massive hole in the scorched earth and impaling his own fist in the ground. Whew!"
+  "Combat.VolcanicGolem.FistStuckHint": "[pg]The construct seems to struggle to remove its fist from the ground. <b>If you act immediately with the proper attack, you might be able to exploit the golem's mistake![pg-]</b>"
+  "Combat.VolcanicGolem.ThrowRock": "Furious over your fleeing, the golem rips a few pieces of rock and magma from itself and hurls it at you! "
+  "Combat.VolcanicGolem.ThrowDodge": "You manage to roll out of the way as the ball of rock and lava crashes into the ground, dispersing into fizzling red-hot pebbles.[pg-]"
+  "Combat.VolcanicGolem.ThrowHit": "The boulder crashes into you, burning and crushing your body before exploding and dispersing into fizzling red-hot pebbles."
+  "Combat.VolcanicGolem.ArmorDecreased": "[pg]You notice more of the golem's core is now visible. <b>The Golem's defense has decreased!</b>"
+  "Combat.VolcanicGolem.FistFree": "[pg]The golem pulls its fist free of the ground with a thunderous crack."
+  "Combat.VolcanicGolem.RunAway": "You make the smart decision to run as fast and as far away as you can. A few moments later, far enough away that you can barely see the golem, you feel heavy heat on your back, almost burning it. Had you stood there, you'd certainly have perished."
+  "Combat.VolcanicGolem.ConstrictWrap": "[pg-]Seeing the golem's arm half buried in the ground, you decide to wrap yourself against it and pull with all your strength, cringing while you resist the burning pain of its superheated skin."
+  "Combat.VolcanicGolem.ConstrictRipArm": "[pg-]Using your inhuman strength, you manage to rip out the golem's arm! The construct stumbles back, magma spraying from its arm socket. It doesn't seem too bothered by the loss, but it's certainly less dangerous now!"
+  "Combat.VolcanicGolem.ConstrictTooWeak": "[pg-]You're just not strong enough to beat the Golem's might. You unwrap yourself before the construct has a chance to strike you."
+  "Combat.VolcanicGolem.ConstrictSwat": "The golem swats you away as you attempt to wrap yourself around it.",
+  "Combat.VolcanicGolem.MagmaSpills": "[pg-]Magma spills from between the rock plates and hits you, burning intensely. [b:({0})]",
+}

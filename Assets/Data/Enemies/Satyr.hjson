@@ -1,0 +1,29 @@
+{
+  // 原版 Satyr（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:satyr"
+      type: "coc:satyr"
+      nameKey: "Npcs.Satyr.Name"
+      descriptionKey: "Npcs.Satyr.Desc"
+      article: "a"
+      level: 14
+      bonusHealth: 300
+      lust: 20
+      strength: 75
+      toughness: 70
+      speed: 110
+      intelligence: 70
+      libido: 60
+      sensitivity: 35
+      corruption: 45
+      gems: 25
+      experience: 0
+      ai: "coc:satyrAi"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

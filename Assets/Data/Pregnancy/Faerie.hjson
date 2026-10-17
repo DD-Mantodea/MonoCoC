@@ -1,0 +1,13 @@
+{
+  // 原版 PregnancyStore.PREGNANCY_FAERIE = 24 / INCUBATION_FAERIE = 200
+  // 分娩：PhoukaScene 实现 VaginalPregnancy（Haxe 直接 register scene）。
+  id: "coc:faerie"
+  legacyId: 24
+  kind: "vaginal"
+  special: "faerie"
+  incubation: 200
+  fullTerm: "Pregnancy.Native.FullTerm"
+  deliveries: {
+    vaginal: "coc:delivery_faerie"
+  }
+}

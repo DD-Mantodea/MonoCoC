@@ -1,0 +1,26 @@
+{
+  // 原版 classes/scenes/areas/mountain/InfestedHellhound.hx：level 5、str65/tou60/spe50/inte1
+  // lib95/sens20/cor100、weaponAttack 5、lust 50、gems 10+rand(10)
+  enemies: [
+    {
+      id: "coc:infested_hellhound"
+      type: "coc:infested_hellhound"
+      nameKey: "Scenes.Infestedhellhound.Name"
+      article: "the"
+      level: 5
+      bonusHealth: 0
+      lust: 50
+      strength: 65
+      toughness: 60
+      speed: 50
+      intelligence: 1
+      libido: 95
+      sensitivity: 20
+      corruption: 100
+      gems: 15
+      experience: 0
+      weaponAttack: 5
+      ai: "coc:infested_hellhound_ai"
+    }
+  ]
+}

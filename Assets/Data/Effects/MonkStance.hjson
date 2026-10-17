@@ -1,0 +1,12 @@
+{
+  // 原版 Monk StanceBuff.hx：拳法姿态，装备变化时自动解除
+  id: "coc:monk_stance"
+  nameKey: "Combat.Effect.MonkStance.Name"
+  descriptionKey: "Combat.Effect.MonkStance.Description"
+  kind: "combat"
+  duration: 0
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_monkstance_round"
+}

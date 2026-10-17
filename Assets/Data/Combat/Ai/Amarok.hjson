@@ -1,0 +1,24 @@
+{
+  // 原版 Amarok.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:amarok_ai"
+  actions: [
+    {
+      ability: "coc:amarok_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:amarok_claw"
+      weight: 6
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:amarok_tail"
+      weight: 4
+      cost: 15
+      fatigueType: "physical"
+    }
+  ]
+}

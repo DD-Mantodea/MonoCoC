@@ -1,0 +1,42 @@
+{
+  // 原版 CorruptedWitch.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:corrupted_witch_ai"
+  actions: [
+    {
+      ability: "coc:corrupted_witch_heals"
+      weight: 1
+      cost: 0
+      fatigueType: "magical"
+      priority: 9
+      when: "coc:corrupted_witch_heals_ready"
+    }
+    {
+      ability: "coc:corrupted_witch_force_queen"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:corrupted_witch_breed_trance"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:corrupted_witch_shell_defense"
+      weight: 3
+      cost: 10
+      fatigueType: "magical"
+      // 原版 !hasStatusEffect(StatusEffects.Shell)
+      forbidsStatus: "coc:shell"
+    }
+    {
+      ability: "coc:corrupted_witch_cum_hunger_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+      // 原版 player.hasVagina()
+      when: "coc:player_has_vagina"
+    }
+  ]
+}

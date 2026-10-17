@@ -1,0 +1,29 @@
+{
+  // 原版 AkbalUnsealed（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:akbal_unsealed"
+      type: "coc:akbal_unsealed"
+      nameKey: "Npcs.AkbalUnsealed.Name"
+      descriptionKey: "Npcs.AkbalUnsealed.Desc"
+      article: ""
+      level: 30
+      bonusHealth: 1500
+      lust: 0
+      strength: 120
+      toughness: 120
+      speed: 150
+      intelligence: 150
+      libido: 50
+      sensitivity: 50
+      corruption: 100
+      gems: 0
+      experience: 0
+      ai: "coc:akbal_unsealed_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

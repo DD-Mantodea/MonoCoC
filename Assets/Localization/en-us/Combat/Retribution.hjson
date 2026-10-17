@@ -1,0 +1,8 @@
+{
+  "Combat.Effect.Retribution.Name": "Arc of Retribution",
+  "Combat.Effect.Retribution.Description": "Charging a massive strike powered by the pain you endure.",
+  "Combat.Special.Retribution.Name": "Arc of Retribution",
+  "Combat.Special.Retribution.Description": "Position yourself to unleash a massive strike at the end of the turn. Damage increases based on how much punishment you take this turn!",
+  "Combat.Special.Retribution.Start": "You hold your [weapon] with both hands and hold it over your shoulder, intent on charging an extremely powerful attack.\\nYou current stance and intent makes dodging or blocking impossible, but you're willing to grit through the pain!",
+  "Combat.Special.Retribution.Exec": "[pg]You finish charging your attack and strike, fueled by the pain of the blows you've endured!\\nYou twist your body to put extra force behind your attack, swinging diagonally downwards, intent on cleaving [themonster] in half![pg]Your [weapon] strikes your foe with terrible force, knocking [monster.him] down with the sheer weight of your blow. The very ground cracks as your swing meets it, the sound absolutely deafening!"
+}

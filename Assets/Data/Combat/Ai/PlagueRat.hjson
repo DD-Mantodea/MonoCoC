@@ -1,0 +1,26 @@
+{
+  // 原版 PlagueRat.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:plague_rat_ai"
+  actions: [
+    {
+      ability: "coc:plague_rat_swipe_attack"
+      weight: 3
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:plague_rat_spit"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+      // 原版条件: !player.hasStatusEffect(StatusEffects.Poison)
+      when: "coc:plague_rat_can_spit"
+    }
+    {
+      ability: "coc:plague_rat_gnash"
+      weight: 1
+      cost: 25
+      fatigueType: "physical"
+    }
+  ]
+}

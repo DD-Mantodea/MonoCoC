@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1421-1429 / :3042-3105 Hellfire（cost 20，cooldown 3，Hellfire perk）
+  id: "coc:spell_hellfire"
+  nameKey: "Combat.Spell.Hellfire.Name"
+  descriptionKey: "Combat.Spell.Hellfire.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 3
+  availableWhen: "coc:has_hellfire"
+  handler: "coc:spell_hellfire"
+}

@@ -1,0 +1,29 @@
+{
+  // 原版 FrogGirl（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:frog_girl"
+      type: "coc:frog_girl"
+      nameKey: "Npcs.FrogGirl.Name"
+      descriptionKey: "Npcs.FrogGirl.Desc"
+      article: "the"
+      level: 14
+      bonusHealth: 450
+      lust: 30
+      strength: 60
+      toughness: 75
+      speed: 95
+      intelligence: 45
+      libido: 50
+      sensitivity: 40
+      corruption: 50
+      gems: 0
+      experience: 0
+      ai: "coc:frog_girl_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  kind: coc:cock
+  collection: true
+  default: coc:human
+  types:
+  [
+    { id: "coc:human", type: "Human" }
+    { id: "coc:horse", type: "Horse" }
+    { id: "coc:dog", type: "Dog" }
+    { id: "coc:demon", type: "Demon" }
+    { id: "coc:tentacle", type: "Tentacle" }
+    { id: "coc:cat", type: "Cat" }
+    { id: "coc:lizard", type: "Lizard" }
+    { id: "coc:anemone", type: "Anemone" }
+    { id: "coc:kangaroo", type: "Kangaroo" }
+    { id: "coc:dragon", type: "Dragon" }
+    { id: "coc:wolf", type: "Wolf" }
+    { id: "coc:fox", type: "Fox" }
+    { id: "coc:cockatrice", type: "Cockatrice" }
+    { id: "coc:bear", type: "Bear" }
+    { id: "coc:red_panda", type: "RedPanda" }
+    { id: "coc:ferret", type: "Ferret" }
+    { id: "coc:imp", type: "Imp" }
+    { id: "coc:displacer", type: "Displacer" }
+    { id: "coc:echidna", type: "Echidna" }
+    { id: "coc:salamander", type: "Salamander" }
+    { id: "coc:avian", type: "Avian" }
+    { id: "coc:bee", type: "Bee" }
+    { id: "coc:gnoll", type: "Gnoll" }
+    { id: "coc:pig", type: "Pig" }
+    { id: "coc:undefined", type: "Undefined" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  // 原版 PregnancyStore.PREGNANCY_EMBER = 17 / INCUBATION_EMBER = 336
+  // 分娩：EmberScene 实现 VaginalPregnancy（Haxe 直接 register scene）。
+  id: "coc:ember"
+  legacyId: 17
+  kind: "vaginal"
+  incubation: 336
+  fullTerm: "Pregnancy.Native.FullTerm"
+  deliveries: {
+    vaginal: "coc:delivery_ember"
+  }
+}

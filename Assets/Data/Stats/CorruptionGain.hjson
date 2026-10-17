@@ -1,0 +1,7 @@
+{
+  "id": "coc:corruption_gain",
+  "default": 0,
+  "higherIsBetter": true,
+  "format": "percent",
+  "visible": true
+}

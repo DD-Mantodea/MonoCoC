@@ -1,0 +1,11 @@
+{
+  // 原版 DriderIncubus.performCombatAction（DriderIncubus.hx:80-98）：
+  // 一回合内会依次「回血/掉血 → 刺击 + 子招式 →（哥布林已放走）哥布林行动」，
+  // C# 里用这一条「整回合」招式承载（handler: coc:drider_incubus_round），不再拆成多条。
+  id: "coc:drider_incubus_round"
+  type: "physical"
+  range: "omni"
+  cost: 0
+  cooldown: 0
+  handler: "coc:drider_incubus_round"
+}

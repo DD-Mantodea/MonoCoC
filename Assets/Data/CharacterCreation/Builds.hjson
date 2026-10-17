@@ -1,0 +1,216 @@
+{
+  ages:
+  {
+    adult:
+    {
+      strength: 15
+      toughness: 15
+      speed: 15
+      intelligence: 15
+      sensitivity: 15
+      libido: 15
+      lust: 15
+      bonus: 5
+      nippleLength: 0.25
+      clitLength: 0.5
+      cockLength: 5.5
+      cockThickness: 1
+      ballSize: 1
+      tallnessMale: 71
+      tallnessFemale: 67
+      tallnessHerm: 69
+      fertilityMale: 5
+      fertilityFemale: 10
+      fertilityHerm: 10
+      toneMale: 60
+      toneFemale: 30
+      toneHerm: 45
+    }
+    child:
+    {
+      strength: 3
+      toughness: 3
+      speed: 10
+      intelligence: 8
+      sensitivity: 5
+      libido: 1
+      lust: 0
+      bonus: 2
+      nippleLength: 0.04
+      clitLength: 0.1
+      cockLength: 3.5
+      cockThickness: 0.6
+      ballSize: 0.5
+      tallnessMale: 51
+      tallnessFemale: 50
+      tallnessHerm: 50
+      fertilityMale: 2
+      fertilityFemale: 4
+      fertilityHerm: 4
+      toneMale: 35
+      toneFemale: 30
+      toneHerm: 30
+    }
+    teen:
+    {
+      strength: 12
+      toughness: 14
+      speed: 14
+      intelligence: 12
+      sensitivity: 15
+      libido: 20
+      lust: 20
+      bonus: 4
+      nippleLength: 0.2
+      clitLength: 0.3
+      cockLength: 4.5
+      cockThickness: 0.8
+      ballSize: 1
+      tallnessMale: 65
+      tallnessFemale: 63
+      tallnessHerm: 64
+      fertilityMale: 4
+      fertilityFemale: 8
+      fertilityHerm: 8
+      toneMale: 60
+      toneFemale: 30
+      toneHerm: 45
+    }
+    elder:
+    {
+      strength: 10
+      toughness: 5
+      speed: 5
+      intelligence: 20
+      sensitivity: 10
+      libido: 10
+      lust: 10
+      bonus: 3
+      nippleLength: 0.25
+      clitLength: 0.5
+      cockLength: 5.5
+      cockThickness: 1
+      ballSize: 1
+      tallnessMale: 69
+      tallnessFemale: 65
+      tallnessHerm: 67
+      fertilityMale: 1
+      fertilityFemale: 2
+      fertilityHerm: 2
+      toneMale: 50
+      toneFemale: 30
+      toneHerm: 40
+    }
+  }
+
+  builds:
+  {
+    small:
+    {
+      thickness: 30
+      strength: -1
+      toughness: 0
+      speed: 1
+      tone: 5
+      male:
+      {
+        adult: { femininity: 34, breasts: 0, butt: 2, hips: 2 }
+        child: { femininity: 45, breasts: 0, butt: 2, hips: 0 }
+        teen: { femininity: 40, breasts: 0, butt: 2, hips: 0 }
+        elder: { femininity: 30, breasts: 0, butt: 2, hips: 2 }
+      }
+      female:
+      {
+        adult: { femininity: 66, breasts: 2, butt: 2, hips: 6 }
+        child: { femininity: 56, breasts: 0, butt: 0, hips: 0 }
+        teen: { femininity: 62, breasts: 0, butt: 2, hips: 0 }
+        elder: { femininity: 66, breasts: 2, butt: 2, hips: 6 }
+      }
+    }
+
+    medium:
+    {
+      thickness: 50
+      strength: 0
+      toughness: 0
+      speed: 0
+      tone: 0
+      male:
+      {
+        adult: { femininity: 30, breasts: 0, butt: 4, hips: 4 }
+        child: { femininity: 41, breasts: 0, butt: 3, hips: 0 }
+        teen: { femininity: 36, breasts: 0, butt: 3, hips: 1 }
+        elder: { femininity: 26, breasts: 0, butt: 4, hips: 4 }
+      }
+      female:
+      {
+        adult: { femininity: 70, breasts: 3, butt: 6, hips: 6 }
+        child: { femininity: 60, breasts: 0, butt: 2, hips: 0 }
+        teen: { femininity: 66, breasts: 1, butt: 2, hips: 2 }
+        elder: { femininity: 70, breasts: 3, butt: 6, hips: 6 }
+      }
+    }
+
+    large:
+    {
+      thickness: 70
+      strength: 1
+      toughness: 1
+      speed: -2
+      tone: -5
+      male:
+      {
+        adult: { femininity: 29, breasts: 0, butt: 6, hips: 4 }
+        child: { femininity: 40, breasts: 0, butt: 5, hips: 1 }
+        teen: { femininity: 35, breasts: 0, butt: 6, hips: 3 }
+        elder: { femininity: 25, breasts: 0, butt: 6, hips: 4 }
+      }
+      female:
+      {
+        adult: { femininity: 71, breasts: 4, butt: 8, hips: 10 }
+        child: { femininity: 61, breasts: 1, butt: 6, hips: 4 }
+        teen: { femininity: 67, breasts: 3, butt: 8, hips: 6 }
+        elder: { femininity: 71, breasts: 4, butt: 8, hips: 10 }
+      }
+    }
+
+    andro:
+    {
+      thickness: 50
+      strength: -1
+      toughness: 0
+      speed: 1
+      tone: 0
+      setToneMale: 26
+      setToneFemale: 50
+      male:
+      {
+        adult: { femininity: 50, breasts: 1, butt: 6, hips: 2 }
+        child: { femininity: 61, breasts: 0, butt: 6, hips: 2 }
+        teen: { femininity: 56, breasts: 0, butt: 6, hips: 2 }
+        elder: { femininity: 46, breasts: 1, butt: 6, hips: 2 }
+      }
+      female:
+      {
+        adult: { femininity: 71, breasts: 1, butt: 2, hips: 2 }
+        child: { femininity: 61, breasts: 0, butt: 2, hips: 0 }
+        teen: { femininity: 67, breasts: 0, butt: 2, hips: 0 }
+        elder: { femininity: 71, breasts: 1, butt: 2, hips: 2 }
+      }
+    }
+  }
+
+  defaultHairLength:
+  {
+    male: 1
+    female: 10
+    hermaphrodite: 10
+  }
+
+  statBonuses:
+  {
+    male: ["coc:strength", "coc:toughness"]
+    female: ["coc:speed", "coc:intelligence"]
+    hermaphrodite: ["coc:strength", "coc:speed", "coc:toughness", "coc:intelligence"]
+  }
+}

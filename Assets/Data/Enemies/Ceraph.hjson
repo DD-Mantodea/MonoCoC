@@ -1,0 +1,29 @@
+{
+  // 原版 Ceraph（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:ceraph"
+      type: "coc:ceraph"
+      nameKey: "Npcs.Ceraph.Name"
+      descriptionKey: "Npcs.Ceraph.Desc"
+      article: ""
+      level: 9
+      bonusHealth: 200
+      lust: 30
+      strength: 65
+      toughness: 40
+      speed: 80
+      intelligence: 80
+      libido: 75
+      sensitivity: 15
+      corruption: 100
+      gems: 5
+      experience: 0
+      ai: "coc:ceraph_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

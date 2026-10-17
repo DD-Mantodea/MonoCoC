@@ -1,0 +1,12 @@
+{
+  "Combat.Effect.OnFire.Name": "On Fire",
+  "Combat.Effect.OnFire.Description": "Burning alive!",
+  "Combat.Effect.OnFire.Burning": " [Themonster] is burning!",
+  "Combat.Special.TailSlap.Name": "Tail Slap",
+  "Combat.Special.TailSlap.Description": "Set your tail ablaze in red-hot flames to whip your foe with it to hurt and burn them!",
+  "Combat.Special.TailSlap.Intro": "With a simple thought you set your tail ablaze.",
+  "Combat.Special.TailSlap.Miss": " Twirling like a top, you swing your tail, but connect with only empty air.",
+  "Combat.Special.TailSlap.Hit": " Twirling like a top, you bat your opponent with your tail.",
+  "Combat.Special.TailSlap.HitPlural": " Twirling like a top, you bat your opponents with your tail.",
+  "Combat.Special.TailSlap.Burn": "[pg-]You use the traces of your previous fire magic to empower your flames, setting [themonster] on fire!"
+}

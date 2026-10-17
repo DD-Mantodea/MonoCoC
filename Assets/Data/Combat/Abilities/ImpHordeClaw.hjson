@@ -1,0 +1,9 @@
+{
+  // 原版 ImpHorde 的三招
+  id: "coc:imp_horde_claw"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:imp_horde_claw"
+}

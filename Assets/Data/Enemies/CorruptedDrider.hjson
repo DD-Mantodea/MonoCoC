@@ -1,0 +1,35 @@
+{
+  // 原版 CorruptedDrider（src/classes/scenes/areas/swamp/CorruptedDrider.hx:125 的构造函数）
+  // 注意：名字/等级/欲望/宝石/bonusHP 都是随机的「穿孔」分支决定的，
+  // 所以这些字段全部在 Contents/Enemies/Vanilla/CorruptedDriderEnemy.cs 的 Configure 里现算，
+  // 这里的 level/lust/gems/bonusHealth 只是「未穿孔」档的占位值，不要在数据侧再叠一次。
+  enemies: [
+    {
+      id: "coc:corrupted_drider"
+      type: "coc:corrupted_drider"
+      nameKey: "Npcs.CorruptedDrider.Name"
+      descriptionKey: "Npcs.CorruptedDrider.Desc"
+      article: "the"
+      level: 14
+      bonusHealth: 0
+      lust: 30
+      strength: 100
+      toughness: 50
+      speed: 70
+      intelligence: 100
+      libido: 80
+      sensitivity: 50
+      corruption: 90
+      gems: 20
+      experience: 0
+      ai: "coc:corrupted_drider_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop().add(B_GOSSR, 5).add(T_SSILK, 1).add(null, 4)
+        { item: "coc:black_gossamer", weight: 5 }
+        { item: "coc:tough_silk", weight: 1 }
+        { nothing: true, weight: 4 }
+      ]
+    }
+  ]
+}

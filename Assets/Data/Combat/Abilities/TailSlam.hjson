@@ -1,0 +1,10 @@
+{
+  // 原版 CombatAbilities.hx:1908 Tail Slam（龙尾重击）
+  id: "coc:tail_slam"
+  type: "physical"
+  range: "melee"
+  cost: 20
+  cooldown: 3
+  handler: "coc:tail_slam"
+  availableWhen: "coc:tail_slam_available"
+}

@@ -1,0 +1,8 @@
+{
+  id: "coc:goo_girl_goo_gal_attack"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:goo_girl_goo_gal_attack"
+}

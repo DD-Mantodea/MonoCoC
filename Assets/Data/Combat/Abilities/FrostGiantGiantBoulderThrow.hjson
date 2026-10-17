@@ -1,0 +1,8 @@
+{
+  id: "coc:frost_giant_giant_boulder_throw"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:frost_giant_giant_boulder_throw"
+}

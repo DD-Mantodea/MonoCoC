@@ -1,0 +1,8 @@
+{
+  id: "coc:holli_heal_holli"
+  type: "physical"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:holli_heal_holli"
+}

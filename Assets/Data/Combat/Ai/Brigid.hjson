@@ -1,0 +1,36 @@
+{
+  // 原版 Brigid.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:brigid_ai"
+  actions: [
+    {
+      ability: "coc:brigid_ass_grind"
+      weight: 0.25
+      cost: 5
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:brigid_poke"
+      weight: 0.75
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:brigid_ass_grind_two"
+      weight: 0.25
+      cost: 5
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:brigid_bop"
+      weight: 0.33
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:brigid_poke_two"
+      weight: 0.42
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

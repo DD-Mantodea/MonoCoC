@@ -1,0 +1,29 @@
+{
+  // 原版 Amarok（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:amarok"
+      type: "coc:amarok"
+      nameKey: "Npcs.Amarok.Name"
+      descriptionKey: "Npcs.Amarok.Desc"
+      article: "the"
+      level: 22
+      bonusHealth: 400
+      lust: 5
+      strength: 90
+      toughness: 110
+      speed: 75
+      intelligence: 85
+      libido: 0
+      sensitivity: 10
+      corruption: 10
+      gems: 0
+      experience: 0
+      ai: "coc:amarok_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

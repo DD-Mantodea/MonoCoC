@@ -1,0 +1,29 @@
+{
+  // 原版 Hellmouth（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:hellmouth"
+      type: "coc:hellmouth"
+      nameKey: "Npcs.Hellmouth.Name"
+      descriptionKey: "Npcs.Hellmouth.Desc"
+      article: "the"
+      level: 22
+      bonusHealth: 200
+      lust: 15
+      strength: 60
+      toughness: 60
+      speed: 70
+      intelligence: 50
+      libido: 25
+      sensitivity: 25
+      corruption: 60
+      gems: 50
+      experience: 0
+      ai: "coc:hellmouth_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

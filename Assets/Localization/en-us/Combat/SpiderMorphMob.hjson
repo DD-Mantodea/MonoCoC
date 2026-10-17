@@ -1,0 +1,18 @@
+{
+  "Combat.SpiderMorphMob.KihaSPOIDAHAI.Text": "[pg]"
+  "Combat.SpiderMorphMob.KihaSPOIDAHAI.WhileTheyRe": "While they're tangled up with you, however, Kiha takes the opportunity to get in a few shallow swings with her axe, to the accompaniment of crunching chitin."
+  "Combat.SpiderMorphMob.SpiderStandardAttack.ANumberOf": "A number of spiders rush at you, trying to claw and bite you. You manage to beat them all back, though, with some literal covering fire from Kiha."
+  "Combat.SpiderMorphMob.SpiderStandardAttack.ANumberOf2": "A number of spiders rush at you, trying to claw and bite you. You manage to knock most of them away, but a few nasty hits manage to punch through your [armorName]. "
+  "Combat.SpiderMorphMob.SpiderStandardAttack.OneBrush": "\n{0}{1} brush against your exposed skin and jerk back in surprise, coloring slightly from seeing so much of you revealed."
+  "Combat.SpiderMorphMob.SpiderStandardAttack.OneBrushes": "\n{0}{1} brushes against your exposed skin and jerks back in surprise, coloring slightly from seeing so much of you revealed."
+  "Combat.SpiderMorphMob.SpiderStandardAttack.OneMutilate": "{0}{1} <b>mutilate</b> you with {2} powerful {3}!"
+  "Combat.SpiderMorphMob.SpiderStandardAttack.OneStaggers": "{0}{1} staggers you with the force of {2} {3}!"
+  "Combat.SpiderMorphMob.SpiderStandardAttack.OneWounds": "{0}{1} wounds you!"
+  "Combat.SpiderMorphMob.SpiderStandardAttack.YouAbsorbAnd": "You absorb and deflect every {0} with your [armor]."
+  "Combat.SpiderMorphMob.SpiderStandardAttack.YouAreStruck": "You are struck a glancing blow by {0}{1}!"
+  "Combat.SpiderMorphMob.SpiderStandardAttack.YouDeflectAnd": "You deflect and block every {0} {1}{2} throws at you."
+  "Combat.SpiderMorphMob.SpoidahHordeWebLaunchahs.OneOfThe": "One of the driders launches a huge glob of webbing right at you! Luckily, Kiha manages to burn it out of the air with a well-timed gout of flame!"
+  "Combat.SpiderMorphMob.SpoidahHordeWebLaunchahs.SomeOfThe": "Some of the spiders and driders launch huge globs of wet webbing right at you, hitting you in the torso! You try to wiggle out, but it's no use; you're stuck like this for now. Though comfortingly, the driders' open stance and self-satisfaction allow Kiha to blast them in the side with a huge conflagration!"
+  "Combat.SpiderMorphMob.Struggle.YouClawYour": "You claw your way out of the webbing while Kiha does her best to handle the spiders single-handedly![pg]"
+  "Combat.SpiderMorphMob.Won.TheSpidersSmile": "[pg]The spiders smile to one at another as they watch your display, then close in..."
+}

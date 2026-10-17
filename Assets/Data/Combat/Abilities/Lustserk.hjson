@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1368-1384 / :2775-2783 Lustserk（免费，Lustserker perk）
+  id: "coc:special_lustserk"
+  nameKey: "Combat.Special.Lustserk.Name"
+  descriptionKey: "Combat.Special.Lustserk.Description"
+  type: "physical"
+  category: "physical"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:can_lustserk"
+  disabledWhen: "coc:is_lustserking"
+  disabledTooltip: "Combat.Special.Lustserk.Disabled"
+  handler: "coc:special_lustserk"
+}

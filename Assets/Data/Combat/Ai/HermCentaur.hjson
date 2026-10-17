@@ -1,0 +1,50 @@
+{
+  // 原版 HermCentaur.performCombatAction（HermCentaur.hx:79-100）
+  // 注意：原版是手写的带实例状态优先级的选招，C# 侧由 HermCentaurEnemy.ChooseCombatAction 完整覆写，
+  // 这张表只保留与手写逻辑一致的每条消耗（cost / fatigueType）记录，不参与实际运行。
+  id: "coc:herm_centaur_ai"
+  actions: [
+    {
+      ability: "coc:herm_centaur_arouse_spell_cast"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:herm_centaur_gotta_cum"
+      weight: 1
+      cost: 10
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:herm_centaur_heal_up"
+      weight: 1
+      cost: 0
+      fatigueType: "magicalHeal"
+    }
+    {
+      ability: "coc:herm_centaur_hypno_cock"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:herm_centaur_feminine_musk"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:herm_centaur_aphrodisiac_squirt"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:herm_centaur_arouse_spell_charge"
+      weight: 1
+      cost: 0
+      fatigueType: "magical"
+    }
+  ]
+}

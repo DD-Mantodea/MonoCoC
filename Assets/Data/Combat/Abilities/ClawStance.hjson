@@ -1,0 +1,17 @@
+{
+  // 原版 CombatAbilities.hx:2273-2295 Claw Stance
+  id: "coc:claw_stance"
+  nameKey: "Combat.Ability.ClawStance.Name"
+  descriptionKey: "Combat.Ability.ClawStance.Description"
+  type: "physical"
+  category: "physical"
+  range: "self"
+  cost: 5
+  fatigueType: "physical"
+  cooldown: 0
+  isSelf: true
+  availableWhen: "coc:claw_stance_ready"
+  disabledWhen: "coc:claw_stance"
+  disabledTooltip: "Combat.Ability.ClawStance.Already"
+  handler: "coc:claw_stance"
+}

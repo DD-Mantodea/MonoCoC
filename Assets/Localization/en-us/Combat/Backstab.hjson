@@ -1,0 +1,9 @@
+{
+  "Combat.Effect.Backstab.Name": "Backstab",
+  "Combat.Effect.Backstab.Description": "Lurking in the shadows, ready to strike if the enemy misses.",
+  "Combat.Special.Backstab.Name": "Backstab",
+  "Combat.Special.Backstab.Description": "Skip your turn and slip into the shadows with bonus evasion chance. If the enemy fails to hit you, counter at the end of the turn with a powerful backstab!",
+  "Combat.Special.Backstab.Start": "You wield your dagger and attempt to move out of sight of [themonster], slinking into the shadows.\\n",
+  "Combat.Special.Backstab.Success": "[pg]You succeed in moving past [themonster]'s field of view. You emerge from the shadows and plunge your dagger into [monster.his] back!",
+  "Combat.Special.Backstab.Fail": "[pg]Your attempt to slip into the shadows fails, and you have to abandon the strike."
+}

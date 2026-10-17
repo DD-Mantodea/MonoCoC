@@ -1,0 +1,29 @@
+{
+  // 原版 Vala（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:vala"
+      type: "coc:vala"
+      nameKey: "Npcs.Vala.Name"
+      descriptionKey: "Npcs.Vala.Desc"
+      article: ""
+      level: 11
+      bonusHealth: 350
+      lust: 30
+      strength: 40
+      toughness: 50
+      speed: 50
+      intelligence: 60
+      libido: 55
+      sensitivity: 35
+      corruption: 50
+      gems: 1
+      experience: 50
+      ai: "coc:vala_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

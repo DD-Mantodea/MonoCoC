@@ -1,0 +1,17 @@
+{
+  "Combat.Special.SharkBite.Name": "Shark Bite",
+  "Combat.Special.SharkBite.Description": "Attempt to bite your opponent with your shark-teeth. May cause bleeding.",
+  "Combat.Special.SharkBite.Worms": "There is no way those are going anywhere near your mouth![pg]",
+  "Combat.Special.SharkBite.BiteImmune": "You lunge forwards, fangs bared, and bite [themonster] with all your might. A piercing pain shoots up your skull as soon as you connect, your teeth unable to break through [monster.his] hide. You recoil in pain.",
+  "Combat.Special.SharkBite.Intro": "You open your mouth wide, your shark teeth extending out. Snarling with hunger, you lunge at your opponent, set to bite right into them! ",
+  "Combat.Special.SharkBite.Blind": "In hindsight, trying to bite someone while blind was probably a bad idea... ",
+  "Combat.Special.SharkBite.DodgeNarrow": "[Themonster] narrowly avoids your attack!",
+  "Combat.Special.SharkBite.DodgeFast": "[Themonster] dodges your attack with superior quickness!",
+  "Combat.Special.SharkBite.DodgeDextrous": "[Themonster] deftly avoids your slow attack.",
+  "Combat.Special.SharkBite.Blocked": "Your bite is deflected or blocked by [themonster]. ",
+  "Combat.Special.SharkBite.Low": "You bite doesn't do much damage to [themonster]! ",
+  "Combat.Special.SharkBite.Medium": "You seriously wound [themonster] with your bite! ",
+  "Combat.Special.SharkBite.High": "Your bite staggers [themonster] with its force. ",
+  "Combat.Special.SharkBite.Mutilate": "Your powerful bite [b:mutilates] [themonster]! ",
+  "Combat.Special.SharkBite.Bleed": "\\nAs you finish your bite, your sharp, serrated teeth leave lasting wounds in [themonster], causing [monster.him] to bleed profusely!"
+}

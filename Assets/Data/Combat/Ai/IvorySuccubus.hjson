@@ -1,0 +1,60 @@
+{
+  // 原版 IvorySuccubus.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:ivory_succubus_ai"
+  actions: [
+    {
+      ability: "coc:ivory_succubus_lash"
+      weight: 4
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:ivory_succubus_tease"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:ivory_succubus_flight"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:ivory_succubus_blind"
+      weight: 1
+      cost: 20
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:ivory_succubus_whitefire"
+      weight: 1
+      cost: 15
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:ivory_succubus_charge"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:ivory_succubus_arouse"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:ivory_succubus_attract"
+      weight: 1
+      cost: 15
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:ivory_succubus_lock_up"
+      weight: 1
+      cost: 20
+      fatigueType: "magical"
+    }
+  ]
+}

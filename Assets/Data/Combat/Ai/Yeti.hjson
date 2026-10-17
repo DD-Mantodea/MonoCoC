@@ -1,0 +1,36 @@
+{
+  // 原版 Yeti.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:yeti_ai"
+  actions: [
+    {
+      ability: "coc:yeti_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:yeti_claw_and_punch"
+      weight: 4
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:yeti_tackle_tumble"
+      weight: 3
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:yeti_tease"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:yeti_snowball"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  id: "coc:special_horn_stun"
+  nameKey: "Combat.Special.HornStun.Name"
+  descriptionKey: "Combat.Special.HornStun.Description"
+  type: "physical"
+  category: "physical"
+  range: "charging_melee"
+  cost: 15
+  fatigueType: "physical"
+  cooldown: 3
+  availableWhen: "coc:can_horn_stun"
+  handler: "coc:special_horn_stun"
+}

@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1608-1622 / :3594-3683 Unleash Brood（cost 35，cooldown 3，NephilaArchQueen）
+  id: "coc:special_unleash_brood"
+  nameKey: "Combat.Special.UnleashBrood.Name"
+  descriptionKey: "Combat.Special.UnleashBrood.Description"
+  type: "physical"
+  category: "physical"
+  range: "ranged"
+  cost: 35
+  fatigueType: "physical"
+  cooldown: 3
+  availableWhen: "coc:has_nephila_brood"
+  handler: "coc:special_unleash_brood"
+}

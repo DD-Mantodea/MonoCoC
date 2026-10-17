@@ -1,0 +1,8 @@
+{
+  id: "coc:lethice_demon_lust_magic"
+  type: "physical"
+  range: "omni"
+  cost: 0
+  cooldown: 0
+  handler: "coc:lethice_demon_lust_magic"
+}

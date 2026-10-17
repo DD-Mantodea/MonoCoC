@@ -1,0 +1,30 @@
+{
+  // 原版 BeautifulSwordFight.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:beautiful_sword_fight_ai"
+  actions: [
+    {
+      ability: "coc:beautiful_sword_fight_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:beautiful_sword_fight_eviscerate"
+      weight: 1
+      cost: 0
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:beautiful_sword_fight_holy_light"
+      weight: 1
+      cost: 0
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:beautiful_sword_fight_purge"
+      weight: 1
+      cost: 0
+      fatigueType: "magical"
+    }
+  ]
+}

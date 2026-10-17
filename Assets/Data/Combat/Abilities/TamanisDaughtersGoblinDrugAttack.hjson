@@ -1,0 +1,11 @@
+{
+  id: "coc:tamanis_daughters_goblin_drug_attack"
+  // 原版女儿版药剂：颜色 5 选 1、蓝色治疗整群 80 点。
+  // 本地化表没有女儿专属 key，复用 Goblin 的药剂名称与效果文案。
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  handler: "coc:tamanis_daughters_goblin_drug_attack"
+}

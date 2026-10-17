@@ -1,0 +1,10 @@
+{
+  id: "coc:helspawn_twin_strikes"
+  type: "physical"
+  // 原版 range 是实例字段 weaponRange（bow=Ranged / scimitar=ChargingMelee / 盾=Melee），
+  // 数据驱动的 AI 不能按旗标改 range，所以这里统一用 omni（永远够得着）。
+  range: "omni"
+  cost: 10
+  cooldown: 0
+  handler: "coc:helspawn_twin_strikes"
+}

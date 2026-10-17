@@ -1,0 +1,45 @@
+{
+  // 原版 WeaponTags 的判定规则（数据驱动）
+  //   any     ：命中任一即为 true
+  //   always  ：命中即 true（优先级最高）
+  //   never   ：命中即 false
+  //   all     ：必须全部命中
+  // 所有标签在加载时统一归一化（去空格 + 小写），这里也写归一化后的形式。
+  rules: [
+    { id: "unarmed", any: ["unarmed"] }
+    { id: "fist", any: ["fist"] }
+    { id: "bare_fist", all: ["fist", "unarmed"] }
+    { id: "claw", any: ["claw"] }
+    { id: "bare_claw", all: ["claw", "unarmed"] }
+    { id: "bow", any: ["bow"] }
+    { id: "crossbow", any: ["crossbow"] }
+    { id: "firearm", any: ["firearm"] }
+    { id: "holy_sword", any: ["holysword"] }
+    { id: "unholy", any: ["uglysword"] }
+    { id: "spear", any: ["spear"] }
+    { id: "knife", any: ["knife"] }
+    { id: "axe", any: ["axe"] }
+    { id: "staff", any: ["staff"] }
+    { id: "magic_staff", any: ["magic"] }
+    { id: "polearm", any: ["polearm"] }
+    { id: "scythe", any: ["scythe"] }
+    { id: "whip", any: ["whip"] }
+    { id: "katana", any: ["katana"] }
+    { id: "summoned", any: ["summoned"] }
+    { id: "melting", any: ["melting"] }
+    { id: "cunning", any: ["cunning"] }
+    { id: "aphrodisiac", any: ["aphrodisiac"] }
+    { id: "attached", any: ["attached", "unarmed"] }
+    { id: "dual", any: ["dual"] }
+    { id: "two_handed", any: ["large", "2hsword", "2hblunt", "dual"] }
+    { id: "large", any: ["large", "2hsword", "2hblunt"] }
+    { id: "ranged", any: ["ranged", "bow", "crossbow", "firearm"] }
+
+    // 带优先级的判定：always/never 覆盖 any 的推断
+    { id: "sharp", any: ["1hsword", "2hsword", "knife", "axe", "scythe"], always: ["sharp"], never: ["notsharp"] }
+    { id: "bladed", any: ["1hsword", "2hsword", "axe", "scythe"], always: ["bladed"], never: ["notbladed"] }
+    { id: "stabby", any: ["1hsword", "spear", "knife"], never: ["notbladed"] }
+    { id: "blunt", any: ["1hblunt", "2hblunt", "staff"], always: ["blunt"], never: ["notblunt"] }
+    { id: "one_handed_melee", any: ["fist", "claw", "1hsword", "knife", "1hblunt", "axe", "polearm", "scythe"], never: ["large", "ranged", "bow", "crossbow", "firearm"] }
+  ]
+}

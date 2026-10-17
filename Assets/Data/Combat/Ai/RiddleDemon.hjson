@@ -1,0 +1,24 @@
+{
+  // 原版 RiddleDemon.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:riddle_demon_ai"
+  actions: [
+    {
+      ability: "coc:riddle_demon_slash"
+      weight: 3
+      cost: 5
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:riddle_demon_feint"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:riddle_demon_whisper"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+  ]
+}

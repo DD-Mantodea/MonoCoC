@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1762-1780 / :4249-4266 Release Scent（免费，ParasiteMusk perk）
+  id: "coc:special_release_scent"
+  nameKey: "Combat.Special.ReleaseScent.Name"
+  descriptionKey: "Combat.Special.ReleaseScent.Description"
+  type: "physical"
+  category: "physical"
+  range: "self"
+  cost: 0
+  fatigueType: "none"
+  cooldown: 0
+  availableWhen: "coc:has_parasite_musk"
+  disabledWhen: "coc:musk_active"
+  disabledTooltip: "Combat.Special.ReleaseScent.Disabled"
+  handler: "coc:special_release_scent"
+}

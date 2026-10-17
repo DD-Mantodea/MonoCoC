@@ -1,0 +1,23 @@
+{
+  "Combat.Effect.NephilaCompulsion.Name": "Brood Swarm",
+  "Combat.Effect.NephilaCompulsion.Description": "Covered in a swarm of hungry brood.",
+  "Combat.Special.UnleashBrood.Name": "Unleash Brood",
+  "Combat.Special.UnleashBrood.Description": "Unleash the brood of slimy tentacle monsters living in your womb. They will swarm your opponent, lowering their speed, damaging them, and potentially inflicting bleed.",
+  "Combat.Special.UnleashBrood.Pod": "In the tight confines of this pod, there's no use making such an attack!",
+  "Combat.Special.UnleashBrood.TentacleBeast": "The monstrous tentacle beast is grateful to you for providing it with such a delicious snack! It is currently too lively for this attack to be successful.",
+  "Combat.Special.UnleashBrood.Shell": "As soon as your brood touches the multicolored shell around [themonster], they sizzle and bake, screaming in pain, then retreat back into you to nurse their wounds.",
+  "Combat.Special.UnleashBrood.Intro": "You spread your legs and a stream of feathered, slimy tentacles plop out of your [vagina], swarming [themonster] and attempting to paralyze [monster.him] so they can feed.",
+  "Combat.Special.UnleashBrood.Blocked": "Your brood's bites are blocked by [themonster].",
+  "Combat.Special.UnleashBrood.Low": "You brood's bites don't do much damage to [themonster]!",
+  "Combat.Special.UnleashBrood.Medium": "You seriously wound [themonster] with your brood's bites!",
+  "Combat.Special.UnleashBrood.High": "Your brood's bites stagger [themonster] with their force.",
+  "Combat.Special.UnleashBrood.Mutilate": "Your brood's powerful bites [b: mutilate] [themonster]!",
+  "Combat.Special.UnleashBrood.Bleed": "[pg-][Themonster] bleeds profusely from the many bloody punctures that your hungry children make as they seek to consume [monster.him] alive.",
+  "Combat.Special.UnleashBrood.BleedPlural": "[pg-][Themonster] bleed profusely from the many bloody punctures that your hungry children make as they seek to consume [monster.him] alive.",
+  "Combat.Special.UnleashBrood.NoBleedStatue": "Despite the rents your swarming children have torn in its stony exterior, the statue does not bleed.",
+  "Combat.Special.UnleashBrood.First": "[Themonster] struggles to resist the wave of hungry slimes, but they are in a frenzy and [themonster] is significantly slowed by the swarm.",
+  "Combat.Special.UnleashBrood.Final": "[pg][Themonster] is completely covered in parasites. Thrashing and wailing, [monster.he] is dragged to the ground and hauled to your [vagina] on a wave of thrashing tentacles.",
+  "Combat.Special.UnleashBrood.FinalPlural": "[pg][Themonster] are completely covered in parasites. Thrashing and wailing, [monster.he] can't prevent the squirming tentacles from doing [b: massive damage!]",
+  "Combat.Special.UnleashBrood.Intermediate": "[pg][Themonster] struggles to resist the wave of hungry slimes. [Monster.he] is bowled over and dragged towards you for a moment, but ultimately manages to right [monster.him]self.",
+  "Combat.Special.UnleashBrood.IntermediatePlural": "[pg][Themonster] struggle to resist the wave of hungry slimes. [Monster.he] are bowled over and dragged towards you for a moment, but ultimately manage to right themselves."
+}

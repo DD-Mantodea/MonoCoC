@@ -1,0 +1,36 @@
+{
+  // 原版 Mora.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:mora_ai"
+  actions: [
+    {
+      ability: "coc:mora_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:mora_mist_attack"
+      weight: 1
+      cost: 5
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:mora_surge_attack"
+      weight: 1
+      cost: 5
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:mora_shroud_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:mora_despair_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+  ]
+}

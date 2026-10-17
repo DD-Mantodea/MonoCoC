@@ -1,0 +1,8 @@
+{
+  id: "coc:milky_succubus_attack_two"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:milky_succubus_attack_two"
+}

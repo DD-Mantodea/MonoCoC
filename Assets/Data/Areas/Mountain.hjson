@@ -1,0 +1,16 @@
+{
+  id: "coc:mountain"
+  scene: "coc:mountain"
+  order: 50
+  nameKey: "Areas.Mountain.Name"
+  descriptionKey: "Areas.Mountain.Description"
+  discoveryKey: "Areas.Mountain.Discovery"
+  exploreKey: "Areas.Mountain.Explore"
+  condition: {
+    type: compare
+    flag: "coc:times_explored_mountain"
+    op: ">="
+    value: 1
+  }
+  explorationFlag: "coc:times_explored_mountain"
+}

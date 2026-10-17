@@ -1,0 +1,24 @@
+{
+  // 原版 Shouldra.performCombatAction（Shouldra.hx:74）：三招等权 1；普攻 0 疲劳、另两招 10 点魔法疲劳
+  id: "coc:shouldra_ai"
+  actions: [
+    {
+      ability: "coc:shouldra_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:shouldra_lust_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:shouldra_magic_lazers"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  id: "coc:mora_surge_attack"
+  type: "physical"
+  range: "ranged"
+  cost: 5
+  cooldown: 0
+  handler: "coc:mora_surge_attack"
+}

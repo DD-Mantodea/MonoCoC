@@ -1,0 +1,8 @@
+{
+  id: "coc:bone_general_guard_ally"
+  type: "physical"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:bone_general_guard_ally"
+}

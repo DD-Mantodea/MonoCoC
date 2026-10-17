@@ -1,0 +1,25 @@
+{
+  // 原版 GoblinWarrior（classes/scenes/monsters/GoblinWarrior.hx）
+  enemies: [
+    {
+      id: "coc:goblin_warrior"
+      type: "coc:goblin_warrior"
+      nameKey: "Npcs.GoblinWarrior.Name"
+      descriptionKey: "Npcs.GoblinWarrior.Desc"
+      article: "the"
+      level: 16
+      bonusHealth: 400
+      lust: 50
+      strength: 75
+      toughness: 50
+      speed: 70
+      intelligence: 72
+      libido: 45
+      sensitivity: 45
+      corruption: 60
+      gems: 15
+      experience: 0
+      ai: "coc:goblin_warrior_ai"
+    }
+  ]
+}

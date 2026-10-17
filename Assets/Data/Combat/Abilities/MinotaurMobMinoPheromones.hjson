@@ -1,0 +1,8 @@
+{
+  id: "coc:minotaur_mob_mino_pheromones"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:minotaur_mob_mino_pheromones"
+}

@@ -1,0 +1,4 @@
+{
+  "Perks.LungingAttacks.Desc": "[if (spe>=75) {Grants 25% armor penetration for standard attacks.|<b>You are too slow to benefit from this perk.</b>}]"
+  "Perks.LungingAttacks.Name": "Lunging Attacks"
+}

@@ -1,0 +1,29 @@
+{
+  // 原版 FrogGirlPink（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:frog_girl_pink"
+      type: "coc:frog_girl_pink"
+      nameKey: "Npcs.FrogGirlPink.Name"
+      descriptionKey: "Npcs.FrogGirlPink.Desc"
+      article: "the"
+      level: 10
+      bonusHealth: 150
+      lust: 30
+      strength: 50
+      toughness: 55
+      speed: 85
+      intelligence: 45
+      libido: 50
+      sensitivity: 40
+      corruption: 50
+      gems: 0
+      experience: 0
+      ai: "coc:frog_girl_pink_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

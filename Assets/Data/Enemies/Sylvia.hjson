@@ -1,0 +1,23 @@
+{
+  enemies: [
+    {
+      id: "coc:sylvia"
+      type: "coc:sylvia"
+      nameKey: "Npcs.Sylvia.Name"
+      descriptionKey: "Npcs.Sylvia.Desc"
+      level: 20
+      bonusHealth: 270
+      lust: 33
+      strength: 45
+      toughness: 65
+      speed: 120
+      intelligence: 75
+      libido: 65
+      sensitivity: 35
+      corruption: 35
+      gems: 30
+      experience: 150
+      ai: ""
+    }
+  ]
+}

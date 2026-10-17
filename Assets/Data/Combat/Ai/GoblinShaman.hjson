@@ -1,0 +1,74 @@
+{
+  // 原版 GoblinShaman.performCombatAction（GoblinShaman.hx:64-77）
+  // when 条件对应的 Handle 注册在 GoblinShamanCombatHandlers.cs 里。
+  id: "coc:goblin_shaman_ai"
+  actions: [
+    {
+      ability: "coc:goblin_shaman_whitefire"
+      weight: 1
+      cost: 15
+      fatigueType: "magical"
+      when: "coc:goblin_shaman_lust_below_fifty"
+    }
+    {
+      ability: "coc:goblin_shaman_blind"
+      weight: 1
+      cost: 8
+      fatigueType: "magical"
+      when: "coc:goblin_shaman_can_blind"
+    }
+    {
+      ability: "coc:goblin_shaman_chargeweapon"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+      when: "coc:goblin_shaman_lust_below_fifty"
+    }
+    {
+      ability: "coc:goblin_shaman_heal"
+      weight: 1
+      cost: 15
+      fatigueType: "magicalHeal"
+      when: "coc:goblin_shaman_lust_above_sixty"
+    }
+    {
+      ability: "coc:goblin_shaman_might"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+      when: "coc:goblin_shaman_lust_above_fifty"
+    }
+    {
+      ability: "coc:goblin_shaman_arouse"
+      weight: 1
+      cost: 15
+      fatigueType: "magical"
+      when: "coc:goblin_shaman_lust_below_fifty"
+    }
+    {
+      ability: "coc:goblin_shaman_whitefire_two"
+      weight: 1
+      cost: 15
+      fatigueType: "magical"
+      when: "coc:goblin_shaman_lust_below_fifty"
+    }
+    {
+      ability: "coc:goblin_shaman_goblin_drug_attack"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:goblin_shaman_goblin_tease_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:goblin_shaman_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

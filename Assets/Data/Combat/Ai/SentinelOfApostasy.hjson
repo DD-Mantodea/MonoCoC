@@ -1,0 +1,24 @@
+{
+  // 原版 SentinelOfApostasy.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:sentinel_of_apostasy_ai"
+  actions: [
+    {
+      ability: "coc:sentinel_of_apostasy_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:sentinel_of_apostasy_piercing_strike"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:sentinel_of_apostasy_seal_physical"
+      weight: 1
+      cost: 15
+      fatigueType: "magical"
+    }
+  ]
+}

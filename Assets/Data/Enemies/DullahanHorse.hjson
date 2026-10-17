@@ -1,0 +1,29 @@
+{
+  // 原版 DullahanHorse（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:dullahan_horse"
+      type: "coc:dullahan_horse"
+      nameKey: "Npcs.DullahanHorse.Name"
+      descriptionKey: "Npcs.DullahanHorse.Desc"
+      article: "the"
+      level: 18
+      bonusHealth: 380
+      lust: 25
+      strength: 85
+      toughness: 70
+      speed: 100
+      intelligence: 60
+      libido: 40
+      sensitivity: 50
+      corruption: 15
+      gems: 0
+      experience: 0
+      ai: "coc:dullahan_horse_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

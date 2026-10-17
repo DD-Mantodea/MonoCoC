@@ -1,0 +1,8 @@
+{
+  id: "coc:milky_succubus_succubus_tease"
+  type: "tease"
+  range: "tease"
+  cost: 0
+  cooldown: 0
+  handler: "coc:milky_succubus_succubus_tease"
+}

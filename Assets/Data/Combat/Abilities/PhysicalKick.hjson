@@ -1,0 +1,13 @@
+{
+  id: "coc:special_kick"
+  nameKey: "Combat.Special.Kick.Name"
+  descriptionKey: "Combat.Special.Kick.Description"
+  type: "physical"
+  category: "physical"
+  range: "charging_melee"
+  cost: 15
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:can_kick"
+  handler: "coc:special_kick"
+}

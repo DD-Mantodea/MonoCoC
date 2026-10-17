@@ -1,0 +1,8 @@
+{
+  id: "coc:sand_mother_earth_shield"
+  type: "magical"
+  range: "self"
+  cost: 10
+  cooldown: 0
+  handler: "coc:sand_mother_earth_shield"
+}

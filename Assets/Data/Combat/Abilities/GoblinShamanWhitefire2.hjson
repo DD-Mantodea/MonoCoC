@@ -1,0 +1,8 @@
+{
+  id: "coc:goblin_shaman_whitefire_two"
+  type: "magical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:goblin_shaman_whitefire_two"
+}

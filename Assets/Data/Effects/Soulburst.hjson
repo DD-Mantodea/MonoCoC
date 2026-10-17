@@ -1,0 +1,11 @@
+{
+  // 原版 StatusEffects.Soulburst：每层让最大生命减半、受到的伤害按满额计算
+  id: "coc:soulburst"
+  nameKey: "Combat.Effect.Soulburst.Name"
+  descriptionKey: "Combat.Effect.Soulburst.Description"
+  kind: "combat"
+  duration: 0
+  stacking: "stack"
+  maxStacks: 10
+  combatOnly: true
+}

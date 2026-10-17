@@ -1,0 +1,9 @@
+{
+  id: "coc:scorpion_slam"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  fatigueType: "physical"
+  cooldown: 0
+  handler: "coc:scorpion_slam"
+}

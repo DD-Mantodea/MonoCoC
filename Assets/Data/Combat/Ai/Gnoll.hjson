@@ -1,0 +1,18 @@
+{
+  // 原版 Gnoll.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:gnoll_ai"
+  actions: [
+    {
+      ability: "coc:gnoll_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:gnoll_tease"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

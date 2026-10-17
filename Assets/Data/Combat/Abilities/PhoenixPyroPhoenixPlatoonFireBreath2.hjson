@@ -1,0 +1,9 @@
+{
+  id: "coc:phoenix_pyro_phoenix_platoon_fire_breath_two"
+  type: "physical"
+  range: "ranged"
+  cost: 15
+  cooldown: 0
+  damageType: "coc:fire"
+  handler: "coc:phoenix_pyro_phoenix_platoon_fire_breath_two"
+}

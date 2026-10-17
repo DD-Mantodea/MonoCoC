@@ -1,0 +1,8 @@
+{
+  id: "coc:tamani_ai"
+  actions: [
+    { ability: "coc:basic_attack", weight: 1 }
+    { ability: "coc:goblin_drug", weight: 1, cost: 0, fatigueType: "none" }
+    { ability: "coc:goblin_tease", weight: 1, cost: 0, fatigueType: "none" }
+  ]
+}

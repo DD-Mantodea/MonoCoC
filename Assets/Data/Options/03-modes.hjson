@@ -1,0 +1,124 @@
+{
+  pane: modes
+  global: false
+  title: "Scenes.Options.Pane.3.Title"
+  button: "Scenes.Options.Tab.GameModes"
+  description: "Scenes.Options.Pane.3.Desc"
+
+  settings: [
+    {
+      id: difficulty
+      label: "Scenes.Options.Mode.Difficulty"
+      default: 0
+      values: [
+        { value: -2, label: "Scenes.Options.Difficulty.Easy", desc: "Scenes.Options.DifficultyDesc.Easy" }
+        { value: 0,  label: "Scenes.Options.Difficulty.0",  desc: "Scenes.Options.DifficultyDesc.0" }
+        { value: 1,  label: "Scenes.Options.Difficulty.1",  desc: "Scenes.Options.DifficultyDesc.1" }
+        { value: 2,  label: "Scenes.Options.Difficulty.2",  desc: "Scenes.Options.DifficultyDesc.2" }
+        { value: 3,  label: "Scenes.Options.Difficulty.3",  desc: "Scenes.Options.DifficultyDesc.3" }
+      ]
+    }
+    {
+      id: survival
+      label: "Scenes.Options.Mode.Survival"
+      desc: "Scenes.Options.Desc.Survival"
+      action: survival
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.Enable" }
+      ]
+    }
+    {
+      id: realistic
+      label: "Scenes.Options.Mode.Realistic"
+      desc: "Scenes.Options.Desc.Realistic"
+      action: realistic
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.Enable" }
+      ]
+    }
+    {
+      id: hardcore
+      label: "Scenes.Options.Mode.Hardcore"
+      desc: "Scenes.Options.Desc.Hardcore"
+      action: hardcore
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.Enable" }
+      ]
+    }
+    {
+      id: silly
+      label: "Scenes.Options.Mode.Silly"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.SillyOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.SillyOff" }
+      ]
+    }
+    {
+      id: hyper
+      label: "Scenes.Options.Mode.Hyper"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.HyperOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.HyperOff" }
+      ]
+    }
+    {
+      id: temptation
+      label: "Scenes.Options.Mode.Temptation"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.TemptationOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.TemptationOff" }
+      ]
+    }
+    {
+      id: taint
+      label: "Scenes.Options.Mode.Taint"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.TaintOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.TaintOff" }
+      ]
+    }
+    {
+      id: cooldowns
+      label: "Scenes.Options.Mode.Cooldowns"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.CooldownsOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.CooldownsOff" }
+      ]
+    }
+    {
+      id: scaling
+      label: "Scenes.Options.Mode.Scaling"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.ScalingOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.ScalingOff" }
+      ]
+    }
+    {
+      id: longHaul
+      label: "Scenes.Options.Mode.LongHaul"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.LongHaulOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.LongHaulOff" }
+      ]
+    }
+    {
+      id: oldAscension
+      label: "Scenes.Options.Mode.OldAscension"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.OldAscensionOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.OldAscensionOff" }
+      ]
+    }
+  ]
+}

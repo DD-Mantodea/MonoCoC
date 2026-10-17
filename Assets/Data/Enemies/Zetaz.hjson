@@ -1,0 +1,29 @@
+{
+  // 原版 Zetaz（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:zetaz"
+      type: "coc:zetaz"
+      nameKey: "Npcs.Zetaz.Name"
+      descriptionKey: "Npcs.Zetaz.Desc"
+      article: ""
+      level: 12
+      bonusHealth: 350
+      lust: 40
+      strength: 65
+      toughness: 60
+      speed: 45
+      intelligence: 52
+      libido: 55
+      sensitivity: 35
+      corruption: 100
+      gems: 150
+      experience: 100
+      ai: "coc:zetaz_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

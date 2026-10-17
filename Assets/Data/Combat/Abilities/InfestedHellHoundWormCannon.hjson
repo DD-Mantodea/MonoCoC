@@ -1,0 +1,8 @@
+{
+  id: "coc:infested_hellhound_worm_cannon"
+  type: "physical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:infested_hellhound_worm_cannon"
+}

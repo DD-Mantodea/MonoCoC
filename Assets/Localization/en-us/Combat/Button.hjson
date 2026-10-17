@@ -1,0 +1,17 @@
+{
+  "Combat.Button.Approach": "Approach"
+  "Combat.Button.Attack": "Attack"
+  "Combat.Button.Back": "Back"
+  "Combat.Button.Continue": "Continue"
+  "Combat.Button.Distance": "Distance"
+  "Combat.Button.Fantasize": "Fantasize"
+  "Combat.Button.Items": "Items"
+  "Combat.Button.MagicalSpecials": "M. Specials"
+  "Combat.Button.PhysicalSpecials": "P. Specials"
+  "Combat.Button.Run": "Run"
+  "Combat.Button.Spells": "Spells"
+  "Combat.Button.Struggle": "Struggle"
+  "Combat.Button.SwitchTarget": "Switch Target"
+  "Combat.Button.Tease": "Tease"
+  "Combat.Button.Wait": "Wait"
+}

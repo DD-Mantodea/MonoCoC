@@ -1,0 +1,9 @@
+{
+  id: "coc:hell_hound_ai"
+  actions: [
+    // 原版 HellHound.hx:63 performCombatAction
+    { ability: "coc:basic_attack", weight: 1, fatigueType: "none" }
+    { ability: "coc:hell_hound_fire", weight: 1, cost: 15, fatigueType: "magical" }
+    { ability: "coc:hell_hound_scent", weight: 1, cost: 10, fatigueType: "none" }
+  ]
+}

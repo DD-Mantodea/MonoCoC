@@ -1,0 +1,29 @@
+{
+  // 原版 GoblinElder（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:goblin_elder"
+      type: "coc:goblin_elder"
+      nameKey: "Npcs.GoblinElder.Name"
+      descriptionKey: "Npcs.GoblinElder.Desc"
+      article: "the"
+      level: 20
+      bonusHealth: 425
+      lust: 35
+      strength: 95
+      toughness: 75
+      speed: 70
+      intelligence: 100
+      libido: 55
+      sensitivity: 35
+      corruption: 45
+      gems: 15
+      experience: 0
+      ai: "coc:goblin_elder_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

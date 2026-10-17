@@ -1,0 +1,16 @@
+{
+  // 原版 CombatAbilities.hx:1443-1458 / :3149-3218 Whisper（cost 10，cooldown 3，Whispered perk）
+  id: "coc:spell_whisper"
+  nameKey: "Combat.Spell.Whisper.Name"
+  descriptionKey: "Combat.Spell.Whisper.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 10
+  fatigueType: "magical"
+  cooldown: 3
+  availableWhen: "coc:knows_whisper"
+  disabledWhen: "coc:enemy_feared"
+  disabledTooltip: "Combat.Spell.Whisper.Disabled"
+  handler: "coc:spell_whisper"
+}

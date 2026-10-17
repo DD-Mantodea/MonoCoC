@@ -1,0 +1,13 @@
+{
+  // 原版 statusEffects/combat/WitheringDebuff.hx：定时 debuff，只有文案（原版未实现治疗反噬数值）
+  id: "coc:withering_debuff"
+  nameKey: "Combat.Effect.Withering.Name"
+  descriptionKey: "Combat.Effect.Withering.Description"
+  kind: "timed"
+  duration: 1
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_withering_round"
+  onExpire: "coc:effect_withering_expire"
+}

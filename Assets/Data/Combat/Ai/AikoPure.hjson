@@ -1,0 +1,17 @@
+{
+  id: "coc:aiko_pure_ai"
+  actions: [
+    // 蓄力完成：下一回合必定放大招（原版 performCombatAction 开头的 hyperAttacks 分支）
+    { ability: "coc:aiko_hyper_attack_two", weight: 1, priority: 9, fatigueType: "none", requiresStatus: "coc:aiko_charging" }
+    { ability: "coc:aiko_arcane_archer", weight: 1, priority: 0, fatigueType: "none", forbidsStatus: "coc:aiko_arcane_archer" }
+    { ability: "coc:aiko_splinter_lightning", weight: 1, cost: 10, fatigueType: "magical", requiresStatus: "coc:aiko_arcane_archer" }
+    { ability: "coc:aiko_light_arrow_cage", weight: 1, cost: 10, fatigueType: "magical", requiresStatus: "coc:aiko_arcane_archer" }
+    { ability: "coc:aiko_ice_arrow", weight: 1, cost: 10, fatigueType: "magical", requiresStatus: "coc:aiko_arcane_archer" }
+    { ability: "coc:aiko_arrow_rain", weight: 1, cost: 10, fatigueType: "physical", requiresStatus: "coc:aiko_arcane_archer" }
+    { ability: "coc:aiko_arrow_barrage", weight: 1, cost: 10, fatigueType: "physical", requiresStatus: "coc:aiko_arcane_archer" }
+    { ability: "coc:aiko_hyper_attack_one", weight: 1, cost: 10, fatigueType: "magical", priority: 1, requiresStatus: "coc:aiko_arcane_archer" }
+    { ability: "coc:aiko_seal_physical", weight: 1, cost: 10, fatigueType: "magical", requiresStatus: "coc:aiko_arcane_archer" }
+    { ability: "coc:aiko_seal_magic", weight: 1, cost: 10, fatigueType: "magical", requiresStatus: "coc:aiko_arcane_archer" }
+    { ability: "coc:aiko_basic", weight: 2, priority: 0, fatigueType: "none" }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  // 原版 Marae（src/classes/scenes/places/boat/Marae.hx）
+  // 形态/属性由 FACTORY_SHUTDOWN 决定：数据表只当基础占位，实际在 MaraeEnemy.Configure 里按 flag 覆写。
+  enemies: [
+    {
+      id: "coc:marae"
+      type: "coc:marae"
+      nameKey: "Npcs.Marae.Name"
+      descriptionKey: "Npcs.Marae.Desc"
+      article: ""
+      level: 99
+      // 原版 bonusHP = 4750（FACTORY_SHUTDOWN==1 时 +2700，MINERVA_TOWER_TREE>0 再 +1000）
+      bonusHealth: 0
+      lust: 30
+      strength: 150
+      toughness: 150
+      speed: 70
+      intelligence: 110
+      libido: 60
+      sensitivity: 25
+      corruption: 100
+      // 原版 gems = 1000
+      gems: 1000
+      experience: 0
+      ai: "coc:marae_ai"
+      // 原版 drop = NO_DROP（Marae.hx:159）
+      loot: [
+      ]
+    }
+  ]
+}

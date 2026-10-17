@@ -1,0 +1,29 @@
+{
+  // 原版 Outsider（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:outsider"
+      type: "coc:outsider"
+      nameKey: "Npcs.Outsider.Name"
+      descriptionKey: "Npcs.Outsider.Desc"
+      article: "the"
+      level: 99
+      bonusHealth: 996466
+      lust: 0
+      strength: 999
+      toughness: 999
+      speed: 999
+      intelligence: 999
+      libido: 0
+      sensitivity: 0
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:outsider_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

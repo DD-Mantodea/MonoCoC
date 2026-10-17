@@ -1,0 +1,29 @@
+{
+  // 原版 SentinelOfHeresy（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:sentinel_of_heresy"
+      type: "coc:sentinel_of_heresy"
+      nameKey: "Npcs.SentinelOfHeresy.Name"
+      descriptionKey: "Npcs.SentinelOfHeresy.Desc"
+      article: "the"
+      level: 22
+      bonusHealth: 1100
+      lust: 30
+      strength: 40
+      toughness: 120
+      speed: 60
+      intelligence: 50
+      libido: 60
+      sensitivity: 60
+      corruption: 0
+      gems: 0
+      experience: 0
+      ai: "coc:sentinel_of_heresy_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

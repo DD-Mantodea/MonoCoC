@@ -1,0 +1,9 @@
+{
+  "Combat.Terra.MeteorShower.Name": "Meteor Shower",
+  "Combat.Terra.MeteorShower.Description": "Combo: Stone Knives + Scorch. Launch a barrage of flaming stones at all enemies, grounding and dealing heavier damage to flying targets.",
+  "Combat.Terra.MeteorShower.Intro": "You slam your body into the flame-stricken earth, sinking your arms into it. With true confluence of earth and fire, you tear through and send hundreds of burning stones flying up into the sky.",
+  "Combat.Terra.MeteorShower.Grounded": "[Themonster] burns and breaks in the onslaught, careening down in a pained heap after being struck by {0} stones.",
+  "Combat.Terra.MeteorShower.None": "\\n[Themonster] escaped the meteor shower completely untouched.",
+  "Combat.Terra.MeteorShower.Hit": "\\n[Themonster] is struck by {0} stones.",
+  "Combat.Terra.MeteorShower.Unharmed": "\\n[Themonster] is struck by {0} stones, but seems to be unharmed."
+}

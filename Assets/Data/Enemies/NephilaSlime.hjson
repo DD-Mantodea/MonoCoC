@@ -1,0 +1,43 @@
+{
+  // 原版 classes/scenes/areas/mountain/NephilaSlime.hx：level 14、bonusHP 350
+  // str65/tou65/spe95/inte85、lib50/sens45/cor70、weaponAttack 50、armorDef 20、lust 30
+  // drop：OviElixir / Lactaid / SlimyCloth / 无
+  enemies: [
+    {
+      id: "coc:nephila_slime"
+      type: "coc:nephila_slime"
+      nameKey: "Scenes.Nephilaslimescene.Name"
+      article: "the"
+      level: 14
+      bonusHealth: 350
+      lust: 30
+      strength: 65
+      toughness: 65
+      speed: 95
+      intelligence: 85
+      libido: 50
+      sensitivity: 45
+      corruption: 70
+      gems: 35
+      experience: 0
+      weaponAttack: 50
+      armorDefense: 20
+      ai: "coc:nephila_slime_ai"
+      weightedLoot: true
+      loot: [
+        {
+          item: "coc:ovi_elixir"
+          weight: 1
+        }
+        {
+          item: "coc:lactaid"
+          weight: 1
+        }
+        {
+          item: "coc:slimy_clothoth"
+          weight: 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  // 楼梯/多层测试地牢，不属于原版内容；验证 stairsTo 与 ChangeFloor。
+  id: "coc:stairs_test"
+  nameKey: "Dungeons.StairsTest.Name"
+  start: "bottom"
+  floors: [
+    {
+      map: [
+        "###"
+        "#a#"
+        "###"
+      ]
+      symbols: {
+        a: "bottom"
+      }
+      rooms: {
+        bottom: { iconLarge: "up", stairsTo: "1:top" }
+      }
+    }
+    {
+      map: [
+        "###"
+        "#b#"
+        "###"
+      ]
+      symbols: {
+        b: "top"
+      }
+      rooms: {
+        top: { iconLarge: "down", stairsTo: "0:bottom" }
+      }
+    }
+  ]
+}

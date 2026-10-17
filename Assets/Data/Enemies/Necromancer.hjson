@@ -1,0 +1,36 @@
+{
+  // 原版 Necromancer（scenes/dungeons/manor/Necromancer.hx:75 new()）
+  // 数值来自构造函数；AI 由 NecromancerEnemy.ChooseCombatAction 接管（原版 performCombatAction）。
+  enemies: [
+    {
+      id: "coc:necromancer"
+      type: "coc:necromancer"
+      nameKey: "Npcs.Necromancer.Name"
+      descriptionKey: "Npcs.Necromancer.Desc"
+      article: "the"
+      level: 25
+      bonusHealth: 2500
+      lust: 0
+      strength: 90
+      toughness: 100
+      speed: 80
+      intelligence: 160
+      libido: 10
+      sensitivity: 10
+      corruption: 100
+      // gems 原版是 Utils.rand(15) + 250，Configure 里现算，这里只是占位。
+      gems: 250
+      experience: 0
+      // 原版 pronoun1-3 = he/him/his（Necromancer.hx:85-87）
+      pronoun1: "he"
+      pronoun2: "him"
+      pronoun3: "his"
+      // 不走数据 AI：原版 performCombatAction（Necromancer.hx:18）的逻辑全部在
+      // NecromancerEnemy.ChooseCombatAction 里，且所有分支都返回一个动作，不会落到空 AI。
+      ai: ""
+      // 原版 drop = new WeightedDrop()（空表）：不掉落。
+      weightedLoot: false
+      loot: []
+    }
+  ]
+}

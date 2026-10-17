@@ -1,0 +1,9 @@
+{
+  // 原版 LivingStatue.overhandSmash()（LivingStatue.hx:133-149）
+  id: "coc:living_statue_overhand_smash"
+  type: "physical"
+  range: "melee"
+  cost: 0
+  cooldown: 0
+  handler: "coc:living_statue_overhand_smash"
+}

@@ -1,0 +1,7 @@
+{
+  id: "coc:tentacle_beast"
+  nameKey: "Npcs.TentacleBeast.Name"
+  scene: "coc:tentacle_beast"
+  combat: ""
+  hostile: false
+}

@@ -1,0 +1,29 @@
+{
+  // 原版 SandMother（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:sand_mother"
+      type: "coc:sand_mother"
+      nameKey: "Npcs.SandMother.Name"
+      descriptionKey: "Npcs.SandMother.Desc"
+      article: "the"
+      level: 7
+      bonusHealth: 130
+      lust: 20
+      strength: 55
+      toughness: 55
+      speed: 35
+      intelligence: 45
+      libido: 55
+      sensitivity: 40
+      corruption: 30
+      gems: 15
+      experience: 0
+      ai: "coc:sand_mother_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

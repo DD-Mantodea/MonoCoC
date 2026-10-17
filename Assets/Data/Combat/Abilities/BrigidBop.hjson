@@ -1,0 +1,8 @@
+{
+  id: "coc:brigid_bop"
+  type: "physical"
+  range: "melee"
+  cost: 10
+  cooldown: 0
+  handler: "coc:brigid_bop"
+}

@@ -1,0 +1,16 @@
+{
+  id: "coc:spell_leech"
+  nameKey: "Combat.Spell.Leech.Name"
+  descriptionKey: "Combat.Spell.Leech.Description"
+  type: "magical"
+  category: "gray"
+  range: "self"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 0
+  isSelf: true
+  knownWhen: "coc:knows_leech"
+  disabledWhen: "coc:leeching"
+  disabledTooltip: "Combat.Spell.Leech.Disabled"
+  handler: "coc:spell_leech"
+}

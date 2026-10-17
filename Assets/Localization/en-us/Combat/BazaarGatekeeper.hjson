@@ -1,0 +1,13 @@
+{
+  "Combat.BazaarGatekeeper.Cross.BlindMiss": "The blind gatekeeper slashes his scimitars wide, missing you by a great deal!"
+  "Combat.BazaarGatekeeper.Cross.Hit": "The gatekeeper dashes towards you slashes you brutally, carving a massive, 'X' shaped wound on your flesh. You groan in pain, and fall backwards, staggered!"
+  "Combat.BazaarGatekeeper.Cross.Telegraph": "The gatekeeper raises his scimitars! Judging from the way he is holding, <b>he is going to cross-slash you!</b>"
+  "Combat.BazaarGatekeeper.Cross.Waited": "The gatekeeper slashes his scimitar towards you! Thanks to your preparedness, you manage to avoid his scimitars in the nick of time."
+  "Combat.BazaarGatekeeper.Scimitar.BlindMiss": "and slashes his scimitars blindly, missing you by a great deal!"
+  "Combat.BazaarGatekeeper.Scimitar.DodgeEvade": "and you successfully dodge his scimitars thanks to your superior evasion! "
+  "Combat.BazaarGatekeeper.Scimitar.DodgeFlexibility": "and you use your incredible flexibility to barely fold your body and avoid his attacks!"
+  "Combat.BazaarGatekeeper.Scimitar.DodgeSpeed": "and you successfully dodge his scimitars! "
+  "Combat.BazaarGatekeeper.Scimitar.Hit": "but you get hit instead!"
+  "Combat.BazaarGatekeeper.Scimitar.Opener": "The gatekeeper raises his scimitars "
+  "Combat.BazaarGatekeeper.Scimitar.Parry": "and you successfully parry his scimitars! "
+}

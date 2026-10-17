@@ -1,0 +1,12 @@
+{
+  // 原版 TFTerraCoreBuff.hx：核心未命中后，下回合自动再试一次
+  id: "coc:tfterracore"
+  nameKey: "Combat.Effect.TFTerraCore.Name"
+  descriptionKey: "Combat.Effect.TFTerraCore.Description"
+  kind: "timed"
+  duration: 2
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_terra_core_round"
+}

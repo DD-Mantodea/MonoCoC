@@ -1,0 +1,12 @@
+{
+  // 原版 StatusEffects.ParasiteSlugMusk：4 回合的催情麝香
+  id: "coc:parasite_slug_musk"
+  nameKey: "Combat.Effect.ParasiteSlugMusk.Name"
+  descriptionKey: "Combat.Effect.ParasiteSlugMusk.Description"
+  kind: "timed"
+  duration: 99
+  stacking: "refresh"
+  maxStacks: 1
+  combatOnly: true
+  onRound: "coc:effect_parasite_slug_musk_round"
+}

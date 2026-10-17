@@ -1,0 +1,7 @@
+{
+  id: "coc:kitsune"
+  nameKey: "Npcs.Kitsune.Name"
+  scene: "coc:kitsune"
+  combat: ""
+  hostile: false
+}

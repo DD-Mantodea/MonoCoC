@@ -1,0 +1,48 @@
+{
+  // 原版 Helspawn.performCombatAction（Helspawn.hx:13）：六招等权 1，
+  // 每条的 when 都在 HelspawnCombatHandlers 里按 HELSPAWN_WEAPON / HELSPAWN_PERSONALITY 判定。
+  id: "coc:helspawn_ai"
+  actions: [
+    {
+      ability: "coc:helspawn_twin_strikes"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:helspawn_called_shot"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+      when: "coc:helspawn_has_bow"
+    }
+    {
+      ability: "coc:helspawn_berserk"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+      when: "coc:helspawn_can_berserk"
+    }
+    {
+      ability: "coc:helspawn_shield_bash"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+      when: "coc:helspawn_has_shield"
+    }
+    {
+      ability: "coc:helspawn_slutty_mander"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+      when: "coc:helspawn_is_slutty"
+    }
+    {
+      ability: "coc:helspawn_focus"
+      weight: 1
+      cost: 5
+      fatigueType: "none"
+      when: "coc:helspawn_can_focus"
+    }
+  ]
+}

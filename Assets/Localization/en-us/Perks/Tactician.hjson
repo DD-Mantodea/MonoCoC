@@ -1,0 +1,4 @@
+{
+  "Perks.Tactician.Desc": "[if (inte>=50) {Increases critical hit chance by up to 10% (Intelligence-based).|<b>You are too dumb to gain benefit from this perk.</b>}]"
+  "Perks.Tactician.Name": "Tactician"
+}

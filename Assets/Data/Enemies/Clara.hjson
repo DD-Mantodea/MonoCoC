@@ -1,0 +1,28 @@
+{
+  // 原版 Clara（src/classes/scenes/npcs/Clara.hx，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:clara"
+      type: "coc:clara"
+      nameKey: "Npcs.Clara.Name"
+      descriptionKey: "Npcs.Clara.Desc"
+      article: ""
+      level: 5
+      // 原版 Clara.hx:172 bonusHP = 30
+      bonusHealth: 30
+      lust: 0
+      strength: 37
+      toughness: 55
+      speed: 35
+      intelligence: 60
+      libido: 25
+      sensitivity: 45
+      corruption: 40
+      // 原版 gems = Utils.rand(5) + 25：实际值在 ClaraEnemy.Configure 里现算
+      gems: 30
+      experience: 0
+      ai: "coc:clara_ai"
+      // 原版 Clara.hx:174 drop = NO_DROP → 不配 loot
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{
+  id: "coc:dog"
+  nameKey: "Races.Dog.Name"
+}

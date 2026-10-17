@@ -1,0 +1,29 @@
+{
+  // 原版 Gilt（由 monster.mjs 生成骨架，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:gilt"
+      type: "coc:gilt"
+      nameKey: "Npcs.Gilt.Name"
+      descriptionKey: "Npcs.Gilt.Desc"
+      article: "the"
+      level: 22
+      bonusHealth: 300
+      lust: 0
+      strength: 75
+      toughness: 65
+      speed: 50
+      intelligence: 20
+      libido: 55
+      sensitivity: 25
+      corruption: 100
+      gems: 50
+      experience: 0
+      ai: "coc:gilt_ai"
+      weightedLoot: true
+      loot: [
+        // TODO 按原版 this.drop 填
+      ]
+    }
+  ]
+}

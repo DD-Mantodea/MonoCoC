@@ -1,0 +1,8 @@
+{
+  // UrtaScene.hx:58 addPregnancyEventSet(PREGNANCY_PLAYER, [330, 334, 288, 240, 192, 144, 96, 48])
+  // 注意：前两项 330/334 在原版里就是非降序，这里按原样保留（addPregnancyEventSet 不做校验）。
+  // PregnancyStore.hx:85 INCUBATION_URTA = 515
+  id: "coc:urta"
+  incubation: 515
+  events: [330, 334, 288, 240, 192, 144, 96, 48]
+}

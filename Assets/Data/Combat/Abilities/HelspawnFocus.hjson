@@ -1,0 +1,8 @@
+{
+  id: "coc:helspawn_focus"
+  type: "physical"
+  range: "self"
+  cost: 5
+  cooldown: 0
+  handler: "coc:helspawn_focus"
+}

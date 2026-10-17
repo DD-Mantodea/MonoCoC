@@ -1,0 +1,8 @@
+{
+  "Combat.Effect.TFShell.Name": "Stone Shell",
+  "Combat.Effect.TFShell.Description": "Locked in a protective shell, immune to all damage this turn.",
+  "Combat.Terra.Shell.Name": "Shell",
+  "Combat.Terra.Shell.Description": "Combo: Plate + Molten Armor. Harden your molten armor to prevent all damage for one turn.",
+  "Combat.Terra.Shell.Disabled": "Your shell is already hardened.",
+  "Combat.Terra.Shell.Text": "Crouching low, your rocky armor grows in density and weight, locking you down in a protective shell."
+}

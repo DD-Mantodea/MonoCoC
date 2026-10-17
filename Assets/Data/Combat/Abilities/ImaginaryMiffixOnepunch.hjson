@@ -1,0 +1,8 @@
+{
+  id: "coc:imaginary_miffix_onepunch"
+  type: "physical"
+  range: "omni"
+  cost: 10
+  cooldown: 0
+  handler: "coc:imaginary_miffix_onepunch"
+}

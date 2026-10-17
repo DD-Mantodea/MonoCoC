@@ -1,0 +1,4 @@
+{
+  "CharCreation.SetHeight.SetYourHeight": "Set your height in [if (metric) {centimeters|inches}]."
+  "CharCreation.SetHeight.Text2": "\nYou can choose any height between [if (metric) {107 and 244 centimeters|3.5 feet (42 inches) and 8 feet (96 inches)}]."
+}

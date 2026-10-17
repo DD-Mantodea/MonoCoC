@@ -1,0 +1,8 @@
+{
+  id: "coc:yamata_entwine"
+  type: "physical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:yamata_entwine"
+}

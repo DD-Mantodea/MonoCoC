@@ -1,0 +1,33 @@
+{
+  // 原版 NamelessHorror（scenes/dungeons/manor/NamelessHorror.hx:179 new()）
+  // 数值来自构造函数；AI 由 NamelessHorrorEnemy.ChooseCombatAction 接管（原版 performCombatAction）。
+  enemies: [
+    {
+      id: "coc:nameless_horror"
+      type: "coc:nameless_horror"
+      nameKey: "Npcs.NamelessHorror.Name"
+      descriptionKey: "Npcs.NamelessHorror.Desc"
+      article: "a"
+      level: 60
+      bonusHealth: 99749
+      lust: 0
+      strength: 100
+      toughness: 100
+      speed: 100
+      intelligence: 150
+      libido: 40
+      sensitivity: 50
+      corruption: 100
+      gems: 30
+      experience: 0
+      // 原版只显式设了 pronoun2 = it（NamelessHorror.hx:183）
+      pronoun2: "it"
+      // 不走数据 AI：原版 performCombatAction（NamelessHorror.hx:86）的
+      // banish 阈值 / 每 5 回合 conjoin / 权重表都在 NamelessHorrorEnemy.ChooseCombatAction 里。
+      ai: ""
+      // 原版 drop = new WeightedDrop()（空表）：不掉落。
+      weightedLoot: false
+      loot: []
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "Scenes.Sylvia.React.AerialReversal": "As you're preparing to act, {0}{1} flies high up, putting quite a bit of distance between you before suddenly reversing directions and barreling towards you."
+  "Scenes.Sylvia.React.ChargeHitsKnockdown": "[pg]You're too slow, and the sweeping charge hits you dead-on, knocking you {0}."
+  "Scenes.Sylvia.React.PreparedActionLost": "[pg]<b>You've lost your prepared action.</b>"
+  "Scenes.Sylvia.React.SweepSidestepped": "[pg]You sidestep the attack, and the moth sweeps past you, ending up a fair distance away."
+  "Scenes.Sylvia.SeduceAttack.AerialManeuver": "The moth-girl performs a complex aerial maneuver. The elegance of her form combined with her stark beauty is a sight to behold, and you find your face growing hot."
+  "Scenes.Sylvia.SeduceAttack.BackGrapple": "{0}suddenly swoops in close from behind and wraps her arms around your front. You manage to shake her off, but not before she whispers, [say: We're going to have so much fun...] in your ear, a slight whiff of something cloying remaining behind when she takes off again."
+  "Scenes.Sylvia.SeduceAttack.ChestPuffTease": "The moth lands a few feet away, a pout on her pretty face. Feigning frustration at your continued resistance, she puffs out her chest, hefting her sizable breasts forward."
+  "Scenes.Sylvia.SylviaHypnotize.GrappleApproach": "Without warning, the moth-girl closes in on you with alarming alacrity, arms outstretched."
+  "Scenes.Sylvia.SylviaHypnotize.GrappleEvaded": "[pg]You deftly manage to avoid the moth's grapple."
+  "Scenes.Sylvia.SylviaHypnotize.HypnoticStumble": "[pg]When she pulls away, you stumble around for a moment, the image of her eyes lingering before you."
+  "Scenes.Sylvia.SylviaHypnotize.WrapsClose": "[pg]The moth wraps her arms around you before sweeping her wings up, blocking your view of the sky. So close to her, you can't help but look into her deep black eyes. You start to feel dizzy."
+  "Scenes.Sylvia.SylviaPheromones.GustDodgedWhiff": "[pg]Your quick reaction allows you to scramble out of the way, only a faint whiff of something dangerous tickling your nose."
+  "Scenes.Sylvia.SylviaPheromones.PheromoneBlastHit": "[pg]Unable to get out of the way, an aromatic blast of air hits you square in the face, causing you to deeply breathe in a sickly sweet scent."
+  "Scenes.Sylvia.SylviaPheromones.WingGustPheromones": "The moth-girl swoops in, but instead of attacking you, she targets a gust of air at you with her wings."
+}

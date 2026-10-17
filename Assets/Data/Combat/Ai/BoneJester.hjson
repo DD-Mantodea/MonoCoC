@@ -1,0 +1,28 @@
+{
+  // 原版 BoneJester.performCombatAction 的 MonsterAI 部分（BoneJester.hx:26-30）：
+  //   eAttack 权重 2 / hideInShadows 权重 1 / harvest 权重 1（12 物理疲劳）。
+  // 「隐匿中必定背刺」与「受伤后现形」这两段在
+  // Contents/Enemies/Vanilla/BoneJesterEnemy.cs 的 ChooseCombatAction 里先处理，
+  // 没被接管时才回到这张表抽签，所以这里必须至少保留一条可执行动作（已满足）。
+  id: "coc:bone_jester_ai"
+  actions: [
+    {
+      ability: "coc:bone_jester_attack"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:bone_jester_hide_in_shadows"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:bone_jester_harvest"
+      weight: 1
+      cost: 12
+      fatigueType: "physical"
+    }
+  ]
+}

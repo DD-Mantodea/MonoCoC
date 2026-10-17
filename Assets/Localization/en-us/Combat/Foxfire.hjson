@@ -1,0 +1,10 @@
+{
+  "Combat.Spell.Foxfire.Name": "Foxfire",
+  "Combat.Spell.Foxfire.Description": "Unleash an ethereal blue flame at your opponent for high damage. More effective against corrupted enemies, heals you proportionately to your target's lust.",
+  "Combat.Spell.CorruptedFoxfire.Name": "Corrupted Foxfire",
+  "Combat.Spell.CorruptedFoxfire.Description": "Unleash a corrupted purple flame at your opponent for high damage. Less effective against corrupted enemies, deals more damage the higher your target's lust.",
+  "Combat.Spell.Foxfire.Silence": "You cannot focus to use this ability while you're having so much difficult breathing.",
+  "Combat.Spell.Foxfire.Cast": "Holding out your palm, you conjure an ethereal blue flame that dances across your fingertips. You launch it at [themonster] with a ferocious throw, and it bursts on impact, showering dazzling azure sparks everywhere.",
+  "Combat.Spell.CorruptedFoxfire.Cast": "Holding out your palm, you conjure corrupted purple flame that dances across your fingertips. You launch it at [themonster] with a ferocious throw, and it bursts on impact, showering dazzling lavender sparks everywhere.",
+  "Combat.Spell.Foxfire.Heal": "[pg-]The spell reacts to your target's lust, invigorating you!"
+}

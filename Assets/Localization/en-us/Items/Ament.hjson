@@ -1,0 +1,47 @@
+{
+  "Items.Ament.Desc": "The oddly spiral-shaped strip resembles jerky, but smells like an Autumn day in a forest."
+  "Items.Ament.Long": "a helical strip of jerky"
+  "Items.Ament.Short": "Ament"
+
+  // 原版 items/consumables/Ament.hx:22
+  "Items.Ament.Use": "The oddly spiral-shaped strip resembles jerky, but smells like an Autumn day in a forest. You bite into it, noting it is more tender than you expect from jerky, and its taste is strongly porky. As the food sinks in your gut, a sense of dread washes over you."
+
+  // 原版 Ament.hx:44-48 —— 结束发情/发情期
+  "Items.Ament.HeatEnd": "[pg]Your body cools down, it seems your heat has ended."
+  "Items.Ament.RutEnd": "[pg]Your body cools down, it seems your rut has ended."
+
+  // 原版 Ament.hx:74 —— 属性下降
+  "Items.Ament.Weak": "[pg]Your body feels weak and unresponsive."
+
+  // 原版 Ament.hx:80-83 —— 战斗中的降温与止血
+  "Items.Ament.CombatCold": "[pg-]You feel cold"
+  "Items.Ament.CombatBleed": " and your bleeding slows to a halt"
+  "Items.Ament.CombatDot": "."
+
+  // 原版 Ament.hx:111 / :132 —— 双腿还原
+  "Items.Ament.HumanLegs": "Your [feet] go completely numb, and it becomes difficult to stand. You begin to make a motion to sit, but find yourself falling. Every nerve seems to curl and burn, and when you stare down at your legs you find completely mundane [b:human ones]."
+
+  // 原版 Ament.hx:123 —— 黏液皮肤还原
+  "Items.Ament.GooSkin": "[pg]The slick [skintone] membrane holding your fluids inside begins to dry and become denser, turning painfully unmalleable before softening again into [b:normal human skin]."
+
+  // 原版 Ament.hx:137
+  "Items.Ament.MoreHuman": "[pg]You've become more human."
+
+  // 原版 Ament.hx:145 —— [if (hasWings)] × [if (weeping)] 的四种展开
+  "Items.Ament.Wings.HasWingsWeeping": "[pg]Your [wings] shake and bend alarmingly before splitting into twisted ribbons of flesh hanging from two drooping bony limbs like string curtains."
+  "Items.Ament.Wings.HasWingsBursting": "[pg]Your [wings] shake and bend alarmingly before bursting into tresses of spiral-shaped leaves that hang from two drooping branches."
+  "Items.Ament.Wings.NoWingsWeeping": "[pg]Shivers run up and down your spine until you yelp in shock under the sensation of your back bursting forth into twisted ribbons of flesh hanging from two drooping bony limbs like string curtains."
+  "Items.Ament.Wings.NoWingsBursting": "[pg]Shivers run up and down your spine until you yelp in shock under the sensation of your back bursting forth into tresses of spiral-shaped leaves that hang from two drooping branches."
+
+  // 原版 Ament.hx:152 —— [if (metric) {centimeter|inch}]
+  "Items.Ament.AshenMetric": "[pg]Numbness covers every last centimeter of your flesh for a moment. Looking yourself over, your skin is pale and dry, and taut on your body."
+  "Items.Ament.AshenImperial": "[pg]Numbness covers every last inch of your flesh for a moment. Looking yourself over, your skin is pale and dry, and taut on your body."
+
+  // 原版 Ament.hx:159 —— [if (hasHorns) {...}]
+  "Items.Ament.HornsHasHorns": "[pg]Your [horns] twist painfully where they're rooted in your head before morphing into those of an antelope."
+  "Items.Ament.HornsNoHorns": "[pg]Your head aches and throbs as if struck heavy by a blunt object, only to be relieved of the pressure as two twisting horns begin growing into those of an antelope."
+
+  // 原版 Ament.hx:168 —— [if (isTaur) {...}]
+  "Items.Ament.Hooves": "[pg]Shock explodes up your [feet], knocking you over as they melt and re-split into cloven, antelope hooves."
+  "Items.Ament.HoovesTaur": "[pg]Shock explodes up your [feet], knocking you over as they melt and re-split into cloven, antelope hooves, and your lower body shudders and writhes. The mutation progresses up your legs and it feels like you're being crushed by an invisible force until at last it ends and you see your animal half is reshaped to match the race of your legs."
+}

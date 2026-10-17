@@ -1,0 +1,32 @@
+{
+  // 原版 classes/scenes/monsters/PlaceholderDodgyMonster.hx（由 monster.mjs 生成骨架后人工补 loot）
+  enemies: [
+    {
+      id: "coc:placeholder_dodgy_monster"
+      // type 必须与 Contents/Enemies/Vanilla/PlaceholderDodgyMonsterEnemy.cs 的 [Register] id 完全一致
+      type: "coc:placeholder_dodgy_monster"
+      nameKey: "Npcs.PlaceholderDodgyMonster.Name"
+      descriptionKey: "Npcs.PlaceholderDodgyMonster.Desc"
+      article: ""
+      level: 20
+      bonusHealth: 0
+      lust: 5
+      strength: 90
+      toughness: 75
+      speed: 100
+      intelligence: 40
+      libido: 30
+      sensitivity: 30
+      corruption: 25
+      // 原版 gems = Utils.rand(5) + 250，随机值在 PlaceholderDodgyMonsterEnemy.Configure 里掷；这里只是占位
+      gems: 5
+      experience: 0
+      ai: "coc:placeholder_dodgy_monster_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop().add(consumables.DBLPEPP, 2)
+        { item: "coc:double_canine_pepper", weight: 2 }
+      ]
+    }
+  ]
+}

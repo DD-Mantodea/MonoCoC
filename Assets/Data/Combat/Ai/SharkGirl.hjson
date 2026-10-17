@@ -1,0 +1,18 @@
+{
+  // 原版 SharkGirl.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:shark_girl_ai"
+  actions: [
+    {
+      ability: "coc:shark_girl_shark_tease"
+      weight: 2
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:shark_girl_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

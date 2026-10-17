@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:2144-2158 Rend（cost 40-3*斧精通，要求斧+精通≥2）
+  id: "coc:special_rend"
+  nameKey: "Combat.Special.Rend.Name"
+  descriptionKey: "Combat.Special.Rend.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 40
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:can_rend"
+  handler: "coc:special_rend"
+}

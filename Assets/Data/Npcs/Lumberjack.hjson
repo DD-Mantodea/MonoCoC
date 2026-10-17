@@ -1,0 +1,7 @@
+{
+  id: "coc:lumberjack"
+  nameKey: "Npcs.Lumberjack.Name"
+  scene: "coc:lumberjack"
+  combat: ""
+  hostile: false
+}

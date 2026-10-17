@@ -1,0 +1,32 @@
+{
+  // 原版 Anemone（src/classes/scenes/npcs/Anemone.hx，数值来自构造函数）
+  enemies: [
+    {
+      id: "coc:anemone"
+      type: "coc:anemone"
+      nameKey: "Npcs.Anemone.Name"
+      descriptionKey: "Npcs.Anemone.Desc"
+      article: "the"
+      level: 4
+      // 原版 Anemone.hx:166 bonusHP = 120
+      bonusHealth: 120
+      lust: 30
+      strength: 40
+      toughness: 20
+      speed: 40
+      intelligence: 50
+      libido: 55
+      sensitivity: 35
+      corruption: 50
+      // 原版 gems = Utils.rand(5) + 1：实际值在 AnemoneEnemy.Configure 里现算
+      gems: 3
+      experience: 0
+      ai: "coc:anemone_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 Anemone.hx:172 drop = new WeightedDrop(consumables.DRYTENT, 1)
+        { item: "coc:dried_tentacle", weight: 1 }
+      ]
+    }
+  ]
+}

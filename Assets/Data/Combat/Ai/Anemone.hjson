@@ -1,0 +1,12 @@
+{
+  // 原版 Anemone.performCombatAction（Anemone.hx:20）：只有一个动作（覆写后的 eAttack）
+  id: "coc:anemone_ai"
+  actions: [
+    {
+      ability: "coc:anemone_attack"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  // 原版 classes/scenes/monsters/RandomSuccubus.hx（由 monster.mjs 生成骨架后人工补 loot）
+  // 注意：属性/等级/宝石全部在 RandomSuccubusEnemy.Configure 里按原版随机生成，
+  // 这里的数据值只是注册用的占位（Configure 会整体覆盖）。
+  enemies: [
+    {
+      id: "coc:random_succubus"
+      // type 必须与 Contents/Enemies/Vanilla/RandomSuccubusEnemy.cs 的 [Register] id 完全一致
+      type: "coc:random_succubus"
+      nameKey: "Npcs.RandomSuccubus.Name"
+      descriptionKey: "Npcs.RandomSuccubus.Desc"
+      article: "the"
+      level: 7
+      bonusHealth: 0
+      lust: 0
+      strength: 50
+      toughness: 40
+      speed: 50
+      intelligence: 80
+      libido: 70
+      sensitivity: 60
+      corruption: 100
+      gems: 100
+      experience: 0
+      ai: "coc:random_succubus_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 new WeightedDrop().add(INCUBID, 1).add(SUCMILK, 1).add(SDELITE, 1).add(SUCWHIP, 0.01)
+        { item: "coc:incubi_draft", weight: 1 }
+        { item: "coc:succubi_milk", weight: 1 }
+        { item: "coc:succubus_delight", weight: 1 }
+        { item: "coc:succubus_whip", weight: 0.01 }
+      ]
+    }
+  ]
+}

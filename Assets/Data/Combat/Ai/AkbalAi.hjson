@@ -1,0 +1,9 @@
+{
+  id: "coc:akbal_ai"
+  actions: [
+    { ability: "coc:akbal_attack", weight: 1 }
+    { ability: "coc:akbal_special", weight: 1, cost: 10, fatigue: "magical" }
+    { ability: "coc:akbal_lust_attack", weight: 1, cost: 10, fatigue: "magical" }
+    { ability: "coc:akbal_heal", weight: 1 }
+  ]
+}

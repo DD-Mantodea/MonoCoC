@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:2052-2070 / :5654-5664 Endless Flurry（cost 30-3*武器精通，单手近战）
+  id: "coc:special_endless_flurry"
+  nameKey: "Combat.Special.EndlessFlurry.Name"
+  descriptionKey: "Combat.Special.EndlessFlurry.Description"
+  type: "physical"
+  category: "physical"
+  range: "melee"
+  cost: 30
+  fatigueType: "physical"
+  cooldown: 0
+  availableWhen: "coc:can_endless_flurry"
+  handler: "coc:special_endless_flurry"
+}

@@ -1,0 +1,7 @@
+{
+  id: "coc:minerva"
+  nameKey: "Npcs.Minerva.Name"
+  scene: "coc:minerva"
+  combat: ""
+  hostile: false
+}

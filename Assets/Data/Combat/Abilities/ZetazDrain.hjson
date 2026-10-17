@@ -1,0 +1,8 @@
+{
+  id: "coc:zetaz_drain"
+  type: "support"
+  range: "self"
+  cost: 0
+  cooldown: 0
+  handler: "coc:zetaz_drain"
+}

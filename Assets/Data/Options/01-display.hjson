@@ -1,0 +1,113 @@
+{
+  pane: display
+  global: true
+  title: "Scenes.Options.Pane.1.Title"
+  button: "Scenes.Options.Tab.Display"
+  description: "Scenes.Options.Pane.1.Desc"
+
+  settings: [
+    {
+      id: language
+      kind: switcher
+      source: languages
+      label: "Scenes.Options.Setting.Language"
+      apply: language
+      default: 0
+    }
+    {
+      id: theme
+      label: "Scenes.Options.Setting.Theme"
+      action: theme
+      default: 0
+      values: [
+        { value: 0, label: "Scenes.Options.Choose" }
+      ]
+    }
+    {
+      id: textBackground
+      label: "Scenes.Options.Setting.TextBackground"
+      action: textBackground
+      default: 0
+      values: [
+        { value: 0, label: "Scenes.Options.Choose" }
+      ]
+    }
+    {
+      id: fontSize
+      label: "Scenes.Options.Setting.FontSize"
+      action: fontSize
+      default: 20
+      values: [
+        { value: 20, label: "Scenes.Options.Option.Adjust" }
+      ]
+    }
+    {
+      id: sprites
+      label: "Scenes.Options.Setting.Sprites"
+      desc: "Scenes.Options.Desc.Sprites"
+      default: 0
+      values: [
+        { value: 2, label: "Scenes.Options.Option.New" }
+        { value: 1, label: "Scenes.Options.Option.Old" }
+        { value: 0, label: "Scenes.Options.Option.Off" }
+      ]
+    }
+    {
+      id: images
+      label: "Scenes.Options.Setting.ImagePack"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.ImagePackOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.ImagePackOff" }
+      ]
+    }
+    {
+      id: time12Hour
+      label: "Scenes.Options.Setting.TimeFormat"
+      desc: "Scenes.Options.Desc.TimeFormat"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.Option.12Hour" }
+        { value: 0, label: "Scenes.Options.Option.24Hour" }
+      ]
+    }
+    {
+      id: metric
+      label: "Scenes.Options.Setting.Measurements"
+      desc: "Scenes.Options.Desc.Measurements"
+      default: 0
+      values: [
+        { value: 0, label: "Scenes.Options.Option.Imperial" }
+        { value: 1, label: "Scenes.Options.Option.Metric" }
+      ]
+    }
+    {
+      id: animateStatBars
+      label: "Scenes.Options.Setting.AnimateStats"
+      default: 1
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.AnimateStatsOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.AnimateStatsOff" }
+      ]
+    }
+    {
+      id: oldFont
+      label: "Scenes.Options.Setting.SidebarFont"
+      desc: "Scenes.Options.Desc.SidebarFont"
+      default: 0
+      values: [
+        { value: 0, label: "Scenes.Options.Option.New" }
+        { value: 1, label: "Scenes.Options.Option.Old" }
+      ]
+    }
+    {
+      id: showHotkeys
+      label: "Scenes.Options.Setting.ShowHotkeys"
+      default: 0
+      values: [
+        { value: 1, label: "Scenes.Options.On",  desc: "Scenes.Options.Desc.ShowHotkeysOn" }
+        { value: 0, label: "Scenes.Options.Off", desc: "Scenes.Options.Desc.ShowHotkeysOff" }
+      ]
+    }
+  ]
+}

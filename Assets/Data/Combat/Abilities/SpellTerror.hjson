@@ -1,0 +1,14 @@
+{
+  // 原版 CombatAbilities.hx:1471-1488 / :3307-3345 Terror（cost 20，cooldown 3，CorruptedNinetails）
+  id: "coc:spell_terror"
+  nameKey: "Combat.Spell.Terror.Name"
+  descriptionKey: "Combat.Spell.Terror.Description"
+  type: "magical"
+  category: "magical"
+  range: "ranged"
+  cost: 20
+  fatigueType: "magical"
+  cooldown: 3
+  availableWhen: "coc:knows_terror"
+  handler: "coc:spell_terror"
+}

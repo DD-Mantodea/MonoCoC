@@ -1,0 +1,7 @@
+{
+  "Combat.Bleed.Enemy": "{0} bleeds profusely from the jagged wounds your weapon left behind. ({1})[pg]"
+  "Combat.Bleed.EnemyStopped": "The wounds you left on {0} stop bleeding so profusely.[pg]"
+  "Combat.Bleed.Player": "You gasp and wince in pain, feeling fresh blood pump from your wounds. ({0})[pg]"
+  "Combat.Bleed.PlayerStopped": "<b>You sigh with relief; your bleeding has slowed considerably.</b>[pg]"
+  "Combat.Bleed.Tick": "You are bleeding! <b>(-{0} HP)</b>"
+}

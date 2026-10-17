@@ -1,0 +1,31 @@
+{
+  // 原版 DriderIncubus（DriderIncubus.hx:24-52，由 monster.mjs 生成骨架后人工校正）
+  enemies: [
+    {
+      id: "coc:drider_incubus"
+      type: "coc:drider_incubus"
+      nameKey: "Npcs.DriderIncubus.Name"
+      descriptionKey: "Npcs.DriderIncubus.Desc"
+      article: "the"
+      level: 22
+      // 原版 bonusHP = 500 在 DriderIncubusEnemy.Configure 里加成（这里留 0，避免重复叠加）
+      bonusHealth: 0
+      lust: 0
+      strength: 65
+      toughness: 80
+      speed: 90
+      intelligence: 70
+      libido: 66
+      sensitivity: 40
+      corruption: 100
+      // 原版 gems = 75 + Utils.rand(50)，实例化时在 Configure 里摇；这里只当占位
+      gems: 75
+      experience: 0
+      ai: "coc:drider_incubus_ai"
+      weightedLoot: true
+      loot: [
+        // 原版 this.drop = NO_DROP（DriderIncubus.hx:50）：什么都不掉
+      ]
+    }
+  ]
+}

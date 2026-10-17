@@ -1,0 +1,10 @@
+{
+  // 原版 CombatAbilities.hx 起：Arian 护符法术（存储值 3）
+  id: "coc:arian_immolate"
+  type: "magical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  handler: "coc:arian_immolate"
+  availableWhen: "coc:arian_talisman_three"
+}

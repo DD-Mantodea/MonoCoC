@@ -1,0 +1,25 @@
+{
+  "Items.PigtailTruffle.Desc": "It's clear where this fungus gets its name. A small, curly sprig resembling a pig's tail can be seen jutting out of it."
+  "Items.PigtailTruffle.Long": "a pigtail truffle"
+  "Items.PigtailTruffle.Short": "PigtailTruffle"
+
+  // 原版 items/consumables/PigTruffle.hx:23-149
+  "Items.PigtailTruffle.Use": "You take a bite into the pigtail truffle. It oddly tastes like bacon. You eventually finish eating. "
+  "Items.PigtailTruffle.Hips": "[pg]Your gait shifts slightly to accommodate your widening [hips]. The change is subtle, but they're definitely broader."
+  "Items.PigtailTruffle.Butt": "[pg]When you stand back, up your [ass] jiggles with a good bit of extra weight."
+  "Items.PigtailTruffle.BallsGrow": "[pg]A flash of warmth passes through you and a sudden weight develops in your groin. You pause to examine the changes and your roving fingers discover your [balls] have grown larger than a human's."
+  "Items.PigtailTruffle.BallsGrow2": "[pg]A sudden onset of heat envelops your groin, focusing on your ballsack. Walking becomes difficult as you discover your [balls] have enlarged again."
+  "Items.PigtailTruffle.CockSingle": "[pg]You feel an uncomfortable pinching sensation in your [cock]. {0}, watching as it warps and changes. As the transformation completes, you're left with a shiny, pinkish red pecker ending in a prominent corkscrew at the tip. <b>You now have a pig penis!</b>"
+  "Items.PigtailTruffle.CockMulti": "[pg]You feel an uncomfortable pinching sensation in one of your cocks. You pull open your [armor], watching as it warps and changes. As the transformation completes, you're left with a shiny pinkish red pecker ending in a prominent corkscrew at the tip. <b>You now have a pig penis!</b>"
+  "Items.PigtailTruffle.Ears": "[pg]You feel a pressure on your ears as they begin to reshape. Once the changes finish, you flick them about experimentally, <b>and you're left with pointed, floppy pig ears.</b>"
+  "Items.PigtailTruffle.TailMorph": "[pg]You feel a pinching sensation in your [tail] as it begins to warp in change. When the sensation dissipates, <b>you are left with a small, curly pig tail.</b>"
+  "Items.PigtailTruffle.TailNew": "[pg]You feel a tug at the base of your spine as it lengthens ever so slightly. Looking over your shoulder, <b>you find that you have sprouted a small, curly pig tail.</b>"
+  "Items.PigtailTruffle.TailTaur": "[pg]There is a tingling in your [tail] as it begins to warp and change. When the sensation dissipates, <b>you are left with a small, curly pig tail.</b> This new, mismatched tail looks a bit odd on your horse lower body."
+  "Items.PigtailTruffle.LegsTaur": "[pg]You scream in agony as a horrible pain racks your entire bestial lower half. Unable to take it anymore, you pass out. When you wake up, you're shocked to find that you no longer have the animal's lower body. Instead, you only have two legs. They are digitigrade and end in cloven hooves. <b>You now have pig legs!</b>"
+  "Items.PigtailTruffle.LegsNaga": "[pg]You scream in agony as a horrible pain racks the entire length of your [if (isNaga) {snake-like }]coils. Unable to take it anymore, you pass out. When you wake up, you're shocked to find that you no longer have the lower body of a [if (isNaga) {snake|fish}]. Instead, you only have two legs. They are digitigrade and end in cloven hooves. <b>You now have pig legs!</b>"
+  "Items.PigtailTruffle.Legs": "[pg]You scream in agony as the bones in your legs break and rearrange. Once the pain subsides, you inspect your legs, finding that they are digitigrade and ending in cloven hooves. <b>You now have pig legs!</b>"
+  "Items.PigtailTruffle.Face": "[pg]You cry out in pain as the bones in your face begin to break and rearrange. You rub your face furiously in an attempt to ease the pain, but to no avail. As the sensations pass, you examine your face in a nearby puddle. <b>You nearly gasp in shock at the sight of your new pig face!</b>"
+  "Items.PigtailTruffle.BoarFace": "[pg]You cry out in pain as the bones in your face begin to break and rearrange. You rub your face furiously in an attempt to ease the pain, but to no avail. Your bottom teeth ache as well. What's happening to you? As the sensations pass, you examine your face in a nearby puddle. <b>You nearly gasp in shock at the sight of your new tusky boar face!</b>"
+  "Items.PigtailTruffle.SkinColor": "[pg]Your skin tingles ever so slightly as your skin's color changes before your eyes. As the tingling diminishes, you find that your skin has turned {0}."
+  "Items.PigtailTruffle.Failsafe": "[pg]Oddly, you do not feel any changes. Perhaps you're lucky? Or not."
+}

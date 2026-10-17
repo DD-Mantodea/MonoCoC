@@ -1,0 +1,8 @@
+{
+  id: "coc:marble_special_attack_one"
+  type: "physical"
+  range: "melee"
+  cost: 15
+  cooldown: 0
+  handler: "coc:marble_special_attack_one"
+}

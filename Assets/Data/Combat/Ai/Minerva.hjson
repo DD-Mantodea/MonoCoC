@@ -1,0 +1,54 @@
+{
+  // 原版 Minerva.performCombatAction（由 monster.mjs 生成，when 条件需人工补）
+  id: "coc:minerva_ai"
+  actions: [
+    {
+      ability: "coc:minerva_booty_short_in_yo_face_son"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minerva_kite_fire"
+      weight: 1
+      cost: 10
+      fatigueType: "magical"
+    }
+    {
+      ability: "coc:minerva_uses_halberd_chop"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:minerva_uses_halberd_stab"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minerva_tail_whip"
+      weight: 1
+      cost: 5
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minerva_knows_kungfu"
+      weight: 1
+      cost: 10
+      fatigueType: "physical"
+    }
+    {
+      ability: "coc:minerva_bite"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+    {
+      ability: "coc:minerva_lick_dat_pole"
+      weight: 1
+      cost: 0
+      fatigueType: "none"
+    }
+  ]
+}

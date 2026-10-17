@@ -1,0 +1,8 @@
+{
+  id: "coc:aiko_ice_arrow"
+  type: "magical"
+  range: "ranged"
+  cost: 10
+  cooldown: 0
+  handler: "coc:aiko_ice_arrow"
+}

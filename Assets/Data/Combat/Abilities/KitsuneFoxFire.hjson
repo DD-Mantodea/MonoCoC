@@ -1,0 +1,9 @@
+{
+  id: "coc:kitsune_fox_fire"
+  type: "magical"
+  range: "ranged"
+  cost: 0
+  cooldown: 0
+  isSelf: false
+  handler: "coc:kitsune_fox_fire"
+}

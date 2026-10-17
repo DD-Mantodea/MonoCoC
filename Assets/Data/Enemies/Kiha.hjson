@@ -1,0 +1,23 @@
+{
+  enemies: [
+    {
+      id: "coc:kiha"
+      type: "coc:kiha"
+      nameKey: "Enemies.Kiha.Name"
+      descriptionKey: "Enemies.Kiha.Desc"
+      level: 16
+      bonusHealth: 430
+      lust: 10
+      strength: 65
+      toughness: 60
+      speed: 85
+      intelligence: 60
+      libido: 50
+      sensitivity: 45
+      corruption: 66
+      gems: 100
+      experience: 250
+      ai: ""
+    }
+  ]
+}
