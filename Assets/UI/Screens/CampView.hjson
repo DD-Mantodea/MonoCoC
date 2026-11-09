@@ -1,4 +1,4 @@
-{
+﻿{
   id: "CampView"
 
   root: {
@@ -231,84 +231,6 @@
         ]
       }
 
-      {
-        type: "coc:combat_stats"
-        part: "game.combatStats"
-        x: 1280
-        y: 56
-        width: 276
-        height: 220
-        visible: false
-      }
-      {
-        type: "coc:custom_widget"
-        widget: "game:multi_combat_stats"
-        part: "game.multiCombatStats"
-        x: 1280
-        y: 56
-        width: 276
-        height: 640
-        visible: false
-      }
-      {
-        type: "coc:custom_widget"
-        widget: "game:sprite"
-        part: "game.sprite"
-        x: 300
-        y: 28
-        width: 160
-        height: 160
-        visible: false
-      }
-      {
-        type: "coc:custom_widget"
-        widget: "game:image"
-        part: "game.image"
-        x: 1268
-        y: 56
-        width: 308
-        height: 320
-        visible: false
-      }
-      {
-        type: "coc:custom_widget"
-        widget: "game:mini_map"
-        part: "game.miniMap"
-        x: 0
-        y: 768
-        width: 260
-        height: 132
-        visible: false
-      }
-      {
-        type: "coc:custom_widget"
-        widget: "game:dungeon_map"
-        part: "game.dungeonMap"
-        sizeType: "fill"
-        visible: false
-      }
-      {
-        type: "coc:custom_widget"
-        widget: "game:target_pointer"
-        part: "game.targetPointer"
-        x: 1288
-        y: 60
-        width: 20
-        height: 19
-        visible: false
-      }
-      {
-        type: "coc:label"
-        part: "game.gameOver"
-        font: "coc:settingsTitle"
-        x: 300
-        y: 240
-        width: 940
-        height: 140
-        visible: false
-        textHorizontalAlign: "center"
-        textVerticalAlign: "center"
-      }
     ]
   }
 }

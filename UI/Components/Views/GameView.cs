@@ -27,8 +27,6 @@ namespace MonoCoC.UI.Components.Views
 
         protected abstract override string ScreenFile { get; }
 
-        protected override UIViewContract Contract => GameViewContract.Value;
-
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
@@ -66,7 +64,7 @@ namespace MonoCoC.UI.Components.Views
 
                 button.Visible = !hide;
 
-                // 閸樼喓澧?MENU_LEVEL 閸欘亜婀崣顖氬磳缁?閸欘垰濮炵仦鐐粹偓?閸欘垯鎷辨稉鎾绘毐閺冭埖妯夌粈?
+                // 闁告鍠撴晶?MENU_LEVEL 闁告瑯浜滃﹢顏堝矗椤栨艾纾崇紒?闁告瑯鍨版慨鐐典沪閻愮补鍋?闁告瑯鍨幏杈ㄧ▔閹剧粯姣愰柡鍐煐濡绮?
                 if (index == 3)
                     button.Visible = !hide && player != null
 
@@ -74,7 +72,7 @@ namespace MonoCoC.UI.Components.Views
             }
         }
 
-        // 閸樼喓澧?MENU_STATS -> playerInfo.displayStats
+        // 闁告鍠撴晶?MENU_STATS -> playerInfo.displayStats
         private static void OpenStats()
         {
             var previous = Scene.Current;
@@ -83,7 +81,7 @@ namespace MonoCoC.UI.Components.Views
 
             Contents.Scenes.Vanilla.StatsScene.Show(() =>
             {
-                // 娴犲骸鍙炬禒鏍€婇弽蹇涖€夐棃銏ｇ箻閸?Stats 閺冭绱滲ack 娑撳秴绨查崶鐐插煂鐠囥儵銆婇弽蹇涖€夐棃?
+                // 濞寸姴楠搁崣鐐閺嶎厹鈧﹪寮借箛娑栤偓澶愭閵忥絿绠婚柛?Stats 闁哄啳顔愮槐婊瞐ck 濞戞挸绉寸花鏌ュ炊閻愭彃鐓傞悹鍥ュ劦閵嗗﹪寮借箛娑栤偓澶愭?
                 if (previous is Contents.Scenes.Vanilla.PerksScene
                     or Contents.Scenes.Vanilla.PlayerAppearance)
                 {
@@ -99,7 +97,7 @@ namespace MonoCoC.UI.Components.Views
             });
         }
 
-        // 濞撳憡鍨欓崘鍛淬€婇弽?Data閿涙矮绗夐弰顖欏瘜閼挎粌宕熼惃?Data閿涘矁绻戦崶鐐存鎼存柨娲栧〒鍛婂灆
+        // 婵炴挸鎲￠崹娆撳礃閸涙番鈧﹪寮?Data闁挎稒鐭粭澶愬及椤栨瑥鐦滈柤鎸庣矊瀹曠喖鎯?Data闁挎稑鐭佺换鎴﹀炊閻愬瓨顦ч幖瀛樻煥濞叉牕銆掗崨濠傜亞
         private static void OpenData()
         {
             PlayerStats.HiddenByMenu = true;
@@ -156,23 +154,23 @@ namespace MonoCoC.UI.Components.Views
 
             Input = RequirePart<TextBox>("game.input");
 
-            CombatStats = RequirePart<CombatStats>("game.combatStats");
+            CombatStats = Part<CombatStats>("game.combatStats");
 
-            MultiCombatStats = RequirePart<MultiCombatStats>("game.multiCombatStats");
+            MultiCombatStats = Part<MultiCombatStats>("game.multiCombatStats");
 
-            Sprite = RequirePart<UIImage>("game.sprite");
+            Sprite = Part<UIImage>("game.sprite");
 
-            Image = RequirePart<UIImage>("game.image");
+            Image = Part<UIImage>("game.image");
 
-            DungeonMap = RequirePart<DungeonMapPanel>("game.dungeonMap");
+            DungeonMap = Part<DungeonMapPanel>("game.dungeonMap");
 
-            DungeonMiniMap = RequirePart<DungeonMiniMapPanel>("game.miniMap");
+            DungeonMiniMap = Part<DungeonMiniMapPanel>("game.miniMap");
 
-            _targetPointer = RequirePart<UIImage>("game.targetPointer");
+            _targetPointer = Part<UIImage>("game.targetPointer");
 
-            GameOverLabel = RequirePart<Label>("game.gameOver");
+            GameOverLabel = Part<Label>("game.gameOver");
 
-            if (GameOverActive)
+            if (GameOverActive && GameOverLabel is not null)
             {
                 GameOverLabel.Text(_gameOverTitle);
 
@@ -191,7 +189,7 @@ namespace MonoCoC.UI.Components.Views
 
             PlayerStats.Visible = !Contents.Scenes.Vanilla.Options.HidePlayerStats;
 
-            _targetPointer.Color = new Color(0x3D, 0x35, 0x2F);
+            _targetPointer?.Color = new Color(0x3D, 0x35, 0x2F);
 
             _topMenuButtons.Clear();
 
@@ -259,48 +257,50 @@ namespace MonoCoC.UI.Components.Views
 
         public static GameView CreateDefault() => new DefaultGameView();
 
-        public MultiCombatStats MultiCombatStats = null!;
+        public MultiCombatStats? MultiCombatStats = null!;
 
-        private UIImage _targetPointer = null!;
+        private UIImage? _targetPointer = null!;
 
         public void ShowCombatStats(Enemy enemy)
         {
-            _targetPointer.Visible = false;
+            if (_targetPointer is not null)
+                _targetPointer.Visible = false;
 
-            CombatStats.Show(enemy);
+            CombatStats?.Show(enemy);
 
             Output.Size(CombatTextZoneWidth, TextZoneHeight);
         }
 
         public void ShowCombatStats(System.Collections.Generic.IReadOnlyList<Enemy> enemies, int selected, Action<int> select)
         {
-            CombatStats.Hide();
+            CombatStats?.Hide();
 
-            MultiCombatStats.Refresh(enemies, selected, select);
+            MultiCombatStats?.Refresh(enemies, selected, select);
 
             var panelTop = CombatStatsY + selected * (EnemyStatsPanel.PanelHeight + MultiCombatStats.Gap);
 
-            _targetPointer.LayoutData.Position.X = CombatStatsX + (EnemyStatsPanel.PanelWidth - 20) / 2;
+            if (_targetPointer is not null)
+            {
+                _targetPointer.LayoutData.Position.X = CombatStatsX + (EnemyStatsPanel.PanelWidth - 20) / 2;
 
-            _targetPointer.LayoutData.Position.Y = panelTop - 4;
+                _targetPointer.LayoutData.Position.Y = panelTop - 4;
 
-            _targetPointer.Visible = enemies.Count > 1 && selected >= 0 && selected < enemies.Count;
+                _targetPointer.Visible = enemies.Count > 1 && selected >= 0 && selected < enemies.Count;
+            }
 
             Output.Size(CombatTextZoneWidth, TextZoneHeight);
         }
 
         public void HideCombatStats()
         {
-            CombatStats.Hide();
+            CombatStats?.Hide();
 
             Output.Size(TextZoneWidth, TextZoneHeight);
         }
 
-        // 閸樼喓澧?EventParser.gameOver 閻ㄥ嫮鏅棃銏ゅ劥閸掑棴绱版潻娑樺弳閵嗗苯鍑″璁抽閵嗗秶濮搁幀渚婄礉
-        // 閹跺﹥鍨弬?鐏炵偞鈧囨桨閺夎儻顔€娴ｅ秶绮扮仦鍛厬閻?GAME OVER 婢堆冪摟閵?
         public bool GameOverActive { get; private set; }
 
-        public Label GameOverLabel;
+        public Label? GameOverLabel;
 
         public void ShowGameOver(string title)
         {
@@ -308,11 +308,11 @@ namespace MonoCoC.UI.Components.Views
 
             _gameOverTitle = title;
 
-            CombatStats.Hide();
+            CombatStats?.Hide();
 
             StatsVisible = false;
 
-            // GameOverLabel 閺勵垰婀敮鍐ㄧ湰閺冭泛鍨卞铏规畱閿涙艾绔风仦鈧稊瀣閿涘牅绶ユ俊?REPL 闁插本鐥呯捄鎴ｇ箖娑撯偓鐢嶇礆閸欘垵鍏樻潻妯绘Ц null
+            // GameOverLabel 闁哄嫷鍨板﹢顏嗘暜閸愩劎婀伴柡鍐硾閸ㄥ崬顕欓搹瑙勭暠闁挎稒鑹剧粩椋庝沪閳ь剚绋婄€ｎ亜顤呴柨娑樼墔缁躲儲淇?REPL 闂佹彃鏈惀鍛崉閹达絿绠栧☉鎾亾閻㈩垎宥囩闁告瑯鍨甸崗妯绘交濡粯笑 null
             if (GameOverLabel != null)
             {
                 GameOverLabel.Text(title);
@@ -346,7 +346,7 @@ namespace MonoCoC.UI.Components.Views
 
             CorruptedGladeTime.OnHourPassed(hour);
 
-            // 閸樼喓澧?InfestedChameleonGirlScene 閺?TimeAwareInterface閿涙俺闊╂稉濠冩箒妲屾濂旂€靛嫮鏁撻搹顐ｆ濮ｅ繐鐨弮鑸靛腹鏉╂稐绔村▎?
+            // 闁告鍠撴晶?InfestedChameleonGirlScene 闁?TimeAwareInterface闁挎稒淇洪棅鈺傜▔婵犲啯绠掑Σ灞绢殜婵傛梻鈧潧瀚弫鎾绘惞椤愶絾顦ф慨锝呯箰閻剟寮懜闈涜吂閺夆晜绋愮粩鏉戔枎?
             if (CoC.Instance?.Player?.HasStatusEffect(
                     Contents.Datas.Vanilla.StatusEffectIds.ParasiteEel) == true)
 
@@ -354,13 +354,13 @@ namespace MonoCoC.UI.Components.Views
 
                     Contents.Scenes.Vanilla.Areas.Bog.InfestedChameleonGirlScene>.Get().ParasiteUpdate();
 
-            // NPC 閼奉亜绻侀惃鍕洴婵炵媴绱欓崢鐔哄濮ｅ繋閲?NPC 閻?PregnancyStore.timeChange閿?
+            // NPC 闁煎浜滅换渚€鎯冮崟顐创濠电偟濯寸槐娆撳储閻斿搫顣兼慨锝呯箣闁?NPC 闁?PregnancyStore.timeChange闁?
             Contents.Npcs.NpcPregnancy.Tick();
 
-            // 閸樼喓澧?TimeAware 濞叉儳褰傞敍鍦梫entParser.hx:235 / :268-274閿涘绱?
-            // TamanisDaughters / Kelly 閸?TimeAwareRegistry.ReloadVanilla 闁插本鏁為崘灞烩偓?
-            // 閺堫亜鐤勯悳?timeChangeLarge 鏉╂柨娲?true 閸氬海娈戦妴灞炬畯閸嬫粎鐡?Next閵嗗秹妲﹂崚妤嬬礄閸樼喓澧?EventParser.hx:268-274閿涘绱?
-            // 鏉╂柨娲栭崐鐓庡帥閻?TimeAware.cs 濮瑰洦鈧眹鈧?
+            // 闁告鍠撴晶?TimeAware 婵炲弶鍎宠ぐ鍌炴晬閸︽entParser.hx:235 / :268-274闁挎稑顧€缁?
+            // TamanisDaughters / Kelly 闁?TimeAwareRegistry.ReloadVanilla 闂佹彃鏈弫鐐哄礃鐏炵儵鍋?
+            // 闁哄牜浜滈悿鍕偝?timeChangeLarge 閺夆晜鏌ㄥú?true 闁告艾娴峰▓鎴﹀Υ鐏炵偓鐣柛瀣矌閻?Next闁靛棗绉瑰Σ锕傚礆濡ゅ绀勯柛妯煎枔婢?EventParser.hx:268-274闁挎稑顧€缁?
+            // 閺夆晜鏌ㄥú鏍磹閻撳骸甯ラ柣?TimeAware.cs 婵懓娲﹂埀顒佺湽閳?
             _ = TimeAwareRegistry.DispatchHour(hour);
         }
 
@@ -368,7 +368,8 @@ namespace MonoCoC.UI.Components.Views
 
         public static void SetPlayerStatsVisible(bool visible)
         {
-            Instance?.PlayerStats.Visible = visible;
+            if (Instance?.PlayerStats is not null)
+                Instance.PlayerStats.Visible = visible;
         }
 
         public Component Background;
@@ -379,19 +380,19 @@ namespace MonoCoC.UI.Components.Views
 
         public Button[] Buttons = new Button[SlotCount];
 
-        public UIImage Sprite;
+        public UIImage? Sprite;
 
-        public UIImage Image;
+        public UIImage? Image;
 
-        public DungeonMapPanel DungeonMap;
+        public DungeonMapPanel? DungeonMap;
 
-        public DungeonMiniMapPanel DungeonMiniMap;
+        public DungeonMiniMapPanel? DungeonMiniMap;
 
         public TextBox Input;
 
         public PlayerStats PlayerStats;
 
-        public CombatStats CombatStats;
+        public CombatStats? CombatStats;
 
         public bool StatsVisible = true;
 
