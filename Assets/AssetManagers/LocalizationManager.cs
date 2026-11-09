@@ -32,6 +32,29 @@ namespace MonoCoC.Assets.AssetManagers
 
         public override string Pattern => "*.hjson";
 
+        public static string RootPath
+        {
+            get
+            {
+                var directory = new DirectoryInfo(AppContext.BaseDirectory);
+
+                while (directory is not null)
+                {
+                    if (File.Exists(Path.Combine(directory.FullName, "MonoCoC.csproj")))
+                    {
+                        var source = Path.Combine(directory.FullName, "Assets", "Localization");
+
+                        if (Directory.Exists(source))
+                            return source;
+                    }
+
+                    directory = directory.Parent;
+                }
+
+                return Paths.AssetPath("Localization");
+            }
+        }
+
         public Dictionary<string, string> Strings => Dict.TryGetValue(Language, out var strings) ? strings : [];
 
         public override void FromFile(string path, IDictionary<string, Dictionary<string, string>> entries) =>
@@ -40,7 +63,7 @@ namespace MonoCoC.Assets.AssetManagers
 
         private static Dictionary<string, string> ReadStrings(string path)
         {
-            var root = (JsonObject)HjsonValue.Parse(File.ReadAllText(path));
+            var root = (JsonObject)HjsonValue.Parse(ReadAllTextShared(path));
 
             var strings = new Dictionary<string, string>();
 
@@ -52,7 +75,7 @@ namespace MonoCoC.Assets.AssetManagers
 
         public override void Load()
         {
-            var root = Paths.AssetPath(Folder);
+            var root = RootPath;
 
             if (!Directory.Exists(root))
                 return;
@@ -172,6 +195,19 @@ namespace MonoCoC.Assets.AssetManagers
             return args.Length == 0 ? key : string.Format(key, args);
         }
 
+        private static string ReadAllTextShared(string path)
+        {
+            using var stream = new FileStream(
+                path,
+                FileMode.Open,
+                FileAccess.Read,
+                FileShare.ReadWrite | FileShare.Delete);
+
+            using var reader = new StreamReader(stream);
+
+            return reader.ReadToEnd();
+        }
+
         private static LanguageInfo ReadLanguageInfo(string directory, string code)
         {
             var info = new LanguageInfo
@@ -188,7 +224,7 @@ namespace MonoCoC.Assets.AssetManagers
 
             try
             {
-                var root = (JsonObject)HjsonValue.Parse(File.ReadAllText(path));
+                var root = (JsonObject)HjsonValue.Parse(ReadAllTextShared(path));
 
                 if (root.TryGetValue("code", out var codeValue) && codeValue != null)
                     info.Code = codeValue.ToString().Trim('"');

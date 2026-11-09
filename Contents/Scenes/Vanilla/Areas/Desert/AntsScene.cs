@@ -395,11 +395,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
                 OutputText("Scenes.Antsscene.AntColiseumFight.TentacleBeastFight".Localized());
 
-                var tenty = new TentacleBeastEnemy();
+                var tenty = new TentacleBeastEnemy
+                {
+                    OnDefeated = (hpVictory) => PhyllaTentacleDefeat(hpVictory),
 
-                tenty.OnDefeated = (hpVictory) => PhyllaTentacleDefeat(hpVictory);
-
-                tenty.OnWon = (hpVictory) => PhyllaTentaclePCLoss(hpVictory);
+                    OnWon = (hpVictory) => PhyllaTentaclePCLoss(hpVictory)
+                };
 
                 CombatScene.Start(tenty, () => Go<CampScene>());
             }
@@ -410,11 +411,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
                     OutputText("Scenes.Antsscene.AntColiseumFight.MinotaurAxeFight".Localized());
 
-                    var mino = new MinotaurEnemy();
+                    var mino = new MinotaurEnemy
+                    {
+                        OnDefeated = (hpVictory) => PhyllaBeatAMino(hpVictory),
 
-                    mino.OnDefeated = (hpVictory) => PhyllaBeatAMino(hpVictory);
-
-                    mino.OnWon = (hpVictory) => PhyllaPCLostToMino(hpVictory);
+                        OnWon = (hpVictory) => PhyllaPCLostToMino(hpVictory)
+                    };
 
                     CombatScene.Start(mino, () => Go<CampScene>());
                 }
@@ -975,7 +977,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
                     if (Player.Pregnancy.Incubation == 0)
                     {
-                        Player.Pregnancy.Type = Contents.Pregnancy.PregnancyIds.DriderEggs;
+                        Player.Pregnancy.Type = Pregnancy.PregnancyIds.DriderEggs;
 
                         Player.Pregnancy.Incubation = 8 * 24;
                     }
@@ -3576,7 +3578,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             if (Player.Pregnancy.Incubation == 0)
             {
-                Player.Pregnancy.Type = Contents.Pregnancy.PregnancyIds.DriderEggs;
+                Player.Pregnancy.Type = Pregnancy.PregnancyIds.DriderEggs;
 
                 Player.Pregnancy.Incubation = 8 * 24;
             }
@@ -3880,7 +3882,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
                 if (Player.Pregnancy.Incubation == 0)
                 {
-                    Player.Pregnancy.Type = Contents.Pregnancy.PregnancyIds.DriderEggs;
+                    Player.Pregnancy.Type = Pregnancy.PregnancyIds.DriderEggs;
 
                     Player.Pregnancy.Incubation = 8 * 24;
                 }

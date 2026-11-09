@@ -118,8 +118,6 @@ namespace MonoCoC.Graphics.Materials
 
             if (_shaderName is not null)
                 ShaderManager.Instance.EffectReloaded -= OnShaderReloaded;
-
-            // Effect is externally owned, normally by ShaderManager.
         }
     }
 }

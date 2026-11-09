@@ -581,7 +581,7 @@ namespace MonoCoC.Scripting
             {
                 var pronoun = tag[6..].Trim().ToLowerInvariant();
 
-                var ember = MonoCoC.Contents.Scenes.SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.EmberScene>.Get();
+                var ember = Contents.Scenes.SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.EmberScene>.Get();
 
                 return pronoun switch
                 {

@@ -34,17 +34,17 @@ namespace MonoCoC.Contents.Scenes.Vanilla
         {
             Register("coc:perk_up",
 
-                () => MonoCoC.CoC.Instance.Player.PerkPoints > 0,
+                () => CoC.Instance.Player.PerkPoints > 0,
 
-                () => "Scenes.Perks.PerkPoints".Localized((int)MonoCoC.CoC.Instance.Player.PerkPoints),
+                () => "Scenes.Perks.PerkPoints".Localized((int)CoC.Instance.Player.PerkPoints),
 
                 "Scenes.Perks.PerkUp", "Scenes.Perks.PerkUpHint",
 
-                () => MonoCoC.Contents.Scenes.Scene.Go<LevelUpScene>());
+                () => Scene.Go<LevelUpScene>());
 
             Register("coc:double_attack",
 
-                () => MonoCoC.CoC.Instance.Player.HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.DoubleAttack),
+                () => CoC.Instance.Player.HasPerk(Datas.Vanilla.PerkIds.DoubleAttack),
 
                 () => "Scenes.Perks.DoubleAttackOptions".Localized(),
 
@@ -54,7 +54,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             Register("coc:ascension_tolerance",
 
-                () => MonoCoC.CoC.Instance.Player.HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.AscensionTolerance),
+                () => CoC.Instance.Player.HasPerk(Datas.Vanilla.PerkIds.AscensionTolerance),
 
                 () => "Scenes.Perks.ToleranceOptions".Localized(),
 
@@ -64,7 +64,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             Register("coc:battlemage",
 
-                () => MonoCoC.CoC.Instance.Player.HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.Battlemage),
+                () => CoC.Instance.Player.HasPerk(Datas.Vanilla.PerkIds.Battlemage),
 
                 () => "Scenes.Perks.MightOptions".Localized(),
 
@@ -74,7 +74,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             Register("coc:spellsword",
 
-                () => MonoCoC.CoC.Instance.Player.HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.Spellsword),
+                () => CoC.Instance.Player.HasPerk(Datas.Vanilla.PerkIds.Spellsword),
 
                 () => "Scenes.Perks.ChargeOptions".Localized(),
 
@@ -84,7 +84,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             Register("coc:transformation_resistance",
 
-                () => MonoCoC.CoC.Instance.Player.HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.TransformationResistance),
+                () => CoC.Instance.Player.HasPerk(Datas.Vanilla.PerkIds.TransformationResistance),
 
                 () => "Scenes.Perks.TransformationResistanceOptions".Localized(),
 

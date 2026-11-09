@@ -161,9 +161,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
         public override void Entry()
         {
-            MonoCoC.UI.Components.Combat.PlayerStats.HiddenByMenu = false;
+            UI.Components.Combat.PlayerStats.HiddenByMenu = false;
 
-            MonoCoC.UI.Components.Views.GameView.SetPlayerStatsVisible(true);
+            UI.Components.Views.GameView.SetPlayerStatsVisible(true);
 
             ClearOutput();
 
@@ -241,7 +241,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                     && Flags.Get(GameFlagIds.CurrentWeather) < 3
 
-                    && MonoCoC.Utils.Utils.Chance((int)(0.15f * Player.FatiguePercent + 1)))
+                    && Utils.Utils.Chance((int)(0.15f * Player.FatiguePercent + 1)))
                 {
                     JustReturnedToCamp = false;
 
@@ -865,7 +865,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             OutputText("Scenes.Camp.Actions.ChallengeTeleport3".Localized());
 
-            var definition = MonoCoC.Assets.ContentManagers.DungeonManager.Get(
+            var definition = Assets.ContentManagers.DungeonManager.Get(
                 new MonoCoC.Registry.Identifier("coc", "wizard_tower"));
 
             if (definition == null)
@@ -1016,7 +1016,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     ? "Scenes.Camp.Desc.NurseryFuture".Localized()
 
                     : "Scenes.Camp.Desc.NurseryKids".Localized(
-                        MonoCoC.Utils.Utils.NumberOfThings(kids, "child", "children")));
+                        Utils.Utils.NumberOfThings(kids, "child", "children")));
             }
 
             var harpies = Flags.Get(GameFlagIds.SophieAdultKidCount);
@@ -1073,7 +1073,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                         OutputText("Scenes.Camp.Desc.SkullsCountOne".Localized());
                     else
                     {
-                        var skullText = MonoCoC.Utils.Utils.NumberOfThings(skulls, "skull");
+                        var skullText = Utils.Utils.NumberOfThings(skulls, "skull");
 
                         // 原版句子里是小写 forty skulls
                         if (skullText.Length > 0)
@@ -1089,7 +1089,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     OutputText("Scenes.Camp.Statues.One".Localized());
                 else if (statues > 1)
                     OutputText("Scenes.Camp.Statues.Many".Localized(
-                        MonoCoC.Utils.Utils.NumberOfThings(statues, "marble imp statue", "marble imp statues")));
+                        Utils.Utils.NumberOfThings(statues, "marble imp statue", "marble imp statues")));
             }
             else
                 OutputText("Scenes.Camp.Desc.SimpleTraps".Localized());

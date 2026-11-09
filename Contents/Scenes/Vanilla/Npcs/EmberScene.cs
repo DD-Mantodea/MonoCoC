@@ -25,7 +25,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public int parasiteRating = 0;
 
-        public static double Floor(double value) => System.Math.Floor(value);
+        public static double Floor(double value) => Math.Floor(value);
 
         public static bool debug => OptionStore.Instance.Get("debug", 0) > 0;
 
@@ -1105,7 +1105,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     else
                         OutputText("Scenes.Emberscene.HatchZeMuzzles.SneakPeekCrotch".Localized());
 
-                    OutputText("Scenes.Emberscene.HatchZeMuzzles.CrotchSlitPenis".Localized((LittleEmber() ? "5" : "16"), (LittleEmber() ? "Common.Text.Small".Localized() : "Appearance.Balls.Size.Apple".Localized())));
+                    OutputText("Scenes.Emberscene.HatchZeMuzzles.CrotchSlitPenis".Localized((LittleEmber() ? "5" : "16"), (LittleEmber() ? "Common.Text.Small".Localized() : "Appearance.Balls.SymbolSize.Apple".Localized())));
 
                     if (CoC.Instance.Flags.Get(GameFlagIds.EmberMilk) > 0)
                         OutputText("Scenes.Emberscene.HatchZeMuzzles.DroolingNipplesFragment".Localized());
@@ -1149,7 +1149,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                         else
                             OutputText("Scenes.Emberscene.HatchZeMuzzles.SneakPeekCrotchThird".Localized());
 
-                        OutputText("Scenes.Emberscene.HatchZeMuzzles.CrotchScalesPartTwo".Localized((LittleEmber() ? " tiny" : ""), (LittleEmber() ? " 5" : " 16"), (LittleEmber() ? "Common.Text.Small".Localized() : "Appearance.Balls.Size.Apple".Localized())));
+                        OutputText("Scenes.Emberscene.HatchZeMuzzles.CrotchScalesPartTwo".Localized((LittleEmber() ? " tiny" : ""), (LittleEmber() ? " 5" : " 16"), (LittleEmber() ? "Common.Text.Small".Localized() : "Appearance.Balls.SymbolSize.Apple".Localized())));
                     }
             }
             else
@@ -1407,7 +1407,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 {
                     OutputText("Scenes.Emberscene.EmbersAppearance.CrotchCockRidges".Localized((LittleEmber() ? " 5" : " 16"), (LittleEmber() ? "Common.Text.One".Localized() : "Common.Text.Two".Localized())));
 
-                    OutputText("Scenes.Emberscene.EmbersAppearance.RoundedGlansRidges".Localized((LittleEmber() ? "Common.Text.Small".Localized() : "Appearance.Balls.Size.Apple".Localized())));
+                    OutputText("Scenes.Emberscene.EmbersAppearance.RoundedGlansRidges".Localized((LittleEmber() ? "Common.Text.Small".Localized() : "Appearance.Balls.SymbolSize.Apple".Localized())));
                 }
 
                 if (EmberHasVagina())
@@ -1486,7 +1486,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 if (EmberHasCock())
                     if (CoC.Instance.Flags.Get(GameFlagIds.EmberInternalDick) == 0)
-                        OutputText("Scenes.Emberscene.EmbersAppearance.FlaccidPenisBalls".Localized(EmberMF("He", "She"), (LittleEmber() ? "Common.Text.Undersized".Localized() : "Appearance.Balls.Size.Apple".Localized()), (LittleEmber() ? "5" : "16"), (LittleEmber() ? "Common.Text.AnInch".Localized() : "Common.Text.Inches".Localized())));
+                        OutputText("Scenes.Emberscene.EmbersAppearance.FlaccidPenisBalls".Localized(EmberMF("He", "She"), (LittleEmber() ? "Common.Text.Undersized".Localized() : "Appearance.Balls.SymbolSize.Apple".Localized()), (LittleEmber() ? "5" : "16"), (LittleEmber() ? "Common.Text.AnInch".Localized() : "Common.Text.Inches".Localized())));
                     else
                         OutputText("Scenes.Emberscene.EmbersAppearance.ProtectiveSlit".Localized(
                             EmberMF("He", "She"),

@@ -177,7 +177,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 $"{100 - MathF.Round(DamageTaken(true, false))}-{100 - MathF.Round(DamageTaken(false, true))}% (Higher is better)");
 
-            var teaseBonus = MonoCoC.Contents.Items.ArmorItemBonuses.Tease(Player);
+            var teaseBonus = Contents.Items.ArmorItemBonuses.Tease(Player);
 
             combat.Add("Tease Chance", Player.UpperGarment.Sexiness + Player.LowerGarment.Sexiness + teaseBonus.Chance);
 
@@ -944,13 +944,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                     $"Sexiness: {Player.UpperGarment.Sexiness + Player.LowerGarment.Sexiness:0}"
 
-                    + $"\n\nResult: {Player.UpperGarment.Sexiness + Player.LowerGarment.Sexiness + MonoCoC.Contents.Items.ArmorItemBonuses.Tease(Player).Chance:0}"),
+                    + $"\n\nResult: {Player.UpperGarment.Sexiness + Player.LowerGarment.Sexiness + Contents.Items.ArmorItemBonuses.Tease(Player).Chance:0}"),
 
                 new("Tease Damage", () =>
 
                     $"Base: 0{Summary(GameStats.TeaseDamage)}"
 
-                    + $"\n\nResult: {Player.Stats.Addition(GameStats.TeaseDamage) + MonoCoC.Contents.Items.ArmorItemBonuses.Tease(Player).Damage:0}"),
+                    + $"\n\nResult: {Player.Stats.Addition(GameStats.TeaseDamage) + Contents.Items.ArmorItemBonuses.Tease(Player).Damage:0}"),
 
                 new("Health Regen", () =>
 
@@ -982,7 +982,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
         private static void Exit()
         {
-            MonoCoC.UI.Components.Combat.PlayerStats.HiddenByMenu = false;
+            UI.Components.Combat.PlayerStats.HiddenByMenu = false;
 
             if (_returnTo != null)
             {

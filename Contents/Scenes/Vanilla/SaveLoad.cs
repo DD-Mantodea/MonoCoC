@@ -1,4 +1,4 @@
-using MonoCoC.Extensions;
+﻿using MonoCoC.Extensions;
 using MonoCoC.Saving;
 using MonoCoC.Attributes;
 using MonoCoC.Contents.Items;
@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace MonoCoC.Contents.Scenes.Vanilla
 {
-    // 原版 Saves.hx:238 saveLoad()：主菜单 + 存/读/删档 + 自动存档 + 文件导入导出
+    // 鍘熺増 Saves.hx:238 saveLoad()锛氫富鑿滃崟 + 瀛?璇?鍒犳。 + 鑷姩瀛樻。 + 鏂囦欢瀵煎叆瀵煎嚭
     [Register<SaveLoad>("coc:save_load")]
     public class SaveLoad : Scene
     {
@@ -65,14 +65,14 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             {
                 FromMainMenu = false;
 
-                MonoCoC.UI.Components.Combat.PlayerStats.HiddenByMenu = false;
+                UI.Components.Combat.PlayerStats.HiddenByMenu = false;
 
                 UIManager.Instance.Root.SwitchView(new MainView());
 
                 return;
             }
 
-            MonoCoC.UI.Components.Combat.PlayerStats.HiddenByMenu = false;
+            UI.Components.Combat.PlayerStats.HiddenByMenu = false;
 
             Go<CampScene>();
         }
@@ -208,9 +208,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             data.Apply(Player);
 
-            MonoCoC.UI.Components.Combat.PlayerStats.HiddenByMenu = false;
+            UI.Components.Combat.PlayerStats.HiddenByMenu = false;
 
-            MonoCoC.UI.Components.Views.GameView.SetPlayerStatsVisible(true);
+            GameView.SetPlayerStatsVisible(true);
 
             Go<CampScene>();
         }
@@ -291,16 +291,16 @@ namespace MonoCoC.Contents.Scenes.Vanilla
         {
             try
             {
-                _ = MonoCoC.Assets.ManagerInstance<MonoCoC.Assets.ContentManagers.ItemManager>.Instance;
+                _ = Assets.ManagerInstance<MonoCoC.Assets.ContentManagers.ItemManager>.Instance;
 
-                _ = MonoCoC.Assets.ManagerInstance<MonoCoC.Assets.ContentManagers.PerkManager>.Instance;
+                _ = Assets.ManagerInstance<MonoCoC.Assets.ContentManagers.PerkManager>.Instance;
 
-                var legacy = MonoCoC.Saving.Legacy.SaveLoader.Load(path);
+                var legacy = Saving.Legacy.SaveLoader.Load(path);
 
                 var root = (Hjson.JsonObject)Hjson.HjsonValue.Parse(legacy.ToString());
 
-                // 原版存档是扁平的 Haxe 对象，字段类型和 MonoCoC 不完全一致；
-                // 只取能安全映射的核心字段，避免 Enum.Parse/强制转换直接抛异常。
+                // 鍘熺増瀛樻。鏄墎骞崇殑 Haxe 瀵硅薄锛屽瓧娈电被鍨嬪拰 MonoCoC 涓嶅畬鍏ㄤ竴鑷达紱
+                // 鍙彇鑳藉畨鍏ㄦ槧灏勭殑鏍稿績瀛楁锛岄伩鍏?Enum.Parse/寮哄埗杞崲鐩存帴鎶涘紓甯搞€?
                 var player = new Hjson.JsonObject();
 
                 Copy(root, player, "lust");
@@ -357,7 +357,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 if (root.TryGetValue("flags", out var legacyFlags) && legacyFlags is Hjson.JsonObject flagsObject)
                     foreach (var pair in flagsObject)
-                        if (MonoCoC.Saving.Legacy.LegacyFlagMap.ByName.TryGetValue(pair.Key, out var flagId))
+                        if (Saving.Legacy.LegacyFlagMap.ByName.TryGetValue(pair.Key, out var flagId))
                             mappedFlags[flagId.ToString()] = pair.Value;
 
                 var json = new Hjson.JsonObject
@@ -388,15 +388,15 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     return;
                 }
 
-                MonoCoC.UI.Components.Combat.PlayerStats.HiddenByMenu = false;
+                UI.Components.Combat.PlayerStats.HiddenByMenu = false;
 
-                var gameView = new GameView();
+                var gameView = GameView.CreateDefault();
 
                 data.Apply(Player);
 
                 Player.Loaded = true;
 
-                // 原版 Marble 好感保存在 statusAffects 的 Marble status value1
+                // 鍘熺増 Marble 濂芥劅淇濆瓨鍦?statusAffects 鐨?Marble status value1
                 if (root.TryGetValue("statusAffects", out var statusValue) && statusValue is Hjson.JsonArray statusAffects)
                     foreach (var statusEntry in statusAffects)
                     {
@@ -420,27 +420,27 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                             FloatValue(status, "value3", 0), FloatValue(status, "value4", 0));
                     }
 
-                // 老存档只有 exploredDeepwoods status，没有 Area 解锁 flag；
-                // 补回 Deepwoods 的发现状态，Explore 才会列出该区域。
-                if (Player.HasStatusEffect(MonoCoC.Contents.Datas.Vanilla.StatusEffectIds.ExploredDeepwoods))
+                // 鑰佸瓨妗ｅ彧鏈?exploredDeepwoods status锛屾病鏈?Area 瑙ｉ攣 flag锛?
+                // 琛ュ洖 Deepwoods 鐨勫彂鐜扮姸鎬侊紝Explore 鎵嶄細鍒楀嚭璇ュ尯鍩熴€?
+                if (Player.HasStatusEffect(Datas.Vanilla.StatusEffectIds.ExploredDeepwoods))
                 {
-                    var deepwoods = MonoCoC.Contents.World.Areas.AreaRegistry.Get(
-                        MonoCoC.Contents.Datas.Vanilla.AreaIds.Deepwoods);
+                    var deepwoods = World.Areas.AreaRegistry.Get(
+                        Datas.Vanilla.AreaIds.Deepwoods);
 
                     if (deepwoods != null)
-                        MonoCoC.Contents.World.Areas.AreaRegistry.Discover(deepwoods);
+                        World.Areas.AreaRegistry.Discover(deepwoods);
                 }
 
-                // 原版 Sylvia 状态保存在 selfSaving.sylvia.data
+                // 鍘熺増 Sylvia 鐘舵€佷繚瀛樺湪 selfSaving.sylvia.data
                 var sylviaData = LegacySelfSavingData(root, "sylvia");
 
                 if (sylviaData != null)
                 {
-                    MonoCoC.Contents.Scenes.Vanilla.Areas.Bog.SylviaScene.Save.SetInt("sylviaAffection", IntValue(sylviaData, "sylviaAffection", 0));
+                    Areas.Bog.SylviaScene.Save.SetInt("sylviaAffection", IntValue(sylviaData, "sylviaAffection", 0));
 
-                    MonoCoC.Contents.Scenes.Vanilla.Areas.Bog.SylviaScene.Save.SetInt("sylviaDominance", IntValue(sylviaData, "sylviaDominance", 0));
+                    Areas.Bog.SylviaScene.Save.SetInt("sylviaDominance", IntValue(sylviaData, "sylviaDominance", 0));
 
-                    MonoCoC.Contents.Scenes.Vanilla.Areas.Bog.SylviaScene.Save.SetInt("sylviaProgress", IntValue(sylviaData, "sylviaProgress", 0));
+                    Areas.Bog.SylviaScene.Save.SetInt("sylviaProgress", IntValue(sylviaData, "sylviaProgress", 0));
                 }
 
                 var rathazulData = LegacySelfSavingData(root, "rathazul");
@@ -448,9 +448,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 if (rathazulData != null
                     && rathazulData.TryGetValue("campFollower", out var rathazulFollower))
 
-                    MonoCoC.Contents.Scenes.Vanilla.Npcs.RathazulScene.Save.SetBool("campFollower", (bool)rathazulFollower);
+                    Npcs.RathazulScene.Save.SetBool("campFollower", (bool)rathazulFollower);
 
-                // 原版 camp 场景数据：训练假人保存在 selfSaving.camp.data
+                // 鍘熺増 camp 鍦烘櫙鏁版嵁锛氳缁冨亣浜轰繚瀛樺湪 selfSaving.camp.data
                 var campData = LegacySelfSavingData(root, "camp");
 
                 if (campData != null)
@@ -464,22 +464,22 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     TrainingDummyCamp.DummyGender = IntValue(campData, "dummyGender", 0);
                 }
 
-                // 原版存档记录的是最终属性：补等值 Stat 修正
-                ApplyLegacyStat(root, "str", MonoCoC.Contents.Datas.Vanilla.GameStats.Strength);
+                // 鍘熺増瀛樻。璁板綍鐨勬槸鏈€缁堝睘鎬э細琛ョ瓑鍊?Stat 淇
+                ApplyLegacyStat(root, "str", Datas.Vanilla.GameStats.Strength);
 
-                ApplyLegacyStat(root, "tou", MonoCoC.Contents.Datas.Vanilla.GameStats.Toughness);
+                ApplyLegacyStat(root, "tou", Datas.Vanilla.GameStats.Toughness);
 
-                ApplyLegacyStat(root, "spe", MonoCoC.Contents.Datas.Vanilla.GameStats.Speed);
+                ApplyLegacyStat(root, "spe", Datas.Vanilla.GameStats.Speed);
 
-                ApplyLegacyStat(root, "inte", MonoCoC.Contents.Datas.Vanilla.GameStats.Intelligence);
+                ApplyLegacyStat(root, "inte", Datas.Vanilla.GameStats.Intelligence);
 
-                ApplyLegacyStat(root, "lib", MonoCoC.Contents.Datas.Vanilla.GameStats.Libido);
+                ApplyLegacyStat(root, "lib", Datas.Vanilla.GameStats.Libido);
 
-                ApplyLegacyStat(root, "sens", MonoCoC.Contents.Datas.Vanilla.GameStats.Sensitivity);
+                ApplyLegacyStat(root, "sens", Datas.Vanilla.GameStats.Sensitivity);
 
-                ApplyLegacyStat(root, "cor", MonoCoC.Contents.Datas.Vanilla.GameStats.Corruption);
+                ApplyLegacyStat(root, "cor", Datas.Vanilla.GameStats.Corruption);
 
-                // 原版 age: 0=Adult, 1=Child, 2=Teen, 3=Elder
+                // 鍘熺増 age: 0=Adult, 1=Child, 2=Teen, 3=Elder
                 Player.Age = (MonoCoC.Contents.Creatures.Age)IntValue(root, "age", 0);
 
                 Player.StartingAge = (MonoCoC.Contents.Creatures.Age)IntValue(root, "startingAge", 0);
@@ -492,7 +492,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 ImportLegacyInventory(root);
 
-                // 装备逐件尝试：单件失败不影响整个导入
+                // 瑁呭閫愪欢灏濊瘯锛氬崟浠跺け璐ヤ笉褰卞搷鏁翠釜瀵煎叆
                 TryEquipLegacy(root, "armor", item => Player.SetArmor((Armor)item));
 
                 TryEquipLegacy(root, "weapon", item => Player.SetWeapon((Weapon)item));
@@ -502,18 +502,18 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 if (!TryEquipLegacy(root, "jewelry", item => Player.SetJewelry((Jewelry)item)))
                     ApplyLegacyJewelryHp(root);
 
-                // Perk/装备可能改变 minLust；最终再 clamp 一次
+                // Perk/瑁呭鍙兘鏀瑰彉 minLust锛涙渶缁堝啀 clamp 涓€娆?
                 Player.ClampLust();
 
-                // 属性修正后重新套用存档 HP，并按新的上限截断
+                // 灞炴€т慨姝ｅ悗閲嶆柊濂楃敤瀛樻。 HP锛屽苟鎸夋柊鐨勪笂闄愭埅鏂?
                 if (root.TryGetValue("HP", out var savedHp))
                     Player.Health = Math.Min((float)savedHp, Player.MaxHealth);
 
-                MonoCoC.UI.Components.Combat.PlayerStats.HiddenByMenu = false;
+                UI.Components.Combat.PlayerStats.HiddenByMenu = false;
 
                 Go<CampScene>();
 
-                // 场景与数据全部就绪后再挂载新 GameView，避免先显示半初始化界面
+                // 鍦烘櫙涓庢暟鎹叏閮ㄥ氨缁悗鍐嶆寕杞芥柊 GameView锛岄伩鍏嶅厛鏄剧ず鍗婂垵濮嬪寲鐣岄潰
                 UIManager.Instance.Root.SwitchView(gameView);
             }
             catch (Exception ex)
@@ -524,7 +524,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             }
         }
 
-                // 原版 JewelryLib：生命戒指直接提升最大生命
+                // 鍘熺増 JewelryLib锛氱敓鍛芥垝鎸囩洿鎺ユ彁鍗囨渶澶х敓鍛?
         private static void ApplyLegacyJewelryHp(Hjson.JsonObject root)
         {
             if (!root.TryGetValue("jewelry", out var value))
@@ -548,9 +548,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             };
 
             if (bonus > 0)
-                Player.Stats.AddModifier(MonoCoC.Contents.Datas.Vanilla.GameStats.MaxHealth,
+                Player.Stats.AddModifier(Datas.Vanilla.GameStats.MaxHealth,
 
-                    MonoCoC.Contents.Stats.ModifierOperation.Addition, () => bonus,
+                    Stats.ModifierOperation.Addition, () => bonus,
 
                     new MonoCoC.Contents.Stats.ModifierSources.TemporarySource(Guid.NewGuid()));
         }
@@ -561,8 +561,8 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             ImportLegacyItems(root, "items", item => Player.Inventory.Add(item, 1));
 
-            // 原版 itemSlots 是固定槽位数组；MonoCoC 默认只解锁 3 格，
-            // 按存档数组长度补回已解锁槽位，否则后面的物品会被 UpdateItemStacks 锁住。
+            // 鍘熺増 itemSlots 鏄浐瀹氭Ы浣嶆暟缁勶紱MonoCoC 榛樿鍙В閿?3 鏍硷紝
+            // 鎸夊瓨妗ｆ暟缁勯暱搴﹁ˉ鍥炲凡瑙ｉ攣妲戒綅锛屽惁鍒欏悗闈㈢殑鐗╁搧浼氳 UpdateItemStacks 閿佷綇銆?
             if (root.TryGetValue("items", out var itemsValue) && itemsValue is Hjson.JsonArray itemsArray)
             {
                 Player.UnlockedSlots = Math.Clamp(
@@ -590,7 +590,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             if (!root.TryGetValue(key, out var value) || value is not Hjson.JsonArray array)
                 return;
 
-            // 原版 gearStorage 是 5 个装备架 × 9 格：武器、护甲、盾牌、内衣、首饰
+            // 鍘熺増 gearStorage 鏄?5 涓澶囨灦 脳 9 鏍硷細姝﹀櫒銆佹姢鐢层€佺浘鐗屻€佸唴琛ｃ€侀楗?
             var gearAreas = Player.Storage.Values
                 .Where(candidate => !candidate.Definition.Fallback)
                 .OrderBy(candidate => candidate.Definition.Order)
@@ -689,12 +689,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             if (string.IsNullOrWhiteSpace(legacyId))
                 return null;
 
-            if (!MonoCoC.Saving.Legacy.ItemIdMap.Resolve(legacyId, out var id))
+            if (!Saving.Legacy.ItemIdMap.Resolve(legacyId, out var id))
                 return null;
 
             try
             {
-                return MonoCoC.Contents.Items.ItemRegistry.Create(id);
+                return ItemRegistry.Create(id);
             }
             catch (Exception)
             {
@@ -713,12 +713,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 : value.ToString();
 
-            if (!MonoCoC.Saving.Legacy.ItemIdMap.Resolve(legacyId, out var id))
+            if (!Saving.Legacy.ItemIdMap.Resolve(legacyId, out var id))
                 return false;
 
             try
             {
-                if (MonoCoC.Contents.Items.ItemRegistry.Create(id) is not { } item)
+                if (ItemRegistry.Create(id) is not { } item)
                     return false;
 
                 equip(item);
@@ -742,7 +742,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 : value.ToString();
 
-            if (MonoCoC.Saving.Legacy.ItemIdMap.Resolve(legacyId, out var id))
+            if (Saving.Legacy.ItemIdMap.Resolve(legacyId, out var id))
                 player[key] = id.ToString();
         }
 
@@ -789,7 +789,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     continue;
 
                 var imported = Player.AddMastery(
-                    MonoCoC.Registry.Identifier.Parse("coc:" + id),
+                    Registry.Identifier.Parse("coc:" + id),
 
                     IntValue(mastery, "level", 0));
 
@@ -809,12 +809,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                     var legacyName = (string)idValue;
 
-                    foreach (var perkId in MonoCoC.Contents.Perks.PerkRegistry.Registry.Ids)
+                    foreach (var perkId in Perks.PerkRegistry.Registry.Ids)
                     {
-                        if (!string.Equals(MonoCoC.Contents.Perks.PerkRegistry.GetName(perkId), legacyName,
-                                System.StringComparison.OrdinalIgnoreCase)
+                        if (!string.Equals(Perks.PerkRegistry.GetName(perkId), legacyName,
+                                StringComparison.OrdinalIgnoreCase)
 
-                            && NormalizePerkName(MonoCoC.Contents.Perks.PerkRegistry.GetName(perkId))
+                            && NormalizePerkName(Perks.PerkRegistry.GetName(perkId))
 
                                 != NormalizePerkName(legacyName))
 
@@ -847,9 +847,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             };
 
             if (fatigue > 0)
-                Player.Stats.AddModifier(MonoCoC.Contents.Datas.Vanilla.GameStats.FatigueMax,
+                Player.Stats.AddModifier(Datas.Vanilla.GameStats.FatigueMax,
 
-                    MonoCoC.Contents.Stats.ModifierOperation.Addition, () => fatigue,
+                    Stats.ModifierOperation.Addition, () => fatigue,
 
                     new MonoCoC.Contents.Stats.ModifierSources.TemporarySource(Guid.NewGuid()));
         }
@@ -869,8 +869,8 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             var target = (float)(double)value;
 
-            // 原版存档里的 str/spe/tou/inte 是基础属性值，直接写 base，
-            // 不能作为临时 modifier 叠加，否则后续升级/百分比加成会算错。
+            // 鍘熺増瀛樻。閲岀殑 str/spe/tou/inte 鏄熀纭€灞炴€у€硷紝鐩存帴鍐?base锛?
+            // 涓嶈兘浣滀负涓存椂 modifier 鍙犲姞锛屽惁鍒欏悗缁崌绾?鐧惧垎姣斿姞鎴愪細绠楅敊銆?
             if (Math.Abs(Player.Stats.GetBase(stat) - target) < 0.01f)
                 return;
 
@@ -1105,7 +1105,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 builder.Append(char.ToLowerInvariant(character));
             }
 
-            return MonoCoC.Registry.Identifier.Parse("coc:" + builder.ToString().Trim('_'));
+            return Registry.Identifier.Parse("coc:" + builder.ToString().Trim('_'));
         }
 
         private static string NormalizeStatusKey(string value) =>
@@ -1169,11 +1169,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             data.Apply(Player);
 
-            MonoCoC.UI.Components.Combat.PlayerStats.HiddenByMenu = false;
+            UI.Components.Combat.PlayerStats.HiddenByMenu = false;
 
-            UIManager.Instance.Root.SwitchView(new GameView());
+            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
 
             Go<CampScene>();
         }
     }
 }
+

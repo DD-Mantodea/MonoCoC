@@ -157,7 +157,7 @@ namespace MonoCoC.Saving
             Assets.ManagerInstance<Assets.ContentManagers.AchievementManager>.Instance.ClearUnlocked();
 
             foreach (var entry in Achievements)
-                if (MonoCoC.Registry.Identifier.TryParse((string)entry, out var achievementId))
+                if (Registry.Identifier.TryParse((string)entry, out var achievementId))
                     Assets.ManagerInstance<Assets.ContentManagers.AchievementManager>.Instance.Unlock(achievementId);
 
             player.Body.Load(Body);

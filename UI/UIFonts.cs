@@ -63,7 +63,7 @@ namespace MonoCoC.UI
 
             if (!string.IsNullOrEmpty(language))
             {
-                var path = Path.Combine(Paths.AssetPath("Localization"), language, "Language.hjson");
+                var path = Path.Combine(LocalizationManager.RootPath, language, "Language.hjson");
 
                 if (File.Exists(path))
                     try
@@ -173,6 +173,8 @@ namespace MonoCoC.UI
 
         private static Role RoleOf(string role)
         {
+            role = NormalizeRole(role);
+
             if (Roles.TryGetValue(role, out var info))
                 return info;
 
@@ -181,6 +183,11 @@ namespace MonoCoC.UI
 
             return new Role();
         }
+
+        private static string NormalizeRole(string role) =>
+            role.StartsWith("coc:", StringComparison.OrdinalIgnoreCase)
+                ? role[4..]
+                : role;
 
         private static Role Copy(Role source) => new()
         {
@@ -235,8 +242,7 @@ namespace MonoCoC.UI
                 if (entry.TryGetValue("fallback", out var fallback))
                     role.Fallback = ReadFallback(fallback);
 
-                target[pair.Key] = role;
-            }
+                target[NormalizeRole(pair.Key)] = role;            }
         }
 
         private static List<string> ReadFallback(JsonValue value)

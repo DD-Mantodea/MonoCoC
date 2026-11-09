@@ -919,9 +919,9 @@ ReturnToCamp(1);
 
             Player.Orgasm("Dick");
 
-            Player.Pregnancy.Type = Contents.Pregnancy.PregnancyIds.PlayerFather;
+            Player.Pregnancy.Type = Pregnancy.PregnancyIds.PlayerFather;
 
-            Player.Pregnancy.Incubation = Contents.Pregnancy.PregnancyIds.SpiderIncubation - 200;
+            Player.Pregnancy.Incubation = Pregnancy.PregnancyIds.SpiderIncubation - 200;
 
             if (!CombatController.InCombat)
                 DoNext(() => ReturnToCamp(1));
@@ -1054,9 +1054,9 @@ ReturnToCamp(1);
 
             if (y != 1)
             {
-                Player.Pregnancy.Type = Contents.Pregnancy.PregnancyIds.PlayerFather;
+                Player.Pregnancy.Type = Pregnancy.PregnancyIds.PlayerFather;
 
-            Player.Pregnancy.Incubation = Contents.Pregnancy.PregnancyIds.SpiderIncubation - 200;
+            Player.Pregnancy.Incubation = Pregnancy.PregnancyIds.SpiderIncubation - 200;
             }
 
             Player.Orgasm("Dick");

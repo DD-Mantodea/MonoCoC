@@ -151,6 +151,14 @@ namespace MonoCoC.UI.Console
         /// </summary>
         public static void WriteLine(string text)
         {
+            WriteLine(text, null);
+        }
+
+        public static void WriteLine(string text, Color? color)
+        {
+            if (color is { } tint)
+                text = $"/c[#{tint.R:X2}{tint.G:X2}{tint.B:X2}FF]{text}/cd";
+
             if (_instance is not null)
             {
                 _instance.Append(text);
@@ -163,6 +171,12 @@ namespace MonoCoC.UI.Console
             if (Lines.Count > 500)
                 Lines.RemoveAt(0);
         }
+
+        public static void WriteError(string text) =>
+            WriteLine(text, new Color(255, 90, 90));
+
+        public static void WriteWarning(string text) =>
+            WriteLine(text, new Color(255, 205, 100));
 
         private void ClearLines()
         {

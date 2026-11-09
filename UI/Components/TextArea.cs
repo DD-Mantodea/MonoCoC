@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoCoC.Extensions;
 using MonoCoC.UI.Common;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
 using MonoCoC.UI.Structures;
@@ -14,8 +15,10 @@ using System.Linq;
 
 namespace MonoCoC.UI.Components
 {
-    public class TextArea : Component
+    public class TextArea : Component, IUIStatefulPart
     {
+        private sealed record State(string Text, int ScrollOffset, bool AutoScroll);
+
         public TextArea(SpriteFontBase font)
         {
             Text = new RichTextBox(font)
@@ -245,8 +248,26 @@ namespace MonoCoC.UI.Components
             return this;
         }
 
-        public TextArea SetText(string text)
+        public object? CaptureState() =>
+            new State(Text.RichTextLayout.Text ?? "", ScrollOffset, AutoScroll);
+
+        public void RestoreState(object value)
         {
+            if (value is not State state)
+                return;
+
+            Text.Text(state.Text);
+
+            _scrollToEnd = false;
+
+            _needsLayout = true;
+
+            AutoScroll = state.AutoScroll;
+
+            ScrollOffset = state.ScrollOffset;
+        }
+
+        public TextArea SetText(string text)        {
             Text.RichTextLayout.Clear();
 
             _links.Clear();

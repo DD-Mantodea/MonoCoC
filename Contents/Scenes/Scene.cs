@@ -17,6 +17,7 @@ using MonoCoC.UI.Framework;
 using MonoCoC.Configuration;
 using static MonoCoC.UI.Layout.LayoutConstants;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using MonoCoC.Contents.Scenes.Vanilla;
 using MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre;
@@ -32,6 +33,10 @@ namespace MonoCoC.Contents.Scenes
         public static readonly int[][] RowSlots = [[0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [10, 11, 12, 13, 14]];
 
         public static readonly int[][] ColumnSlots = [[0, 5, 10], [1, 6, 11], [2, 7, 12], [3, 8, 13], [4, 9, 14]];
+
+        public static SceneState State { get; } = new();
+
+        public static IReadOnlyList<SceneAction> Actions => State.Actions;
 
         public static GameView View => GameView.Instance!;
 
@@ -293,6 +298,8 @@ namespace MonoCoC.Contents.Scenes
 
             _sceneTags = MacroRegistry.BeginScope(scene);
 
+            GameView.Instance?.ApplySceneLayout(scene);
+
             scene.Entry();
 
             UIManager.Instance?.MarkSceneChanged();
@@ -382,6 +389,8 @@ namespace MonoCoC.Contents.Scenes
 
         public static void ClearButtons(bool resetButton = true)
         {
+            State.ClearActions();
+
             foreach (var button in Buttons)
                 button.Reset(resetButton);
         }
@@ -398,20 +407,30 @@ namespace MonoCoC.Contents.Scenes
         {
             var button = ButtonAt(slot);
 
+            var action = State.SetAction(slot, new SceneAction
+            {
+                Label = text ?? "",
+                OnClick = onClick,
+                Enabled = onClick != null,
+                Visible = true,
+                Hint = hint,
+                HintHeader = hintHeader,
+            });
+
             if (button == null)
                 return null;
 
-            button.Label.Text(text ?? "");
+            button.Label.Text(action.Label);
 
-            button.OnClick = onClick;
+            button.OnClick = action.OnClick;
 
-            button.Enabled = onClick != null;
+            button.Enabled = action.Enabled;
 
             button.Visible = true;
 
-            button.Hint = hint;
+            button.Hint = action.Hint;
 
-            button.HintHeader = hintHeader;
+            button.HintHeader = action.HintHeader;
 
             button.RefreshVisual();
 
@@ -421,6 +440,15 @@ namespace MonoCoC.Contents.Scenes
         public static Button? AddButtonDisabled(int slot, string text, string hint = "", string hintHeader = "")
         {
             var button = AddButton(slot, text, null, hint, hintHeader);
+
+            var action = State.FindAction(slot);
+
+            if (action is not null)
+            {
+                action.Enabled = false;
+
+                action.OnClick = null;
+            }
 
             if (button != null)
             {

@@ -19,17 +19,25 @@ namespace MonoCoC.UI.Data
 
         public IReadOnlyDictionary<string, JsonObject> Templates { get; }
 
-        private UIDocument(string id, string source, JsonObject root, IReadOnlyDictionary<string, JsonObject> templates)
+        public IReadOnlyDictionary<string, JsonObject> ControlTemplates { get; }
+
+        private UIDocument(
+            string id,
+            string source,
+            JsonObject root,
+            IReadOnlyDictionary<string, JsonObject> templates,
+            IReadOnlyDictionary<string, JsonObject> controlTemplates)
         {
             Id = id;
             Source = source;
             Root = root;
             Templates = templates;
+            ControlTemplates = controlTemplates;
         }
 
         public static UIDocument Load(string path)
         {
-            var text = File.ReadAllText(path);
+            var text = ReadAllTextShared(path);
 
             var root = HjsonValue.Parse(text) as JsonObject
                 ?? throw new InvalidDataException($"{path}: UI document must be an object");
@@ -41,12 +49,50 @@ namespace MonoCoC.UI.Data
 
             var templates = new Dictionary<string, JsonObject>(StringComparer.OrdinalIgnoreCase);
 
+            var controlTemplates = new Dictionary<string, JsonObject>(StringComparer.OrdinalIgnoreCase);
+
+            var globalPath = UIResourceLocator.ResolveDocument("GlobalStyles.hjson");
+
+            if (File.Exists(globalPath))
+            {
+                var globalRoot = HjsonValue.Parse(ReadAllTextShared(globalPath)) as JsonObject;
+
+                if (globalRoot is not null)
+                    ReadTables(globalRoot, templates, controlTemplates);
+            }
+
+            ReadTables(root, templates, controlTemplates);
+
+            return new UIDocument(id, path, root, templates, controlTemplates);
+        }
+
+        private static void ReadTables(
+            JsonObject root,
+            IDictionary<string, JsonObject> templates,
+            IDictionary<string, JsonObject> controlTemplates)
+        {
             if (root.TryGetValue("templates", out var value) && value is JsonObject table)
                 foreach (var pair in table)
                     if (pair.Value is JsonObject definition)
                         templates[pair.Key] = definition;
 
-            return new UIDocument(id, path, root, templates);
+            if (root.TryGetValue("controlTemplates", out var controlValue) && controlValue is JsonObject controlTable)
+                foreach (var pair in controlTable)
+                    if (pair.Value is JsonObject definition)
+                        controlTemplates[pair.Key] = definition;
+        }
+
+        private static string ReadAllTextShared(string path)
+        {
+            using var stream = new FileStream(
+                path,
+                FileMode.Open,
+                FileAccess.Read,
+                FileShare.ReadWrite | FileShare.Delete);
+
+            using var reader = new StreamReader(stream);
+
+            return reader.ReadToEnd();
         }
 
         /// <summary>

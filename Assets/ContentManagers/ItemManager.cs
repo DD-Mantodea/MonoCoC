@@ -30,7 +30,7 @@ namespace MonoCoC.Assets.ContentManagers
 
                 // register legacy item id map
                 if (definition.LegacyId != "")
-                    MonoCoC.Saving.Legacy.ItemIdMap.Register(definition.LegacyId, definition.Id);
+                    Saving.Legacy.ItemIdMap.Register(definition.LegacyId, definition.Id);
             }
         }
 

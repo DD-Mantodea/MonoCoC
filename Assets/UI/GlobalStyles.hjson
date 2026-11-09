@@ -1,0 +1,180 @@
+{
+  id: "GlobalStyles"
+
+  controlTemplates: {
+    "coc:ParchmentButton": {
+      type: "coc:panel"
+      sizeType: "fill"
+      canHit: false
+
+      children: [
+        {
+          type: "coc:border"
+          part: "border"
+          sizeType: "fill"
+          thickness: 2
+          inset: 1
+
+          states: {
+            normal: { color: "#9F8156FF" }
+            hover: { color: "#704D28FF" }
+            pressed: { color: "#704D28FF" }
+            disabled: { color: "#8C7E6CFF" }
+          }
+        }
+        {
+          type: "coc:corners"
+          part: "corners"
+          sizeType: "fill"
+          length: 14
+          thickness: 2
+          gap: 2
+          inset: 5
+
+          states: {
+            normal: {
+              color: "#8B6B42FF"
+            }
+            hover: {
+              color: "#704D28FF"
+            }
+            pressed: {
+              color: "#5E3F21FF"
+            }
+            disabled: {
+              color: "#8C7E6CFF"
+            }
+          }
+        }
+        {
+          type: "coc:label"
+          part: "content"
+          font: "coc:button"
+          textHorizontalAlign: "center"
+          x: 0
+          y: 8
+          width: 340
+          height: 28
+          wrapWidth: 340
+          canHit: false
+        }
+      ]
+    }
+    "coc:Hint": {
+      type: "coc:panel"
+      canHit: false
+
+      children: [
+        {
+          type: "coc:border"
+          sizeType: "fill"
+          thickness: 2
+          inset: 1
+
+          states: {
+            normal: { color: "#9F8156FF" }
+          }
+        }
+        {
+          type: "coc:corners"
+          sizeType: "fill"
+          length: 14
+          thickness: 2
+          gap: 2
+          inset: 5
+
+          states: {
+            normal: {
+              color: "#8B6B42FF"
+            }
+          }
+        }
+        {
+          type: "coc:label"
+          part: "header"
+          font: "coc:tooltipHeader"
+          x: 18
+          y: 15
+          width: 384
+          height: 25
+          wrapWidth: 384
+          canHit: false
+        }
+        {
+          type: "coc:divider"
+          x: 18
+          y: 40
+          width: 384
+          height: 1
+          thickness: 1
+          ornament: false
+
+          states: {
+            normal: { color: "#9F8156FF" }
+          }
+        }
+        {
+          type: "coc:label"
+          part: "body"
+          font: "coc:tooltipBody"
+          x: 18
+          y: 44
+          width: 384
+          height: 120
+          wrapWidth: 384
+          canHit: false
+        }
+      ]
+    }
+  }
+
+  templates: {
+    ParchmentButton: {
+      type: "coc:button"
+      backgroundColor: "#EBDCC0FF"
+      width: 340
+      height: 44
+      layout: "relative"
+      controlTemplate: "coc:ParchmentButton"
+      borderThickness: 2
+      horizontalAlign: "center"
+
+      states: {
+        normal: {
+          backgroundColor: "#EBDCC0FF"
+          borderColor: "#9F8156FF"
+          textColor: "#3B2C1DFF"
+        }
+        hover: {
+          backgroundColor: "#E0CA9FFF"
+          borderColor: "#704D28FF"
+          textColor: "#3B2C1DFF"
+        }
+        pressed: {
+          backgroundColor: "#CFB17FFF"
+          borderColor: "#704D28FF"
+          textColor: "#3B2C1DFF"
+        }
+        disabled: {
+          backgroundColor: "#C4B8A6FF"
+          borderColor: "#8C7E6CFF"
+          textColor: "#7A7062FF"
+        }
+      }
+
+      hint: {
+        controlTemplate: "coc:Hint"
+        width: 420
+        minHeight: 180
+        padding: 18
+        direction: "right"
+        distance: 8
+        offsetX: 0
+        offsetY: 0
+        headerColor: "#3B2C1DFF"
+        bodyColor: "#3B2C1DFF"
+        separatorColor: "#9F8156FF"
+      }
+    }
+  }
+}

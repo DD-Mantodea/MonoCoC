@@ -13,6 +13,14 @@ namespace MonoCoC.UI.Layout
 
         public int GridIndex = -1;
 
+        public int GridRow = -1;
+
+        public int GridColumn = -1;
+
+        public int GridRowSpan = 1;
+
+        public int GridColumnSpan = 1;
+
         public LayoutType LayoutType = LayoutType.Absolute;
 
         public UIVec4 Padding = 0;
@@ -27,37 +35,79 @@ namespace MonoCoC.UI.Layout
 
         public float Alpha = 1;
 
+        public AlignHorizontal HorizontalAlign = AlignHorizontal.None;
+
+        public AlignVertical VerticalAlign = AlignVertical.None;
+
         public readonly Vector2 ComputePosition()
         {
-            switch (LayoutType)
+            if (Parent is null)
+                return Position;
+
+            if (LayoutType == LayoutType.Absolute &&
+                HorizontalAlign == AlignHorizontal.None &&
+                VerticalAlign == AlignVertical.None)
+                return Position;
+
+            var parentPadding = Parent.LayoutData.Padding;
+
+            var origin = Parent.Position + parentPadding.TopLeft() + Parent.SlotOf(GridIndex);
+
+            var area = Parent.SlotSize(GridIndex);
+
+            if (area.X <= 0 || area.Y <= 0)
+                area = Parent.Size - parentPadding.TopLeft() - parentPadding.BottomRight();
+
+            var size = ComputeSize();
+
+            var x = HorizontalAlign switch
             {
-                case LayoutType.Absolute:
-                    return Position;
+                AlignHorizontal.Center => origin.X + (area.X - size.X) * 0.5f,
+                AlignHorizontal.Right => origin.X + area.X - size.X,
+                AlignHorizontal.Stretch => origin.X,
+                _ => origin.X
+            };
 
-                case LayoutType.Relative:
-                    var origin = Parent?.Position ?? Vector2.Zero;
+            var y = VerticalAlign switch
+            {
+                AlignVertical.Center => origin.Y + (area.Y - size.Y) * 0.5f,
+                AlignVertical.Bottom => origin.Y + area.Y - size.Y,
+                AlignVertical.Stretch => origin.Y,
+                _ => origin.Y
+            };
 
-                    origin += Parent?.LayoutData.Padding.TopLeft() ?? Vector2.Zero;
-
-                    origin += Parent?.SlotOf(GridIndex) ?? Vector2.Zero;
-
-                    return origin + Position;
-
-                default:
-                    return Position;
-            }
+            return new Vector2(x, y) + Position;
         }
 
         public readonly Vector2 ComputeSize()
         {
-            return SizeType switch
+            switch (SizeType)
             {
-                SizeType.Common => Size,
+                case SizeType.Common:
+                    var size = Size;
 
-                SizeType.Fill => Parent?.Size ?? Vector2.Zero,
+                    if (Parent is null)
+                        return size;
 
-                _ => Size,
-            };
+                    var area = Parent.SlotSize(GridIndex);
+
+                    if (area.X <= 0 || area.Y <= 0)
+                        area = Parent.Size - Parent.LayoutData.Padding.TopLeft() - Parent.LayoutData.Padding.BottomRight();
+
+                    if (HorizontalAlign == AlignHorizontal.Stretch)
+                        size.X = area.X;
+
+                    if (VerticalAlign == AlignVertical.Stretch)
+                        size.Y = area.Y;
+
+                    return size;
+
+                case SizeType.Fill:
+                    return Parent?.Size ?? Vector2.Zero;
+
+                default:
+                    return Size;
+            }
         }
 
         public readonly int ComputeWidth() => (int)ComputeSize().X;
@@ -98,5 +148,31 @@ namespace MonoCoC.UI.Layout
         Independent,
 
         Inherit
+    }
+
+    public enum AlignHorizontal
+    {
+        None,
+
+        Left,
+
+        Center,
+
+        Right,
+
+        Stretch
+    }
+
+    public enum AlignVertical
+    {
+        None,
+
+        Top,
+
+        Center,
+
+        Bottom,
+
+        Stretch
     }
 }

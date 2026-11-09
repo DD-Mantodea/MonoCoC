@@ -613,9 +613,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     return;
 
                 if (state.Incubation > 20)
-                Key("Pregnancy.Eggs.Size", KeyText(count < 10 ? "Pregnancy.Eggs.Basketball" : count < 20 ? "Pregnancy.Eggs.Watermelon" : "Pregnancy.Eggs.BeachBall"));
+                Key("Pregnancy.Eggs.SymbolSize", KeyText(count < 10 ? "Pregnancy.Eggs.Basketball" : count < 20 ? "Pregnancy.Eggs.Watermelon" : "Pregnancy.Eggs.BeachBall"));
             else
-                Key("Pregnancy.Eggs.Size", KeyText(count < 10 ? "Pregnancy.Eggs.Watermelon" : count < 20 ? "Pregnancy.Eggs.BeachBall" : "Pregnancy.Eggs.LargeMedicineBall"));
+                Key("Pregnancy.Eggs.SymbolSize", KeyText(count < 10 ? "Pregnancy.Eggs.Watermelon" : count < 20 ? "Pregnancy.Eggs.BeachBall" : "Pregnancy.Eggs.LargeMedicineBall"));
         }
 
         public static void WriteFaeriePregnancy(PregnancyState state)

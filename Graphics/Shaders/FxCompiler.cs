@@ -45,7 +45,7 @@ namespace MonoCoC.Graphics.Shaders
 
         public override string OutputFilename => "runtime.mgfxo";
 
-        public override OpaqueDataDictionary Parameters => new();
+        public override OpaqueDataDictionary Parameters => [];
 
         public override string ProjectDirectory => Path.GetTempPath();
 
@@ -61,6 +61,7 @@ namespace MonoCoC.Graphics.Shaders
         {
         }
 
+        [Obsolete]
         public override TOutput BuildAndLoadAsset<TInput, TOutput>(
             ExternalReference<TInput> sourceAsset,
             string processorName,
@@ -72,6 +73,7 @@ namespace MonoCoC.Graphics.Shaders
             IContentImporter importer,
             IContentProcessor processor) => throw new NotSupportedException();
 
+        [Obsolete]
         public override ExternalReference<TOutput> BuildAsset<TInput, TOutput>(
             ExternalReference<TInput> sourceAsset,
             string processorName,
@@ -85,6 +87,7 @@ namespace MonoCoC.Graphics.Shaders
             IContentProcessor processor,
             string? assetName = null) => throw new NotSupportedException();
 
+        [Obsolete]
         public override TOutput Convert<TInput, TOutput>(
             TInput input,
             string processorName,

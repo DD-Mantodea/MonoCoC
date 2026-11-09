@@ -28,9 +28,9 @@ namespace MonoCoC.Contents.Creatures
         {
             var max = Toughness * 2 + 50;
 
-            if (HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.Tank)) max += 50;
-            if (HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.Tank2)) max += Toughness;
-            if (HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.Tank3)) max += Level * 5;
+            if (HasPerk(PerkIds.Tank)) max += 50;
+            if (HasPerk(PerkIds.Tank2)) max += Toughness;
+            if (HasPerk(PerkIds.Tank3)) max += Level * 5;
 
             max += Level * 15;
 
@@ -255,14 +255,14 @@ namespace MonoCoC.Contents.Creatures
                 var max = 100f;
 
                 if (this is Player && ((Player)this).DemonScore() >= 4) max += 20;
-                if (HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.ImprovedSelfControl)) max += 20;
-                if (HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.ImprovedSelfControl2)) max += 20;
-                if (HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.BroBody) || HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.BimboBody)
-                    || HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.FutaForm)) max += 20;
+                if (HasPerk(PerkIds.ImprovedSelfControl)) max += 20;
+                if (HasPerk(PerkIds.ImprovedSelfControl2)) max += 20;
+                if (HasPerk(PerkIds.BroBody) || HasPerk(PerkIds.BimboBody)
+                    || HasPerk(PerkIds.FutaForm)) max += 20;
 
-                if (HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.OmnibusGift)) max += 15;
-                if (HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.AscensionDesires)) max += PerkValue(MonoCoC.Contents.Datas.Vanilla.PerkIds.AscensionDesires, 0) * 5;
-                if (HasPerk(MonoCoC.Contents.Datas.Vanilla.PerkIds.NephilaArchQueen)) max += 40;
+                if (HasPerk(PerkIds.OmnibusGift)) max += 15;
+                if (HasPerk(PerkIds.AscensionDesires)) max += PerkValue(PerkIds.AscensionDesires, 0) * 5;
+                if (HasPerk(PerkIds.NephilaArchQueen)) max += 40;
 
                 return max > 999 ? 999 : max;
             }

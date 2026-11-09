@@ -100,7 +100,7 @@ namespace MonoCoC.Graphics.Shaders
             {
                 LastError = error;
 
-                MonoCoC.UI.Console.ConsoleOverlay.WriteLine($"[Shader] {name}: {error}");
+                UI.Console.ConsoleOverlay.WriteLine($"[Shader] {name}: {error}");
 
                 return;
             }
@@ -120,7 +120,7 @@ namespace MonoCoC.Graphics.Shaders
             {
                 LastError = error;
 
-                MonoCoC.UI.Console.ConsoleOverlay.WriteLine($"[Shader] {name}: {error}");
+                UI.Console.ConsoleOverlay.WriteLine($"[Shader] {name}: {error}");
 
                 return null;
             }
@@ -177,7 +177,7 @@ namespace MonoCoC.Graphics.Shaders
                 directory = directory.Parent;
             }
 
-            var fallback = Path.Combine(MonoCoC.Assets.Paths.AssetPath("Shaders"));
+            var fallback = Path.Combine(Assets.Paths.AssetPath("Shaders"));
 
             return Directory.Exists(fallback) ? fallback : null;
         }

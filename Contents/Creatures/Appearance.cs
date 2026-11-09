@@ -350,31 +350,31 @@ namespace MonoCoC.Contents.Creatures
 
                 description += creature.BallSize switch
                 {
-                    >= 18f => "Appearance.Balls.Size.HideouslySwollen".Localized(),
+                    >= 18f => "Appearance.Balls.SymbolSize.HideouslySwollen".Localized(),
 
-                    >= 15f => "Appearance.Balls.Size.BeachBall".Localized(),
+                    >= 15f => "Appearance.Balls.SymbolSize.BeachBall".Localized(),
 
-                    >= 12f => "Appearance.Balls.Size.Watermelon".Localized(),
+                    >= 12f => "Appearance.Balls.SymbolSize.Watermelon".Localized(),
 
-                    >= 9f => "Appearance.Balls.Size.Basketball".Localized(),
+                    >= 9f => "Appearance.Balls.SymbolSize.Basketball".Localized(),
 
-                    >= 7f => "Appearance.Balls.Size.Soccerball".Localized(),
+                    >= 7f => "Appearance.Balls.SymbolSize.Soccerball".Localized(),
 
-                    >= 5f => "Appearance.Balls.Size.Cantaloupe".Localized(),
+                    >= 5f => "Appearance.Balls.SymbolSize.Cantaloupe".Localized(),
 
-                    >= 4f => "Appearance.Balls.Size.Grapefruit".Localized(),
+                    >= 4f => "Appearance.Balls.SymbolSize.Grapefruit".Localized(),
 
-                    >= 3f => "Appearance.Balls.Size.Apple".Localized(),
+                    >= 3f => "Appearance.Balls.SymbolSize.Apple".Localized(),
 
-                    >= 2f => "Appearance.Balls.Size.Baseball".Localized(),
+                    >= 2f => "Appearance.Balls.SymbolSize.Baseball".Localized(),
 
-                    > 1f => "Appearance.Balls.Size.Large".Localized(),
+                    > 1f => "Appearance.Balls.SymbolSize.Large".Localized(),
 
                     >= 1f => "",
 
-                    >= 0.5f => "Appearance.Balls.Size.Small".Localized(),
+                    >= 0.5f => "Appearance.Balls.SymbolSize.Small".Localized(),
 
-                    _ => "Appearance.Balls.Size.Tiny".Localized()
+                    _ => "Appearance.Balls.SymbolSize.Tiny".Localized()
                 };
             }
 

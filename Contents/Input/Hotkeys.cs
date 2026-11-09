@@ -101,30 +101,31 @@ namespace MonoCoC.Contents.Input
 
         private static void ToggleStats()
         {
-            var hidden = !MonoCoC.UI.Components.Combat.PlayerStats.HiddenByMenu;
+            var hidden = !UI.Components.Combat.PlayerStats.HiddenByMenu;
 
-            MonoCoC.UI.Components.Combat.PlayerStats.HiddenByMenu = hidden;
+            UI.Components.Combat.PlayerStats.HiddenByMenu = hidden;
 
-            MonoCoC.UI.Components.Views.GameView.SetPlayerStatsVisible(!hidden);
+            UI.Components.Views.GameView.SetPlayerStatsVisible(!hidden);
         }
 
         private static int _backgroundIndex = 1;
 
         private static void CycleBackground()
         {
-            var view = MonoCoC.UI.Components.Views.GameView.Instance;
+            var view = UI.Components.Views.GameView.Instance;
 
             if (view == null)
                 return;
 
             _backgroundIndex = _backgroundIndex % 4 + 1;
 
-            view.Background.Texture = MonoCoC.Assets.ManagerInstance<MonoCoC.Assets.AssetManagers.TextureManager>.Instance["background" + _backgroundIndex];
+            if (view.Background is MonoCoC.UI.Components.UIImage image)
+                image.Texture = Assets.ManagerInstance<MonoCoC.Assets.AssetManagers.TextureManager>.Instance["background" + _backgroundIndex];
         }
 
         private static void ShowMainMenu()
         {
-            MonoCoC.UI.Framework.UIManager.Instance.Root.SwitchView(
+            UI.Framework.UIManager.Instance.Root.SwitchView(
                 new MonoCoC.UI.Components.Views.MainView());
         }
 
@@ -133,7 +134,7 @@ namespace MonoCoC.Contents.Input
         private static void OpenData()
         {
             // 启动阶段 UI Root/Scene 尚未初始化时触发热键会 NRE
-            if (MonoCoC.UI.Framework.UIManager.Instance.Root == null || Scene.Current == null)
+            if (UI.Framework.UIManager.Instance.Root == null || Scene.Current == null)
                 return;
 
             Scene.Go(SceneInstance<SaveLoad>.Instance);

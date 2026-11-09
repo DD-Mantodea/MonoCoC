@@ -153,7 +153,7 @@ namespace MonoCoC.Contents.Combat
     public static class CombatConditionRegistry
     {
 
-        static CombatConditionRegistry() => Registry.RegistrationScanner.OnMethods(RegisterMethod);
+        static CombatConditionRegistry() => RegistrationScanner.OnMethods(RegisterMethod);
 
         public static readonly Dictionary<Identifier, System.Func<CombatContext, CombatState, bool>> Conditions = [];
 

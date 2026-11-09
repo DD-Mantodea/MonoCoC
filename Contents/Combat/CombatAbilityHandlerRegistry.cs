@@ -10,7 +10,7 @@ namespace MonoCoC.Contents.Combat
     public static class CombatAbilityHandlerRegistry
     {
 
-        static CombatAbilityHandlerRegistry() => Registry.RegistrationScanner.OnMethods(RegisterMethod);
+        static CombatAbilityHandlerRegistry() => RegistrationScanner.OnMethods(RegisterMethod);
 
         public static readonly Type[] Signature = [typeof(CombatContext), typeof(CombatAbilityDefinition)];
 

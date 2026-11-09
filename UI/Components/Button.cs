@@ -6,6 +6,7 @@ using MonoCoC.Assets;
 using MonoCoC.Assets.AssetManagers;
 using MonoCoC.Extensions;
 using MonoCoC.UI.Common;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
 using System;
@@ -13,8 +14,17 @@ using static MonoCoC.UI.Layout.LayoutConstants;
 
 namespace MonoCoC.UI.Components
 {
-    public class Button : Component
+    public class Button : Component, IUIStatefulPart
     {
+        private sealed record Snapshot(
+            string LabelText,
+            string HintText,
+            string HintHeaderText,
+            bool IsVisible,
+            bool IsEnabled,
+            Action? ClickAction,
+            Color TextColorValue);
+
         public string FontRole = "button";
 
         public Button(string textureID = "", string label = "", string fontRole = "button")
@@ -52,13 +62,6 @@ namespace MonoCoC.UI.Components
 
         private int _fittedRevision = -1;
 
-        public override void Update(GameTime gameTime)
-        {
-            base.Update(gameTime);
-
-            FitLabel();
-        }
-
         private void FitLabel()
         {
             var text = Label.RichTextLayout.Text ?? "";
@@ -95,7 +98,11 @@ namespace MonoCoC.UI.Components
 
             var labelY = lineHeight > 0 ? Math.Max(0, (Height - lineHeight) / 2) : ButtonLabelY;
 
-            Label.Position(width / 2, labelY);
+            Label.WrapWidth(width);
+
+            Label.LayoutData.Size = new Vector2(width, Label.Height);
+
+            Label.Position(0, labelY);
         }
 
         public UIImage Background;
@@ -112,13 +119,114 @@ namespace MonoCoC.UI.Components
 
         public string Hint = "";
 
+        public object? CaptureState() => new Snapshot(
+            Label.RichTextLayout.Text ?? "",
+            Hint,
+            HintHeader,
+            Visible,
+            Enabled,
+            OnClick,
+            TextColor);
+
+        public void RestoreState(object value)
+        {
+            if (value is not Snapshot state)
+                return;
+
+            Label.Text(state.LabelText);
+
+            Hint = state.HintText;
+
+            HintHeader = state.HintHeaderText;
+
+            Visible = state.IsVisible;
+
+            Enabled = state.IsEnabled;
+
+            OnClick = state.ClickAction;
+
+            TextColor = state.TextColorValue;
+
+            RefreshVisual();
+        }
+
         public string HintHeader = "";
+
+        public HintStyle? HintSettings;
+
+        public HintView? HintView;
 
         public override string ToolTipText => Enabled ? Hint : (string.IsNullOrEmpty(DisabledReason) ? Hint : DisabledReason);
 
         public override string ToolTipHeader => string.IsNullOrEmpty(HintHeader) ? Label.RichTextLayout.Text : HintHeader;
 
         public string DisabledReason = "";
+
+        public string DisableIf = "";
+
+        private bool _conditionDisabled;
+
+        private bool _enabledBeforeCondition;
+
+        private double _conditionTimer;
+
+        public override void Update(GameTime gameTime)
+        {
+            UpdateCondition(gameTime);
+
+            base.Update(gameTime);
+
+            FitLabel();
+        }
+
+        private void UpdateCondition(GameTime gameTime)
+        {
+            if (DisableIf.Length == 0)
+            {
+                if (_conditionDisabled)
+                {
+                    _conditionDisabled = false;
+
+                    Enabled = _enabledBeforeCondition;
+
+                    RefreshVisual();
+                }
+
+                return;
+            }
+
+            _conditionTimer -= gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (_conditionTimer > 0)
+                return;
+
+            _conditionTimer = 0.25;
+
+            if (!MonoCoC.Scripting.ConditionEvaluator.TryEvaluate(DisableIf, out var disabled, out var error))
+            {
+                MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] disableIf error: {error}");
+
+                return;
+            }
+
+            if (disabled == _conditionDisabled)
+                return;
+
+            _conditionDisabled = disabled;
+
+            if (disabled)
+            {
+                _enabledBeforeCondition = Enabled;
+
+                Enabled = false;
+            }
+            else
+            {
+                Enabled = _enabledBeforeCondition;
+            }
+
+            RefreshVisual();
+        }
 
         public override InputResult OnInput(InputEventArgs args)
         {
@@ -127,6 +235,8 @@ namespace MonoCoC.UI.Components
 
             if (args.Type == InputType.MouseLeftDown)
             {
+                IsPressed = true;
+
                 OnMouseDown?.Invoke();
 
                 return InputResult.Continue;
@@ -139,11 +249,17 @@ namespace MonoCoC.UI.Components
                 return InputResult.Continue;
             }
 
-            if (args.Type == InputType.MouseLeftUp && OnMouseUp != null)
-                OnMouseUp(args.MousePosition);
+            if (args.Type == InputType.MouseLeftUp)
+            {
+                IsPressed = false;
+
+                OnMouseUp?.Invoke(args.MousePosition);
+            }
 
             if (args.Type == InputType.MouseLeftClick)
             {
+                IsPressed = false;
+
                 UIManager.Instance?.ToolTip.Hide();
 
                 OnClick?.Invoke();
@@ -167,9 +283,19 @@ namespace MonoCoC.UI.Components
 
             DisabledReason = "";
 
+            DisableIf = "";
+
+            _conditionDisabled = false;
+
+            _enabledBeforeCondition = true;
+
             Hint = "";
 
             HintHeader = "";
+
+            HintSettings = null;
+
+            HintView = null;
 
             return RefreshVisual();
         }
@@ -178,7 +304,9 @@ namespace MonoCoC.UI.Components
         {
             Background?.LayoutData.Alpha = !Enabled ? 0.4f : IsHovering ? 0.5f : 1f;
 
-            Label?.TextColor = Enabled ? TextColor : UIColors.ButtonTextDisabled;
+            var stateText = StateStyle?.TextFor(Enabled, IsHovering, IsPressed);
+
+            Label?.TextColor = Enabled ? stateText ?? TextColor : UIColors.ButtonTextDisabled;
 
             return this;
         }
@@ -193,6 +321,8 @@ namespace MonoCoC.UI.Components
         public override void OnMouseLeave()
         {
             base.OnMouseLeave();
+
+            IsPressed = false;
 
             RefreshVisual();
         }
@@ -211,6 +341,23 @@ namespace MonoCoC.UI.Components
             OnClick = onClick;
 
             return this;
+        }
+
+        /// <summary>
+        /// Applies a control template's visual tree. The template's
+        /// "content" part receives the button label; all other parts are
+        /// ordinary components.
+        /// </summary>
+        public void ApplyControlTemplate(Component root)
+        {
+            if (Background is not null)
+                Background.Visible = false;
+
+            root.LayoutData.LayoutType = LayoutType.Relative;
+
+            root.LayoutData.Position = Vector2.Zero;
+
+            root.Of(this);
         }
     }
 }

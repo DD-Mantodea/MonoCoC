@@ -1,0 +1,279 @@
+﻿{
+  id: "GameView"
+
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+
+    children: [
+      {
+        type: "coc:panel"
+        part: "game.background"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#FFFFFFFF"
+        canHit: false
+      }
+      {
+        type: "coc:player_stats"
+        part: "game.playerStats"
+        x: 0
+        y: 0
+        width: 260
+        height: 768
+      }
+
+      {
+        type: "coc:custom_component"
+        widget: "game:mini_map"
+        part: "game.miniMap"
+        x: 0
+        y: 768
+        width: 260
+        height: 132
+        visible: false
+      }
+
+      {
+        type: "coc:text_area"
+        part: "game.output"
+        font: "coc:body"
+        x: 300
+        y: 24
+        width: 940
+        height: 552
+        backgroundColor: "#F2E5C7AA"
+        padding: 22
+        autoScroll: false
+      }
+
+      {
+        type: "coc:text_box"
+        part: "game.input"
+        font: "coc:input"
+        x: 324
+        y: 584
+        width: 892
+        height: 28
+        visible: false
+      }
+
+      {
+        type: "coc:grid"
+        part: "game.buttons"
+        x: 300
+        y: 620
+        width: 940
+        height: 252
+        rows: 3
+        columns: 5
+        spacing: 8
+        autoIndex: true
+
+        children: [
+          { template: "ParchmentButton", part: "game.button0", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button1", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button2", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button3", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button4", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button5", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button6", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button7", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button8", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button9", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button10", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button11", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button12", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button13", width: 176, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button14", width: 176, height: 44, layout: "relative", visible: false }
+        ]
+      }
+
+      {
+        type: "coc:panel"
+        part: "game.contextPanel"
+        x: 1268
+        y: 24
+        width: 308
+        height: 852
+        backgroundColor: "#EBDCC066"
+        canHit: false
+
+        children: [
+          {
+            type: "coc:border"
+            layout: "relative"
+            sizeType: "fill"
+            thickness: 2
+            inset: 1
+            states: { normal: { color: "#9F8156FF" } }
+          }
+          {
+            type: "coc:label"
+            text: "Details"
+            font: "coc:menuBold"
+            x: 20
+            y: 16
+            width: 268
+            height: 28
+            canHit: false
+          }
+          {
+            type: "coc:combat_stats"
+            part: "game.combatStats"
+            x: 16
+            y: 56
+            width: 276
+            height: 220
+            visible: false
+          }
+          {
+            type: "coc:custom_component"
+            widget: "game:multi_combat_stats"
+            part: "game.multiCombatStats"
+            x: 16
+            y: 56
+            width: 276
+            height: 640
+            visible: false
+          }
+          {
+            type: "coc:custom_component"
+            widget: "game:sprite"
+            part: "game.sprite"
+            x: 16
+            y: 56
+            width: 276
+            height: 276
+            visible: false
+          }
+          {
+            type: "coc:custom_component"
+            widget: "game:image"
+            part: "game.image"
+            x: 16
+            y: 56
+            width: 276
+            height: 360
+            visible: false
+          }
+          {
+            type: "coc:label"
+            text: "No context available."
+            font: "coc:menu"
+            x: 20
+            y: 380
+            width: 268
+            height: 400
+            wrapWidth: 268
+            textHorizontalAlign: "center"
+            canHit: false
+          }
+        ]
+      }
+
+      {
+        type: "coc:label"
+        part: "game.gameOver"
+        font: "coc:settingsTitle"
+        x: 300
+        y: 280
+        width: 940
+        height: 140
+        visible: false
+        textHorizontalAlign: "center"
+        textVerticalAlign: "center"
+      }
+
+      {
+        type: "coc:button"
+        part: "game.menuButton"
+        template: "ParchmentButton"
+        width: 92
+        height: 36
+        x: 1492
+        y: 16
+        label: "Menu"
+        onClick: "game.toggle_menu"
+      }
+
+      {
+        type: "coc:panel"
+        part: "game.navigation"
+        x: 0
+        y: 0
+        width: 340
+        height: 900
+        backgroundColor: "#2B2118EE"
+        visible: false
+        canHit: true
+
+        children: [
+          {
+            type: "coc:border"
+            layout: "relative"
+            sizeType: "fill"
+            thickness: 2
+            inset: 1
+            states: { normal: { color: "#9F8156FF" } }
+          }
+          {
+            type: "coc:label"
+            text: "Navigation"
+            font: "coc:menuBold"
+            x: 24
+            y: 24
+            width: 292
+            height: 32
+            canHit: false
+            textColor: "#F2E5C7FF"
+          }
+          {
+            type: "coc:grid"
+            part: "game.topMenu"
+            x: 24
+            y: 72
+            width: 292
+            height: 420
+            rows: 6
+            columns: 1
+            spacing: 8
+            autoIndex: true
+
+            children: [
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.MainMenu" }, onClick: "game.main_menu" }
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.Data" }, onClick: "game.data" }
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.Stats" }, onClick: "game.stats" }
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.LevelUp" }, onClick: "game.level_up" }
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.Perks" }, onClick: "game.perks" }
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.Appearance" }, onClick: "game.appearance" }
+            ]
+          }
+        ]
+      }
+
+      {
+        type: "coc:custom_component"
+        widget: "game:target_pointer"
+        part: "game.targetPointer"
+        x: 1288
+        y: 60
+        width: 20
+        height: 19
+        visible: false
+      }
+      {
+        type: "coc:custom_component"
+        widget: "game:dungeon_map"
+        part: "game.dungeonMap"
+        sizeType: "fill"
+        visible: false
+      }
+    ]
+  }
+}
+
+
+
+

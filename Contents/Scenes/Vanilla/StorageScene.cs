@@ -173,7 +173,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 : "Scenes.Storage.ChestDescription";
 
-            return key.Localized(MonoCoC.Utils.Utils.FormatStringArray(chests));
+            return key.Localized(Utils.Utils.FormatStringArray(chests));
         }
 
         // 原版 scenes/Inventory.hx:1012 describe(storage) —— 各储物区自己的说明

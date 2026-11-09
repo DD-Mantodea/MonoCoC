@@ -1,24 +1,24 @@
-{
-  "body": {
+﻿{
+  "coc:body": {
     "family": "pala",
     "size": 20,
     "bold": "palab",
     "italic": "palai",
     "boldItalic": "palabi"
   },
-  "input": { "family": "pala", "size": 16 },
-  "menu": { "family": "pala", "size": 16 },
-  "menuBold": { "family": "palab", "size": 16 },
-  "sidebarTitle": { "family": "palab", "size": 22 },
-  "sidebar": { "family": "pala", "size": 18 },
-  "button": { "family": "Shrewsbury-Titling Bold", "size": 18 },
-  "tooltipHeader": { "family": "Shrewsbury-Titling Bold", "size": 18 },
-  "tooltipBody": { "family": "pala", "size": 15 },
-  "search": { "family": "pala", "size": 14 },
-  "settingsBody": { "family": "NotoSerif-Regular", "size": 20 },
-  "settingsSmall": { "family": "NotoSerif-Regular", "size": 14 },
-  "settingsBold": { "family": "NotoSerif-Bold", "size": 20 },
-  "settingsTitle": { "family": "georgia", "size": 36 },
-  "switcher": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 18 },
-  "console": { "family": "JetBrainsMono-Regular", "size": 24 }
+  "coc:input": { "family": "pala", "size": 16 },
+  "coc:menu": { "family": "pala", "size": 16 },
+  "coc:menuBold": { "family": "palab", "size": 16 },
+  "coc:sidebarTitle": { "family": "palab", "size": 22 },
+  "coc:sidebar": { "family": "pala", "size": 18 },
+  "coc:button": { "family": "Shrewsbury-Titling Bold", "size": 18 },
+  "coc:tooltipHeader": { "family": "Shrewsbury-Titling Bold", "size": 18 },
+  "coc:tooltipBody": { "family": "pala", "size": 15 },
+  "coc:search": { "family": "pala", "size": 14 },
+  "coc:settingsBody": { "family": "NotoSerif-Regular", "size": 20 },
+  "coc:settingsSmall": { "family": "NotoSerif-Regular", "size": 14 },
+  "coc:settingsBold": { "family": "NotoSerif-Bold", "size": 20 },
+  "coc:settingsTitle": { "family": "georgia", "size": 36 },
+  "coc:switcher": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 18 },
+  "coc:console": { "family": "JetBrainsMono-Regular", "size": 24 }
 }

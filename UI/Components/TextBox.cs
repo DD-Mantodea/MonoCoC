@@ -3,14 +3,17 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoCoC.Extensions;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using System;
 using System.Text.RegularExpressions;
 
 namespace MonoCoC.UI.Components
 {
-    public class TextBox : Component
+    public class TextBox : Component, IUIStatefulPart
     {
+        private sealed record SnapshotState(string Text, int ScrollX, bool Active, int CursorIndex, int SelectBegin);
+
         public TextBox(SpriteFontBase font)
         {
             Font = font;
@@ -40,6 +43,27 @@ namespace MonoCoC.UI.Components
         public Color BorderColor = Color.Black;
 
         public bool ShowBorder = true;
+
+        public object? CaptureState() =>
+            new SnapshotState(Text, ScrollX, Active, Cursor.CursorIndex, Cursor.SelectBegin);
+
+        public void RestoreState(object value)
+        {
+            if (value is not SnapshotState state)
+                return;
+
+            Text = state.Text;
+
+            ScrollX = state.ScrollX;
+
+            Cursor.CursorIndex = state.CursorIndex;
+
+            Cursor.SelectBegin = state.SelectBegin;
+
+            Active = state.Active;
+
+            OnTextChanged?.Invoke(Text);
+        }
 
         public int KeepPressDelay = 6;
 

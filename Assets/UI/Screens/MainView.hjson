@@ -1,0 +1,207 @@
+﻿{
+  id: "MainMenu"
+
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+
+    children: [
+      {
+        type: "coc:panel"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#FFFFFFFF"
+        canHit: false
+      }
+      {
+        type: "coc:image"
+        texture: "coc:CoCLogo"
+        x: 60
+        y: 58
+        width: 420
+        height: 255
+        canHit: false
+      }
+      {
+        type: "coc:grid"
+        part: "main.buttons"
+        x: 72
+        y: 356
+        rows: 10
+        columns: 1
+        spacing: 12
+        autoSize: true
+        autoIndex: true
+        children: [
+          {
+            type: "coc:label"
+            layout: "relative"
+            font: "coc:menu"
+            autoSize: true
+            text: { key: "MainMenu.Credit" }
+            canHit: false
+            horizontalAlign: "center"
+            textHorizontalAlign: "center"
+            y: -10
+          }
+          {
+            type: "coc:divider"
+            orientation: "horizontal"
+            thickness: 3
+            ornament: true
+            ornamentText: "✦"
+            ornamentPadding: 8
+            width: 340
+            height: 30
+            layout: "relative"
+            horizontalAlign: "center"
+            verticalAlign: "center"
+            states: {
+              normal: {
+                color: "#9F8156FF"
+              }
+            }
+          }
+          {
+            template: "ParchmentButton"
+            label: { key: "MainMenu.Button.Continue" }
+            onClick: "main.continue"
+            hint: {
+              text: { key: "MainMenu.Button.ContinueHint" }
+              disabledHint: { key: "MainMenu.Button.ContinueNoSaves" }
+            }
+            disableIf: "!MonoCoC.Saving.SaveData.HasAny()"
+          }
+          {
+            template: "ParchmentButton"
+            label: { key: "MainMenu.Button.NewGame" }
+            onClick: "main.new_game"
+            hint: { text: { key: "MainMenu.Button.NewGameHint" } }
+          }
+          {
+            template: "ParchmentButton"
+            label: { key: "MainMenu.Button.LoadGame" }
+            onClick: "main.load_game"
+            hint: { text: { key: "MainMenu.Button.LoadGameHint" } }
+          }
+          {
+            template: "ParchmentButton"
+            label: { key: "MainMenu.Button.Mod" }
+            onClick: "main.mod"
+            hint: { text: { key: "MainMenu.Button.ModHint" } }
+          }
+          {
+            template: "ParchmentButton"
+            label: { key: "MainMenu.Button.Options" }
+            onClick: "main.options"
+            hint: { text: { key: "MainMenu.Button.OptionsHint" } }
+          }
+          {
+            template: "ParchmentButton"
+            label: { key: "MainMenu.Button.Achievements" }
+            onClick: "main.achievements"
+            hint: { text: { key: "MainMenu.Button.AchievementsHint" } }
+          }
+          {
+            template: "ParchmentButton"
+            label: { key: "MainMenu.Button.Quit" }
+            onClick: "main.quit"
+            hint: { text: { key: "MainMenu.Button.QuitHint" } }
+          }
+        ]
+      }
+      {
+        type: "coc:panel"
+        horizontalAlign: "right"
+        x: -20
+        y: 30
+        width: 600
+        height: 100
+        canHit: false
+
+        children: [
+          {
+            type: "coc:border"
+            layout: "relative"
+            sizeType: "fill"
+            thickness: 2
+            inset: 1
+
+            states: {
+              normal: { color: "#9F8156FF" }
+            }
+          }
+          {
+            type: "coc:corners"
+            layout: "relative"
+            sizeType: "fill"
+            length: 14
+            thickness: 2
+            gap: 2
+            inset: 5
+
+            states: {
+              normal: {
+                color: "#8B6B42FF"
+              }
+            }
+          }
+          {
+            type: "coc:grid"
+            layout: "relative"
+            x: 20
+            columns: ["auto", "1*"]
+            sizeType: "fill"
+            autoIndex: true
+            spacing: 20
+            children: [
+              {
+                type: "coc:image"
+                texture: "coc:warning"
+                width: 60
+                height: 60
+                layout: "relative"
+                canHit: false
+                verticalAlign: "center"
+                backgroundColor: "#000000FF"
+              }
+              {
+                type: "coc:label"
+                layout: "relative"
+                font: "coc:menu"
+                wrapWidth: 500
+                text: { key: "MainMenu.Disclaimer" }
+                canHit: false
+                autoSize: true
+                textHorizontalAlign: "left"
+                verticalAlign: "center"
+                y: 5
+              }
+            ]
+          }
+        ]
+      }
+      {
+        type: "coc:label"
+        part: "main.version"
+        font: "coc:menuBold"
+        text: { 
+          key: "MainMenu.Version"
+          parameter: [
+            { game: "Version" }
+            { game: "Target" }
+            { game: "BuildKind" }
+          ] 
+        }
+        autoSize: true
+        canHit: false
+        horizontalAlign: "right"
+        verticalAlign: "bottom"
+        textHorizontalAlign: "right"
+        x: -20
+        y: -20
+      }
+    ]
+  }
+}

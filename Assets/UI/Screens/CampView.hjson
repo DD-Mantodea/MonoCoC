@@ -1,0 +1,314 @@
+{
+  id: "CampView"
+
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+
+    children: [
+      {
+        type: "coc:panel"
+        part: "game.background"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#F2E5C7FF"
+        canHit: false
+      }
+
+      {
+        type: "coc:player_stats"
+        part: "game.playerStats"
+        x: 0
+        y: 0
+        width: 260
+        height: 900
+      }
+
+      {
+        type: "coc:text_area"
+        part: "game.output"
+        font: "coc:body"
+        x: 300
+        y: 28
+        width: 940
+        height: 520
+        backgroundColor: "#F2E5C766"
+        padding: 22
+        autoScroll: true
+      }
+
+      {
+        type: "coc:text_box"
+        part: "game.input"
+        font: "coc:input"
+        x: 324
+        y: 556
+        width: 892
+        height: 28
+        visible: false
+      }
+
+      {
+        type: "coc:grid"
+        part: "game.buttons"
+        x: 300
+        y: 592
+        width: 940
+        height: 280
+        rows: 5
+        columns: 3
+        spacing: 8
+        autoIndex: true
+
+        children: [
+          { template: "ParchmentButton", part: "game.button0", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button1", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button2", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button3", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button4", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button5", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button6", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button7", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button8", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button9", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button10", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button11", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button12", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button13", width: 300, height: 44, layout: "relative", visible: false }
+          { template: "ParchmentButton", part: "game.button14", width: 300, height: 44, layout: "relative", visible: false }
+        ]
+      }
+
+      {
+        type: "coc:panel"
+        x: 1268
+        y: 28
+        width: 308
+        height: 844
+        backgroundColor: "#EBDCC055"
+        canHit: false
+
+        children: [
+          {
+            type: "coc:border"
+            layout: "relative"
+            sizeType: "fill"
+            thickness: 2
+            inset: 1
+            states: { normal: { color: "#9F8156FF" } }
+          }
+          {
+            type: "coc:label"
+            text: "Camp"
+            font: "coc:menuBold"
+            x: 20
+            y: 16
+            width: 268
+            height: 32
+            canHit: false
+          }
+          {
+            type: "coc:panel"
+            layout: "relative"
+            x: 18
+            y: 56
+            width: 272
+            height: 220
+            backgroundColor: "#D9C6A2FF"
+            canHit: false
+
+            children: [
+              {
+                type: "coc:label"
+                text: "Your camp"
+                font: "coc:settingsTitle"
+                layout: "relative"
+                x: 14
+                y: 150
+                width: 244
+                height: 50
+                canHit: false
+                textHorizontalAlign: "center"
+              }
+            ]
+          }
+          {
+            type: "coc:label"
+            text: "A fire, a bedroll, and the quiet space between one road and the next."
+            font: "coc:menu"
+            layout: "relative"
+            x: 20
+            y: 296
+            width: 268
+            wrapWidth: 256
+            autoSize: true
+            canHit: false
+          }
+          {
+            type: "coc:divider"
+            layout: "relative"
+            x: 20
+            y: 420
+            width: 268
+            height: 24
+            thickness: 1
+            ornament: true
+            ornamentText: "✦"
+            ornamentPadding: 8
+            states: { normal: { color: "#9F8156FF" } }
+          }
+          {
+            type: "coc:label"
+            text: "Spend your time here. The road can wait until morning."
+            font: "coc:menu"
+            layout: "relative"
+            x: 20
+            y: 458
+            width: 268
+            wrapWidth: 256
+            autoSize: true
+            canHit: false
+          }
+        ]
+      }
+
+      {
+        type: "coc:button"
+        part: "game.menuButton"
+        template: "ParchmentButton"
+        width: 92
+        height: 36
+        x: 1492
+        y: 16
+        label: "Menu"
+        onClick: "game.toggle_menu"
+      }
+
+      {
+        type: "coc:panel"
+        part: "game.navigation"
+        x: 0
+        y: 0
+        width: 340
+        height: 900
+        backgroundColor: "#2B2118EE"
+        visible: false
+
+        children: [
+          {
+            type: "coc:label"
+            text: "Menu"
+            font: "coc:settingsTitle"
+            x: 24
+            y: 22
+            width: 292
+            height: 46
+            canHit: false
+            textColor: "#F2E5C7FF"
+          }
+          {
+            type: "coc:grid"
+            part: "game.topMenu"
+            x: 24
+            y: 88
+            width: 292
+            height: 420
+            rows: 6
+            columns: 1
+            spacing: 8
+            autoIndex: true
+
+            children: [
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.MainMenu" }, onClick: "game.main_menu" }
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.Data" }, onClick: "game.data" }
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.Stats" }, onClick: "game.stats" }
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.LevelUp" }, onClick: "game.level_up" }
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.Perks" }, onClick: "game.perks" }
+              { template: "ParchmentButton", width: 292, height: 52, label: { key: "Scenes.TopMenu.Appearance" }, onClick: "game.appearance" }
+            ]
+          }
+        ]
+      }
+
+      {
+        type: "coc:combat_stats"
+        part: "game.combatStats"
+        x: 1280
+        y: 56
+        width: 276
+        height: 220
+        visible: false
+      }
+      {
+        type: "coc:custom_widget"
+        widget: "game:multi_combat_stats"
+        part: "game.multiCombatStats"
+        x: 1280
+        y: 56
+        width: 276
+        height: 640
+        visible: false
+      }
+      {
+        type: "coc:custom_widget"
+        widget: "game:sprite"
+        part: "game.sprite"
+        x: 300
+        y: 28
+        width: 160
+        height: 160
+        visible: false
+      }
+      {
+        type: "coc:custom_widget"
+        widget: "game:image"
+        part: "game.image"
+        x: 1268
+        y: 56
+        width: 308
+        height: 320
+        visible: false
+      }
+      {
+        type: "coc:custom_widget"
+        widget: "game:mini_map"
+        part: "game.miniMap"
+        x: 0
+        y: 768
+        width: 260
+        height: 132
+        visible: false
+      }
+      {
+        type: "coc:custom_widget"
+        widget: "game:dungeon_map"
+        part: "game.dungeonMap"
+        sizeType: "fill"
+        visible: false
+      }
+      {
+        type: "coc:custom_widget"
+        widget: "game:target_pointer"
+        part: "game.targetPointer"
+        x: 1288
+        y: 60
+        width: 20
+        height: 19
+        visible: false
+      }
+      {
+        type: "coc:label"
+        part: "game.gameOver"
+        font: "coc:settingsTitle"
+        x: 300
+        y: 240
+        width: 940
+        height: 140
+        visible: false
+        textHorizontalAlign: "center"
+        textVerticalAlign: "center"
+      }
+    ]
+  }
+}

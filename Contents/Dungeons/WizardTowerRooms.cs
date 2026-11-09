@@ -1130,7 +1130,7 @@ namespace MonoCoC.Contents.Dungeons
                 _ => "Scenes.WizardTower.CraftWeapon.MissedDoingThird".Localized()
             });
 
-            var item = Items.ItemRegistry.Create(MonoCoC.Registry.Identifier.Parse(id));
+            var item = Items.ItemRegistry.Create(Registry.Identifier.Parse(id));
 
             CoC.Instance.Player.Inventory.Add(item, 1);
 

@@ -3,13 +3,16 @@ using MonoCoC.Assets;
 using MonoCoC.Assets.AssetManagers;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Extensions;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Layout;
 using System;
 
 namespace MonoCoC.UI.Components.Combat
 {
-    public class CombatStats : Container
+    public class CombatStats : Container, IUIStatefulPart
     {
+        private sealed record Snapshot(Enemy? Enemy, bool IsVisible);
+
         private const int BarWidth = 214;
 
         private readonly Label _name;
@@ -103,6 +106,19 @@ namespace MonoCoC.UI.Components.Combat
                 .Position(8, y)
                 .LayoutType(LayoutType.Relative)
                 .Of(this);
+
+        public object? CaptureState() => new Snapshot(_enemy, Visible);
+
+        public void RestoreState(object value)
+        {
+            if (value is not Snapshot state)
+                return;
+
+            if (state.Enemy is not null && state.IsVisible)
+                Show(state.Enemy);
+            else
+                Hide();
+        }
 
         public void Show(Enemy enemy)
         {

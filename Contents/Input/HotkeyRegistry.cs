@@ -164,7 +164,7 @@ namespace MonoCoC.Contents.Input
                 return;
 
             // 启动阶段 Scene/UI 尚未就绪时，按键状态可能被判定为首次按下
-            if (UIManager.Instance?.Root == null || MonoCoC.Contents.Scenes.Scene.Current == null)
+            if (UIManager.Instance?.Root == null || Scenes.Scene.Current == null)
                 return;
 
             if (PendingBinding != null)

@@ -57,7 +57,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
         private void RenderAreas()
         {
-            _areas.Items = MonoCoC.Contents.World.Areas.AreaRegistry.Discovered(Player);
+            _areas.Items = AreaRegistry.Discovered(Player);
 
             _areas.PageSize = 11;
 

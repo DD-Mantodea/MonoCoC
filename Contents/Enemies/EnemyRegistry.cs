@@ -10,7 +10,7 @@ namespace MonoCoC.Contents.Enemies
     public static class EnemyRegistry
     {
 
-        static EnemyRegistry() => Registry.RegistrationScanner.OnTypes(RegisterTypes);
+        static EnemyRegistry() => RegistrationScanner.OnTypes(RegisterTypes);
 
         public static readonly Dictionary<string, Func<EnemyDefinition, Enemy>> Types = new(StringComparer.OrdinalIgnoreCase);
 

@@ -199,11 +199,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
 
             OutputText("Scenes.Sylviascene.SylviaFight.QuickerThanExpectWings".Localized());
 
-            var monster = new SylviaEnemy();
+            var monster = new SylviaEnemy
+            {
+                OnDefeated = _ => SylviaVictory(),
 
-            monster.OnDefeated = _ => SylviaVictory();
-
-            monster.OnWon = _ => SylviaDefeat();
+                OnWon = _ => SylviaDefeat()
+            };
 
             CombatScene.Start(monster, () => Go<CampScene>());
         }
@@ -2003,11 +2004,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
 
             OutputText("Scenes.Sylviascene.SylviaSpar.SubduedAssumesStance".Localized((sylviaProg >= 4 ? "Common.Text.TheMothGirlLeadsYouOut".Localized() : "Common.Text.TheMothGirlLeadsYouTo".Localized())));
 
-            var monster = new SylviaEnemy();
+            var monster = new SylviaEnemy
+            {
+                OnDefeated = _ => SylviaVictory(),
 
-            monster.OnDefeated = _ => SylviaVictory();
-
-            monster.OnWon = _ => SylviaDefeat();
+                OnWon = _ => SylviaDefeat()
+            };
 
             CombatScene.Start(monster, () => Go<CampScene>());
         }

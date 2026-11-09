@@ -1,6 +1,7 @@
 using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoCoC.Assets;
 using MonoCoC.Contents.Scenes;
 using MonoCoC.Extensions;
 using MonoCoC.Scripting;
@@ -33,11 +34,17 @@ namespace MonoCoC.UI.Components
 
         private readonly UIImage _background;
 
+        private readonly Texture2D _defaultBackground;
+
         private readonly Label _header;
 
         private readonly Label _text;
 
         private readonly Parser _parser = new(new ScriptContext());
+
+        private HintStyle _style = HintStyle.Default;
+
+        private HintView? _customHint;
 
         private string _headerText;
 
@@ -47,6 +54,8 @@ namespace MonoCoC.UI.Components
 
         public ToolTipView(Texture2D background, SpriteFontBase headerFont, SpriteFontBase textFont)
         {
+            _defaultBackground = background;
+
             _background = new UIImage(background);
 
             _header = new Label(headerFont)
@@ -66,6 +75,27 @@ namespace MonoCoC.UI.Components
 
         public void Show(Component source)
         {
+            if (source is Button { HintView: not null } button)
+            {
+                _style = button.HintSettings ?? HintStyle.Default;
+
+                _customHint = button.HintView;
+
+                _customHint.Show(source.ToolTipHeader ?? "", source.ToolTipText ?? "", source.Rectangle);
+
+                Visible = true;
+
+                return;
+            }
+
+            _customHint = null;
+
+            _style = source is Button { HintSettings: not null } buttonWithStyle
+                ? buttonWithStyle.HintSettings
+                : HintStyle.Default;
+
+            ApplyStyle();
+
             var header = source.ToolTipHeader ?? "";
 
             var body = source.ToolTipText ?? "";
@@ -90,6 +120,8 @@ namespace MonoCoC.UI.Components
         {
             Visible = false;
 
+            _customHint = null;
+
             _bodyText = null;
 
             _headerText = null;
@@ -100,35 +132,87 @@ namespace MonoCoC.UI.Components
             if (!Visible)
                 return;
 
+            if (_customHint is not null)
+            {
+                _customHint.Draw(spriteBatch, gameTime);
+
+                return;
+            }
+
             _background.Draw(spriteBatch, gameTime);
 
-            spriteBatch.DrawRectangle(_background.Position.Add(Padding, SeparatorY).BuildRect(SeparatorWidth, 1), Color.Black);
+            DrawBorder(spriteBatch);
+
+            spriteBatch.DrawRectangle(
+                _background.Position.Add(_style.Padding, _style.SeparatorY).BuildRect(_style.SeparatorWidth, 1),
+                _style.SeparatorColor);
 
             _header.Draw(spriteBatch, gameTime);
 
             _text.Draw(spriteBatch, gameTime);
         }
 
+        private void DrawBorder(SpriteBatch spriteBatch)
+        {
+            if (_style.BorderThickness <= 0 || _style.BorderColor == Color.Transparent)
+                return;
+
+            var bounds = _background.Position.BuildRect(_style.Width, _background.Height);
+
+            var thickness = _style.BorderThickness;
+
+            var color = _style.BorderColor * _style.Alpha;
+
+            spriteBatch.DrawRectangle(new Rectangle(bounds.X, bounds.Y, bounds.Width, thickness), color);
+            spriteBatch.DrawRectangle(new Rectangle(bounds.X, bounds.Bottom - thickness, bounds.Width, thickness), color);
+            spriteBatch.DrawRectangle(new Rectangle(bounds.X, bounds.Y, thickness, bounds.Height), color);
+            spriteBatch.DrawRectangle(new Rectangle(bounds.Right - thickness, bounds.Y, thickness, bounds.Height), color);
+        }
+
+        private void ApplyStyle()
+        {
+            var texture = TextureRegistry.Instance.Resolve(_style.BackgroundTexture);
+
+            _background.Texture = texture ?? _defaultBackground;
+
+            _background.Color = _style.BackgroundColor;
+
+            _background.LayoutData.Alpha = _style.Alpha;
+
+            _header.RichTextLayout.Font = UIFonts.Get(_style.HeaderFont);
+
+            _text.RichTextLayout.Font = UIFonts.Get(_style.BodyFont);
+
+            _header.TextColor = _style.HeaderColor;
+
+            _text.TextColor = _style.BodyColor;
+
+            _text.WrapWidth(_style.Width - _style.Padding * 2);
+        }
+
         private void Layout(Component source)
         {
             var bounds = source.Rectangle;
 
-            var height = Math.Max(_text.RichTextLayout.Measure(ContentWidth).Y + 63, MinHeight);
+            var contentWidth = _style.Width - _style.Padding * 2;
 
-            var x = bounds.X;
+            var height = Math.Max(
+                _text.RichTextLayout.Measure(contentWidth).Y + _style.BodyY + _style.Padding,
+                _style.MinHeight);
 
-            if (x < 0)
-                x = 0;
-            else if (x + Width > LayoutConstants.ScreenWidth)
-                x = LayoutConstants.ScreenWidth - Width;
+            var position = HintPlacement.Resolve(_style, bounds, _style.Width, height);
 
-            var y = bounds.Bottom < LayoutConstants.ScreenHeight / 2 ? bounds.Bottom + 1 : bounds.Y - height;
+            var x = (int)position.X;
 
-            _background.Position(x, y).Size(Width, height);
+            var y = (int)position.Y;
 
-            _header.Position(x + Padding, y + HeaderY).Size(ContentWidth, HeaderHeight);
+            _background.Position(x, y).Size(_style.Width, height);
 
-            _text.Position(x + Padding, y + BodyY).Size(ContentWidth, height - 63);
+            _header.Position(x + _style.Padding, y + _style.HeaderY)
+                .Size(contentWidth, _style.HeaderHeight);
+
+            _text.Position(x + _style.Padding, y + _style.BodyY)
+                .Size(contentWidth, height - _style.BodyY - _style.Padding);
         }
     }
 }

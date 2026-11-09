@@ -17,5 +17,7 @@ namespace MonoCoC.UI.Structures
         public static implicit operator UIVec4(int value) => new(value);
 
         public readonly Vector2 TopLeft() => new(Left, Top);
+
+        public readonly Vector2 BottomRight() => new(Right, Bottom);
     }
 }

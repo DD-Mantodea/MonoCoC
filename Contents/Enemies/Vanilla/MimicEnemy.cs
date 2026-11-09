@@ -122,9 +122,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public static MimicEnemy Create(EnemyDefinition definition, int appearanceType)
         {
-            var enemy = new MimicEnemy { AppearanceType = appearanceType };
-
-            enemy.Id = definition.Id;
+            var enemy = new MimicEnemy
+            {
+                AppearanceType = appearanceType,
+                Id = definition.Id
+            };
 
             enemy.Configure(definition);
 

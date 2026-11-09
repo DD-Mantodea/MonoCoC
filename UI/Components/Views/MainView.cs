@@ -1,10 +1,14 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MonoCoC.Assets;
+using MonoCoC.Contents.Scenes;
+using MonoCoC.Contents.Scenes.Vanilla;
 using MonoCoC.Extensions;
+using MonoCoC.Saving;
 using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using System;
 using System.IO;
+using System.Linq;
 using static MonoCoC.UI.Layout.LayoutConstants;
 
 namespace MonoCoC.UI.Components.Views
@@ -13,19 +17,11 @@ namespace MonoCoC.UI.Components.Views
     /// Data-driven main menu. The Hjson document drives existing controls;
     /// only this screen is swapped when the document changes.
     /// </summary>
-    public class MainView : View
+    public class MainView : HjsonView
     {
         private readonly UIEventRegistry _events;
 
         private readonly UIWidgetRegistry _widgets;
-
-        private readonly string _documentPath;
-
-        private readonly FileSystemWatcher? _watcher;
-
-        private View? _content;
-
-        private volatile bool _reloadRequested;
 
         public MainView()
         {
@@ -35,92 +31,131 @@ namespace MonoCoC.UI.Components.Views
 
             _widgets = new UIWidgetRegistry();
 
-            _documentPath = ResolveDocumentPath();
-
-            Build();
-
-            var directory = Path.GetDirectoryName(_documentPath);
-
-            if (directory is not null && File.Exists(_documentPath))
-            {
-                _watcher = new FileSystemWatcher(directory, Path.GetFileName(_documentPath))
-                {
-                    NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName
-                };
-
-                _watcher.Changed += OnDocumentChanged;
-
-                _watcher.Created += OnDocumentChanged;
-
-                _watcher.Renamed += OnDocumentChanged;
-
-                _watcher.EnableRaisingEvents = true;
-            }
+            Initialize(_events, _widgets);
         }
 
-        public override void Update(GameTime gameTime)
+        protected override string ScreenFile => "Screens\\MainView.hjson";
+
+        protected override UIViewContract Contract => MainMenuContract.Value;
+    }
+
+    public static class MainMenuContract
+    {
+        public static readonly UIViewContract Value = new(
+            "MainMenu",
+            [
+                new("main.buttons", typeof(Grid)),
+                new("main.version", typeof(Label)),
+            ]);
+    }
+
+    public static class MainMenuEvents
+    {
+        public static UIEventRegistry Create()
         {
-            if (_reloadRequested)
-            {
-                _reloadRequested = false;
+            var events = new UIEventRegistry();
 
-                Reload();
-            }
+            events.RegisterEvent("main.continue", ContinueGame);
+            events.RegisterEvent("main.new_game", NewGame);
+            events.RegisterEvent("main.load_game", OpenData);
+            events.RegisterEvent("main.options", OpenOptions);
+            events.RegisterEvent("main.achievements", OpenAchievements);
+            events.RegisterEvent("main.instructions", OpenInstructions);
+            events.RegisterEvent("main.credits", OpenCredits);
+            events.RegisterEvent("main.quit", QuitGame);
 
-            base.Update(gameTime);
+            return events;
         }
 
-        private void OnDocumentChanged(object sender, FileSystemEventArgs args) => _reloadRequested = true;
-
-        private void Build()
+        private static void OpenOptions()
         {
-            var document = UIDocument.Load(_documentPath);
+            Options.OnStart = null;
 
-            var content = new UIScreenBuilder(_events, _widgets).Build(document);
+            Combat.PlayerStats.HiddenByMenu = true;
 
-            if (_content is not null)
-                RemoveChild(_content);
+            Options.OnBack = () =>
+            {
+                Combat.PlayerStats.HiddenByMenu = false;
 
-            _content = content;
+                UIManager.Instance.Root.SwitchView(new MainView());
+            };
 
-            AddChild(content);
+            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+
+            Scene.Go(SceneInstance<Options>.Instance);
         }
 
-        private void Reload()
+        private static void NewGame()
         {
-            try
-            {
-                Build();
-            }
-            catch (Exception exception)
-            {
-                MonoCoC.UI.Console.ConsoleOverlay.WriteLine($"UI reload failed: {exception.Message}");
-            }
+            Combat.PlayerStats.HiddenByMenu = false;
+
+            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+
+            Scene.Go(SceneInstance<CharCreation>.Instance);
         }
 
-        /// <summary>
-        /// Prefer the source Hjson while running from the repository. This lets
-        /// an editor save update the running game without a build/copy step.
-        /// Fall back to the runtime Assets copy for a deployed build.
-        /// </summary>
-        private static string ResolveDocumentPath()
+        private static void ContinueGame()
         {
-            var directory = new DirectoryInfo(AppContext.BaseDirectory);
-
-            while (directory is not null)
+            if (CoC.Instance.Player.Loaded && GameView.Instance != null)
             {
-                if (File.Exists(Path.Combine(directory.FullName, "MonoCoC.csproj")))
-                {
-                    var source = Path.Combine(directory.FullName, "Assets", "UI", "Screens", "MainMenu.hjson");
+                UIManager.Instance.Root.SwitchView(GameView.Instance);
 
-                    if (File.Exists(source))
-                        return source;
-                }
-
-                directory = directory.Parent;
+                return;
             }
 
-            return Path.Combine(Paths.AssetPath("UI/Screens"), "MainMenu.hjson");
+            var save = SaveData.List().OrderByDescending(entry => entry.SaveTime).FirstOrDefault();
+
+            if (save is null)
+                return;
+
+            var gameView = GameView.CreateDefault();
+
+            save.Apply(CoC.Instance.Player);
+
+            Scene.Go(SceneInstance<CampScene>.Get());
+
+            UIManager.Instance.Root.SwitchView(gameView);
         }
+
+        private static void OpenData()
+        {
+            Combat.PlayerStats.HiddenByMenu = true;
+
+            SaveLoad.FromMainMenu = true;
+
+            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+
+            Scene.Go(SceneInstance<SaveLoad>.Instance);
+        }
+
+        private static void OpenAchievements()
+        {
+            Combat.PlayerStats.HiddenByMenu = true;
+
+            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+
+            Scene.Go(SceneInstance<AchievementsScene>.Instance);
+        }
+
+        private static void OpenInstructions()
+        {
+            Combat.PlayerStats.HiddenByMenu = true;
+
+            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+
+            Scene.Go(SceneInstance<InstructionsScene>.Instance);
+        }
+
+        private static void OpenCredits()
+        {
+            Combat.PlayerStats.HiddenByMenu = true;
+
+            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+
+            Scene.Go(SceneInstance<CreditsScene>.Instance);
+        }
+
+        private static void QuitGame() => CoC.Instance.Exit();
     }
 }
+

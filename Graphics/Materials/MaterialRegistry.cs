@@ -41,14 +41,14 @@ namespace MonoCoC.Graphics.Materials
 
                 if (material is null)
                 {
-                    MonoCoC.UI.Console.ConsoleOverlay.WriteLine(
+                    UI.Console.ConsoleOverlay.WriteLine(
                         $"[Material] {id} unavailable: {ShaderManager.Instance.LastError ?? "no effect"}");
                 }
 
                 return true;
             }
 
-            MonoCoC.UI.Console.ConsoleOverlay.WriteLine($"[Material] Unknown material '{id}'");
+            UI.Console.ConsoleOverlay.WriteLine($"[Material] Unknown material '{id}'");
 
             material = null;
             return false;

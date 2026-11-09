@@ -111,7 +111,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
         {
             var flags = CoC.Instance.Flags;
 
-            if (state.PregnancyType == Contents.Pregnancy.PregnancyIds.PlayerFather)
+            if (state.PregnancyType == Pregnancy.PregnancyIds.PlayerFather)
             {
                 flags.Set(GameFlagIds.TamaniNumberOfDaughters,
 
@@ -1208,7 +1208,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
                 return;
 
             NpcPregnancy.KnockUp(
-                Definition, State, Contents.Pregnancy.PregnancyIds.PlayerFather, 216);
+                Definition, State, Pregnancy.PregnancyIds.PlayerFather, 216);
 
             CoC.Instance.Flags.Set(GameFlagIds.TamaniPregnancyCount, 2);
 
@@ -1691,7 +1691,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
             if (Player.FertilizedEggs() == 0)
 
                 NpcPregnancy.KnockUp(
-                    Definition, State, Contents.Pregnancy.PregnancyIds.DriderEggs, 72);
+                    Definition, State, Pregnancy.PregnancyIds.DriderEggs, 72);
 
             Player.DumpEggs();
 

@@ -1,3 +1,4 @@
+using FontStashSharp.RichText;
 using Hjson;
 using Microsoft.Xna.Framework;
 using MonoCoC.Assets;
@@ -5,10 +6,13 @@ using MonoCoC.Assets.AssetManagers;
 using MonoCoC.Extensions;
 using MonoCoC.Graphics.Materials;
 using MonoCoC.UI.Components;
+using MonoCoC.UI.Components.Combat;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
 using MonoCoC.UI.Structures;
+using MonoCoC.UI.Styles;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
@@ -23,6 +27,8 @@ namespace MonoCoC.UI.Data
         private readonly UIEventRegistry _events;
         private readonly UIWidgetRegistry _widgets;
         private readonly UIComponentRegistry _types = new();
+
+        private UIDocument? _document;
 
         public UIScreenBuilder(UIEventRegistry events, UIWidgetRegistry widgets)
         {
@@ -42,12 +48,23 @@ namespace MonoCoC.UI.Data
             _types.Register("coc:label", CreateLabel);
             _types.Register("coc:button", CreateButton);
             _types.Register("coc:paper_background", CreatePaperBackground);
+            _types.Register("coc:border", CreateBorder);
+            _types.Register("coc:corners", CreateCorners);
+            _types.Register("coc:symbol", CreateSymbol);
+            _types.Register("coc:divider", CreateDivider);
             _types.Register("coc:grid", CreateGrid);
-            _types.Register("coc:custom_widget", CreateCustomWidget);
+            _types.Register("coc:text_area", CreateTextArea);
+            _types.Register("coc:text_box", CreateTextBox);
+            _types.Register("coc:player_stats", _ => new PlayerStats());
+            _types.Register("coc:combat_stats", _ => new CombatStats());
+            _types.Register("coc:custom_widget", CreateCustomComponent);
+            _types.Register("coc:custom_component", CreateCustomComponent);
         }
 
         public View Build(UIDocument document)
         {
+            _document = document;
+
             var rootNode = document.Root.TryGetValue("root", out var rootValue) && rootValue is JsonObject rootObject
                 ? rootObject
                 : document.Root;
@@ -68,6 +85,8 @@ namespace MonoCoC.UI.Data
             if (!node.TryGetValue("children", out var value) || value is not JsonArray children)
                 return;
 
+            var sequentialIndex = 0;
+
             foreach (var childValue in children)
             {
                 if (childValue is not JsonObject child)
@@ -80,14 +99,25 @@ namespace MonoCoC.UI.Data
                 if (component is null)
                     continue;
 
-                if (child.TryGetValue("gridIndex", out var gridIndex))
+                if (parent is Grid { AutoIndex: true })
+                    component.LayoutData.GridIndex = sequentialIndex;
+                else if (child.TryGetValue("gridIndex", out var gridIndex))
                     component.LayoutData.GridIndex = Int(gridIndex);
+
+                sequentialIndex++;
 
                 ApplyMaterial(component, child);
 
                 ApplyLayout(component, child);
 
+                ApplyStateStyle(component, child);
+
+                ApplyDecorationStyle(component, child);
+
                 BindEvents(component, child);
+
+                if (component is Button button)
+                    ApplyControlTemplate(button, child, document);
 
                 parent.AddChild(component);
 
@@ -109,6 +139,124 @@ namespace MonoCoC.UI.Data
                 throw new InvalidDataException($"Unknown UI component type '{type}'");
 
             return component;
+        }
+
+        private static Component CreateBorder(JsonObject node)
+        {
+            var border = new BorderDecoration();
+
+            if (node.TryGetValue("thickness", out var thickness))
+                border.Thickness = Int(thickness);
+
+            if (node.TryGetValue("inset", out var inset))
+                border.Inset = Int(inset);
+
+            return border;
+        }
+
+        private static Component CreateCorners(JsonObject node)
+        {
+            var corners = new CornerDecoration();
+
+            if (node.TryGetValue("length", out var length))
+                corners.Length = Int(length);
+
+            if (node.TryGetValue("thickness", out var thickness))
+                corners.Thickness = Int(thickness);
+
+            if (node.TryGetValue("inset", out var inset))
+                corners.Inset = Int(inset);
+
+            if (node.TryGetValue("gap", out var gap))
+                corners.Gap = Int(gap);
+
+            return corners;
+        }
+
+        private static Component CreateSymbol(JsonObject node)
+        {
+            var symbol = new SymbolDecoration
+            {
+                Text = UILocalizedText.Resolve(node, "text"),
+                TextureId = node.Str("texture"),
+                FontRole = node.Str("font", "coc:button")
+            };
+
+            if (node.TryGetValue("size", out var size))
+                symbol.SymbolSize = Int(size);
+
+            return symbol;
+        }
+
+        private static Component CreateDivider(JsonObject node)
+        {
+            var ornamentText = node.TryGetValue("ornamentText", out var ornamentValue)
+                ? ornamentValue.ToString().Trim('"')
+                : "✦";
+
+            var divider = new DividerDecoration
+            {
+                Vertical = string.Equals(node.Str("orientation"), "vertical", StringComparison.OrdinalIgnoreCase) ||
+                           node.Bool("vertical", false),
+                Double = node.Bool("double", false),
+                Ornament = node.Bool("ornament", true),
+                OrnamentText = ornamentText,
+                FontRole = node.Str("font", "coc:button")
+            };
+
+            if (node.TryGetValue("thickness", out var thickness))
+                divider.Thickness = Int(thickness);
+
+            if (node.TryGetValue("gap", out var gap))
+                divider.Gap = Int(gap);
+
+            if (node.TryGetValue("ornamentPadding", out var ornamentPadding))
+                divider.OrnamentPadding = Int(ornamentPadding);
+
+            return divider;
+        }
+
+        private static void ApplyDecorationStyle(Component component, JsonObject node)
+        {
+            if (component is not DecorationComponent decoration)
+                return;
+
+            var style = new UIDecorationStyle();
+
+            if (node.TryGetValue("states", out var value) && value is JsonObject states)
+            {
+                ApplyDecorationState(states, "normal", out style.Normal, out style.NormalSecondary);
+                ApplyDecorationState(states, "hover", out style.Hover, out style.HoverSecondary);
+                ApplyDecorationState(states, "pressed", out style.Pressed, out style.PressedSecondary);
+                ApplyDecorationState(states, "disabled", out style.Disabled, out style.DisabledSecondary);
+            }
+
+            decoration.Style = style;
+        }
+
+        private static void ApplyDecorationState(
+            JsonObject states,
+            string name,
+            out Color primary,
+            out Color secondary)
+        {
+            primary = Color.Transparent;
+            secondary = Color.Transparent;
+
+            if (!states.TryGetValue(name, out var value) || value is not JsonObject state)
+                return;
+
+            if (state.TryGetValue("color", out _))
+                primary = ColorOf(state.Str("color"));
+
+            if (state.TryGetValue("backgroundColor", out _))
+                primary = ColorOf(state.Str("backgroundColor"));
+
+            if (state.TryGetValue("secondaryColor", out _))
+                secondary = ColorOf(state.Str("secondaryColor"));
+
+            if (state.TryGetValue("borderColor", out _))
+                secondary = ColorOf(state.Str("borderColor"));
         }
 
         private static Component CreateImage(JsonObject node)
@@ -133,19 +281,41 @@ namespace MonoCoC.UI.Data
 
         private static Component CreateLabel(JsonObject node)
         {
-            var label = new Label(UIFonts.Get(node.Str("font", "menu")));
+            var label = new Label(UIFonts.Get(node.Str("font", "coc:menu")));
 
-            var text = node.Str("textKey");
-
-            label.Text(text.Length > 0 ? text.Localized() : node.Str("text"));
+            label.Text(UILocalizedText.Resolve(node, "text"));
 
             label.TextColor = ColorOf(node.Str("textColor", "#000000"));
 
             if (node.TryGetValue("wrapWidth", out var wrap))
                 label.WrapWidth(Int(wrap));
+            else if (node.TryGetValue("width", out var labelWidth))
+                label.WrapWidth(Int(labelWidth));
 
             if (node.TryGetValue("lineSpacing", out var spacing))
                 label.LineSpacing(Int(spacing));
+
+            var textAlign = node.Str("textHorizontalAlign", node.Str("textHAlign", node.Str("textAlign")));
+
+            label.Alignment(textAlign.Trim().ToLowerInvariant() switch
+            {
+                "center" => TextHorizontalAlignment.Center,
+                "right" => TextHorizontalAlignment.Right,
+                "left" or "" => TextHorizontalAlignment.Left,
+                _ => ReportInvalidTextHorizontal(textAlign)
+            });
+
+            var textVertical = node.Str("textVerticalAlign", node.Str("textVAlign"));
+
+            label.VerticalAlign(textVertical.Trim().ToLowerInvariant() switch
+            {
+                "center" => TextVerticalAlignment.Center,
+                "bottom" => TextVerticalAlignment.Bottom,
+                "top" or "" => TextVerticalAlignment.Top,
+                _ => ReportInvalidTextVertical(textVertical)
+            });
+
+            label.AutoSize = node.Bool("autoSize", false);
 
             return label;
         }
@@ -156,24 +326,30 @@ namespace MonoCoC.UI.Data
                 ? backgroundValue.ToString().Trim('"')
                 : node.Str("texture");
 
-            var button = new Button(background, "", node.Str("font", "button"));
+            var button = new Button(background, "", node.Str("font", "coc:button"));
 
-            var label = node.Str("labelKey");
-
-            button.SetLabel(label.Length > 0 ? label.Localized() : node.Str("text"));
+            button.SetLabel(UILocalizedText.Resolve(node, "label"));
 
             var command = node.Str("command");
 
             if (command.Length > 0)
                 button.Click(() => _events.Raise(command));
 
-            var hint = node.Str("hintKey");
-
-            if (hint.Length > 0)
-                button.Hint(hint.Localized());
+            if (node.TryGetValue("hint", out var hintValue) && hintValue is JsonObject hintNode)
+                ApplyHint(button, hintNode);
 
             if (node.TryGetValue("enabled", out _))
                 button.Enabled = node.Bool("enabled", true);
+
+            if (node.TryGetValue("disableIf", out var disableIf))
+            {
+                var disableText = disableIf.ToString().Trim('"');
+
+                if (bool.TryParse(disableText, out var disabledNow))
+                    button.Enabled = !disabledNow;
+                else
+                    button.DisableIf = disableText;
+            }
 
             var backgroundColor = node.Str("backgroundColor");
 
@@ -197,16 +373,197 @@ namespace MonoCoC.UI.Data
             return button;
         }
 
+        private void ApplyHint(Button button, JsonObject node)
+        {
+            var style = new HintStyle();
+
+            if (node.TryGetValue("width", out var width))
+                style.Width = Int(width);
+
+            if (node.TryGetValue("minHeight", out var minHeight))
+                style.MinHeight = Int(minHeight);
+
+            if (node.TryGetValue("padding", out var padding))
+                style.Padding = Int(padding);
+
+            if (node.TryGetValue("headerY", out var headerY))
+                style.HeaderY = Int(headerY);
+
+            if (node.TryGetValue("headerHeight", out var headerHeight))
+                style.HeaderHeight = Int(headerHeight);
+
+            if (node.TryGetValue("separatorY", out var separatorY))
+                style.SeparatorY = Int(separatorY);
+
+            if (node.TryGetValue("bodyY", out var bodyY))
+                style.BodyY = Int(bodyY);
+
+            if (node.TryGetValue("separatorWidth", out var separatorWidth))
+                style.SeparatorWidth = Int(separatorWidth);
+
+            style.Direction = node.Str("direction", "auto");
+
+            if (node.TryGetValue("distance", out var distance))
+                style.Distance = Int(distance);
+
+            if (node.TryGetValue("offsetX", out var offsetX))
+                style.OffsetX = Int(offsetX);
+
+            if (node.TryGetValue("offsetY", out var offsetY))
+                style.OffsetY = Int(offsetY);
+
+            if (node.TryGetValue("offset", out var offsetValue) && offsetValue is JsonObject offset)
+            {
+                style.OffsetX = offset.Int("x", style.OffsetX);
+
+                style.OffsetY = offset.Int("y", style.OffsetY);
+            }
+
+            style.HeaderFont = node.Str("headerFont", style.HeaderFont);
+
+            style.BodyFont = node.Str("bodyFont", style.BodyFont);
+
+            style.BackgroundTexture = node.Str("backgroundTexture");
+
+            if (node.TryGetValue("backgroundColor", out _))
+                style.BackgroundColor = ColorOf(node.Str("backgroundColor"));
+
+            if (node.TryGetValue("alpha", out var alpha))
+                style.Alpha = Float(alpha);
+
+            if (node.TryGetValue("borderColor", out _))
+                style.BorderColor = ColorOf(node.Str("borderColor"));
+
+            if (node.TryGetValue("borderThickness", out var borderThickness))
+                style.BorderThickness = Int(borderThickness);
+
+            if (node.TryGetValue("headerColor", out _))
+                style.HeaderColor = ColorOf(node.Str("headerColor"));
+
+            if (node.TryGetValue("bodyColor", out _))
+                style.BodyColor = ColorOf(node.Str("bodyColor"));
+
+            if (node.TryGetValue("separatorColor", out _))
+                style.SeparatorColor = ColorOf(node.Str("separatorColor"));
+
+            var hintText = UILocalizedText.Resolve(node, "text");
+
+            if (hintText.Length > 0)
+                button.Hint = hintText;
+
+            var hintHeader = UILocalizedText.Resolve(node, "header");
+
+            if (hintHeader.Length > 0)
+                button.HintHeader = hintHeader;
+
+            var disabledHint = UILocalizedText.Resolve(node, "disabledHint");
+
+            if (disabledHint.Length > 0)
+                button.DisabledReason = disabledHint;
+
+            button.HintSettings = style;
+
+            var templateId = node.Str("controlTemplate");
+
+            if (templateId.Length == 0 || _document is null)
+                return;
+
+            if (!_document.ControlTemplates.TryGetValue(templateId, out var template))
+            {
+                MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] Unknown hint control template '{templateId}'");
+
+                return;
+            }
+
+            var root = BuildTemplateNode(template, _document);
+
+            if (root is not null)
+                button.HintView = new HintView(root, style);
+        }
+
+        private static Component CreateTextArea(JsonObject node) =>
+            new TextArea(UIFonts.Get(node.Str("font", "coc:body")));
+
+        private static Component CreateTextBox(JsonObject node) =>
+            new TextBox(UIFonts.Get(node.Str("font", "coc:input")));
+
         private static Component CreateGrid(JsonObject node)
         {
-            var grid = new Grid(node.Int("rows", 1), node.Int("columns", 1));
+            var rowDefinitions = ReadGridTracks(node, "rows", "rowDefinitions");
+
+            var columnDefinitions = ReadGridTracks(node, "columns", "columnDefinitions");
+
+            var grid = new Grid(
+                rowDefinitions.Count > 0 ? rowDefinitions.Count : Math.Max(1, node.Int("rows", 1)),
+                columnDefinitions.Count > 0 ? columnDefinitions.Count : Math.Max(1, node.Int("columns", 1)));
+
+            if (rowDefinitions.Count > 0)
+                grid.RowDefinitions = rowDefinitions;
+
+            if (columnDefinitions.Count > 0)
+                grid.ColumnDefinitions = columnDefinitions;
 
             grid.AutoSize = node.Bool("autoSize", false);
+
+            grid.AutoIndex = node.Bool("autoIndex", false);
 
             if (node.TryGetValue("spacing", out var spacing))
                 grid.Spacing = Int(spacing);
 
             return grid;
+        }
+
+        private static List<GridTrack> ReadGridTracks(JsonObject node, string countKey, string definitionsKey)
+        {
+            var result = new List<GridTrack>();
+
+            var value = node.TryGetValue(definitionsKey, out var definitions)
+                ? definitions
+                : node.TryGetValue(countKey, out var count) ? count : null;
+
+            if (value is not JsonArray array)
+                return result;
+
+            foreach (var entry in array)
+                result.Add(ParseGridTrack(entry));
+
+            return result;
+        }
+
+        private static GridTrack ParseGridTrack(JsonValue? value)
+        {
+            if (value is null)
+                return GridTrack.Star();
+
+            if (value is JsonObject obj)
+            {
+                var size = obj.Str("size", obj.Str("value", obj.Str("height", obj.Str("width", "1*"))));
+
+                return ParseGridTrackString(size);
+            }
+
+            return ParseGridTrackString(value.ToString().Trim('"'));
+        }
+
+        private static GridTrack ParseGridTrackString(string value)
+        {
+            value = value.Trim();
+
+            if (value.Equals("auto", StringComparison.OrdinalIgnoreCase))
+                return GridTrack.Auto;
+
+            if (value.EndsWith('*'))
+            {
+                var weight = value[..^1];
+
+                return float.TryParse(weight, NumberStyles.Float, CultureInfo.InvariantCulture, out var parsed)
+                    ? GridTrack.Star(parsed)
+                    : GridTrack.Star();
+            }
+
+            return float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out var pixels)
+                ? GridTrack.Pixels(pixels)
+                : GridTrack.Star();
         }
 
         private static Component CreatePaperBackground(JsonObject node)
@@ -240,7 +597,7 @@ namespace MonoCoC.UI.Data
             return paper;
         }
 
-        private Component CreateCustomWidget(JsonObject node)
+        private Component CreateCustomComponent(JsonObject node)
         {
             var widgetId = node.Str("widget");
 
@@ -255,6 +612,108 @@ namespace MonoCoC.UI.Data
                 throw new InvalidDataException($"Unknown custom widget '{widgetId}'");
 
             return component;
+        }
+
+        private void ApplyControlTemplate(Button button, JsonObject node, UIDocument document)
+        {
+            var templateId = node.Str("controlTemplate");
+
+            if (templateId.Length == 0)
+                return;
+
+            if (!document.ControlTemplates.TryGetValue(templateId, out var template))
+            {
+                Console.ConsoleOverlay.WriteError(
+                    $"[UI] Unknown control template '{templateId}' in {document.Source}");
+
+                return;
+            }
+
+            var root = BuildTemplateNode(template, document);
+
+            if (root is not null)
+                button.ApplyControlTemplate(root);
+        }
+
+        private Component? BuildTemplateNode(JsonObject node, UIDocument document)
+        {
+            node = document.Expand(node);
+
+            var component = Create(node);
+
+            if (component is null)
+                return null;
+
+            ApplyLayout(component, node);
+
+            ApplyMaterial(component, node);
+
+            ApplyStateStyle(component, node);
+
+            ApplyDecorationStyle(component, node);
+
+            BindEvents(component, node);
+
+            BuildChildren(component, node, document);
+
+            MakeRelative(component);
+
+            if (component is Grid grid)
+                grid.ResizeToFit();
+
+            return component;
+        }
+
+        private static void MakeRelative(Component component)
+        {
+            foreach (var child in component.LayoutData.Children)
+            {
+                child.LayoutData.LayoutType = LayoutType.Relative;
+
+                MakeRelative(child);
+            }
+        }
+
+        private static void ApplyStateStyle(Component component, JsonObject node)
+        {
+            if (!node.TryGetValue("states", out var value) || value is not JsonObject states)
+                return;
+
+            var style = new UIStateStyle();
+
+            if (node.TryGetValue("borderThickness", out var thickness))
+                style.BorderThickness = Int(thickness);
+
+            ApplyState(states, "normal", out style.NormalBackground, out style.NormalBorder, out style.NormalText);
+            ApplyState(states, "hover", out style.HoverBackground, out style.HoverBorder, out style.HoverText);
+            ApplyState(states, "pressed", out style.PressedBackground, out style.PressedBorder, out style.PressedText);
+            ApplyState(states, "disabled", out style.DisabledBackground, out style.DisabledBorder, out style.DisabledText);
+
+            component.StateStyle = style;
+        }
+
+        private static void ApplyState(
+            JsonObject states,
+            string name,
+            out Color background,
+            out Color border,
+            out Color? text)
+        {
+            background = Color.Transparent;
+            border = Color.Transparent;
+            text = null;
+
+            if (!states.TryGetValue(name, out var value) || value is not JsonObject state)
+                return;
+
+            if (state.TryGetValue("backgroundColor", out _))
+                background = ColorOf(state.Str("backgroundColor"));
+
+            if (state.TryGetValue("borderColor", out _))
+                border = ColorOf(state.Str("borderColor"));
+
+            if (state.TryGetValue("textColor", out _))
+                text = ColorOf(state.Str("textColor"));
         }
 
         private void BindEvents(Component component, JsonObject node)
@@ -308,7 +767,8 @@ namespace MonoCoC.UI.Data
             return command;
         }
 
-        private static void ApplyMaterial(Component component, JsonObject node)        {
+        private static void ApplyMaterial(Component component, JsonObject node)
+        {
             var materialId = node.Str("material");
 
             if (materialId.Length == 0)
@@ -351,6 +811,28 @@ namespace MonoCoC.UI.Data
             if (node.TryGetValue("layout", out _))
                 component.LayoutData.LayoutType = ParseLayoutType(node.Str("layout"));
 
+            if (node.TryGetValue("gridRow", out var gridRow))
+                component.LayoutData.GridRow = Int(gridRow);
+            else if (node.TryGetValue("row", out var row))
+                component.LayoutData.GridRow = Int(row);
+
+            if (node.TryGetValue("gridColumn", out var gridColumn))
+                component.LayoutData.GridColumn = Int(gridColumn);
+            else if (node.TryGetValue("column", out var column))
+                component.LayoutData.GridColumn = Int(column);
+
+            if (node.TryGetValue("gridRowSpan", out var gridRowSpan))
+                component.LayoutData.GridRowSpan = Math.Max(1, Int(gridRowSpan));
+            else if (node.TryGetValue("rowSpan", out var rowSpan))
+                component.LayoutData.GridRowSpan = Math.Max(1, Int(rowSpan));
+
+            if (node.TryGetValue("gridColumnSpan", out var gridColumnSpan))
+                component.LayoutData.GridColumnSpan = Math.Max(1, Int(gridColumnSpan));
+            else if (node.TryGetValue("columnSpan", out var columnSpan))
+                component.LayoutData.GridColumnSpan = Math.Max(1, Int(columnSpan));
+
+            ApplyAlignment(component, node);
+
             if (node.TryGetValue("visible", out _))
                 component.Visible = node.Bool("visible", true);
 
@@ -365,6 +847,11 @@ namespace MonoCoC.UI.Data
 
             if (node.TryGetValue("backgroundColor", out _))
                 component.BackgroundColor = ColorOf(node.Str("backgroundColor", "#00000000"));
+
+            var part = node.Str("part");
+
+            if (part.Length > 0)
+                component.PartName = part;
         }
 
         private static UIVec4 ParsePadding(object value)
@@ -380,6 +867,93 @@ namespace MonoCoC.UI.Data
                     Int(obj.Str("bottom")));
 
             return new UIVec4(Int(value));
+        }
+
+        private static void ApplyAlignment(Component component, JsonObject node)
+        {
+            var horizontal = node.Str("horizontalAlign", node.Str("hAlign"));
+
+            var vertical = node.Str("verticalAlign", node.Str("vAlign"));
+
+            var both = node.Str("alignment");
+
+            if (both.Length > 0)
+            {
+                foreach (var part in both.Split('-', StringSplitOptions.RemoveEmptyEntries))
+                {
+                    var value = part.Trim().ToLowerInvariant();
+
+                    if (value == "center")
+                    {
+                        horizontal = "center";
+                        vertical = "center";
+                    }
+                    else if (value is "left" or "right" or "stretch")
+                        horizontal = value;
+                    else if (value is "top" or "bottom")
+                        vertical = value;
+                    else
+                        ReportAlignmentError("alignment", value);
+                }
+            }
+
+            if (horizontal.Length > 0)
+                component.LayoutData.HorizontalAlign = ParseHorizontalAlign(horizontal);
+
+            if (vertical.Length > 0)
+                component.LayoutData.VerticalAlign = ParseVerticalAlign(vertical);
+        }
+
+        private static AlignHorizontal ParseHorizontalAlign(string value) =>
+            value.Trim().ToLowerInvariant() switch
+            {
+                "center" => AlignHorizontal.Center,
+                "right" => AlignHorizontal.Right,
+                "stretch" => AlignHorizontal.Stretch,
+                "left" => AlignHorizontal.Left,
+                _ => ReportInvalidHorizontal(value)
+            };
+
+        private static AlignVertical ParseVerticalAlign(string value) =>
+            value.Trim().ToLowerInvariant() switch
+            {
+                "center" => AlignVertical.Center,
+                "bottom" => AlignVertical.Bottom,
+                "stretch" => AlignVertical.Stretch,
+                "top" => AlignVertical.Top,
+                _ => ReportInvalidVertical(value)
+            };
+
+        private static AlignHorizontal ReportInvalidHorizontal(string value)
+        {
+            ReportAlignmentError("horizontalAlign", value);
+
+            return AlignHorizontal.None;
+        }
+
+        private static AlignVertical ReportInvalidVertical(string value)
+        {
+            ReportAlignmentError("verticalAlign", value);
+
+            return AlignVertical.None;
+        }
+
+        private static void ReportAlignmentError(string field, string value) =>
+            MonoCoC.UI.Console.ConsoleOverlay.WriteError(
+                $"[UI] Invalid {field} '{value}', using default.");
+
+        private static TextHorizontalAlignment ReportInvalidTextHorizontal(string value)
+        {
+            ReportAlignmentError("textHorizontalAlign", value);
+
+            return TextHorizontalAlignment.Left;
+        }
+
+        private static TextVerticalAlignment ReportInvalidTextVertical(string value)
+        {
+            ReportAlignmentError("textVerticalAlign", value);
+
+            return TextVerticalAlignment.Top;
         }
 
         private static LayoutType ParseLayoutType(string value) =>
@@ -430,3 +1004,4 @@ namespace MonoCoC.UI.Data
         }
     }
 }
+

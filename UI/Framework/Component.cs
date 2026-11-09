@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using MonoCoC.Extensions;
 using MonoCoC.Graphics.Materials;
 using MonoCoC.UI.Layout;
+using MonoCoC.UI.Styles;
 
 namespace MonoCoC.UI.Framework
 {
@@ -18,6 +19,12 @@ namespace MonoCoC.UI.Framework
         /// material instead of DrawSelf's normal background rendering.
         /// </summary>
         public Material? Material;
+
+        public UIStateStyle? StateStyle;
+
+        public string PartName = "";
+
+        public bool IsPressed;
         #endregion
 
         #region Data
@@ -52,6 +59,9 @@ namespace MonoCoC.UI.Framework
         public virtual Rectangle Rectangle => Position.BuildRect(Width, Height);
 
         public virtual Vector2 SlotOf(int index) => Vector2.Zero;
+
+        public virtual Vector2 SlotSize(int index) =>
+            Size - LayoutData.Padding.TopLeft() - LayoutData.Padding.BottomRight();
         #endregion
 
         #region Tree
@@ -108,18 +118,18 @@ namespace MonoCoC.UI.Framework
             if (!Visible)
                 return;
 
-            if (Material is not null)
-            {
-                DrawSelf(spriteBatch, gameTime);
+            DrawSelf(spriteBatch, gameTime);
 
+            if (Material is not null)
                 DrawMaterial(spriteBatch);
-            }
-            else
-                DrawSelf(spriteBatch, gameTime);
+
+            DrawStateBackground(spriteBatch);
 
             if (!Scissor)
             {
                 DrawChildren(spriteBatch, gameTime);
+
+                PostDraw(spriteBatch, gameTime);
 
                 return;
             }
@@ -142,12 +152,44 @@ namespace MonoCoC.UI.Framework
 
                 spriteBatch.Begin(rasterizerState: UIManager.ScissorRasterizer);
             }
+
+            PostDraw(spriteBatch, gameTime);
         }
 
         public virtual void DrawSelf(SpriteBatch spriteBatch, GameTime gameTime)
         {
             if (BackgroundColor != default)
                 spriteBatch.DrawRectangle(Position.BuildRect(Width, Height), BackgroundColor * LayoutData.Alpha);
+        }
+
+        private void DrawStateBackground(SpriteBatch spriteBatch)
+        {
+            if (StateStyle is null)
+                return;
+
+            var color = StateStyle.BackgroundFor(Enabled, IsHovering, IsPressed);
+
+            if (color != Color.Transparent)
+                spriteBatch.DrawRectangle(Rectangle, color * LayoutData.Alpha);
+        }
+
+        private void DrawStateBorder(SpriteBatch spriteBatch)
+        {
+            if (StateStyle is null)
+                return;
+
+            var color = StateStyle.BorderFor(Enabled, IsHovering, IsPressed);
+
+            if (color == Color.Transparent || StateStyle.BorderThickness <= 0)
+                return;
+
+            var thickness = StateStyle.BorderThickness;
+            var rectangle = Rectangle;
+
+            spriteBatch.DrawRectangle(new Rectangle(rectangle.X, rectangle.Y, rectangle.Width, thickness), color * LayoutData.Alpha);
+            spriteBatch.DrawRectangle(new Rectangle(rectangle.X, rectangle.Bottom - thickness, rectangle.Width, thickness), color * LayoutData.Alpha);
+            spriteBatch.DrawRectangle(new Rectangle(rectangle.X, rectangle.Y, thickness, rectangle.Height), color * LayoutData.Alpha);
+            spriteBatch.DrawRectangle(new Rectangle(rectangle.Right - thickness, rectangle.Y, thickness, rectangle.Height), color * LayoutData.Alpha);
         }
 
         private void DrawMaterial(SpriteBatch spriteBatch)
@@ -164,7 +206,10 @@ namespace MonoCoC.UI.Framework
             }
         }
 
-        public virtual void PostDraw(SpriteBatch spriteBatch, GameTime gameTime) { }
+        public virtual void PostDraw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            DrawStateBorder(spriteBatch);
+        }
 
         public virtual void DrawChildren(SpriteBatch spriteBatch, GameTime gameTime)
         {

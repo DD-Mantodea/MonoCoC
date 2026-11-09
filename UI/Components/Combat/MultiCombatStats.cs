@@ -1,5 +1,6 @@
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Extensions;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Layout;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,10 @@ namespace MonoCoC.UI.Components.Combat
     // 原版 coc.view.MonsterStatsView 的对应实现：
     // 按 monsterArray 顺序纵向排列多个敌人面板，点击面板切换当前攻击目标；
     // 当前目标在面板上方显示一个向下的三角指示（程序生成的抗锯齿贴图）。
-    public class MultiCombatStats : Container
+    public class MultiCombatStats : Container, IUIStatefulPart
     {
+        private sealed record Snapshot(List<Enemy> Enemies, int Selected, Action<int>? Select);
+
         public const int Gap = 8;
 
         private const int PointerWidth = 20;
@@ -20,6 +23,27 @@ namespace MonoCoC.UI.Components.Combat
         private readonly List<EnemyStatsPanel> _panels = [];
 
         private Action<int>? _select;
+
+        private readonly List<Enemy> _enemies = [];
+
+        private int _selected;
+
+        public object? CaptureState() => new Snapshot([.. _enemies], _selected, _select);
+
+        public void RestoreState(object value)
+        {
+            if (value is not Snapshot state)
+                return;
+
+            if (state.Enemies.Count == 0)
+            {
+                HideAll();
+
+                return;
+            }
+
+            Refresh(state.Enemies, state.Selected, state.Select ?? (_ => { }));
+        }
 
         public MultiCombatStats()
         {
@@ -46,6 +70,12 @@ namespace MonoCoC.UI.Components.Combat
         public void Refresh(IReadOnlyList<Enemy> enemies, int selected, Action<int> select)
         {
             _select = select;
+
+            _selected = selected;
+
+            _enemies.Clear();
+
+            _enemies.AddRange(enemies);
 
             for (var i = 0; i < _panels.Count; i++)
             {

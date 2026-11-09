@@ -1524,13 +1524,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
             if (Player.FertilizedEggs() > 0)
                 if (Player.CanOvipositBee())
                 {
-                    Player.Pregnancy.Type = Contents.Pregnancy.PregnancyIds.BeeEggs;
+                    Player.Pregnancy.Type = Pregnancy.PregnancyIds.BeeEggs;
 
                     Player.Pregnancy.Incubation = 192;
                 }
                 else
                 {
-                    Player.Pregnancy.Type = Contents.Pregnancy.PregnancyIds.DriderEggs;
+                    Player.Pregnancy.Type = Pregnancy.PregnancyIds.DriderEggs;
 
                     Player.Pregnancy.Incubation = 192;
                 }

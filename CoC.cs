@@ -34,7 +34,10 @@ namespace MonoCoC
 
         public CoC()
         {
-            GraphicsDeviceManager = new GraphicsDeviceManager(this);
+            GraphicsDeviceManager = new GraphicsDeviceManager(this)
+            {
+                GraphicsProfile = GraphicsProfile.HiDef
+            };
 
             IsMouseVisible = true;
 
@@ -150,9 +153,11 @@ namespace MonoCoC
 
         protected override void Update(GameTime gameTime)
         {
-            MonoCoC.Contents.Input.HotkeyRegistry.Update();
+            Contents.Input.HotkeyRegistry.Update();
 
             ShaderManager.Instance.Update();
+
+            Configuration.LanguageService.Update();
 
             try
             {
@@ -165,7 +170,6 @@ namespace MonoCoC
 
                 UserInput.Dispatch(IsActive);
 
-                // 杈撳叆鍙兘鍒囨崲鍦烘櫙/瑙嗗浘锛氬湪 Draw 鍓嶈ˉ涓€娆℃柊鏍戠殑 Update
                 UIManager.UpdateAfterInput(gameTime);
 
                 base.Update(gameTime);
