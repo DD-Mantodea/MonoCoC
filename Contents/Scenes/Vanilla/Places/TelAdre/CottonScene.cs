@@ -1652,7 +1652,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 OutputText("Scenes.Cotton.CottonPopsOutAKid.QuickAgreement".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Cotton.CottonPopsOutAKid.CubeSharkCondition".Localized());
 
                 OutputText("Scenes.Cotton.CottonPopsOutAKid.AgreeToLeave".Localized());
@@ -1976,7 +1976,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Cotton.TellCottonToKeepFiringBlanksAsshole.BetterSafeThanPrefix".Localized());
 
-            if (!silly)
+            if (!Silly)
                 OutputText("Scenes.Cotton.TellCottonToKeepFiringBlanksAsshole.SorryWord".Localized());
             else
                 OutputText("Scenes.Cotton.TellCottonToKeepFiringBlanksAsshole.HerdOfLittleHorsefolk".Localized());
@@ -2002,7 +2002,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 OutputText("Scenes.Cotton.RepeatContraceptionToggleCotton.BetterSafeThanPrefix".Localized());
 
-                if (!silly)
+                if (!Silly)
                     OutputText("Scenes.Cotton.RepeatContraceptionToggleCotton.SorryWord".Localized());
                 else
                     OutputText("Scenes.Cotton.RepeatContraceptionToggleCotton.HerdOfLittleHorsefolk".Localized());

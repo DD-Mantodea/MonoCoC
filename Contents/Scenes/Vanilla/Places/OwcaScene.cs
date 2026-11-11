@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
@@ -21,9 +21,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
 
         public static SaveContent Save => SaveContent(SceneIds.Places.Owca);
 
-        public string debugName => "Owca";
 
-        public string debugHint => "";
 
         public int owcaAttitude { get => Math.Clamp(CoC.Instance.Flags.Get(GameFlagIds.OwcasAttitude), 0, 100); set => CoC.Instance.Flags.Set(GameFlagIds.OwcasAttitude, Math.Clamp(value, 0, 100)); }
 
@@ -138,7 +136,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
 
                 OutputText("Scenes.Owca.AgreeToFollowRebecFirstTime.ThereWeveAlmostArrived".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Owca.AgreeToFollowRebecFirstTime.VillageNoAnalVirgins".Localized());
                 else
                     OutputText("Scenes.Owca.AgreeToFollowRebecFirstTime.TheyAbusedUsMistreated".Localized());
@@ -149,7 +147,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
                 {
                     OutputText("Scenes.Owca.AgreeToFollowRebecFirstTime.ShockedByThisRevelation".Localized());
 
-                    if (silly)
+                    if (Silly)
                         OutputText("Scenes.Owca.AgreeToFollowRebecFirstTime.NeverWorryAgain".Localized());
                     else
                         OutputText("Scenes.Owca.AgreeToFollowRebecFirstTime.NeverBeAbusedAgain".Localized());
@@ -159,7 +157,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
                 else
                     if (Player.Corruption > 60 && Player.Libido > 60 && Player.HasCock())
                     {
-                        if (silly)
+                        if (Silly)
                             OutputText("Scenes.Owca.AgreeToFollowRebecFirstTime.CantHelpButPop".Localized());
                         else
                             OutputText("Scenes.Owca.AgreeToFollowRebecFirstTime.ParagraphBreak".Localized());
@@ -745,7 +743,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
 
                 OutputText("Scenes.Owca.RapeZeVapula.FewMetersAwayOutside".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Owca.RapeZeVapula.LookBackYouSnicker".Localized());
 
                 Player.Orgasm("Dick");

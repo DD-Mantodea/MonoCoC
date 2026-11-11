@@ -1,4 +1,4 @@
-{
+﻿{
   pane: gameplay
   global: true
   title: "Scenes.Options.Pane.0.Title"
@@ -7,7 +7,7 @@
 
   settings: [
     {
-      id: autoLevel
+      id: "coc:autoLevel"
       label: "Scenes.Options.Setting.AutoLevel"
       default: 0
       values: [
@@ -16,7 +16,7 @@
       ]
     }
     {
-      id: debug
+      id: "coc:debug"
       label: "Scenes.Options.Setting.Debug"
       default: 0
       values: [
@@ -25,7 +25,7 @@
       ]
     }
     {
-      id: quickloadAnywhere
+      id: "coc:quickloadAnywhere"
       label: "Scenes.Options.Setting.QuickloadAnywhere"
       default: 0
       values: [
@@ -34,7 +34,7 @@
       ]
     }
     {
-      id: quicksaveConfirm
+      id: "coc:quicksaveConfirm"
       label: "Scenes.Options.Setting.QuicksaveConfirm"
       default: 1
       values: [
@@ -43,7 +43,7 @@
       ]
     }
     {
-      id: quickloadConfirm
+      id: "coc:quickloadConfirm"
       label: "Scenes.Options.Setting.QuickloadConfirm"
       default: 1
       values: [
@@ -52,7 +52,7 @@
       ]
     }
     {
-      id: preload
+      id: "coc:preload"
       label: "Scenes.Options.Setting.Preload"
       desc: "Scenes.Options.Desc.Preload"
       overridesLabel: true

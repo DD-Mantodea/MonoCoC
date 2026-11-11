@@ -93,7 +93,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
             RegisterMacros();
 
-            if (silly && Player.HpPercent < 50 && Player.Armor.Id == ArmorIds.KokiriClothes)
+            if (Silly && Player.HpPercent < 50 && Player.Armor.Id == ArmorIds.KokiriClothes)
             {
                 HeyListen();
 
@@ -324,7 +324,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
             if (Player.HasVagina())
                 AddNextButton((Player.HasCock() ? "Female " : "") + "Common.Text.Rape".Localized(), FaerieRAEP);
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.ShouldraFollowerState) == 1 && Player.HasCock() && silly)
+            if (CoC.Instance.Flags.Get(GameFlagIds.ShouldraFollowerState) == 1 && Player.HasCock() && Silly)
                 AddNextButton("Scenes.Faerie.SexMenu.ButtonShouldraDick".Localized(), FaerieShouldraDick);
 
             if (OptionStore.Instance.Get("gore", 0) > 0)

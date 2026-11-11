@@ -611,7 +611,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Heckel.DominateHeckelConclusion.MoansAgain".Localized());
 
-            if (silly)
+            if (Silly)
             {
                 OutputText("Scenes.Heckel.DominateHeckelConclusion.BaconShake".Localized());
 

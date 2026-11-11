@@ -143,7 +143,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
                 OutputText("Scenes.Goblinshamanscene.GoblinShamanBeatYaUp.SayStart".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Goblinshamanscene.GoblinShamanBeatYaUp.StopRightThereScum".Localized());
                 else
                     OutputText("Scenes.Goblinshamanscene.GoblinShamanBeatYaUp.HoldYourHorses".Localized());

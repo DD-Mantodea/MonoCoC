@@ -1065,7 +1065,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
                     AddButton(4, "Common.Button.UseShouldra".Localized(), () => SceneInstance<Npcs.ShouldraFollowerScene>.Get().SandWitchGetsGhostly());
 
-                if (silly)
+                if (Silly)
                     AddButton(5, "Common.Button.UseI".Localized(), MissingoSex);
 
                 AddButton(6, "Common.Button.Titfuck".Localized(), SandwitchTitFuck);
@@ -1664,7 +1664,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             OutputText("Scenes.Sandwitchscene.WitchBirfsSomeBees.RushingTowardsCrescendo".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Sandwitchscene.WitchBirfsSomeBees.EchoingTinyLittleCries".Localized());
 
             OutputText("Scenes.Sandwitchscene.WitchBirfsSomeBees.LikelyJustWaitingFor".Localized(
@@ -1700,11 +1700,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             OutputText("Scenes.Sandwitchscene.SandwitchTauntChild.SnapsWithMagicCrackling".Localized());
 
-            OutputText("Scenes.Sandwitchscene.SandwitchTauntChild.SmirkingSorceressLaughs".Localized((silly ? "[say: I'll beat your ass so hard you can't sit down for a week, [boy]!]" : "")));
+            OutputText("Scenes.Sandwitchscene.SandwitchTauntChild.SmirkingSorceressLaughs".Localized((Silly ? "[say: I'll beat your ass so hard you can't sit down for a week, [boy]!]" : "")));
 
             OutputText("Scenes.Sandwitchscene.SandwitchTauntChild.ThisSeemsLastForever".Localized());
 
-            OutputText("Scenes.Sandwitchscene.SandwitchTauntChild.HavingWorkedHerFrustrations".Localized((silly ? "But didn't anyone ever tell her not to cry over spilt milk?" : "")));
+            OutputText("Scenes.Sandwitchscene.SandwitchTauntChild.HavingWorkedHerFrustrations".Localized((Silly ? "But didn't anyone ever tell her not to cry over spilt milk?" : "")));
 
             OutputText("Scenes.Sandwitchscene.SandwitchTauntChild.PickingUpHerRobe".Localized());
 

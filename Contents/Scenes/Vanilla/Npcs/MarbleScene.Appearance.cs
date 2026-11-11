@@ -92,7 +92,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                     MarbleNightSexIntro(false);
 
-                    return ;
+                    return;
                 }
 
             DoNext(PlayerMenu);
@@ -268,7 +268,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Marblescene.MarbleNightMassageEnd.FingersToNethers".Localized());
 
-            OutputText("Scenes.Marblescene.MarbleNightMassageEnd.ReleaseFromGrip".Localized((CoC.Instance.Flags.Get(GameFlagIds.MarbleDickType) > 0?" and some white spots on her cock":"")));
+            OutputText("Scenes.Marblescene.MarbleNightMassageEnd.ReleaseFromGrip".Localized((CoC.Instance.Flags.Get(GameFlagIds.MarbleDickType) > 0 ? " and some white spots on her cock" : "")));
 
             Player.ApplyStats(new DynStat(GameStats.Libido, -1f), new DynStat(GameStats.Sensitivity, 2f));
 
@@ -341,9 +341,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Marblescene.MarbleNightRidingCont.DivineMovements".Localized());
 
-            OutputText("Scenes.Marblescene.MarbleNightRidingCont.TeatPulledOut".Localized((CoC.Instance.Flags.Get(GameFlagIds.MarbleBovaLevel) > 0? "The vigorous motion of your lover makes her other three nipples flick across your face while you drink. " : "")));
+            OutputText("Scenes.Marblescene.MarbleNightRidingCont.TeatPulledOut".Localized((CoC.Instance.Flags.Get(GameFlagIds.MarbleBovaLevel) > 0 ? "The vigorous motion of your lover makes her other three nipples flick across your face while you drink. " : "")));
 
-            OutputText("Scenes.Marblescene.MarbleNightRidingCont.SuckTeatDeep".Localized((CoC.Instance.Flags.Get(GameFlagIds.MarbleBovaLevel) > 0? "all four of her nipples plus " : "")));
+            OutputText("Scenes.Marblescene.MarbleNightRidingCont.SuckTeatDeep".Localized((CoC.Instance.Flags.Get(GameFlagIds.MarbleBovaLevel) > 0 ? "all four of her nipples plus " : "")));
 
             OutputText("Scenes.Marblescene.MarbleNightRidingCont.PantsAndMoans".Localized());
 
@@ -831,7 +831,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 DoNext(() => ReturnToCamp(1));
 
-                return ;
+                return;
             }
             else
                 if (Player.IsPregnant())
@@ -1011,39 +1011,39 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             switch (Player.Pregnancy.Event)
             {
                 case 2:
-                {
-                OutputText("Scenes.Marblescene.MarbleAppearance.GainedSomeWeight".Localized());
-                }
+                    {
+                        OutputText("Scenes.Marblescene.MarbleAppearance.GainedSomeWeight".Localized());
+                    }
 
-                break;
+                    break;
 
                 case 3:
-                {
-                OutputText("Scenes.Marblescene.MarbleAppearance.BellySlightSwelling".Localized());
-                }
+                    {
+                        OutputText("Scenes.Marblescene.MarbleAppearance.BellySlightSwelling".Localized());
+                    }
 
-                break;
+                    break;
 
                 case 4:
-                {
-                OutputText("Scenes.Marblescene.MarbleAppearance.BellyObviousPregnancy".Localized());
-                }
+                    {
+                        OutputText("Scenes.Marblescene.MarbleAppearance.BellyObviousPregnancy".Localized());
+                    }
 
-                break;
+                    break;
 
                 case 5:
-                {
-                OutputText("Scenes.Marblescene.MarbleAppearance.BellyVeryPregnant".Localized());
-                }
+                    {
+                        OutputText("Scenes.Marblescene.MarbleAppearance.BellyVeryPregnant".Localized());
+                    }
 
-                break;
+                    break;
 
                 case 6:
-                {
-                OutputText("Scenes.Marblescene.MarbleAppearance.BellyExtremeQuiver".Localized());
-                }
+                    {
+                        OutputText("Scenes.Marblescene.MarbleAppearance.BellyExtremeQuiver".Localized());
+                    }
 
-                break;
+                    break;
             }
 
             if ((CoC.Instance.Flags.Get(GameFlagIds.MarblePurificationStage) < 5 && CoC.Instance.Flags.Get(GameFlagIds.MarbleLust) >= 20) || (CoC.Instance.Flags.Get(GameFlagIds.MarblePurificationStage) >= 5 && CoC.Instance.Flags.Get(GameFlagIds.MarbleTimeSinceNursedInHours) >= 4))

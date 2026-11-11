@@ -1,70 +1,22 @@
-using Microsoft.Xna.Framework;
-using MonoCoC.Assets;
 using MonoCoC.Contents.Scenes;
 using MonoCoC.Contents.Scenes.Vanilla;
-using MonoCoC.Extensions;
 using MonoCoC.Saving;
 using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
-using System;
-using System.IO;
 using System.Linq;
-using static MonoCoC.UI.Layout.LayoutConstants;
 
 namespace MonoCoC.UI.Components.Views
 {
-    /// <summary>
-    /// Data-driven main menu. The Hjson document drives existing controls;
-    /// only this screen is swapped when the document changes.
-    /// </summary>
     public class MainView : HjsonView
     {
         protected override string ScreenFile => "Views\\MainView.hjson";
 
-        protected override UIViewContract Contract => MainMenuContract.Value;
-
-        private readonly UIEventRegistry _events;
-
-        private readonly UIWidgetRegistry _widgets;
-
         public MainView()
         {
-            _events = MainMenuEvents.Create();
-
-            _widgets = new UIWidgetRegistry();
-
-            Initialize(_events, _widgets);
-        }
-    }
-
-    internal static class MainMenuContract
-    {
-        public static readonly UIViewContract Value = new(
-            "MainMenu",
-            [
-                new("main.buttons", typeof(Grid)),
-                new("main.version", typeof(Label)),
-            ]);
-    }
-
-    public static class MainMenuEvents
-    {
-        public static UIEventRegistry Create()
-        {
-            var events = new UIEventRegistry();
-
-            events.RegisterEvent("main.continue", ContinueGame);
-            events.RegisterEvent("main.new_game", NewGame);
-            events.RegisterEvent("main.load_game", OpenData);
-            events.RegisterEvent("main.options", OpenOptions);
-            events.RegisterEvent("main.achievements", OpenAchievements);
-            events.RegisterEvent("main.instructions", OpenInstructions);
-            events.RegisterEvent("main.credits", OpenCredits);
-            events.RegisterEvent("main.quit", QuitGame);
-
-            return events;
+            Initialize();
         }
 
+        [UIEvent("main.options")]
         private static void OpenOptions()
         {
             Options.OnStart = null;
@@ -83,20 +35,22 @@ namespace MonoCoC.UI.Components.Views
             Scene.Go(SceneInstance<Options>.Instance);
         }
 
+        [UIEvent("main.new_game")]
         private static void NewGame()
         {
             Combat.PlayerStats.HiddenByMenu = false;
 
-            var view = new CampView();
+            var view = new CharCreationView();
 
             if (view.Content is null)
                 return;
 
             UIManager.Instance.Root.SwitchView(view);
 
-            Scene.Go(SceneInstance<CharCreation>.Instance);
+            //Scene.Go(SceneInstance<CharCreation>.Instance);
         }
 
+        [UIEvent("main.continue")]
         private static void ContinueGame()
         {
             if (CoC.Instance.Player.Loaded && GameView.Instance != null)
@@ -120,6 +74,7 @@ namespace MonoCoC.UI.Components.Views
             UIManager.Instance.Root.SwitchView(gameView);
         }
 
+        [UIEvent("main.load_game")]
         private static void OpenData()
         {
             Combat.PlayerStats.HiddenByMenu = true;
@@ -131,6 +86,7 @@ namespace MonoCoC.UI.Components.Views
             Scene.Go(SceneInstance<SaveLoad>.Instance);
         }
 
+        [UIEvent("main.achievements")]
         private static void OpenAchievements()
         {
             Combat.PlayerStats.HiddenByMenu = true;
@@ -140,6 +96,7 @@ namespace MonoCoC.UI.Components.Views
             Scene.Go(SceneInstance<AchievementsScene>.Instance);
         }
 
+        [UIEvent("main.instructions")]
         private static void OpenInstructions()
         {
             Combat.PlayerStats.HiddenByMenu = true;
@@ -149,6 +106,7 @@ namespace MonoCoC.UI.Components.Views
             Scene.Go(SceneInstance<InstructionsScene>.Instance);
         }
 
+        [UIEvent("main.credits")]
         private static void OpenCredits()
         {
             Combat.PlayerStats.HiddenByMenu = true;
@@ -158,8 +116,7 @@ namespace MonoCoC.UI.Components.Views
             Scene.Go(SceneInstance<CreditsScene>.Instance);
         }
 
+        [UIEvent("main.quit")]
         private static void QuitGame() => CoC.Instance.Exit();
     }
 }
-
-

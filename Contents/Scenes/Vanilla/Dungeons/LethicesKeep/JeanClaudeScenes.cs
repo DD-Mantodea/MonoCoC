@@ -252,7 +252,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Dungeons.LethicesKeep
 
             OutputText("Scenes.Jeanclaudescenes.BeatDaFuckhugeBasilisk.EchoingSilence".Localized());
 
-            if (Player.Mf("m", "f") == "f" && silly)
+            if (Player.Mf("m", "f") == "f" && Silly)
                 OutputText("Scenes.Jeanclaudescenes.BeatDaFuckhugeBasilisk.RaisesFists".Localized());
 
             OutputText("Scenes.Jeanclaudescenes.BeatDaFuckhugeBasilisk.BitOfScuffling".Localized());

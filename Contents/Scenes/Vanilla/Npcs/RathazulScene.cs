@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Datas.Vanilla;
@@ -20,9 +20,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public Action? shopReturn;
 
-        public string debugName => "Rathazul";
 
-        public string debugHint => "";
 
         public int mixologyXP { get => Save.GetInt("mixologyXP", 0); set => Save.SetInt("mixologyXP", value); }
 
@@ -134,7 +132,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             }
             else
             {
-                OutputText("Scenes.Rathazul.ExecEncounter.HunchedFigure".Localized((noFur ? "rat-like whiskers" : "a rat-like muzzle"), (noFur ? "; entirely human aside from the whiskers and small rat ears" : "")));
+                OutputText("Scenes.Rathazul.ExecEncounter.HunchedFigure".Localized((NoFur ? "rat-like whiskers" : "a rat-like muzzle"), (NoFur ? "; entirely human aside from the whiskers and small rat ears" : "")));
 
                 Save.SetBool("metRathazul", true);
 
@@ -254,7 +252,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             }
 
             ShowImage("rathazul-himself");
-// 原版 RathazulScene.hx:40：Akky 若在 Rathazul 处则追加它的位置描述
+// 鍘熺増 RathazulScene.hx:40锛欰kky 鑻ュ湪 Rathazul 澶勫垯杩藉姞瀹冪殑浣嶇疆鎻忚堪
             SceneInstance<AkkyScene>.Get().LocationDesc("Rathazul");
 
             OutputText("Scenes.Rathazul.CampRathazul.LooksUpEquipment".Localized());
@@ -347,7 +345,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             AddNextButton("Common.Button.Services".Localized(), RathazulServicesMenu);
 
-            if (silly && FollowerRathazul())
+            if (Silly && FollowerRathazul())
                 AddNextButton("Common.Button.Flirt".Localized(), GetThatRatAss);
 
             if (lethiciteDefense && Save.GetBool("offeredMarae"))
@@ -728,7 +726,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Rathazul.CraftCarapace.TakesScales".Localized());
 
-            OutputText("Scenes.Rathazul.CraftCarapace.PlatesShimmer".Localized((silly ? ", even bragging a little bit. [say: Let me show you the different lengths of string I used.]" : ".")));
+            OutputText("Scenes.Rathazul.CraftCarapace.PlatesShimmer".Localized((Silly ? ", even bragging a little bit. [say: Let me show you the different lengths of string I used.]" : ".")));
 
             if (Player.HasCock() && Player.BiggestCockArea() >= 40)
                 OutputText("Scenes.Rathazul.CraftCarapace.SilkenDoesLittle".Localized());
@@ -823,7 +821,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ShowImage("encounter-rathazul");
 
-            OutputText("Scenes.Rathazul.DeclineSilkArmorCommish.TakesSilkBack".Localized((noFur ? "head." : "muzzle.")));
+            OutputText("Scenes.Rathazul.DeclineSilkArmorCommish.TakesSilkBack".Localized((NoFur ? "head." : "muzzle.")));
 
             DoNext(() => ReturnToRathazulMenu());
         }
@@ -1369,7 +1367,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ShowImage("item-bArmor-pure");
 
-            OutputText("Scenes.Rathazul.TakethatMarmorD.PlatesLikeSnow".Localized((silly ? ", even bragging a little bit. [say: Let me show you the different lengths of string I used.]" : ".")));
+            OutputText("Scenes.Rathazul.TakethatMarmorD.PlatesLikeSnow".Localized((Silly ? ", even bragging a little bit. [say: Let me show you the different lengths of string I used.]" : ".")));
 
             if (Player.HasCock() && Player.BiggestCockArea() >= 40)
                 OutputText("Scenes.Rathazul.TakethatMarmorD.SilkenDoesLittle".Localized());

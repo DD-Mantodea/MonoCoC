@@ -1,4 +1,4 @@
-{
+﻿{
   pane: modes
   global: false
   title: "Scenes.Options.Pane.3.Title"
@@ -7,7 +7,7 @@
 
   settings: [
     {
-      id: difficulty
+      id: "coc:difficulty"
       label: "Scenes.Options.Mode.Difficulty"
       default: 0
       values: [
@@ -19,7 +19,7 @@
       ]
     }
     {
-      id: survival
+      id: "coc:survival"
       label: "Scenes.Options.Mode.Survival"
       desc: "Scenes.Options.Desc.Survival"
       action: survival
@@ -29,7 +29,7 @@
       ]
     }
     {
-      id: realistic
+      id: "coc:realistic"
       label: "Scenes.Options.Mode.Realistic"
       desc: "Scenes.Options.Desc.Realistic"
       action: realistic
@@ -39,7 +39,7 @@
       ]
     }
     {
-      id: hardcore
+      id: "coc:hardcore"
       label: "Scenes.Options.Mode.Hardcore"
       desc: "Scenes.Options.Desc.Hardcore"
       action: hardcore
@@ -49,7 +49,7 @@
       ]
     }
     {
-      id: silly
+      id: "coc:silly"
       label: "Scenes.Options.Mode.Silly"
       default: 0
       values: [
@@ -58,7 +58,7 @@
       ]
     }
     {
-      id: hyper
+      id: "coc:hyper"
       label: "Scenes.Options.Mode.Hyper"
       default: 0
       values: [
@@ -67,7 +67,7 @@
       ]
     }
     {
-      id: temptation
+      id: "coc:temptation"
       label: "Scenes.Options.Mode.Temptation"
       default: 0
       values: [
@@ -76,7 +76,7 @@
       ]
     }
     {
-      id: taint
+      id: "coc:taint"
       label: "Scenes.Options.Mode.Taint"
       default: 0
       values: [
@@ -85,7 +85,7 @@
       ]
     }
     {
-      id: cooldowns
+      id: "coc:cooldowns"
       label: "Scenes.Options.Mode.Cooldowns"
       default: 0
       values: [
@@ -94,7 +94,7 @@
       ]
     }
     {
-      id: scaling
+      id: "coc:scaling"
       label: "Scenes.Options.Mode.Scaling"
       default: 0
       values: [
@@ -103,7 +103,7 @@
       ]
     }
     {
-      id: longHaul
+      id: "coc:longHaul"
       label: "Scenes.Options.Mode.LongHaul"
       default: 0
       values: [
@@ -112,7 +112,7 @@
       ]
     }
     {
-      id: oldAscension
+      id: "coc:oldAscension"
       label: "Scenes.Options.Mode.OldAscension"
       default: 0
       values: [

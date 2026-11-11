@@ -105,7 +105,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
             {
                 OutputText("Scenes.Chillysmith.SmithButton.WagonBlurbLead".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Chillysmith.SmithButton.ChilisName".Localized());
                 else
                     OutputText("Scenes.Chillysmith.SmithButton.ChillySmithName".Localized());
@@ -122,7 +122,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Chillysmith.SmithShop.EnterLead".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Chillysmith.SmithShop.TheChilisName".Localized());
             else
                 OutputText("Scenes.Chillysmith.SmithShop.ChillySmithName".Localized());
@@ -215,7 +215,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
             {
                 OutputText("Scenes.Chillysmith.TheFuckIsYouWho.GemsCrammed".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Chillysmith.TheFuckIsYouWho.DollarsWord".Localized());
                 else
                     OutputText("Scenes.Chillysmith.TheFuckIsYouWho.GemsWord".Localized());

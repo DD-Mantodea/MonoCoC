@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre;
 using MonoCoC.Contents.Scenes.Vanilla.Quests;
@@ -40,9 +40,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public static SaveContent Save => SaveContent(SceneIds.Npcs.Amily);
 
-        public string debugName => "Amily";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -94,7 +92,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             if (View.Time.Hours == 6)
             {
-                // 纯净的玩家让 Amily 崩溃搬走
+                // 绾噣鐨勭帺瀹惰 Amily 宕╂簝鎼蛋
                 if (CoC.Instance.Flags.Get(GameFlagIds.AmilyFollower) == 1
                     && !Player.IsPureEnough(66)
 
@@ -105,7 +103,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     needNext = true;
                 }
 
-                // 玩家重新纯净后搬回来
+                // 鐜╁閲嶆柊绾噣鍚庢惉鍥炴潵
                 if (CoC.Instance.Flags.Get(GameFlagIds.AmilyTreeFlipout) == 0
                     && CoC.Instance.Flags.Get(GameFlagIds.AmilyCampCorruptionFreaked) > 0
 
@@ -209,7 +207,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         public bool AmilyFurry()
         {
 
-            return CoC.Instance.Flags.Get(GameFlagIds.AmilyNotFurry) == 0 && !noFur;
+            return CoC.Instance.Flags.Get(GameFlagIds.AmilyNotFurry) == 0 && !NoFur;
         }
 
         public void AmilySprite(bool nude = false)
@@ -352,7 +350,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                         if (AmilyCanHaveTFNow())
                             AddNextButton("Common.Button.Defur".Localized(), AmilyDefurrify);
                         else
-                            if (!noFur)
+                            if (!NoFur)
                                 AddNextButton("Common.Button.RejectFurry".Localized(), AmilyNoFur);
 
                         AddNextButton("Common.Button.RejectGently".Localized(), DesperateAmilyPleaTurnDown);
@@ -404,7 +402,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                         AddButton(1, "Common.Button.Hesitantly".Localized(), AcceptAmilyOfferHesitantly);
 
-                        if (!noFur)
+                        if (!NoFur)
                             AddButton(2, "Common.Button.NoFurries".Localized(), AmilyNoFur);
 
                         AddButton(3, "Common.Button.Refuse".Localized(), RefuseAmilysOffer);
@@ -3180,7 +3178,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 AddButton(6, bText, babies, bTooltip);
 
-                if (!noFur)
+                if (!NoFur)
                     AddRowButton(1, (CoC.Instance.Flags.Get(GameFlagIds.AmilyNotFurry) == 0 ? "Common.Button.Defur".Localized() : "Common.Button.Refuzz".Localized()), (CoC.Instance.Flags.Get(GameFlagIds.AmilyNotFurry) == 0 ? AmilyDefurryOfferAtCamp : RefuzzAmily));
 
                 if (Holidays.IsWinter())
@@ -3190,7 +3188,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     AddButton(9, "Common.Button.SleepWith".Localized(), AmilySleepWith);
 
                 AddButton(10, "Scenes.Dullahan.DullMenu.ButtonDates".Localized(), DatesMenu);
-                // 原版 AmilyScene.hx:2821：Kiha 尝过糟糕料理（== 1）后解锁烹饪课程
+                // 鍘熺増 AmilyScene.hx:2821锛欿iha 灏濊繃绯熺硶鏂欑悊锛?= 1锛夊悗瑙ｉ攣鐑归オ璇剧▼
                 if (KihaFollowerScene.Save.GetInt("badCookingTasted", 0) == 1)
                     AddRowButton(2, "Cooking", AmilyCookingLesson);
 
@@ -3218,7 +3216,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 AddButton(5, "Common.Button.GiveItem".Localized(), GiveAmilyAPresent);
 
-                if (!noFur)
+                if (!NoFur)
                     AddButton(6, (CoC.Instance.Flags.Get(GameFlagIds.AmilyNotFurry) == 0 ? "Common.Button.Defur".Localized() : "Common.Button.Refuzz".Localized()), (CoC.Instance.Flags.Get(GameFlagIds.AmilyNotFurry) == 0 ? AmilyDefurryOfferAtCamp : RefuzzAmily));
 
                 AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<CampScene>.Get()));
@@ -6448,7 +6446,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 descripted = true;
             }
-            // 原版 amilyCock() 的乳汁/发情随机描述（33% 概率，且前面长度/粗细已描述时跳过）
+            // 鍘熺増 amilyCock() 鐨勪钩姹?鍙戞儏闅忔満鎻忚堪锛?3% 姒傜巼锛屼笖鍓嶉潰闀垮害/绮楃粏宸叉弿杩版椂璺宠繃锛?
             if (Random.Shared.Next(3) == 0 && !descripted)
             {
                 var lactation = CoC.Instance.Flags.Get(GameFlagIds.AmilyLactationRate);
@@ -7390,7 +7388,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Amilyscene.AmilyHermQuestAccept.RelievedSighSmile".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Amilyscene.AmilyHermQuestAccept.AmilHeDeclaration".Localized());
             else
                 OutputText("Scenes.Amilyscene.AmilyHermQuestAccept.CanDoItNow".Localized());
@@ -9993,8 +9991,8 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     OutputText("Scenes.Amilyscene.StalkingZeAmiliez.WaitHearApproachAgain".Localized());
 
                     OutputText("Scenes.Amilyscene.StalkingZeAmiliez.AmbushSwipeBlowpipeAgain".Localized());
-                    // 原版 AmilyScene.hx:7850/7859：startCombat(new Amily(), true)；
-                    // 旧移植把 `(), true` 混进 id，生成不存在的 "coc:amily(), true"（创建即抛异常）
+                    // 鍘熺増 AmilyScene.hx:7850/7859锛歴tartCombat(new Amily(), true)锛?
+                    // 鏃хЩ妞嶆妸 `(), true` 娣疯繘 id锛岀敓鎴愪笉瀛樺湪鐨?"coc:amily(), true"锛堝垱寤哄嵆鎶涘紓甯革級
                     CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "amily")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
                 }
                 else
@@ -10007,8 +10005,8 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                         OutputText("Scenes.Amilyscene.StalkingZeAmiliez.DodgeDartSpotAmily".Localized());
 
                         OutputText("Scenes.Amilyscene.StalkingZeAmiliez.PanickedDrawsKnife".Localized());
-                        // 原版 AmilyScene.hx:7850/7859：startCombat(new Amily(), true)；
-                    // 旧移植把 `(), true` 混进 id，生成不存在的 "coc:amily(), true"（创建即抛异常）
+                        // 鍘熺増 AmilyScene.hx:7850/7859锛歴tartCombat(new Amily(), true)锛?
+                    // 鏃хЩ妞嶆妸 `(), true` 娣疯繘 id锛岀敓鎴愪笉瀛樺湪鐨?"coc:amily(), true"锛堝垱寤哄嵆鎶涘紓甯革級
                     CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "amily")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
                     }
                     else
@@ -12469,7 +12467,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             OutputText("Scenes.Amilyscene.AmilyWinterCuddles.SharesBlanketIdea".Localized());
 
             OutputText("Scenes.Amilyscene.AmilyWinterCuddles.FireNotWarmest".Localized());
-            // 原版 AmilyScene.hx:9560：Akky 已被收养时会跳进 Amily 怀里
+            // 鍘熺増 AmilyScene.hx:9560锛欰kky 宸茶鏀跺吇鏃朵細璺宠繘 Amily 鎬€閲?
             if (SceneInstance<AkkyScene>.Get().IsOwned())
                 OutputText("Scenes.Amilyscene.AmilyWinterCuddles.AkkyJumpsInLap".Localized());
             else
@@ -12499,7 +12497,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             OutputText("Scenes.Amilyscene.AmilyCookingLesson.GoodSoundLogic".Localized());
 
             OutputText("Scenes.Amilyscene.AmilyCookingLesson.GrinsAndHopsUp".Localized());
-            // 原版 AmilyScene.hx:9579：标记 Kiha 已尝过「改进后」的料理
+            // 鍘熺増 AmilyScene.hx:9579锛氭爣璁?Kiha 宸插皾杩囥€屾敼杩涘悗銆嶇殑鏂欑悊
             KihaFollowerScene.Save.SetInt("badCookingTasted", 2);
 
             DoNext(() => ReturnToCamp(1));

@@ -81,7 +81,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.TalkWithUrtaAboutFamFam.UrtaRecoilsAtTopic".Localized());
 
-            OutputText("Scenes.UrtaQuest.TalkWithUrtaAboutFamFam.VixenSighsSadly".Localized((noFur ? "" : ", all fluffy and new")));
+            OutputText("Scenes.UrtaQuest.TalkWithUrtaAboutFamFam.VixenSighsSadly".Localized((NoFur ? "" : ", all fluffy and new")));
 
             OutputText("Scenes.UrtaQuest.TalkWithUrtaAboutFamFam.UrtaActsStrong".Localized());
 
@@ -116,7 +116,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
         {
             ClearOutput();
 
-            OutputText("Scenes.UrtaQuest.ComfortUrtaAfterFamFamTalk.LeansAcrossTable".Localized((noFur ? "" : ". Her downy fur ruffles as you give her a comforting squeeze")));
+            OutputText("Scenes.UrtaQuest.ComfortUrtaAfterFamFamTalk.LeansAcrossTable".Localized((NoFur ? "" : ". Her downy fur ruffles as you give her a comforting squeeze")));
 
             OutputText("Scenes.UrtaQuest.ComfortUrtaAfterFamFamTalk.WrySmileHusky".Localized());
 
@@ -213,7 +213,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
                 else
                     OutputText("Scenes.UrtaQuest.InfertilityQuestions.WillingFuck".Localized());
 
-            OutputText("Scenes.UrtaQuest.InfertilityQuestions.CatchesHerselfWandering".Localized((noFur ? "" : "gray-furred vulpine ")));
+            OutputText("Scenes.UrtaQuest.InfertilityQuestions.CatchesHerselfWandering".Localized((NoFur ? "" : "gray-furred vulpine ")));
 
             OutputText("Scenes.UrtaQuest.InfertilityQuestions.ConnectionsAsCaptain".Localized());
 
@@ -318,11 +318,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             Player.Body.Get<HairPart>().Length = 12;
 
-            Player.Body.Get<SkinPart>().Id = (noFur ? BodyPartTypes.Plain : BodyPartTypes.Fur);
+            Player.Body.Get<SkinPart>().Id = (NoFur ? BodyPartTypes.Plain : BodyPartTypes.Fur);
 
-            Player.Body.Get<SkinPart>().Adj = (noFur ? "Common.Text.Smooth".Localized() : "Common.Text.Silky".Localized());
+            Player.Body.Get<SkinPart>().Adj = (NoFur ? "Common.Text.Smooth".Localized() : "Common.Text.Silky".Localized());
 
-            Player.Body.Get<SkinPart>().DescKey = (noFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized());
+            Player.Body.Get<SkinPart>().DescKey = (NoFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized());
 
             Player.CreateBreastRow();
 
@@ -332,7 +332,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             Player.Tone = 50;
 
-            Player.Body.Get<SkinPart>().Tone = (noFur ? "Common.Text.Dark".Localized() : "Common.Text.Black".Localized());
+            Player.Body.Get<SkinPart>().Tone = (NoFur ? "Common.Text.Dark".Localized() : "Common.Text.Black".Localized());
 
             Player.Body.Get<LowerBodyPart>().Id = BodyPartTypes.Fox;
 
@@ -340,7 +340,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             Player.Ears.Id = BodyPartTypes.Fox;
 
-            Player.Body.Get<FacePart>().Id = (noFur ? BodyPartTypes.Human : BodyPartTypes.Fox);
+            Player.Body.Get<FacePart>().Id = (NoFur ? BodyPartTypes.Human : BodyPartTypes.Fox);
 
             Player.Body.Get<TailPart>().Id = BodyPartTypes.Fox;
 
@@ -458,11 +458,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             CoC.Instance.Flags.Set(GameFlagIds.UrtaQuestStatus, .75f);
 
-            OutputText("Scenes.UrtaQuest.StartUrtaQuest.YouAreUrtaFox".Localized((noFur ? "Common.Text.Girl".Localized() : "Common.Text.Morph".Localized())));
+            OutputText("Scenes.UrtaQuest.StartUrtaQuest.YouAreUrtaFox".Localized((NoFur ? "Common.Text.Girl".Localized() : "Common.Text.Morph".Localized())));
 
-            OutputText("Scenes.UrtaQuest.StartUrtaQuest.FoxLikeFace".Localized((noFur ? "Common.Text.Human".Localized() : "Common.Text.Vulpine".Localized()), (noFur ? "and " : ""), (noFur ? "" : ", and paw-footed fox-like legs")));
+            OutputText("Scenes.UrtaQuest.StartUrtaQuest.FoxLikeFace".Localized((NoFur ? "Common.Text.Human".Localized() : "Common.Text.Vulpine".Localized()), (NoFur ? "and " : ""), (NoFur ? "" : ", and paw-footed fox-like legs")));
 
-            if (noFur)
+            if (NoFur)
                 OutputText("Scenes.UrtaQuest.StartUrtaQuest.PartiallyFurredLimbs".Localized());
             else
                 OutputText("Scenes.UrtaQuest.StartUrtaQuest.FullyFurredBody".Localized());
@@ -500,7 +500,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.TowerOfTheCovanant.WolfPickpocket".Localized());
 
-            OutputText("Scenes.UrtaQuest.TowerOfTheCovanant.TowerLooms".Localized((noFur ? "" : ", white-furred"), (noFur ? "" : " visible through their fur")));
+            OutputText("Scenes.UrtaQuest.TowerOfTheCovanant.TowerLooms".Localized((NoFur ? "" : ", white-furred"), (NoFur ? "" : " visible through their fur")));
 
             OutputText("Scenes.UrtaQuest.TowerOfTheCovanant.WolfGuardWarning".Localized());
 
@@ -739,7 +739,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
                 player2.ShortName
             ));
 
-            OutputText("Scenes.UrtaQuest.VisitPCPreUrtaQuest.SunsetConcealment".Localized((noFur ? "" : " thanks to your natural fur color")));
+            OutputText("Scenes.UrtaQuest.VisitPCPreUrtaQuest.SunsetConcealment".Localized((NoFur ? "" : " thanks to your natural fur color")));
             // 原版 UrtaQuest.hx:462 — Jojo 在守夜
             if (Followers.FollowerRegistry.Guards.Any(g => g.Id == FollowerIds.JojoFollower))
                 OutputText("Scenes.UrtaQuest.VisitPCPreUrtaQuest.SneakPastMonk".Localized());
@@ -1071,7 +1071,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
                 player2.Mf("him", "her")
             ));
 
-            OutputText("Scenes.UrtaQuest.PcBlowsUrtasDong.SurprisedButSmiles".Localized(player2.ShortName, player2.Mf("his", "her"), player2.Mf("his", "her"), player2.Mf("him", "her"), player2.ShortName, (noFur ? "" : "furry "), player2.ShortName));
+            OutputText("Scenes.UrtaQuest.PcBlowsUrtasDong.SurprisedButSmiles".Localized(player2.ShortName, player2.Mf("his", "her"), player2.Mf("his", "her"), player2.Mf("him", "her"), player2.ShortName, (NoFur ? "" : "furry "), player2.ShortName));
 
             OutputText("Scenes.UrtaQuest.PcBlowsUrtasDong.NotWhatIntended".Localized());
 
@@ -1101,7 +1101,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
                 player2.Mf("He", "She")
             ));
 
-            OutputText("Scenes.UrtaQuest.PcBlowsUrtasDong.BobsDeepThroat".Localized(player2.ShortName, player2.Mf("his", "her"), player2.Mf("his", "her"), player2.Mf("his", "her"), (noFur ? "" : "furry "), player2.Mf("him", "her"), player2.ShortName));
+            OutputText("Scenes.UrtaQuest.PcBlowsUrtasDong.BobsDeepThroat".Localized(player2.ShortName, player2.Mf("his", "her"), player2.Mf("his", "her"), player2.Mf("his", "her"), (NoFur ? "" : "furry "), player2.Mf("him", "her"), player2.ShortName));
 
             OutputText("Scenes.UrtaQuest.PcBlowsUrtasDong.ProbingBehindBalls".Localized(
                 player2.ShortName,
@@ -1273,7 +1273,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
                                 player2.ShortName
                             ));
                         else
-                            OutputText("Scenes.UrtaQuest.PutAPCDickInUrtaCoochies.HighPitchedScream".Localized(player2.Mf("boy", "girl"), player2.Mf("his", "her"), (noFur ? "" : ", the fur pulled into a glossy tautness"), player2.Mf("his", "her"), player2.ShortName));
+                            OutputText("Scenes.UrtaQuest.PutAPCDickInUrtaCoochies.HighPitchedScream".Localized(player2.Mf("boy", "girl"), player2.Mf("his", "her"), (NoFur ? "" : ", the fur pulled into a glossy tautness"), player2.Mf("his", "her"), player2.ShortName));
 
                 OutputText("Scenes.UrtaQuest.PutAPCDickInUrtaCoochies.LoverSupportsAtopYou".Localized(
                     player2.Mf("him", "her")
@@ -1302,7 +1302,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
                     player2.Mf("his", "her")
                 ));
 
-                OutputText("Scenes.UrtaQuest.PutAPCDickInUrtaCoochies.SmileOverShoulder".Localized(player2.Mf("his", "her"), player2.ShortName, player2.ShortName, player2.Mf("his", "her"), player2.Mf("He", "She"), (noFur ? "" : ", furry")));
+                OutputText("Scenes.UrtaQuest.PutAPCDickInUrtaCoochies.SmileOverShoulder".Localized(player2.Mf("his", "her"), player2.ShortName, player2.ShortName, player2.Mf("his", "her"), player2.Mf("He", "She"), (NoFur ? "" : ", furry")));
 
                 OutputText("Scenes.UrtaQuest.PutAPCDickInUrtaCoochies.MindDriftsPleasantAgain".Localized(
                     player2.ShortName,
@@ -1344,7 +1344,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
                                 player2.ShortName
                             ));
                         else
-                            OutputText("Scenes.UrtaQuest.PutAPCDickInUrtaCoochies.HighPitchedFountain".Localized(player2.Mf("boyfriend", "girlfriend"), player2.Mf("his", "her"), (noFur ? "" : ", the fur pulled into a glossy tautness"), player2.Mf("his", "her"), player2.ShortName));
+                            OutputText("Scenes.UrtaQuest.PutAPCDickInUrtaCoochies.HighPitchedFountain".Localized(player2.Mf("boyfriend", "girlfriend"), player2.Mf("his", "her"), (NoFur ? "" : ", the fur pulled into a glossy tautness"), player2.Mf("his", "her"), player2.ShortName));
 
                 OutputText("Scenes.UrtaQuest.PutAPCDickInUrtaCoochies.SighRufflesHair".Localized(
                     player2.ShortName
@@ -1739,7 +1739,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
                     else
                         OutputText("Scenes.UrtaQuest.SnuggleWithUrta.KneesToKnees".Localized());
 
-            OutputText("Scenes.UrtaQuest.SnuggleWithUrta.TuckFaceIntoNeck".Localized((noFur ? "" : " vulpine"), player2.Mf("his", "her"), player2.Mf("his", "her"), player2.ShortName));
+            OutputText("Scenes.UrtaQuest.SnuggleWithUrta.TuckFaceIntoNeck".Localized((NoFur ? "" : " vulpine"), player2.Mf("his", "her"), player2.Mf("his", "her"), player2.ShortName));
 
             OutputText("Scenes.UrtaQuest.SnuggleWithUrta.LoverSmiles".Localized());
 
@@ -1836,7 +1836,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
             else
                 OutputText("Scenes.UrtaQuest.WinFuckAGoblinBroodmotherAsUrta.FeverishMasturbation".Localized());
 
-            OutputText("Scenes.UrtaQuest.WinFuckAGoblinBroodmotherAsUrta.LickLipsAnticipation".Localized((noFur ? "" : " black"), player2.ShortName));
+            OutputText("Scenes.UrtaQuest.WinFuckAGoblinBroodmotherAsUrta.LickLipsAnticipation".Localized((NoFur ? "" : " black"), player2.ShortName));
 
             OutputText("Scenes.UrtaQuest.WinFuckAGoblinBroodmotherAsUrta.SaffronSlutSmirks".Localized());
 
@@ -1885,7 +1885,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
                 OutputText("Scenes.UrtaQuest.UrtaLosesToGoblin.PregnantSeductressApproach".Localized());
 
-                OutputText("Scenes.UrtaQuest.UrtaLosesToGoblin.OneTrackLust".Localized((noFur ? "" : " dark")));
+                OutputText("Scenes.UrtaQuest.UrtaLosesToGoblin.OneTrackLust".Localized((NoFur ? "" : " dark")));
 
                 OutputText("Scenes.UrtaQuest.UrtaLosesToGoblin.BustyWenchGrins".Localized());
             }
@@ -1914,7 +1914,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToGoblin.LongDrawnMoan".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaLosesToGoblin.ExperiencedRiding".Localized((noFur ? "" : " furry")));
+            OutputText("Scenes.UrtaQuest.UrtaLosesToGoblin.ExperiencedRiding".Localized((NoFur ? "" : " furry")));
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToGoblin.BreedingCompulsion".Localized());
 
@@ -2260,7 +2260,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
             if (Player.HasStatusEffect(StatusEffectIds.Blind))
                 OutputText("Scenes.UrtaQuest.UrtaDirtKick.BlindedDirtKickDoubt".Localized());
             else
-                OutputText("Scenes.UrtaQuest.UrtaDirtKick.SpinningDebrisKick".Localized((noFur ? "" : "paw")));
+                OutputText("Scenes.UrtaQuest.UrtaDirtKick.SpinningDebrisKick".Localized((NoFur ? "" : "paw")));
 
             if (Random.Shared.Next(20) + 1 + CombatController.Instance!.Context.Enemy.Speed / 20 > 15 + Player.Speed / 20)
             {
@@ -2673,9 +2673,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.GripHeadAndClaim".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.NagaLaughsAtStruggle".Localized((noFur ? "" : "the fur on ")));
+            OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.NagaLaughsAtStruggle".Localized((NoFur ? "" : "the fur on ")));
 
-            OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.ResistingProvesHisPoint".Localized((noFur ? "" : "furry ")));
+            OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.ResistingProvesHisPoint".Localized((NoFur ? "" : "furry ")));
 
             OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.LaughingWithdrawFromBreasts".Localized());
 
@@ -2685,7 +2685,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.CuriosityAtHisPlea".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.ProtestMuffledByBreasts".Localized((noFur ? "Common.Text.Soft".Localized() : "Scenes.Ivorysuccubusscene.AnalTail.FurryWord".Localized())));
+            OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.ProtestMuffledByBreasts".Localized((NoFur ? "Common.Text.Soft".Localized() : "Scenes.Ivorysuccubusscene.AnalTail.FurryWord".Localized())));
 
             OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.WriggleToAlign".Localized());
 
@@ -2703,7 +2703,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.PurrSayAhh".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.ThrustIntoOpenMouth".Localized((noFur ? "" : "the fur at the base of ")));
+            OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.ThrustIntoOpenMouth".Localized((NoFur ? "" : "the fur at the base of ")));
 
             OutputText("Scenes.UrtaQuest.UrtaWinFucksSirius.GraspsHipsButYields".Localized());
 
@@ -2845,7 +2845,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.SiriusSatelliteRadioOwnsYouII.WakingYawnStretch".Localized());
 
-            OutputText("Scenes.UrtaQuest.SiriusSatelliteRadioOwnsYouII.IdleThoughtsOfMaster".Localized((noFur ? "Common.Text.Girl".Localized() : "Common.Text.Morph".Localized())));
+            OutputText("Scenes.UrtaQuest.SiriusSatelliteRadioOwnsYouII.IdleThoughtsOfMaster".Localized((NoFur ? "Common.Text.Girl".Localized() : "Common.Text.Morph".Localized())));
 
             OutputText("Scenes.UrtaQuest.SiriusSatelliteRadioOwnsYouII.FireLitBreakfast".Localized());
 
@@ -2916,19 +2916,19 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.SpearsPinAnkles".Localized());
 
-            OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.ArousalInterrogation".Localized((noFur ? "" : "fur-rimmed")));
+            OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.ArousalInterrogation".Localized((NoFur ? "" : "fur-rimmed")));
 
             OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.PrincessDenial".Localized());
 
             OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.StartlingAdmission".Localized());
 
-            OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.EnticingVirginGrin".Localized((noFur ? "" : " black")));
+            OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.EnticingVirginGrin".Localized((NoFur ? "" : " black")));
 
             OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.NippleTweakTaunt".Localized());
 
             OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.FingerInMouthSuck".Localized());
 
-            OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.WordlessShakingGaze".Localized((noFur ? "" : ", furry")));
+            OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.WordlessShakingGaze".Localized((NoFur ? "" : ", furry")));
 
             OutputText("Scenes.UrtaQuest.WinRapeHyenaPrincess.CrossedEyesClimax".Localized());
 
@@ -2947,11 +2947,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             CoC.Instance.Flags.Set(GameFlagIds.SuccubiMilkedGnollPrincess, 1);
 
-            OutputText("Scenes.UrtaQuest.UseSuccubiMilkOnGnollPrincesses.SuppressedLustDecision".Localized((noFur ? "" : "furry "), (noFur ? "Common.Text.Chin".Localized() : "BodyParts.Descript.Face.Noun.Snout".Localized())));
+            OutputText("Scenes.UrtaQuest.UseSuccubiMilkOnGnollPrincesses.SuppressedLustDecision".Localized((NoFur ? "" : "furry "), (NoFur ? "Common.Text.Chin".Localized() : "BodyParts.Descript.Face.Noun.Snout".Localized())));
 
-            OutputText("Scenes.UrtaQuest.UseSuccubiMilkOnGnollPrincesses.FistMuffledGrowl".Localized((noFur ? "Common.Text.Mouth".Localized() : "BodyParts.Descript.Face.Noun.Snout".Localized()), (noFur ? "" : "furry "), (noFur ? "Common.Text.BetweenHerBareThighsSitsHer".Localized() : "Common.Text.AsHerBosomFinishesGrowingThe".Localized())));
+            OutputText("Scenes.UrtaQuest.UseSuccubiMilkOnGnollPrincesses.FistMuffledGrowl".Localized((NoFur ? "Common.Text.Mouth".Localized() : "BodyParts.Descript.Face.Noun.Snout".Localized()), (NoFur ? "" : "furry "), (NoFur ? "Common.Text.BetweenHerBareThighsSitsHer".Localized() : "Common.Text.AsHerBosomFinishesGrowingThe".Localized())));
 
-            OutputText("Scenes.UrtaQuest.UseSuccubiMilkOnGnollPrincesses.TransformedBodyShock".Localized((noFur ? "" : ", fingers hesitant to touch the bronze flesh now on display")));
+            OutputText("Scenes.UrtaQuest.UseSuccubiMilkOnGnollPrincesses.TransformedBodyShock".Localized((NoFur ? "" : ", fingers hesitant to touch the bronze flesh now on display")));
 
             OutputText("Scenes.UrtaQuest.UseSuccubiMilkOnGnollPrincesses.SurprisedByChange".Localized());
 
@@ -3037,7 +3037,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
                 OutputText("Scenes.UrtaQuest.LoseToGnollPrincessAndGetGangBanged.HyenaCoosObedience".Localized());
 
-                OutputText("Scenes.UrtaQuest.LoseToGnollPrincessAndGetGangBanged.LustyGazeOnFoe".Localized((noFur ? "Common.Text.In".Localized() : "Common.Text.UnderYourFurThankfulItConceals".Localized())));
+                OutputText("Scenes.UrtaQuest.LoseToGnollPrincessAndGetGangBanged.LustyGazeOnFoe".Localized((NoFur ? "Common.Text.In".Localized() : "Common.Text.UnderYourFurThankfulItConceals".Localized())));
 
                 OutputText("Scenes.UrtaQuest.LoseToGnollPrincessAndGetGangBanged.PrecumBeadHangs".Localized());
 
@@ -3097,7 +3097,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SlaveLifeAcceptance".Localized());
 
-            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SurveyingGnollHerd".Localized((noFur ? "" : ", making you glad it's hidden under your gray fur")));
+            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SurveyingGnollHerd".Localized((NoFur ? "" : ", making you glad it's hidden under your gray fur")));
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SilentNod".Localized());
 
@@ -3106,7 +3106,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
             if (Player.Health >= 1)
                 OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.MeetingMemoryShudder".Localized());
 
-            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.KnifeCutsBindings".Localized((noFur ? "Common.Text.Feet".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized())));
+            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.KnifeCutsBindings".Localized((NoFur ? "Common.Text.Feet".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized())));
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.BlushingNewOwner".Localized());
 
@@ -3114,7 +3114,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SkinPeeledWhileDrinking".Localized());
 
-            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.GropedFirstSlave".Localized((noFur ? "Common.Text.Clothes".Localized() : "Common.Text.Fur".Localized())));
+            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.GropedFirstSlave".Localized((NoFur ? "Common.Text.Clothes".Localized() : "Common.Text.Fur".Localized())));
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SilencedByPrincess".Localized());
 
@@ -3122,7 +3122,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.LiftedToDrunkenSway".Localized());
 
-            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.DozenGrabbingHands".Localized((noFur ? "Common.Text.Hands".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized())));
+            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.DozenGrabbingHands".Localized((NoFur ? "Common.Text.Hands".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized())));
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.TinyBurstOfPain".Localized());
 
@@ -3130,13 +3130,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SmallestSlaveArrives".Localized());
 
-            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.CockyGrinApproach".Localized((noFur ? "" : "His fur is silky-soft, and just a little longer than yours. ")));
+            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.CockyGrinApproach".Localized((NoFur ? "" : "His fur is silky-soft, and just a little longer than yours. ")));
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.NeedyWhimperForCum".Localized());
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.FiveGnollsUsingYou".Localized());
 
-            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SpinningRoomEyesShut".Localized((noFur ? "H" : "Your silken fur tickles at his skin when h"), (noFur ? "" : "but "), (noFur ? "Common.Text.Ing".Localized() : "Common.Text.Es".Localized())));
+            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SpinningRoomEyesShut".Localized((NoFur ? "H" : "Your silken fur tickles at his skin when h"), (NoFur ? "" : "but "), (NoFur ? "Common.Text.Ing".Localized() : "Common.Text.Es".Localized())));
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.DeclaredInHeat".Localized());
 
@@ -3154,7 +3154,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.OrgasmAddledGrip".Localized());
 
-            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SuckingDeepKnot".Localized((noFur ? "Common.Text.Chest".Localized() : "Common.Text.LighterColoredChestFur".Localized())));
+            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SuckingDeepKnot".Localized((NoFur ? "Common.Text.Chest".Localized() : "Common.Text.LighterColoredChestFur".Localized())));
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogue.SwimmingInPleasure".Localized());
 
@@ -3175,7 +3175,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogueBAM.FaceSmackedByPaw".Localized());
 
-            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogueBAM.MistressClaimsTurn".Localized((noFur ? "Appearance.Cock.Sock.Covered".Localized() : "Common.Text.MattedYourFurTo".Localized())));
+            OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogueBAM.MistressClaimsTurn".Localized((NoFur ? "Appearance.Cock.Sock.Covered".Localized() : "Common.Text.MattedYourFurTo".Localized())));
 
             OutputText("Scenes.UrtaQuest.LoseToGnollAsUrtaEpilogueBAM.LiftedWithoutPause".Localized());
 
@@ -3229,7 +3229,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             View.Time.Days += 1;
 
-            OutputText("Scenes.UrtaQuest.UrtaSleepsArmored.WokenByTentacles".Localized((noFur ? "Common.Text.Feet".Localized() : "Common.Text.Paws".Localized())));
+            OutputText("Scenes.UrtaQuest.UrtaSleepsArmored.WokenByTentacles".Localized((NoFur ? "Common.Text.Feet".Localized() : "Common.Text.Paws".Localized())));
 
             OutputText("Scenes.UrtaQuest.UrtaSleepsArmored.ShamblerFlees".Localized());
 
@@ -3322,7 +3322,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.UrtaFinishesWithBigOrange.StretchUpForPrick".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaFinishesWithBigOrange.AnticipateTheHead".Localized((noFur ? "Common.Text.OverYourBody".Localized() : "Common.Text.IntoYourFur".Localized())));
+            OutputText("Scenes.UrtaQuest.UrtaFinishesWithBigOrange.AnticipateTheHead".Localized((NoFur ? "Common.Text.OverYourBody".Localized() : "Common.Text.IntoYourFur".Localized())));
 
             OutputText("Scenes.UrtaQuest.UrtaFinishesWithBigOrange.FondleWhileDrilled".Localized());
 
@@ -3334,7 +3334,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.UrtaFinishesWithBigOrange.BeastPressesThrough".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaFinishesWithBigOrange.RearsBackThenSpears".Localized((noFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
+            OutputText("Scenes.UrtaQuest.UrtaFinishesWithBigOrange.RearsBackThenSpears".Localized((NoFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
 
             OutputText("Scenes.UrtaQuest.UrtaFinishesWithBigOrange.MouthsSuckleBreasts".Localized());
 
@@ -3430,7 +3430,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.UrtaSubmitsToMinotaurBadEnd.FidoApologizes".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaSubmitsToMinotaurBadEnd.RagPulledFromHead".Localized((noFur ? "Common.Text.SkinIsCoveredIn".Localized() : "Common.Text.FurIsMattedToYouBy".Localized())));
+            OutputText("Scenes.UrtaQuest.UrtaSubmitsToMinotaurBadEnd.RagPulledFromHead".Localized((NoFur ? "Common.Text.SkinIsCoveredIn".Localized() : "Common.Text.FurIsMattedToYouBy".Localized())));
 
             OutputText("Scenes.UrtaQuest.UrtaSubmitsToMinotaurBadEnd.DemonGrantsPermission".Localized());
 
@@ -3463,11 +3463,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtII.KneadYourNipples".Localized());
 
-            OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtII.DeepVoiceRumbles".Localized((noFur ? "" : ", vulpine")));
+            OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtII.DeepVoiceRumbles".Localized((NoFur ? "" : ", vulpine")));
 
             OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtII.TasteHisSpooge".Localized());
 
-            OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtII.LiftAgainstHisSack".Localized((noFur ? "Common.Text.Feet".Localized() : "Common.Text.Hindpaws".Localized())));
+            OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtII.LiftAgainstHisSack".Localized((NoFur ? "Common.Text.Feet".Localized() : "Common.Text.Hindpaws".Localized())));
 
             OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtII.WideningOfTheFlare".Localized());
 
@@ -3498,7 +3498,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtIII.MistressCommandsStop".Localized());
 
-            OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtIII.SeeTheVillage".Localized((noFur ? "Common.Text.People".Localized() : "Common.Text.Morphs".Localized())));
+            OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtIII.SeeTheVillage".Localized((NoFur ? "Common.Text.People".Localized() : "Common.Text.Morphs".Localized())));
 
             OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtIII.MistressOffersSlavery".Localized());
 
@@ -3510,7 +3510,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtIII.FistYourselfEasily".Localized());
 
-            OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtIII.MasterPlungesIn".Localized((noFur ? "" : ", whetting your fur")));
+            OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtIII.MasterPlungesIn".Localized((NoFur ? "" : ", whetting your fur")));
 
             OutputText("Scenes.UrtaQuest.SubmissiveMinoUrtaBadEndPtIII.TailSpearsIntoYou".Localized());
 
@@ -3605,7 +3605,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToMinotaurRoughVersion.UnmindfulOfBlood".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaLosesToMinotaurRoughVersion.GravellyThreat".Localized((noFur ? "" : " vulpine")));
+            OutputText("Scenes.UrtaQuest.UrtaLosesToMinotaurRoughVersion.GravellyThreat".Localized((NoFur ? "" : " vulpine")));
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToMinotaurRoughVersion.SavageYankUp".Localized());
 
@@ -3617,7 +3617,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToMinotaurRoughVersion.BellowingClimax".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaLosesToMinotaurRoughVersion.SpentAndDiscarded".Localized((noFur ? "Common.Text.Face".Localized() : "BodyParts.Descript.Face.Noun.Snout".Localized())));
+            OutputText("Scenes.UrtaQuest.UrtaLosesToMinotaurRoughVersion.SpentAndDiscarded".Localized((NoFur ? "Common.Text.Face".Localized() : "BodyParts.Descript.Face.Noun.Snout".Localized())));
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToMinotaurRoughVersion.DeafToWords".Localized());
 
@@ -3821,7 +3821,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.FuckTheCowCubi.ForcedThroatGrip".Localized());
 
-            OutputText("Scenes.UrtaQuest.FuckTheCowCubi.OminousJingle".Localized((noFur ? "Common.Text.Yelp".Localized() : "Common.Text.Yip".Localized())));
+            OutputText("Scenes.UrtaQuest.FuckTheCowCubi.OminousJingle".Localized((NoFur ? "Common.Text.Yelp".Localized() : "Common.Text.Yip".Localized())));
 
             OutputText("Scenes.UrtaQuest.FuckTheCowCubi.DelightedSwallow".Localized());
 
@@ -3863,11 +3863,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.SuccubusCruelLaugh".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.EnthusiasticNod".Localized((noFur ? "" : ", smoothing back the fur as she does so")));
+            OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.EnthusiasticNod".Localized((NoFur ? "" : ", smoothing back the fur as she does so")));
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.SamplingOwnMilk".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.LastArmorRemoved".Localized((noFur ? "Common.Text.ToYourSkin".Localized() : "Common.Text.IntoYourFur".Localized())));
+            OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.LastArmorRemoved".Localized((NoFur ? "Common.Text.ToYourSkin".Localized() : "Common.Text.IntoYourFur".Localized())));
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.PawsPulledAway".Localized());
 
@@ -3896,11 +3896,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.GrowlingHeadYank".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.ButtLoomsAbove".Localized((noFur ? "Common.Text.Lips".Localized() : "Common.Text.Muzzle".Localized())));
+            OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.ButtLoomsAbove".Localized((NoFur ? "Common.Text.Lips".Localized() : "Common.Text.Muzzle".Localized())));
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.GrippingAssHard".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.WorshippingCunt".Localized((noFur ? "Common.Text.Tongue".Localized() : "BodyParts.Descript.Face.Noun.Snout".Localized())));
+            OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.WorshippingCunt".Localized((NoFur ? "Common.Text.Tongue".Localized() : "BodyParts.Descript.Face.Noun.Snout".Localized())));
 
             OutputText("Scenes.UrtaQuest.UrtaLosesToCowCubi.EcstaticCries".Localized());
 
@@ -3931,13 +3931,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
         {
             ClearOutput();
 
-            OutputText("Scenes.UrtaQuest.EnteringTaothsShrine.AdvanceCautiously".Localized((noFur ? "" : "vulpine skulls, ")));
+            OutputText("Scenes.UrtaQuest.EnteringTaothsShrine.AdvanceCautiously".Localized((NoFur ? "" : "vulpine skulls, ")));
 
             OutputText("Scenes.UrtaQuest.EnteringTaothsShrine.SkeletonExplore".Localized());
 
-            OutputText("Scenes.UrtaQuest.EnteringTaothsShrine.StatueDominatesRoom".Localized((noFur ? "Common.Text.Man".Localized() : "Common.Text.Morph".Localized()), (noFur ? "" : " head,")));
+            OutputText("Scenes.UrtaQuest.EnteringTaothsShrine.StatueDominatesRoom".Localized((NoFur ? "Common.Text.Man".Localized() : "Common.Text.Morph".Localized()), (NoFur ? "" : " head,")));
 
-            OutputText("Scenes.UrtaQuest.EnteringTaothsShrine.ContactingTaoth".Localized((noFur ? "Common.Text.Feet".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized())));
+            OutputText("Scenes.UrtaQuest.EnteringTaothsShrine.ContactingTaoth".Localized((NoFur ? "Common.Text.Feet".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized())));
 
             OutputText("Scenes.UrtaQuest.EnteringTaothsShrine.VoiceCallsYou".Localized());
 
@@ -4101,7 +4101,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.KnockUpUrtaWithGodChild.ArtlessHumpingCringe".Localized());
 
-            OutputText("Scenes.UrtaQuest.KnockUpUrtaWithGodChild.ConfusedGirlMoans".Localized((noFur ? "Common.Text.Yelping".Localized() : "Common.Text.Yipping".Localized()), Player.CockDescript(x), (noFur ? "" : ", furry")));
+            OutputText("Scenes.UrtaQuest.KnockUpUrtaWithGodChild.ConfusedGirlMoans".Localized((NoFur ? "Common.Text.Yelping".Localized() : "Common.Text.Yipping".Localized()), Player.CockDescript(x), (NoFur ? "" : ", furry")));
 
             if (Player.Balls > 0)
                 OutputText("Scenes.UrtaQuest.KnockUpUrtaWithGodChild.SackToken".Localized());
@@ -4289,7 +4289,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.GetKnockedUpWithGodChild.ArchingBackCry".Localized());
 
-            OutputText("Scenes.UrtaQuest.GetKnockedUpWithGodChild.AudibleGurgle".Localized((noFur ? "Scenes.Masturbation.TentacleSelfFuck.MoanWord".Localized() : "Common.Text.Yipping".Localized())));
+            OutputText("Scenes.UrtaQuest.GetKnockedUpWithGodChild.AudibleGurgle".Localized((NoFur ? "Scenes.Masturbation.TentacleSelfFuck.MoanWord".Localized() : "Common.Text.Yipping".Localized())));
 
             if (Player.Balls > 0)
                 OutputText("Scenes.UrtaQuest.GetKnockedUpWithGodChild.BothSetsWord".Localized());
@@ -4363,7 +4363,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
                                 else
                                     OutputText("Scenes.UrtaQuest.GetKnockedUpWithGodChild.UrtaHumpsSlowly".Localized());
 
-            OutputText("Scenes.UrtaQuest.GetKnockedUpWithGodChild.UrtaPullsOutSwat".Localized((noFur ? "" : "furry ")));
+            OutputText("Scenes.UrtaQuest.GetKnockedUpWithGodChild.UrtaPullsOutSwat".Localized((NoFur ? "" : "furry ")));
 
             if (Player.Body.Get<TailPart>().Id != BodyPartTypes.None)
                 OutputText("Scenes.UrtaQuest.GetKnockedUpWithGodChild.TailAngleChallenge".Localized());
@@ -4535,7 +4535,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
             if (SceneInstance<Places.TelAdre.EdrynScene>.Get().Pregnancy.IsPregnant)
                 OutputText("Scenes.UrtaQuest.UrtaAndEdrynGodChildEpilogueII.HowPregnantAgain".Localized());
 
-            OutputText("Scenes.UrtaQuest.UrtaAndEdrynGodChildEpilogueII.UrtaLeadsBend".Localized((noFur ? "" : "gray-furred ")));
+            OutputText("Scenes.UrtaQuest.UrtaAndEdrynGodChildEpilogueII.UrtaLeadsBend".Localized((NoFur ? "" : "gray-furred ")));
             // 原版 UrtaQuest.hx:2814 — Edryn 怀孕中
             if (SceneInstance<Places.TelAdre.EdrynScene>.Get().Pregnancy.IsPregnant)
                 OutputText("Scenes.UrtaQuest.UrtaAndEdrynGodChildEpilogueII.MassivelyPrefix".Localized());

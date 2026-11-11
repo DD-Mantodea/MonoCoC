@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
@@ -16,9 +16,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.GlacialRift
 
         public static SaveContent Save => SaveContent(SceneIds.GlacialRift.Mora);
 
-        public string debugName => "Mora";
 
-        public string debugHint => "";
 
         public override void Entry()
         {

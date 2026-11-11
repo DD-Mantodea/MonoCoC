@@ -5,18 +5,18 @@ using System.Collections.Generic;
 
 namespace MonoCoC.UI.Data
 {
-    public class UIWidgetRegistry
+    public class UICustomComponentRegistry
     {
-        private readonly Dictionary<string, Func<JsonObject, Component>> _widgets = [];
+        private readonly Dictionary<string, Func<JsonObject, Component>> _customComponents = [];
 
         public void Register(string id, Func<JsonObject, Component> factory)
         {
-            _widgets[id] = factory;
+            _customComponents[id] = factory;
         }
 
         public bool TryCreate(string id, JsonObject node, out Component? component)
         {
-            if (_widgets.TryGetValue(id, out var factory))
+            if (_customComponents.TryGetValue(id, out var factory))
             {
                 component = factory(node);
                 return true;

@@ -472,7 +472,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
             {
                 OutputText("Scenes.Slipperysqueeze.JoeyBigBalls.BeforeDoor".Localized());
 
-                OutputText("Scenes.Slipperysqueeze.JoeyBigBalls.PushesPanicked".Localized((noFur ? "bunny boy" : "lagomorph")));
+                OutputText("Scenes.Slipperysqueeze.JoeyBigBalls.PushesPanicked".Localized((NoFur ? "bunny boy" : "lagomorph")));
 
                 OutputText("Scenes.Slipperysqueeze.JoeyBigBalls.WhyNoOne".Localized());
 

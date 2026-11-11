@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Items;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
@@ -30,9 +30,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
 
         public static SaveContent Save => SaveContent(SceneIds.Bog.BogTemple);
 
-        public string debugName => "Bog Temple";
 
-        public string debugHint => "";
 
         public static MarielleScene marielle => SceneInstance<MarielleScene>.Get();
 
@@ -90,9 +88,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
 
             OutputText("Scenes.Bogtemple.TempleFirstEnter.CarefulNotTrip".Localized());
 
-            OutputText("Scenes.Bogtemple.TempleFirstEnter.StoneSculpture".Localized((silly && Player.Intelligence < 20 ? "" : " it. You have never seen this script before, and it's mostly obscured")));
+            OutputText("Scenes.Bogtemple.TempleFirstEnter.StoneSculpture".Localized((Silly && Player.Intelligence < 20 ? "" : " it. You have never seen this script before, and it's mostly obscured")));
 
-            OutputText("Scenes.Bogtemple.TempleFirstEnter.FigureMightHave".Localized((silly && Player.Intelligence < 20 ? "" : " it. You have never seen this script before, and it's mostly obscured")));
+            OutputText("Scenes.Bogtemple.TempleFirstEnter.FigureMightHave".Localized((Silly && Player.Intelligence < 20 ? "" : " it. You have never seen this script before, and it's mostly obscured")));
 
             OutputText("Scenes.Bogtemple.TempleFirstEnter.SconcesRusty".Localized());
 
@@ -116,7 +114,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
 
             AddNextButton("Common.Button.LeaveIt".Localized(), TempleFirstDontTake);
 
-            if (silly)
+            if (Silly)
                 AddNextButton("Common.Button.BurnIt".Localized(), TempleFirstBurn);
         }
 
@@ -255,7 +253,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
 
                 case 1:
                 {
-                OutputText("Scenes.Bogtemple.TempleInspect.AltarUnpretentious".Localized((silly && Player.Corruption > 90 ? "Large enough to sacrifice a child on" : "As large as a dining table")));
+                OutputText("Scenes.Bogtemple.TempleInspect.AltarUnpretentious".Localized((Silly && Player.Corruption > 90 ? "Large enough to sacrifice a child on" : "As large as a dining table")));
 
                 OutputText("Scenes.Bogtemple.TempleInspect.FrontBearsImage".Localized());
 

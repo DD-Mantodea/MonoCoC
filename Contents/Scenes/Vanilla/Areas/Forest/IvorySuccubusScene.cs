@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
@@ -20,9 +20,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
         public static SaveContent Save => SaveContent(SceneIds.Forest.IvorySuccubus);
 
-        public string debugName => "Ivory Succ";
 
-        public string debugHint => "";
 
         public int ivoryBreasts = 2;
 
@@ -146,7 +144,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
         {
             ClearOutput();
 
-            if (IsRetarded() && silly)
+            if (IsRetarded() && Silly)
             {
                 OutputText("Scenes.Ivorysuccubusscene.BadEnd.AtFirstDeny".Localized());
 
@@ -177,7 +175,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
             OutputText("Scenes.Ivorysuccubusscene.BadEnd2.InsideSee".Localized());
 
             OutputText("Scenes.Ivorysuccubusscene.BadEnd2.IncubusContinues".Localized());
-            // 原版 IvorySuccubusScene.hx:128 即为 if (/*lidellium placeholder*/ false)：上游未实装 Liddellium 剧情
+            // 鍘熺増 IvorySuccubusScene.hx:128 鍗充负 if (/*lidellium placeholder*/ false)锛氫笂娓告湭瀹炶 Liddellium 鍓ф儏
             if (false)
                 OutputText("Scenes.Ivorysuccubusscene.BadEnd2.ParagraphBreak".Localized());
             else
@@ -433,7 +431,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
         {
             ClearOutput();
 
-            if (Player.IsTaur() && silly)
+            if (Player.IsTaur() && Silly)
             {
                 OutputText("Scenes.Ivorysuccubusscene.Riding.StraightToPoint".Localized());
 
@@ -718,7 +716,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
                 OutputText("Scenes.Ivorysuccubusscene.Kill.TwirlSnap".Localized());
             else if (Player.Weapon.IsWhip())
                 OutputText("Scenes.Ivorysuccubusscene.Kill.CordSlings".Localized());
-            else if (Player.Weapon.IsKatana() && silly)
+            else if (Player.Weapon.IsKatana() && Silly)
                 OutputText("Scenes.Ivorysuccubusscene.Kill.PerfectCut".Localized());
             else if (Player.Weapon.IsAxe())
                 OutputText("Scenes.Ivorysuccubusscene.Kill.GrippingWeapon".Localized());

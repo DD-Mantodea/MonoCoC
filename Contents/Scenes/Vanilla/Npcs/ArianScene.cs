@@ -2071,7 +2071,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             AddButton(11, "Common.Button.Tailriding".Localized(), null);
 
-            if (silly)
+            if (Silly)
                 AddButton(12, "Common.Button.Headpat".Localized(), null);
 
             if (Player.HasCock())
@@ -2114,7 +2114,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     if (Player.HasKeyItem("Dildo") || Player.HasKeyItem("Deluxe Dildo"))
                         AddButton(6, "Common.Button.DildoFun".Localized(), ArianDildoFun);
 
-                    if (silly)
+                    if (Silly)
                         AddButton(12, "Common.Button.Headpat".Localized(), ArianHeadpats);
                 }
             }
@@ -4088,7 +4088,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     }
                 }
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.ArianBreasts) > 1 && (!hyper))
+            if (CoC.Instance.Flags.Get(GameFlagIds.ArianBreasts) > 1 && (!Hyper))
             {
                 CoC.Instance.Flags.Set(GameFlagIds.ArianBreasts, CoC.Instance.Flags.Get(GameFlagIds.ArianBreasts) - 1);
 
@@ -4107,7 +4107,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 return ;
             }
             else
-                if (CoC.Instance.Flags.Get(GameFlagIds.ArianBreasts) == 1 && (!hyper))
+                if (CoC.Instance.Flags.Get(GameFlagIds.ArianBreasts) == 1 && (!Hyper))
                 {
                     OutputText("Scenes.Arianscene.GiveIncubusDraftToArian.ChangesSweepAgain".Localized());
 
@@ -4242,7 +4242,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     }
                 }
                 else
-                    if (CoC.Instance.Flags.Get(GameFlagIds.ArianCockSize) > 1 && (!hyper))
+                    if (CoC.Instance.Flags.Get(GameFlagIds.ArianCockSize) > 1 && (!Hyper))
                     {
                         OutputText("Scenes.Arianscene.SuccubiMilkForArian.WarmthMoansObvious".Localized());
 
@@ -4258,7 +4258,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                         OutputText("Scenes.Arianscene.SuccubiMilkForArian.ComfortableGirlySide".Localized());
                     }
                     else
-                        if (CoC.Instance.Flags.Get(GameFlagIds.ArianCockSize) == 1 && CoC.Instance.Flags.Get(GameFlagIds.ArianDoubleCock) >= 1 && (!hyper))
+                        if (CoC.Instance.Flags.Get(GameFlagIds.ArianCockSize) == 1 && CoC.Instance.Flags.Get(GameFlagIds.ArianDoubleCock) >= 1 && (!Hyper))
                         {
                             OutputText("Scenes.Arianscene.SuccubiMilkForArian.WarmthFlowAgain".Localized());
 
@@ -4275,7 +4275,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                             CoC.Instance.Flags.Set(GameFlagIds.ArianDoubleCock, 0);
                         }
                         else
-                            if (CoC.Instance.Flags.Get(GameFlagIds.ArianCockSize) == 1 && (!hyper))
+                            if (CoC.Instance.Flags.Get(GameFlagIds.ArianCockSize) == 1 && (!Hyper))
                             {
                                 CoC.Instance.Flags.Set(GameFlagIds.ArianCockSize, 0);
 

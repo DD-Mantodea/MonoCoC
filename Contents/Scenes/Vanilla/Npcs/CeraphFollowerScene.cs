@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.World;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
@@ -34,9 +34,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public static SaveContent Save => SaveContent(SceneIds.Npcs.CeraphFollower);
 
-        public string debugName => "Ceraph";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -339,7 +337,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             if (CoC.Instance.Flags.Get(GameFlagIds.DominikaStage) > 0 && Player.Lust >= 33 && Player.HasCock())
                 dominika = Cerminika;
-            // 原版 CeraphFollowerScene.hx:299 — CeraphFollower.hx：PC 淫欲低于 33
+            // 鍘熺増 CeraphFollowerScene.hx:299 鈥?CeraphFollower.hx锛歅C 娣浣庝簬 33
             if (Player.Lust < 33)
                 Telly = TellyRolepay;
 
@@ -1327,12 +1325,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Ceraphfollowerscene.CatgirlEncounter.ParagraphBreak".Localized());
 
-            if (noFur)
+            if (NoFur)
                 OutputText("Scenes.Ceraphfollowerscene.CatgirlEncounter.StudyHumanSisters".Localized());
             else
                 OutputText("Scenes.Ceraphfollowerscene.CatgirlEncounter.StudyFurSisters".Localized());
 
-            OutputText("Scenes.Ceraphfollowerscene.CatgirlEncounter.ChorusSistersSpeak".Localized((noFur ? "" : " furry,"), (noFur ? "Common.Text.Eared".Localized() : "Common.Text.Faced".Localized())));
+            OutputText("Scenes.Ceraphfollowerscene.CatgirlEncounter.ChorusSistersSpeak".Localized((NoFur ? "" : " furry,"), (NoFur ? "Common.Text.Eared".Localized() : "Common.Text.Faced".Localized())));
 
             ClearButtons();
 
@@ -1356,9 +1354,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             var x = Player.BiggestCockIndex();
 
-            OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.AgreeToPleasure".Localized((noFur ? "" : " furry")));
+            OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.AgreeToPleasure".Localized((NoFur ? "" : " furry")));
 
-            OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.ScratchBehindEars".Localized(Player.CockDescript(x), (noFur ? "" : "-furred")));
+            OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.ScratchBehindEars".Localized(Player.CockDescript(x), (NoFur ? "" : "-furred")));
 
             OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.SisterRubsOnYou".Localized());
 
@@ -1366,9 +1364,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.MilkSeepsOut".Localized());
             else
             {
-                OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.DelightsInBreasts".Localized((noFur ? "" : " fuzzy")));
+                OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.DelightsInBreasts".Localized((NoFur ? "" : " fuzzy")));
 
-                if (Random.Shared.Next(5) == 0 && !noFur)
+                if (Random.Shared.Next(5) == 0 && !NoFur)
                     OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.FurTicklesSneeze".Localized());
                 else
                     OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.VibratingWildly".Localized());
@@ -1379,7 +1377,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.CatOnYourFace".Localized());
 
             if (Player.CockTotal() == 1)
-                OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.HandBetweenTits".Localized((noFur ? "Common.Text.Large".Localized() : "Scenes.Ivorysuccubusscene.AnalTail.FurryWord".Localized()), Player.CockDescript(x)));
+                OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.HandBetweenTits".Localized((NoFur ? "Common.Text.Large".Localized() : "Scenes.Ivorysuccubusscene.AnalTail.FurryWord".Localized()), Player.CockDescript(x)));
             else
                 OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.GrabNeglectedDickflesh".Localized());
 
@@ -1400,7 +1398,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.RelaxSpentOnBack".Localized());
 
             if (Player.CumQ() >= 1000)
-                OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.LickRemnantsClean".Localized((noFur ? "Common.Text.Themselves".Localized() : "Common.Text.TheirFur".Localized())));
+                OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.LickRemnantsClean".Localized((NoFur ? "Common.Text.Themselves".Localized() : "Common.Text.TheirFur".Localized())));
 
             OutputText("Scenes.Ceraphfollowerscene.FuckCeraphsCatgirls.GirlsThankForCream".Localized());
 
@@ -1421,9 +1419,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 Player.Mf("Master", "Mistress")
             ));
 
-            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplay.ShuddersBreathingDeep".Localized((noFur ? "Common.Text.HerLavenderSkinHasChangedTo".Localized() : "Common.Text.YouSeeThatHerLavenderSkin".Localized()), (noFur ? "" : " Placing her fingers at the bridge of her nose and her thumb under her jaw, she cocks her head to one side and yanks forward, her skull deforming as the front of her face is pulled into a vulpine muzzle, lips thickening into a glistening black pucker as she blows you a kiss.")));
+            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplay.ShuddersBreathingDeep".Localized((NoFur ? "Common.Text.HerLavenderSkinHasChangedTo".Localized() : "Common.Text.YouSeeThatHerLavenderSkin".Localized()), (NoFur ? "" : " Placing her fingers at the bridge of her nose and her thumb under her jaw, she cocks her head to one side and yanks forward, her skull deforming as the front of her face is pulled into a vulpine muzzle, lips thickening into a glistening black pucker as she blows you a kiss.")));
 
-            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplay.CurtseyInDeference".Localized(Player.Mf("Master", "Mistress"), (noFur ? "" : " furred"), Player.Mf("Master", "Mistress"), (noFur ? "n" : " fuzzy,")));
+            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplay.CurtseyInDeference".Localized(Player.Mf("Master", "Mistress"), (NoFur ? "" : " furred"), Player.Mf("Master", "Mistress"), (NoFur ? "n" : " fuzzy,")));
 
             OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplay.UrtaFlusteredGreeting".Localized());
 
@@ -1444,16 +1442,16 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         {
             ClearOutput();
 
-            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk.BottomsUpToast".Localized((noFur ? "" : " She looks closely at the bottle and blinks several times. [say: Wh- what did you put in this?]")));
+            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk.BottomsUpToast".Localized((NoFur ? "" : " She looks closely at the bottle and blinks several times. [say: Wh- what did you put in this?]")));
 
-            if (!noFur)
+            if (!NoFur)
             {
                 OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk.AdmitHerAwareness".Localized());
 
                 OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk.UrtaFurTransforms".Localized());
             }
 
-            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk.HoldShouldersGaze".Localized((noFur ? "Common.Text.You".Localized() : "Common.Text.WithASighingBreathYouWhisper".Localized()), (noFur ? "" : "twists her head too far to the side, trying to compensate for a muzzle that's no longer there before giggling into your mouth and turning back too far, bumping her nose against yours. She lets out a brief bark of laughter and "), Player.ButtDescript()));
+            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk.HoldShouldersGaze".Localized((NoFur ? "Common.Text.You".Localized() : "Common.Text.WithASighingBreathYouWhisper".Localized()), (NoFur ? "" : "twists her head too far to the side, trying to compensate for a muzzle that's no longer there before giggling into your mouth and turning back too far, bumping her nose against yours. She lets out a brief bark of laughter and "), Player.ButtDescript()));
 
             Player.ApplyStats(new DynStat(GameStats.Lust, 125f));
 
@@ -1479,7 +1477,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk2.ParagraphBreak".Localized());
 
-            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk2.CockSwellsDanger".Localized((noFur ? "" : "No condoms for sneaky bitches who spike drinks,] her husky voice right on the edge. [say: Fur isn't the only thing I've lost. ")));
+            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk2.CockSwellsDanger".Localized((NoFur ? "" : "No condoms for sneaky bitches who spike drinks,] her husky voice right on the edge. [say: Fur isn't the only thing I've lost. ")));
 
             if (CoC.Instance.Flags.Get(GameFlagIds.AmilyFollower) > 0 || false || false)
                 OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk2.KnockYouUpTaunt".Localized());
@@ -1489,7 +1487,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk2.ThirdCumOnCervix".Localized());
 
             if (Player.HasCock())
-                OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk2.SympatheticClimax".Localized(Player.SMultiCockDesc(), (noFur ? "" : " [say: Hey, I can finally take a shower without smelling like a wet dog afterwards,] she realizes, happily.")));
+                OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk2.SympatheticClimax".Localized(Player.SMultiCockDesc(), (NoFur ? "" : " [say: Hey, I can finally take a shower without smelling like a wet dog afterwards,] she realizes, happily.")));
 
             OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplayDrunk2.ParagraphBreakAgain".Localized());
 
@@ -1511,11 +1509,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplaySober.PutBottleDown".Localized());
 
-            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplaySober.UrtaShockedTears".Localized((noFur ? "" : " the fine, ebony fuzz of")));
+            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplaySober.UrtaShockedTears".Localized((NoFur ? "" : " the fine, ebony fuzz of")));
 
             OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplaySober.RestoredToWoman".Localized());
 
-            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplaySober.LedBackToCot".Localized((noFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
+            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplaySober.LedBackToCot".Localized((NoFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
 
             if (Player.Horns.Id.Path != "none")
                 OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplaySober.HandsAtHerSides".Localized());
@@ -1531,7 +1529,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             HideUpDown();
 
-            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplaySober2.HandsAlongAbs".Localized((noFur ? "" : " the lighter fur of")));
+            OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplaySober2.HandsAlongAbs".Localized((NoFur ? "" : " the lighter fur of")));
 
             if (Player.CockArea(0) > 150)
                 OutputText("Scenes.Ceraphfollowerscene.CeraphUrtaRoleplaySober2.SizeNoImpediment".Localized());
@@ -1795,7 +1793,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Ceraphfollowerscene.SweetieNOOOO.WinkSyringeFingers".Localized());
 
-            OutputText("Scenes.Ceraphfollowerscene.SweetieNOOOO.CeraphPlopsDown".Localized((noFur ? "Common.Text.Knee".Localized() : "Scenes.Anemonescene.KidADreams.Thigh".Localized())));
+            OutputText("Scenes.Ceraphfollowerscene.SweetieNOOOO.CeraphPlopsDown".Localized((NoFur ? "Common.Text.Knee".Localized() : "Scenes.Anemonescene.KidADreams.Thigh".Localized())));
 
             OutputText("Scenes.Ceraphfollowerscene.SweetieNOOOO.CowLikeGrowsHips".Localized());
 
@@ -2425,7 +2423,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             else
                 AddButton(1, "Common.Button.GetTongued".Localized(), null);
 
-            if (silly)
+            if (Silly)
             {
                 OutputText("Scenes.Ceraphfollowerscene.EncounterZetsuko.RecallsSafetyWord".Localized());
 
@@ -3555,16 +3553,16 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             OutputText("Scenes.Ceraphfollowerscene.BarkOrMeowTwiceToCeraph.LikeNeedyAnimal".Localized());
 
             var choices = new List<int>();
-            // 原版 CeraphFollowerScene.hx:2536 — Holli 是跟随者
+            // 鍘熺増 CeraphFollowerScene.hx:2536 鈥?Holli 鏄窡闅忚€?
             if (SceneInstance<HolliScene>.Get().HolliFollower())
                 choices.Add(0);
-            // 原版 CeraphFollowerScene.hx:2539 — Amily 是腐化跟随者
+            // 鍘熺増 CeraphFollowerScene.hx:2539 鈥?Amily 鏄厫鍖栬窡闅忚€?
             if (SceneInstance<AmilyScene>.Get().AmilyFollowerCorrupt())
                 choices.Add(1);
             else
 
                 if (CoC.Instance.Flags.Get(GameFlagIds.HolliSubmissive) == 0)
-                    choices.Add(1); // 原版 CeraphFollower.hx — Holli 尚未屈服
+                    choices.Add(1); // 鍘熺増 CeraphFollower.hx 鈥?Holli 灏氭湭灞堟湇
 
             choices.Add(2);
 
@@ -3637,10 +3635,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             else
                 if (select == 1)
                 {
-                    // 原版 CeraphFollowerScene.hx:2623 — CeraphFollower.hx：腐化 Amily 与腐化 Jojo 同在营地
+                    // 鍘熺増 CeraphFollowerScene.hx:2623 鈥?CeraphFollower.hx锛氳厫鍖?Amily 涓庤厫鍖?Jojo 鍚屽湪钀ュ湴
                     if (SceneInstance<AmilyScene>.Get().AmilyFollowerCorrupt() && SceneInstance<JojoScene>.Get().CampCorruptJojo())
                     {
-                        OutputText("Scenes.Ceraphfollowerscene.BarkOrMeowTwiceToCeraph.ComeAcrossBothSlaves".Localized((noFur ? "Common.Text.Eared".Localized() : "Scenes.Urtascene.TellUrtaToStayTheSame.LikeWord".Localized())));
+                        OutputText("Scenes.Ceraphfollowerscene.BarkOrMeowTwiceToCeraph.ComeAcrossBothSlaves".Localized((NoFur ? "Common.Text.Eared".Localized() : "Scenes.Urtascene.TellUrtaToStayTheSame.LikeWord".Localized())));
 
                         OutputText("Scenes.Ceraphfollowerscene.BarkOrMeowTwiceToCeraph.CeraphHoldsLeash".Localized());
 
@@ -3657,7 +3655,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     {
                         var jojo = false;
 
-                        OutputText("Scenes.Ceraphfollowerscene.BarkOrMeowTwiceToCeraph.MouseSlaveSeesYou".Localized((noFur ? "Common.Text.Eared".Localized() : "Scenes.Urtascene.TellUrtaToStayTheSame.LikeWord".Localized())));
+                        OutputText("Scenes.Ceraphfollowerscene.BarkOrMeowTwiceToCeraph.MouseSlaveSeesYou".Localized((NoFur ? "Common.Text.Eared".Localized() : "Scenes.Urtascene.TellUrtaToStayTheSame.LikeWord".Localized())));
 
                         if (jojo)
                             OutputText("Scenes.Ceraphfollowerscene.BarkOrMeowTwiceToCeraph.HePronoun".Localized());
@@ -3714,7 +3712,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     }
 
                     OutputText("Scenes.Ceraphfollowerscene.BarkOrMeowTwiceToCeraph.ExhaustingWalk".Localized());
-                    // 原版 CeraphFollowerScene.hx:2684 — 腐化 Amily 与腐化 Jojo 同在
+                    // 鍘熺増 CeraphFollowerScene.hx:2684 鈥?鑵愬寲 Amily 涓庤厫鍖?Jojo 鍚屽湪
                     if (SceneInstance<AmilyScene>.Get().AmilyFollowerCorrupt() && SceneInstance<JojoScene>.Get().CampCorruptJojo())
                         OutputText("Scenes.Ceraphfollowerscene.BarkOrMeowTwiceToCeraph.PluralSuffixAgain".Localized());
 
@@ -3727,7 +3725,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     if (SceneInstance<JojoScene>.Get().CampCorruptJojo())
                     {
                         OutputText("Scenes.Ceraphfollowerscene.BarkOrMeowTwiceToCeraph.JojoThird".Localized());
-                        // 原版 CeraphFollowerScene.hx:2692 — 腐化 Amily 与腐化 Jojo 同在时才加「and」
+                        // 鍘熺増 CeraphFollowerScene.hx:2692 鈥?鑵愬寲 Amily 涓庤厫鍖?Jojo 鍚屽湪鏃舵墠鍔犮€宎nd銆?
                         if (SceneInstance<AmilyScene>.Get().AmilyFollowerCorrupt() && SceneInstance<JojoScene>.Get().CampCorruptJojo())
                             OutputText("Scenes.Ceraphfollowerscene.BarkOrMeowTwiceToCeraph.AndConjunction".Localized());
                     }

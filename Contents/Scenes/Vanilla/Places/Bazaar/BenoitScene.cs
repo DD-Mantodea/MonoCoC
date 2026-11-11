@@ -441,7 +441,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
         {
             ClearOutput();
 
-            if (silly)
+            if (Silly)
             {
             }
             else
@@ -565,7 +565,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
         {
             ClearOutput();
 
-            if (silly)
+            if (Silly)
             {
             }
             else
@@ -999,7 +999,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
             {
                 var hasSolidHair = (Player.Body.Get<HairPart>().Id != BodyPartTypes.Goo && Player.Body.Get<HairPart>().Length > 0);
 
-                OutputText("Scenes.Benoit.TalkToBenoit.AdBeenOpingSpeak".Localized((noFur ? "" : " the scales on "), BenoitMF("Benoit", "Benoite"), BenoitMF("he", "she")));
+                OutputText("Scenes.Benoit.TalkToBenoit.AdBeenOpingSpeak".Localized((NoFur ? "" : " the scales on "), BenoitMF("Benoit", "Benoite"), BenoitMF("he", "she")));
 
                 OutputText("Scenes.Benoit.TalkToBenoit.HoldSilverHairPin".Localized(
                      BenoitMF("Benoit", "Benoite")
@@ -1116,7 +1116,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                          BenoitMF("him", "her")
                     ));
 
-                    OutputText("Scenes.Benoit.TalkToBenoit.ProudRaceOnceNoble".Localized(BenoitMF("he", "she"), BenoitMF("his ", "her "), (noFur ? "Common.Text.Chin".Localized() : "BodyParts.Descript.Face.Noun.Snout".Localized())));
+                    OutputText("Scenes.Benoit.TalkToBenoit.ProudRaceOnceNoble".Localized(BenoitMF("he", "she"), BenoitMF("his ", "her "), (NoFur ? "Common.Text.Chin".Localized() : "BodyParts.Descript.Face.Noun.Snout".Localized())));
 
                     OutputText("Scenes.Benoit.TalkToBenoit.ShrugsWhatToDo".Localized(
                          BenoitMF("him", "her")
@@ -1331,7 +1331,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                                                                  BenoitMF("he", "she")
                                                             ));
 
-                                                            if (silly)
+                                                            if (Silly)
                                                                 OutputText("Scenes.Benoit.TalkToBenoit.RubsPierreBehindEar".Localized(
                                                                      BenoitMF("he", "she"),
 
@@ -3723,7 +3723,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Benoit.ConvertToBassyEyesPageTwo.EyesWidenMirrorReptilian".Localized());
 
-            OutputText("Scenes.Benoit.ConvertToBassyEyesPageTwo.SmilePutMirrorWorked".Localized((noFur ? "Common.Text.Nose".Localized() : "Common.Text.ScaledSnout".Localized()), (noFur ? "Common.Text.Cheeks".Localized() : "Common.Text.Scales".Localized())));
+            OutputText("Scenes.Benoit.ConvertToBassyEyesPageTwo.SmilePutMirrorWorked".Localized((NoFur ? "Common.Text.Nose".Localized() : "Common.Text.ScaledSnout".Localized()), (NoFur ? "Common.Text.Cheeks".Localized() : "Common.Text.Scales".Localized())));
 
             OutputText("Scenes.Benoit.ConvertToBassyEyesPageTwo.NussingGiftForYou".Localized());
 
@@ -4796,7 +4796,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                     else
                         OutputText("Scenes.Benoit.FemoitSexIntro.SoonBottomingHulkingAgain".Localized());
 
-                    OutputText("Scenes.Benoit.FemoitSexIntro.MomentaryPauseReposition".Localized((noFur ? "Common.Text.Skin".Localized() : "Common.Text.Scales".Localized())));
+                    OutputText("Scenes.Benoit.FemoitSexIntro.MomentaryPauseReposition".Localized((NoFur ? "Common.Text.Skin".Localized() : "Common.Text.Scales".Localized())));
 
                     OutputText("Scenes.Benoit.FemoitSexIntro.YezYezGoodSink".Localized());
 
@@ -4845,7 +4845,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
                             OutputText("Scenes.Benoit.FemoitSexIntro.StartsShockArmsWrap".Localized());
 
-                            OutputText("Scenes.Benoit.FemoitSexIntro.HugeSolidRockSkin".Localized((noFur ? "Common.Text.Smooth".Localized() : "Common.Text.Scaly".Localized())));
+                            OutputText("Scenes.Benoit.FemoitSexIntro.HugeSolidRockSkin".Localized((NoFur ? "Common.Text.Smooth".Localized() : "Common.Text.Scaly".Localized())));
 
                             OutputText("Scenes.Benoit.FemoitSexIntro.FeignOffencePride".Localized());
 
@@ -4927,7 +4927,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Benoit.FemoitBirths.EncourageBreatheDeeply".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Benoit.FemoitBirths.ShapedLikeRhomboidalPolygon".Localized());
             else
                 OutputText("Scenes.Benoit.FemoitBirths.SmoothlyCurvedJadeEgg".Localized());

@@ -1866,7 +1866,7 @@ ReturnToCamp(1);
             else
                 AddNextButtonDisabled("Breastfeed", "This scene requires you to have a very high milk amount.", "");
 
-            if ((silly) && (CurrentMonster.Body.Get<HairPart>().Color == "red" || CoC.Instance.Flags.Get(GameFlagIds.RedheadIsFuta) == 0))
+            if ((Silly) && (CurrentMonster.Body.Get<HairPart>().Color == "red" || CoC.Instance.Flags.Get(GameFlagIds.RedheadIsFuta) == 0))
                     AddNextButton("Scenes.Kitsune.DefeatTheKitsunes.ButtonDrinking".Localized(), KitsuneDrinking);
 
             AddNextButton("Scenes.Kitsune.DefeatTheKitsunes.ButtonFluffTail".Localized(), KitsuneTouchTail);
@@ -2386,7 +2386,7 @@ CombatScene.CleanupAfterCombat();
             else
                 OutputText(Player.Legs());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Kitsune.FuckDraftBlond.HeatRoastMarshmallows".Localized());
             else
                 OutputText("Scenes.Kitsune.FuckDraftBlond.HeatSendsBlood".Localized());
@@ -3135,7 +3135,7 @@ CombatScene.CleanupAfterCombat();
 
             OutputText("Scenes.Kitsune.RedheadsDontDeserveToHavePenisesBecauseTheyreTooGayForPenisOrSomethingIDontReallyKnowHowThisWorksOrWhyThisFunctionNameIsSoFuckingLong.SayStartFineBeat".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Kitsune.RedheadsDontDeserveToHavePenisesBecauseTheyreTooGayForPenisOrSomethingIDontReallyKnowHowThisWorksOrWhyThisFunctionNameIsSoFuckingLong.YouMonster".Localized());
 
             OutputText("Scenes.Kitsune.RedheadsDontDeserveToHavePenisesBecauseTheyreTooGayForPenisOrSomethingIDontReallyKnowHowThisWorksOrWhyThisFunctionNameIsSoFuckingLong.SayEndBreak".Localized());

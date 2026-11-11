@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Flags;
@@ -18,9 +18,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Seasonal
 
         public static SaveContent Save => SaveContent(SceneIds.Core.Nieve);
 
-        public string debugName => "Nieve";
 
-        public string debugHint => "";
 
         public int stage
         {
@@ -486,7 +484,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Seasonal
 
             OutputText("Scenes.Nieve.YesKeepNieve.ActuallyLaughAtQuestion".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Nieve.YesKeepNieve.FreeFollowerNoWorries".Localized());
 
             OutputText("Scenes.Nieve.YesKeepNieve.DoesntSeemThreat".Localized());
@@ -682,7 +680,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Seasonal
                 NieveMbFg("a dark blue cock that appears to be about nine inches long", "a thin, light blue cock that appears to be about four inches long", "a pair of dark blue pussy lips", "a puffy, light blue mound with a pristine slit")
             ));
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Nieve.NieveAppearance.PresumeAButthole".Localized());
 
             OutputText("Scenes.Nieve.NieveAppearance.StomachFlatAndToned".Localized(
@@ -968,7 +966,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Seasonal
 
             OutputText("Scenes.Nieve.LickNieve.LipsLeaveTheNipple".Localized());
 
-            if (silly && Random.Shared.Next(2) == 0)
+            if (Silly && Random.Shared.Next(2) == 0)
             {
                 OutputText("Scenes.Nieve.LickNieve.PauseAwkwardly".Localized());
 
@@ -1328,7 +1326,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Seasonal
 
             OutputText("Scenes.Nieve.NieveFucksYou.BowsSubserviently".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Nieve.NieveFucksYou.HeSayHisKind".Localized());
 
             if (Player.HasVagina())

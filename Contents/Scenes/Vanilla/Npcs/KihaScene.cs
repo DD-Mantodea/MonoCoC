@@ -760,7 +760,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kihascene.KihaVictoryPomfTail.GearLandsBehindYou".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Kihascene.KihaVictoryPomfTail.WithAPomf".Localized());
             else
                 OutputText("Scenes.Kihascene.KihaVictoryPomfTail.SentencePeriod".Localized());
@@ -1082,7 +1082,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                     OutputText("Scenes.Kihascene.RapeKihaWithWORDS.OnceFinishSheSpeaks".Localized());
 
-                    if (silly && CoC.Instance.Flags.Get(GameFlagIds.LottieEncounterCounter) > 0 && false)
+                    if (Silly && CoC.Instance.Flags.Get(GameFlagIds.LottieEncounterCounter) > 0 && false)
                         OutputText("Scenes.Kihascene.RapeKihaWithWORDS.FeelsLikeLottie".Localized());
                 }
                 else

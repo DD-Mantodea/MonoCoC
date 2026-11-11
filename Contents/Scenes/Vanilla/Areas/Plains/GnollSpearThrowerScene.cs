@@ -54,7 +54,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
 
                 OutputText("Scenes.Gnollspearthrowerscene.Gnoll2Encounter.SpottedPelt".Localized());
 
-                OutputText("Scenes.Gnollspearthrowerscene.Gnoll2Encounter.GrowlSnaps".Localized((noFur ? "skin" : "fur")));
+                OutputText("Scenes.Gnollspearthrowerscene.Gnoll2Encounter.GrowlSnaps".Localized((NoFur ? "skin" : "fur")));
             }
             else
             {
@@ -69,7 +69,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
 
                 OutputText("Scenes.Gnollspearthrowerscene.Gnoll2Encounter.SpottedPeltAgain".Localized());
 
-                OutputText("Scenes.Gnollspearthrowerscene.Gnoll2Encounter.GrowlSnapsAgain".Localized((noFur ? "skin" : "fur")));
+                OutputText("Scenes.Gnollspearthrowerscene.Gnoll2Encounter.GrowlSnapsAgain".Localized((NoFur ? "skin" : "fur")));
             }
 
             CombatScene.Start(EnemyRegistry.Create(EnemyIds.GnollSpearThrower), () => Go<CampScene>());
@@ -155,7 +155,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
 
             OutputText("Scenes.Gnollspearthrowerscene.HyenaSpearLossAnal.AirFillsSound".Localized());
 
-            OutputText("Scenes.Gnollspearthrowerscene.HyenaSpearLossAnal.MuscledForm".Localized((noFur ? "Tough skin" : "Coarse fur")));
+            OutputText("Scenes.Gnollspearthrowerscene.HyenaSpearLossAnal.MuscledForm".Localized((NoFur ? "Tough skin" : "Coarse fur")));
 
             OutputText("Scenes.Gnollspearthrowerscene.HyenaSpearLossAnal.BeginsPiston".Localized());
 
@@ -253,7 +253,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
 
             ShowImage("gnoll-fuck-oral");
 
-            OutputText("Scenes.Gnollspearthrowerscene.HyenaVictoryRapeFellatio.SensingWill".Localized((noFur ? "its" : "a furred")));
+            OutputText("Scenes.Gnollspearthrowerscene.HyenaVictoryRapeFellatio.SensingWill".Localized((NoFur ? "its" : "a furred")));
 
             OutputText("Scenes.Gnollspearthrowerscene.HyenaVictoryRapeFellatio.DarkEyesWatch".Localized(
                  Player.CockDescript(x)
@@ -361,9 +361,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
 
             OutputText("Scenes.Gnollspearthrowerscene.VictoryRapeHyenaCunnilingus.DarkEyesApproach".Localized());
 
-            OutputText("Scenes.Gnollspearthrowerscene.VictoryRapeHyenaCunnilingus.SlowlyDawns".Localized((noFur ? "each topped with a hard, black nipple" : "covered in soft fur with a black nipple poking through the cream colored pelt")));
+            OutputText("Scenes.Gnollspearthrowerscene.VictoryRapeHyenaCunnilingus.SlowlyDawns".Localized((NoFur ? "each topped with a hard, black nipple" : "covered in soft fur with a black nipple poking through the cream colored pelt")));
 
-            OutputText("Scenes.Gnollspearthrowerscene.VictoryRapeHyenaCunnilingus.PullingAway".Localized((noFur ? "its" : "a furred")));
+            OutputText("Scenes.Gnollspearthrowerscene.VictoryRapeHyenaCunnilingus.PullingAway".Localized((NoFur ? "its" : "a furred")));
 
             OutputText("Scenes.Gnollspearthrowerscene.VictoryRapeHyenaCunnilingus.HeadyMusk".Localized(
                  Player.VaginaDescript(0)
@@ -377,7 +377,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
                  Player.VaginaDescript(0)
             ));
 
-            OutputText("Scenes.Gnollspearthrowerscene.VictoryRapeHyenaCunnilingus.LostInBuilding".Localized((noFur ? "of her mouth" : "the front of her muzzle")));
+            OutputText("Scenes.Gnollspearthrowerscene.VictoryRapeHyenaCunnilingus.LostInBuilding".Localized((NoFur ? "of her mouth" : "the front of her muzzle")));
 
             OutputText("Scenes.Gnollspearthrowerscene.VictoryRapeHyenaCunnilingus.PressureIncreases".Localized());
 

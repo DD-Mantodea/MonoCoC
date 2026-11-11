@@ -1,4 +1,4 @@
-using MonoCoC.Contents.World;
+﻿using MonoCoC.Contents.World;
 using System.Collections.Generic;
 using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
@@ -31,9 +31,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public static SaveContent Save => SaveContent(SceneIds.Npcs.Ember);
 
-        public string debugName => "Ember";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -1725,7 +1723,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                         OutputText("Scenes.Emberscene.DiscussExplorationWithEmber.GoblinTeasedPregnancy".Localized());
                                     else
                                         if (Random.Shared.Next(2) == 0 && CoC.Instance.Flags.Get(GameFlagIds.JojoStatus) <= 1 && CoC.Instance.Flags.Get(GameFlagIds.JojoFixedStatus) == 0)
-                                            OutputText("Scenes.Emberscene.DiscussExplorationWithEmber.MouseMonkMeditating".Localized((noFur ? "Common.Text.Eared".Localized() : "Common.Text.Morph".Localized())));
+                                            OutputText("Scenes.Emberscene.DiscussExplorationWithEmber.MouseMonkMeditating".Localized((NoFur ? "Common.Text.Eared".Localized() : "Common.Text.Morph".Localized())));
                                         else
                                             OutputText("Scenes.Emberscene.DiscussExplorationWithEmber.GladeStrangeCreature".Localized());
                 }
@@ -2870,7 +2868,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     OutputText("Scenes.Emberscene.GetMilkFromEmber.DontNeedToWonder".Localized((LittleEmber() ? "Common.Text.StrokeHerNearlyFlatChest".Localized() : "Common.Text.SqueezeEmberEirImpressiveBosom".Localized()), (LittleEmber() ? "Common.Text.HappyToHaveSuchAGirlish".Localized() : "Common.Text.SoProudToBeSoBig".Localized())));
 
                     OutputText("Scenes.Emberscene.GetMilkFromEmber.BlowsPuffOfSmoke".Localized(
-                        LittleEmber() ? (silly ? "Common.Text.ImProudAFlatChestIs".Localized() : "Common.Text.BetYouWontFindManyGirls".Localized()) : " I'm proud. Bet you don't see girls with breasts as perfect as mine."
+                        LittleEmber() ? (Silly ? "Common.Text.ImProudAFlatChestIs".Localized() : "Common.Text.BetYouWontFindManyGirls".Localized()) : " I'm proud. Bet you don't see girls with breasts as perfect as mine."
                     ));
 
                     OutputText("Scenes.Emberscene.GetMilkFromEmber.AdmitThenKissTeat".Localized((LittleEmber() ? "Common.Text.ShesRight".Localized() : "Common.Text.YouDont".Localized())));
@@ -3328,7 +3326,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Emberscene.CatchAnal.DecidesToDominate".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Emberscene.CatchAnal.SeizesControlBoldly".Localized());
             else
                 OutputText("Scenes.Emberscene.CatchAnal.SeizesInitiative".Localized());
@@ -4053,13 +4051,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ShowImage("ember-eat-out-her-vagoo");
 
-            OutputText("Scenes.Emberscene.SlurpDraggieCunnies.OfferKneelPleasure".Localized((LittleEmber() && silly ? "loli " : "")));
+            OutputText("Scenes.Emberscene.SlurpDraggieCunnies.OfferKneelPleasure".Localized((LittleEmber() && Silly ? "loli " : "")));
 
             if (EmberAffection() <= 25)
             {
                 OutputText("Scenes.Emberscene.SlurpDraggieCunnies.HidesExcitement".Localized());
 
-                if (!silly)
+                if (!Silly)
                     OutputText("Scenes.Emberscene.SlurpDraggieCunnies.WithMeWord".Localized());
                 else
                     OutputText("Scenes.Emberscene.SlurpDraggieCunnies.AffectionMeterWord".Localized());
@@ -4136,7 +4134,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Emberscene.SlurpDraggieCunnies.LeansIntoKissThen".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Emberscene.SlurpDraggieCunnies.MeterNotThatFull".Localized());
 
             OutputText("Scenes.Emberscene.SlurpDraggieCunnies.SayEnd".Localized());
@@ -4175,7 +4173,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             ShowImage("ember-eats-your-vagoo-out");
 
             OutputText("Scenes.Emberscene.GetEatenOutByEmbra.LongTongueIdea".Localized(
-                LittleEmber() ? (silly ? "Common.Text.Your".Localized() + EmberMF("shota dragon", "dragon loli") : "Common.Text.TheLittle".Localized() + EmberMF("boy", "girl")) : "Ember"
+                LittleEmber() ? (Silly ? "Common.Text.Your".Localized() + EmberMF("shota dragon", "dragon loli") : "Common.Text.TheLittle".Localized() + EmberMF("boy", "girl")) : "Ember"
             ));
 
             if (EmberAffection() <= 25)
@@ -4447,7 +4445,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Emberscene.PenetrateEmbrah.SentencePeriodAgain".Localized());
 
-            OutputText("Scenes.Emberscene.PenetrateEmbrah.InnerWallsMassage".Localized((LittleEmber() && silly ? "Common.Text.LoliHole".Localized() : "Common.Text.InnerWalls".Localized()), (LittleEmber() ? "Common.Text.TinyGirl".Localized() : "Common.Text.Dragon".Localized())));
+            OutputText("Scenes.Emberscene.PenetrateEmbrah.InnerWallsMassage".Localized((LittleEmber() && Silly ? "Common.Text.LoliHole".Localized() : "Common.Text.InnerWalls".Localized()), (LittleEmber() ? "Common.Text.TinyGirl".Localized() : "Common.Text.Dragon".Localized())));
 
             OutputText("Scenes.Emberscene.PenetrateEmbrah.OverwhelmedStopsMoving".Localized());
 
@@ -4589,7 +4587,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 OutputText("Scenes.Emberscene.GetPenetratedByEmberLastSexSceneWoooo.DragonWord".Localized());
             else
                 OutputText("Scenes.Emberscene.GetPenetratedByEmberLastSexSceneWoooo.Shota.Two".Localized(
-                    (LittleEmber() && silly) ? EmberMF("shota", "loli") : "human"
+                    (LittleEmber() && Silly) ? EmberMF("shota", "loli") : "human"
                 ));
 
             OutputText("Scenes.Emberscene.GetPenetratedByEmberLastSexSceneWoooo.DickBetweenLegs".Localized(
@@ -4649,7 +4647,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 OutputText("Scenes.Emberscene.GetPenetratedByEmberLastSexSceneWoooo.DraconicWord".Localized());
             else
                 OutputText("Scenes.Emberscene.GetPenetratedByEmberLastSexSceneWoooo.Shota.Two".Localized(
-                    (LittleEmber() && silly) ? EmberMF("shota ", "loli ") : "human-like "
+                    (LittleEmber() && Silly) ? EmberMF("shota ", "loli ") : "human-like "
                 ));
 
             OutputText("Scenes.Emberscene.GetPenetratedByEmberLastSexSceneWoooo.CockPastLabia".Localized());
@@ -6479,7 +6477,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 EmberGroinDesc("stiffness of [Ember eir] cock", "the slickness of her pussy"),
 
-                LittleEmber() ? (silly ? EmberMF("shota ", "loli ") : "little ") : ""
+                LittleEmber() ? (Silly ? EmberMF("shota ", "loli ") : "little ") : ""
             ));
 
             if (CoC.Instance.Flags.Get(GameFlagIds.TimesEmberLustyFucked) == 0)

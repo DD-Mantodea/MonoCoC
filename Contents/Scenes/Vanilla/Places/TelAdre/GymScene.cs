@@ -110,7 +110,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         {
             ClearOutput();
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Gym.BuyGymLifeTimeMembership.ShutUpTakeGems".Localized());
 
             OutputText("Scenes.Gym.BuyGymLifeTimeMembership.PaysFiveHundred".Localized());

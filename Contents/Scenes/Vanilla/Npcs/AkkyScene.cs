@@ -1,4 +1,4 @@
-using MonoCoC.Contents.World;
+﻿using MonoCoC.Contents.World;
 using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
@@ -19,9 +19,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public static SaveContent Save => SaveContent(SceneIds.Npcs.Akky);
 
-        public string debugName => "Akky";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -33,7 +31,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             IsOwned();
         }
 
-        // 原版 Akky.hx:73 timeChange()：把手风琴（Akky）每天随机安置在营地各处
+        // 鍘熺増 Akky.hx:73 timeChange()锛氭妸鎵嬮鐞达紙Akky锛夋瘡澶╅殢鏈哄畨缃湪钀ュ湴鍚勫
         public virtual bool TimeChange()
         {
             actionSeen = NONE;
@@ -90,7 +88,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             return false;
         }
 
-        // 原版 Akky.hx:116 timeChangeLarge()
+        // 鍘熺増 Akky.hx:116 timeChangeLarge()
         public virtual bool TimeChangeLarge() => false;
 
         public void Reset()
@@ -107,7 +105,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             return CoC.Instance.Flags.Get(GameFlagIds.AkkyName) != "";
         }
 
-        // 原版 Akky.hx menuButton：在营地可见时打开宠物菜单，不可见时显示位置提示
+        // 鍘熺増 Akky.hx menuButton锛氬湪钀ュ湴鍙鏃舵墦寮€瀹犵墿鑿滃崟锛屼笉鍙鏃舵樉绀轰綅缃彁绀?
         public override void MenuButton(Action returnFunc, int pos = 0, string fromLocation = "Camp")
         {
             if (!IsVisible(fromLocation))
@@ -155,7 +153,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             AddButton(2, "Common.Button.Talk".Localized(), () => TalkingToCats(returnFunc));
 
-            if (silly && !Save.GetBool("giftedBear"))
+            if (Silly && !Save.GetBool("giftedBear"))
                 AddNextButton("Common.Button.GiftBear".Localized(), GiftAkkyBear);
 
             AddButton(14, "Common.Button.Back".Localized(), returnFunc);
@@ -351,7 +349,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (CoC.Instance.Flags.Get(GameFlagIds.AkbalSubmissionCounter) > 0)
                 options.Add(12);
 
-            if (silly)
+            if (Silly)
                 options.Add(13);
 
             switch (options[Random.Shared.Next(options.Count)])

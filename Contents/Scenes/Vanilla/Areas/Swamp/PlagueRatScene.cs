@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
@@ -40,9 +40,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
 
         public static SaveContent Save => SaveContent(SceneIds.Swamp.PlagueRat);
 
-        public string debugName => "Plague Rat";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -107,10 +105,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
             {
                 OutputText("Scenes.PlagueRat.PlagueVictory.YourAssSplitsWith".Localized());
 
-                if (Player.Body.Get<AnalPart>().Virgin && silly)
+                if (Player.Body.Get<AnalPart>().Virgin && Silly)
                     OutputText("Scenes.PlagueRat.PlagueVictory.Text".Localized());
 
-                Player.ButtChange(3, Player.Body.Get<AnalPart>().Virgin && silly, false, true);
+                Player.ButtChange(3, Player.Body.Get<AnalPart>().Virgin && Silly, false, true);
 
                 OutputText("Scenes.PlagueRat.PlagueVictory.TheMixOfSlipping".Localized());
             }
@@ -165,7 +163,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
             if (Player.IsInLake)
                 Next("Wash", PlagueWash, "Forceful cleansing is in order.");
 
-            if (silly && Player.HasItem(UseableIds.TeddyBear))
+            if (Silly && Player.HasItem(UseableIds.TeddyBear))
                 Next("Gift Bear", PlagueBear, "Gift him a bear, show him compassion.");
 
             if (Player.HasItem(ItemRegistry.Create(ConsumableIds.Liddellium)))

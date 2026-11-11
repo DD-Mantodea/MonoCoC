@@ -528,7 +528,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
             ClearOutput();
 
             OutputText("Scenes.Alraunescene.AlrauneWon.SaysLookingDown".Localized(
-                silly && Player.Lust >= Player.MaxLust
+                Silly && Player.Lust >= Player.MaxLust
 
                     ? " [say: How ironic, too, that you lost because you were 'battle-hardened'.][pg]And with that, you kind of welcome death. "
 
@@ -638,7 +638,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
 
             AddButton(3, "Scenes.Faerie.SexMenu.ButtonOral".Localized(), AlrauneOral);
 
-            var sillyAural = silly && Player.Body.Get<TailPart>().Id == BodyPartTypes.Fox;
+            var sillyAural = Silly && Player.Body.Get<TailPart>().Id == BodyPartTypes.Fox;
 
             if (sillyAural || (OptionStore.Instance.Get("gore", 0) > 0))
             {
@@ -890,9 +890,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
         {
             ClearOutput();
 
-            RegisterMacro("tailbrain", HasEarfuckingTail() || (Player.Body.Get<TailPart>().Id == BodyPartTypes.Fox && silly));
+            RegisterMacro("tailbrain", HasEarfuckingTail() || (Player.Body.Get<TailPart>().Id == BodyPartTypes.Fox && Silly));
 
-            RegisterMacro("kitsunebrain", Player.Body.Get<TailPart>().Id == BodyPartTypes.Fox && silly);
+            RegisterMacro("kitsunebrain", Player.Body.Get<TailPart>().Id == BodyPartTypes.Fox && Silly);
 
             bool humanCock = false;
 
@@ -927,7 +927,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
             OutputText("Scenes.Alraunescene.AlrauneAural.MyPetunias".Localized(
                 longCock ? "impacting the inside with" : "fully hilting"));
 
-            if (silly && Player.Body.Get<TailPart>().Id == BodyPartTypes.Fox)
+            if (Silly && Player.Body.Get<TailPart>().Id == BodyPartTypes.Fox)
             {
                 OutputText("Scenes.Alraunescene.AlrauneAural.FurTouchesEveryNook".Localized());
 
@@ -1007,7 +1007,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
                                 Flags.Get(GameFlagIds.CampCabinWoodResources) + 1));
                         }
                         else
-                            if (silly && Player.Weapon.IsKatana())
+                            if (Silly && Player.Weapon.IsKatana())
                             {
                                 OutputText("Scenes.Alraunescene.AlrauneKill.SheathedBladeUponSubduing".Localized());
 
@@ -1105,7 +1105,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
         {
             ClearOutput();
 
-            OutputText((silly
+            OutputText((Silly
 
                 ? "Scenes.Alraunescene.AskArian.WaltzingAroundTheLizan"
 

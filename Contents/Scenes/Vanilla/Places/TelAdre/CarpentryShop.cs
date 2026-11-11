@@ -26,7 +26,7 @@ public class CarpentryShop : Scene
         {
             ClearOutput();
 
-            OutputText("Scenes.Carpentryshop.Enter.EntersShop".Localized((noFur ? "man with zebra-like stripes on his skin and equine ears and tail" : "zebra-morph stallion")));
+            OutputText("Scenes.Carpentryshop.Enter.EntersShop".Localized((NoFur ? "man with zebra-like stripes on his skin and equine ears and tail" : "zebra-morph stallion")));
 
             OutputText("Scenes.Carpentryshop.Enter.WelcomeGreeting".Localized());
 

@@ -15,7 +15,6 @@ using MonoCoC.UI.Components;
 using MonoCoC.UI.Components.Views;
 using MonoCoC.UI.Framework;
 using MonoCoC.Configuration;
-using static MonoCoC.UI.Layout.LayoutConstants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,9 +33,9 @@ namespace MonoCoC.Contents.Scenes
 
         public static readonly int[][] ColumnSlots = [[0, 5, 10], [1, 6, 11], [2, 7, 12], [3, 8, 13], [4, 9, 14]];
 
-        public static SceneState State { get; } = new();
+        public static SceneState ActionState { get; } = new();
 
-        public static IReadOnlyList<SceneAction> Actions => State.Actions;
+        public static IReadOnlyList<SceneAction> Actions => ActionState.Actions;
 
         public static GameView View => GameView.Instance!;
 
@@ -386,7 +385,7 @@ namespace MonoCoC.Contents.Scenes
 
         public static void ClearButtons(bool resetButton = true)
         {
-            State.ClearActions();
+            ActionState.ClearActions();
 
             foreach (var button in Buttons)
                 button?.Reset(resetButton);
@@ -402,7 +401,11 @@ namespace MonoCoC.Contents.Scenes
 
         public static void ReapplyActions()
         {
-            foreach (var action in State.Actions)
+            foreach (var button in Buttons)
+                if (button is not null)
+                    button.Visible = false;
+
+            foreach (var action in ActionState.Actions)
             {
                 var button = ButtonAt(action.Slot);
 
@@ -429,7 +432,7 @@ namespace MonoCoC.Contents.Scenes
         {
             var button = ButtonAt(slot);
 
-            var action = State.SetAction(slot, new SceneAction
+            var action = ActionState.SetAction(slot, new SceneAction
             {
                 Label = text ?? "",
                 OnClick = onClick,
@@ -463,7 +466,7 @@ namespace MonoCoC.Contents.Scenes
         {
             var button = AddButton(slot, text, null, hint, hintHeader);
 
-            var action = State.FindAction(slot);
+            var action = ActionState.FindAction(slot);
 
             if (action is not null)
             {
@@ -487,22 +490,6 @@ namespace MonoCoC.Contents.Scenes
         public static Button? AddNextButtonDisabled(string text, string hint = "", string hintHeader = "") =>
 
             AddButtonDisabled(FirstFree(0, Buttons.Length - 1), text, hint, hintHeader);
-
-        protected static bool silly => OptionStore.Instance.Get("silly", 0) > 0;
-
-        protected static bool Silly => silly;
-
-        protected static bool realistic => OptionStore.Instance.Get("realistic", 0) > 0;
-
-        protected static bool survival => OptionStore.Instance.Get("survival", 0) > 0;
-
-        protected static bool metric => OptionStore.Instance.Get("metric", 0) > 0;
-
-        protected static bool hyper => OptionStore.Instance.Get("hyper", 0) > 0;
-
-        protected static bool noFur => !Player.HasFur();
-
-        protected static bool hasKnot => Player.Cocks.Count > 0 && Player.Cocks.Any(c => c.KnotMultiplier > 1f);
 
         public static void ReturnToCamp(int hours)
         {

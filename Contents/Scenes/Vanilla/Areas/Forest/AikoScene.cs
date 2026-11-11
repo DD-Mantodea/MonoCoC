@@ -129,7 +129,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
                 AddButton(1, "Common.Button.No".Localized(), AikoPeaceGreeeting);
             }
             else
-                if (CoC.Instance.Flags.Get(GameFlagIds.AikoHotBlood) == 0 && CoC.Instance.Flags.Get(GameFlagIds.AikoTimesMet) > 3 && silly && aikoCorruption < 50 && Random.Shared.Next(15) == 0)
+                if (CoC.Instance.Flags.Get(GameFlagIds.AikoHotBlood) == 0 && CoC.Instance.Flags.Get(GameFlagIds.AikoTimesMet) > 3 && Silly && aikoCorruption < 50 && Random.Shared.Next(15) == 0)
                 {
                     OutputText("Scenes.Aiko.EncounterAiko.FamiliarTrail".Localized());
 
@@ -200,7 +200,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
                             else
                             {
                                 OutputText("Scenes.Aiko.EncounterAiko.GotSomeNerve".Localized(
-                                     CoC.Instance.Flags.Get(GameFlagIds.AikoFightWon) > 0 ? "You tell her that she seems pretty high and mighty for someone who lost so handily the last time. " + (silly ? "Maybe, you suggest, she should check herself, before--and you quote--she wrecks herself. " : "") : "She seems pretty confident that she can take you again, after her previous victory. "
+                                     CoC.Instance.Flags.Get(GameFlagIds.AikoFightWon) > 0 ? "You tell her that she seems pretty high and mighty for someone who lost so handily the last time. " + (Silly ? "Maybe, you suggest, she should check herself, before--and you quote--she wrecks herself. " : "") : "She seems pretty confident that she can take you again, after her previous victory. "
                                 ));
 
                                 ClearButtons();
@@ -1035,7 +1035,7 @@ ReturnToCamp(1);
 
                     OutputText("Scenes.Aiko.AikoTalkE.WhyBelieveYou".Localized());
 
-                    if (silly)
+                    if (Silly)
                     {
                         OutputText("Scenes.Aiko.AikoTalkE.HoldFingerUp".Localized());
 
@@ -1460,7 +1460,7 @@ ReturnToCamp(1);
             {
                 OutputText("Scenes.Aiko.TalkCulture.YesNoBoth".Localized());
 
-                if (silly && Player.IsGoo())
+                if (Silly && Player.IsGoo())
                     OutputText("Scenes.Aiko.TalkCulture.CanRelateFluid".Localized());
 
                 OutputText("Scenes.Aiko.TalkCulture.ThankHerHelp".Localized());

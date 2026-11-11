@@ -1216,7 +1216,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Katherineemployment.InitiateTrainingWithUrta.HurtPrideCouncil".Localized());
 
-            if (silly)
+            if (Silly)
             {
                 OutputText("Scenes.Katherineemployment.InitiateTrainingWithUrta.GhostbustingGear".Localized());
 
@@ -1299,7 +1299,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Katherineemployment.InitiateTrainingWithUrta.FeralYowlBolts".Localized());
 
-            if (silly)
+            if (Silly)
             {
                 OutputText("Scenes.Katherineemployment.InitiateTrainingWithUrta.TryExtendHandChanting".Localized());
 
@@ -1905,7 +1905,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Katherineemployment.KatherineTrainingWithUrtaStage3Failure.StartsShoving".Localized());
 
-            if (silly)
+            if (Silly)
             {
                 OutputText("Scenes.Katherineemployment.KatherineTrainingWithUrtaStage3Failure.WhatBugBittenHug".Localized());
 

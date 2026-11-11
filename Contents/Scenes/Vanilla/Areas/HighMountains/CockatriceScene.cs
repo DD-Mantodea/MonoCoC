@@ -41,13 +41,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
                 ShowImage("monster-cockatrice");
 
-                OutputText("Scenes.Cockatricescene.Greeting.SixFeetTall".Localized((noFur ? " shoulders and upper arms" : ""), (noFur ? "human" : "beaked"), (noFur ? "smooth skin" : "smooth cream scales of its underbelly")));
+                OutputText("Scenes.Cockatricescene.Greeting.SixFeetTall".Localized((NoFur ? " shoulders and upper arms" : ""), (NoFur ? "human" : "beaked"), (NoFur ? "smooth skin" : "smooth cream scales of its underbelly")));
 
                 OutputText("Scenes.Cockatricescene.Greeting.FeatheredArms".Localized());
 
                 OutputText("Scenes.Cockatricescene.Greeting.ShiftsStance".Localized());
 
-                OutputText("Scenes.Cockatricescene.Greeting.WideHips".Localized((noFur ? "" : " feathered")));
+                OutputText("Scenes.Cockatricescene.Greeting.WideHips".Localized((NoFur ? "" : " feathered")));
 
                 OutputText("Scenes.Cockatricescene.Greeting.NoticesYou".Localized());
 
@@ -154,7 +154,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             ShowImage("cockatrice-ridehim-vag");
 
-            OutputText("Scenes.Cockatricescene.CockatriceRideHimVag.TaperedBumpy".Localized((noFur ? "skin" : "scales"), (noFur ? "mouth" : "beak")));
+            OutputText("Scenes.Cockatricescene.CockatriceRideHimVag.TaperedBumpy".Localized((NoFur ? "skin" : "scales"), (NoFur ? "mouth" : "beak")));
 
             OutputText("Scenes.Cockatricescene.CockatriceRideHimVag.RisesUpLength".Localized());
 
@@ -197,7 +197,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Cockatricescene.CockatriceRideHimVag.GetDressed.Two".Localized());
 
-            OutputText("Scenes.Cockatricescene.CockatriceRideHimVag.CantHelpSmile".Localized((noFur ? "nose" : "beak")));
+            OutputText("Scenes.Cockatricescene.CockatriceRideHimVag.CantHelpSmile".Localized((NoFur ? "nose" : "beak")));
 
             OutputText("Scenes.Cockatricescene.CockatriceRideHimVag.DoThisAgain".Localized());
 
@@ -256,7 +256,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
                 if (Player.HasCock())
                 {
-                    OutputText("Scenes.Cockatricescene.CockatriceRideHimAnal.CockSpurting".Localized((noFur ? "" : " scaled")));
+                    OutputText("Scenes.Cockatricescene.CockatriceRideHimAnal.CockSpurting".Localized((NoFur ? "" : " scaled")));
 
                     if (Player.CumQ() < 150)
                         OutputText("Scenes.Cockatricescene.CockatriceRideHimAnal.SmallLoad".Localized());
@@ -280,7 +280,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
             else
                 OutputText("Scenes.Cockatricescene.CockatriceRideHimAnal.GrabsGear".Localized());
 
-            OutputText("Scenes.Cockatricescene.CockatriceRideHimAnal.ShakesHimself".Localized((noFur ? "nose" : "beak")));
+            OutputText("Scenes.Cockatricescene.CockatriceRideHimAnal.ShakesHimself".Localized((NoFur ? "nose" : "beak")));
 
             OutputText("Scenes.Cockatricescene.CockatriceRideHimAnal.DoThisAgain".Localized());
 
@@ -299,11 +299,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Cockatricescene.CockatriceButtfuck.MakesWayOver".Localized());
 
-            OutputText("Scenes.Cockatricescene.CockatriceButtfuck.OrdersKnees".Localized((noFur ? "" : "under his feathers"), (noFur ? "" : "and their soft feathers")));
+            OutputText("Scenes.Cockatricescene.CockatriceButtfuck.OrdersKnees".Localized((NoFur ? "" : "under his feathers"), (NoFur ? "" : "and their soft feathers")));
 
             OutputText("Scenes.Cockatricescene.CockatriceButtfuck.NaughtyTail".Localized());
 
-            OutputText("Scenes.Cockatricescene.CockatriceButtfuck.FollowsHips".Localized((noFur ? "" : " fluffy")));
+            OutputText("Scenes.Cockatricescene.CockatriceButtfuck.FollowsHips".Localized((NoFur ? "" : " fluffy")));
 
             OutputText("Scenes.Cockatricescene.CockatriceButtfuck.SucksFingers".Localized());
 
@@ -320,7 +320,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
                 OutputText("Scenes.Cockatricescene.CockatriceButtfuck.FeedsMore".Localized());
 
                 if (Player.Balls > 0)
-                    OutputText("Scenes.Cockatricescene.CockatriceButtfuck.BallsAgainst".Localized((Player.Balls == 1 ? "presses" : "press"), (noFur ? "" : " fluffy"), (noFur ? "" : ", caressed by his downy plumage in a delightful way")));
+                    OutputText("Scenes.Cockatricescene.CockatriceButtfuck.BallsAgainst".Localized((Player.Balls == 1 ? "presses" : "press"), (NoFur ? "" : " fluffy"), (NoFur ? "" : ", caressed by his downy plumage in a delightful way")));
             }
             else
                 OutputText("Scenes.Cockatricescene.CockatriceButtfuck.FeedsMoreAgain".Localized());
@@ -350,10 +350,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Cockatricescene.CockatriceButtfuck.TightRing".Localized());
 
-            OutputText("Scenes.Cockatricescene.CockatriceButtfuck.CumsExplosively".Localized((noFur ? "chin" : "beak")));
+            OutputText("Scenes.Cockatricescene.CockatriceButtfuck.CumsExplosively".Localized((NoFur ? "chin" : "beak")));
 
             if (Player.Cocks.Count > 1)
-                OutputText("Scenes.Cockatricescene.CockatriceButtfuck.OtherCocksBehind".Localized((Player.Cocks.Count > 2 ? "cocks coat" : "cock coats"), (noFur ? "" : " his ruffled feathers and")));
+                OutputText("Scenes.Cockatricescene.CockatriceButtfuck.OtherCocksBehind".Localized((Player.Cocks.Count > 2 ? "cocks coat" : "cock coats"), (NoFur ? "" : " his ruffled feathers and")));
 
             OutputText("Scenes.Cockatricescene.CockatriceButtfuck.SlipsOut".Localized());
 
@@ -374,13 +374,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Cockatricescene.CockatriceOralCock.KnowsWhatExpect".Localized());
 
-            OutputText("Scenes.Cockatricescene.CockatriceOralCock.TimeForFun".Localized((noFur ? "" : " fluffy"), (noFur ? "mouth" : "beak")));
+            OutputText("Scenes.Cockatricescene.CockatriceOralCock.TimeForFun".Localized((NoFur ? "" : " fluffy"), (NoFur ? "mouth" : "beak")));
 
             ShowImage("cockatrice-ridehim-oral");
 
-            OutputText("Scenes.Cockatricescene.CockatriceOralCock.CoveredInSaliva".Localized((noFur ? "" : "His beak is surprisingly soft, more like a firm rubber, and wonderfully warm and wet inside. ")));
+            OutputText("Scenes.Cockatricescene.CockatriceOralCock.CoveredInSaliva".Localized((NoFur ? "" : "His beak is surprisingly soft, more like a firm rubber, and wonderfully warm and wet inside. ")));
 
-            OutputText("Scenes.Cockatricescene.CockatriceOralCock.MoaningWhisper".Localized((noFur ? "lips" : "beak"), (noFur ? "drips down to turn his feathers from blue to white" : "makes his feathered features turn blue to white")));
+            OutputText("Scenes.Cockatricescene.CockatriceOralCock.MoaningWhisper".Localized((NoFur ? "lips" : "beak"), (NoFur ? "drips down to turn his feathers from blue to white" : "makes his feathered features turn blue to white")));
 
             OutputText("Scenes.Cockatricescene.CockatriceOralCock.FallsToPanting".Localized());
 
@@ -399,15 +399,15 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Cockatricescene.CockatriceOralVag.KnowsWhatExpect".Localized());
 
-            OutputText("Scenes.Cockatricescene.CockatriceOralVag.TimeForFun".Localized((noFur ? "" : " fluffy"), (noFur ? "mouth" : "beak"), (noFur ? "mouth" : "beak"), (noFur ? "the tip of his nose" : "the curve of his beak, the firmness against your [clit] exquisite"), (noFur ? "soft lips" : "firm beak")));
+            OutputText("Scenes.Cockatricescene.CockatriceOralVag.TimeForFun".Localized((NoFur ? "" : " fluffy"), (NoFur ? "mouth" : "beak"), (NoFur ? "mouth" : "beak"), (NoFur ? "the tip of his nose" : "the curve of his beak, the firmness against your [clit] exquisite"), (NoFur ? "soft lips" : "firm beak")));
 
             ShowImage("cockatrice-ridehim-cunnilingus");
 
             OutputText("Scenes.Cockatricescene.CockatriceOralVag.SlipsHandsAround".Localized());
 
-            OutputText("Scenes.Cockatricescene.CockatriceOralVag.MelodicHum".Localized((noFur ? "lips" : "beak")));
+            OutputText("Scenes.Cockatricescene.CockatriceOralVag.MelodicHum".Localized((NoFur ? "lips" : "beak")));
 
-            OutputText("Scenes.Cockatricescene.CockatriceOralVag.GetsFullControl".Localized((noFur ? "nose" : "beak")));
+            OutputText("Scenes.Cockatricescene.CockatriceOralVag.GetsFullControl".Localized((NoFur ? "nose" : "beak")));
 
             Player.Orgasm("Vaginal");
 
@@ -422,7 +422,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Cockatricescene.CockatriceTaurButtFuck.DecideWhatToDo".Localized());
 
-            OutputText("Scenes.Cockatricescene.CockatriceTaurButtFuck.GrabbingArm".Localized((noFur ? "" : "His fluffy plumage tickles your thighs, while his scaled belly glides across your flesh. ")));
+            OutputText("Scenes.Cockatricescene.CockatriceTaurButtFuck.GrabbingArm".Localized((NoFur ? "" : "His fluffy plumage tickles your thighs, while his scaled belly glides across your flesh. ")));
 
             OutputText("Scenes.Cockatricescene.CockatriceTaurButtFuck.HissesClawsDig".Localized());
 
@@ -464,7 +464,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Cockatricescene.CockatriceDriderButtFuck.TakesByHand".Localized());
 
-            OutputText("Scenes.Cockatricescene.CockatriceDriderButtFuck.NiceAndHard".Localized((noFur ? "" : " feathered")));
+            OutputText("Scenes.Cockatricescene.CockatriceDriderButtFuck.NiceAndHard".Localized((NoFur ? "" : " feathered")));
 
             OutputText("Scenes.Cockatricescene.CockatriceDriderButtFuck.GentlyRock".Localized());
 
@@ -538,13 +538,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
                 {
                 var cockLength = Player.BiggestCockLength();
 
-                OutputText("Scenes.Cockatricescene.RideCockatriceForeplay.SlownessUnnaturalAgain".Localized((noFur ? "mouth" : "beak"), (noFur ? "" : "You're surprised by how soft his beak is, the edge not hard and sharp as you had expected, but more like a layer of firm rubber. ")));
+                OutputText("Scenes.Cockatricescene.RideCockatriceForeplay.SlownessUnnaturalAgain".Localized((NoFur ? "mouth" : "beak"), (NoFur ? "" : "You're surprised by how soft his beak is, the edge not hard and sharp as you had expected, but more like a layer of firm rubber. ")));
 
                 if (cockLength <= 5)
-                    OutputText("Scenes.Cockatricescene.RideCockatriceForeplay.WetHeatMouth".Localized((noFur ? "" : "his beak brushing against your crotch ")));
+                    OutputText("Scenes.Cockatricescene.RideCockatriceForeplay.WetHeatMouth".Localized((NoFur ? "" : "his beak brushing against your crotch ")));
                 else
                     if (cockLength <= 12)
-                        OutputText("Scenes.Cockatricescene.RideCockatriceForeplay.WetHeatMouthAgain".Localized((noFur ? "" : "his beak brushing against your crotch ")));
+                        OutputText("Scenes.Cockatricescene.RideCockatriceForeplay.WetHeatMouthAgain".Localized((NoFur ? "" : "his beak brushing against your crotch ")));
                     else
                         if (cockLength <= 18)
                         {
@@ -589,7 +589,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
                 OutputText("Scenes.Cockatricescene.RideCockatriceForeplay.NipplesMoisten".Localized());
 
-                OutputText("Scenes.Cockatricescene.RideCockatriceForeplay.RoughLickCircular".Localized((noFur ? "skin" : "scales")));
+                OutputText("Scenes.Cockatricescene.RideCockatriceForeplay.RoughLickCircular".Localized((NoFur ? "skin" : "scales")));
             }
         }
 
@@ -625,7 +625,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Cockatricescene.CockatriceLossAnal.BreathyMoans".Localized());
 
-            OutputText("Scenes.Cockatricescene.CockatriceLossAnal.WithdrawsSoftening".Localized((noFur ? "" : " and feathered rump")));
+            OutputText("Scenes.Cockatricescene.CockatriceLossAnal.WithdrawsSoftening".Localized((NoFur ? "" : " and feathered rump")));
 
             Player.ButtChange(80, true);
 

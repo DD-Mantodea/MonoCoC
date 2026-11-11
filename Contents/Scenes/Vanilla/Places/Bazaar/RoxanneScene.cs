@@ -33,7 +33,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
         {
             ClearOutput();
 
-            OutputText("Scenes.Roxanne.Roxanne1stApproach.HesitantlyApproach".Localized((noFur ? " as they cover everywhere but her fce and torso" : ""), (noFur ? "is largely humanoid, it lacks any ears and" : "has a lizard-like shape,")));
+            OutputText("Scenes.Roxanne.Roxanne1stApproach.HesitantlyApproach".Localized((NoFur ? " as they cover everywhere but her fce and torso" : ""), (NoFur ? "is largely humanoid, it lacks any ears and" : "has a lizard-like shape,")));
 
             OutputText("Scenes.Roxanne.Roxanne1stApproach.AlphaLizanGlances".Localized(
                  Player.Mf("buddy", "girly")
@@ -213,7 +213,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                     OutputText("Scenes.Roxanne.RoxanneDrinkingContest.TeasesLizanPirate".Localized());
                 else
                     if (CoC.Instance.Flags.Get(GameFlagIds.RoxanneDriningContestWon) > 0 && CoC.Instance.Flags.Get(GameFlagIds.RoxanneDriningContestLost) <= 0)
-                        OutputText("Scenes.Roxanne.RoxanneDrinkingContest.FeignedAir".Localized((noFur ? "lips" : "draconian muzzle")));
+                        OutputText("Scenes.Roxanne.RoxanneDrinkingContest.FeignedAir".Localized((NoFur ? "lips" : "draconian muzzle")));
                     else
                         if (CoC.Instance.Flags.Get(GameFlagIds.RoxanneDriningContestLost) > 0 && CoC.Instance.Flags.Get(GameFlagIds.RoxanneDrinkingContestLastWinner) == 1)
                             OutputText("Scenes.Roxanne.RoxanneDrinkingContest.DeterminedLizanSwishes".Localized());
@@ -414,7 +414,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
         {
             ClearOutput();
 
-            OutputText("Scenes.Roxanne.RoxanneCunnilingus.ShimmyOutOf".Localized((noFur ? "" : " scaled"), (noFur ? "skin" : "scales")));
+            OutputText("Scenes.Roxanne.RoxanneCunnilingus.ShimmyOutOf".Localized((NoFur ? "" : " scaled"), (NoFur ? "skin" : "scales")));
 
             OutputText("Scenes.Roxanne.RoxanneCunnilingus.PinkLengthOfPoisontail".Localized());
 
@@ -596,7 +596,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Roxanne.RoxanneReamsYouNormal.ParagraphBreak".Localized());
 
-            OutputText("Scenes.Roxanne.RoxanneReamsYouNormal.TooIntoxicated".Localized((noFur ? " almost" : "")));
+            OutputText("Scenes.Roxanne.RoxanneReamsYouNormal.TooIntoxicated".Localized((NoFur ? " almost" : "")));
 
             if (Player.Balls > 0)
                 OutputText("Scenes.Roxanne.RoxanneReamsYouNormal.AgainstYourOwnOrbs".Localized(
@@ -671,9 +671,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                 }
 
             if (Player.Tallness <= 50)
-                OutputText("Scenes.Roxanne.RoxanneReamsYouNormal.ShiftsForwardTits".Localized((noFur ? "" : " the smooth scales of")));
+                OutputText("Scenes.Roxanne.RoxanneReamsYouNormal.ShiftsForwardTits".Localized((NoFur ? "" : " the smooth scales of")));
             else
-                OutputText("Scenes.Roxanne.RoxanneReamsYouNormal.ShiftsForwardHeaving".Localized((noFur ? "" : " the smooth scales of")));
+                OutputText("Scenes.Roxanne.RoxanneReamsYouNormal.ShiftsForwardHeaving".Localized((NoFur ? "" : " the smooth scales of")));
 
             OutputText("Scenes.Roxanne.RoxanneReamsYouNormal.DoublesHerPace".Localized());
 

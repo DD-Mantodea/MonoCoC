@@ -2733,7 +2733,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Monsters
 
             OutputText("Scenes.Impscene.NoogaisNippleRape.TeasingLewdRollsBack".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Impscene.NoogaisNippleRape.ImpSickenedButCurious".Localized());
 
             OutputText("Scenes.Impscene.NoogaisNippleRape.ParagraphBreak".Localized());

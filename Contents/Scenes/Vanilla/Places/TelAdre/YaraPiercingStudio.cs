@@ -83,7 +83,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             ClearButtons();
 
             OutputText("Scenes.Yarapiercingstudio.PiercingStudio.StudioInterior".Localized(
-                 noFur ? "" : " You dully notice that unlike everyone else in this town, she's mostly human. Perhaps she came through a portal as well?"
+                 NoFur ? "" : " You dully notice that unlike everyone else in this town, she's mostly human. Perhaps she came through a portal as well?"
             ));
 
             OutputText("Scenes.Yarapiercingstudio.PiercingStudio.IntroducesHerself".Localized(

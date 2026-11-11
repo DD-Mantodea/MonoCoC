@@ -1111,7 +1111,7 @@ ReturnToCamp(1);
 
             OutputText("Scenes.Femalespidermorphscene.SpiderAmputation.BloodCurdlingShrieks".Localized((!(Player.Weapon.IsAxe() || Player.HasKeyItem("Carpenter's Toolbox")) ? "If that weren't so much effort, you'd take the other leg too. " : "")));
             // 原版 FemaleSpiderMorphScene.hx:871：Shouldra 是跟随者且开启 silly 时会插一句吐槽
-            if (SceneInstance<ShouldraFollowerScene>.Get().FollowerShouldra() && silly)
+            if (SceneInstance<ShouldraFollowerScene>.Get().FollowerShouldra() && Silly)
                 OutputText("Scenes.Femalespidermorphscene.SpiderAmputation.DisembodiedVoice".Localized());
 
             Save.SetInt("spidersKilled", Save.GetInt("spidersKilled", 0) + 1);

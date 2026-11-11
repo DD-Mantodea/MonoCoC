@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Datas.Vanilla;
@@ -71,9 +71,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.VolcanicCrag
 
         public static SaveContent Save => SaveContent(SceneIds.VolcanicCrag.CorruptedCoven);
 
-        public string debugName => "Circe";
 
-        public string debugHint => "";
 
         public override void Entry()
         {

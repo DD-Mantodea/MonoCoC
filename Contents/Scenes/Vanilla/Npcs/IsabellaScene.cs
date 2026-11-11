@@ -205,7 +205,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 else
                     OutputText("Scenes.Isabellascene.IsabellaGreeting.StubbyHornsFloppyEars".Localized());
 
-                OutputText("Scenes.Isabellascene.IsabellaGreeting.TannedMilkChocolateSkin".Localized((noFur ? "just above the knees " : "")));
+                OutputText("Scenes.Isabellascene.IsabellaGreeting.TannedMilkChocolateSkin".Localized((NoFur ? "just above the knees " : "")));
 
                 if (Player.Tallness > 78)
                 {
@@ -664,7 +664,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 OutputText("Scenes.Isabellascene.NomOnMommaIzzysTits.UnlacingCorset".Localized());
 
-                OutputText("Scenes.Isabellascene.NomOnMommaIzzysTits.LongPregnantPause".Localized((noFur ? "" : " the short fur that sprouts from")));
+                OutputText("Scenes.Isabellascene.NomOnMommaIzzysTits.LongPregnantPause".Localized((NoFur ? "" : " the short fur that sprouts from")));
 
                 OutputText("Scenes.Isabellascene.NomOnMommaIzzysTits.ShiftPositionCradle".Localized());
 
@@ -1199,7 +1199,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 else
                     OutputText("Scenes.Isabellascene.IsabellaWinsAndSpanks.CollapseMasturbating".Localized());
 
-                OutputText("Scenes.Isabellascene.IsabellaWinsAndSpanks.HandLiftsOverKnee".Localized((noFur ? "just above her knee" : "at the midpoint of her thigh")));
+                OutputText("Scenes.Isabellascene.IsabellaWinsAndSpanks.HandLiftsOverKnee".Localized((NoFur ? "just above her knee" : "at the midpoint of her thigh")));
 
                 if (Player.Lust >= Player.MaxLust)
                     OutputText("Scenes.Isabellascene.IsabellaWinsAndSpanks.TryToHumpRefused".Localized());
@@ -2660,7 +2660,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             else
                 OutputText("Scenes.Isabellascene.VaginalProdNPokeIsabella.NeverWantedFightPlain".Localized());
 
-            OutputText("Scenes.Isabellascene.VaginalProdNPokeIsabella.TouchAroundHerLoins".Localized((noFur ? "" : "softly-furred ")));
+            OutputText("Scenes.Isabellascene.VaginalProdNPokeIsabella.TouchAroundHerLoins".Localized((NoFur ? "" : "softly-furred ")));
 
             OutputText("Scenes.Isabellascene.VaginalProdNPokeIsabella.AskBitesLipPetulantly".Localized());
 

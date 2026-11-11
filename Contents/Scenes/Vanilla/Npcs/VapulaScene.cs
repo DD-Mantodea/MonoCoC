@@ -898,7 +898,7 @@ CallSlaveVapula();
                 Player.CockDescript(x)
             ));
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Vapula.VapulaAndCeraphButtfuckTrainYeehaw.ScreamingButtFuck".Localized());
             else
                 OutputText("Scenes.Vapula.VapulaAndCeraphButtfuckTrainYeehaw.GroaningRavagePucker".Localized());

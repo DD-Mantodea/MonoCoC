@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
 using MonoCoC.Contents.Enemies.Vanilla;
@@ -24,9 +24,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
 
         public static SaveContent Save => SaveContent(SceneIds.Bog.Sylvia);
 
-        public string debugName => "Sylvia";
 
-        public string debugHint => "";
 
         public int sylviaProg => Save.GetInt("sylviaProgress", 0);
 
@@ -355,7 +353,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
                 }
                 else
                 {
-                    if (silly)
+                    if (Silly)
                         OutputText("Scenes.Sylviascene.SylviaDefeat.JamsFingerCumFruit".Localized());
                     else
                         OutputText("Scenes.Sylviascene.SylviaDefeat.SeemsDisappointedMorePlay".Localized());
@@ -435,7 +433,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
         {
             ClearOutput();
 
-            if (silly)
+            if (Silly)
             {
                 OutputText("Scenes.Sylviascene.SylviaKill.KnowHowDealWhores".Localized());
 
@@ -1868,7 +1866,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
         {
             ClearOutput();
 
-            // 原版 SylviaScene.hx:1265：有小屋床时是「your own bed」，否则「your bedroll」
+            // 鍘熺増 SylviaScene.hx:1265锛氭湁灏忓眿搴婃椂鏄€寉our own bed銆嶏紝鍚﹀垯銆寉our bedroll銆?
             OutputText("Scenes.Sylviascene.SylviaCuddle.JustLikeToCuddle".Localized(
                 Player.Pregnancy.Event > 2 ? "Common.Text.HerBabyWeightClearlyHamperingHer".Localized() : "Common.Text.WithALittleFlourish".Localized(),
 

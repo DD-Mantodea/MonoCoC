@@ -81,89 +81,35 @@ namespace MonoCoC.UI.Components.Views
             }
         }
 
-        private static void OpenStats()
-        {
-            var previous = Scene.Current;
-
-            PlayerStats.HiddenByMenu = true;
-
-            Contents.Scenes.Vanilla.StatsScene.Show(() =>
-            {
-                if (previous is Contents.Scenes.Vanilla.PerksScene
-                    or Contents.Scenes.Vanilla.PlayerAppearance)
-                {
-                    Scene.Go<Contents.Scenes.Vanilla.CampScene>();
-
-                    return;
-                }
-
-                if (previous != null)
-                    Scene.Go(previous);
-                else
-                    Scene.Go<Contents.Scenes.Vanilla.CampScene>();
-            });
-        }
-
-        private static void OpenData()
-        {
-            PlayerStats.HiddenByMenu = true;
-
-            Contents.Scenes.Vanilla.SaveLoad.FromMainMenu = false;
-
-            Scene.Go(SceneInstance<Contents.Scenes.Vanilla.SaveLoad>.Instance);
-        }
-
         public GameView()
         {
             Instance = this;
 
-            Initialize(CreateEvents(), CreateWidgets());
+            Initialize();
 
             Time.HourPassed += OnHourPassed;
 
             TimeAwareRegistry.ReloadVanilla();
         }
 
-        private static UIWidgetRegistry CreateWidgets()
-        {
-            var widgets = new UIWidgetRegistry();
+        [UIComponent("game:sprite")]
+        private static Component CreateSprite() => new UIImage(null);
 
-            widgets.Register("game:sprite", _ => new UIImage(null));
+        [UIComponent("game:image")]
+        private static Component CreateImage() => new UIImage(null);
 
-            widgets.Register("game:image", _ => new UIImage(null));
+        [UIComponent("game:dungeon_map")]
+        private static Component CreateDungeonMap() => new DungeonMapPanel();
 
-            widgets.Register("game:dungeon_map", _ => new DungeonMapPanel());
+        [UIComponent("game:mini_map")]
+        private static Component CreateMiniMap() => new DungeonMiniMapPanel();
 
-            widgets.Register("game:mini_map", _ => new DungeonMiniMapPanel());
+        [UIComponent("game:multi_combat_stats")]
+        private static Component CreateMultiCombatStats() => new MultiCombatStats();
 
-            widgets.Register("game:multi_combat_stats", _ => new MultiCombatStats());
-
-            widgets.Register("game:target_pointer", _ =>
-                new UIImage(ManagerInstance<TextureManager>.Instance["selection"]));
-
-            return widgets;
-        }
-
-        private static UIEventRegistry CreateEvents()
-        {
-            var events = new UIEventRegistry();
-
-            events.RegisterEvent("game.main_menu", () => UIManager.Instance.Root.SwitchView(new MainView()));
-
-            events.RegisterEvent("game.data", () => OpenData());
-
-            events.RegisterEvent("game.stats", () => OpenStats());
-
-            events.RegisterEvent("game.level_up", () => Scene.Go(SceneInstance<Contents.Scenes.Vanilla.LevelUpScene>.Instance));
-
-            events.RegisterEvent("game.perks", () => Scene.Go(SceneInstance<Contents.Scenes.Vanilla.PerksScene>.Instance));
-
-            events.RegisterEvent("game.appearance", () => Scene.Go(SceneInstance<Contents.Scenes.Vanilla.PlayerAppearance>.Instance));
-
-            events.RegisterEvent("game.toggle_menu", () => Instance?.ToggleMenu());
-
-            return events;
-        }
+        [UIComponent("game:target_pointer")]
+        private static Component CreateTargetPointer() =>
+            new UIImage(ManagerInstance<TextureManager>.Instance["selection"]);
 
         public void ToggleMenu()
         {

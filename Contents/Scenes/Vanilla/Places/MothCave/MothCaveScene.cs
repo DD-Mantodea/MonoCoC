@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Stats;
@@ -27,9 +27,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
 
         public static DoloresScene doloresScene => SceneInstance<DoloresScene>.Get();
 
-        public string debugName => "Moth Cave";
 
-        public string debugHint => "Sylvia's home.";
 
         public override void Entry()
         {

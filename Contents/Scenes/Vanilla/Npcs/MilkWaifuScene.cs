@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Flags;
@@ -16,9 +16,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public static SaveContent Save => SaveContent(SceneIds.Npcs.MilkWaifu);
 
-        public string debugName => !string.IsNullOrEmpty(milkName) ? milkName : "Milk Slave";
 
-        public string debugHint => "";
 
         public string milkName { get => CoC.Instance.Flags.Get(GameFlagIds.MilkName); set => CoC.Instance.Flags.Set(GameFlagIds.MilkName, value); }
 
@@ -566,7 +564,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Milkwaifu.CommunalBath.KihaWanders".Localized());
 
-                if (silly && Player.Strength > 80 && Player.Speed > 80)
+                if (Silly && Player.Strength > 80 && Player.Speed > 80)
                     OutputText("Scenes.Milkwaifu.CommunalBath.WithoutWarningGrabKiha".Localized());
             }
 

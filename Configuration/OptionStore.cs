@@ -1,5 +1,6 @@
 using Hjson;
 using MonoCoC.Assets;
+using MonoCoC.Registry;
 using System.Collections.Generic;
 using System.IO;
 
@@ -11,11 +12,11 @@ namespace MonoCoC.Configuration
 
         public List<OptionPaneDefinition> Panes { get; private set; } = [];
 
-        private readonly Dictionary<string, int> _values = [];
+        private readonly Dictionary<Identifier, int> _values = [];
 
-        private readonly Dictionary<string, OptionDefinition> _definitions = [];
+        private readonly Dictionary<Identifier, OptionDefinition> _definitions = [];
 
-        private readonly Dictionary<string, bool> _global = [];
+        private readonly Dictionary<Identifier, bool> _global = [];
 
         private bool _initialized;
 
@@ -39,21 +40,32 @@ namespace MonoCoC.Configuration
                 }
         }
 
-        public int Get(string id, int fallback = 0)
+        public static Identifier ParseId(string id) =>
+            Identifier.TryParse(id, out var identifier)
+                ? identifier
+                : new Identifier("coc", id);
+
+        public int Get(string id, int fallback = 0) => Get(ParseId(id), fallback);
+
+        public int Get(Identifier id, int fallback = 0)
         {
             Initialize();
 
             return _values.TryGetValue(id, out var value) ? value : fallback;
         }
 
-        public void Set(string id, int value)
+        public void Set(string id, int value) => Set(ParseId(id), value);
+
+        public void Set(Identifier id, int value)
         {
             Initialize();
 
             _values[id] = value;
         }
 
-        public bool IsGlobal(string id)
+        public bool IsGlobal(string id) => IsGlobal(ParseId(id));
+
+        public bool IsGlobal(Identifier id)
         {
             Initialize();
 
@@ -71,7 +83,7 @@ namespace MonoCoC.Configuration
                 if (IsGlobal(id) != global)
                     continue;
 
-                result[id] = Get(id, definition.DefaultValue);
+                result[id.ToString()] = Get(id, definition.DefaultValue);
             }
 
             return result;
@@ -89,7 +101,11 @@ namespace MonoCoC.Configuration
                 if (IsGlobal(id) != global)
                     continue;
 
-                if (!json.TryGetValue(id, out var value) || value == null)
+                if (!json.TryGetValue(id.ToString(), out var value) &&
+                    !json.TryGetValue(id.Path, out value))
+                    continue;
+
+                if (value == null)
                     continue;
 
                 if (int.TryParse(value.ToString(), out var number))
@@ -123,7 +139,6 @@ namespace MonoCoC.Configuration
             }
             catch
             {
-                // Broken options file: keep defaults.
             }
         }
 
@@ -141,7 +156,6 @@ namespace MonoCoC.Configuration
             }
             catch
             {
-                // Options are not critical enough to interrupt the game.
             }
         }
 

@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.World;
 using MonoCoC.Contents.Npcs;
 using MonoCoC.Contents.Enemies;
@@ -33,9 +33,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public PregnancyStore Pregnancy => _pregnancy ??= NpcPregnancy.StoreFor(Definition, State);
 
-        public string debugName => "Kiha";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -365,7 +363,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kihafollowerscene.BeatSpiderMob.DenyLethiceAllegiance".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Kihafollowerscene.BeatSpiderMob.FlusteredInsult".Localized());
             else
                 OutputText("Scenes.Kihafollowerscene.BeatSpiderMob.BluntInsult".Localized());
@@ -2767,7 +2765,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kihafollowerscene.FuckKihasVagInCamp.GrabKihaHand".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Kihafollowerscene.FuckKihasVagInCamp.HighPitchWhine".Localized());
             else
                 OutputText("Scenes.Kihafollowerscene.FuckKihasVagInCamp.NervousStutter".Localized());
@@ -2862,7 +2860,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kihafollowerscene.GiveKihaIncubusDraft.GrantRequest".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Kihafollowerscene.GiveKihaIncubusDraft.YourGameRemind".Localized());
 
             OutputText("Scenes.Kihafollowerscene.GiveKihaIncubusDraft.StopEveryTime".Localized());
@@ -2943,7 +2941,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kihafollowerscene.FuckKihaWithATentacle.SmileUndressYourself".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Kihafollowerscene.FuckKihaWithATentacle.WhisperSlowly".Localized());
 
             OutputText("Scenes.Kihafollowerscene.FuckKihaWithATentacle.ShakeHeadGrinning".Localized());

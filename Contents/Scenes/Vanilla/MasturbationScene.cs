@@ -5535,7 +5535,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             OutputText("Scenes.Masturbation.DildoButts.LickToyThenInsert".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Masturbation.DildoButts.AlliterationArousesYou".Localized());
 
             OutputText("Scenes.Masturbation.DildoButts.ToesCurlSmoothPumping".Localized());

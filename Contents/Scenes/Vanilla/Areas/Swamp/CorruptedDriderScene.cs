@@ -1392,7 +1392,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
 
             OutputText("Scenes.Corrupteddriderscene.ButtFuckADriderOhBaby.FinallyDone".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Corrupteddriderscene.ButtFuckADriderOhBaby.ButtSexIsAwesome".Localized());
 
             Player.Orgasm("Dick");

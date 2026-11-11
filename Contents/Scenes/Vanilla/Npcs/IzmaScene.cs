@@ -1,4 +1,4 @@
-using MonoCoC.Contents.World;
+﻿using MonoCoC.Contents.World;
 using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
@@ -32,9 +32,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public static SaveContent Save => SaveContent(SceneIds.Npcs.Izma);
 
-        public string debugName => "Izma";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -2320,7 +2318,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             }
 
             Player.UnlockCodexEntry(GameFlagIds.CodexEntrySharkgirls);
-// 原版 IzmaScene.hx:49：Akky 若在 Izma 处则追加它的位置描述
+// 鍘熺増 IzmaScene.hx:49锛欰kky 鑻ュ湪 Izma 澶勫垯杩藉姞瀹冪殑浣嶇疆鎻忚堪
             SceneInstance<AkkyScene>.Get().LocationDesc("Izma");
 
             ClearButtons();
@@ -3965,7 +3963,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 OutputText("Scenes.Izmascene.IzmaPlayWithKids.AnswerHerQuestion".Localized());
 
                 ClearButtons();
-                // 原版 IzmaScene.hx:3128 — allowChild 时才出现「Firsthand」选项
+                // 鍘熺増 IzmaScene.hx:3128 鈥?allowChild 鏃舵墠鍑虹幇銆孎irsthand銆嶉€夐」
                 if (GameSettings.AllowChild)
                     AddNextButton("Common.Button.Firsthand".Localized(), IzmaDaughterFirsthand);
 
@@ -3987,7 +3985,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 Player.ApplyStats(new DynStat(GameStats.Speed, 1f), new DynStat(GameStats.Toughness, 1f));
 
                 Player.HasGottenWashed();
-                // 原版 IzmaScene.hx:3140 的条件是 allowChild（与 minLust 无关）
+                // 鍘熺増 IzmaScene.hx:3140 鐨勬潯浠舵槸 allowChild锛堜笌 minLust 鏃犲叧锛?
                 if (GameSettings.AllowChild)
                 {
                     OutputText("Scenes.Izmascene.IzmaPlayWithKids.ArousedDiscomfort".Localized((Player.Libido > 50 ? "Try as you might, you can only get so used to such a sex drive. " : "")));
@@ -4038,7 +4036,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     AddNextButton("Common.Button.Explain".Localized(), TigerExplain);
 
                     AddNextButton("Common.Button.Relent".Localized(), TigerRelent);
-                    // 原版 IzmaScene.hx:3166 — allowChild 时才出现「Teach Lesson」选项
+                    // 鍘熺増 IzmaScene.hx:3166 鈥?allowChild 鏃舵墠鍑虹幇銆孴each Lesson銆嶉€夐」
                     if (GameSettings.AllowChild)
                         AddNextButton("Common.Button.TeachLesson".Localized(), TigerLesson);
 
@@ -4270,7 +4268,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             if (CoC.Instance.Flags.Get(GameFlagIds.IzmaChildrenTigersharks) > 0)
             {
-                // 原版 IzmaScene.hx:3295 — allowChild 时列入两个亲子选项
+                // 鍘熺増 IzmaScene.hx:3295 鈥?allowChild 鏃跺垪鍏ヤ袱涓翰瀛愰€夐」
                 if (GameSettings.AllowChild)
                 {
                     choices.Add(1);
@@ -4303,13 +4301,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             choices.Add(4);
 
             choices.Add(5);
-            // 原版 IzmaScene.hx:3315 — allowChild 时列入选项 7
+            // 鍘熺増 IzmaScene.hx:3315 鈥?allowChild 鏃跺垪鍏ラ€夐」 7
             if (GameSettings.AllowChild)
                 choices.Add(7);
 
             choices.Add(8);
 
-            if (silly && CoC.Instance.Flags.Get(GameFlagIds.JasunMet) > 0)
+            if (Silly && CoC.Instance.Flags.Get(GameFlagIds.JasunMet) > 0)
                 choices.Add(13);
 
             if (CoC.Instance.Flags.Get(GameFlagIds.IzmaChildrenSharkgirls) >= 1 && CoC.Instance.Flags.Get(GameFlagIds.IzmaChildrenTigersharks) >= 1)
@@ -4421,7 +4419,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 case 6:
                 {
                 OutputText("Scenes.Izmascene.IzmaKidsPlaytime.TwoSharkGirlsHug".Localized());
-                // 原版 IzmaScene.hx — 虎鲨孩子超过 2 个
+                // 鍘熺増 IzmaScene.hx 鈥?铏庨波瀛╁瓙瓒呰繃 2 涓?
                 if (CoC.Instance.Flags.Get(GameFlagIds.IzmaChildrenTigersharks) > 2)
                 {
                     ClearButtons();
@@ -4498,7 +4496,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 OutputText("Scenes.Izmascene.IzmaKidsPlaytime.SheThreatensImp".Localized());
 
-                if (!silly)
+                if (!Silly)
                     OutputText("Scenes.Izmascene.IzmaKidsPlaytime.IzmaDropkicksImp".Localized());
                 else
                     OutputText("Scenes.Izmascene.IzmaKidsPlaytime.ImpLeersDefiantly".Localized());
@@ -5826,7 +5824,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             ClearButtons();
 
             AddNextButton("Common.Button.Comfort".Localized(), KidDickComfort);
-            // 原版 IzmaScene.hx:4367 — 原版 allowChild 全局开关
+            // 鍘熺増 IzmaScene.hx:4367 鈥?鍘熺増 allowChild 鍏ㄥ眬寮€鍏?
             if (GameSettings.AllowChild)
                 AddNextButton("Common.Button.Tease".Localized(), KidDickTease);
 

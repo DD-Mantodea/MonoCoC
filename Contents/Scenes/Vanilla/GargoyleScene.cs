@@ -258,7 +258,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             OutputText("Scenes.Gargoyle.FirstGargoyleTalk.SheWasMaster".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Gargoyle.FirstGargoyleTalk.MasterIsMasculine".Localized());
 
             OutputText("Scenes.Gargoyle.FirstGargoyleTalk.SighApparentlyDoesnt".Localized());

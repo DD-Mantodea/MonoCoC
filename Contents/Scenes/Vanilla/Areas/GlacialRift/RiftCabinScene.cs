@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Items;
@@ -30,9 +30,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.GlacialRift
 
         public bool masturbated => Save.GetString("orgasmType") == "" ? false : true;
 
-        public string debugName => "Rift Cabin";
 
-        public string debugHint => "The abandoned cabin in the glacial rift.";
 
         public override void Entry()
         {
@@ -141,7 +139,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.GlacialRift
 
             OutputText("Scenes.Riftcabinscene.BurnPicture.OpensStove".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Riftcabinscene.BurnPicture.DidntBurnDrawer".Localized());
             else
                 OutputText("Scenes.Riftcabinscene.BurnPicture.DrawerStillThere".Localized());
@@ -266,7 +264,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.GlacialRift
 
             Save.SetBool("bloomersBurned", true);
 
-            OutputText("Scenes.Riftcabinscene.BurnBloomers.WalksOverStove".Localized((silly ? " Maybe you should try setting yourself on fire some time." : "")));
+            OutputText("Scenes.Riftcabinscene.BurnBloomers.WalksOverStove".Localized((Silly ? " Maybe you should try setting yourself on fire some time." : "")));
 
             OutputText("Scenes.Riftcabinscene.BurnBloomers.WakeUpSomeTime".Localized());
 
@@ -315,7 +313,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.GlacialRift
                         Player.Cocks[Player.SmallestCockIndex()].Length >= 10 ? "She is far more spacious than she looks. You can see the outline of your dick deforming her stomach, the mental image making you almost nut, but you calm yourself at the last moment." : ""
                     ));
 
-                    OutputText("Scenes.Riftcabinscene.FapBloomers.FeelsConvulsing".Localized((silly ? "like a little girl." : "wantonly.")));
+                    OutputText("Scenes.Riftcabinscene.FapBloomers.FeelsConvulsing".Localized((Silly ? "like a little girl." : "wantonly.")));
 
                     OutputText("Scenes.Riftcabinscene.FapBloomers.UnableHold".Localized());
 
@@ -329,7 +327,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.GlacialRift
                         Player.Cocks[Player.SmallestCockIndex()].Length >= 10 ? ", marveling at the sight of your dick distending her belly, the outline perfectly visibly through her small form" : ""
                     ));
 
-                    OutputText("Scenes.Riftcabinscene.FapBloomers.RedMarks".Localized((silly ? " Lolis just look great in that freshly-raped look." : "")));
+                    OutputText("Scenes.Riftcabinscene.FapBloomers.RedMarks".Localized((Silly ? " Lolis just look great in that freshly-raped look." : "")));
 
                     OutputText("Scenes.Riftcabinscene.FapBloomers.TiltsNeck".Localized());
                 }

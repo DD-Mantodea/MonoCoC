@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Enemies.Vanilla;
 using MonoCoC.Contents.Creatures;
@@ -48,9 +48,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 		public static SaveContent Save => SaveContent(SceneIds.Npcs.Jojo);
 
-		public string debugName => "Jojo";
 
-		public string debugHint => "";
 
 		public override void Entry() => JojoEncounterFn();
 
@@ -242,7 +240,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			{
 				OutputText("Scenes.Jojoscene.CorruptCampJojo.JojoSlinksOut".Localized());
 
-				OutputText("Scenes.Jojoscene.CorruptCampJojo.JojoStateDescription".Localized((noFur ? "Common.Text.MouseManWithImmaculateWhiteFurry".Localized() : "Common.Text.NAnthropomorphicMouseWithImmaculateWhite".Localized()), (noFur ? "Common.Text.Hairless".Localized() : "Common.Text.Fuzzy".Localized())));
+				OutputText("Scenes.Jojoscene.CorruptCampJojo.JojoStateDescription".Localized((NoFur ? "Common.Text.MouseManWithImmaculateWhiteFurry".Localized() : "Common.Text.NAnthropomorphicMouseWithImmaculateWhite".Localized()), (NoFur ? "Common.Text.Hairless".Localized() : "Common.Text.Fuzzy".Localized())));
 
 				if (TentacleJojo())
 					OutputText("Scenes.Jojoscene.CorruptCampJojo.TentaclesSprouted".Localized());
@@ -546,7 +544,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.MutateJojo.WhisperGoodToy".Localized());
 
-			OutputText("Scenes.Jojoscene.MutateJojo.SubmitsHappily".Localized((noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+			OutputText("Scenes.Jojoscene.MutateJojo.SubmitsHappily".Localized((NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 
 			if (Player.BiggestBreastSize() >= 1)
 				OutputText(Appearance.AllBreastsDescript(Player));
@@ -573,7 +571,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.MutateJojo.MousePaintsHimself".Localized());
 
-			OutputText("Scenes.Jojoscene.MutateJojo.DildoGonePinkTinge".Localized((noFur ? "" : " the fur around")));
+			OutputText("Scenes.Jojoscene.MutateJojo.DildoGonePinkTinge".Localized((NoFur ? "" : " the fur around")));
 
 			OutputText("Scenes.Jojoscene.MutateJojo.TurnBackAroused".Localized());
 
@@ -1211,7 +1209,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.MilkJojoFirst.ToySuffix".Localized());
 
-			OutputText("Scenes.Jojoscene.MilkJojoFirst.MouseMewlsDisappointment".Localized((noFur ? "Common.Text.Eared".Localized() : "Common.Text.Furred".Localized())));
+			OutputText("Scenes.Jojoscene.MilkJojoFirst.MouseMewlsDisappointment".Localized((NoFur ? "Common.Text.Eared".Localized() : "Common.Text.Furred".Localized())));
 
 			OutputText("Scenes.Jojoscene.MilkJojoFirst.WhitneyFarmLooms".Localized());
 
@@ -1273,7 +1271,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 					else
 						OutputText("Scenes.Jojoscene.MilkJojoFirst.CockRigidityHandAgain".Localized());
 
-					OutputText("Scenes.Jojoscene.MilkJojoFirst.JojoMoansObliviousAgain".Localized(Player.CockDescript(x), (noFur ? "" : ", furry")));
+					OutputText("Scenes.Jojoscene.MilkJojoFirst.JojoMoansObliviousAgain".Localized(Player.CockDescript(x), (NoFur ? "" : ", furry")));
 				}
 
 				Player.Orgasm("Dick");
@@ -1324,9 +1322,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			if (Player.HasCock())
 			{
 				if (Player.CockThatFits(40) < 0)
-					OutputText("Scenes.Jojoscene.MilkJojoFirst.CumOverBack".Localized((noFur ? "Common.Text.CoatingHisSkin".Localized() : "Common.Text.MattingHisWhiteFur".Localized())));
+					OutputText("Scenes.Jojoscene.MilkJojoFirst.CumOverBack".Localized((NoFur ? "Common.Text.CoatingHisSkin".Localized() : "Common.Text.MattingHisWhiteFur".Localized())));
 				else
-					OutputText("Scenes.Jojoscene.MilkJojoFirst.CumAfterPullOut".Localized((noFur ? "Common.Text.CoatingHisSkin".Localized() : "Common.Text.MattingHisWhiteFur".Localized())));
+					OutputText("Scenes.Jojoscene.MilkJojoFirst.CumAfterPullOut".Localized((NoFur ? "Common.Text.CoatingHisSkin".Localized() : "Common.Text.MattingHisWhiteFur".Localized())));
 			}
 			else
 				if (Player.HasVagina())
@@ -1369,11 +1367,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 				OutputText("Scenes.Jojoscene.RepeatMilkJojo.MouseImmobilizedHangs".Localized());
 
-				OutputText("Scenes.Jojoscene.RepeatMilkJojo.SlutHauledUp".Localized((noFur ? "Common.Text.Eared".Localized() : "Common.Text.Furred".Localized())));
+				OutputText("Scenes.Jojoscene.RepeatMilkJojo.SlutHauledUp".Localized((NoFur ? "Common.Text.Eared".Localized() : "Common.Text.Furred".Localized())));
 
 				OutputText("Scenes.Jojoscene.RepeatMilkJojo.TubeSlurpsCockhead".Localized());
 
-				OutputText("Scenes.Jojoscene.RepeatMilkJojo.AssSmackWalkAround".Localized((noFur ? "" : " furry")));
+				OutputText("Scenes.Jojoscene.RepeatMilkJojo.AssSmackWalkAround".Localized((NoFur ? "" : " furry")));
 
 				OutputText("Scenes.Jojoscene.RepeatMilkJojo.EyesRollFroth".Localized());
 
@@ -1418,7 +1416,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			{
 				OutputText("Scenes.Jojoscene.RepeatMilkJojo.MutatedMouseLumbers".Localized());
 
-				OutputText("Scenes.Jojoscene.RepeatMilkJojo.ShoulderTentaclesEngorge".Localized((noFur ? "Common.Text.AwayFromHisBody".Localized() : "Common.Text.OutOfHisFur".Localized())));
+				OutputText("Scenes.Jojoscene.RepeatMilkJojo.ShoulderTentaclesEngorge".Localized((NoFur ? "Common.Text.AwayFromHisBody".Localized() : "Common.Text.OutOfHisFur".Localized())));
 
 				OutputText("Scenes.Jojoscene.RepeatMilkJojo.BarnStallSnuggle".Localized());
 
@@ -1446,7 +1444,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 				OutputText("Scenes.Jojoscene.RepeatMilkJojo.HarnessSagLeftovers".Localized());
 
-				OutputText("Scenes.Jojoscene.RepeatMilkJojo.TellHimGreatJob".Localized((noFur ? "Common.Text.PatHisJizzSoakedHead".Localized() : "Common.Text.ScratchHisJizzSlickedFur".Localized())));
+				OutputText("Scenes.Jojoscene.RepeatMilkJojo.TellHimGreatJob".Localized((NoFur ? "Common.Text.PatHisJizzSoakedHead".Localized() : "Common.Text.ScratchHisJizzSlickedFur".Localized())));
 
 				JojoMilkPay(true);
 
@@ -1511,7 +1509,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			{
 				OutputText("Scenes.Jojoscene.AmilyTeachingJojoBJ.MiceMakeAppearance".Localized());
 
-				OutputText("Scenes.Jojoscene.AmilyTeachingJojoBJ.AmilyBoxesPetEars".Localized((noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+				OutputText("Scenes.Jojoscene.AmilyTeachingJojoBJ.AmilyBoxesPetEars".Localized((NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 			}
 			else
 			{
@@ -1621,7 +1619,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.StuffAmilysMouthWithPostBJCUM.SqueakOfSurprise".Localized());
 
-			OutputText("Scenes.Jojoscene.StuffAmilysMouthWithPostBJCUM.PullOutSatisfied".Localized((noFur ? "Common.Text.Tongue".Localized() : "Common.Text.Muzzle".Localized())));
+			OutputText("Scenes.Jojoscene.StuffAmilysMouthWithPostBJCUM.PullOutSatisfied".Localized((NoFur ? "Common.Text.Tongue".Localized() : "Common.Text.Muzzle".Localized())));
 
 			OutputText("Scenes.Jojoscene.StuffAmilysMouthWithPostBJCUM.LeaveWithSpring".Localized());
 
@@ -1638,9 +1636,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			JojoSprite();
 
-			OutputText("Scenes.Jojoscene.FillJojosMouthWithHotStickyCum.PointAndCommand".Localized((noFur ? "Common.Text.Mouth".Localized() : "Common.Text.Muzzle".Localized())));
+			OutputText("Scenes.Jojoscene.FillJojosMouthWithHotStickyCum.PointAndCommand".Localized((NoFur ? "Common.Text.Mouth".Localized() : "Common.Text.Muzzle".Localized())));
 
-			OutputText("Scenes.Jojoscene.FillJojosMouthWithHotStickyCum.BlissExplosion".Localized((noFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized()), (noFur ? "" : " and fur")));
+			OutputText("Scenes.Jojoscene.FillJojosMouthWithHotStickyCum.BlissExplosion".Localized((NoFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized()), (NoFur ? "" : " and fur")));
 
 			OutputText("Scenes.Jojoscene.FillJojosMouthWithHotStickyCum.MouseToyPolishing".Localized());
 
@@ -1659,13 +1657,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.AmilyAndJojoFuck.PerchOnRock".Localized());
 
-			OutputText("Scenes.Jojoscene.AmilyAndJojoFuck.JojoBegsToCum".Localized((noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+			OutputText("Scenes.Jojoscene.AmilyAndJojoFuck.JojoBegsToCum".Localized((NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 
-			OutputText("Scenes.Jojoscene.AmilyAndJojoFuck.ClitLickDemand".Localized((noFur ? "Common.Text.FaceDarkens".Localized() : "Common.Text.MuzzleAndFaceDarken".Localized())));
+			OutputText("Scenes.Jojoscene.AmilyAndJojoFuck.ClitLickDemand".Localized((NoFur ? "Common.Text.FaceDarkens".Localized() : "Common.Text.MuzzleAndFaceDarken".Localized())));
 
-			OutputText("Scenes.Jojoscene.AmilyAndJojoFuck.JojoMountsBehind".Localized((noFur ? "" : "white-furred ")));
+			OutputText("Scenes.Jojoscene.AmilyAndJojoFuck.JojoMountsBehind".Localized((NoFur ? "" : "white-furred ")));
 
-			OutputText("Scenes.Jojoscene.AmilyAndJojoFuck.DemonicTailTwitch".Localized((noFur ? "-girl" : ""), (noFur ? "" : " lightly-furred")));
+			OutputText("Scenes.Jojoscene.AmilyAndJojoFuck.DemonicTailTwitch".Localized((NoFur ? "-girl" : ""), (NoFur ? "" : " lightly-furred")));
 
 			OutputText("Scenes.Jojoscene.AmilyAndJojoFuck.ChidesBetweenThrusts".Localized());
 
@@ -1914,7 +1912,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 				if (Player.CockTotal() == 1)
 				{
-					OutputText("Scenes.Jojoscene.JojosFirstRape.GrinPressPuckered".Localized(Player.CockDescript(0), (noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+					OutputText("Scenes.Jojoscene.JojosFirstRape.GrinPressPuckered".Localized(Player.CockDescript(0), (NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 
 					OutputText("Scenes.Jojoscene.JojosFirstRape.PullOutSemicolon".Localized());
 
@@ -1926,7 +1924,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 				}
 				else
 				{
-					OutputText("Scenes.Jojoscene.JojosFirstRape.GrinPressCocksSoak".Localized((noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+					OutputText("Scenes.Jojoscene.JojosFirstRape.GrinPressCocksSoak".Localized((NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 
 					OutputText("Scenes.Jojoscene.JojosFirstRape.PullOutComma".Localized());
 
@@ -1965,7 +1963,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 						OutputText("Scenes.Jojoscene.JojosFirstRape.MilkSquirtSpray".Localized());
 
 					if (Player.BiggestLactation() >= 2 && Player.BiggestLactation() < 3)
-						OutputText("Scenes.Jojoscene.JojosFirstRape.MilkStreamSpray".Localized((noFur ? "" : " and puddling on his fur")));
+						OutputText("Scenes.Jojoscene.JojosFirstRape.MilkStreamSpray".Localized((NoFur ? "" : " and puddling on his fur")));
 
 					if (Player.BiggestLactation() >= 3)
 						OutputText("Scenes.Jojoscene.JojosFirstRape.MilkGoutDrench".Localized());
@@ -1987,13 +1985,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 						if (Player.CockTotal() == 1)
 						{
-							OutputText("Scenes.Jojoscene.JojosFirstRape.GrinPressTight".Localized(Player.CockDescript(0), (noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+							OutputText("Scenes.Jojoscene.JojosFirstRape.GrinPressTight".Localized(Player.CockDescript(0), (NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 
 							if (Player.BiggestLactation() >= 1 && Player.BiggestLactation() < 2)
 								OutputText("Scenes.Jojoscene.JojosFirstRape.MilkSquirtSpace".Localized());
 
 							if (Player.BiggestLactation() >= 2 && Player.BiggestLactation() < 3)
-								OutputText("Scenes.Jojoscene.JojosFirstRape.MilkStreamSpace".Localized((noFur ? "" : " and puddling on his fur")));
+								OutputText("Scenes.Jojoscene.JojosFirstRape.MilkStreamSpace".Localized((NoFur ? "" : " and puddling on his fur")));
 
 							if (Player.BiggestLactation() >= 3)
 								OutputText("Scenes.Jojoscene.JojosFirstRape.MilkGoutSpace".Localized());
@@ -2008,13 +2006,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 						}
 						else
 						{
-							OutputText("Scenes.Jojoscene.JojosFirstRape.GrinPressCocksVow".Localized((noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+							OutputText("Scenes.Jojoscene.JojosFirstRape.GrinPressCocksVow".Localized((NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 
 							if (Player.BiggestLactation() >= 1 && Player.BiggestLactation() < 2)
 								OutputText("Scenes.Jojoscene.JojosFirstRape.MilkSquirtSpaceAgain".Localized());
 
 							if (Player.BiggestLactation() >= 2 && Player.BiggestLactation() < 3)
-								OutputText("Scenes.Jojoscene.JojosFirstRape.MilkStreamSpaceAgain".Localized((noFur ? "" : " and puddling on his fur")));
+								OutputText("Scenes.Jojoscene.JojosFirstRape.MilkStreamSpaceAgain".Localized((NoFur ? "" : " and puddling on his fur")));
 
 							if (Player.BiggestLactation() >= 3)
 								OutputText("Scenes.Jojoscene.JojosFirstRape.MilkGoutSpaceAgain".Localized());
@@ -2046,12 +2044,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			if (Player.Gender == Gender.Male)
 			{
-				OutputText("Scenes.Jojoscene.JojosSecondRape.ForceOverLog".Localized((noFur ? "Common.Text.OverHisBody".Localized() : "Common.Text.ThroughHisFur".Localized())));
+				OutputText("Scenes.Jojoscene.JojosSecondRape.ForceOverLog".Localized((NoFur ? "Common.Text.OverHisBody".Localized() : "Common.Text.ThroughHisFur".Localized())));
 
 				if (Player.AverageCockThickness() >= 3)
 					OutputText("Scenes.Jojoscene.JojosSecondRape.TightAsVirgin".Localized());
 
-				OutputText("Scenes.Jojoscene.JojosSecondRape.GrabWaistAndPound".Localized((noFur ? "Common.Text.Legs".Localized() : "Common.Text.Fur".Localized())));
+				OutputText("Scenes.Jojoscene.JojosSecondRape.GrabWaistAndPound".Localized((NoFur ? "Common.Text.Legs".Localized() : "Common.Text.Fur".Localized())));
 
 				if (Player.CockTotal() > 1)
 					OutputText("Scenes.Jojoscene.JojosSecondRape.RemainingCockSpray".Localized());
@@ -2075,7 +2073,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 					OutputText("Scenes.Jojoscene.JojosSecondRape.MilkSquirtSpray".Localized());
 
 				if (Player.BiggestLactation() >= 2 && Player.BiggestLactation() < 3)
-					OutputText("Scenes.Jojoscene.JojosSecondRape.MilkStreamSpray".Localized((noFur ? "" : " and puddling on his fur")));
+					OutputText("Scenes.Jojoscene.JojosSecondRape.MilkStreamSpray".Localized((NoFur ? "" : " and puddling on his fur")));
 
 				if (Player.BiggestLactation() >= 3)
 					OutputText("Scenes.Jojoscene.JojosSecondRape.MilkGoutDrench".Localized());
@@ -2125,7 +2123,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 				if (Player.CockTotal() > 1)
 					OutputText("Scenes.Jojoscene.JojosThirdRape.CramTwoCocksDeep".Localized());
 
-				OutputText("Scenes.Jojoscene.JojosThirdRape.JojoHandInGroin".Localized((noFur ? "Common.Text.Hands".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized()), CurrentMonster!.CockDescriptShort(0)));
+				OutputText("Scenes.Jojoscene.JojosThirdRape.JojoHandInGroin".Localized((NoFur ? "Common.Text.Hands".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized()), CurrentMonster!.CockDescriptShort(0)));
 
 				if (Player.CockTotal() == 1)
 					OutputText("Scenes.Jojoscene.JojosThirdRape.CockClenchesErupting".Localized());
@@ -2171,7 +2169,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 				OutputText("Scenes.Jojoscene.JojosThirdRape.BeckonHimToKneel".Localized(
 					Player.VaginaDescript(0),
 
-					noFur ? "" : "whiskers tickling your " + Player.VaginaDescript(0) + ", his wet "
+					NoFur ? "" : "whiskers tickling your " + Player.VaginaDescript(0) + ", his wet "
 				));
 
 				if (Player.BiggestBreastSize() >= 2)
@@ -2262,7 +2260,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 				else
 					OutputText("Scenes.Jojoscene.JojosThirdRape.CrookFingerAgain".Localized());
 
-				OutputText("Scenes.Jojoscene.JojosThirdRape.BeckonHimKneelAgain".Localized(Player.VaginaDescript(0), (noFur ? "" : "whiskers tickling your " + Player.VaginaDescript(0) + ", his wet ")));
+				OutputText("Scenes.Jojoscene.JojosThirdRape.BeckonHimKneelAgain".Localized(Player.VaginaDescript(0), (NoFur ? "" : "whiskers tickling your " + Player.VaginaDescript(0) + ", his wet ")));
 
 				if (Player.CockTotal() == 1)
 					OutputText("Scenes.Jojoscene.JojosThirdRape.SighCockDroops".Localized());
@@ -2295,7 +2293,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 					));
 
 				if (Player.CockTotal() > 0)
-					OutputText("Scenes.Jojoscene.JojosThirdRape.PreDribblesHisNeck".Localized((noFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
+					OutputText("Scenes.Jojoscene.JojosThirdRape.PreDribblesHisNeck".Localized((NoFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
 
 				OutputText("Scenes.Jojoscene.JojosThirdRape.PullDazedMouseAgain".Localized());
 
@@ -2362,9 +2360,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 				OutputText("Scenes.Jojoscene.JojosFourthRape.FormerMonkKneels".Localized());
 
 				if (Player.CockTotal() == 1)
-					OutputText("Scenes.Jojoscene.JojosFourthRape.TouchHisHeadGently".Localized(Player.CockDescript(0), (noFur ? "" : " fuzzy")));
+					OutputText("Scenes.Jojoscene.JojosFourthRape.TouchHisHeadGently".Localized(Player.CockDescript(0), (NoFur ? "" : " fuzzy")));
 				else
-					OutputText("Scenes.Jojoscene.JojosFourthRape.TouchHisHeadAnticipate".Localized((noFur ? "" : " fuzzy")));
+					OutputText("Scenes.Jojoscene.JojosFourthRape.TouchHisHeadAnticipate".Localized((NoFur ? "" : " fuzzy")));
 
 				if (Player.AverageCockThickness() > 3 || (Player.DogCocks() > 0 && Player.AverageCockThickness() > 3))
 					OutputText("Scenes.Jojoscene.JojosFourthRape.JojoGaspForAir".Localized());
@@ -2377,7 +2375,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 				if (Player.CumQ() > 25)
 					OutputText("Scenes.Jojoscene.JojosFourthRape.HeavyPreChokes".Localized());
 
-				OutputText("Scenes.Jojoscene.JojosFourthRape.JojoPressesDeep".Localized((noFur ? "Common.Text.Hand".Localized() : "Common.Text.Paw".Localized()), (noFur ? "Common.Text.Mouth".Localized() : "Common.Text.Muzzle".Localized())));
+				OutputText("Scenes.Jojoscene.JojosFourthRape.JojoPressesDeep".Localized((NoFur ? "Common.Text.Hand".Localized() : "Common.Text.Paw".Localized()), (NoFur ? "Common.Text.Mouth".Localized() : "Common.Text.Muzzle".Localized())));
 
 				if (Player.CumQ() < 25)
 					OutputText("Scenes.Jojoscene.JojosFourthRape.BucksTinySquirts".Localized());
@@ -2389,15 +2387,15 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 					OutputText("Scenes.Jojoscene.JojosFourthRape.SpasmsIntoThroat".Localized());
 
 				if (Player.CumQ() >= 500)
-					OutputText("Scenes.Jojoscene.JojosFourthRape.BucksCheeksBulge".Localized((noFur ? "Common.Text.Lips".Localized() : "Common.Text.Muzzle".Localized())));
+					OutputText("Scenes.Jojoscene.JojosFourthRape.BucksCheeksBulge".Localized((NoFur ? "Common.Text.Lips".Localized() : "Common.Text.Muzzle".Localized())));
 
-				OutputText("Scenes.Jojoscene.JojosFourthRape.JojoPantsSpitsCum".Localized((noFur ? "Common.Text.Hand".Localized() : "Common.Text.Paw".Localized())));
+				OutputText("Scenes.Jojoscene.JojosFourthRape.JojoPantsSpitsCum".Localized((NoFur ? "Common.Text.Hand".Localized() : "Common.Text.Paw".Localized())));
 
 				if (Player.Libido > 50 && Player.Corruption > 80)
 				{
 					OutputText("Scenes.Jojoscene.JojosFourthRape.FamiliarPowerUnleashed".Localized());
 
-					OutputText("Scenes.Jojoscene.JojosFourthRape.WhimpersFirstBead".Localized((noFur ? "Common.Text.Hands".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized()), CurrentMonster!.CockDescriptShort(0)));
+					OutputText("Scenes.Jojoscene.JojosFourthRape.WhimpersFirstBead".Localized((NoFur ? "Common.Text.Hands".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized()), CurrentMonster!.CockDescriptShort(0)));
 
 					OutputText("Scenes.Jojoscene.JojosFourthRape.WalksAwayFromPet".Localized());
 
@@ -2421,7 +2419,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			{
 				OutputText("Scenes.Jojoscene.JojosFourthRape.OnceMonkKneels".Localized());
 
-				OutputText("Scenes.Jojoscene.JojosFourthRape.TouchHeadGuiding".Localized(Player.VaginaDescript(0), (noFur ? "" : "wet "), Player.VaginaDescript(0)));
+				OutputText("Scenes.Jojoscene.JojosFourthRape.TouchHeadGuiding".Localized(Player.VaginaDescript(0), (NoFur ? "" : "wet "), Player.VaginaDescript(0)));
 
 				OutputText("Scenes.Jojoscene.JojosFourthRape.JojoMoansIntoFolds".Localized(
 					CombatController.Instance!.Context.Enemy.CockDescriptShort(0)
@@ -2454,13 +2452,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 					));
 
 				if (Player.AverageVaginalWetness() <= 1)
-					OutputText("Scenes.Jojoscene.JojosFourthRape.ClampsInOrgasm".Localized((noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+					OutputText("Scenes.Jojoscene.JojosFourthRape.ClampsInOrgasm".Localized((NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 
 				if (Player.AverageVaginalWetness() > 1 && Player.AverageVaginalWetness() <= 3)
-					OutputText("Scenes.Jojoscene.JojosFourthRape.LegsTrapInOrgasm".Localized((noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized()), Player.VaginaDescript(0)));
+					OutputText("Scenes.Jojoscene.JojosFourthRape.LegsTrapInOrgasm".Localized((NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized()), Player.VaginaDescript(0)));
 
 				if (Player.AverageVaginalWetness() == 4)
-					OutputText("Scenes.Jojoscene.JojosFourthRape.LegsTrapGirlcumSlick".Localized((noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized()), Player.VaginaDescript(0), (noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+					OutputText("Scenes.Jojoscene.JojosFourthRape.LegsTrapGirlcumSlick".Localized((NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized()), Player.VaginaDescript(0), (NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 
 				if (Player.AverageVaginalWetness() == 5)
 					OutputText("Scenes.Jojoscene.JojosFourthRape.LegsSqueezeFaceGirlcum".Localized(
@@ -2517,9 +2515,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 						Player.VaginaDescript(0)
 					));
 
-				OutputText("Scenes.Jojoscene.JojosFourthRape.RidesSlowlyGyrating".Localized((noFur ? "Common.Text.OverHisBody".Localized() : "Common.Text.ThroughHisFur".Localized()), Player.VaginaDescript(0)));
+				OutputText("Scenes.Jojoscene.JojosFourthRape.RidesSlowlyGyrating".Localized((NoFur ? "Common.Text.OverHisBody".Localized() : "Common.Text.ThroughHisFur".Localized()), Player.VaginaDescript(0)));
 
-				OutputText("Scenes.Jojoscene.JojosFourthRape.UpTempoBouncing".Localized(CurrentMonster!.CockDescriptShort(0), (noFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized()), Player.VaginaDescript(0)));
+				OutputText("Scenes.Jojoscene.JojosFourthRape.UpTempoBouncing".Localized(CurrentMonster!.CockDescriptShort(0), (NoFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized()), Player.VaginaDescript(0)));
 
 				if (Player.CockTotal() > 0)
 				{
@@ -2591,7 +2589,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 				{
 					OutputText("Scenes.Jojoscene.JojosFourthRape.ParagraphLeadFamiliarPower".Localized());
 
-					OutputText("Scenes.Jojoscene.JojosFourthRape.WhimpersFirstBeadAgain".Localized((noFur ? "Common.Text.Hands".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized()), CurrentMonster!.CockDescriptShort(0)));
+					OutputText("Scenes.Jojoscene.JojosFourthRape.WhimpersFirstBeadAgain".Localized((NoFur ? "Common.Text.Hands".Localized() : "BodyParts.Descript.LowerBody.Feet.Fox".Localized()), CurrentMonster!.CockDescriptShort(0)));
 
 					OutputText("Scenes.Jojoscene.JojosFourthRape.LeavesNewPetAgain".Localized());
 
@@ -2775,17 +2773,17 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			var x = Player.BiggestCockIndex();
 
-			OutputText("Scenes.Jojoscene.CorruptJojoBJCruel.CallsSlutJungle".Localized((noFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized())));
+			OutputText("Scenes.Jojoscene.CorruptJojoBJCruel.CallsSlutJungle".Localized((NoFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized())));
 
 			OutputText("Scenes.Jojoscene.CorruptJojoBJCruel.ShakesHeadResists".Localized());
 
 			if (Player.CockArea(x) < 10)
-				OutputText("Scenes.Jojoscene.CorruptJojoBJCruel.GripsHeadPullsMouth".Localized((noFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized()), Player.CockDescript(x), (noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+				OutputText("Scenes.Jojoscene.CorruptJojoBJCruel.GripsHeadPullsMouth".Localized((NoFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized()), Player.CockDescript(x), (NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 			else
 				if (Player.CockArea(x) < 36)
-					OutputText("Scenes.Jojoscene.CorruptJojoBJCruel.GripsPullsMouthAgain".Localized((noFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized()), Player.CockDescript(x), (noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized()), Player.CockDescript(x)));
+					OutputText("Scenes.Jojoscene.CorruptJojoBJCruel.GripsPullsMouthAgain".Localized((NoFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized()), Player.CockDescript(x), (NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized()), Player.CockDescript(x)));
 				else
-					OutputText("Scenes.Jojoscene.CorruptJojoBJCruel.ThrustsAgainstThroat".Localized((noFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized()), Player.CockDescript(x), (noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized()), Player.CockDescript(x), Player.CockDescript(x)));
+					OutputText("Scenes.Jojoscene.CorruptJojoBJCruel.ThrustsAgainstThroat".Localized((NoFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized()), Player.CockDescript(x), (NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized()), Player.CockDescript(x), Player.CockDescript(x)));
 
 			OutputText("Scenes.Jojoscene.CorruptJojoBJCruel.EyesTurnInFear".Localized((Player.HasVagina() ? "A sympathetic orgasm hits your pussy, causing a surge of feminine juices to splash against his chest and dribble down your thighs lewdly. " : "")));
 
@@ -2808,7 +2806,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			var x = Player.BiggestCockIndex();
 
-			OutputText("Scenes.Jojoscene.CorruptJojoBJGentle.JojoSlipsIntoCamp".Localized((noFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized())));
+			OutputText("Scenes.Jojoscene.CorruptJojoBJGentle.JojoSlipsIntoCamp".Localized((NoFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized())));
 
 			OutputText("Scenes.Jojoscene.CorruptJojoBJGentle.WhimpersCorruptionMusk".Localized());
 
@@ -2827,7 +2825,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			if (Player.BiggestBreastSize() >= 2)
 				OutputText("Scenes.Jojoscene.CorruptJojoBJGentle.DrawsToBosomKiss".Localized());
 			else
-				OutputText("Scenes.Jojoscene.CorruptJojoBJGentle.LastFondCaress".Localized((noFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized())));
+				OutputText("Scenes.Jojoscene.CorruptJojoBJGentle.LastFondCaress".Localized((NoFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized())));
 
 			Player.Orgasm("Dick");
 
@@ -2887,7 +2885,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.CorruptJojoVaginalGentle.UrgeToBeFilled".Localized());
 
-			OutputText("Scenes.Jojoscene.CorruptJojoVaginalGentle.SwallowsNodsObeys".Localized((noFur ? "Common.Text.Lips".Localized() : "Common.Text.Muzzle".Localized()), (Player.HasCock() ? "Common.Text.OwnEndowments".Localized() : "Common.Text.Crotch".Localized())));
+			OutputText("Scenes.Jojoscene.CorruptJojoVaginalGentle.SwallowsNodsObeys".Localized((NoFur ? "Common.Text.Lips".Localized() : "Common.Text.Muzzle".Localized()), (Player.HasCock() ? "Common.Text.OwnEndowments".Localized() : "Common.Text.Crotch".Localized())));
 
 			if (Player.VaginalCapacity() < 10)
 			{
@@ -2904,7 +2902,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 					Player.CuntChange(36.4f, true);
 
-					OutputText("Scenes.Jojoscene.CorruptJojoVaginalGentle.RisesAndFallsPace".Localized((noFur ? "" : " fur")));
+					OutputText("Scenes.Jojoscene.CorruptJojoVaginalGentle.RisesAndFallsPace".Localized((NoFur ? "" : " fur")));
 				}
 				else
 				{
@@ -2937,7 +2935,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			OutputText("Scenes.Jojoscene.CorruptJojoVaginalSmother.CrawlUpToFace".Localized());
 
 			if (Player.Vaginas[0].Wetness > 4)
-				OutputText("Scenes.Jojoscene.CorruptJojoVaginalSmother.MoanWhileLicking".Localized((noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+				OutputText("Scenes.Jojoscene.CorruptJojoVaginalSmother.MoanWhileLicking".Localized((NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 			else
 				if (Random.Shared.Next(2) == 0)
 					OutputText("Scenes.Jojoscene.CorruptJojoVaginalSmother.GrindSlitOnHim".Localized());
@@ -2987,7 +2985,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.CorruptJojoAnalCruel.ThrustAtSquirming".Localized());
 
-			OutputText("Scenes.Jojoscene.CorruptJojoAnalCruel.PullOutAndWipe".Localized(Player.CockDescript(x), (noFur ? "" : " the fur of")));
+			OutputText("Scenes.Jojoscene.CorruptJojoAnalCruel.PullOutAndWipe".Localized(Player.CockDescript(x), (NoFur ? "" : " the fur of")));
 
 			Player.Orgasm("Dick");
 
@@ -3043,7 +3041,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.CorruptJojoAnalSmother.CravingRelief".Localized());
 
-			OutputText("Scenes.Jojoscene.CorruptJojoAnalSmother.CrawlUpThenSpin".Localized((noFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
+			OutputText("Scenes.Jojoscene.CorruptJojoAnalSmother.CrawlUpThenSpin".Localized((NoFur ? "Common.Text.Face".Localized() : "Common.Text.Muzzle".Localized())));
 
 			switch (Random.Shared.Next(3))
 			{
@@ -3092,7 +3090,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			if (Player.BiggestLactation() > 1)
 			{
-				OutputText("Scenes.Jojoscene.CorruptJojoBreasts.KissEachNipple".Localized((noFur ? "Common.Text.Mouth".Localized() : "Common.Text.Muzzle".Localized())));
+				OutputText("Scenes.Jojoscene.CorruptJojoBreasts.KissEachNipple".Localized((NoFur ? "Common.Text.Mouth".Localized() : "Common.Text.Muzzle".Localized())));
 
 				if (Player.BreastRows.Count > 1)
 					OutputText("Scenes.Jojoscene.CorruptJojoBreasts.SuckleAllOthers".Localized());
@@ -3108,7 +3106,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 				if (Player.BiggestBreastSize() <= 5)
 					OutputText("Scenes.Jojoscene.CorruptJojoBreasts.NuzzleSoftOrbs".Localized((Player.HasCock() ? "Common.Text.TakingHoldOfYourShaftAnd".Localized() : "Common.Text.SlippingYourFingersIntoYourSlit".Localized())));
 				else
-					OutputText("Scenes.Jojoscene.CorruptJojoBreasts.WorshipBothNipples".Localized((noFur ? "" : " fur at the")));
+					OutputText("Scenes.Jojoscene.CorruptJojoBreasts.WorshipBothNipples".Localized((NoFur ? "" : " fur at the")));
 
 			OutputText("Scenes.Jojoscene.CorruptJojoBreasts.SpontaneousClimax".Localized());
 
@@ -3129,7 +3127,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			var x = Player.BiggestCockIndex();
 
-			OutputText("Scenes.Jojoscene.WhisperJojobait.SenseJojosPresence".Localized((noFur ? "Common.Text.Hand".Localized() : "Common.Text.Paw".Localized())));
+			OutputText("Scenes.Jojoscene.WhisperJojobait.SenseJojosPresence".Localized((NoFur ? "Common.Text.Hand".Localized() : "Common.Text.Paw".Localized())));
 
 			OutputText("Scenes.Jojoscene.WhisperJojobait.ChorusOfWhispers".Localized());
 
@@ -3180,7 +3178,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			{
 				OutputText("Scenes.Jojoscene.WhisperJojobait.RoarDuringClimax".Localized());
 
-				OutputText("Scenes.Jojoscene.WhisperJojobait.HowlsInHeat".Localized(Player.CockDescript(x), (noFur ? "" : " fuzzy"), (noFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
+				OutputText("Scenes.Jojoscene.WhisperJojobait.HowlsInHeat".Localized(Player.CockDescript(x), (NoFur ? "" : " fuzzy"), (NoFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
 
 				OutputText("Scenes.Jojoscene.WhisperJojobait.WadeCumPuddle".Localized());
 			}
@@ -3204,7 +3202,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 		{
 			ClearOutput();
 
-			OutputText("Scenes.Jojoscene.BeeEggsInCorruptJojo.TeasingJojoClose".Localized((noFur ? "" : " the soft fur of")));
+			OutputText("Scenes.Jojoscene.BeeEggsInCorruptJojo.TeasingJojoClose".Localized((NoFur ? "" : " the soft fur of")));
 
 			OutputText("Scenes.Jojoscene.BeeEggsInCorruptJojo.JojoObliviousToProtrusion".Localized());
 
@@ -3272,7 +3270,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			OutputText("Scenes.Jojoscene.BeeEggsInCorruptJojo.UtterlyFocusedOnSpheres".Localized());
 
 			if (Player.Eggs() > 30)
-				OutputText("Scenes.Jojoscene.BeeEggsInCorruptJojo.BellyRoundedByEggs".Localized((noFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
+				OutputText("Scenes.Jojoscene.BeeEggsInCorruptJojo.BellyRoundedByEggs".Localized((NoFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
 
 			OutputText("Scenes.Jojoscene.BeeEggsInCorruptJojo.PullOutSelfSatisfied".Localized());
 
@@ -3383,7 +3381,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.LowCorruptionIntro.NoticingSimpleGarbs".Localized());
 
-			OutputText("Scenes.Jojoscene.LowCorruptionIntro.LitheButNotWeak".Localized((noFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
+			OutputText("Scenes.Jojoscene.LowCorruptionIntro.LitheButNotWeak".Localized((NoFur ? "Common.Text.Skin".Localized() : "Common.Text.Fur".Localized())));
 
 			OutputText("Scenes.Jojoscene.LowCorruptionIntro.SmilingKnowingly".Localized());
 
@@ -3471,7 +3469,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 				OutputText("Scenes.Jojoscene.RepeatJojoEncounter.DefeatAllowsRepeatedRape".Localized());
 			}
 			else
-				OutputText("Scenes.Jojoscene.RepeatJojoEncounter.MonkAppearsInBreeze".Localized((noFur ? "" : " and soft white fur")));
+				OutputText("Scenes.Jojoscene.RepeatJojoEncounter.MonkAppearsInBreeze".Localized((NoFur ? "" : " and soft white fur")));
 
 			Player.UnlockCodexEntry(GameFlagIds.CodexEntryRatMice);
 
@@ -3502,7 +3500,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 				OutputText("Scenes.Jojoscene.CorruptJojoEncounter.RobesTentedForFight".Localized());
 
 			if (CoC.Instance.Flags.Get(GameFlagIds.JojoStatus) == 5)
-				OutputText("Scenes.Jojoscene.CorruptJojoEncounter.NudePantingHugeCock".Localized((noFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized())));
+				OutputText("Scenes.Jojoscene.CorruptJojoEncounter.NudePantingHugeCock".Localized((NoFur ? "Common.Text.Hair".Localized() : "Common.Text.Fur".Localized())));
 
 			Player.UnlockCodexEntry(GameFlagIds.CodexEntryRatMice);
 
@@ -3699,7 +3697,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 					{
 						case 0:
 							{
-                    // 原版 JojoScene.hx:3040：Akky 在 Jojo 处时显示它的位置描述
+                    // 鍘熺増 JojoScene.hx:3040锛欰kky 鍦?Jojo 澶勬椂鏄剧ず瀹冪殑浣嶇疆鎻忚堪
 								OutputText("Scenes.Jojoscene.JojoCamp.JojoSeenCrossLegged".Localized(SceneInstance<AkkyScene>.Get().location == "Jojo" ? SceneInstance<AkkyScene>.Get().LocationShort() : ""));
 							}
 
@@ -3816,7 +3814,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.JojoTalkVillage.RecallingSmallVillage".Localized());
 
-			OutputText("Scenes.Jojoscene.JojoTalkVillage.BrightEyesAfterSadness".Localized((noFur ? "Common.Text.Lips".Localized() : "Common.Text.FuzzyCheeks".Localized())));
+			OutputText("Scenes.Jojoscene.JojoTalkVillage.BrightEyesAfterSadness".Localized((NoFur ? "Common.Text.Lips".Localized() : "Common.Text.FuzzyCheeks".Localized())));
 
 			OutputText("Scenes.Jojoscene.JojoTalkVillage.FatherFishermanSilverWhiskers".Localized());
 
@@ -3888,7 +3886,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.JojoTalkForestConvo.JojoRecallsTraining".Localized());
 
-			OutputText("Scenes.Jojoscene.JojoTalkForestConvo.JojoRaisesFinger".Localized((noFur ? "" : " furry")));
+			OutputText("Scenes.Jojoscene.JojoTalkForestConvo.JojoRaisesFinger".Localized((NoFur ? "" : " furry")));
 
 			OutputText("Scenes.Jojoscene.JojoTalkForestConvo.VillageStruckFirst".Localized());
 
@@ -3903,7 +3901,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			OutputText("Scenes.Jojoscene.JojoTalkForestConvo.JojoBornThereSilent".Localized());
 
 			if (Player.Corruption < 35)
-				OutputText("Scenes.Jojoscene.JojoTalkForestConvo.ArmAroundShoulders".Localized((noFur ? "Scenes.Anemonescene.KidADreams.Cheek".Localized() : "Common.Text.Muzzle".Localized())));
+				OutputText("Scenes.Jojoscene.JojoTalkForestConvo.ArmAroundShoulders".Localized((NoFur ? "Scenes.Anemonescene.KidADreams.Cheek".Localized() : "Common.Text.Muzzle".Localized())));
 			else
 				if (Player.Corruption >= 35 && Player.Corruption <= 75)
 					OutputText("Scenes.Jojoscene.JojoTalkForestConvo.RubMonkBack".Localized());
@@ -4384,7 +4382,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.OfferSexFirstTime.NeedsAndDesires".Localized());
 
-			OutputText("Scenes.Jojoscene.OfferSexFirstTime.JojoEyesOpenWide".Localized((noFur ? "Common.Text.Hard".Localized() : "Common.Text.SoHardYouCanEvenSee".Localized()), (Player.Femininity >= 50 ? "Common.Text.Beautiful".Localized() : "Common.Text.Handsome".Localized()), ((Player.Thickness >= 60 && Player.Tone < 60) ? "Common.Text.AlthoughYouShouldWorkHarderTo".Localized() : "Common.Text.AndYouObviouslyKeepYourselfIn".Localized())));
+			OutputText("Scenes.Jojoscene.OfferSexFirstTime.JojoEyesOpenWide".Localized((NoFur ? "Common.Text.Hard".Localized() : "Common.Text.SoHardYouCanEvenSee".Localized()), (Player.Femininity >= 50 ? "Common.Text.Beautiful".Localized() : "Common.Text.Handsome".Localized()), ((Player.Thickness >= 60 && Player.Tone < 60) ? "Common.Text.AlthoughYouShouldWorkHarderTo".Localized() : "Common.Text.AndYouObviouslyKeepYourselfIn".Localized())));
 
 			OutputText("Scenes.Jojoscene.OfferSexFirstTime.YouPressFurther".Localized());
 
@@ -4463,7 +4461,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.ConfrontChastity.SexMenuUnlocked".Localized());
 
-			if (silly)
+			if (Silly)
 				OutputText("Scenes.Jojoscene.ConfrontChastity.FourMovesLearned".Localized());
 
 			CoC.Instance.Flags.Set(GameFlagIds.DisabledJojoRape, 1);
@@ -4786,7 +4784,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 		public void GiveBirthToPureJojoBabies()
 		{
 
-			OutputText("Scenes.Jojoscene.GiveBirthToPureJojoBabies.CervixPainCry".Localized((noFur ? "" : ", and fur the same color as your own hair starts to cover its body")));
+			OutputText("Scenes.Jojoscene.GiveBirthToPureJojoBabies.CervixPainCry".Localized((NoFur ? "" : ", and fur the same color as your own hair starts to cover its body")));
 
 			OutputText("Scenes.Jojoscene.GiveBirthToPureJojoBabies.RecoveredLitterNearby".Localized());
 

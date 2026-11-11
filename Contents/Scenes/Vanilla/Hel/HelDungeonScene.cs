@@ -137,7 +137,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Hel
 
             OutputText("Scenes.Heldungeon.AgreeToHelpHeliaDungeon.CurlUpWithHelia".Localized());
             // 原版 HelDungeon.hx:123：Marble 在营地且开启 silly 模式时，Marble 会撞见这一幕
-            if (SceneInstance<Npcs.MarbleScene>.Get().MarbleAtCamp() && silly)
+            if (SceneInstance<Npcs.MarbleScene>.Get().MarbleAtCamp() && Silly)
             {
                 OutputText("Scenes.Heldungeon.AgreeToHelpHeliaDungeon.CloppingHooves".Localized());
 
@@ -147,7 +147,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Hel
 
                 OutputText("Scenes.Heldungeon.AgreeToHelpHeliaDungeon.BackOffCowSlut".Localized());
 
-                if (silly)
+                if (Silly)
 
                     OutputText("Scenes.Heldungeon.AgreeToHelpHeliaDungeon.MarbleStammers".Localized(
                         SceneInstance<Npcs.KihaFollowerScene>.Get().FollowerKiha()
@@ -1578,7 +1578,7 @@ Player.Inventory.Add(ItemRegistry.Create(new Identifier("coc", "eldritch_staff")
             {
                 OutputText("Scenes.Heldungeon.FuckHarpyQueen.LackEndowments".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Heldungeon.FuckHarpyQueen.AnotherReasonGenderless".Localized());
             }
 

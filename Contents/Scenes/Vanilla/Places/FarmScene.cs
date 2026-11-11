@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Scenes.Vanilla.Npcs;
 using MonoCoC.Contents.Scenes.Vanilla.Places.Farm;
 using MonoCoC.Contents.Creatures;
@@ -25,9 +25,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
 
         public static SaveContent Save => SaveContent(SceneIds.Places.Farm);
 
-        public string debugName => "Farm";
 
-        public string debugHint => "";
 
         public bool marbleScene => false;
 
@@ -73,7 +71,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
 
             if (CoC.Instance.Flags.Get(GameFlagIds.FarmCorruptionStarted) > 0)
 
-            FarmCorruption.RootScene(); // 农场已被腐化接管：进入腐化农场菜单（原版 FarmCorruption.rootScene）
+            FarmCorruption.RootScene(); // 鍐滃満宸茶鑵愬寲鎺ョ锛氳繘鍏ヨ厫鍖栧啘鍦鸿彍鍗曪紙鍘熺増 FarmCorruption.rootScene锛?
 
             if (FarmCorruption.takeoverPrompt() == true)
                 return ;
@@ -114,7 +112,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
                             Save.GetBool("firstEncounterNight")
                         ));
 
-                        OutputText("Scenes.Farm.FarmExploreEncounter.FarmerIsAWoman".Localized((noFur ? "dog-like ears and a fluffy tail" : "fur and canine-like features")));
+                        OutputText("Scenes.Farm.FarmExploreEncounter.FarmerIsAWoman".Localized((NoFur ? "dog-like ears and a fluffy tail" : "fur and canine-like features")));
                     }
                     else
                     {
@@ -131,7 +129,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
                 }
                 else
                 {
-                    OutputText("Scenes.Farm.FarmExploreEncounter.StumbleAcrossFarm".Localized((noFur ? "dog-eared" : "anthropomorphic canine")));
+                    OutputText("Scenes.Farm.FarmExploreEncounter.StumbleAcrossFarm".Localized((NoFur ? "dog-eared" : "anthropomorphic canine")));
 
                     Player.ChangeStatusValue(StatusEffectIds.MetWhitney, 0, 1);
 
@@ -328,7 +326,7 @@ ReturnToCamp(1);
 
                 return ;
             }
-            // 原版 Farm.hx:293 — 已进过 Tel'Adre、尚未聊过、且已与 Murble/Kelt 谈过
+            // 鍘熺増 Farm.hx:293 鈥?宸茶繘杩?Tel'Adre銆佸皻鏈亰杩囥€佷笖宸蹭笌 Murble/Kelt 璋堣繃
             if (SceneInstance<TelAdre.TelAdre>.Get().IsDiscovered() && SceneInstance<TelAdre.TelAdre>.Get().IsAllowedInto() && CoC.Instance.Flags.Get(GameFlagIds.WhitneyTalkTeladre) == 0 && CoC.Instance.Flags.Get(GameFlagIds.WhitneyTalkMurbleAndKelt) == 1)
             {
                 CoC.Instance.Flags.Set(GameFlagIds.WhitneyTalkTeladre, 1);
@@ -443,7 +441,7 @@ ReturnToCamp(1);
                 OutputText("Scenes.Farm.TalkWhitney.PatrollingWithScythe".Localized());
 
             if (temp == 2)
-                OutputText("Scenes.Farm.TalkWhitney.BentOverPepperFields".Localized((noFur ? "face" : "fur and muzzle")));
+                OutputText("Scenes.Farm.TalkWhitney.BentOverPepperFields".Localized((NoFur ? "face" : "fur and muzzle")));
 
             if (temp == 3)
                 OutputText("Scenes.Farm.TalkWhitney.BehindBarnForge".Localized());
@@ -818,7 +816,7 @@ ReturnToCamp(1);
 
                 return ;
             }
-            // 原版 Farm.hx:691 — 找胡萝卜（Nieve 剧情 1-3 阶段）
+            // 鍘熺増 Farm.hx:691 鈥?鎵捐儭钀濆崪锛圢ieve 鍓ф儏 1-3 闃舵锛?
             if (SceneInstance<Seasonal.NieveScene>.Get().NieveAvailable() && CoC.Instance.Flags.Get(GameFlagIds.NieveStage) > 0 && CoC.Instance.Flags.Get(GameFlagIds.NieveStage) < 4 && !Player.HasKeyItem("Carrot"))
                 return ;
 
@@ -1831,7 +1829,7 @@ ReturnToCamp(1);
 
             OutputText("Scenes.Farm.CowBadEnd2.MooHappily".Localized());
 
-            OutputText("Scenes.Farm.CowBadEnd2.CountryGirlPats".Localized((noFur ? "" : " anthropomorphic")));
+            OutputText("Scenes.Farm.CowBadEnd2.CountryGirlPats".Localized((NoFur ? "" : " anthropomorphic")));
 
             OutputText("Scenes.Farm.CowBadEnd2.NodHappily".Localized());
 

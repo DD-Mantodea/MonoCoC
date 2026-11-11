@@ -3774,7 +3774,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Urtascene.UrtaAndScyllaBoningLikeBitchesSober.BlueEyesCraneUp".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Urtascene.UrtaAndScyllaBoningLikeBitchesSober.MythicalBalloonicorns".Localized());
 
             OutputText("Scenes.Urtascene.UrtaAndScyllaBoningLikeBitchesSober.DroolBubblesLips".Localized());
@@ -3858,7 +3858,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Urtascene.FuckUrtaWhileScyllaSucksSober.VixenStuttersTrapped".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Urtascene.FuckUrtaWhileScyllaSucksSober.CockAndSharpPlace".Localized());
             else
                 OutputText("Scenes.Urtascene.FuckUrtaWhileScyllaSucksSober.LustyBodies".Localized());
@@ -4006,7 +4006,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 Player.CockDescript(x)
             ));
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Urtascene.DockWithUrtaUnderScyllasSoberSupervision.MentionsBigDaddy".Localized());
 
             OutputText("Scenes.Urtascene.DockWithUrtaUnderScyllasSoberSupervision.CaressesBarelyHelp".Localized());
@@ -7628,7 +7628,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Urtascene.UrtaGooTesticleVoreRuinedOrgasms.TellSpecialInMind".Localized());
 
-            if (!silly)
+            if (!Silly)
                 OutputText("Scenes.Urtascene.UrtaGooTesticleVoreRuinedOrgasms.SteelRod".Localized());
             else
                 OutputText("Scenes.Urtascene.UrtaGooTesticleVoreRuinedOrgasms.MarethianAlgebra".Localized());
@@ -8165,7 +8165,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Urtascene.DoggyStyle.OverwhelmedContent".Localized());
 
-            if (!silly)
+            if (!Silly)
                 OutputText("Scenes.Urtascene.DoggyStyle.AssWord".Localized());
             else
                 OutputText("Scenes.Urtascene.DoggyStyle.BoypussyWord".Localized());
@@ -8274,12 +8274,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Urtascene.GetAPetReward.ThinkingOfReward".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Urtascene.GetAPetReward.JarPeanutButter".Localized());
 
             OutputText("Scenes.Urtascene.GetAPetReward.SitsOnBedEdge".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Urtascene.GetAPetReward.PeanutButterFor".Localized());
 
             OutputText("Scenes.Urtascene.GetAPetReward.FootOnSide".Localized());
@@ -8322,26 +8322,26 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Urtascene.GetAPetReward.BiteLipWhine".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Urtascene.GetAPetReward.OpensJarSmears".Localized());
 
             OutputText("Scenes.Urtascene.GetAPetReward.CrawlNervously".Localized());
 
             OutputText("Scenes.Urtascene.GetAPetReward.ExtendTongueLength".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Urtascene.GetAPetReward.LickButterTip".Localized());
 
             OutputText("Scenes.Urtascene.GetAPetReward.ShiversFullSize".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Urtascene.GetAPetReward.SmearsMoreButter".Localized());
 
             OutputText("Scenes.Urtascene.GetAPetReward.SmoochDownShaft".Localized());
 
             OutputText("Scenes.Urtascene.GetAPetReward.PrickGlistensMouth".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Urtascene.GetAPetReward.ButterForgotten".Localized());
 
             OutputText("Scenes.Urtascene.GetAPetReward.JawStretchedWide".Localized());

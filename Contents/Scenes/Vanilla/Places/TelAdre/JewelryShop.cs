@@ -155,7 +155,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         {
             ClearOutput();
 
-            OutputText("Scenes.JewelryShop.EnchantedRings.TarnishedJewelry".Localized((noFur ? "face" : "snout")));
+            OutputText("Scenes.JewelryShop.EnchantedRings.TarnishedJewelry".Localized((NoFur ? "face" : "snout")));
 
             OutputText("Scenes.JewelryShop.EnchantedRings.TierPrompt".Localized());
 

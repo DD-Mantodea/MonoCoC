@@ -157,7 +157,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Marblepurification.VisitRathazulToPurifyMarbleAfterLaBovaStopsWorkin.AProblemPotionBrewer".Localized());
 
-            OutputText("Scenes.Marblepurification.VisitRathazulToPurifyMarbleAfterLaBovaStopsWorkin.ExplainMarbleRelationship".Localized((noFur ? "" : " furry")));
+            OutputText("Scenes.Marblepurification.VisitRathazulToPurifyMarbleAfterLaBovaStopsWorkin.ExplainMarbleRelationship".Localized((NoFur ? "" : " furry")));
 
             OutputText("Scenes.Marblepurification.VisitRathazulToPurifyMarbleAfterLaBovaStopsWorkin.SmileThankReturnMarble".Localized());
 

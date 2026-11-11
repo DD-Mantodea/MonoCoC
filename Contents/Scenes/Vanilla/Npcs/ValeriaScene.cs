@@ -39,7 +39,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         public bool ValeriaFluidsEnabled()
         {
 
-            return CoC.Instance.Flags.Get(GameFlagIds.NewGamePlusLevel) != 0 || OptionStore.Instance.Get("hardcore", 0) > 0 || realistic;
+            return CoC.Instance.Flags.Get(GameFlagIds.NewGamePlusLevel) != 0 || OptionStore.Instance.Get("hardcore", 0) > 0 || Realistic;
         }
 
         public bool ValeriaFollower()
@@ -914,7 +914,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             if (!Player.IsPregnant() && Player.HasVagina())
             {
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Valeria.ValeriaGooRapeII.BillyMaysAnnounces".Localized());
 
                 OutputText("Scenes.Valeria.ValeriaGooRapeII.ShortlyAfterBlob".Localized());

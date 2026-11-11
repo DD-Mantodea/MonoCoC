@@ -46,7 +46,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                         {
                             OutputText("Scenes.Lottie.LottieAppearance.CryingInSauna".Localized());
 
-                            if (silly)
+                            if (Silly)
                                 OutputText("Scenes.Lottie.LottieAppearance.LoveMakingBacon".Localized());
                         }
                         else
@@ -54,7 +54,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                             {
                                 OutputText("Scenes.Lottie.LottieAppearance.CryingAtCafe".Localized());
 
-                                if (silly)
+                                if (Silly)
                                     OutputText("Scenes.Lottie.LottieAppearance.BestPorkBuns".Localized());
                             }
                             else
@@ -242,7 +242,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                         AddButton(1, "Common.Button.No".Localized(), GotInShapeButTurnedDownLottie);
 
-                        if (silly && (Player.IsCorruptEnough(80) || Player.HasPerk(PerkIds.Sadist)))
+                        if (Silly && (Player.IsCorruptEnough(80) || Player.HasPerk(PerkIds.Sadist)))
                             AddButton(2, "Common.Button.GodNo".Localized(), GotInShapeComedyDeclineLottie);
 
                         return;
@@ -692,7 +692,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Lottie.AnalLottieMilkshake.PullWipeAgainstButt".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.AnalLottieMilkshake.Bacon".Localized());
 
             OutputText("Scenes.Lottie.AnalLottieMilkshake.ShakeOnWayOut".Localized());
@@ -885,7 +885,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 Player.Mf("big guy", "babe")
             ));
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.GetSuckedOffByAHamSandwich.Bacon".Localized());
 
             OutputText("Scenes.Lottie.GetSuckedOffByAHamSandwich.ShakeOnWayOut".Localized());
@@ -1173,7 +1173,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                                                         AddButton(1, "Common.Button.ToHumiliate".Localized(), LottieFatLoserCulminationHumiliationChoice);
 
-                                                        if (silly)
+                                                        if (Silly)
                                                             AddButton(2, "Common.Button.ToLeave".Localized(), LottieFatLoserCulminationLeaveComedyChoice);
                                                     }
                                                     else
@@ -1189,7 +1189,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                                                             AddButton(1, "Common.Button.Stickwithit".Localized(), LottieHighMoraleFatYoullGetThereOneTimeEvent);
 
-                                                            if (silly)
+                                                            if (Silly)
                                                                 AddButton(2, "Common.Button.Ewlottieno".Localized(), EwLottieNo);
                                                         }
                                                         else
@@ -1209,7 +1209,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                                                                 AddButton(1, "Common.Button.JustElle".Localized(), FuckElleInsteadOfThatFatSlutFirstTime);
 
-                                                                if (silly)
+                                                                if (Silly)
                                                                     AddButton(2, "Common.Button.OhIgetit".Localized(), CharlottesWebComedyBullshit);
                                                             }
                                                             else
@@ -1585,12 +1585,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Lottie.LottieFatLoserCulminationFuckChoice.GiveLeaveSeedLeaking".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieFatLoserCulminationFuckChoice.Bacon".Localized());
 
             OutputText("Scenes.Lottie.LottieFatLoserCulminationFuckChoice.ShakeOnWayOut".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieFatLoserCulminationFuckChoice.FuckingLoveBaconShakes".Localized());
 
             OutputText("Scenes.Lottie.LottieFatLoserCulminationFuckChoice.DoggyStyleUnlocked".Localized());
@@ -1623,7 +1623,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             {
                 OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.WalkFamiliarBackAlley".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.BaconBaconGottaHave".Localized());
                 else
                     OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.HeyyyBuddyShexSlave".Localized());
@@ -1640,7 +1640,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             {
                 OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.WalkFamiliarAlleyAgain".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.BaconGottaHaveAgain".Localized());
                 else
                     OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.HeyyyBuddySlaveAgain".Localized());
@@ -1654,12 +1654,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.LeaveUrtaJerksOff".Localized());
             }
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.BaconAgain".Localized());
 
             OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.LoveSpitRoasting".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.BaconAgain".Localized());
 
             OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.Shake".Localized());
@@ -1742,7 +1742,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Lottie.LottieHighMoraleFatLoveSelfOneTimeEvent.WhileLaterSaidGoodbyes".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieHighMoraleFatLoveSelfOneTimeEvent.BeforeLeaveBaconShake".Localized());
             else
                 OutputText("Scenes.Lottie.LottieHighMoraleFatLoveSelfOneTimeEvent.ParagraphBreak".Localized());
@@ -1797,12 +1797,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Lottie.LottieHighMoraleFatYoullGetThereOneTimeEvent.SweatyPantingLiesFloor".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieHighMoraleFatYoullGetThereOneTimeEvent.Bacon".Localized());
 
             OutputText("Scenes.Lottie.LottieHighMoraleFatYoullGetThereOneTimeEvent.ShakeOnWayOut".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieHighMoraleFatYoullGetThereOneTimeEvent.FuckingDelicious".Localized());
 
             OutputText("Scenes.Lottie.LottieHighMoraleFatYoullGetThereOneTimeEvent.ParagraphBreakAgain".Localized());
@@ -1861,12 +1861,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 Player.CockDescript(x)
             ));
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieElleThreesomeFirstTime.Bacon".Localized());
 
             OutputText("Scenes.Lottie.LottieElleThreesomeFirstTime.ShakeOnWayOut".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieElleThreesomeFirstTime.OnlyNeedOne".Localized());
 
             Player.Orgasm("Dick");
@@ -1928,7 +1928,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 Player.CockDescript(x)
             ));
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.FuckElleInsteadOfThatFatSlutFirstTime.GrabBaconShakeWay".Localized());
 
             OutputText("Scenes.Lottie.FuckElleInsteadOfThatFatSlutFirstTime.SentencePeriod".Localized());
@@ -1995,7 +1995,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     Player.CockDescript(x)
                 ));
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.LottieSuccessOneShot.BaconAgain".Localized());
 
                 OutputText("Scenes.Lottie.LottieSuccessOneShot.ShakeFromCafeFantastic".Localized());
@@ -2035,7 +2035,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                         Player.CockDescript(x)
                     ));
 
-                    if (silly)
+                    if (Silly)
                         OutputText("Scenes.Lottie.LottieSuccessOneShot.BuyShakeHeadHome".Localized());
                     else
                         OutputText("Scenes.Lottie.LottieSuccessOneShot.ParagraphBreak".Localized());
@@ -2045,12 +2045,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                         Player.CockDescript(x)
                     ));
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.LottieSuccessOneShot.BaconAgain".Localized());
 
                 OutputText("Scenes.Lottie.LottieSuccessOneShot.ShakeBeforeHeadHome".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.LottieSuccessOneShot.FuckingLoveBaconShakes".Localized());
 
                 CoC.Instance.Flags.Set(GameFlagIds.LottieFemdomUnlocked, 1);
@@ -2144,7 +2144,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Lottie.BoastAtLottie.LaughPickLargerPump".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.BoastAtLottie.LargePomf".Localized());
             else
                 OutputText("Scenes.Lottie.BoastAtLottie.LoudClonk".Localized());
@@ -2460,7 +2460,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 AddButton(0, "Common.Button.Cafe".Localized(), FeedLottieAWholeCafe);
 
-                if (silly)
+                if (Silly)
                     AddButton(4, "Common.Button.Hamsandwich".Localized(), HamSammitchTimeBIATCH);
             }
 
@@ -2570,7 +2570,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 OutputText("Scenes.Lottie.HamSammitchTimeBIATCH.WalkCafeOrderSandwich".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.HamSammitchTimeBIATCH.MumblesLifetimeFreeFood".Localized());
 
                 OutputText("Scenes.Lottie.HamSammitchTimeBIATCH.ExchangeSmileHandSandwich".Localized());
@@ -2656,7 +2656,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 else
                     AddButton(8, "Common.Button.Netorare".Localized(), null);
 
-                if (silly && Player.HasCock())
+                if (Silly && Player.HasCock())
                     AddButton(9, "Common.Button.Minute".Localized(), LottiesThirtyMinutePigGasm);
             }
             else
@@ -2671,7 +2671,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                     OutputText("Scenes.Lottie.LottieFuck.TakeHandLeadCafe".Localized());
 
-                    if (silly)
+                    if (Silly)
                         OutputText("Scenes.Lottie.LottieFuck.Street".Localized());
 
                     OutputText("Scenes.Lottie.LottieFuck.SharkNotDifficultUndress".Localized(
@@ -2695,7 +2695,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     else
                         AddButton(2, "Common.Button.Tentacle".Localized(), null);
 
-                    if (silly && Player.HasCock())
+                    if (Silly && Player.HasCock())
                         AddButton(3, "Common.Button.Minute".Localized(), LottiesThirtyMinutePigGasm);
                 }
                 else
@@ -2748,7 +2748,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     else
                         AddButton(6, "Common.Button.Femdom".Localized(), null);
 
-                    if (silly && Player.HasCock())
+                    if (Silly && Player.HasCock())
                         AddButton(7, "Common.Button.Minute".Localized(), LottiesThirtyMinutePigGasm);
                 }
 
@@ -2784,12 +2784,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Lottie.LottieRepeatDoggieStyle.GiveLeaveSeedLeaking".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatDoggieStyle.Bacon".Localized());
 
             OutputText("Scenes.Lottie.LottieRepeatDoggieStyle.ShakeOnWayOut".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatDoggieStyle.FuckingLoveBaconShakes".Localized());
 
             Player.Orgasm("Dick");
@@ -2818,7 +2818,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             {
                 OutputText("Scenes.Lottie.LottieRepeatWalkies.WalkFamiliarBackAlley".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.LottieRepeatWalkies.BaconBaconGottaHave".Localized());
                 else
                     OutputText("Scenes.Lottie.LottieRepeatWalkies.HeyyyBuddyShexSlave".Localized());
@@ -2835,7 +2835,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             {
                 OutputText("Scenes.Lottie.LottieRepeatWalkies.WalkFamiliarAlleyAgain".Localized());
 
-                if (!silly)
+                if (!Silly)
                     OutputText("Scenes.Lottie.LottieRepeatWalkies.HeyyyShexSlaveShumthin".Localized());
                 else
                     OutputText("Scenes.Lottie.LottieRepeatWalkies.HeyyyShmellBacon".Localized());
@@ -2849,12 +2849,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 OutputText("Scenes.Lottie.LottieRepeatWalkies.LeaveUrtaJerksOff".Localized());
             }
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatWalkies.Bacon".Localized());
 
             OutputText("Scenes.Lottie.LottieRepeatWalkies.Shake".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatWalkies.SureLoveSpitRoasting".Localized());
 
             Player.Orgasm("Generic");
@@ -2908,12 +2908,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Lottie.LottieRepeatCowGirl.WhileLaterSaidGoodbyes".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatCowGirl.Bacon".Localized());
 
             OutputText("Scenes.Lottie.LottieRepeatCowGirl.Shake".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatCowGirl.LoveBaconShakes".Localized());
 
             Player.Orgasm("Dick");
@@ -2956,12 +2956,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Lottie.LottieRepeatQuickie.SweatyPantingLiesFloor".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatQuickie.Bacon".Localized());
 
             OutputText("Scenes.Lottie.LottieRepeatQuickie.ShakeOnWayOut".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatQuickie.FuckingDelicious".Localized());
 
             Player.Orgasm("Dick");
@@ -2990,12 +2990,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 Player.CockDescript(x)
             ));
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatThreesome.Bacon".Localized());
 
             OutputText("Scenes.Lottie.LottieRepeatThreesome.ShakeOnWayOut".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatThreesome.OnlyNeedOne".Localized());
 
             Player.Orgasm("Dick");
@@ -3051,12 +3051,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 Player.CockDescript(x)
             ));
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatSUPERNEATORARES.Bacon".Localized());
 
             OutputText("Scenes.Lottie.LottieRepeatSUPERNEATORARES.ShakeOnWayOut".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatSUPERNEATORARES.OnlyNeedOne".Localized());
 
             Player.Orgasm("Dick");
@@ -3085,7 +3085,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 Player.CockDescript(x)
             ));
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieRepeatBackwardsAssCowgirl.Bacon".Localized());
 
             OutputText("Scenes.Lottie.LottieRepeatBackwardsAssCowgirl.ShakeFromCafeFantastic".Localized());
@@ -3133,12 +3133,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     Player.CockDescript(x)
                 ));
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.LottieRepeatFEMDOMFEMFDOM.BaconAgain".Localized());
 
                 OutputText("Scenes.Lottie.LottieRepeatFEMDOMFEMFDOM.ShakeBeforeHeadHome".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.LottieRepeatFEMDOMFEMFDOM.FuckingLoveBaconShakes".Localized());
             }
             else
@@ -3147,12 +3147,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     Player.CockDescript(x)
                 ));
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.LottieRepeatFEMDOMFEMFDOM.BaconAgain".Localized());
 
                 OutputText("Scenes.Lottie.LottieRepeatFEMDOMFEMFDOM.ShakeBeforeHomeAgain".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.LottieRepeatFEMDOMFEMFDOM.FuckingBaconShakesAgain".Localized());
             }
 
@@ -3375,7 +3375,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             {
                 OutputText("Scenes.Lottie.TentaDickLottieButtFuckbuttFuckButtFUCKBUTTFUCKBUTTFUCK.LaughSheTriesMove".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.TentaDickLottieButtFuckbuttFuckButtFUCKBUTTFUCKBUTTFUCK.BeforeLeaveBaconShake".Localized());
 
                 OutputText("Scenes.Lottie.TentaDickLottieButtFuckbuttFuckButtFUCKBUTTFUCKBUTTFUCK.ParagraphBreakAgain".Localized());
@@ -3384,7 +3384,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             {
                 OutputText("Scenes.Lottie.TentaDickLottieButtFuckbuttFuckButtFUCKBUTTFUCKBUTTFUCK.TurnSeeSlutSnorting".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Lottie.TentaDickLottieButtFuckbuttFuckButtFUCKBUTTFUCKBUTTFUCK.UnfortunatelyForSpiderClerk".Localized());
             }
 
@@ -3477,7 +3477,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Lottie.LottieAndIfrisNTREpilogue.SatisfiedDressedStrutCamp".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Lottie.LottieAndIfrisNTREpilogue.DamnSureBaconShake".Localized());
 
             ReturnToCamp(1);

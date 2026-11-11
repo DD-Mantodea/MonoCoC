@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Achievements;
 using MonoCoC.Contents.Items;
 using MonoCoC.Contents.Creatures;
@@ -20,9 +20,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
         public static SaveContent Save => SaveContent(SceneIds.TelAdre.Rubi);
 
-        public string debugName => "Rubi";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -70,7 +68,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         public string RubiBalls()
         {
 
-            // 原版 rubiBalls() 是三个连续 return，永远只返回 normal；这里按 RubiBallsType 的实际语义修正
+            // 鍘熺増 rubiBalls() 鏄笁涓繛缁?return锛屾案杩滃彧杩斿洖 normal锛涜繖閲屾寜 RubiBallsType 鐨勫疄闄呰涔変慨姝?
             return CoC.Instance.Flags.Get(GameFlagIds.RubiBallsType) switch
             {
                 1 => "swollen",
@@ -163,7 +161,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             if (bonus > 76)
                 bonus = 76;
 
-            if (hyper)
+            if (Hyper)
                 bonus += 200;
 
             return 24 + bonus;
@@ -1151,7 +1149,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 if (Player.GetClitLength() <= 4)
                     size = 0;
                 else
-                    if (Player.GetClitLength() <= 12 || hyper)
+                    if (Player.GetClitLength() <= 12 || Hyper)
                         size = 1;
                     else
                         size = 2;
@@ -1807,7 +1805,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Rubi.InterruptTheNTRsYouCrazyFool.NoOneSticksDick".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Rubi.InterruptTheNTRsYouCrazyFool.WaifuWord".Localized());
             else
                 OutputText("Scenes.Rubi.InterruptTheNTRsYouCrazyFool.SlutWord".Localized());
@@ -1870,7 +1868,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Rubi.WaitAndGetNTRedLikeTheBoyBitchYouAre.LongLovemaking".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Rubi.WaitAndGetNTRedLikeTheBoyBitchYouAre.NotInGamePositions".Localized());
 
             OutputText("Scenes.Rubi.WaitAndGetNTRedLikeTheBoyBitchYouAre.ExhaustedSeedPour".Localized());
@@ -2528,7 +2526,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Rubi.GoOnAnAnalAdventureRubiNotReallyJustAnAdventurersOutfit.RequestAdventurerOutfit".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Rubi.GoOnAnAnalAdventureRubiNotReallyJustAnAdventurersOutfit.CollectorOfWaifus".Localized());
             else
                 OutputText("Scenes.Rubi.GoOnAnAnalAdventureRubiNotReallyJustAnAdventurersOutfit.LayerOfLadies".Localized());
@@ -4160,14 +4158,14 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 else
                     OutputText("Scenes.Rubi.GiveRubiATFItem.HandOverPurifiedPink".Localized());
 
-                if (CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) < 7 || (CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) < 30 && hyper))
+                if (CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) < 7 || (CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) < 30 && Hyper))
                 {
                     OutputText("Scenes.Rubi.GiveRubiATFItem.GaspsBreastsSwell".Localized());
 
                     CoC.Instance.Flags.Set(GameFlagIds.RubiBreastSize, CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) + 1);
                 }
 
-                if ((CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) > 4) && (!hyper))
+                if ((CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) > 4) && (!Hyper))
                 {
                     OutputText("Scenes.Rubi.GiveRubiATFItem.CockSwellsThenShrinks".Localized());
 
@@ -4246,7 +4244,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     else
                         OutputText("Scenes.Rubi.GiveRubiATFItem.HandOverPurifiedBottle".Localized());
 
-                    if ((CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) > 0) && (!hyper))
+                    if ((CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) > 0) && (!Hyper))
                     {
                         OutputText("Scenes.Rubi.GiveRubiATFItem.GaspsBreastsShrink".Localized());
 
@@ -4256,7 +4254,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                             CoC.Instance.Flags.Set(GameFlagIds.RubiBreastSize, 0);
                     }
 
-                    if (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) > 0 && (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 12 || (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 20 && this.RubiGetCockType() == BodyPartTypes.Horse) || (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 30 && hyper)))
+                    if (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) > 0 && (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 12 || (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 20 && this.RubiGetCockType() == BodyPartTypes.Horse) || (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 30 && Hyper)))
                     {
                         OutputText("Scenes.Rubi.GiveRubiATFItem.CockSwellsThenGrows".Localized());
 
@@ -4515,7 +4513,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                                         OutputText("Scenes.Rubi.GiveRubiATFItem.OiledFromNeckDown".Localized());
 
-                                        if ((CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) > 1) && (!hyper))
+                                        if ((CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) > 1) && (!Hyper))
                                         {
                                             OutputText("Scenes.Rubi.GiveRubiATFItem.GaspsBreastsShrinkAgain".Localized());
 
@@ -4535,7 +4533,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                                                     CoC.Instance.Flags.Set(GameFlagIds.RubiBreastSize, 1);
                                             }
                                             else
-                                                if ((CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) > 3) && (!hyper))
+                                                if ((CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) > 3) && (!Hyper))
                                                 {
                                                     OutputText("Scenes.Rubi.GiveRubiATFItem.CockShrinksAfterSwell".Localized());
 
@@ -4731,13 +4729,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Rubi.RubiGrowPlusBreasts.HandOverBlueVial".Localized());
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) < 7 || (CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) < 30 && hyper))
+            if (CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) < 7 || (CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) < 30 && Hyper))
             {
                 OutputText("Scenes.Rubi.RubiGrowPlusBreasts.BreastsWobbleSwell".Localized());
 
                 CoC.Instance.Flags.Set(GameFlagIds.RubiBreastSize, CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) + 2 + Random.Shared.Next(2));
 
-                if (hyper)
+                if (Hyper)
                 {
                     if (CoC.Instance.Flags.Get(GameFlagIds.RubiBreastSize) > 30)
                         CoC.Instance.Flags.Set(GameFlagIds.RubiBreastSize, 30);
@@ -4766,13 +4764,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Rubi.RubiPenisGroPlus.HandOverGreenVial".Localized());
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 12 || (this.RubiGetCockType() == BodyPartTypes.Horse && CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 20) || (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 30 && hyper))
+            if (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 12 || (this.RubiGetCockType() == BodyPartTypes.Horse && CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 20) || (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) < 30 && Hyper))
             {
                 OutputText("Scenes.Rubi.RubiPenisGroPlus.CockHardensInGrip".Localized());
 
                 CoC.Instance.Flags.Set(GameFlagIds.RubiCockSize, CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) + 2 + Random.Shared.Next(2));
 
-                if (hyper)
+                if (Hyper)
                 {
                     if (CoC.Instance.Flags.Get(GameFlagIds.RubiCockSize) > 30)
                         CoC.Instance.Flags.Set(GameFlagIds.RubiCockSize, 30);

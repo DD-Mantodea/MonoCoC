@@ -170,7 +170,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
         {
             ClearOutput();
 
-            if (CombatController.Instance!.CurrAbilityUsed == CombatController.FantasizeAbilityId && silly)
+            if (CombatController.Instance!.CurrAbilityUsed == CombatController.FantasizeAbilityId && Silly)
             {
                 OutputText("Scenes.Scorpionscene.BadEnd.CantKeepIn".Localized());
 

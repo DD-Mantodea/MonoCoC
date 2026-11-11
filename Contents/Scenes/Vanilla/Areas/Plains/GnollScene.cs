@@ -357,7 +357,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
                         OutputText("Scenes.Gnollscene.DickInGnollAss.GrippingSides".Localized());
 
                         if (Player.CockTotal() > 1)
-                            OutputText("Scenes.Gnollscene.DickInGnollAss.UnleashingTorrent".Localized((noFur ? "paints" : "mats down the short fur on")));
+                            OutputText("Scenes.Gnollscene.DickInGnollAss.UnleashingTorrent".Localized((NoFur ? "paints" : "mats down the short fur on")));
 
                         OutputText("Scenes.Gnollscene.DickInGnollAss.MuscularRing".Localized(
                              Player.CockDescript(x)
@@ -457,7 +457,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
 
             OutputText("Scenes.Gnollscene.YoDawgIHeardULiekGNollBallzzzdahdakjldh.AmazonSteps".Localized());
 
-            OutputText("Scenes.Gnollscene.YoDawgIHeardULiekGNollBallzzzdahdakjldh.GaspsStaggering".Localized((noFur ? "glistening" : "covered in a fine chocolate fuzz that glistens")));
+            OutputText("Scenes.Gnollscene.YoDawgIHeardULiekGNollBallzzzdahdakjldh.GaspsStaggering".Localized((NoFur ? "glistening" : "covered in a fine chocolate fuzz that glistens")));
 
             YoDawgHyenaBallz2();
         }
@@ -483,7 +483,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
 
             OutputText("Scenes.Gnollscene.YoDawgHyenaBallz2.BucksAgainst".Localized());
 
-            OutputText("Scenes.Gnollscene.YoDawgHyenaBallz2.BuckingPauses".Localized((noFur ? "" : " fuzzy")));
+            OutputText("Scenes.Gnollscene.YoDawgHyenaBallz2.BuckingPauses".Localized((NoFur ? "" : " fuzzy")));
 
             if (Player.Balls > 0)
                 OutputText("Scenes.Gnollscene.YoDawgHyenaBallz2.DistendedSac".Localized());

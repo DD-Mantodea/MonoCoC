@@ -15,11 +15,10 @@
         canHit: false
       }
       {
-        type: "coc:player_stats"
-        view: "Views/PlayerStats.hjson"
-        part: "charCreation.playerStats"
-        width: 300
+        type: "coc:grid"
+        width: 315
         height: 900
+        backgroundColor: "#FFFFFF"
       }
       {
         type: "coc:grid"
@@ -37,7 +36,7 @@
             font: "coc:body"
             layout: "relative"
             width: 930
-            height: 600
+            height: 750
             backgroundColor: "#FFFFFF66"
             padding: 16
             autoScroll: true
@@ -57,33 +56,6 @@
             width: 930
             height: 40
             horizontalAlign: "center"
-          }
-          {
-            type: "coc:grid"
-            part: "charCreation.buttons"
-            width: 940
-            height: 150
-            layout: "relative"
-            autoIndex: true
-            rows: 3
-            columns: 5
-            children: [
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-            ]
           }
         ]
       }

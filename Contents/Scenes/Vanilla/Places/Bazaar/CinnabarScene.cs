@@ -27,7 +27,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             if (output)
                 if (CoC.Instance.Flags.Get(GameFlagIds.CinnabarNumberEncounters) == 0)
-                    OutputText("Scenes.Cinnabar.CinnabarAppearance.GenerouslyProportioned".Localized((noFur ? "" : " over her ruddy fur"), (noFur ? "a pair of rat-like ears on her head" : "an unmistakable, rat-like muzzle")));
+                    OutputText("Scenes.Cinnabar.CinnabarAppearance.GenerouslyProportioned".Localized((NoFur ? "" : " over her ruddy fur"), (NoFur ? "a pair of rat-like ears on her head" : "an unmistakable, rat-like muzzle")));
                 else
                     OutputText("Scenes.Cinnabar.CinnabarAppearance.OnTheProwl".Localized());
 
@@ -157,7 +157,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             Player.Gems -= 50;
 
-            OutputText("Scenes.Cinnabar.CinnabarNonHugeDickings.OnceAssent".Localized((noFur ? "hands" : "paws"), (noFur ? "" : " with her soft, well-groomed fur")));
+            OutputText("Scenes.Cinnabar.CinnabarNonHugeDickings.OnceAssent".Localized((NoFur ? "hands" : "paws"), (NoFur ? "" : " with her soft, well-groomed fur")));
 
             OutputText("Scenes.Cinnabar.CinnabarNonHugeDickings.BeforeAnswer".Localized());
 
@@ -474,7 +474,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Cinnabar.FuckCinnabarHugerAndCorruptedEr.ShouldveThought".Localized());
 
-            OutputText("Scenes.Cinnabar.FuckCinnabarHugerAndCorruptedEr.NoCumSleeve".Localized((noFur ? "" : " furry")));
+            OutputText("Scenes.Cinnabar.FuckCinnabarHugerAndCorruptedEr.NoCumSleeve".Localized((NoFur ? "" : " furry")));
 
             if (!Player.Cocks.Exists(c => c.SheathOn))
                 OutputText("Scenes.Cinnabar.FuckCinnabarHugerAndCorruptedEr.CrotchWord".Localized());
@@ -498,7 +498,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Cinnabar.FuckCinnabarHugerAndCorruptedEr.HeadAbsurdlyTiny".Localized());
 
-            OutputText("Scenes.Cinnabar.FuckCinnabarHugerAndCorruptedEr.ScreamsRedRat".Localized((noFur ? "-haired" : "")));
+            OutputText("Scenes.Cinnabar.FuckCinnabarHugerAndCorruptedEr.ScreamsRedRat".Localized((NoFur ? "-haired" : "")));
 
             Player.ButtChange(30, true, true, false);
 
@@ -515,7 +515,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                  Player.CockDescript(x)
             ));
 
-            OutputText("Scenes.Cinnabar.FuckCinnabarHugerAndCorruptedEr.PullsDirtyOut".Localized((noFur ? "hand" : "paw"), Player.Mf("studs", "bitches")));
+            OutputText("Scenes.Cinnabar.FuckCinnabarHugerAndCorruptedEr.PullsDirtyOut".Localized((NoFur ? "hand" : "paw"), Player.Mf("studs", "bitches")));
 
             if (Player.CumQ() < 250)
                 OutputText("Scenes.Cinnabar.FuckCinnabarHugerAndCorruptedEr.BodyChurn".Localized());
@@ -573,11 +573,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             var x = Player.BiggestCockIndex();
 
-            OutputText("Scenes.Cinnabar.CinnabarHuger.AlmostThere".Localized((noFur ? "skin" : "fur")));
+            OutputText("Scenes.Cinnabar.CinnabarHuger.AlmostThere".Localized((NoFur ? "skin" : "fur")));
 
-            OutputText("Scenes.Cinnabar.CinnabarHuger.RestSinksIn".Localized(Player.CockHead(x), (noFur ? "living" : "furry")));
+            OutputText("Scenes.Cinnabar.CinnabarHuger.RestSinksIn".Localized(Player.CockHead(x), (NoFur ? "living" : "furry")));
 
-            OutputText("Scenes.Cinnabar.CinnabarHuger.TrueToWords".Localized((noFur ? "skin" : "fur"), Player.CockDescript(x), Player.CockDescript(x)));
+            OutputText("Scenes.Cinnabar.CinnabarHuger.TrueToWords".Localized((NoFur ? "skin" : "fur"), Player.CockDescript(x), Player.CockDescript(x)));
 
             if (Player.Balls > 0)
                 OutputText(Player.BallsDescriptLight());
@@ -669,7 +669,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             var x = Player.BiggestCockIndex();
 
-            OutputText("Scenes.Cinnabar.CinnabarHuge.AlmostThereThough".Localized(Player.CockDescript(x), (noFur ? "face" : "muzzle"), Player.CockHead(x)));
+            OutputText("Scenes.Cinnabar.CinnabarHuge.AlmostThereThough".Localized(Player.CockDescript(x), (NoFur ? "face" : "muzzle"), Player.CockHead(x)));
 
             if (Player.Balls > 0)
                 OutputText(Player.BallsDescriptLight());
@@ -709,7 +709,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
             else
                 OutputText("Scenes.Cinnabar.CinnabarHuge.TwitchingCockSheath".Localized());
 
-            OutputText("Scenes.Cinnabar.CinnabarHuge.RubsHandOver".Localized(Player.CockHead(x), (noFur ? "skin" : "fur"), (noFur ? "skin" : "fur")));
+            OutputText("Scenes.Cinnabar.CinnabarHuge.RubsHandOver".Localized(Player.CockHead(x), (NoFur ? "skin" : "fur"), (NoFur ? "skin" : "fur")));
 
             if (Player.CumQ() >= 1000)
                 OutputText("Scenes.Cinnabar.CinnabarHuge.AndSoMuch".Localized());
@@ -736,7 +736,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                         OutputText("Scenes.Cinnabar.CinnabarHuge.SpoogePregnancy".Localized());
             }
 
-            OutputText("Scenes.Cinnabar.CinnabarHuge.SlumpsPussyStained".Localized((noFur ? "smooth skin turning into a cum-soaked" : "silky fur turning into a cum-matted")));
+            OutputText("Scenes.Cinnabar.CinnabarHuge.SlumpsPussyStained".Localized((NoFur ? "smooth skin turning into a cum-soaked" : "silky fur turning into a cum-matted")));
 
             OutputText("Scenes.Cinnabar.CinnabarHuge.BlackBrutalizedLips".Localized(
                  Player.CockHead(x)
@@ -797,7 +797,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
             else
                 OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.ShesGivenYou".Localized());
 
-            OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.ShesTeasing".Localized((noFur ? "" : " of her fur")));
+            OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.ShesTeasing".Localized((NoFur ? "" : " of her fur")));
 
             if (CoC.Instance.Flags.Get(GameFlagIds.CinnabarHouseVisited) == 0)
                 OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.LeansGuiding".Localized());
@@ -812,7 +812,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.StrugglingOut".Localized());
 
-            OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.LoudSnorts".Localized((noFur ? "skin" : "fur")));
+            OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.LoudSnorts".Localized((NoFur ? "skin" : "fur")));
 
             OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.SlapHerFace".Localized(
                  Player.CockDescript(x),
@@ -840,7 +840,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                  Player.CockDescript(y)
             ));
 
-            OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.MoansDelighted".Localized(Player.CockDescript(z), (noFur ? " warm" : " furry")));
+            OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.MoansDelighted".Localized(Player.CockDescript(z), (NoFur ? " warm" : " furry")));
 
             if (Player.CockTotal() == 4)
                 OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.ExtraDickDives".Localized());
@@ -861,7 +861,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             if (Player.CockTotal() >= 4)
             {
-                OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.SoftCoated".Localized((noFur ? "skin becomes" : ", downy fur on the rat's chest is starting to mat against her skin,")));
+                OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.SoftCoated".Localized((NoFur ? "skin becomes" : ", downy fur on the rat's chest is starting to mat against her skin,")));
 
                 if (Player.CockTotal() == 4)
                     OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.ExtraDickWord".Localized());
@@ -871,7 +871,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                 OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.SentencePeriod".Localized());
             }
 
-            OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.InHerMouth".Localized(Player.CockDescript(z), (noFur ? "wet lips bury themselves" : "a wet muzzle buries itself")));
+            OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.InHerMouth".Localized(Player.CockDescript(z), (NoFur ? "wet lips bury themselves" : "a wet muzzle buries itself")));
 
             OutputText("Scenes.Cinnabar.CinnabarMultiCockPortalFuckFest.FeelCumming".Localized(
                  Player.MultiCockDescriptLight(),

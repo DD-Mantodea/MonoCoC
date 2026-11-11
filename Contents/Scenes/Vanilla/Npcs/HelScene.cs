@@ -1902,7 +1902,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Helscene.SalamanderXIsabellaDiplomacy2.IsabellaSaysBreakingThe".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Helscene.SalamanderXIsabellaDiplomacy2.MilkWord".Localized());
             else
                 OutputText("Scenes.Helscene.SalamanderXIsabellaDiplomacy2.HandWord".Localized());
@@ -2025,7 +2025,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Helscene.FollowrIzzyxSallyThreesomePretext.IsabellaSaysBreakingAgain".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Helscene.FollowrIzzyxSallyThreesomePretext.MilkWordAgain".Localized());
             else
                 OutputText("Scenes.Helscene.FollowrIzzyxSallyThreesomePretext.HandWordAgain".Localized());

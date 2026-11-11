@@ -23,7 +23,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Dungeons.LethicesKeep
 
             OutputText("Scenes.Livingstatuescenes.Encounter.StatueAwakens".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Livingstatuescenes.Encounter.KneelessAdvantage".Localized());
 
             OutputText("Scenes.Livingstatuescenes.Encounter.MossBeardTrespasser".Localized());

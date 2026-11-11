@@ -34,7 +34,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
                 OutputText("Scenes.Basiliskscene.BasiliskGreeting.TopOfThePass".Localized());
 
-                OutputText("Scenes.Basiliskscene.BasiliskGreeting.EveryVestigeOfWillpower".Localized((noFur ? "abdomen" : "underbelly"), (noFur ? "human-like head" : "snub head")));
+                OutputText("Scenes.Basiliskscene.BasiliskGreeting.EveryVestigeOfWillpower".Localized((NoFur ? "abdomen" : "underbelly"), (NoFur ? "human-like head" : "snub head")));
 
                 Player.UnlockCodexEntry(GameFlagIds.CodexEntryBasilisks);
 
@@ -172,7 +172,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
                          Player.VaginaDescript(0)
                     ));
 
-                    OutputText("Scenes.Basiliskscene.TongueBasiliskSmex.MakeBasiliskPleasureYou".Localized((noFur ? "face" : "scaly snout")));
+                    OutputText("Scenes.Basiliskscene.TongueBasiliskSmex.MakeBasiliskPleasureYou".Localized((NoFur ? "face" : "scaly snout")));
 
                     OutputText("Scenes.Basiliskscene.TongueBasiliskSmex.LookBeatificallyDownAgain".Localized());
                 }
@@ -209,7 +209,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             if (corrupt)
             {
-                OutputText("Scenes.Basiliskscene.DefeatBasiliskAndAnal.GetOffTheBasilisk".Localized(Player.CockDescript(x), (noFur ? "skin" : "scales"), (noFur ? "" : ", leathery"), Player.CockDescript(x)));
+                OutputText("Scenes.Basiliskscene.DefeatBasiliskAndAnal.GetOffTheBasilisk".Localized(Player.CockDescript(x), (NoFur ? "skin" : "scales"), (NoFur ? "" : ", leathery"), Player.CockDescript(x)));
 
                 OutputText("Scenes.Basiliskscene.DefeatBasiliskAndAnal.GoingToughAtFirst".Localized());
 
@@ -245,11 +245,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
                 OutputText("Scenes.Basiliskscene.DefeatBasiliskAndAnal.ContinueToFuckCreature".Localized());
 
-                OutputText("Scenes.Basiliskscene.DefeatBasiliskAndAnal.ShakenOutOfHim".Localized((noFur ? "" : "scaled ")));
+                OutputText("Scenes.Basiliskscene.DefeatBasiliskAndAnal.ShakenOutOfHim".Localized((NoFur ? "" : "scaled ")));
             }
             else
             {
-                OutputText("Scenes.Basiliskscene.DefeatBasiliskAndAnal.GetOffBasiliskAgain".Localized(Player.ClothedOrNakedLower("Knowing your opponent is going nowhere, you undress at leisure, allowing your " + Player.CockDescript(x) + " to slide out and feel the fresh air. "), (noFur ? "skin" : "scales"), (noFur ? "" : ", leathery"), (Player.Strength < 60 ? "a lot of effort to move" : "some effort to move"), Player.CockDescript(x), Player.CockDescript(x)));
+                OutputText("Scenes.Basiliskscene.DefeatBasiliskAndAnal.GetOffBasiliskAgain".Localized(Player.ClothedOrNakedLower("Knowing your opponent is going nowhere, you undress at leisure, allowing your " + Player.CockDescript(x) + " to slide out and feel the fresh air. "), (NoFur ? "skin" : "scales"), (NoFur ? "" : ", leathery"), (Player.Strength < 60 ? "a lot of effort to move" : "some effort to move"), Player.CockDescript(x), Player.CockDescript(x)));
 
                 OutputText("Scenes.Basiliskscene.DefeatBasiliskAndAnal.ToughAtFirstAgain".Localized());
 
@@ -559,7 +559,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
                 Player.ApplyStats(new DynStat(GameStats.Sensitivity, 2f));
 
-                OutputText("Scenes.Basiliskscene.BasiliskBirth.SlowlyDragYourself".Localized((noFur ? "" : " reptilian")));
+                OutputText("Scenes.Basiliskscene.BasiliskBirth.SlowlyDragYourself".Localized((NoFur ? "" : " reptilian")));
 
                 OutputText("Scenes.Basiliskscene.BasiliskBirth.InFrontOfYou".Localized());
 
@@ -913,7 +913,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Basiliskscene.DriderPCEggLaysBasilisk.ReachingBehindYou".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Basiliskscene.DriderPCEggLaysBasilisk.PinningHimBetween".Localized());
 
             OutputText("Scenes.Basiliskscene.DriderPCEggLaysBasilisk.ShovingHimUp".Localized());
@@ -947,7 +947,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
             else
                 OutputText("Scenes.Basiliskscene.DriderPCEggLaysBasilisk.CuntWord".Localized());
 
-            OutputText("Scenes.Basiliskscene.DriderPCEggLaysBasilisk.UpAgainstHisMouth".Localized((noFur ? "" : "scaled ")));
+            OutputText("Scenes.Basiliskscene.DriderPCEggLaysBasilisk.UpAgainstHisMouth".Localized((NoFur ? "" : "scaled ")));
 
             OutputText("Scenes.Basiliskscene.DriderPCEggLaysBasilisk.CreatureHesitatesBelow".Localized());
 
@@ -1016,7 +1016,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
             else
                 OutputText("Scenes.Basiliskscene.LayBeeEggsInABasilisk.ArousalWord".Localized());
 
-            OutputText("Scenes.Basiliskscene.LayBeeEggsInABasilisk.CurrentlySuffering".Localized((noFur ? "head" : "scaly visage")));
+            OutputText("Scenes.Basiliskscene.LayBeeEggsInABasilisk.CurrentlySuffering".Localized((NoFur ? "head" : "scaly visage")));
 
             if (Player.IsTaur() || Player.Gender == Gender.Genderless)
                 OutputText("Scenes.Basiliskscene.LayBeeEggsInABasilisk.DroolMessily".Localized());
@@ -1090,7 +1090,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
                 if (Player.HasVagina())
                     OutputText("Scenes.Basiliskscene.LayBeeEggsInABasilisk.BodyDemandingMore".Localized());
 
-            OutputText("Scenes.Basiliskscene.LayBeeEggsInABasilisk.RemoveDepletedAppendage".Localized((noFur ? "" : " but for the scales in the way")));
+            OutputText("Scenes.Basiliskscene.LayBeeEggsInABasilisk.RemoveDepletedAppendage".Localized((NoFur ? "" : " but for the scales in the way")));
 
             Player.DumpEggs();
 

@@ -204,7 +204,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Dungeons.LethicesKeep
             {
                 OutputText("Scenes.Driderincubusscenes.SpooderbuttGetsANewCockSleeveIV.JudgingByTheWay".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Driderincubusscenes.SpooderbuttGetsANewCockSleeveIV.CouldDrownSomeone".Localized());
             }
             else
@@ -462,7 +462,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Dungeons.LethicesKeep
 
             OutputText("Scenes.Driderincubusscenes.FuckMitzi.ShrugAndStartStripping".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Driderincubusscenes.FuckMitzi.AndSmutWriters".Localized());
 
             OutputText("Scenes.Driderincubusscenes.FuckMitzi.ItsHubris".Localized());

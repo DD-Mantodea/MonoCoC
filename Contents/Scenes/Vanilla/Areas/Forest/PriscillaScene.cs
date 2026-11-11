@@ -187,7 +187,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
                 OutputText("Scenes.Priscillascene.GoblinElderBeatYaUp.SayStart".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Priscillascene.GoblinElderBeatYaUp.StopCriminalScum".Localized());
                 else
                     OutputText("Scenes.Priscillascene.GoblinElderBeatYaUp.HoldYourHorses".Localized());

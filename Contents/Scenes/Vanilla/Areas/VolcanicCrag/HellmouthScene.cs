@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
@@ -20,9 +20,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.VolcanicCrag
 
         public static SaveContent Save => SaveContent(SceneIds.VolcanicCrag.Hellmouth);
 
-        public string debugName => "Hellmouth";
 
-        public string debugHint => "";
 
         public override void Entry()
         {

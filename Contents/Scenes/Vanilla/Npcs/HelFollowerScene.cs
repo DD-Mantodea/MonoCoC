@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
@@ -23,9 +23,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public static SaveContent Save => SaveContent(SceneIds.Npcs.HelFollower);
 
-        public string debugName => "Helia";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -2825,7 +2823,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 OutputText("Scenes.Helfollower.GoWithHelia.HangingOffYou".Localized());
 
             OutputText("Scenes.Helfollower.GoWithHelia.ApproachGreatGates".Localized(
-                GameSettings.UrtaDisabled ? "Common.Text.TheCaptainCurledUpUnderA".Localized() : "Common.Text.UrtaTheGray".Localized() + (noFur ? "Common.Text.HairedFoxGirl".Localized() : "Common.Text.CoatedFox".Localized()) + " curled up under a small awning beside the gate with a huge canteen resting beside her. Her centauress partner is noticeably missing, but Urta still gives you a wave and a grin you can't quite read."
+                GameSettings.UrtaDisabled ? "Common.Text.TheCaptainCurledUpUnderA".Localized() : "Common.Text.UrtaTheGray".Localized() + (NoFur ? "Common.Text.HairedFoxGirl".Localized() : "Common.Text.CoatedFox".Localized()) + " curled up under a small awning beside the gate with a huge canteen resting beside her. Her centauress partner is noticeably missing, but Urta still gives you a wave and a grin you can't quite read."
             ));
 
             OutputText("Scenes.Helfollower.GoWithHelia.PushesOpenDoor".Localized(

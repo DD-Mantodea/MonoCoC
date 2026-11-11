@@ -1292,7 +1292,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                 else
                     TellyGuidance = true;
 
-            if (Player.HasItem(ItemRegistry.Create(UseableIds.AbyssalShard)) && !TellyCom(TellyComType.TellyComA) && silly)
+            if (Player.HasItem(ItemRegistry.Create(UseableIds.AbyssalShard)) && !TellyCom(TellyComType.TellyComA) && Silly)
                 if (TellyCall)
                     AddNextButton("Common.Button.AShard".Localized(), TellyStial).Hint("You found a most peculiar artifact in that damnable manor, yet the beauty of this crystal compels you to gift it to the little girl.", "Abyssal Shard");
                 else
@@ -1321,7 +1321,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             TellyCom(TellyComType.TellyComB, true);
 
-            if (silly)
+            if (Silly)
             {
             }
 

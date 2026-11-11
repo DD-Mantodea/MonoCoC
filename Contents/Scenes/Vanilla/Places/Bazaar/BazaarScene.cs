@@ -149,7 +149,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             ShowImage("location-bazaar");
 
-            OutputText("Scenes.Bazaar.EnterTheBazaarAndMenu.BreezesPast".Localized((noFur ? "" : ", paws,")));
+            OutputText("Scenes.Bazaar.EnterTheBazaarAndMenu.BreezesPast".Localized((NoFur ? "" : ", paws,")));
 
             if (CoC.Instance.Flags.Get(GameFlagIds.BazaarEntered) == 0)
             {
@@ -354,7 +354,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
             }
             else
             {
-                OutputText("Scenes.Bazaar.AssaultYoRapistYo.HuffsBreath".Localized((noFur ? "" : ", his fur soft under your fingers"), (noFur ? "Common.Text.Man".Localized() : "Scenes.Rubi.GiveRubiATFItem.FelineWord".Localized()), (noFur ? "Common.Text.RoundTigerLikeEarsCoveredIn".Localized() : "Common.Text.OrangeFurWithBlackStripes".Localized())));
+                OutputText("Scenes.Bazaar.AssaultYoRapistYo.HuffsBreath".Localized((NoFur ? "" : ", his fur soft under your fingers"), (NoFur ? "Common.Text.Man".Localized() : "Scenes.Rubi.GiveRubiATFItem.FelineWord".Localized()), (NoFur ? "Common.Text.RoundTigerLikeEarsCoveredIn".Localized() : "Common.Text.OrangeFurWithBlackStripes".Localized())));
 
                 ClearButtons();
 
@@ -461,9 +461,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Bazaar.CollectSomeButtSmex.ShutYerTraps".Localized());
 
-            OutputText("Scenes.Bazaar.CollectSomeButtSmex.VoicesSurround".Localized((noFur ? "Common.Text.EaredManHisChestCoveredIn".Localized() : "Common.Text.CoveredInBrownFurFromHead".Localized())));
+            OutputText("Scenes.Bazaar.CollectSomeButtSmex.VoicesSurround".Localized((NoFur ? "Common.Text.EaredManHisChestCoveredIn".Localized() : "Common.Text.CoveredInBrownFurFromHead".Localized())));
 
-            OutputText("Scenes.Bazaar.CollectSomeButtSmex.FollowsGaze".Localized((noFur ? "Common.Text.TigerMan".Localized() : "Common.Text.FelineFigure".Localized()), (noFur ? "Common.Text.AppearanceIsHumanExceptForFurry".Localized() : "Common.Text.FaceLooksHumanoidButHisBody".Localized())));
+            OutputText("Scenes.Bazaar.CollectSomeButtSmex.FollowsGaze".Localized((NoFur ? "Common.Text.TigerMan".Localized() : "Common.Text.FelineFigure".Localized()), (NoFur ? "Common.Text.AppearanceIsHumanExceptForFurry".Localized() : "Common.Text.FaceLooksHumanoidButHisBody".Localized())));
 
             OutputText("Scenes.Bazaar.CollectSomeButtSmex.LowTone".Localized());
 
@@ -575,7 +575,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
         {
             ClearOutput();
 
-            OutputText("Scenes.Bazaar.SuckOffATiger.BarbedLength".Localized((noFur ? "" : " furred")));
+            OutputText("Scenes.Bazaar.SuckOffATiger.BarbedLength".Localized((NoFur ? "" : " furred")));
 
             FinalGayFinallee(0);
         }
@@ -586,7 +586,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Bazaar.SuckOffABear.OpensWide".Localized());
 
-            OutputText("Scenes.Bazaar.SuckOffABear.BitchesKnow".Localized((noFur ? "Common.Text.Hairy".Localized() : "Common.Text.Furred".Localized())));
+            OutputText("Scenes.Bazaar.SuckOffABear.BitchesKnow".Localized((NoFur ? "Common.Text.Hairy".Localized() : "Common.Text.Furred".Localized())));
 
             FinalGayFinallee(1);
         }
@@ -625,7 +625,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                      Player.ButtDescript()
                 ));
 
-                OutputText("Scenes.Bazaar.FinalGayFinallee.DontLastLong".Localized((noFur ? "Common.Text.Hairy".Localized() : "Common.Text.Furred".Localized())));
+                OutputText("Scenes.Bazaar.FinalGayFinallee.DontLastLong".Localized((NoFur ? "Common.Text.Hairy".Localized() : "Common.Text.Furred".Localized())));
 
                 if (Player.HasCock())
                     OutputText("Scenes.Bazaar.FinalGayFinallee.HandDips".Localized());
@@ -678,7 +678,7 @@ ReturnToCamp(1);
 
                     Player.ButtChange(45, true, true, false);
 
-                    OutputText("Scenes.Bazaar.FinalGayFinallee.HeftyGirth".Localized(Player.ButtDescript(), (noFur ? "" : " furred")));
+                    OutputText("Scenes.Bazaar.FinalGayFinallee.HeftyGirth".Localized(Player.ButtDescript(), (NoFur ? "" : " furred")));
 
                     OutputText("Scenes.Bazaar.FinalGayFinallee.BearLast".Localized());
 

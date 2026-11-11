@@ -803,7 +803,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             OutputText("Scenes.Sandtrapscene.StickWangInSandgina.TubeLikeOpening".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Sandtrapscene.StickWangInSandgina.FewerPoutingLips".Localized());
 
             OutputText("Scenes.Sandtrapscene.StickWangInSandgina.TopHalfHas".Localized());

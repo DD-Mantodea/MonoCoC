@@ -25,7 +25,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         {
             ClearOutput();
 
-            OutputText("Scenes.Weaponshop.Inside.ForgeAmbience".Localized((noFur ? "A short gray and white tail" : "Thick gray and white fur"), (noFur ? "tail" : "fur")));
+            OutputText("Scenes.Weaponshop.Inside.ForgeAmbience".Localized((NoFur ? "A short gray and white tail" : "Thick gray and white fur"), (NoFur ? "tail" : "fur")));
 
             OutputText("Scenes.Weaponshop.Inside.GruffGreeting".Localized());
 

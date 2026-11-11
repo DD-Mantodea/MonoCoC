@@ -157,7 +157,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         {
             ClearOutput();
 
-            if ((silly && CoC.Instance.Flags.Get(GameFlagIds.ShouldraPaladinMaidenCounter) == 0) && (!(Player.CockTotal() > 1 || Player.Body.Get<FacePart>().Id != BodyPartTypes.Human || Player.Body.Get<LowerBodyPart>().Id != BodyPartTypes.Human || Player.Body.Get<TailPart>().Id != BodyPartTypes.None || Player.Horns.Id.Path != "none" || !Player.IsPureEnough(15) || Player.BiggestCockLength() > 10 || Player.Tallness < 65 || Player.Tallness > 78 || Player.HasVagina())))
+            if ((Silly && CoC.Instance.Flags.Get(GameFlagIds.ShouldraPaladinMaidenCounter) == 0) && (!(Player.CockTotal() > 1 || Player.Body.Get<FacePart>().Id != BodyPartTypes.Human || Player.Body.Get<LowerBodyPart>().Id != BodyPartTypes.Human || Player.Body.Get<TailPart>().Id != BodyPartTypes.None || Player.Horns.Id.Path != "none" || !Player.IsPureEnough(15) || Player.BiggestCockLength() > 10 || Player.Tallness < 65 || Player.Tallness > 78 || Player.HasVagina())))
                 {
                     SuperCoolPaladinSexStuffDudeGasmJizzMonkies();
 
@@ -1118,7 +1118,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Shouldrascene.PenisGartuanGhostSmexVictory.GhostGirlScreamsPleasure".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Shouldrascene.PenisGartuanGhostSmexVictory.MiddleOfEjaculatoryWings".Localized());
 
             OutputText("Scenes.Shouldrascene.PenisGartuanGhostSmexVictory.FinallyFireHose".Localized());

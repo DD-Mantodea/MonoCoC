@@ -864,7 +864,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                         Player.CockDescript(x)
                     ));
 
-            OutputText("Scenes.Sophiescene.ConsensualHotSophieDickings.WarmThighsCloseAround".Localized((noFur ? "" : ", feathery"), Player.CockDescript(x), Player.CockDescript(x)));
+            OutputText("Scenes.Sophiescene.ConsensualHotSophieDickings.WarmThighsCloseAround".Localized((NoFur ? "" : ", feathery"), Player.CockDescript(x), Player.CockDescript(x)));
 
             OutputText("Scenes.Sophiescene.ConsensualHotSophieDickings.FeelsGoodButInability".Localized());
 
@@ -1562,7 +1562,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             else
                 OutputText("Scenes.Sophiescene.SophieVictoryPussyGrind.TooTurnedToResist".Localized());
 
-            OutputText("Scenes.Sophiescene.SophieVictoryPussyGrind.HarpyNeedsALesson".Localized((noFur ? "" : " feathery")));
+            OutputText("Scenes.Sophiescene.SophieVictoryPussyGrind.HarpyNeedsALesson".Localized((NoFur ? "" : " feathery")));
 
             OutputText("Scenes.Sophiescene.SophieVictoryPussyGrind.ReplySophieShudders".Localized());
 
@@ -1652,7 +1652,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Sophiescene.SophieVictoryPussyGrind.ParagraphBreak".Localized());
 
-            OutputText("Scenes.Sophiescene.SophieVictoryPussyGrind.DeclareGetDressed".Localized((noFur ? "" : " feathery")));
+            OutputText("Scenes.Sophiescene.SophieVictoryPussyGrind.DeclareGetDressed".Localized((NoFur ? "" : " feathery")));
 
             Player.Orgasm("Vaginal");
 
@@ -1676,7 +1676,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             else
                 OutputText("Scenes.Sophiescene.FuckDatClit.TooTurnedToResist".Localized());
 
-            OutputText("Scenes.Sophiescene.FuckDatClit.HarpyNeedsALesson".Localized((noFur ? "" : " feathery")));
+            OutputText("Scenes.Sophiescene.FuckDatClit.HarpyNeedsALesson".Localized((NoFur ? "" : " feathery")));
 
             OutputText("Scenes.Sophiescene.FuckDatClit.LaughMakeItQuite".Localized());
 
@@ -1922,7 +1922,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             var x = Player.BiggestCockIndex();
 
-            OutputText("Scenes.Sophiescene.TooBigForOwnGoodSophieLossRape.ReachesWithClawed".Localized(Player.CockDescript(x), (noFur ? "" : " feathery")));
+            OutputText("Scenes.Sophiescene.TooBigForOwnGoodSophieLossRape.ReachesWithClawed".Localized(Player.CockDescript(x), (NoFur ? "" : " feathery")));
 
             OutputText("Scenes.Sophiescene.TooBigForOwnGoodSophieLossRape.HoursLaterYouWake".Localized(
                 Player.CockDescript(x)

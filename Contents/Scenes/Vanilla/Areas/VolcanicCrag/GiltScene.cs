@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
@@ -17,9 +17,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.VolcanicCrag
 
         public static SaveContent Save => SaveContent(SceneIds.VolcanicCrag.Gilt);
 
-        public string debugName => "Gilt";
 
-        public string debugHint => "";
 
         public override void Entry()
         {

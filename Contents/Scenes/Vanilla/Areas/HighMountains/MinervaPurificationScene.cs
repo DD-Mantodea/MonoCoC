@@ -379,7 +379,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Minervapurification.PurificationByJojoPart2.SighsGoldenLooksDown".Localized());
 
-            OutputText("Scenes.Minervapurification.PurificationByJojoPart2.MouseMonkBlushingDepth".Localized((noFur ? "vibrantly" : "so vibrantly you can see it through the fur on his cheeks")));
+            OutputText("Scenes.Minervapurification.PurificationByJojoPart2.MouseMonkBlushingDepth".Localized((NoFur ? "vibrantly" : "so vibrantly you can see it through the fur on his cheeks")));
 
             OutputText("Scenes.Minervapurification.PurificationByJojoPart2.PoliteWorkDoneMust".Localized());
 

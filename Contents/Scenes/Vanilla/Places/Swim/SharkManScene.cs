@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
@@ -15,9 +15,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Swim
 
         public static SaveContent Save => SaveContent(SceneIds.Swim.SharkMan);
 
-        public string debugName => "SharkMan";
 
-        public string debugHint => "";
 
         public override void Entry()
         {

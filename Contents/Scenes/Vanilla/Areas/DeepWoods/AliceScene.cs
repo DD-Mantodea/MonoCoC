@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Combat;
@@ -43,9 +43,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
         public string skinTone => currentAlice.Body.Get<SkinPart>().Tone;
 
-        public string debugName => "Alice";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -830,9 +828,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
             AddNextButton("Common.Button.RoughSex".Localized(), AliceAsphyxiation);
 
-            if (silly)
+            if (Silly)
                 AddNextButton("Common.Button.Pantiesplay".Localized(), AlicePanties2);
-            // 原版 AliceScene.hx:651 — Shouldra 是跟随者时才出现「Shouldra」选项
+            // 鍘熺増 AliceScene.hx:651 鈥?Shouldra 鏄窡闅忚€呮椂鎵嶅嚭鐜般€孲houldra銆嶉€夐」
             if (SceneInstance<Npcs.ShouldraFollowerScene>.Get().FollowerShouldra())
                 AddNextButton("Scenes.Options.Setting.Shouldra".Localized(), ShouldraPossession);
 
@@ -1259,7 +1257,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
             AddButton(0, "Common.Button.Leave".Localized(), () => AliceFoxLeave(2));
 
-            if (silly)
+            if (Silly)
                 AddButton(1, "Common.Button.JumpOut".Localized(), AliceFoxJump);
         }
 
@@ -1620,13 +1618,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
             if (needDraft)
                 OutputText("Scenes.Alicescene.AliceLustFuck.ShiversShuddersPotionEffect".Localized());
 
-            OutputText("Scenes.Alicescene.AliceLustFuck.NowHerDrivenInsane".Localized((Player.IsNaked() ? "" : ", and make haste to unveil your manhood"), (silly ? " away from her snatch" : ""), (Player.LongestCockLength() < 5 ? "She must be extremely desperate. " : "")));
+            OutputText("Scenes.Alicescene.AliceLustFuck.NowHerDrivenInsane".Localized((Player.IsNaked() ? "" : ", and make haste to unveil your manhood"), (Silly ? " away from her snatch" : ""), (Player.LongestCockLength() < 5 ? "She must be extremely desperate. " : "")));
 
             OutputText("Scenes.Alicescene.AliceLustFuck.GreatestEnthusiasmPosition".Localized());
 
-            OutputText("Scenes.Alicescene.AliceLustFuck.MindBrokenLustMagnitude".Localized((silly && needDraft ? "Glancing at the torn panties and heart-shaped pupils, you look to the empty potion bottle and ponder if science has gone too far. " : "")));
+            OutputText("Scenes.Alicescene.AliceLustFuck.MindBrokenLustMagnitude".Localized((Silly && needDraft ? "Glancing at the torn panties and heart-shaped pupils, you look to the empty potion bottle and ponder if science has gone too far. " : "")));
 
-            OutputText("Scenes.Alicescene.AliceLustFuck.ExclaimsClumsilyEmbrace".Localized((silly ? " V.I.P. room" : "")));
+            OutputText("Scenes.Alicescene.AliceLustFuck.ExclaimsClumsilyEmbrace".Localized((Silly ? " V.I.P. room" : "")));
 
             OutputText("Scenes.Alicescene.AliceLustFuck.ConsumedWithLustMutterings".Localized());
 
@@ -1656,7 +1654,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
             OutputText("Scenes.Alicescene.AliceLustFuck2.ViceGripCockTree".Localized());
 
-            OutputText("Scenes.Alicescene.AliceLustFuck2.LollsTongueCurlingToes".Localized((choice ? " [say: Rape my uterus with semen!] she begs. [say: Turn my womb into a distended balloon full of your splurty-splurt juices!]" : ""), (silly ? "Rule of threes, you suppose." : "")));
+            OutputText("Scenes.Alicescene.AliceLustFuck2.LollsTongueCurlingToes".Localized((choice ? " [say: Rape my uterus with semen!] she begs. [say: Turn my womb into a distended balloon full of your splurty-splurt juices!]" : ""), (Silly ? "Rule of threes, you suppose." : "")));
 
             OutputText("Scenes.Alicescene.AliceLustFuck2.WetSlappingScentSex".Localized((choice ? "The Alice deliriously spouts various sounds until soon speaking somewhat clearly again. [say: Bruise my cervix! Even if I pass out from cumming too much, don't stop until you're satisfied!]" : "")));
 
@@ -1771,7 +1769,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
             ));
 
             OutputText("Scenes.Alicescene.AliceNursing.HugsTighterAcrossLap".Localized(
-                silly ? Player.Mf("The demoness groans loudly. [say: I told you <b>please</b>, that sounds so weird!] Her vocal dread is amusing, but you'll lay off, and instead see to her needs", "So be it, you'll quench her needs") : "So be it, you'll quench her needs"
+                Silly ? Player.Mf("The demoness groans loudly. [say: I told you <b>please</b>, that sounds so weird!] Her vocal dread is amusing, but you'll lay off, and instead see to her needs", "So be it, you'll quench her needs") : "So be it, you'll quench her needs"
             ));
 
             OutputText("Scenes.Alicescene.AliceNursing.SlipFingerPantiesWriggle".Localized());
@@ -2078,7 +2076,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
         {
 
             OutputText("Scenes.Alicescene.RentAnAliceLook.NoChancesShufflePosition".Localized());
-            // 原版 AliceScene.hx:1419 — allowChild 时额外涨 lust 10
+            // 鍘熺増 AliceScene.hx:1419 鈥?allowChild 鏃堕澶栨定 lust 10
             if (GameSettings.AllowChild)
                 Player.ApplyStats(new DynStat(GameStats.Lust, 10f));
 
@@ -2107,7 +2105,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
                 OutputText("Scenes.Alicescene.RentAnAliceApproach.SmilesHoldsSackExpectantly".Localized());
             }
-            // 原版 AliceScene.hx:1438 — allowChild 时额外涨 lust 10
+            // 鍘熺増 AliceScene.hx:1438 鈥?allowChild 鏃堕澶栨定 lust 10
             if (GameSettings.AllowChild)
                 Player.ApplyStats(new DynStat(GameStats.Lust, 10f));
 
@@ -2258,7 +2256,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
                 OutputText("Scenes.Alicescene.RentAnAliceTooMuch.LeansCloserBarelyBreeze".Localized());
             }
-            // 原版 AliceScene.hx:1460 — allowChild 时额外涨 lust 10
+            // 鍘熺増 AliceScene.hx:1460 鈥?allowChild 鏃堕澶栨定 lust 10
             if (GameSettings.AllowChild)
                 Player.ApplyStats(new DynStat(GameStats.Lust, 10f));
 
@@ -2281,7 +2279,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
             OutputText("Scenes.Alicescene.RentAnAliceTooMuchTwo.StaresRightThroughSigh".Localized((lewd ? "" : "[say: You need one even more than I thought...] ")));
 
             OutputText("Scenes.Alicescene.RentAnAliceTooMuchTwo.HoldingUpOneFinger".Localized((lewd ? "Though you can't believe [if (gems < 5) {what you're hearing|that worked}], she cuts you off before you can take up her offer. " : "[if (gems < 5) {It's a strange feeling having a [if (ischild) {girl your age|little girl}] take pity on you, but|Though you can't believe that worked,}] she cuts you off before you can take up her offer.[pg]")));
-            // 原版 AliceScene.hx:1494 — allowChild 时额外涨 lust 10
+            // 鍘熺増 AliceScene.hx:1494 鈥?allowChild 鏃堕澶栨定 lust 10
             if (GameSettings.AllowChild)
                 Player.ApplyStats(new DynStat(GameStats.Lust, 10f));
 
@@ -2301,7 +2299,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
             OutputText("Scenes.Alicescene.RentAnAliceTooMuchAgree.NotEnoughHoldingHand".Localized());
 
             OutputText("Scenes.Alicescene.RentAnAliceTooMuchAgree.BeforeMouthSoftPalm".Localized((Player.HasSpells() ? "You're pretty sure it didn't do anything, but you've heard the tales of wizards accidentally making pacts they couldn't uphold." : "You don't think it did anything... but then again, what do you know about magic?")));
-            // 原版 AliceScene.hx:allowChild 段落 — 额外涨 lust 10
+            // 鍘熺増 AliceScene.hx:allowChild 娈佃惤 鈥?棰濆娑?lust 10
             if (GameSettings.AllowChild)
                 Player.ApplyStats(new DynStat(GameStats.Lust, 10f));
 
@@ -2354,7 +2352,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
                 if (Player.HasCock())
                 {
-                    OutputText("Scenes.Alicescene.RentAnAlicePay.TurnsLittleRedPositive".Localized((silly && Player.LongestCockLength() >= 12 ? "--or self-preservation--" : ", ")));
+                    OutputText("Scenes.Alicescene.RentAnAlicePay.TurnsLittleRedPositive".Localized((Silly && Player.LongestCockLength() >= 12 ? "--or self-preservation--" : ", ")));
 
                     OutputText("Scenes.Alicescene.RentAnAlicePay.ExplainsHandGraspsWrist".Localized());
 
@@ -2405,7 +2403,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
                             OutputText("Scenes.Alicescene.RentAnAlicePay.PausesTuggingRopeBindings".Localized());
 
                             OutputText("Scenes.Alicescene.RentAnAlicePay.NodPartOfYou".Localized());
-                            // 原版 AliceScene.hx:1611：藤甲有花色阶段（item.Stage != 0）时换一句描写
+                            // 鍘熺増 AliceScene.hx:1611锛氳棨鐢叉湁鑺辫壊闃舵锛坕tem.Stage != 0锛夋椂鎹竴鍙ユ弿鍐?
                             OutputText("Scenes.Alicescene.RentAnAlicePay.GazeFallsTo".Localized(
                                 Player.Armor.Stage != 0
 

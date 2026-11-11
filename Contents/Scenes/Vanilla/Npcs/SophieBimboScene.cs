@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
 using MonoCoC.Contents.Datas.Vanilla;
@@ -22,9 +22,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public static SaveContent Save => SaveContent(SceneIds.Npcs.SophieBimbo);
 
-        public string debugName => "Sophie";
 
-        public string debugHint => "";
 
         public bool pregnancy => SceneInstance<SophieScene>.Get().Pregnancy.IsPregnant;
 
@@ -246,7 +244,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             float choice = Random.Shared.Next(4);
 
-            if (silly)
+            if (Silly)
                 choice = Random.Shared.Next(5);
 
             if (choice == 0)
@@ -585,7 +583,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Sophiebimbo.StopHarvest.TellSophieStopEggs".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Sophiebimbo.StopHarvest.WishesFinancialAcumen".Localized());
             else
                 OutputText("Scenes.Sophiebimbo.StopHarvest.WistfulSighBellybutton".Localized());
@@ -850,7 +848,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             AddNextButton("Scenes.Dullahan.AskDullSex.ButtonCuddle".Localized(), DaughterCuddle);
 
             AddNextButton("Combat.Ability.IvorySuccubusFlight.Name".Localized(), DaughterFlight);
-            // 原版 SophieBimbo.hx:693 — allowChild 时才出现「Cunnilingus」与「Play Marriage」
+            // 鍘熺増 SophieBimbo.hx:693 鈥?allowChild 鏃舵墠鍑虹幇銆孋unnilingus銆嶄笌銆孭lay Marriage銆?
             if (GameSettings.AllowChild)
             {
                 AddNextButton("Common.Button.Cunnilingus".Localized(), DaughterCunny);
@@ -2922,7 +2920,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                         {
                             OutputText("Scenes.Sophiebimbo.LetSophieMilkYoDick.CheeksBulgeNoseSpray".Localized());
 
-                            if (silly)
+                            if (Silly)
                                 OutputText("Scenes.Sophiebimbo.LetSophieMilkYoDick.RepelCumMagnitude".Localized());
                             else
                                 OutputText("Scenes.Sophiebimbo.LetSophieMilkYoDick.HandleThatMuchCum".Localized());

@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Enemies.Vanilla;
 using MonoCoC.Contents.Creatures;
@@ -27,9 +27,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
         public static SaveContent Save => SaveContent(SceneIds.Forest.Tamani);
 
-        public string debugName => "Tamani";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -1708,7 +1706,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
             ClearButtons();
 
-            if (silly)
+            if (Silly)
             {
                 AddButton(0, "Scenes.Tamani.KillTamaniChoice.ButtonFight".Localized(), KillTamani);
 

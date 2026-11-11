@@ -791,7 +791,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             OutputText("Scenes.Dreams.DisplacerDreamII.DreamShiftsAgainWolf".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Dreams.DisplacerDreamII.KWord".Localized());
 
             OutputText("Scenes.Dreams.DisplacerDreamII.NotADropJism".Localized());

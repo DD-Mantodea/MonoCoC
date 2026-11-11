@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Pregnancy;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
@@ -25,9 +25,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public int lastNursingCheck = 0;
 
-        public string debugName => "Isabella";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -1259,7 +1257,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                         Player.CockDescript(x)
                     ));
 
-                if (silly && (Player.LustPercent < 50 || Player.Libido <= 20))
+                if (Silly && (Player.LustPercent < 50 || Player.Libido <= 20))
                 {
                     OutputText("Scenes.Isabellafollowerscene.RepeatGermanBratwurstInCamp.CockDeflatesPillowTalk".Localized());
 

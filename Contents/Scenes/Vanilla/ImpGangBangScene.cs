@@ -1,4 +1,4 @@
-using MonoCoC.Contents.World;
+﻿using MonoCoC.Contents.World;
 using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
@@ -16,9 +16,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
         public static SaveContent Save => SaveContent(SceneIds.Core.ImpGangBang);
 
-        public string debugName => "Imp Gangbang";
 
-        public string debugHint => "";
 
         public override void Entry()
         {

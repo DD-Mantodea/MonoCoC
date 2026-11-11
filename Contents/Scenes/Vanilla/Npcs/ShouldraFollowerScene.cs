@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Combat;
@@ -20,9 +20,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public static SaveContent Save => SaveContent(SceneIds.Npcs.ShouldraFollower);
 
-        public string debugName => "Shouldra";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -1578,7 +1576,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 AddNextButton("Common.Button.VisitVala".Localized(), ShouldraAndValaGetBigger);
             }
 
-            if (silly && Player.HasCock())
+            if (Silly && Player.HasCock())
                 AddNextButton("Common.Button.Ghostblowjob".Localized(), GhostBlowjob);
 
             AddButton(14, "Common.Button.Back".Localized(), ShouldraFollowerScreen);
@@ -2388,7 +2386,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             if (Player.HasTailInsteadOfLegs())
                 choices.Add(13);
-            // 原版 ShouldraFollower.hx:1808：Amily 是纯爱跟随者时追加一个选项
+            // 鍘熺増 ShouldraFollower.hx:1808锛欰mily 鏄函鐖辫窡闅忚€呮椂杩藉姞涓€涓€夐」
             if (SceneInstance<AmilyScene>.Get().AmilyFollowerPure())
                 choices.Add(14);
 
@@ -2877,7 +2875,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Shouldrafollower.ExgartuMonAndShouldraShowdown.GrindingTeethSteam".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Shouldrafollower.ExgartuMonAndShouldraShowdown.BodilyRightDeclaration".Localized());
 
             OutputText("Scenes.Shouldrafollower.ExgartuMonAndShouldraShowdown.ShoutToSilenceThem".Localized());
@@ -3214,7 +3212,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 OutputText("Scenes.Shouldrafollower.GoAlongWIthShouldrasEatingSpree.GrabAnEclair".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Shouldrafollower.GoAlongWIthShouldrasEatingSpree.GoodEclair".Localized());
 
                 OutputText("Scenes.Shouldrafollower.GoAlongWIthShouldrasEatingSpree.CreamTreatsStuffed".Localized());
@@ -3268,7 +3266,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 OutputText("Scenes.Shouldrafollower.GoAlongWIthShouldrasEatingSpree.GrabAnEclairAgain".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Shouldrafollower.GoAlongWIthShouldrasEatingSpree.GoodEclairAgain".Localized());
 
                 OutputText("Scenes.Shouldrafollower.GoAlongWIthShouldrasEatingSpree.CreamTreatsStuffedAgain".Localized());
@@ -3319,7 +3317,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Shouldrafollower.ResistBeingAFatass.GirlBlushesHard".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Shouldrafollower.ResistBeingAFatass.ShouldraSighs".Localized());
 
             OutputText("Scenes.Shouldrafollower.ResistBeingAFatass.StammersPastryBeams".Localized());

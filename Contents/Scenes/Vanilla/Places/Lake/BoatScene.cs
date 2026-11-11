@@ -49,7 +49,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Lake
 
             IEncounter.Create("lightrailavenger", _ => 0.05f,
 
-                _ => CoC.Instance.Flags.Get(GameFlagIds.GrabbedLightRailAvenger) != 1 && silly,
+                _ => CoC.Instance.Flags.Get(GameFlagIds.GrabbedLightRailAvenger) != 1 && Silly,
 
                 _ => SceneInstance<BoatScene>.Get().FindLightRailAvenger()),
 

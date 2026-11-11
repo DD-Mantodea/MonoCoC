@@ -29,7 +29,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         {
             ClearOutput();
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.LoppeFurry) == 0 || noFur)
+            if (CoC.Instance.Flags.Get(GameFlagIds.LoppeFurry) == 0 || NoFur)
             {
                 OutputText("Scenes.Loppe.AppearanceOfLoppe.BunnyGirlPortrait".Localized());
 
@@ -384,7 +384,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Loppe.TalkWithLoppeAboutLoppe.TakesAfterDad".Localized());
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.TimesAskedLoppeAboutLoppe) == 0 && !noFur)
+            if (CoC.Instance.Flags.Get(GameFlagIds.TimesAskedLoppeAboutLoppe) == 0 && !NoFur)
             {
                 OutputText("Scenes.Loppe.TalkWithLoppeAboutLoppe.CurseMentioned".Localized());
 
@@ -1220,7 +1220,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Loppe.LoppeRidesCocks.WrapAroundBunnyGirl".Localized());
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.LoppeFurry) == 0 || noFur)
+            if (CoC.Instance.Flags.Get(GameFlagIds.LoppeFurry) == 0 || NoFur)
                 OutputText("Scenes.Loppe.LoppeRidesCocks.SmoothSilkFur".Localized());
             else
                 OutputText("Scenes.Loppe.LoppeRidesCocks.SoftFurCoat".Localized());
@@ -1389,7 +1389,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Loppe.LoppeRidesPCCockFinal.SlidesDownPressing".Localized());
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.LoppeFurry) == 0 || noFur)
+            if (CoC.Instance.Flags.Get(GameFlagIds.LoppeFurry) == 0 || NoFur)
                 OutputText("Scenes.Loppe.LoppeRidesPCCockFinal.Skin".Localized());
             else
                 OutputText("Scenes.Loppe.LoppeRidesPCCockFinal.Fur".Localized());
@@ -1541,12 +1541,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Loppe.LoppeWorshipsDicks.LoppeGrindsBoobs".Localized());
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.LoppeFurry) > 0 && !noFur)
+            if (CoC.Instance.Flags.Get(GameFlagIds.LoppeFurry) > 0 && !NoFur)
                 OutputText("Scenes.Loppe.LoppeWorshipsDicks.FluffyWord".Localized());
 
             OutputText("Scenes.Loppe.LoppeWorshipsDicks.CleavageHerWord".Localized());
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.LoppeFurry) == 0 || noFur)
+            if (CoC.Instance.Flags.Get(GameFlagIds.LoppeFurry) == 0 || NoFur)
                 OutputText("Scenes.Loppe.LoppeWorshipsDicks.SkinWord".Localized());
             else
                 OutputText("Scenes.Loppe.LoppeWorshipsDicks.FurWord".Localized());
@@ -1822,7 +1822,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 OutputText("Scenes.Loppe.GetFuckedInYerTwatYaCunt.BellyRumblesHunger".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Loppe.GetFuckedInYerTwatYaCunt.SandvichJokeToken".Localized());
 
                 if (CoC.Instance.Flags.Get(GameFlagIds.LoppeTimesSexed) == 0)
@@ -2563,7 +2563,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 OutputText("Scenes.Loppe.BoobjobLoppe.BelchDrownsRetorts".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Loppe.BoobjobLoppe.FamilyMattersThought".Localized());
 
                 OutputText("Scenes.Loppe.BoobjobLoppe.NodGroanCradleGut".Localized());

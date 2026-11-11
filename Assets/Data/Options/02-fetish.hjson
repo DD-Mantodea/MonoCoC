@@ -1,4 +1,4 @@
-{
+﻿{
   pane: fetish
   global: true
   title: "Scenes.Options.Pane.2.Title"
@@ -7,7 +7,7 @@
 
   settings: [
     {
-      id: addiction
+      id: "coc:addiction"
       label: "Scenes.Options.Setting.Addiction"
       default: 1
       values: [
@@ -16,7 +16,7 @@
       ]
     }
     {
-      id: furry
+      id: "coc:furry"
       label: "Scenes.Options.Setting.Furry"
       default: 0
       values: [
@@ -25,7 +25,7 @@
       ]
     }
     {
-      id: watersports
+      id: "coc:watersports"
       label: "Scenes.Options.Setting.Watersports"
       default: 0
       values: [
@@ -34,7 +34,7 @@
       ]
     }
     {
-      id: gore
+      id: "coc:gore"
       label: "Scenes.Options.Setting.Gore"
       default: 0
       values: [
@@ -43,7 +43,7 @@
       ]
     }
     {
-      id: filth
+      id: "coc:filth"
       label: "Scenes.Options.Setting.Filth"
       default: 1
       values: [
@@ -52,7 +52,7 @@
       ]
     }
     {
-      id: parasites
+      id: "coc:parasites"
       label: "Scenes.Options.Setting.Parasites"
       desc: "Scenes.Options.Desc.Parasites"
       default: 0
@@ -63,7 +63,7 @@
       ]
     }
     {
-      id: underage
+      id: "coc:underage"
       label: "Scenes.Options.Setting.Underage"
       desc: "Scenes.Options.Desc.Underage"
       default: 1

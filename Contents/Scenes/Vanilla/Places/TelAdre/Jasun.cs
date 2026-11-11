@@ -53,7 +53,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 OutputText("Scenes.Jasun.MeetJasun.SurveysRoom".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Jasun.MeetJasun.SixWord".Localized());
                 else
                     OutputText("Scenes.Jasun.MeetJasun.ThreeWord".Localized());

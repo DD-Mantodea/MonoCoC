@@ -1792,7 +1792,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Mountain
 
             OutputText("Scenes.Minotaurscene.LayEggsInAMinotaurSpiderLike.GatheringSilkLimbsOvipositor".Localized());
 
-            if (!silly)
+            if (!Silly)
                 OutputText("Scenes.Minotaurscene.LayEggsInAMinotaurSpiderLike.HisBovineRosebud".Localized());
             else
                 OutputText("Scenes.Minotaurscene.LayEggsInAMinotaurSpiderLike.EntranceToOkCorral".Localized());
@@ -1912,7 +1912,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Mountain
 
             OutputText("Scenes.Minotaurscene.LayBeeEggsInCowbutt.FinallyPulsesAbdomenEggs".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Minotaurscene.LayBeeEggsInCowbutt.LookingMassEggsWhisper".Localized());
 
             Player.DumpEggs();

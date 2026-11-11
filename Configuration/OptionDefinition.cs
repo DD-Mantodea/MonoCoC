@@ -1,3 +1,4 @@
+using MonoCoC.Registry;
 using System.Collections.Generic;
 
 namespace MonoCoC.Configuration
@@ -15,7 +16,7 @@ namespace MonoCoC.Configuration
 
     public class OptionDefinition
     {
-        public string Id = "";
+        public Identifier Id;
 
         public string LabelKey = "";
 

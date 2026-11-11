@@ -157,7 +157,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Phoenixscene.MissionaryWithPhoenix.OhReally".Localized());
 
-            OutputText("Scenes.Phoenixscene.MissionaryWithPhoenix.WordsCutOff".Localized((Player.Cocks.Count == 1 ? "Common.Text.CockStirs".Localized() : "Common.Text.CocksStir".Localized()), (noFur ? "Common.Text.Skin".Localized() : "Common.Text.Feathers".Localized())));
+            OutputText("Scenes.Phoenixscene.MissionaryWithPhoenix.WordsCutOff".Localized((Player.Cocks.Count == 1 ? "Common.Text.CockStirs".Localized() : "Common.Text.CocksStir".Localized()), (NoFur ? "Common.Text.Skin".Localized() : "Common.Text.Feathers".Localized())));
 
             OutputText("Scenes.Phoenixscene.MissionaryWithPhoenix.SpreadsThighs".Localized((Player.Cocks.Count > 1 ? " and the enticingly tight ring below it" : ""), (Player.Cocks.Count == 1 ? "Common.Text.YourMemberGruntingAsIt".Localized() : "Common.Text.AllOfYourPricksGruntingAs".Localized())));
 
@@ -170,7 +170,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Phoenixscene.MissionaryWithPhoenix.EyesShootOpen".Localized((Player.Cocks.Count == 1 ? "Scenes.Lethicescenes.PlowHer.CockWord".Localized() : "Common.Text.Rods".Localized()), (Player.Cocks.Count > 1 ? "s" : "")));
 
-            OutputText("Scenes.Phoenixscene.MissionaryWithPhoenix.PullsYouIn".Localized((noFur ? "" : ", feathered")));
+            OutputText("Scenes.Phoenixscene.MissionaryWithPhoenix.PullsYouIn".Localized((NoFur ? "" : ", feathered")));
 
             DoNext(() => MissionaryWithPhoenixPart2());
         }
@@ -615,7 +615,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Phoenixscene.PhoenixBadEnd.LastWords".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Common.Text.NNDataExpunged".Localized());
 
             GameOver();

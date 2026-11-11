@@ -619,11 +619,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             Player.CreateStatusEffect(StatusEffectIds.Marble, 0, 0, 0, 40);
 
-            OutputText("Scenes.Marblescene.EncounterMarbleInitially.SouthernBelleSpotted".Localized((noFur ? "" : " furry")));
+            OutputText("Scenes.Marblescene.EncounterMarbleInitially.SouthernBelleSpotted".Localized((NoFur ? "" : " furry")));
 
             OutputText("Scenes.Marblescene.EncounterMarbleInitially.WhitneyExplainsSoreness".Localized());
 
-            OutputText("Scenes.Marblescene.EncounterMarbleInitially.SearchingBarnRooms".Localized((noFur ? "just above her knees" : "at least mid-way down her thighs")));
+            OutputText("Scenes.Marblescene.EncounterMarbleInitially.SearchingBarnRooms".Localized((NoFur ? "just above her knees" : "at least mid-way down her thighs")));
 
             Player.UnlockCodexEntry(GameFlagIds.CodexEntryLabovines, false, true);
 

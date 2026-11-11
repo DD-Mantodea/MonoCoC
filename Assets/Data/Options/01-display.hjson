@@ -1,4 +1,4 @@
-{
+﻿{
   pane: display
   global: true
   title: "Scenes.Options.Pane.1.Title"
@@ -7,7 +7,7 @@
 
   settings: [
     {
-      id: language
+      id: "coc:language"
       kind: switcher
       source: languages
       label: "Scenes.Options.Setting.Language"
@@ -15,7 +15,7 @@
       default: 0
     }
     {
-      id: theme
+      id: "coc:theme"
       label: "Scenes.Options.Setting.Theme"
       action: theme
       default: 0
@@ -24,7 +24,7 @@
       ]
     }
     {
-      id: textBackground
+      id: "coc:textBackground"
       label: "Scenes.Options.Setting.TextBackground"
       action: textBackground
       default: 0
@@ -33,7 +33,7 @@
       ]
     }
     {
-      id: fontSize
+      id: "coc:fontSize"
       label: "Scenes.Options.Setting.FontSize"
       action: fontSize
       default: 20
@@ -42,7 +42,7 @@
       ]
     }
     {
-      id: sprites
+      id: "coc:sprites"
       label: "Scenes.Options.Setting.Sprites"
       desc: "Scenes.Options.Desc.Sprites"
       default: 0
@@ -53,7 +53,7 @@
       ]
     }
     {
-      id: images
+      id: "coc:images"
       label: "Scenes.Options.Setting.ImagePack"
       default: 0
       values: [
@@ -62,7 +62,7 @@
       ]
     }
     {
-      id: time12Hour
+      id: "coc:time12Hour"
       label: "Scenes.Options.Setting.TimeFormat"
       desc: "Scenes.Options.Desc.TimeFormat"
       default: 0
@@ -72,7 +72,7 @@
       ]
     }
     {
-      id: metric
+      id: "coc:metric"
       label: "Scenes.Options.Setting.Measurements"
       desc: "Scenes.Options.Desc.Measurements"
       default: 0
@@ -82,7 +82,7 @@
       ]
     }
     {
-      id: animateStatBars
+      id: "coc:animateStatBars"
       label: "Scenes.Options.Setting.AnimateStats"
       default: 1
       values: [
@@ -91,7 +91,7 @@
       ]
     }
     {
-      id: oldFont
+      id: "coc:oldFont"
       label: "Scenes.Options.Setting.SidebarFont"
       desc: "Scenes.Options.Desc.SidebarFont"
       default: 0
@@ -101,7 +101,7 @@
       ]
     }
     {
-      id: showHotkeys
+      id: "coc:showHotkeys"
       label: "Scenes.Options.Setting.ShowHotkeys"
       default: 0
       values: [

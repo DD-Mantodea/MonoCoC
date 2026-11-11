@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
@@ -20,13 +20,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public static bool AmilyFurry() =>
 
-            CoC.Instance.Flags.Get(GameFlagIds.AmilyNotFurry) == 0 && !noFur;
+            CoC.Instance.Flags.Get(GameFlagIds.AmilyNotFurry) == 0 && !NoFur;
 
         public static SaveContent Save => SaveContent(SceneIds.Npcs.Holli);
 
-        public string debugName => "Holli";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -618,7 +616,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             Player.ApplyStats(new DynStat(GameStats.Lust, 33f));
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Holliscene.FuckPlantGrowsToLevel2.WhatDoBold".Localized());
             else
                 OutputText("Scenes.Holliscene.FuckPlantGrowsToLevel2.WhatToDoBold".Localized());
@@ -1001,7 +999,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Holliscene.DrinkThePlantGirlsSap.NipplesLargerHarderOne".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Holliscene.DrinkThePlantGirlsSap.TreeHugger".Localized());
 
             OutputText("Scenes.Holliscene.DrinkThePlantGirlsSap.ThickFillsEnergyOut".Localized());
@@ -1492,7 +1490,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Holliscene.Level4RideHollisTentacruels.HandCondescendinglyForeplay".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Holliscene.Level4RideHollisTentacruels.ProceedsJackSparrowMinutes".Localized());
 
             OutputText("Scenes.Holliscene.Level4RideHollisTentacruels.HotFluidDripsLarger".Localized());
@@ -1871,7 +1869,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Holliscene.FullOnTentacleTasticGangBangForHolli.StartedFlushThreeWay".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Holliscene.FullOnTentacleTasticGangBangForHolli.InflatableFlailingTubeCocks".Localized());
 
             OutputText("Scenes.Holliscene.FullOnTentacleTasticGangBangForHolli.BelowArborealAffectionPetals".Localized());

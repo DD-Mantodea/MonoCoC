@@ -1,5 +1,6 @@
 using Hjson;
 using MonoCoC.Assets;
+using MonoCoC.Registry;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +9,7 @@ namespace MonoCoC.Configuration
 {
     public static class OptionCatalog
     {
-        public static List<OptionPaneDefinition> Load()
+        public static List<OptionPaneDefinition> Load(string optionNamespace = "coc")
         {
             var panes = new List<OptionPaneDefinition>();
 
@@ -21,7 +22,7 @@ namespace MonoCoC.Configuration
                 {
                     var root = (JsonObject)HjsonValue.Parse(File.ReadAllText(file));
 
-                    var pane = ParsePane(root);
+                    var pane = ParsePane(root, optionNamespace);
 
                     if (pane != null)
                         panes.Add(pane);
@@ -34,7 +35,7 @@ namespace MonoCoC.Configuration
             return panes;
         }
 
-        private static OptionPaneDefinition? ParsePane(JsonObject root)
+        private static OptionPaneDefinition? ParsePane(JsonObject root, string optionNamespace)
         {
             var pane = new OptionPaneDefinition
             {
@@ -60,7 +61,7 @@ namespace MonoCoC.Configuration
 
                     var setting = new OptionDefinition
                     {
-                        Id = Str(entry, "id"),
+                        Id = ParseOptionId(Str(entry, "id"), optionNamespace),
 
                         LabelKey = Str(entry, "label"),
 
@@ -97,12 +98,17 @@ namespace MonoCoC.Configuration
                             });
                         }
 
-                    if (setting.Id != "")
+                    if (!string.IsNullOrEmpty(setting.Id.Path))
                         pane.Settings.Add(setting);
                 }
 
             return pane;
         }
+
+        private static Identifier ParseOptionId(string id, string optionNamespace) =>
+            Identifier.TryParse(id, out var identifier)
+                ? identifier
+                : new Identifier(optionNamespace, id);
 
         private static string Str(JsonObject root, string key)
         {

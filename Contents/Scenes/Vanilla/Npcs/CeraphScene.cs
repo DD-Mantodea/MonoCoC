@@ -1905,7 +1905,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                             OutputText("Scenes.Ceraphscene.CeraphBodyPartDreams.WhistlesDuoIncubi".Localized());
 
-                            if (silly)
+                            if (Silly)
                                 OutputText("Scenes.Ceraphscene.CeraphBodyPartDreams.PinkFlamingoWord".Localized());
 
                             OutputText("Scenes.Ceraphscene.CeraphBodyPartDreams.SunglassesTossesBreast".Localized());
@@ -1914,7 +1914,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                             OutputText("Scenes.Ceraphscene.CeraphBodyPartDreams.GameTossAfterToss".Localized());
 
-                            if (silly)
+                            if (Silly)
                                 OutputText("Scenes.Ceraphscene.CeraphBodyPartDreams.HorsecocksWord".Localized());
                             else
                                 OutputText("Scenes.Ceraphscene.CeraphBodyPartDreams.DemonicCocksWord".Localized());
@@ -1927,7 +1927,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                             OutputText("Scenes.Ceraphscene.CeraphBodyPartDreams.IncubiHighFiveBreast".Localized());
 
-                            if (silly)
+                            if (Silly)
                                 OutputText("Scenes.Ceraphscene.CeraphBodyPartDreams.PossibleRamifications".Localized());
 
                             OutputText("Scenes.Ceraphscene.CeraphBodyPartDreams.DismissAsCorruption".Localized());

@@ -351,7 +351,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
                 {
                     OutputText("Scenes.Phoukascene.PhoukaTalk.BuzzesWideCircle".Localized());
 
-                    OutputText("Scenes.Phoukascene.PhoukaTalk.TroubleWithThe".Localized(PhoukaName(), (noFur ? "rabbit-like human, with long ears and furry limbs, nearly four feet tall" : "large, black furred bunny, nearly four feet tall with a very human face and hands"), PhoukaName(), PhoukaName()));
+                    OutputText("Scenes.Phoukascene.PhoukaTalk.TroubleWithThe".Localized(PhoukaName(), (NoFur ? "rabbit-like human, with long ears and furry limbs, nearly four feet tall" : "large, black furred bunny, nearly four feet tall with a very human face and hands"), PhoukaName(), PhoukaName()));
 
                     if (CoC.Instance.Flags.Get(GameFlagIds.PhoukaLore) == 0)
                         CoC.Instance.Flags.Set(GameFlagIds.PhoukaLore, 1);
@@ -590,7 +590,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
 
             if (!playerNotDrinking && (Player.Toughness < 70))
             {
-                OutputText("Scenes.Phoukascene.PhoukaDrinkTalk.WhenBottleRunsOut".Localized((noFur ? "" : "the swirling mess of black fur ")));
+                OutputText("Scenes.Phoukascene.PhoukaDrinkTalk.WhenBottleRunsOut".Localized((NoFur ? "" : "the swirling mess of black fur ")));
 
                 ClearButtons();
 
@@ -603,7 +603,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
                 else
                     OutputText("Scenes.Phoukascene.PhoukaDrinkTalk.DrinkAnotherCup".Localized());
 
-                OutputText("Scenes.Phoukascene.PhoukaDrinkTalk.LittleGiggle".Localized((noFur ? "skin" : "fur")));
+                OutputText("Scenes.Phoukascene.PhoukaDrinkTalk.LittleGiggle".Localized((NoFur ? "skin" : "fur")));
 
                 phoukaForm = PHOUKA_FORM_FAERIE;
 
@@ -966,7 +966,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
                 if (phoukaForm == PHOUKA_FORM_BUNNY)
                     OutputText("Scenes.Phoukascene.PhoukaSexBunny.HopsOverStands".Localized());
                 else
-                    OutputText("Scenes.Phoukascene.PhoukaSexBunny.BeginsToShapeshift".Localized((noFur ? "skinned" : "furred")));
+                    OutputText("Scenes.Phoukascene.PhoukaSexBunny.BeginsToShapeshift".Localized((NoFur ? "skinned" : "furred")));
 
                 OutputText("Scenes.Phoukascene.PhoukaSexBunny.WatchBunnyS".Localized());
 
@@ -1014,7 +1014,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
             else
                 OutputText("Scenes.Phoukascene.PhoukaSexBunny.PowerlessToStop".Localized());
 
-            OutputText("Scenes.Phoukascene.PhoukaSexBunny.LargeFeetTake".Localized(PhoukaName(), (noFur ? "" : "Shivers run up your spine as his fur tickles your [if (tailLeg) {scales from the top to the tip of your tail|legs, back, butt and thighs}]. ")));
+            OutputText("Scenes.Phoukascene.PhoukaSexBunny.LargeFeetTake".Localized(PhoukaName(), (NoFur ? "" : "Shivers run up your spine as his fur tickles your [if (tailLeg) {scales from the top to the tip of your tail|legs, back, butt and thighs}]. ")));
 
             if (Player.Vaginas.Count > 0 && Player.Vaginas[0].Virgin)
                 OutputText("Scenes.Phoukascene.PhoukaSexBunny.ScreamAsCock".Localized(
@@ -1063,12 +1063,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
                     OutputText("Scenes.Phoukascene.PhoukaSexGoat.AsYouLayThere".Localized(
                         PhoukaName(),
 
-                        noFur ? "skinned" : "furred"
+                        NoFur ? "skinned" : "furred"
                     ));
             }
             else
             {
-                OutputText("Scenes.Phoukascene.PhoukaSexGoat.TellWilling".Localized(PhoukaName(), (noFur ? "skinned" : "furred")));
+                OutputText("Scenes.Phoukascene.PhoukaSexGoat.TellWilling".Localized(PhoukaName(), (NoFur ? "skinned" : "furred")));
 
                 if (Player.Corruption <= 50)
                     OutputText("Scenes.Phoukascene.PhoukaSexGoat.SteelYourself".Localized());
@@ -1526,7 +1526,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
                     OutputText("Scenes.Phoukascene.PhoukaSexPregnate.BlackFurredHorseSteps".Localized());
                 else
                     if (phoukaForm == PHOUKA_FORM_BUNNY)
-                        OutputText("Scenes.Phoukascene.PhoukaSexPregnate.BlackBunnyPullsOut".Localized((noFur ? "skinned" : "furred")));
+                        OutputText("Scenes.Phoukascene.PhoukaSexPregnate.BlackBunnyPullsOut".Localized((NoFur ? "skinned" : "furred")));
                     else
                         OutputText("Scenes.Phoukascene.PhoukaSexPregnate.HeWord".Localized());
 

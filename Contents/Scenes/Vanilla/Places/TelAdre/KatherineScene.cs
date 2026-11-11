@@ -377,7 +377,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         public string CatGirl(string isCatGirl, string isCatMorph)
         {
 
-            return (CoC.Instance.Flags.Get(GameFlagIds.KatherineIsCatGirl) == 0 && !noFur) ? isCatMorph : isCatGirl;
+            return (CoC.Instance.Flags.Get(GameFlagIds.KatherineIsCatGirl) == 0 && !NoFur) ? isCatMorph : isCatGirl;
         }
 
         public bool HasAlready(int sex)
@@ -765,7 +765,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             if ((subFlags & KBIT_SUB_REM_COCK) > 0)
                 subCount += 1;
 
-            if ((subFlags & KBIT_SUB_CAT_GIRL) > 0 || (noFur && subCount > 2))
+            if ((subFlags & KBIT_SUB_CAT_GIRL) > 0 || (NoFur && subCount > 2))
                 subCount += 1;
 
             if (subCount < 4 && (subFlags & KBIT_SUB_START_LACTATION) > 0)
@@ -3297,7 +3297,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Katherine.KatherinesAppearance.LeanBuiltCat".Localized());
 
-            if (furry && !noFur)
+            if (furry && !NoFur)
             {
                 OutputText("Scenes.Katherine.KatherinesAppearance.MorphHeightLine".Localized());
 
@@ -3311,7 +3311,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Katherine.KatherinesAppearance.ShoulderLengthHair".Localized());
 
-            if ((!furry || noFur) && hairColor == "jet black")
+            if ((!furry || NoFur) && hairColor == "jet black")
                 OutputText("Scenes.Katherine.KatherinesAppearance.BlackAsFur".Localized());
             else
                 OutputText("Scenes.Katherine.KatherinesAppearance.PlaceholderPeriodBreak".Localized(
@@ -3548,16 +3548,16 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 if (furry)
                 {
-                    if (!noFur && hasJob && blackEgg && Player.HasItem(ItemRegistry.Create(ConsumableIds.PurifiedSuccubiMilk)) && Player.HasItem(ItemRegistry.Create(ConsumableIds.GoldenSeed)))
+                    if (!NoFur && hasJob && blackEgg && Player.HasItem(ItemRegistry.Create(ConsumableIds.PurifiedSuccubiMilk)) && Player.HasItem(ItemRegistry.Create(ConsumableIds.GoldenSeed)))
                         AddNextButton("Common.Button.Defur".Localized(), GiveKatDefurFormula);
                     else
-                        AddNextButtonDisabled("Defur", "You can offer her to become a cat-girl. It takes a black egg, an untainted bottle of Succubi milk and a golden seed. She won't accept such a thing if she is not sure about her future." + (noFur ? " Not applicable in NoFur mode." : ""), "");
+                        AddNextButtonDisabled("Defur", "You can offer her to become a cat-girl. It takes a black egg, an untainted bottle of Succubi milk and a golden seed. She won't accept such a thing if she is not sure about her future." + (NoFur ? " Not applicable in NoFur mode." : ""), "");
                 }
                 else
-                    if (!noFur && hasJob && honey && Player.HasItem(ConsumableIds.W_FRUIT) && Player.HasItem(ConsumableIds.HairSerum))
+                    if (!NoFur && hasJob && honey && Player.HasItem(ConsumableIds.W_FRUIT) && Player.HasItem(ConsumableIds.HairSerum))
                         AddNextButton("Common.Button.Refuzz".Localized(), GiveKatRefuzzFormula);
                     else
-                        AddNextButtonDisabled("Refuzz", "You can offer her to become a cat-morph again. It takes a bottle of special bee honey, a piece of whisker-fruit and a bottle of hair extension serum." + (noFur ? " Not applicable in NoFur mode." : ""), "");
+                        AddNextButtonDisabled("Refuzz", "You can offer her to become a cat-morph again. It takes a bottle of special bee honey, a piece of whisker-fruit and a bottle of hair extension serum." + (NoFur ? " Not applicable in NoFur mode." : ""), "");
             }
 
             if (page == 2)
@@ -6161,7 +6161,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Katherine.GiveKatDyeBlack.MatchingFurFragment".Localized());
 
-            if (furry && !noFur)
+            if (furry && !NoFur)
             {
                 OutputText("Scenes.Katherine.GiveKatDyeBlack.CoversRestBody".Localized());
 
@@ -9775,7 +9775,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 }
 
                 OutputText("Scenes.Katherine.HandjobbiesFurrDemCatFurries.PullFingersRubWetness".Localized(
-                    HasBalls() ? "her" + (noFur ? "" : " fuzzy") + " balls" : "her growing knot",
+                    HasBalls() ? "her" + (NoFur ? "" : " fuzzy") + " balls" : "her growing knot",
 
                     HasBalls() ? "that " + BallAdj() + " ballsack contract" : "her cock" + CockMultiple("", "s") + " twitch and harden"
                 ));
@@ -10289,7 +10289,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 OutputText("Scenes.Katherine.BathTimePenetrated.PressesAgainstYou".Localized());
 
-                if (furry && !noFur)
+                if (furry && !NoFur)
                     OutputText("Scenes.Katherine.BathTimePenetrated.SlickFurRubbing".Localized());
                 else
                     OutputText("Scenes.Katherine.BathTimePenetrated.WetSkin".Localized());

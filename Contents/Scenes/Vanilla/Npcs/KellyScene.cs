@@ -607,7 +607,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kelly.DefeatKellyNDBREAKHIM.TearsAndCockslap".Localized());
 
-            if (silly && AmilyFollowerCorrupt())
+            if (Silly && AmilyFollowerCorrupt())
                 OutputText("Scenes.Kelly.DefeatKellyNDBREAKHIM.AmilyHearsCumbuckets".Localized());
 
             OutputText("Scenes.Kelly.DefeatKellyNDBREAKHIM.ShakesHeadSlappingStops".Localized());
@@ -880,7 +880,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kelly.FinalKeltBreaking.PraiseTakeItAll".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Kelly.FinalKeltBreaking.CumCannonShout".Localized());
 
             OutputText("Scenes.Kelly.FinalKeltBreaking.FamiliarPowerGathers".Localized());
@@ -2911,7 +2911,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 OutputText("Scenes.Kelly.GiveKellyAppleSauce.AsksFairGift".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Kelly.GiveKellyAppleSauce.ParsleySageRosemary".Localized());
 
                 OutputText("Scenes.Kelly.GiveKellyAppleSauce.SlapAssPassing".Localized());

@@ -4,6 +4,9 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using MonoCoC.Configuration;
+using MonoCoC.Contents.Scenes;
 
 namespace MonoCoC.UI.Data
 {
@@ -19,21 +22,15 @@ namespace MonoCoC.UI.Data
 
         private UIEventRegistry? _events;
 
-        private UIWidgetRegistry? _widgets;
+        private UICustomComponentRegistry? _customComponents;
 
         private View? _content;
 
-        private IUIDataContext? _dataContext;
-
-        public IUIDataContext? DataContext
+        protected void SetDataContext(IUIDataContext? context)
         {
-            get => _dataContext;
-            set
-            {
-                _dataContext = value;
+            DataContext = context;
 
-                _content?.ApplyDataContext(value);
-            }
+            _content?.ApplyDataContext(context);
         }
 
         private volatile bool _reloadRequested;
@@ -137,15 +134,19 @@ namespace MonoCoC.UI.Data
 
         public View? Content => _content;
 
-        protected void Initialize(UIEventRegistry events, UIWidgetRegistry widgets)
+        protected void Initialize()
         {
-            _events = events;
+            _events = new UIEventRegistry();
 
-            _widgets = widgets;
+            _customComponents = new UICustomComponentRegistry();
+
+            UIAttributeScanner.RegisterEvents(_events, this);
+
+            UIAttributeScanner.RegisterComponents(_customComponents, this);
 
             TryBuild();
 
-            _languageRevision = MonoCoC.Configuration.LanguageService.Revision;
+            _languageRevision = LanguageService.Revision;
         }
 
         public override void Update(GameTime gameTime)
@@ -172,13 +173,21 @@ namespace MonoCoC.UI.Data
             return _content is null ? null : FindPart<T>(_content, name);
         }
 
-        public T RequirePart<T>(string name) where T : Component =>
-            Part<T>(name) ?? throw new UIViewContractException(
-                $"View '{Contract.Id}' is missing required part '{name}' ({typeof(T).Name})");
+        public T RequirePart<T>(string name) where T : Component
+        {
+            var part = Part<T>(name);
 
-        protected virtual void OnBuilt(View root, UIDocument document) => BindParts();
+            if (part is not null)
+                return part;
 
-        protected virtual void BindParts()
+            var message = $"View '{Contract.Id}' is missing required part '{name}' ({typeof(T).Name})";
+
+            MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] {message}");
+
+            throw new UIViewContractException(message);
+        }
+
+        protected virtual void OnBuilt(View root, UIDocument document)
         {
         }
 
@@ -210,10 +219,10 @@ namespace MonoCoC.UI.Data
 
                 var document = UIDocument.Load(_documentPath);
 
-                if (_events is null || _widgets is null)
+                if (_events is null || _customComponents is null)
                     throw new InvalidOperationException("HjsonView.Initialize was not called");
 
-                var content = new UIScreenBuilder(_events, _widgets).Build(document);
+                var content = new UIScreenBuilder(_events, _customComponents).Build(document);
 
                 Contract.Validate(content);
 
@@ -222,6 +231,10 @@ namespace MonoCoC.UI.Data
                 content.ApplyDataContext(DataContext);
 
                 OnBuilt(content, document);
+
+                BindAttributedParts(content);
+
+                OnPartsBound();
 
                 RestoreState(content, state);
 
@@ -240,8 +253,7 @@ namespace MonoCoC.UI.Data
                 _content = previous;
 
                 MonoCoC.UI.Console.ConsoleOverlay.WriteError(
-                    $"[UI] {GetType().Name} load failed [{_documentPath}]: " +
-                    $"{exception.GetType().Name}: {exception.Message}");
+                    $"[UI] {GetType().Name} load failed [{_documentPath}]: {exception}");
             }
         }
 
@@ -307,6 +319,152 @@ namespace MonoCoC.UI.Data
                 textBox.Active = true;
             else
                 UIManager.Instance.FocusedComponent = target;
+        }
+
+        protected virtual void OnPartsBound()
+        {
+        }
+
+        private void BindAttributedParts(Component content)
+        {
+            for (var type = GetType(); type is not null && type != typeof(object); type = type.BaseType)
+            {
+                foreach (var field in type.GetFields(
+                             BindingFlags.DeclaredOnly |
+                             BindingFlags.Public |
+                             BindingFlags.NonPublic |
+                             BindingFlags.Instance))
+                    BindAttributedMember(
+                        content,
+                        field.Name,
+                        field.FieldType,
+                        field.GetCustomAttribute<UIRequiredAttribute>()?.Part,
+                        field.GetCustomAttribute<UIOptionalAttribute>()?.Part,
+                        field.IsInitOnly,
+                        value => field.SetValue(this, value));
+
+                foreach (var property in type.GetProperties(
+                             BindingFlags.DeclaredOnly |
+                             BindingFlags.Public |
+                             BindingFlags.NonPublic |
+                             BindingFlags.Instance))
+                    BindAttributedMember(
+                        content,
+                        property.Name,
+                        property.PropertyType,
+                        property.GetCustomAttribute<UIRequiredAttribute>()?.Part,
+                        property.GetCustomAttribute<UIOptionalAttribute>()?.Part,
+                        !property.CanWrite,
+                        value => property.SetValue(this, value));
+
+                foreach (var method in type.GetMethods(
+                             BindingFlags.DeclaredOnly |
+                             BindingFlags.Public |
+                             BindingFlags.NonPublic |
+                             BindingFlags.Instance))
+                    BindAttributedMethod(
+                        content,
+                        method,
+                        method.GetCustomAttribute<UIRequiredAttribute>()?.Part,
+                        method.GetCustomAttribute<UIOptionalAttribute>()?.Part);
+            }
+        }
+
+        private void BindAttributedMethod(
+            Component content,
+            MethodInfo method,
+            string? requiredPart,
+            string? optionalPart)
+        {
+            var part = requiredPart ?? optionalPart;
+
+            if (string.IsNullOrEmpty(part))
+                return;
+
+            var parameters = method.GetParameters();
+
+            if (method.ReturnType != typeof(void) || parameters.Length != 1)
+                throw new UIViewContractException(
+                    $"View '{GetType().Name}' method '{method.Name}' must return void and take one part");
+
+            var memberType = parameters[0].ParameterType;
+
+            var component = FindPart<Component>(content, part);
+
+            if (component is null)
+            {
+                if (optionalPart is not null)
+                    return;
+
+                var message = $"View '{GetType().Name}' method '{method.Name}' requires part '{part}' ({memberType.Name})";
+
+                MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] {message}");
+
+                throw new UIViewContractException(message);
+            }
+
+            if (!memberType.IsInstanceOfType(component))
+            {
+                var message = $"View '{GetType().Name}' method '{method.Name}' expects {memberType.Name} " +
+                              $"but part '{part}' is {component.GetType().Name}";
+
+                MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] {message}");
+
+                if (requiredPart is not null)
+                    throw new UIViewContractException(message);
+
+                return;
+            }
+
+            method.Invoke(this, [component]);
+        }
+
+        private void BindAttributedMember(
+            Component content,
+            string memberName,
+            Type memberType,
+            string? requiredPart,
+            string? optionalPart,
+            bool readOnly,
+            Action<object> assign)
+        {
+            var part = requiredPart ?? optionalPart;
+
+            if (string.IsNullOrEmpty(part))
+                return;
+
+            if (readOnly)
+                throw new UIViewContractException(
+                    $"View '{GetType().Name}' member '{memberName}' is read-only and cannot be bound to '{part}'");
+
+            var component = FindPart<Component>(content, part);
+
+            if (component is null)
+            {
+                if (optionalPart is not null)
+                    return;
+
+                var message = $"View '{GetType().Name}' member '{memberName}' requires part '{part}' ({memberType.Name})";
+
+                MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] {message}");
+
+                throw new UIViewContractException(message);
+            }
+
+            if (!memberType.IsInstanceOfType(component))
+            {
+                var message = $"View '{GetType().Name}' member '{memberName}' expects {memberType.Name} " +
+                              $"but part '{part}' is {component.GetType().Name}";
+
+                MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] {message}");
+
+                if (requiredPart is not null)
+                    throw new UIViewContractException(message);
+
+                return;
+            }
+
+            assign(component);
         }
 
         private static T? FindPart<T>(Component component, string name) where T : Component

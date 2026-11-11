@@ -244,7 +244,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.VictoriaTailorShop.FlirtWithVictoria.SuddenResistance".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.VictoriaTailorShop.FlirtWithVictoria.GroansExtreme".Localized());
             else
                 OutputText("Scenes.VictoriaTailorShop.FlirtWithVictoria.GroansExtremeTwo".Localized());

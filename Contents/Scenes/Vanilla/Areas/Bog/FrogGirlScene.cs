@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
@@ -53,9 +53,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
 
         public static SaveContent Save => SaveContent(SceneIds.Bog.FrogGirl);
 
-        public string debugName => "Frog-Girl";
 
-        public string debugHint => "";
 
         public override void Entry()
         {

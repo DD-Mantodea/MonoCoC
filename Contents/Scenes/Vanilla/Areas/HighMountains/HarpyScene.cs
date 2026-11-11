@@ -282,7 +282,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
                 }
                 else
                 {
-                    OutputText("Scenes.Harpyscene.HarpyDamageLoss.HierarchySettledBetween".Localized(Player.CockDescript(x), (noFur ? "" : ", feathered"), Player.VaginaDescript(0)));
+                    OutputText("Scenes.Harpyscene.HarpyDamageLoss.HierarchySettledBetween".Localized(Player.CockDescript(x), (NoFur ? "" : ", feathered"), Player.VaginaDescript(0)));
 
                     if (Player.Balls > 0)
                         OutputText("Scenes.Harpyscene.HarpyDamageLoss.HandsMovingUpGrope".Localized());
@@ -336,9 +336,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
                 ));
 
                 if (Player.Balls > 0)
-                    OutputText("Scenes.Harpyscene.HarpyDamageLoss.HugeBottomRest".Localized((noFur ? "" : " feathery")));
+                    OutputText("Scenes.Harpyscene.HarpyDamageLoss.HugeBottomRest".Localized((NoFur ? "" : " feathery")));
 
-                OutputText("Scenes.Harpyscene.HarpyDamageLoss.ComeToBear".Localized((noFur ? "" : " feathery")));
+                OutputText("Scenes.Harpyscene.HarpyDamageLoss.ComeToBear".Localized((NoFur ? "" : " feathery")));
 
                 if (Player.Balls >= 0)
                 {
@@ -374,7 +374,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
                     ));
                 else
                 {
-                    OutputText("Scenes.Harpyscene.HarpyDamageLoss.ImmenseAssIs".Localized((noFur ? "" : " feathered")));
+                    OutputText("Scenes.Harpyscene.HarpyDamageLoss.ImmenseAssIs".Localized((NoFur ? "" : " feathered")));
 
                     if (Player.BiggestBreastSize() >= 2)
                         OutputText("Scenes.Harpyscene.HarpyDamageLoss.HungryFeminineMouths".Localized());
@@ -600,7 +600,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
                 else
                     y -= 1;
 
-            OutputText("Scenes.Harpyscene.WinAndRapeHarpyAnally.GrinningStrippingFree".Localized((noFur ? "" : "those marvelous, tickly feathers coating ")));
+            OutputText("Scenes.Harpyscene.WinAndRapeHarpyAnally.GrinningStrippingFree".Localized((NoFur ? "" : "those marvelous, tickly feathers coating ")));
 
             if (Player.BiggestBreastSize() >= 2)
                 OutputText("Scenes.Harpyscene.WinAndRapeHarpyAnally.PetiteBustSquishes".Localized(
@@ -827,7 +827,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
             }
 
             if (Player.Gender == Gender.Female)
-                OutputText("Scenes.Harpyscene.WinOnHarpyAndOralRape.ApproachChangesQuickly".Localized((noFur ? "" : " finely-feathered"), Player.VaginaDescript(0), (noFur ? "" : ", feathered")));
+                OutputText("Scenes.Harpyscene.WinOnHarpyAndOralRape.ApproachChangesQuickly".Localized((NoFur ? "" : " finely-feathered"), Player.VaginaDescript(0), (NoFur ? "" : ", feathered")));
 
             if (Player.CockTotal() > 1)
             {
@@ -845,7 +845,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
                          Player.VaginaDescript(0)
                     ));
 
-                OutputText("Scenes.Harpyscene.WinOnHarpyAndOralRape.OneLastTime".Localized((noFur ? "" : ", feathered")));
+                OutputText("Scenes.Harpyscene.WinOnHarpyAndOralRape.OneLastTime".Localized((NoFur ? "" : ", feathered")));
 
                 Npcs.SophieLuststick.Apply(8);
             }
@@ -1048,7 +1048,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
             else
                 OutputText("Scenes.Harpyscene.ClitFuckAHarpy.MoanStruggleRise".Localized());
 
-            OutputText("Scenes.Harpyscene.ClitFuckAHarpy.WrenchThickThighs".Localized((noFur ? "" : " Her lips are shrouded in a downy, feathery fuzz, but you can easily make out the heavy, lust-glossed labia.")));
+            OutputText("Scenes.Harpyscene.ClitFuckAHarpy.WrenchThickThighs".Localized((NoFur ? "" : " Her lips are shrouded in a downy, feathery fuzz, but you can easily make out the heavy, lust-glossed labia.")));
 
             OutputText("Scenes.Harpyscene.ClitFuckAHarpy.StopsStrugglesWhen".Localized());
 
@@ -1096,7 +1096,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Harpyscene.ClitFuckAHarpy.TimedFullBodySeizure".Localized());
 
-            OutputText("Scenes.Harpyscene.ClitFuckAHarpy.SmilingDrunkenlyManages".Localized((noFur ? "Her feminine juices coat" : "The sodden feathers that ring her snatch stick to")));
+            OutputText("Scenes.Harpyscene.ClitFuckAHarpy.SmilingDrunkenlyManages".Localized((NoFur ? "Her feminine juices coat" : "The sodden feathers that ring her snatch stick to")));
 
             OutputText("Scenes.Harpyscene.ClitFuckAHarpy.AsksRollingBack".Localized());
 

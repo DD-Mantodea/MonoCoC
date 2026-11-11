@@ -10,7 +10,7 @@ namespace MonoCoC.UI.Components.Views
     {
         public CharCreationView()
         {
-            Initialize(new(), new());
+            Initialize();
         }
 
         public Component Background;
@@ -21,27 +21,13 @@ namespace MonoCoC.UI.Components.Views
 
         protected override string ScreenFile => "Views\\CharCreationView.hjson";
 
-        protected override UIViewContract Contract => CharCreationContract.Value;
+        [UIRequired("charCreation.background")]
+        private void BindBackground(Component part) => Background = part;
 
-        protected override void BindParts()
-        {
-            Background = RequirePart<Component>("charCreation.background");
+        [UIRequired("charCreation.input")]
+        private void BindInput(TextBox part) => Input = part;
 
-            Input = RequirePart<TextBox>("charCreation.input");
-
-            Output = RequirePart<TextArea>("charCreation.output");
-        }
-    }
-
-    internal static class CharCreationContract
-    {
-        public static readonly UIViewContract Value = new(
-            "CharCreationView",
-            [
-                new("charCreation.background", typeof(Component)),
-                new("charCreation.input", typeof(TextBox)),
-                new("charCreation.output", typeof(TextArea)),
-                new("charCreation.buttons", typeof(Grid))
-            ]);
+        [UIRequired("charCreation.output")]
+        private void BindOutput(TextArea part) => Output = part;
     }
 }

@@ -79,7 +79,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Mountain
 
                 OutputText("Scenes.Xmassnowangel.EncounterQuoteUnquoteAngel.TaleToTell".Localized());
 
-                OutputText("Scenes.Xmassnowangel.EncounterQuoteUnquoteAngel.NothingElse".Localized((silly ? " (you didn't)" : "")));
+                OutputText("Scenes.Xmassnowangel.EncounterQuoteUnquoteAngel.NothingElse".Localized((Silly ? " (you didn't)" : "")));
 
                 OutputText("Scenes.Xmassnowangel.EncounterQuoteUnquoteAngel.OnceUponTime".Localized());
 
@@ -115,7 +115,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Mountain
 
                 OutputText("Scenes.Xmassnowangel.EncounterQuoteUnquoteAngel.BacksAgainstWall".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Xmassnowangel.EncounterQuoteUnquoteAngel.WithoutPenis".Localized());
 
                 OutputText("Scenes.Xmassnowangel.EncounterQuoteUnquoteAngel.LovingAura".Localized());

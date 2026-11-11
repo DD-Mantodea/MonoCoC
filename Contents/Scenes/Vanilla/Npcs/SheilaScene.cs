@@ -296,7 +296,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 Player.ApplyStats(new DynStat(GameStats.Corruption, 30f));
 
-            OutputText("Scenes.Sheilascene.SheilaFirstEncounter.StrangeSightBrush".Localized((noFur ? "You can't tell if it's an animal or person, all you can see is a pair of furry legs under human clothing, with a stubby tail sticking out" : "It looks like a dog, though all you can see is a pair of furry hindquarters and a stubby tail draped over them"), (noFur ? ", with" : "; what looked like a dog's shoulders from afar is actually"), (noFur ? "n animal" : " dog"), (noFur ? "" : " actually"), (noFur ? "" : " digitigrade"), (noFur ? "that are somewhat different from any animal you've seen" : "only passingly resembling a canine's"), (noFur ? "knee" : "thigh")));
+            OutputText("Scenes.Sheilascene.SheilaFirstEncounter.StrangeSightBrush".Localized((NoFur ? "You can't tell if it's an animal or person, all you can see is a pair of furry legs under human clothing, with a stubby tail sticking out" : "It looks like a dog, though all you can see is a pair of furry hindquarters and a stubby tail draped over them"), (NoFur ? ", with" : "; what looked like a dog's shoulders from afar is actually"), (NoFur ? "n animal" : " dog"), (NoFur ? "" : " actually"), (NoFur ? "" : " digitigrade"), (NoFur ? "that are somewhat different from any animal you've seen" : "only passingly resembling a canine's"), (NoFur ? "knee" : "thigh")));
 
             ClearButtons();
 
@@ -337,7 +337,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (Player.WeaponName == "Scarred Blade")
                 OutputText("Scenes.Sheilascene.Sheila1ndEncLookCloserPtII.BladeVibratesEagerly".Localized());
 
-            OutputText("Scenes.Sheilascene.Sheila1ndEncLookCloserPtII.TakeOwnLook".Localized((noFur ? "feet are extremely long" : "legs are crooked"), (noFur ? "she stands on her toes" : "straightened")));
+            OutputText("Scenes.Sheilascene.Sheila1ndEncLookCloserPtII.TakeOwnLook".Localized((NoFur ? "feet are extremely long" : "legs are crooked"), (NoFur ? "she stands on her toes" : "straightened")));
 
             OutputText("Scenes.Sheilascene.Sheila1ndEncLookCloserPtII.SatisfiedApplesRemark".Localized());
 
@@ -711,7 +711,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         {
             ClearOutput();
 
-            if (!silly)
+            if (!Silly)
             {
                 OutputText("Scenes.Sheilascene.SheilaReallyMadStandGround.ThrowAnimalsFoldArms".Localized());
 
@@ -732,7 +732,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
-            if (silly)
+            if (Silly)
             {
                 CombatController.Instance!.Context.Enemy.Health *= 1.2f;
 
@@ -1986,7 +1986,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                         OutputText("Scenes.Sheilascene.FuckBuddySheilaMeetingChatKids.DontAskExplainPolicy".Localized());
 
-                        if (silly)
+                        if (Silly)
                             OutputText("Scenes.Sheilascene.FuckBuddySheilaMeetingChatKids.BodypillowClause".Localized());
 
                         OutputText("Scenes.Sheilascene.FuckBuddySheilaMeetingChatKids.NotRightNow".Localized());
@@ -2309,7 +2309,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     OutputText("Scenes.Sheilascene.ConsensualSheila69.SquirtsIntertwinedBodies".Localized());
 
                     if (Player.CumQ() > 1000)
-                        OutputText("Scenes.Sheilascene.ConsensualSheila69.WellspringMattiedFuzz".Localized((noFur ? "legs" : "thighs")));
+                        OutputText("Scenes.Sheilascene.ConsensualSheila69.WellspringMattiedFuzz".Localized((NoFur ? "legs" : "thighs")));
 
                     if (Player.CockTotal() > 1)
                     {
@@ -2493,7 +2493,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             OutputText("Scenes.Sheilascene.ConsentacleVagSexForKangarooSlutBitches.RubHeadDripping".Localized());
 
             if (!Player.IsTaur())
-                OutputText("Scenes.Sheilascene.ConsentacleVagSexForKangarooSlutBitches.GripThighsLiftBottom".Localized((noFur ? "" : " fuzzy")));
+                OutputText("Scenes.Sheilascene.ConsentacleVagSexForKangarooSlutBitches.GripThighsLiftBottom".Localized((NoFur ? "" : " fuzzy")));
             else
                 OutputText("Scenes.Sheilascene.ConsentacleVagSexForKangarooSlutBitches.LiftsBottomLines".Localized());
 
@@ -2621,7 +2621,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 }
 
                 if (Player.CockTotal() > 2)
-                    OutputText("Scenes.Sheilascene.ConsentacleVagSexForKangarooSlutBitches.OtherCocksEruptWhite".Localized((noFur ? "coating" : "matting down the fur on")));
+                    OutputText("Scenes.Sheilascene.ConsentacleVagSexForKangarooSlutBitches.OtherCocksEruptWhite".Localized((NoFur ? "coating" : "matting down the fur on")));
             }
 
             OutputText("Scenes.Sheilascene.ConsentacleVagSexForKangarooSlutBitches.OrgasmsFinishUp".Localized());
@@ -2754,7 +2754,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Sheilascene.SheilaMutualMasturbation.SnatchHatHandShirt".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Sheilascene.SheilaMutualMasturbation.ChanSuffix".Localized());
 
             OutputText("Scenes.Sheilascene.SheilaMutualMasturbation.QuestionSayEnd".Localized());
@@ -2819,7 +2819,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                         {
                             OutputText("Scenes.Sheilascene.SheilaMutualMasturbation.WishHadSomething".Localized());
 
-                            if (silly)
+                            if (Silly)
                                 OutputText("Scenes.Sheilascene.SheilaMutualMasturbation.EvenPaperclip".Localized());
 
                             OutputText("Scenes.Sheilascene.SheilaMutualMasturbation.SentencePeriod".Localized());
@@ -2921,7 +2921,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                     OutputText("Scenes.Sheilascene.SheilaMutualMasturbation.HadSoMuchFun".Localized());
 
-                    if (Player.Gender == Gender.Genderless && silly)
+                    if (Player.Gender == Gender.Genderless && Silly)
                         OutputText("Scenes.Sheilascene.SheilaMutualMasturbation.KenDollLove".Localized());
 
                     OutputText("Scenes.Sheilascene.SheilaMutualMasturbation.SayEndLabel".Localized());
@@ -3888,7 +3888,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                     OutputText("Scenes.Sheilascene.SheilaCowgirlRapesYou.CantBelieveNotice".Localized());
 
-                    OutputText("Scenes.Sheilascene.SheilaCowgirlRapesYou.ClimbsOffWincing".Localized((noFur ? "legs" : "thighs")));
+                    OutputText("Scenes.Sheilascene.SheilaCowgirlRapesYou.ClimbsOffWincing".Localized((NoFur ? "legs" : "thighs")));
 
                     OutputText("Scenes.Sheilascene.SheilaCowgirlRapesYou.PanicsFussesDresses".Localized());
 
@@ -4638,9 +4638,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Sheilascene.SheilaGoesDemon.WearilyExtendTongue".Localized());
 
-            OutputText("Scenes.Sheilascene.SheilaGoesDemon.FeelHerHeatRising".Localized((noFur ? "legs" : "thighs")));
+            OutputText("Scenes.Sheilascene.SheilaGoesDemon.FeelHerHeatRising".Localized((NoFur ? "legs" : "thighs")));
 
-            OutputText("Scenes.Sheilascene.SheilaGoesDemon.GrabsHerOwnEars".Localized((noFur ? "legs" : "thighs")));
+            OutputText("Scenes.Sheilascene.SheilaGoesDemon.GrabsHerOwnEars".Localized((NoFur ? "legs" : "thighs")));
 
             OutputText("Scenes.Sheilascene.SheilaGoesDemon.LegsLockAroundHead".Localized());
 
@@ -5837,7 +5837,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Sheilascene.MissionaryForThePurposesOfCreatingImpsWithSheila.KneesWobbleFocus".Localized((Player.IsTaur() ? ", practically lifting herself off of the ground as she impales her cunt on your [cockFit 56] to prevent you from pulling out" : "")));
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Sheilascene.MissionaryForThePurposesOfCreatingImpsWithSheila.YouthfulNostalgiaOutburst".Localized());
             else
                 OutputText("Scenes.Sheilascene.MissionaryForThePurposesOfCreatingImpsWithSheila.NoSpillDemand".Localized());
@@ -6283,7 +6283,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (SheilaCorruption() >= 90)
                 OutputText("Scenes.Sheilascene.JojoRuinsTheAnalHateFuck.TitsMashedThickening".Localized());
 
-            OutputText("Scenes.Sheilascene.JojoRuinsTheAnalHateFuck.MouseGrowingNails".Localized((noFur ? "" : "-furred")));
+            OutputText("Scenes.Sheilascene.JojoRuinsTheAnalHateFuck.MouseGrowingNails".Localized((NoFur ? "" : "-furred")));
 
             OutputText("Scenes.Sheilascene.JojoRuinsTheAnalHateFuck.ShriekWombPressure".Localized());
 
@@ -6663,7 +6663,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Sheilascene.BadEndScarredBlade.InjuredCollapseDread".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("\n\n[DATA EXPUNGED]");
 
             if (SceneInstance<MarbleScene>.Get().MarbleFollower())

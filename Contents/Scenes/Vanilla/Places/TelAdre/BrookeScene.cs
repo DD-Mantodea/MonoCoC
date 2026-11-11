@@ -51,9 +51,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Brooke.MeetBrookeFirstTime.FamiliarLayoutShowers".Localized());
 
-            OutputText("Scenes.Brooke.MeetBrookeFirstTime.StallOccupiedRunning".Localized((noFur ? "dog-eared person" : "canine morph"), (noFur ? "elf" : " fur")));
+            OutputText("Scenes.Brooke.MeetBrookeFirstTime.StallOccupiedRunning".Localized((NoFur ? "dog-eared person" : "canine morph"), (NoFur ? "elf" : " fur")));
 
-            OutputText("Scenes.Brooke.MeetBrookeFirstTime.CurvesHipsSwell".Localized((noFur ? "The coloration of her tail and ears resemble one of the Shepherd breeds you had back at Ingnam, a mix of tan and black" : "Her coloration makes her look like one of the Shepherd breeds you had back at Ingnam: mostly tan and black, with a thin streak of white going straight down her front."), (noFur ? "" : " -- or is it more fur? --"), (noFur ? "" : " and the fur on her muzzle is totally black"), (noFur ? "" : "although it's difficult to gauge underneath her heavy, wet fur, ")));
+            OutputText("Scenes.Brooke.MeetBrookeFirstTime.CurvesHipsSwell".Localized((NoFur ? "The coloration of her tail and ears resemble one of the Shepherd breeds you had back at Ingnam, a mix of tan and black" : "Her coloration makes her look like one of the Shepherd breeds you had back at Ingnam: mostly tan and black, with a thin streak of white going straight down her front."), (NoFur ? "" : " -- or is it more fur? --"), (NoFur ? "" : " and the fur on her muzzle is totally black"), (NoFur ? "" : "although it's difficult to gauge underneath her heavy, wet fur, ")));
 
             OutputText("Scenes.Brooke.MeetBrookeFirstTime.StareFarLonger".Localized());
 
@@ -174,9 +174,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Brooke.BrookeThirdEncounter.LockersStoringArmor".Localized());
 
-            OutputText("Scenes.Brooke.BrookeThirdEncounter.HearingStallGoing".Localized((noFur ? "her hair" : "at her fur")));
+            OutputText("Scenes.Brooke.BrookeThirdEncounter.HearingStallGoing".Localized((NoFur ? "her hair" : "at her fur")));
 
-            OutputText("Scenes.Brooke.BrookeThirdEncounter.CasuallyRubbingWater".Localized((noFur ? "through her hair" : "underneath her fur")));
+            OutputText("Scenes.Brooke.BrookeThirdEncounter.CasuallyRubbingWater".Localized((NoFur ? "through her hair" : "underneath her fur")));
 
             OutputText("Scenes.Brooke.BrookeThirdEncounter.AskAboutHerself".Localized());
 
@@ -246,7 +246,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         {
             ClearOutput();
 
-            OutputText("Scenes.Brooke.DontHelpBrookeShower.DontKnowEachOther".Localized((noFur ? "her body" : "hard at her fur")));
+            OutputText("Scenes.Brooke.DontHelpBrookeShower.DontKnowEachOther".Localized((NoFur ? "her body" : "hard at her fur")));
 
             OutputText("Scenes.Brooke.DontHelpBrookeShower.ShowerUneventfullyCleanWhistle".Localized());
 
@@ -259,22 +259,22 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         {
             ClearOutput();
 
-            OutputText("Scenes.Brooke.HelpBrookeOut.HelpNotBigDeal".Localized((noFur ? "soft skin" : "moist fur")));
+            OutputText("Scenes.Brooke.HelpBrookeOut.HelpNotBigDeal".Localized((NoFur ? "soft skin" : "moist fur")));
 
-            OutputText("Scenes.Brooke.HelpBrookeOut.GoSlowlyFirstHands".Localized((noFur ? "" : " with Brooke's fur")));
+            OutputText("Scenes.Brooke.HelpBrookeOut.GoSlowlyFirstHands".Localized((NoFur ? "" : " with Brooke's fur")));
 
             if (Player.HasCock())
                 OutputText("Scenes.Brooke.HelpBrookeOut.DifficultKeepCool".Localized());
 
             OutputText("Scenes.Brooke.HelpBrookeOut.SentencePeriod".Localized());
 
-            OutputText("Scenes.Brooke.HelpBrookeOut.SilentGetToWork".Localized((noFur ? "" : " getting your fingers underneath her fur. It's not very long, but it's not very short either; it takes some work getting the soap in underneath her fur, but not nearly as hard as she frequently made it out to be")));
+            OutputText("Scenes.Brooke.HelpBrookeOut.SilentGetToWork".Localized((NoFur ? "" : " getting your fingers underneath her fur. It's not very long, but it's not very short either; it takes some work getting the soap in underneath her fur, but not nearly as hard as she frequently made it out to be")));
 
             OutputText("Scenes.Brooke.HelpBrookeOut.FirstStartConversation".Localized());
 
-            OutputText("Scenes.Brooke.HelpBrookeOut.GentlySpeaksFeelsGood".Localized((noFur ? "eared" : "morph")));
+            OutputText("Scenes.Brooke.HelpBrookeOut.GentlySpeaksFeelsGood".Localized((NoFur ? "eared" : "morph")));
 
-            OutputText("Scenes.Brooke.HelpBrookeOut.DaylightCivvyClothes".Localized((noFur ? "washing her back" : "working the soap into her fur")));
+            OutputText("Scenes.Brooke.HelpBrookeOut.DaylightCivvyClothes".Localized((NoFur ? "washing her back" : "working the soap into her fur")));
 
             OutputText("Scenes.Brooke.HelpBrookeOut.LastLongLuckyHit".Localized());
 
@@ -316,7 +316,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         {
             ClearOutput();
 
-            OutputText("Scenes.Brooke.MediumLowBrookeAffection.WorkoutHeadBackShop".Localized((noFur ? "her body" : "at her fur")));
+            OutputText("Scenes.Brooke.MediumLowBrookeAffection.WorkoutHeadBackShop".Localized((NoFur ? "her body" : "at her fur")));
 
             OutputText("Scenes.Brooke.MediumLowBrookeAffection.StepIntoStallLathering".Localized());
 
@@ -338,7 +338,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         {
             ClearOutput();
 
-            OutputText("Scenes.Brooke.MediumBrookeAffectionMeetingAfterSex.WorkoutHeadBackShops".Localized((noFur ? "her body" : "at her fur")));
+            OutputText("Scenes.Brooke.MediumBrookeAffectionMeetingAfterSex.WorkoutHeadBackShops".Localized((NoFur ? "her body" : "at her fur")));
 
             OutputText("Scenes.Brooke.MediumBrookeAffectionMeetingAfterSex.StepIntoHerStall".Localized());
 
@@ -570,7 +570,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             ShowImage("brooke-gym-male-penetratebrooke");
 
-            OutputText("Scenes.Brooke.PenetrateBrooke.CleftTonedAss".Localized(Player.CockDescript(x), (noFur ? "they" : "the water in her fur makes them")));
+            OutputText("Scenes.Brooke.PenetrateBrooke.CleftTonedAss".Localized(Player.CockDescript(x), (NoFur ? "they" : "the water in her fur makes them")));
 
             OutputText("Scenes.Brooke.PenetrateBrooke.PressingLipsThrough".Localized());
 
@@ -594,7 +594,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 Player.CockDescript(x)
             ));
 
-            OutputText("Scenes.Brooke.PenetrateBrooke.RequestsGrabBoobsAgain".Localized((noFur ? "" : "through her wet fur, ")));
+            OutputText("Scenes.Brooke.PenetrateBrooke.RequestsGrabBoobsAgain".Localized((NoFur ? "" : "through her wet fur, ")));
 
             OutputText("Scenes.Brooke.PenetrateBrooke.LovingWayTreatBody".Localized());
 
@@ -783,7 +783,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             ShowImage("brooke-gym-female-tribadism");
 
-            OutputText("Scenes.Brooke.Tribadism.FullBreastsWetHeavy".Localized((noFur ? "" : " -- trying to avoid getting any fur sticking to your tongue")));
+            OutputText("Scenes.Brooke.Tribadism.FullBreastsWetHeavy".Localized((NoFur ? "" : " -- trying to avoid getting any fur sticking to your tongue")));
 
             if (Player.Gender == Gender.Hermaphrodite)
                 OutputText("Scenes.Brooke.Tribadism.WishingPutToUse".Localized());
@@ -887,11 +887,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Brooke.GoDownOnBrooke.DropKneesDive".Localized());
 
-            OutputText("Scenes.Brooke.GoDownOnBrooke.PullTongueCollarbone".Localized((noFur ? "" : " (and her wet fur)")));
+            OutputText("Scenes.Brooke.GoDownOnBrooke.PullTongueCollarbone".Localized((NoFur ? "" : " (and her wet fur)")));
 
             OutputText("Scenes.Brooke.GoDownOnBrooke.KneesThudFlatTongue".Localized());
 
-            OutputText("Scenes.Brooke.GoDownOnBrooke.PlantLipsVulva".Localized((noFur ? "gasps" : "yips")));
+            OutputText("Scenes.Brooke.GoDownOnBrooke.PlantLipsVulva".Localized((NoFur ? "gasps" : "yips")));
 
             if (Player.HasCock())
                 OutputText("Scenes.Brooke.GoDownOnBrooke.PullsForwardMagnetic".Localized());
@@ -908,7 +908,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Brooke.GoDownOnBrooke.FlopsOutGaspsLust".Localized());
 
-            OutputText("Scenes.Brooke.GoDownOnBrooke.LongerDropsHandSkull".Localized((noFur ? "sighs" : "yips")));
+            OutputText("Scenes.Brooke.GoDownOnBrooke.LongerDropsHandSkull".Localized((NoFur ? "sighs" : "yips")));
 
             OutputText("Scenes.Brooke.GoDownOnBrooke.ClenchUnclenchChewsLip".Localized());
 
@@ -948,7 +948,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             OutputText("Scenes.Brooke.GetLaidByBrooke.HipsIntoTonedAss".Localized());
 
             if (Player.HasCock())
-                OutputText("Scenes.Brooke.GetLaidByBrooke.SpearingCockBetweenCheeks".Localized(Player.CockDescript(x), (noFur ? "" : "her soft fur and ")));
+                OutputText("Scenes.Brooke.GetLaidByBrooke.SpearingCockBetweenCheeks".Localized(Player.CockDescript(x), (NoFur ? "" : "her soft fur and ")));
             else
                 OutputText("Scenes.Brooke.GetLaidByBrooke.WiggleTailBetweenLegs".Localized());
 
@@ -1048,7 +1048,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     if (Player.Balls > 0)
                         OutputText("Scenes.Brooke.GetLaidByBrooke.BuryingMouthUnderneathSack".Localized());
 
-                    OutputText("Scenes.Brooke.GetLaidByBrooke.TongueWorkVaginaGasp".Localized(Player.CockDescript(x), (noFur ? "" : " the fine fur on"), Player.CockDescript(x), Player.CockDescript(x)));
+                    OutputText("Scenes.Brooke.GetLaidByBrooke.TongueWorkVaginaGasp".Localized(Player.CockDescript(x), (NoFur ? "" : " the fine fur on"), Player.CockDescript(x), Player.CockDescript(x)));
                 }
 
                 OutputText("Scenes.Brooke.GetLaidByBrooke.OutLoudPressingFarther".Localized(
@@ -1121,7 +1121,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             OutputText("Scenes.Brooke.GetLaidByBrooke.ExplosiveOrgasmEyesCrossed".Localized());
 
             if (Player.CockTotal() >= 3)
-                OutputText("Scenes.Brooke.GetLaidByBrooke.LettingExcessWash".Localized((noFur ? "" : " fur")));
+                OutputText("Scenes.Brooke.GetLaidByBrooke.LettingExcessWash".Localized((NoFur ? "" : " fur")));
 
             OutputText("Scenes.Brooke.GetLaidByBrooke.MomentsPassUndecipherableBlur".Localized());
 
@@ -1160,7 +1160,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             if (y < 0 || Player.CockThatFits(x) >= BrookeCapacity())
             {
-                OutputText("Scenes.Brooke.DoubleDicked.AgainstWarmWetFeel".Localized((noFur ? "skin" : "fur")));
+                OutputText("Scenes.Brooke.DoubleDicked.AgainstWarmWetFeel".Localized((NoFur ? "skin" : "fur")));
 
                 ClearButtons();
 
@@ -1171,7 +1171,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             ShowImage("brooke-gym-male-doubledicked");
 
-            OutputText("Scenes.Brooke.DoubleDicked.SayingMuchRubAss".Localized((noFur ? "her wet, firm" : "the wet, matted fur of her"), Player.CockDescript(x), Player.CockDescript(y)));
+            OutputText("Scenes.Brooke.DoubleDicked.SayingMuchRubAss".Localized((NoFur ? "her wet, firm" : "the wet, matted fur of her"), Player.CockDescript(x), Player.CockDescript(y)));
 
             OutputText("Scenes.Brooke.DoubleDicked.LettingJerkOff".Localized(
                 Player.CockDescript(x),
@@ -1312,7 +1312,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Brooke.DoubleDicked.PullsAwayLookEye".Localized());
 
-            OutputText("Scenes.Brooke.DoubleDicked.StayLikeThatDeflated".Localized((noFur ? "" : " under her fur")));
+            OutputText("Scenes.Brooke.DoubleDicked.StayLikeThatDeflated".Localized((NoFur ? "" : " under her fur")));
 
             OutputText("Scenes.Brooke.DoubleDicked.WhistleBothLockers".Localized());
 
@@ -1334,7 +1334,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         {
             ClearOutput();
 
-            OutputText("Scenes.Brooke.MediumAffectionOneTimeEvent.IntoShowersLockers".Localized((noFur ? "" : " at her fur")));
+            OutputText("Scenes.Brooke.MediumAffectionOneTimeEvent.IntoShowersLockers".Localized((NoFur ? "" : " at her fur")));
 
             OutputText("Scenes.Brooke.MediumAffectionOneTimeEvent.FirstStepEarsPerk".Localized());
 
@@ -1389,10 +1389,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 var y = Player.CockThatFits2(BrookeCapacity());
 
                 if (Player.CockTotal() == 2)
-                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.BrushesBetweenAbs".Localized((noFur ? "" : " through the wet fur on her stomach")));
+                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.BrushesBetweenAbs".Localized((NoFur ? "" : " through the wet fur on her stomach")));
 
                 if (y >= 0 && Player.CockTotal() >= 3)
-                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.FindsDrivingHigher".Localized((noFur ? "" : "through the wet fur on her stomach and ")));
+                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.FindsDrivingHigher".Localized((NoFur ? "" : "through the wet fur on her stomach and ")));
 
                 OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.HeatNeedGrind".Localized());
 
@@ -1407,7 +1407,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 else
                     OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.CrotchAgainstHers".Localized());
 
-                if (!noFur)
+                if (!NoFur)
                     OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.FurLightlyTinglingSkin".Localized());
 
                 OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.SentencePeriod".Localized());
@@ -1426,10 +1426,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.SlappingPussyThrust".Localized());
 
                 if (Player.CockTotal() == 2)
-                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.SwingsFreelyCold".Localized((noFur ? "skin" : "fur")));
+                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.SwingsFreelyCold".Localized((NoFur ? "skin" : "fur")));
 
                 if (Player.CockTotal() >= 3)
-                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.DicksSwingFreelyCold".Localized((noFur ? "skin" : "fur")));
+                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.DicksSwingFreelyCold".Localized((NoFur ? "skin" : "fur")));
 
                 OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.MoansExcitedGrunts".Localized());
 
@@ -1477,9 +1477,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.TensesAlongWithFirst".Localized());
 
                 if (Player.CockTotal() >= 3)
-                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.SpurtsAlongFirst".Localized((noFur ? "" : " and into her fur")));
+                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.SpurtsAlongFirst".Localized((NoFur ? "" : " and into her fur")));
 
-                OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.PantPhysicallySpent".Localized((noFur ? "" : " under the wet fur")));
+                OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.PantPhysicallySpent".Localized((NoFur ? "" : " under the wet fur")));
 
                 OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.SayHolyFuck".Localized());
 
@@ -1491,7 +1491,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.LooksDownNoticingMess".Localized());
 
                 if (Player.CockTotal() == 1)
-                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.CourtesyShuttingWater".Localized((noFur ? "my hair" : "out fur")));
+                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.CourtesyShuttingWater".Localized((NoFur ? "my hair" : "out fur")));
 
                 OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.JustBeforeWrap".Localized());
 
@@ -1522,9 +1522,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                     OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.NippleStandingUpright".Localized());
 
-                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.SuddenDemandNotArgue".Localized((noFur ? "" : " fur"), (noFur ? "Her crotch is shaved bare" : "The fur around her crotch is thin")));
+                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.SuddenDemandNotArgue".Localized((NoFur ? "" : " fur"), (NoFur ? "Her crotch is shaved bare" : "The fur around her crotch is thin")));
 
-                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.DigIntoFlesh".Localized((noFur ? "" : " All you feel is wet fur and all you smell is wet dog, but neither of these things deter you from your duty.")));
+                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.DigIntoFlesh".Localized((NoFur ? "" : " All you feel is wet fur and all you smell is wet dog, but neither of these things deter you from your duty.")));
 
                     OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.RunningUpperLip".Localized());
 
@@ -1537,7 +1537,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.ThrashTooExcited".Localized());
 
                     if (Player.Wetness() < 4)
-                        OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.EyesCrossMindFuzzes".Localized((noFur ? "squishiness of Brooke's breasts to the warmth of" : "heavy drag of Brooke's breast fur to the fine, ticklish fur on")));
+                        OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.EyesCrossMindFuzzes".Localized((NoFur ? "squishiness of Brooke's breasts to the warmth of" : "heavy drag of Brooke's breast fur to the fine, ticklish fur on")));
                     else
                         OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.QuakeOrgasmOvertake".Localized());
 
@@ -1561,7 +1561,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 }
                 else
                 {
-                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.NoTimeFeelingGroping".Localized((noFur ? "skin" : "short fur"), (noFur ? "taut belly" : " fine belly fur")));
+                    OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.NoTimeFeelingGroping".Localized((NoFur ? "skin" : "short fur"), (NoFur ? "taut belly" : " fine belly fur")));
 
                     OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.OwnHandsReturning".Localized(
                         Player.CockDescript(x)
@@ -1669,7 +1669,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                                 OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.InitialBlastWomb".Localized());
 
                     if (Player.CockTotal() == 2)
-                        OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.EruptsInTimeBrother".Localized((noFur ? "her skin" : " into her fine fur, blending in with the white strip of fur running down her torso")));
+                        OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.EruptsInTimeBrother".Localized((NoFur ? "her skin" : " into her fine fur, blending in with the white strip of fur running down her torso")));
 
                     if (Player.CockTotal() >= 3)
                         OutputText("Scenes.Brooke.BrookeSpecialMediumSceneContinued.NotInsideSprays".Localized());
@@ -1744,7 +1744,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             CoC.Instance.Flags.Set(GameFlagIds.BrookeAndHeckel3some, CoC.Instance.Flags.Get(GameFlagIds.BrookeAndHeckel3some) + 1);
 
-            OutputText("Scenes.Brooke.ButterflyMachinesGooooo.AroundButterflyMachines".Localized((noFur ? "Animal-eared people" : "Anthromorphic animals")));
+            OutputText("Scenes.Brooke.ButterflyMachinesGooooo.AroundButterflyMachines".Localized((NoFur ? "Animal-eared people" : "Anthromorphic animals")));
 
             OutputText("Scenes.Brooke.ButterflyMachinesGooooo.EachMachineHeckel".Localized());
 
@@ -1769,7 +1769,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Brooke.BrookeAndHeckelStuffPartTwo.KicksOpenDoor".Localized());
 
-            OutputText("Scenes.Brooke.BrookeAndHeckelStuffPartTwo.DownFlatOnBack".Localized((noFur ? "" : " only straight enough to not drag through Brooke's fur,")));
+            OutputText("Scenes.Brooke.BrookeAndHeckelStuffPartTwo.DownFlatOnBack".Localized((NoFur ? "" : " only straight enough to not drag through Brooke's fur,")));
 
             OutputText("Scenes.Brooke.BrookeAndHeckelStuffPartTwo.HurryItUpWatching".Localized());
 
@@ -1859,7 +1859,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 OutputText("Scenes.Brooke.SubmitHeckelXBrookeThreesome.SamePaceEager".Localized());
 
             if (!Player.HasCock() && Player.HasVagina())
-                OutputText("Scenes.Brooke.SubmitHeckelXBrookeThreesome.VaginaDiggingSearching".Localized((noFur ? "face" : "muzzle")));
+                OutputText("Scenes.Brooke.SubmitHeckelXBrookeThreesome.VaginaDiggingSearching".Localized((NoFur ? "face" : "muzzle")));
 
             OutputText("Scenes.Brooke.SubmitHeckelXBrookeThreesome.HyenaBehindPounds".Localized());
 
@@ -1924,9 +1924,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             CoC.Instance.Flags.Set(GameFlagIds.BrookeAndHeckel3some, CoC.Instance.Flags.Get(GameFlagIds.BrookeAndHeckel3some) + 1);
 
-            OutputText("Scenes.Brooke.LegPressInsteadOfThreesome.GroupAroundLegPress".Localized((noFur ? "Animal-eared people" : "Anthromorphic animals")));
+            OutputText("Scenes.Brooke.LegPressInsteadOfThreesome.GroupAroundLegPress".Localized((NoFur ? "Animal-eared people" : "Anthromorphic animals")));
 
-            OutputText("Scenes.Brooke.LegPressInsteadOfThreesome.EachMachineBrooke".Localized((noFur ? "-eared man" : "")));
+            OutputText("Scenes.Brooke.LegPressInsteadOfThreesome.EachMachineBrooke".Localized((NoFur ? "-eared man" : "")));
 
             OutputText("Scenes.Brooke.LegPressInsteadOfThreesome.CocksureGrinExhaling".Localized());
 
@@ -1955,7 +1955,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.OntoBenchPresses".Localized());
 
-            OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.BodySculptedMakeOut".Localized((noFur ? "skin" : "short fur")));
+            OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.BodySculptedMakeOut".Localized((NoFur ? "skin" : "short fur")));
 
             OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.BetweenShakingLegs".Localized());
 
@@ -1965,7 +1965,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.OwnTaskSuckingCock".Localized());
 
-            OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.NotInPositionArgue".Localized((noFur ? "gasps" : "yips")));
+            OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.NotInPositionArgue".Localized((NoFur ? "gasps" : "yips")));
 
             OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.RemissTesticles".Localized());
 
@@ -2026,7 +2026,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.HerPartThreesome".Localized());
 
-                OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.EveryRidgeMuscles".Localized((noFur ? "gasps" : "yips")));
+                OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.EveryRidgeMuscles".Localized((NoFur ? "gasps" : "yips")));
 
                 OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.BackBeginStrain".Localized(
                     Player.CockDescript(x)
@@ -2034,7 +2034,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.KeepingEyeContact".Localized());
 
-                OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.ForcefulPushLands".Localized((noFur ? "" : ", running coarse short fur against thick dog fur"), (noFur ? "moaning" : "woofing")));
+                OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.ForcefulPushLands".Localized((NoFur ? "" : ", running coarse short fur against thick dog fur"), (NoFur ? "moaning" : "woofing")));
 
                 OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.ShortlyAfterFlooding".Localized(
                     Player.CockDescript(x)
@@ -2072,9 +2072,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.ExperienceTongueWanting".Localized());
 
-                OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.FallsForwardLayingFlat".Localized((noFur ? "" : " through her short fur")));
+                OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.FallsForwardLayingFlat".Localized((NoFur ? "" : " through her short fur")));
 
-                OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.FollowSuitLeaning".Localized((noFur ? "" : " the fur of")));
+                OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.FollowSuitLeaning".Localized((NoFur ? "" : " the fur of")));
 
                 OutputText("Scenes.Brooke.BrookeVHeckelBrookeWins2.DelightedPetRises".Localized());
 

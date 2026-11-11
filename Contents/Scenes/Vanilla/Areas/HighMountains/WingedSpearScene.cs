@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Datas.Vanilla;
@@ -22,9 +22,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
         public static SaveContent Save => SaveContent(SceneIds.HighMountains.WingedSpear);
 
-        public string debugName => "Winged Spear";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -83,7 +81,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
             {
                 OutputText("Scenes.Wingedspearscene.FallenKnightYes.OverestimatedFall".Localized());
 
-                if (silly && Player.Toughness > 100)
+                if (Silly && Player.Toughness > 100)
                 {
                     OutputText("Scenes.Wingedspearscene.FallenKnightYes.ChipsDustFall".Localized());
 

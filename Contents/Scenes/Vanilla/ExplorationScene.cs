@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Encounters;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
@@ -23,9 +23,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
         public bool doneMermaidWalk = false;
 
-        public string debugName => "Explore";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -143,7 +141,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             currArea = () => Go(SceneRegistry.CreateOrDefault(area.SceneId));
 
-            // 区域带权遭遇掷点在区域场景里完成（如 HighMountainsScene.Explore → HighMountainsEncounters.Table）
+            // 鍖哄煙甯︽潈閬亣鎺风偣鍦ㄥ尯鍩熷満鏅噷瀹屾垚锛堝 HighMountainsScene.Explore 鈫?HighMountainsEncounters.Table锛?
             Go(SceneRegistry.CreateOrDefault(area.SceneId));
         }
 
@@ -389,7 +387,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             var debuff = Player.CreateOrFindStatusEffect(StatusEffectIds.MermaidDehydrated);
 
-            // 原版 MermaidWateredDebuff.hx:11：首次附加时 Speed -10，increase() 时收紧到 -20
+            // 鍘熺増 MermaidWateredDebuff.hx:11锛氶娆￠檮鍔犳椂 Speed -10锛宨ncrease() 鏃舵敹绱у埌 -20
             if (debuff.Values[0] <= 0)
             {
                 debuff.Values[0] = 10;

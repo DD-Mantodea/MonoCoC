@@ -343,7 +343,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
                 OutputText("Scenes.Antsscene.AntColonyChallenge.MutteringSoldier".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Antsscene.AntColonyChallenge.MissingFromList".Localized());
                 else
                     if (Player.Strength > 50)
@@ -1094,7 +1094,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             OutputText("Scenes.Antsscene.PhyllaCorruptMascEnding.PhyllaWailingMuffled".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Antsscene.PhyllaCorruptMascEnding.OldSayingMonsters".Localized());
 
             OutputText("Scenes.Antsscene.PhyllaCorruptMascEnding.CorruptingBestRoute".Localized());
@@ -1154,7 +1154,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             OutputText("Scenes.Antsscene.CuntmuffinLingusPhyllaDickBig.LargerHandsShoulders".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Antsscene.CuntmuffinLingusPhyllaDickBig.WhisperSimba".Localized());
 
             OutputText("Scenes.Antsscene.CuntmuffinLingusPhyllaDickBig.GesturesEnormousCock".Localized());
@@ -2444,7 +2444,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             OutputText("Scenes.Antsscene.CorruptPhyllaEndings.FacialCoversFeatures".Localized());
 
-            if (silly)
+            if (Silly)
             {
                 OutputText("Scenes.Antsscene.CorruptPhyllaEndings.StreamDoesNotStop".Localized());
 
@@ -2466,7 +2466,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
                 OutputText("Scenes.Antsscene.CorruptPhyllaEndings.ForgotAboutClit".Localized());
             }
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Antsscene.CorruptPhyllaEndings.WakeFromSlumber".Localized());
 
             OutputText("Scenes.Antsscene.CorruptPhyllaEndings.MuseCanYouAgain".Localized());
@@ -2690,7 +2690,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             OutputText("Scenes.Antsscene.DudesFuckEggLayingBitches.DetachCaresNoMore".Localized());
 
-            if (silly)
+            if (Silly)
             {
                 OutputText("Scenes.Antsscene.DudesFuckEggLayingBitches.BelchClearsStomach".Localized());
 
@@ -3079,7 +3079,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
             if (Player.CockTotal() >= 4 && Player.CockTotal() <= 6)
                 OutputText("Scenes.Antsscene.OrgyWithDatColonyCorruptDudes.StandOverPhylla".Localized());
 
-            if (silly)
+            if (Silly)
             {
                 OutputText("Scenes.Antsscene.OrgyWithDatColonyCorruptDudes.HeartfeltSpeech".Localized());
 
@@ -3188,7 +3188,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             OutputText("Scenes.Antsscene.AntColonyOrgy4Ladies.MentionNeedRelease".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Antsscene.AntColonyOrgy4Ladies.GreaterGoodEcho".Localized());
 
             OutputText("Scenes.Antsscene.AntColonyOrgy4Ladies.PhyllaAvertsGaze".Localized());

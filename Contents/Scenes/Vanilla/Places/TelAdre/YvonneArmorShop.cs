@@ -27,7 +27,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
         {
             ClearOutput();
 
-            OutputText("Scenes.YvonneArmorShop.Inside.InteriorHot".Localized((noFur ? "dog-eared" : "german-shepherd")));
+            OutputText("Scenes.YvonneArmorShop.Inside.InteriorHot".Localized((NoFur ? "dog-eared" : "german-shepherd")));
 
             OutputText("Scenes.YvonneArmorShop.Inside.WhatToMake".Localized());
 
@@ -104,7 +104,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.YvonneArmorShop.YvonneFlirt.StepsCloser".Localized());
 
-            OutputText("Scenes.YvonneArmorShop.YvonneFlirt.StepsBack".Localized((noFur ? "on her cheeks" : "through her fur")));
+            OutputText("Scenes.YvonneArmorShop.YvonneFlirt.StepsBack".Localized((NoFur ? "on her cheeks" : "through her fur")));
 
             Player.ApplyStats(new DynStat(GameStats.Lust, (float)(10 + Player.Libido / 10)));
 
@@ -171,7 +171,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.YvonneArmorShop.FuckYvonneInZeBlacksmith.WalksToDoor".Localized());
 
-            OutputText("Scenes.YvonneArmorShop.FuckYvonneInZeBlacksmith.HandGrabs".Localized((noFur ? "" : " fuzzy,"), (noFur ? "" : ", Yvonne's wet, canine nose bumping against your ear")));
+            OutputText("Scenes.YvonneArmorShop.FuckYvonneInZeBlacksmith.HandGrabs".Localized((NoFur ? "" : " fuzzy,"), (NoFur ? "" : ", Yvonne's wet, canine nose bumping against your ear")));
 
             OutputText("Scenes.YvonneArmorShop.FuckYvonneInZeBlacksmith.FeminineScent".Localized());
 
@@ -206,7 +206,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                  y
             ));
 
-            OutputText("Scenes.YvonneArmorShop.FuckYvonneInZeBlacksmith.ShiverDog".Localized((noFur ? "girl" : "morph"), (noFur ? "hair" : "fur")));
+            OutputText("Scenes.YvonneArmorShop.FuckYvonneInZeBlacksmith.ShiverDog".Localized((NoFur ? "girl" : "morph"), (NoFur ? "hair" : "fur")));
 
             if (Player.HasKnot(x))
                 OutputText("Scenes.YvonneArmorShop.FuckYvonneInZeBlacksmith.KnotLocks".Localized());
@@ -222,7 +222,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.YvonneArmorShop.FuckYvonneInZeBlacksmith.PullsOutSuffix".Localized());
 
-            OutputText("Scenes.YvonneArmorShop.FuckYvonneInZeBlacksmith.StaggersUp".Localized((noFur ? "feet" : "footpaws")));
+            OutputText("Scenes.YvonneArmorShop.FuckYvonneInZeBlacksmith.StaggersUp".Localized((NoFur ? "feet" : "footpaws")));
 
             OutputText("Scenes.YvonneArmorShop.FuckYvonneInZeBlacksmith.TossesGear".Localized());
 

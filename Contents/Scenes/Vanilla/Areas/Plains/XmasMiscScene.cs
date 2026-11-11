@@ -59,9 +59,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
             OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.DecisionFindOut".Localized());
 
             if (Player.Corruption < 50 && Player.Libido < 50)
-                OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.EyesDrawnRabbit".Localized((noFur ? "boy" : "morph")));
+                OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.EyesDrawnRabbit".Localized((NoFur ? "boy" : "morph")));
             else
-                OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.EyesDrawnAgain".Localized((noFur ? "boy" : "morph")));
+                OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.EyesDrawnAgain".Localized((NoFur ? "boy" : "morph")));
 
             OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.HangingBalls".Localized());
 
@@ -72,7 +72,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
             else
                 OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.ApproachWord".Localized());
 
-            OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.SnapsTwig".Localized((noFur ? "knees" : "thighs")));
+            OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.SnapsTwig".Localized((NoFur ? "knees" : "thighs")));
 
             OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.RemarkablyHigh".Localized());
 
@@ -81,7 +81,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
             else
                 OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.ThoughtDerailed".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.AnythingToCalm".Localized());
 
             OutputText("Scenes.Xmasmisc.InvestigateCandyCaneBun.SmileLightsUp".Localized());
@@ -309,7 +309,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
         {
 
             if (CoC.Instance.Flags.Get(GameFlagIds.KamiEncounter) == 0)
-                OutputText("Scenes.Xmasmisc.EncounterKamiTheChristmasRoo.EntersBakery".Localized((noFur ? "girl" : "morph")));
+                OutputText("Scenes.Xmasmisc.EncounterKamiTheChristmasRoo.EntersBakery".Localized((NoFur ? "girl" : "morph")));
             else
                 OutputText("Scenes.Xmasmisc.EncounterKamiTheChristmasRoo.BakeryAdorned".Localized());
         }
@@ -356,7 +356,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
                     Player.Mf("stud", "babe")
                 ));
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Xmasmisc.ApproachKamiTheChristmasRoo.ScrawledPenis".Localized());
 
                 OutputText("Scenes.Xmasmisc.ApproachKamiTheChristmasRoo.SentencePeriod".Localized());
@@ -603,7 +603,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
 
             OutputText("Scenes.Xmasmisc.PolarPete.CrunchSnow".Localized());
 
-            OutputText("Scenes.Xmasmisc.PolarPete.LargeMan".Localized((noFur ? "particularly his limbs which are" : "as his body is")));
+            OutputText("Scenes.Xmasmisc.PolarPete.LargeMan".Localized((NoFur ? "particularly his limbs which are" : "as his body is")));
 
             OutputText("Scenes.Xmasmisc.PolarPete.HappyHoliday".Localized());
 

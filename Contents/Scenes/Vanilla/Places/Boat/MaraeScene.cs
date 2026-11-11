@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
@@ -20,9 +20,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Boat
 
         public static SaveContent Save => SaveContent(SceneIds.Boat.Marae);
 
-        public string debugName => "Marae";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -309,7 +307,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Boat
             {
                 OutputText("Scenes.Maraescene.WinAgainstMarae.YellsNothingBut".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Maraescene.WinAgainstMarae.DefeatedAncientTentacle".Localized());
 
                 if (Player.Weapon.IsHolySword())
@@ -323,7 +321,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Boat
                         else
                             if (Player.Weapon.IsFist())
                             {
-                                if (silly)
+                                if (Silly)
                                 {
                                     OutputText("Scenes.Maraescene.WinAgainstMarae.UnleashingFlurry".Localized());
 
@@ -459,7 +457,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Boat
             OutputText("Scenes.Maraescene.MaraeBadEnd.SomeTimePasses".Localized());
 
             OutputText("Scenes.Maraescene.MaraeBadEnd.StillOnTheIsland".Localized());
-            // 原版 MaraeScene.hx:363 — AikoScene.hx:1889 / FactoryScene.hx 等：Marble 是跟随者
+            // 鍘熺増 MaraeScene.hx:363 鈥?AikoScene.hx:1889 / FactoryScene.hx 绛夛細Marble 鏄窡闅忚€?
             if (SceneInstance<Npcs.MarbleScene>.Get().MarbleFollower())
                 OutputText("Scenes.Maraescene.MaraeBadEnd.MarbleLooksOut".Localized());
 

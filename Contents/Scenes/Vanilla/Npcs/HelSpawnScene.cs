@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Pregnancy;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre;
@@ -27,9 +27,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
         public int helspawnMaleSurpriseLastChoice = 0;
 
-        public string debugName => !string.IsNullOrEmpty(helspawnName) ? helspawnName : "Helspawn";
 
-        public string debugHint => "";
 
         public string helspawnName => CoC.Instance.Flags.Get(GameFlagIds.HelspawnName);
 
@@ -1780,7 +1778,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Helspawnscene.Snipermanders.HelTakesBreak".Localized());
 
-            if (Player.Body.Get<LowerBodyPart>().Id == BodyPartTypes.Lizard && !noFur)
+            if (Player.Body.Get<LowerBodyPart>().Id == BodyPartTypes.Lizard && !NoFur)
                 OutputText("Scenes.Helspawnscene.Snipermanders.EvenLizardLegs".Localized());
 
             OutputText("Scenes.Helspawnscene.Snipermanders.CorrectsGripHaft".Localized());
@@ -2123,7 +2121,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ClearButtons();
 
-            if (silly)
+            if (Silly)
                 AddNextButton("Common.Button.Marathon".Localized(), SexHelspawn);
 
             if (HelspawnChaste())
@@ -5008,7 +5006,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             ClearOutput();
 
             OutputText("Scenes.Helspawnscene.SlutspawnDreaming.JoltedAwake".Localized());
-            // 原版 HelSpawnScene.hx:3155：曾被小恶魔趁睡奸淫过才会想到这一层
+            // 鍘熺増 HelSpawnScene.hx:3155锛氭浘琚皬鎭堕瓟瓒佺潯濂告帆杩囨墠浼氭兂鍒拌繖涓€灞?
             if (CoC.Instance.Flags.Get(GameFlagIds.HasBeenImpSleepRaped))
                 OutputText("Scenes.Helspawnscene.SlutspawnDreaming.ImpDreadThoughts".Localized());
             else
@@ -5038,7 +5036,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             var maleLovers = CampScene.MalePartnersAtCampList();
 
-            if (silly && maleLovers.Count == 0 && SceneInstance<AkkyScene>.Get().IsOwned())
+            if (Silly && maleLovers.Count == 0 && SceneInstance<AkkyScene>.Get().IsOwned())
                 maleLovers = [CoC.Instance.Flags.Get(GameFlagIds.AkkyName)];
 
             var femaleLovers = CampScene.FemalePartnersAtCampList();

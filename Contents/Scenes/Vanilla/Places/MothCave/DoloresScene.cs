@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
@@ -87,9 +87,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
 
         public static bool MilkSlave() => CoC.Instance.Flags.Get(GameFlagIds.MilkName) != "";
 
-        public string debugName => "Dolores";
 
-        public string debugHint => "";
 
         public int doloresProg => Save.GetInt("doloresProgress", 0);
 
@@ -472,7 +470,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
                 break;
             }
 
-            OutputText("Scenes.Doloresscene.DoloresMagicShow.RushesInAwe".Localized((silly ? "be broken" : "not be able to continue"), (Player.Corruption > 50 ? "sigh" : "smile")));
+            OutputText("Scenes.Doloresscene.DoloresMagicShow.RushesInAwe".Localized((Silly ? "be broken" : "not be able to continue"), (Player.Corruption > 50 ? "sigh" : "smile")));
 
             OutputText("Scenes.Doloresscene.DoloresMagicShow.RamblingApology".Localized());
 
@@ -489,7 +487,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
 
             OutputText("Scenes.Doloresscene.DoloresMagicBook.TurnToBooks".Localized((doloresMagicDetermine() > 0 ? "Unwilling" : "Unable")));
 
-            OutputText("Scenes.Doloresscene.DoloresMagicBook.ScansBookSpines".Localized((silly ? "\"Milking Furries for Fun and Profit,\"" : "\"The Tales of Captain Chronicle,\"")));
+            OutputText("Scenes.Doloresscene.DoloresMagicBook.ScansBookSpines".Localized((Silly ? "\"Milking Furries for Fun and Profit,\"" : "\"The Tales of Captain Chronicle,\"")));
 
             OutputText("Scenes.Doloresscene.DoloresMagicBook.DustOffCover".Localized());
 
@@ -601,11 +599,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
             {
                 case 1:
                 {
-                OutputText("Scenes.Doloresscene.DoloresRunaway2.YoungAndRisky".Localized((silly ? "ended the world or anything" : "done any major damage yet")));
+                OutputText("Scenes.Doloresscene.DoloresRunaway2.YoungAndRisky".Localized((Silly ? "ended the world or anything" : "done any major damage yet")));
 
                 OutputText("Scenes.Doloresscene.DoloresRunaway2.ChildlikeGlee".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Doloresscene.DoloresRunaway2.DoloresRemembers".Localized());
 
                 OutputText("Scenes.Doloresscene.DoloresRunaway2.InspectKeptBook".Localized((Player.Corruption > 80 ? ", perhaps foolishly," : "")));
@@ -619,7 +617,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
 
                 OutputText("Scenes.Doloresscene.DoloresRunaway2.ResponsibleThing".Localized((Player.Corruption < 50 ? "assure her that this is only temporary" : "explain that, as her [father], you know best")));
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Doloresscene.DoloresRunaway2.DoloresRemembersAgain".Localized());
 
                 OutputText("Scenes.Doloresscene.DoloresRunaway2.InspectSeizedBook".Localized());
@@ -664,7 +662,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
 
             OutputText("Scenes.Doloresscene.DoloresPreCocoon.AchingStomach".Localized());
 
-            OutputText("Scenes.Doloresscene.DoloresPreCocoon.SylviaLightsUp".Localized((silly ? "\"lady troubles\"" : "growing pains")));
+            OutputText("Scenes.Doloresscene.DoloresPreCocoon.SylviaLightsUp".Localized((Silly ? "\"lady troubles\"" : "growing pains")));
 
             OutputText("Scenes.Doloresscene.DoloresPreCocoon.CalmAtNews".Localized());
 
@@ -1850,7 +1848,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
 
                 OutputText("Scenes.Doloresscene.HikkiCamp.RestOfCampTour".Localized());
 
-                if (silly)
+                if (Silly)
                     OutputText("Scenes.Doloresscene.HikkiCamp.PreciousWaterBarrel".Localized());
 
                 DoNext(() => HikkiCampDone());
@@ -2391,7 +2389,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
 
             OutputText("Scenes.Doloresscene.HikkiBazaar3.GaudyEncounter".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Doloresscene.HikkiBazaar3.OverheardSnippet".Localized());
 
             OutputText("Scenes.Doloresscene.HikkiBazaar3.CatchingBreath".Localized());
@@ -2864,8 +2862,8 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
             OutputText("Scenes.Doloresscene.HikkiFight.ThrowsCaneAndCharges".Localized());
 
             CurrentMonster = EnemyRegistry.Create(new Identifier("coc", "riddle_demon"));
-            // 原版 DoloresScene.hx:1712：monster = new RiddleDemon(); startCombat(monster, true)；
-            // 旧移植把 `monster, true` 整串塞进了 Identifier，生成不存在的 id "coc:monster, true"（创建即抛异常）
+            // 鍘熺増 DoloresScene.hx:1712锛歮onster = new RiddleDemon(); startCombat(monster, true)锛?
+            // 鏃хЩ妞嶆妸 `monster, true` 鏁翠覆濉炶繘浜?Identifier锛岀敓鎴愪笉瀛樺湪鐨?id "coc:monster, true"锛堝垱寤哄嵆鎶涘紓甯革級
             CombatScene.Start(CurrentMonster, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
@@ -3208,8 +3206,8 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
             OutputText("Scenes.Doloresscene.HikkiRiddleFight.FollowsYourLead".Localized());
 
             CurrentMonster = EnemyRegistry.Create(new Identifier("coc", "riddle_demon"));
-            // 原版 DoloresScene.hx:1712：monster = new RiddleDemon(); startCombat(monster, true)；
-            // 旧移植把 `monster, true` 整串塞进了 Identifier，生成不存在的 id "coc:monster, true"（创建即抛异常）
+            // 鍘熺増 DoloresScene.hx:1712锛歮onster = new RiddleDemon(); startCombat(monster, true)锛?
+            // 鏃хЩ妞嶆妸 `monster, true` 鏁翠覆濉炶繘浜?Identifier锛岀敓鎴愪笉瀛樺湪鐨?id "coc:monster, true"锛堝垱寤哄嵆鎶涘紓甯革級
             CombatScene.Start(CurrentMonster, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
@@ -3771,7 +3769,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
             ClearOutput();
 
             if (doloresProg == 2)
-                OutputText("Scenes.Doloresscene.DoloresAppearance.InfantCaterpillar".Localized((Player.Corruption > 80 && silly ? "You find yourself having some particularly Satanic thoughts." : "")));
+                OutputText("Scenes.Doloresscene.DoloresAppearance.InfantCaterpillar".Localized((Player.Corruption > 80 && Silly ? "You find yourself having some particularly Satanic thoughts." : "")));
             else
                 if (doloresProg < 7)
                     OutputText("Scenes.Doloresscene.DoloresAppearance.CaterpillarGrowing".Localized(
@@ -4479,7 +4477,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
 
             OutputText("Scenes.Doloresscene.DoloresHeadpat.SteadyRhythm".Localized((doloresProg > 13 ? "lingering hesitance" : "apparent inexperience")));
 
-            OutputText("Scenes.Doloresscene.DoloresHeadpat.RedoubledDoting".Localized((silly ? "concentric circular rubs, intense lateral stroking, even the reverse triple scalp-scrubber" : "stroking her hair, firm rubbing, even a light caress of her cheek")));
+            OutputText("Scenes.Doloresscene.DoloresHeadpat.RedoubledDoting".Localized((Silly ? "concentric circular rubs, intense lateral stroking, even the reverse triple scalp-scrubber" : "stroking her hair, firm rubbing, even a light caress of her cheek")));
 
             OutputText("Scenes.Doloresscene.DoloresHeadpat.ImpassiveResistance".Localized((doloresProg < 9 ? "caterpillar" : "moth")));
 
@@ -4902,7 +4900,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
             OutputText("Scenes.Doloresscene.DoloresPetting3.HeavingBreaths".Localized((doloresComforted() ? "through her stupor" : "somewhat tentatively"), (doloresComforted() ? "languidly stretches" : "silently rises")));
 
             if (DoloresComforted())
-                OutputText("Scenes.Doloresscene.DoloresPetting3.SheepishGrin".Localized((silly ? "You didn't think you were [i: that] good. " : "")));
+                OutputText("Scenes.Doloresscene.DoloresPetting3.SheepishGrin".Localized((Silly ? "You didn't think you were [i: that] good. " : "")));
             else
                 OutputText("Scenes.Doloresscene.DoloresPetting3.CrypticGlance".Localized());
 

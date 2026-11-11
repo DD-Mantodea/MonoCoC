@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
 using MonoCoC.Contents.Datas.Vanilla;
@@ -19,9 +19,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
         public static SaveContent Save => SaveContent(SceneIds.HighMountains.Izumi);
 
-        public string debugName => "Izumi";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -987,7 +985,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
             }
             else
                 OutputText("Scenes.Izumiscene.SurrenderOhGodTheFemaleSurrenderContentIsFuckingHugeSendHelp.IzumiTakesOverUndressing".Localized());
-            // 原版 IzumiScene.hx:850：该分支的触发条件
+            // 鍘熺増 IzumiScene.hx:850锛氳鍒嗘敮鐨勮Е鍙戞潯浠?
             if (SceneInstance<Npcs.CeraphScene>.Get().HasExhibition())
             {
                 OutputText("Scenes.Izumiscene.SurrenderOhGodTheFemaleSurrenderContentIsFuckingHugeSendHelp.IzumiRemovesArmor".Localized());
@@ -1082,7 +1080,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
             }
 
             OutputText("Scenes.Izumiscene.SurrenderOhGodTheFemaleSurrenderContentIsFuckingHugeSendHelp.WhispersNoticingWetness".Localized());
-            // 原版 IzumiScene.hx:924 — 解锁 Ceraph 露出剧情后才给「ShowMeOff/HideMe」
+            // 鍘熺増 IzumiScene.hx:924 鈥?瑙ｉ攣 Ceraph 闇插嚭鍓ф儏鍚庢墠缁欍€孲howMeOff/HideMe銆?
             if (SceneInstance<Npcs.CeraphScene>.Get().HasExhibition())
             {
                 ClearButtons();
@@ -1846,7 +1844,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Izumiscene.TouchThatFluffyHorn.IzumiAsksYourLuck".Localized());
 
-            if (silly)
+            if (Silly)
             {
                 OutputText("Scenes.Izumiscene.TouchThatFluffyHorn.IzumiStompsGround".Localized());
 

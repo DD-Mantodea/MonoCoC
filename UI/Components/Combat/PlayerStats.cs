@@ -25,13 +25,13 @@ namespace MonoCoC.UI.Components.Combat
         {
             _screenFile = screenFile;
 
-            Initialize(new UIEventRegistry(), new UIWidgetRegistry());
+            Initialize();
 
             if (LayoutData.Size == Vector2.Zero && Content is not null)
                 LayoutData.Size = new Vector2(Content.Rectangle.Width, Content.Rectangle.Height);
 
-            DataContext = new PlayerStatsDataContext(
-                new PlayerStatsModel(() => CoC.Instance?.Player, () => GameView.Instance?.Time ?? FallbackTime));
+            SetDataContext(new PlayerStatsDataContext(
+                new PlayerStatsModel(() => CoC.Instance?.Player, () => GameView.Instance?.Time ?? FallbackTime)));
 
             Content?.ApplyDataContext(DataContext);
         }

@@ -351,7 +351,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             AddButton(4, "Common.Button.PoundCake".Localized(), () => Nomnomnom("pound cake", 4));
 
-            if (survival)
+            if (Survival)
             {
                 OutputText("Scenes.Bakeryscene.CheckBakeryMenu.HardBiscuits".Localized());
 
@@ -836,14 +836,14 @@ IngredientsMenu();
 
                     OutputText(Player.ModThickness(100, 1));
 
-                    if (Random.Shared.Next(3) == 0 && Player.Body.Butt < 15 && (Player.Hunger > 25 || !survival))
+                    if (Random.Shared.Next(3) == 0 && Player.Body.Butt < 15 && (Player.Hunger > 25 || !Survival))
                     {
                         OutputText("Scenes.Bakeryscene.Nomnomnom.AssJiggles".Localized());
 
                         Player.Body.Butt += 1;
                     }
 
-                    if (Random.Shared.Next(3) == 0 && Player.Body.Hips < 15 && (Player.Hunger > 25 || !survival))
+                    if (Random.Shared.Next(3) == 0 && Player.Body.Hips < 15 && (Player.Hunger > 25 || !Survival))
                     {
                         OutputText("Scenes.Bakeryscene.Nomnomnom.GaitChanged".Localized());
 
@@ -858,7 +858,7 @@ IngredientsMenu();
 
                         OutputText(Player.ModThickness(100, 2));
 
-                        if (Random.Shared.Next(3) == 0 && Player.Body.Hips < 20 && (Player.Hunger > 25 || !survival))
+                        if (Random.Shared.Next(3) == 0 && Player.Body.Hips < 20 && (Player.Hunger > 25 || !Survival))
                         {
                             OutputText("Scenes.Bakeryscene.Nomnomnom.GaitChangedAgain".Localized());
 
@@ -872,7 +872,7 @@ IngredientsMenu();
                         {
                             OutputText(Player.ModThickness(100, 4));
 
-                            if (Random.Shared.Next(2) == 0 && Player.Body.Hips < 30 && (Player.Hunger > 25 || !survival))
+                            if (Random.Shared.Next(2) == 0 && Player.Body.Hips < 30 && (Player.Hunger > 25 || !Survival))
                             {
                                 OutputText("Scenes.Bakeryscene.Nomnomnom.GaitChangedThird".Localized());
 
@@ -885,7 +885,7 @@ IngredientsMenu();
                             if (name == "cupcakes")
                             {
 
-                                if (Random.Shared.Next(2) == 0 && Player.Body.Butt < 30 && (Player.Hunger > 25 || !survival))
+                                if (Random.Shared.Next(2) == 0 && Player.Body.Butt < 30 && (Player.Hunger > 25 || !Survival))
                                 {
                                     OutputText("Scenes.Bakeryscene.Nomnomnom.AssJigglesAgain".Localized());
 
@@ -900,14 +900,14 @@ IngredientsMenu();
 
                                     OutputText(Player.ModThickness(100, 2));
 
-                                    if (Random.Shared.Next(3) == 0 && Player.Body.Butt < 25 && (Player.Hunger > 25 || !survival))
+                                    if (Random.Shared.Next(3) == 0 && Player.Body.Butt < 25 && (Player.Hunger > 25 || !Survival))
                                     {
                                         OutputText("Scenes.Bakeryscene.Nomnomnom.AssJigglesThird".Localized());
 
                                         Player.Body.Butt += 1;
                                     }
 
-                                    if (Random.Shared.Next(3) == 0 && Player.Body.Hips < 25 && (Player.Hunger > 25 || !survival))
+                                    if (Random.Shared.Next(3) == 0 && Player.Body.Hips < 25 && (Player.Hunger > 25 || !Survival))
                                     {
                                         OutputText("Scenes.Bakeryscene.Nomnomnom.GaitChangedFourth".Localized());
 
@@ -1148,7 +1148,7 @@ CheckBakeryMenu();
 
             OutputText("Scenes.Bakeryscene.MalesHelpOutWithEaster.ChocolateScreaming".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Bakeryscene.MalesHelpOutWithEaster.ChocolateRain".Localized());
 
             OutputText("Scenes.Bakeryscene.MalesHelpOutWithEaster.RodSecondsBehind".Localized());

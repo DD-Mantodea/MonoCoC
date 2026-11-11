@@ -1515,7 +1515,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Anemonescene.AnemoneGetsLayedByBeePositor.StopMakingStupid".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Anemonescene.AnemoneGetsLayedByBeePositor.Duck".Localized());
 
             OutputText("Scenes.Anemonescene.AnemoneGetsLayedByBeePositor.FaceYouReply".Localized());
@@ -1584,7 +1584,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 OutputText("Scenes.Anemonescene.AnemoneGetsLayedByBeePositor.ThatsTooBad".Localized());
 
-                if (silly && Player.FertilizedEggs() > 1)
+                if (Silly && Player.FertilizedEggs() > 1)
                     OutputText("Scenes.Anemonescene.AnemoneGetsLayedByBeePositor.BrieflyAmuseImagining".Localized());
 
                 OutputText("Scenes.Anemonescene.AnemoneGetsLayedByBeePositor.GatheringThingsDepart".Localized(
@@ -1991,7 +1991,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         public bool GiveableToAnemone(Identifier item)
         {
 
-            return item == ConsumableIds.WhiteBook || item == ConsumableIds.BlackBook || item == WeaponIds.Wingstick || (item == UseableIds.TeddyBear && silly) || false || item == ItemIds.DragonShield;
+            return item == ConsumableIds.WhiteBook || item == ConsumableIds.BlackBook || item == WeaponIds.Wingstick || (item == UseableIds.TeddyBear && Silly) || false || item == ItemIds.DragonShield;
         }
 
         public void PlaceInAnemone(int slot)
@@ -2282,7 +2282,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                                                             {
                                                                                 OutputText("Scenes.Anemonescene.TutorAnemoneKid.AlreadyKnowsGun".Localized());
 
-                                                                                if (silly)
+                                                                                if (Silly)
                                                                                     OutputText("Scenes.Anemonescene.TutorAnemoneKid.PewPewPew".Localized());
 
                                                                                 if (Player.Speed >= 70)

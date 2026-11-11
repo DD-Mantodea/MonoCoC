@@ -1,4 +1,4 @@
-{
+﻿{
   pane: npc
   global: false
   title: "Scenes.Options.Pane.4.Title"
@@ -7,7 +7,7 @@
 
   settings: [
     {
-      id: lowStandards
+      id: "coc:lowStandards"
       label: "Scenes.Options.Setting.LowStandards"
       default: 0
       values: [
@@ -16,7 +16,7 @@
       ]
     }
     {
-      id: shouldraChild
+      id: "coc:shouldraChild"
       label: "Scenes.Options.Setting.Shouldra"
       desc: "Scenes.Options.Desc.Shouldra"
       default: 0
@@ -26,7 +26,7 @@
       ]
     }
     {
-      id: gargoyleChild
+      id: "coc:gargoyleChild"
       label: "Scenes.Options.Setting.Gargoyle"
       desc: "Scenes.Options.Desc.Gargoyle"
       default: 0
@@ -36,7 +36,7 @@
       ]
     }
     {
-      id: genericLoliShota
+      id: "coc:genericLoliShota"
       label: "Scenes.Options.Setting.GenericNpcs"
       desc: "Scenes.Options.Desc.GenericNpcs"
       default: 0
@@ -46,7 +46,7 @@
       ]
     }
     {
-      id: urtaDisabled
+      id: "coc:urtaDisabled"
       label: "Scenes.Options.Setting.Urta"
       desc: "Scenes.Options.Desc.Urta"
       default: 0

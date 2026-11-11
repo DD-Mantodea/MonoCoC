@@ -176,7 +176,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Mountain
 
                             OutputText("Scenes.Xmasjackfrost.ProcessJackFrostEvent.RunHandsAlong".Localized());
 
-                            OutputText("Scenes.Xmasjackfrost.ProcessJackFrostEvent.ClickTongueShaking".Localized((noFur ? "girl" : "morph")));
+                            OutputText("Scenes.Xmasjackfrost.ProcessJackFrostEvent.ClickTongueShaking".Localized((NoFur ? "girl" : "morph")));
 
                             OutputText("Scenes.Xmasjackfrost.ProcessJackFrostEvent.BeginTicklingBreasts".Localized());
 
@@ -201,7 +201,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Mountain
 
                                     OutputText("Scenes.Xmasjackfrost.ProcessJackFrostEvent.MouseSaysCatching".Localized());
 
-                                    OutputText("Scenes.Xmasjackfrost.ProcessJackFrostEvent.OutOfMonksSight".Localized((noFur ? "" : "white-furred ")));
+                                    OutputText("Scenes.Xmasjackfrost.ProcessJackFrostEvent.OutOfMonksSight".Localized((NoFur ? "" : "white-furred ")));
 
                                     OutputText("Scenes.Xmasjackfrost.ProcessJackFrostEvent.SnowballExplodes".Localized());
 

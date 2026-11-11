@@ -61,7 +61,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
             }
             else
             {
-                OutputText("Scenes.Oasis.OasisRunAway.ScramblesAway".Localized((noFur ? "ears" : "features")));
+                OutputText("Scenes.Oasis.OasisRunAway.ScramblesAway".Localized((NoFur ? "ears" : "features")));
 
                         CombatScene.Start(EnemyRegistry.Create(EnemyIds.DemonPack), () => Go<CampScene>());
             }

@@ -61,7 +61,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
                 OutputText("Scenes.Calluscene.ExecEncounter.WatchesFish".Localized());
 
-                OutputText("Scenes.Calluscene.ExecEncounter.ApproachesFigure".Localized((noFur ? "smooth and human-like" : "covered with damp, brown fur")));
+                OutputText("Scenes.Calluscene.ExecEncounter.ApproachesFigure".Localized((NoFur ? "smooth and human-like" : "covered with damp, brown fur")));
 
                 ShowImage("callu-intro");
 
@@ -75,7 +75,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
                     OutputText("Scenes.Calluscene.ExecEncounter.FeelingShe".Localized());
 
-                    if (silly)
+                    if (Silly)
                         OutputText("Scenes.Calluscene.ExecEncounter.QuickThought".Localized(
                              Player.Mf("him?", "her?")
                         ));
@@ -114,7 +114,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
                     OutputText("Scenes.Calluscene.ExecEncounter.ThatsIt".Localized());
 
-                    if (silly)
+                    if (Silly)
                         OutputText("Scenes.Calluscene.ExecEncounter.NoTragicBackstory".Localized());
 
                     OutputText("Scenes.Calluscene.ExecEncounter.DontEvenKnow".Localized());
@@ -187,7 +187,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
             {
                 ShowImage("callu-sex-fuck");
 
-                OutputText("Scenes.Calluscene.OttergirlLikesDongs.AgreeSlySmile".Localized((noFur ? "" : " amongst the sparse brown fur")));
+                OutputText("Scenes.Calluscene.OttergirlLikesDongs.AgreeSlySmile".Localized((NoFur ? "" : " amongst the sparse brown fur")));
 
                 OutputText("Scenes.Calluscene.OttergirlLikesDongs.CantHelpMove".Localized(
                      Player.Mf("gentleman", "lady")
@@ -356,7 +356,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
             }
             else
             {
-                OutputText("Scenes.Calluscene.OttergirlLikesDongs.AgreeSlySmileAgain".Localized((noFur ? "" : " amongst the sparse brown fur")));
+                OutputText("Scenes.Calluscene.OttergirlLikesDongs.AgreeSlySmileAgain".Localized((NoFur ? "" : " amongst the sparse brown fur")));
 
                 OutputText("Scenes.Calluscene.OttergirlLikesDongs.MovesToGrope".Localized());
 
@@ -578,7 +578,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
             {
                 ShowImage("callu-sex-facesit");
 
-                OutputText("Scenes.Calluscene.OttersForGals.AgreeSlySmile".Localized((noFur ? "" : " amongst the sparse brown fur")));
+                OutputText("Scenes.Calluscene.OttersForGals.AgreeSlySmile".Localized((NoFur ? "" : " amongst the sparse brown fur")));
 
                 OutputText("Scenes.Calluscene.OttersForGals.MovesToGrope".Localized(
                      Player.Mf("gentleman", "lady")
@@ -655,7 +655,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
             }
             else
             {
-                OutputText("Scenes.Calluscene.OttersForGals.AgreeSlySmileAgain".Localized((noFur ? "" : " amongst the sparse brown fur")));
+                OutputText("Scenes.Calluscene.OttersForGals.AgreeSlySmileAgain".Localized((NoFur ? "" : " amongst the sparse brown fur")));
 
                 OutputText("Scenes.Calluscene.OttersForGals.MovesToGropeAgain".Localized());
 

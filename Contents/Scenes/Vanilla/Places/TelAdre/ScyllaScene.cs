@@ -2198,7 +2198,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Scylla.ShareTentaclesWithScylla.GirlsPaleTentaclesSnake".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Scylla.ShareTentaclesWithScylla.ThrowHandsLasciviousGrin".Localized());
             else
                 if (Player.Corruption < 33)

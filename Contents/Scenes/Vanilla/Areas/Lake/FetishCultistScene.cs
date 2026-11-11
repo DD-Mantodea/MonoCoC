@@ -950,7 +950,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                 {
                     OutputText("Scenes.Fetishcultistscene.RapeNun.MeeklyLooksAtBestial".Localized());
 
-                    if (Player.CanDepositEel() && !silly)
+                    if (Player.CanDepositEel() && !Silly)
                         OutputText("Scenes.Fetishcultistscene.RapeNun.EelParasiteDeposit".Localized());
                 }
                 else

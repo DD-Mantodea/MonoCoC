@@ -45,9 +45,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
                 if (Player.Tallness > 64)
                     OutputText("Scenes.Bunnygirl.BunnbunbunMeet.ShortWord".Localized());
 
-                OutputText("Scenes.Bunnygirl.BunnbunbunMeet.BunnyAppearsFromBushes".Localized((noFur ? "smooth, muscular" : "muscular, fur-covered")));
+                OutputText("Scenes.Bunnygirl.BunnbunbunMeet.BunnyAppearsFromBushes".Localized((NoFur ? "smooth, muscular" : "muscular, fur-covered")));
 
-                OutputText("Scenes.Bunnygirl.BunnbunbunMeet.StartingAboveTheBunny".Localized((noFur ? "knees" : "hips")));
+                OutputText("Scenes.Bunnygirl.BunnbunbunMeet.StartingAboveTheBunny".Localized((NoFur ? "knees" : "hips")));
 
                 if (Player.Libido > 50)
                     OutputText("Scenes.Bunnygirl.BunnbunbunMeet.WonderWhatSheHides".Localized());
@@ -446,7 +446,7 @@ ReturnToCamp(1);
                  Player.AssDescript()
             ));
 
-            OutputText("Scenes.Bunnygirl.BunbunFucksPCInAss.StrokeHerThighs".Localized((noFur ? "smooth skin" : "downy fur")));
+            OutputText("Scenes.Bunnygirl.BunbunFucksPCInAss.StrokeHerThighs".Localized((NoFur ? "smooth skin" : "downy fur")));
 
             if (Player.CockTotal() > 0)
                 OutputText("Scenes.Bunnygirl.BunbunFucksPCInAss.StickyPreCumPouring".Localized());
@@ -754,7 +754,7 @@ ReturnToCamp(1);
 
                     OutputText("Scenes.Bunnygirl.Bunbun69.SuckAllTheHarder".Localized());
 
-                    OutputText("Scenes.Bunnygirl.Bunbun69.TeasingIllAdvised".Localized((noFur ? "" : " fuzzy")));
+                    OutputText("Scenes.Bunnygirl.Bunbun69.TeasingIllAdvised".Localized((NoFur ? "" : " fuzzy")));
 
                     if (Player.Cocks[0].Length >= 8)
                         OutputText("Scenes.Bunnygirl.Bunbun69.PassesSixInches".Localized());
@@ -835,7 +835,7 @@ ReturnToCamp(1);
 
                     OutputText("Scenes.Bunnygirl.Bunbun69.SuckAllHarderAgain".Localized());
 
-                    OutputText("Scenes.Bunnygirl.Bunbun69.TeasingIllAdvisedAgain".Localized((noFur ? "" : " fuzzy")));
+                    OutputText("Scenes.Bunnygirl.Bunbun69.TeasingIllAdvisedAgain".Localized((NoFur ? "" : " fuzzy")));
 
                     if (Player.Cocks[0].Length >= 8)
                         OutputText("Scenes.Bunnygirl.Bunbun69.PassesSixInchesAgain".Localized());
@@ -925,7 +925,7 @@ ReturnToCamp(1);
 
                 OutputText("Scenes.Bunnygirl.Bunbun69.SuckHarderPussy".Localized());
 
-                OutputText("Scenes.Bunnygirl.Bunbun69.TeasingIllAdvisedPussy".Localized((noFur ? "" : " fuzzy")));
+                OutputText("Scenes.Bunnygirl.Bunbun69.TeasingIllAdvisedPussy".Localized((NoFur ? "" : " fuzzy")));
 
                 OutputText("Scenes.Bunnygirl.Bunbun69.ChestRisesPussy".Localized());
 
@@ -1074,9 +1074,9 @@ ReturnToCamp(1);
 
             OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.ItsASurprise".Localized());
 
-            OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.ConfusedLookObeys".Localized((noFur ? "" : " and her down-soft fur")));
+            OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.ConfusedLookObeys".Localized((NoFur ? "" : " and her down-soft fur")));
 
-            OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.GrabHerHips".Localized((noFur ? "bunny" : "furry")));
+            OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.GrabHerHips".Localized((NoFur ? "bunny" : "furry")));
 
             if (Player.CanOvipositBee())
                 OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.InsectWord".Localized());
@@ -1087,9 +1087,9 @@ ReturnToCamp(1);
 
             OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.SnickerPatEars".Localized());
 
-            OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.OvipositorSlidesFree".Localized((noFur ? "" : " fuzzy")));
+            OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.OvipositorSlidesFree".Localized((NoFur ? "" : " fuzzy")));
 
-            OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.ChitterExcitedly".Localized((noFur ? "" : " furry")));
+            OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.ChitterExcitedly".Localized((NoFur ? "" : " furry")));
 
             OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.IfShedSettleDown".Localized());
 
@@ -1119,7 +1119,7 @@ ReturnToCamp(1);
                 {
                     OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.EggsCrammedForcefully".Localized());
 
-                    if (silly)
+                    if (Silly)
                         OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.EnergizerBunny".Localized());
                     else
                         OutputText("Scenes.Bunnygirl.OvipositBunnyEaster.EndlessPregnancyBeast".Localized());

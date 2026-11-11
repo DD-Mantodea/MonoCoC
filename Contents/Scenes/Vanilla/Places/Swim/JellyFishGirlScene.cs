@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies.Vanilla;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
@@ -22,9 +22,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Swim
 
         public static SaveContent Save => SaveContent(SceneIds.Swim.JellyFishGirl);
 
-        public string debugName => "JellyFishGirl";
 
-        public string debugHint => "";
 
         public override void Entry()
         {
@@ -182,7 +180,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Swim
 
                 ?.DisableIf(Player.IsTaur(), "You need fewer legs to do this");
 
-            if (silly)
+            if (Silly)
                 AddNextButton("Common.Button.Kill".Localized(), KillJellyFishGirl);
 
             AddButton(14, "Common.Button.Leave".Localized(), () => ReturnToCamp(1));

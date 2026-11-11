@@ -868,7 +868,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             Player.ApplyStats(new DynStat(GameStats.Lust, (float)(10 + Player.Sensitivity / 5)));
 
             if (Player.HasCock())
-                OutputText("Scenes.Niamh.SellYourBooze.SympatheticSensations".Localized((noFur ? "" : " and paws")));
+                OutputText("Scenes.Niamh.SellYourBooze.SympatheticSensations".Localized((NoFur ? "" : " and paws")));
 
             if (Player.CockTotal() > 1)
                 OutputText("Scenes.Niamh.SellYourBooze.PluralS".Localized());
@@ -934,7 +934,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             if (Player.Body.Butt >= 20)
                 OutputText("Scenes.Niamh.BarBeerOrgyTits.SlapsYourAss".Localized());
 
-            OutputText("Scenes.Niamh.BarBeerOrgyTits.FewMoreHollers".Localized((noFur ? "" : " and paws")));
+            OutputText("Scenes.Niamh.BarBeerOrgyTits.FewMoreHollers".Localized((NoFur ? "" : " and paws")));
 
             if (Player.BiggestBreastSize() >= 20)
                 OutputText("Scenes.Niamh.BarBeerOrgyTits.GiantBoobsLargeEnough".Localized());
@@ -951,7 +951,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             if (View.Time.Hours < 15 && CoC.Instance.Flags.Get(GameFlagIds.UrtaComfortableWithOwnBody) > 0 && Player.HasVagina())
             {
-                OutputText("Scenes.Niamh.BarBeerOrgyTits.PairOfFamiliar".Localized((noFur ? "hands" : "paws")));
+                OutputText("Scenes.Niamh.BarBeerOrgyTits.PairOfFamiliar".Localized((NoFur ? "hands" : "paws")));
 
                 if (Player.Pregnancy.Incubation == 0)
                     OutputText("Scenes.Niamh.BarBeerOrgyTits.YelpsAndCheers".Localized());
@@ -961,7 +961,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             else
                 if (Player.HasVagina())
                 {
-                    OutputText("Scenes.Niamh.BarBeerOrgyTits.HandsGripLegs".Localized((noFur ? "men" : "morphs")));
+                    OutputText("Scenes.Niamh.BarBeerOrgyTits.HandsGripLegs".Localized((NoFur ? "men" : "morphs")));
 
                     if (Player.VaginalCapacity() < 60)
                         OutputText("Scenes.Niamh.BarBeerOrgyTits.OneSportingCock".Localized());
@@ -1107,23 +1107,23 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     OutputText("Scenes.Niamh.BarBeerOrgyTits.SeemsLikeForever".Localized());
 
                     if (Player.HasVagina())
-                        OutputText("Scenes.Niamh.BarBeerOrgyTits.GiantKnotOfDog".Localized((noFur ? "man" : "morph")));
+                        OutputText("Scenes.Niamh.BarBeerOrgyTits.GiantKnotOfDog".Localized((NoFur ? "man" : "morph")));
 
                     Player.CuntChange(60, true, true, false);
 
-                    OutputText("Scenes.Niamh.BarBeerOrgyTits.FinallyHasHerFill".Localized((noFur ? "man" : "morph")));
+                    OutputText("Scenes.Niamh.BarBeerOrgyTits.FinallyHasHerFill".Localized((NoFur ? "man" : "morph")));
 
                     if (Player.HasVagina())
                         OutputText("Scenes.Niamh.BarBeerOrgyTits.GagOnIt".Localized());
 
                     if (Player.CockTotal() == 1 && Player.CockArea(0) < 75)
-                        OutputText("Scenes.Niamh.BarBeerOrgyTits.CatGirlCCup".Localized((noFur ? "" : " six")));
+                        OutputText("Scenes.Niamh.BarBeerOrgyTits.CatGirlCCup".Localized((NoFur ? "" : " six")));
                     else
                         if (Player.CockTotal() == 1)
-                            OutputText("Scenes.Niamh.BarBeerOrgyTits.CowGirlLargeTits".Localized((noFur ? "" : " six"), (noFur ? "" : " quad")));
+                            OutputText("Scenes.Niamh.BarBeerOrgyTits.CowGirlLargeTits".Localized((NoFur ? "" : " six"), (NoFur ? "" : " quad")));
 
                     if (Player.CockTotal() == 1)
-                        OutputText("Scenes.Niamh.BarBeerOrgyTits.CockRemainsEmbedded".Localized((noFur ? "" : " six")));
+                        OutputText("Scenes.Niamh.BarBeerOrgyTits.CockRemainsEmbedded".Localized((NoFur ? "" : " six")));
                     else
                         if (Player.CockTotal() > 1)
                             OutputText("Scenes.Niamh.BarBeerOrgyTits.NotLongBeforeMouths".Localized());
@@ -1135,7 +1135,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     OutputText("Scenes.Niamh.BarBeerOrgyTits.LeaveTheBar".Localized());
 
                     if (Player.CockTotal() == 1)
-                        OutputText("Scenes.Niamh.BarBeerOrgyTits.TittedGirlSmiles".Localized((noFur ? "big" : "six")));
+                        OutputText("Scenes.Niamh.BarBeerOrgyTits.TittedGirlSmiles".Localized((NoFur ? "big" : "six")));
                     else
                         if (Player.CockTotal() > 1)
                             OutputText("Scenes.Niamh.BarBeerOrgyTits.VariousGirlsAround".Localized());
@@ -1145,7 +1145,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                         OutputText("Scenes.Niamh.BarBeerOrgyTits.WalkBowLegged".Localized());
 
                         if (Player.Pregnancy.Type.Path == "none")
-                            OutputText("Scenes.Niamh.BarBeerOrgyTits.CantHelpButWonder".Localized((noFur ? "men" : "morphs")));
+                            OutputText("Scenes.Niamh.BarBeerOrgyTits.CantHelpButWonder".Localized((NoFur ? "men" : "morphs")));
 
                         var temp = Random.Shared.Next(6);
 

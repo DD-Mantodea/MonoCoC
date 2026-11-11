@@ -886,7 +886,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Factory
 
             OutputText("Scenes.Incubusmechanicscenes.ButtfuckTheMechanic.GrabWithOneHand".Localized());
 
-            if (silly)
+            if (Silly)
                 OutputText("Scenes.Incubusmechanicscenes.ButtfuckTheMechanic.TabCWithSlot".Localized());
             else
                 OutputText("Scenes.Incubusmechanicscenes.ButtfuckTheMechanic.EagerToolWithCorrupted".Localized());

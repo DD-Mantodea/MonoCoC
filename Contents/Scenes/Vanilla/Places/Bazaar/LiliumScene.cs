@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Datas.Vanilla;
@@ -17,9 +17,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
         public static SaveContent Save => SaveContent(SceneIds.Bazaar.Lilium);
 
-        public string debugName => "Lilium";
 
-        public string debugHint => "";
 
         public override void Entry()
         {

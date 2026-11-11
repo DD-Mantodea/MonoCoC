@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Scenes.Vanilla.Quests;
 using MonoCoC.Contents.World;
 using MonoCoC.Contents.Npcs;
@@ -75,9 +75,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
         public int edrynHeliaLastThreesomeCheck = 0;
 
-        public string debugName => "Edryn";
 
-        public string debugHint => "";
 
         public override void Entry()
         {

@@ -89,9 +89,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             ClearButtons();
 
             if (Player.Lust >= 33)
-                AddButton(1, (silly ? "Common.Text.OrgyPorgy".Localized() : "Common.Button.Orgy".Localized()), FuckFollowerNephilaCoven);
+                AddButton(1, (Silly ? "Common.Text.OrgyPorgy".Localized() : "Common.Button.Orgy".Localized()), FuckFollowerNephilaCoven);
             else
-                AddButton(1, (silly ? "Common.Text.OrgyPorgy".Localized() : "Common.Button.Orgy".Localized()), null);
+                AddButton(1, (Silly ? "Common.Text.OrgyPorgy".Localized() : "Common.Button.Orgy".Localized()), null);
 
             if (CoC.Instance.Flags.Get(GameFlagIds.NephilaQueenArmor) == 0 && (CoC.Instance.Flags.Get(GameFlagIds.NephilaSecondAscension) != 0))
                 AddButton(3, "Common.Button.RequestProtection".Localized(), NephilaQueenArmorGive);
