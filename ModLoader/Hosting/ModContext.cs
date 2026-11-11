@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace MonoCoC.ModLoader
 {
-    public sealed class ModContext : IDisposable
+    public class ModContext : IDisposable
     {
         private static readonly AsyncLocal<ModContext?> CurrentContext = new();
 
@@ -76,15 +76,14 @@ namespace MonoCoC.ModLoader
             DataLoaders.Dispose();
             Assets.Dispose();
 
-            if (Instance is not null)
-                Instance.Close();
+            Instance?.Close();
 
             Instance = null;
             Package.Dispose();
             LoadContext = null;
         }
 
-        private sealed class Scope : IDisposable
+        private class Scope : IDisposable
         {
             private readonly ModContext _context;
             private readonly ModContext? _previous;

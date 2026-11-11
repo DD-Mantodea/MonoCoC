@@ -215,7 +215,7 @@ namespace MonoCoC.Contents.Combat
             // 原版 MasteryLib.hx:11：挑逗精通 id 是 "Tease"（大写）。
             // 这里原写成 CombatAbilityIds.Tease（小写 "tease"，那是技能 id），
             // 会与 CharCreation / UrtaQuestScene 写入的 "Tease" 变成两条互不相认的熟练度。
-            var chance = 60f + player.MasteryLevel(new MonoCoC.Registry.Identifier("coc", "Tease")) * 5f;
+            var chance = 60f + player.MasteryLevel(new Registry.Identifier("coc", "Tease")) * 5f;
 
             var damage = 6f + Random.Shared.Next(3);
 

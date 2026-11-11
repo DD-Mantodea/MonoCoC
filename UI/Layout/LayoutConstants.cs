@@ -26,8 +26,6 @@ namespace MonoCoC.UI.Layout
 
         public static int TextZoneHeight => UILayout.Current.TextZoneHeight;
 
-        public static int TextZonePadding => UILayout.Current.TextZonePadding;
-
         public static int CombatStatsX => UILayout.Current.CombatStatsX;
 
         public static int CombatStatsY => UILayout.Current.CombatStatsY;

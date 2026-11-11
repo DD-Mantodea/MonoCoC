@@ -12,9 +12,9 @@ namespace MonoCoC.Assets
     /// Providers are registered per namespace. Mod providers must be removed
     /// before ModAssets disposes its textures.
     /// </summary>
-    public sealed class TextureRegistry
+    public class TextureRegistry
     {
-        private sealed class Provider
+        private class Provider
         {
             public required Func<string, Texture2D?> Resolve { get; init; }
         }

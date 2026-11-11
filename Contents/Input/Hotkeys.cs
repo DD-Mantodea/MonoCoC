@@ -1,7 +1,10 @@
 using Microsoft.Xna.Framework.Input;
+using MonoCoC.Configuration;
 using MonoCoC.Contents.Scenes;
 using MonoCoC.Contents.Scenes.Vanilla;
+using MonoCoC.Extensions;
 using MonoCoC.Saving;
+using MonoCoC.UI.Components.Views;
 using System;
 
 namespace MonoCoC.Contents.Input
@@ -119,14 +122,14 @@ namespace MonoCoC.Contents.Input
 
             _backgroundIndex = _backgroundIndex % 4 + 1;
 
-            if (view.Background is MonoCoC.UI.Components.UIImage image)
-                image.Texture = Assets.ManagerInstance<MonoCoC.Assets.AssetManagers.TextureManager>.Instance["background" + _backgroundIndex];
+            if (view.Background is UI.Components.UIImage image)
+                image.Texture = Assets.ManagerInstance<Assets.AssetManagers.TextureManager>.Instance["background" + _backgroundIndex];
         }
 
         private static void ShowMainMenu()
         {
             UI.Framework.UIManager.Instance.Root.SwitchView(
-                new MonoCoC.UI.Components.Views.MainView());
+                new MainView());
         }
 
         private static void OpenOptions() => Scene.Go(SceneInstance<Options>.Instance);
@@ -166,18 +169,93 @@ namespace MonoCoC.Contents.Input
 
         private static void QuickSave(int slot)
         {
-            if (CoC.Instance.Player.Loaded)
-                SaveData.Capture(CoC.Instance.Player, $"QuickSave{slot}").Write($"QuickSave{slot}");
+            if (!GameView.CanQuickSave)
+                return;
+
+            var name = QuickSlot(slot);
+
+            if (OptionStore.Instance.Get("quicksaveConfirm", 1) == 0)
+            {
+                DoQuickSave(slot, name);
+
+                return;
+            }
+
+            Scene.ClearButtons();
+
+            Scene.ClearOutput();
+
+            Scene.OutputText("Scenes.SaveLoad.QuickSaveConfirm".Localized(name));
+
+            Scene.AddButton(0, "Common.Button.No".Localized(), Scene.PlayerMenu);
+
+            Scene.AddButton(1, "Common.Button.Yes".Localized(), () => DoQuickSave(slot, name));
         }
 
         private static void QuickLoad(int slot)
         {
-            if (SaveData.TryRead($"QuickSave{slot}", out var data))
-            {
-                data.Apply(CoC.Instance.Player);
+            var name = QuickSlot(slot);
 
-                Scene.Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get());
+            if (!SaveData.TryRead(name, out _))
+                return;
+
+            if (!GameView.CanQuickLoad)
+                return;
+
+            if (OptionStore.Instance.Get("quickloadConfirm", 1) == 0)
+            {
+                DoQuickLoad(name);
+
+                return;
             }
+
+            Scene.ClearButtons();
+
+            Scene.ClearOutput();
+
+            Scene.OutputText("Scenes.SaveLoad.QuickLoadConfirm".Localized(slot));
+
+            Scene.AddButton(0, "Common.Button.No".Localized(), Scene.PlayerMenu);
+
+            Scene.AddButton(1, "Common.Button.Yes".Localized(), () => DoQuickLoad(name));
+        }
+
+        private static string QuickSlot(int slot)
+        {
+            var hardcore = OptionStore.Instance.Get("hardcore", 0) > 0;
+
+            var hardcoreSlot = OptionStore.Instance.Get("hardcoreSlot", 0);
+
+            return hardcore && hardcoreSlot > 0 ? $"CoC_{hardcoreSlot}" : $"QuickSave{slot}";
+        }
+
+        private static void DoQuickSave(int slot, string name)
+        {
+            SaveData.Capture(CoC.Instance.Player, name).Write(name);
+
+            Scene.ClearButtons();
+
+            Scene.ClearOutput();
+
+            Scene.OutputText("Scenes.SaveLoad.QuickSaved".Localized(name));
+
+            Scene.AddNextButton("Common.Button.Next".Localized(), Scene.PlayerMenu);
+        }
+
+        private static void DoQuickLoad(string name)
+        {
+            if (!SaveData.TryRead(name, out var data))
+                return;
+
+            data.Apply(CoC.Instance.Player);
+
+            Scene.Go(SceneInstance<CampScene>.Get());
+
+            Scene.ClearOutput();
+
+            Scene.OutputText("Scenes.SaveLoad.SlotLoaded".Localized(name));
+
+            Scene.AddNextButton("Common.Button.Next".Localized(), Scene.PlayerMenu);
         }
     }
 }

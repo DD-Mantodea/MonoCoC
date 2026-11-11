@@ -33,16 +33,12 @@
 
           states: {
             normal: {
-              color: "#8B6B42FF"
             }
             hover: {
-              color: "#704D28FF"
+              color: "#8B6B42FF"
             }
             pressed: {
               color: "#5E3F21FF"
-            }
-            disabled: {
-              color: "#8C7E6CFF"
             }
           }
         }
@@ -175,6 +171,14 @@
         bodyColor: "#3B2C1DFF"
         separatorColor: "#9F8156FF"
       }
+    }
+    ActionButton: {
+      type:"coc:button", 
+      template: "ParchmentButton",
+      width: 180, 
+      height: 40, 
+      verticalAlign: "center", 
+      horizontalAlign: "center"
     }
   }
 }

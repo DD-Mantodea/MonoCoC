@@ -435,7 +435,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 else
                     OutputText("Scenes.Rogar.RogarThirdPhase.RogarIsHere".Localized());
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<Places.TelAdre.TelAdre>.Get());
             }
             else
             {
@@ -533,7 +533,7 @@ ReturnToCamp(1);
 
             OutputText("Scenes.Rogar.RogarLeaveBar.OnlyLightCasualExchange".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<Places.TelAdre.TelAdre>.Get());
         }
 
         public void RogarBarChat()
@@ -544,7 +544,7 @@ ReturnToCamp(1);
 
             CoC.Instance.Flags.Set(GameFlagIds.RogarDisabled, 1);
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<Places.TelAdre.TelAdre>.Get());
         }
 
         public void RogarBarFlirt()
@@ -566,7 +566,7 @@ ReturnToCamp(1);
 
             OutputText("Scenes.Rogar.RogarBarFlirtDropIt.LittleToGainPressing".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<Places.TelAdre.TelAdre>.Get());
         }
 
         public void RogarBarFlirtTrickHim()
@@ -737,7 +737,7 @@ ReturnToCamp(1);
 
             OutputText("Scenes.Rogar.NoTHanksRogarIAintGayDudeIjustLickedThatMudToBeNice.SmileAtOrcBut".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<Places.TelAdre.TelAdre>.Get());
         }
 
         public void LoseButtGinity()

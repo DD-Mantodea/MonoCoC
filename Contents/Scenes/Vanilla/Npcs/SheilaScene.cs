@@ -424,7 +424,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             sheilaEnemy2.OnWon = _ => LoseToSheila();
 
-            CombatScene.Start(sheilaEnemy2, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: false);
+            CombatScene.Start(sheilaEnemy2, () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: false);
         }
 
         public void SheilaApology()
@@ -508,7 +508,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             sheilaEnemy.OnWon = _ => LoseToSheila();
 
-            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void ApologySheilaSayNothing()
@@ -593,7 +593,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             sheilaEnemy.OnWon = _ => LoseToSheila();
 
-            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void SheilaPologyCastArouse()
@@ -730,7 +730,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             sheilaEnemy.OnWon = _ => LoseToSheila();
 
-            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             if (silly)
             {
@@ -4729,7 +4729,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             sheilaEnemy.OnWon = _ => LoseToSheila();
 
-            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void DemonSheilaTalk()
@@ -4787,7 +4787,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             sheilaEnemy.OnWon = _ => LoseToSheila();
 
-            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
                 return ;
             }
@@ -5124,7 +5124,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             sheilaEnemy.OnWon = _ => LoseToSheila();
 
-            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(sheilaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
             }
             else
                 if (Player.HasVagina())
@@ -6730,7 +6730,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             DoNext(PlayerMenu);
 
-            AddButton(1, "Common.Button.Fight".Localized(), () => CombatScene.Start(EnemyRegistry.Create(ItemIds.ScarredBlade), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: false));
+            AddButton(1, "Common.Button.Fight".Localized(), () => CombatScene.Start(EnemyRegistry.Create(ItemIds.ScarredBlade), () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: false));
         }
 
         public void FindScarredBlade()

@@ -728,7 +728,7 @@ namespace MonoCoC.Contents.Mutations
             }
         }
 
-        private static int GillsIndex(MonoCoC.Registry.Identifier id)
+        private static int GillsIndex(Registry.Identifier id)
         {
             if (id == BodyPartTypes.Anemone) return 1;
             if (id == BodyPartTypes.Fish) return 2;
@@ -737,7 +737,7 @@ namespace MonoCoC.Contents.Mutations
             return 0;
         }
 
-        private static MonoCoC.Registry.Identifier GillsType(int index) => index switch
+        private static Registry.Identifier GillsType(int index) => index switch
         {
             1 => BodyPartTypes.Anemone,
 

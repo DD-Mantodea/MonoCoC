@@ -463,7 +463,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Factory
 
             CoC.Instance.Flags.Set(GameFlagIds.FactorySuccubusDefeated, 1);
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "secretarial_succubus")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "secretarial_succubus")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void DoFightSuccubusMocked()
@@ -471,7 +471,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Factory
 
             CoC.Instance.Flags.Set(GameFlagIds.FactorySuccubusDefeated, 1);
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "secretarial_succubus")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "secretarial_succubus")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             CombatController.Instance!.Context.Enemy.ArmorDefense -= 10;
         }

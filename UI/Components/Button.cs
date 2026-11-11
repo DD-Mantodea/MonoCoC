@@ -1,4 +1,4 @@
-using FontStashSharp.RichText;
+﻿using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,7 +16,7 @@ namespace MonoCoC.UI.Components
 {
     public class Button : Component, IUIStatefulPart
     {
-        private sealed record Snapshot(
+        private record Snapshot(
             string LabelText,
             string HintText,
             string HintHeaderText,
@@ -343,15 +343,9 @@ namespace MonoCoC.UI.Components
             return this;
         }
 
-        /// <summary>
-        /// Applies a control template's visual tree. The template's
-        /// "content" part receives the button label; all other parts are
-        /// ordinary components.
-        /// </summary>
         public void ApplyControlTemplate(Component root)
         {
-            if (Background is not null)
-                Background.Visible = false;
+            Background?.Visible = false;
 
             root.LayoutData.LayoutType = LayoutType.Relative;
 

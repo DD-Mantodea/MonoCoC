@@ -1,4 +1,4 @@
-namespace MonoCoC.UI.Data
+﻿namespace MonoCoC.UI.Data
 {
     public interface IUIStatefulPart
     {

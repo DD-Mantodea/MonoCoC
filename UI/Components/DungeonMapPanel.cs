@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Contents.Dungeons;
 using MonoCoC.Extensions;
@@ -8,8 +8,8 @@ using System;
 
 namespace MonoCoC.UI.Components
 {
-    // 大地图：可缩放/平移的瓦片地图（原版 DungeonMap 的 alternative 模式）。
-    // 瓦片/连接线绘制在 DungeonMapDrawing 里，和小地图共用。
+    // 澶у湴鍥撅細鍙缉鏀?骞崇Щ鐨勭摝鐗囧湴鍥撅紙鍘熺増 DungeonMap 鐨?alternative 妯″紡锛夈€?
+    // 鐡︾墖/杩炴帴绾跨粯鍒跺湪 DungeonMapDrawing 閲岋紝鍜屽皬鍦板浘鍏辩敤銆?
     public class DungeonMapPanel : Container
     {
         private const int TileSize = 40;
@@ -149,7 +149,7 @@ namespace MonoCoC.UI.Components
 
             UIManager.Instance.ScissorStack.Push(Rectangle);
 
-            spriteBatch.Begin(rasterizerState: UIManager.ScissorRasterizer);
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, UIManager.ScissorRasterizer);
 
             try
             {
@@ -161,7 +161,7 @@ namespace MonoCoC.UI.Components
 
                 UIManager.Instance.ScissorStack.Pop();
 
-                spriteBatch.Begin(rasterizerState: UIManager.ScissorRasterizer);
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, UIManager.ScissorRasterizer);
             }
         }
 

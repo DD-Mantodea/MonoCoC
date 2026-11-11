@@ -1,6 +1,6 @@
 namespace MonoCoC.ModLoader
 {
-    public sealed class ModCandidate
+    public class ModCandidate
     {
         public required string PackagePath { get; init; }
 

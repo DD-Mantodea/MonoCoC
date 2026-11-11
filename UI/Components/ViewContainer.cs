@@ -6,18 +6,22 @@ namespace MonoCoC.UI.Components
 {
     public class ViewContainer : Component
     {
-        public View Scene;
+        public View View;
 
         public ViewContainer()
         {
-            Scene = new MainView().Of(this);
+            View = new MainView().Of(this);
         }
 
-        public void SwitchView(View scene)
+        public void SwitchView(View view)
         {
+            var console = LayoutData.Children.Find(child => child is UI.Console.ConsoleOverlay);
+
             RemoveAllChild();
 
-            Scene = scene.Of(this);
+            View = view.Of(this);
+
+            console?.Of(this);
 
             UIManager.Instance?.MarkSceneChanged();
         }

@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 
 namespace MonoCoC.UI.Styles
 {
-    public sealed class UIDecorationStyle
+    public class UIDecorationStyle
     {
         public Color Normal = Color.Transparent;
 

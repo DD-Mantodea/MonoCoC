@@ -108,7 +108,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             OutputText("Scenes.Exploredebug.DoFight.CombatStartingLabel".Localized());
 
-            CombatScene.Start(m, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(m, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void DoHeal()

@@ -13,7 +13,7 @@ namespace MonoCoC.Contents.Encounters
     /// </summary>
     public static class EncounterProbabilityConfig
     {
-        private sealed class Entry
+        private class Entry
         {
             public float Multiplier = 1f;
 

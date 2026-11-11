@@ -47,6 +47,8 @@ namespace MonoCoC.UI.Console
 
         private int _inputHistoryIndex;
 
+        private Component? _previousFocus;
+
         private ConsoleOverlay()
         {
             LayoutData.Size = new Vector2(ScreenWidth, ScreenHeight);
@@ -102,6 +104,8 @@ namespace MonoCoC.UI.Console
             {
                 TextBox = _input
             };
+
+            _previousFocus = UIManager.Instance?.FocusedComponent;
 
             _input.Active = true;
 
@@ -172,8 +176,12 @@ namespace MonoCoC.UI.Console
                 Lines.RemoveAt(0);
         }
 
-        public static void WriteError(string text) =>
+        public static void WriteError(string text)
+        {
             WriteLine(text, new Color(255, 90, 90));
+
+            Open();
+        }
 
         public static void WriteWarning(string text) =>
             WriteLine(text, new Color(255, 205, 100));
@@ -378,6 +386,13 @@ namespace MonoCoC.UI.Console
                 return InputResult.Consumed;
             }
 
+            if (args.Type == InputType.MouseLeftDown)
+            {
+                _input.Active = true;
+
+                return InputResult.Consumed;
+            }
+
             return base.OnInput(args);
         }
 
@@ -392,6 +407,14 @@ namespace MonoCoC.UI.Console
                 return;
             }
 
+            Open();
+        }
+
+        public static void Open()
+        {
+            if (IsOpen)
+                return;
+
             var root = UIManager.Instance?.Root;
 
             if (root == null)
@@ -400,6 +423,13 @@ namespace MonoCoC.UI.Console
             _instance = new ConsoleOverlay();
 
             _instance.Of(root);
+
+            if (UIManager.Instance is not null)
+            {
+                UIManager.Instance.InputBlock = _instance;
+
+                UIManager.Instance.FocusedComponent = _instance._input;
+            }
         }
 
         private void Close()
@@ -409,10 +439,25 @@ namespace MonoCoC.UI.Console
             if (ReferenceEquals(UIManager.Instance?.InputBlock, this))
                 UIManager.Instance!.InputBlock = null;
 
+            if (ReferenceEquals(UIManager.Instance?.FocusedComponent, _input))
+                UIManager.Instance!.FocusedComponent = null;
+
+            var restore = _previousFocus;
+
+            _previousFocus = null;
+
             LayoutData.Parent?.LayoutData.Children.Remove(this);
 
             if (ReferenceEquals(_instance, this))
                 _instance = null;
+
+            if (restore is not null && restore.LayoutData.Parent is not null && UIManager.Instance is not null)
+            {
+                if (restore is TextBox textBox)
+                    textBox.Active = true;
+                else
+                    UIManager.Instance.FocusedComponent = restore;
+            }
         }
     }
 

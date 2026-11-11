@@ -106,21 +106,21 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             return true;
         }
 
-        public static readonly MonoCoC.Registry.Identifier WhitefireId = new("coc", "arch_inquisitor_vilkus_whitefire");
+        public static readonly Registry.Identifier WhitefireId = new("coc", "arch_inquisitor_vilkus_whitefire");
 
-        public static readonly MonoCoC.Registry.Identifier BlindId = new("coc", "arch_inquisitor_vilkus_blind");
+        public static readonly Registry.Identifier BlindId = new("coc", "arch_inquisitor_vilkus_blind");
 
-        public static readonly MonoCoC.Registry.Identifier ArouseId = new("coc", "arch_inquisitor_vilkus_arouse");
+        public static readonly Registry.Identifier ArouseId = new("coc", "arch_inquisitor_vilkus_arouse");
 
-        public static readonly MonoCoC.Registry.Identifier HealId = new("coc", "arch_inquisitor_vilkus_heal");
+        public static readonly Registry.Identifier HealId = new("coc", "arch_inquisitor_vilkus_heal");
 
-        public static readonly MonoCoC.Registry.Identifier ChargeId = new("coc", "arch_inquisitor_vilkus_charge_weapon");
+        public static readonly Registry.Identifier ChargeId = new("coc", "arch_inquisitor_vilkus_charge_weapon");
 
-        public static readonly MonoCoC.Registry.Identifier EnergyWaveId = new("coc", "arch_inquisitor_vilkus_energy_wave");
+        public static readonly Registry.Identifier EnergyWaveId = new("coc", "arch_inquisitor_vilkus_energy_wave");
 
-        public static readonly MonoCoC.Registry.Identifier AttackId = new("coc", "arch_inquisitor_vilkus_attack");
+        public static readonly Registry.Identifier AttackId = new("coc", "arch_inquisitor_vilkus_attack");
 
-        public static readonly MonoCoC.Registry.Identifier SacrificeId = new("coc", "arch_inquisitor_vilkus_sacrifice");
+        public static readonly Registry.Identifier SacrificeId = new("coc", "arch_inquisitor_vilkus_sacrifice");
 
         public override bool HandleFear(CombatContext context)
         {

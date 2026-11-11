@@ -307,7 +307,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Demonfistfighterscene.IntroDogFight.NoMoreDelays".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "placeholder_dodgy_monster")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "placeholder_dodgy_monster")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void TentDescriptionDemonfistIn()

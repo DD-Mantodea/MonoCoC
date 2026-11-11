@@ -115,7 +115,7 @@ namespace MonoCoC.Contents.Scenes
         {
             var achievement = ManagerInstance<AchievementManager>.Instance.Find(achievementId)
 
-                ?? throw new InvalidOperationException($"成就数据缺失: {achievementId}");
+                ?? throw new InvalidOperationException($"鎴愬氨鏁版嵁缂哄け: {achievementId}");
 
             if (!ManagerInstance<AchievementManager>.Instance.Unlock(achievement.Id))
                 return;
@@ -298,8 +298,6 @@ namespace MonoCoC.Contents.Scenes
 
             _sceneTags = MacroRegistry.BeginScope(scene);
 
-            GameView.Instance?.ApplySceneLayout(scene);
-
             scene.Entry();
 
             UIManager.Instance?.MarkSceneChanged();
@@ -332,7 +330,6 @@ namespace MonoCoC.Contents.Scenes
 
         public static void DisplayHeader(string text)
         {
-            // 原版 Output.hx:115 formatHeader：36 号 + 下划线；这里用本项目括号标签
             OutputText("[size:36;georgia]" + text + "[sizeend]\n\n");
         }
 
@@ -392,7 +389,7 @@ namespace MonoCoC.Contents.Scenes
             State.ClearActions();
 
             foreach (var button in Buttons)
-                button.Reset(resetButton);
+                button?.Reset(resetButton);
         }
 
         public static void HideMenus()
@@ -402,6 +399,31 @@ namespace MonoCoC.Contents.Scenes
         }
 
         public static Button? ButtonAt(int slot) => slot >= 0 && slot < Buttons.Length ? Buttons[slot] : null;
+
+        public static void ReapplyActions()
+        {
+            foreach (var action in State.Actions)
+            {
+                var button = ButtonAt(action.Slot);
+
+                if (button is null)
+                    continue;
+
+                button.Label.Text(action.Label);
+
+                button.OnClick = action.OnClick;
+
+                button.Enabled = action.Enabled;
+
+                button.Visible = action.Visible;
+
+                button.Hint = action.Hint;
+
+                button.HintHeader = action.HintHeader;
+
+                button.RefreshVisual();
+            }
+        }
 
         public static Button? AddButton(int slot, string text, Action? onClick = null, string hint = "", string hintHeader = "")
         {
@@ -482,8 +504,6 @@ namespace MonoCoC.Contents.Scenes
 
         protected static bool hasKnot => Player.Cocks.Count > 0 && Player.Cocks.Any(c => c.KnotMultiplier > 1f);
 
-        // 原版 scenes/Camp.hx:155 returnToCamp(timeUsed)
-        // 长途模式下，短时间返回营地会回到刚才的探索点（最多 LongHaulMaxExplorations 次）。
         public static void ReturnToCamp(int hours)
         {
             var exploration = SceneInstance<ExplorationScene>.Get();
@@ -688,28 +708,6 @@ namespace MonoCoC.Contents.Scenes
 
         public static void PromptInput(int? x = null, int? y = null, int? width = null, string text = "")
         {
-            var area = Output.Rectangle;
-
-            var measured = 0;
-
-            try
-            {
-                if (Output.Text.RichTextLayout is { } rich && !string.IsNullOrEmpty(rich.Text))
-                    measured = rich.Measure(Output.ViewWidth).Y;
-            }
-            catch (Exception)
-            {
-                measured = 0;
-            }
-
-            var inputX = x ?? area.X + Output.Padding.Left;
-
-            var inputY = y ?? area.Y + Output.Padding.Top + measured + 3 - Output.ScrollOffset;
-
-            View.Input.Size(width ?? InputWidth, InputHeight);
-
-            View.Input.Position(inputX, inputY);
-
             View.Input.Text = text;
 
             View.Input.CursorTo(text.Length);

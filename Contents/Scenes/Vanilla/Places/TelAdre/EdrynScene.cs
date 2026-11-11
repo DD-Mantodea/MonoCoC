@@ -202,7 +202,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 CoC.Instance.Flags.Set(GameFlagIds.EdrynNeedsToTalkAboutKid, 0);
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<TelAdre>.Get());
 
                 return ;
             }
@@ -230,7 +230,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                             View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                            Go(SceneInstance<TelAdre>.Get());
 
                             return ;
                         }
@@ -278,7 +278,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                                         View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                                        Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                                        Go(SceneInstance<TelAdre>.Get());
 
                                         return ;
                                     }
@@ -311,7 +311,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                                     View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                                    Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                                    Go(SceneInstance<TelAdre>.Get());
 
                                     return ;
                                 }
@@ -408,7 +408,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                             View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                            Go(SceneInstance<TelAdre>.Get());
                         }
                     }
                 }
@@ -419,7 +419,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                         View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                        Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                        Go(SceneInstance<TelAdre>.Get());
                     }
                     else
                     {
@@ -429,7 +429,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                         View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                        Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                        Go(SceneInstance<TelAdre>.Get());
                     }
         }
 
@@ -494,7 +494,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                     View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                    Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                    Go(SceneInstance<TelAdre>.Get());
 
                     return ;
                 }
@@ -507,7 +507,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                     View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                    Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                    Go(SceneInstance<TelAdre>.Get());
 
                     return ;
                 }
@@ -542,7 +542,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 AddButton(0, "Common.Button.Yes".Localized(), EdrynSexSelecter);
 
-                AddButton(1, "Common.Button.No".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(1, "Common.Button.No".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
             }
             else
                 if (Player.CockTotal() > 0)
@@ -556,7 +556,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                             View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                            Go(SceneInstance<TelAdre>.Get());
 
                             return ;
                         }
@@ -596,7 +596,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                             AddButton(0, "Common.Button.Yes".Localized(), EdrynSexSelecter);
 
-                            AddButton(1, "Common.Button.No".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                            AddButton(1, "Common.Button.No".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
                         }
                         else
                         {
@@ -606,7 +606,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                             View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                            Go(SceneInstance<TelAdre>.Get());
 
                             return ;
                         }
@@ -621,7 +621,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                             View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                            Go(SceneInstance<TelAdre>.Get());
 
                             return ;
                         }
@@ -652,7 +652,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                             AddButton(0, "Common.Button.Yes".Localized(), EdrynSexSelecter);
 
-                            AddButton(1, "Common.Button.No".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                            AddButton(1, "Common.Button.No".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
                         }
                         else
                         {
@@ -662,7 +662,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                             View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                            Go(SceneInstance<TelAdre>.Get());
                         }
                     }
         }
@@ -720,7 +720,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<TelAdre>.Get());
 
                 return ;
             }
@@ -1072,7 +1072,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 OutputText("Scenes.Edryn.LeaveHelInZeBitch.SpendRestOfThe".Localized());
             }
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void HelEdrynThreeSomeStartYerEngines()
@@ -1221,7 +1221,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             CoC.Instance.Flags.Set(GameFlagIds.EdrynNeverSeeAgain, 1);
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void PleasedbyPregdryn()
@@ -1350,7 +1350,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<TelAdre>.Get());
 
                 return ;
             }
@@ -2019,7 +2019,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             Save.SetBool("kidMet", true);
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
     }

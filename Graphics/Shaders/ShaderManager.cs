@@ -11,7 +11,7 @@ namespace MonoCoC.Graphics.Shaders
     /// Compilation is queued from the watcher thread and applied on Update,
     /// which is the only thread allowed to touch the GraphicsDevice here.
     /// </summary>
-    public sealed class ShaderManager
+    public class ShaderManager
     {
         private readonly Dictionary<string, Effect> _effects = new(StringComparer.OrdinalIgnoreCase);
 

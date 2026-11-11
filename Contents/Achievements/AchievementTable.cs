@@ -1,6 +1,6 @@
 namespace MonoCoC.Contents.Achievements
 {
-    public sealed record AchievementEntry(
+    public record AchievementEntry(
         string Section, string Title, string Id, string DescLocked, string DescUnlocked, bool Shadow);
 
     // 由原版 Achievements.hx 的 achievementsScreen() 逐条生成

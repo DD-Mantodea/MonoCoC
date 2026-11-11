@@ -290,7 +290,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
             currentAlice.OnWon = _ => AliceLoss();
 
-            CombatScene.Start(currentAlice, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(currentAlice, () => Go(SceneInstance<ForestScene>.Get()));
         }
 
         public void AliceEncounterBossy()
@@ -475,7 +475,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
             currentAlice.OnWon = _ => AliceLoss();
 
-            CombatScene.Start(currentAlice, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(currentAlice, () => Go(SceneInstance<ForestScene>.Get()));
         }
 
         public void ConfrontMenu()
@@ -698,7 +698,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
             currentAlice.OnWon = _ => AliceLoss();
 
-            CombatScene.Start(currentAlice, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(currentAlice, () => Go(SceneInstance<ForestScene>.Get()));
         }
 
         public void AliceLoss()
@@ -3185,7 +3185,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
             currentAlice.OnWon = _ => AliceLoss();
 
-            CombatScene.Start(currentAlice, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(currentAlice, () => Go(SceneInstance<ForestScene>.Get()));
         }
 
     }

@@ -999,7 +999,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 AddButton(14, "Common.Button.Back".Localized(), () => { });
             }
             else
-                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
         }
 
         public void LatexyAppearance()

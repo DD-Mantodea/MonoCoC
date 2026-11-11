@@ -790,7 +790,7 @@ namespace MonoCoC.Contents.Datas.Vanilla
 
             Register(LightningStrikes, [new(GameStats.WeaponDamage, Addition,
 
-            creature => creature is MonoCoC.Contents.Creatures.Player player
+            creature => creature is Creatures.Player player
 
                 && player.Speed >= 60
 

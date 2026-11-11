@@ -178,7 +178,6 @@ namespace MonoCoC.Scripting
                 {
                     var message = ex.Message.Split('\n')[0];
 
-                    // 可能是「引用的程序集里没这个类型」（比如 mod 刚加载）——刷新引用再试一次
                     if (attempt == 0 && (message.Contains("CS0246") || message.Contains("CS0103") || message.Contains("CS0234")))
                     {
                         Refresh();

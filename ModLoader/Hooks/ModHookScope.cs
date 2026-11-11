@@ -9,7 +9,7 @@ namespace MonoCoC.ModLoader
     /// <summary>
     /// Owns every MonoMod hook registered by one mod.
     /// </summary>
-    public sealed class ModHookScope : IDisposable
+    public class ModHookScope : IDisposable
     {
         private readonly List<IDisposable> _hooks = [];
 

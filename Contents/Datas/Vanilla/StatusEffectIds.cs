@@ -131,11 +131,11 @@ namespace MonoCoC.Contents.Datas.Vanilla
         // 原版 Naga.hx:61 NagaBind（被盘绕束缚）
         public static readonly Identifier NagaBind = new("coc", "naga_bind");
 
-    public static readonly Identifier NagaBite = new("coc", "naga_bite");
+        public static readonly Identifier NagaBite = new("coc", "naga_bite");
 
-    public static readonly Identifier NephilaCompulsion = new("coc", "nephila_compulsion");
+        public static readonly Identifier NephilaCompulsion = new("coc", "nephila_compulsion");
 
-    public static readonly Identifier Tripped = new("coc", "tripped");
+        public static readonly Identifier Tripped = new("coc", "tripped");
 
         // 原版 SandWitch.hx:24 StoneLust（体内石卵，持续提供淫欲增强）
         public static readonly Identifier StoneLust = new("coc", "stone_lust");
@@ -155,13 +155,13 @@ namespace MonoCoC.Contents.Datas.Vanilla
         // 原版 VolcanicGolem.hx:60/72 的熔岩护盾（可由解咒术驱散）
         public static readonly Identifier VolcanicUberHeal = new("coc", "volcanic_uber_heal");
 
-    public static readonly Identifier VolcanicArmorRed = new("coc", "volcanic_armor_red");
+        public static readonly Identifier VolcanicArmorRed = new("coc", "volcanic_armor_red");
 
-    public static readonly Identifier VolcanicWeapRed = new("coc", "volcanic_weap_red");
+        public static readonly Identifier VolcanicWeapRed = new("coc", "volcanic_weap_red");
 
-    public static readonly Identifier VolcanicFrenzy = new("coc", "volcanic_frenzy");
+        public static readonly Identifier VolcanicFrenzy = new("coc", "volcanic_frenzy");
 
-    public static readonly Identifier VolcanicFistProblem = new("coc", "volcanic_fist_problem");
+        public static readonly Identifier VolcanicFistProblem = new("coc", "volcanic_fist_problem");
 
         // 原版 CombatAbilities.hx:2711 immolationSpell 施加的燃烧状态
         public static readonly Identifier OnFire = new("coc", "on_fire");
@@ -196,7 +196,7 @@ namespace MonoCoC.Contents.Datas.Vanilla
 
         public static readonly Identifier Backstab = new("coc", "backstab");
 
-    public static readonly Identifier RetributionBuff = new("coc", "retribution_buff");
+        public static readonly Identifier RetributionBuff = new("coc", "retribution_buff");
 
         public static readonly Identifier CounterAB = new("coc", "counter_ab");
 
@@ -498,17 +498,17 @@ namespace MonoCoC.Contents.Datas.Vanilla
 
         public static readonly Identifier TFMoltenPlate = new("coc", "tfmoltenplate");
 
-    public static readonly Identifier TFQuake = new("coc", "tfquake");
+        public static readonly Identifier TFQuake = new("coc", "tfquake");
 
-    public static readonly Identifier TFScorch = new("coc", "tfscorch");
+        public static readonly Identifier TFScorch = new("coc", "tfscorch");
 
-    public static readonly Identifier TFGeodeKnuckle = new("coc", "tfgeodeknuckle");
+        public static readonly Identifier TFGeodeKnuckle = new("coc", "tfgeodeknuckle");
 
-    public static readonly Identifier TFTerraCore = new("coc", "tfterracore");
+        public static readonly Identifier TFTerraCore = new("coc", "tfterracore");
 
-    public static readonly Identifier TFTerraStar = new("coc", "tfterrastar");
+        public static readonly Identifier TFTerraStar = new("coc", "tfterrastar");
 
-    public static readonly Identifier TFTerraStarCooldown = new("coc", "tfterrastarcooldown");
+        public static readonly Identifier TFTerraStarCooldown = new("coc", "tfterrastarcooldown");
 
         public static readonly Identifier TFShell = new("coc", "tfshell");
 
@@ -585,11 +585,11 @@ namespace MonoCoC.Contents.Datas.Vanilla
         // 原版 ClawStanceBuff.hx / LurkBuff.hx：爪姿态与潜伏（爪技精通流派）
         public static readonly Identifier ClawStance = new("coc", "claw_stance");
 
-    public static readonly Identifier MonkStance = new("coc", "monk_stance");
+        public static readonly Identifier MonkStance = new("coc", "monk_stance");
 
-    public static readonly Identifier BrawlerStance = new("coc", "brawler_stance");
+        public static readonly Identifier BrawlerStance = new("coc", "brawler_stance");
 
-    public static readonly Identifier TrueParry = new("coc", "trueparry");
+        public static readonly Identifier TrueParry = new("coc", "trueparry");
 
         public static readonly Identifier Lurk = new("coc", "lurk");
 

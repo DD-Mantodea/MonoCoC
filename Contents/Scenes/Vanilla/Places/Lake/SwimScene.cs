@@ -79,11 +79,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Lake
 
             IEncounter.Create("jellyfishgirl", _ => 1f, _ => true,
 
-                _ => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.Swim.JellyFishGirlScene>.Get())),
+                _ => Go(SceneInstance<JellyFishGirlScene>.Get())),
 
             IEncounter.Create("sharkgirl", _ => 0.5f, _ => true,
 
-                _ => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.Boat.SharkGirlScene>.Get())),
+                _ => Go(SceneInstance<Boat.SharkGirlScene>.Get())),
 
             IEncounter.Create("sharkman",
 
@@ -93,7 +93,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Lake
 
                     && !SceneInstance<SharkManScene>.Get().Encountered,
 
-                _ => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.Swim.SharkManScene>.Get())),
+                _ => Go(SceneInstance<SharkManScene>.Get())),
 
             // 原版 Swim.hx:47-50 anemone：AnemoneScene.mortalAnemoneeeeee
             IEncounter.Create("anemone", _ => 1f, _ => true,

@@ -102,7 +102,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 else
                     AddButton(2, "Common.Button.Approachmouse".Localized(), NephilaMouse);
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void NephilaMouse()
@@ -1092,7 +1092,7 @@ CheckBakeryMenu();
 
             AddButton(1, "Common.Button.OfferHelp".Localized(), EasterBakeSaleHelp);
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void EasterBakeSaleHelp()

@@ -30,10 +30,10 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             ArmorName = "feathers";
         }
 
-        public override MonoCoC.Registry.Identifier? ForcedAbility(Combat.CombatContext context)
+        public override Registry.Identifier? ForcedAbility(Combat.CombatContext context)
         {
             if (HasStatusEffect(Datas.Vanilla.StatusEffectIds.Uber))
-                return new MonoCoC.Registry.Identifier("coc", "harpy_uber_charge");
+                return new Registry.Identifier("coc", "harpy_uber_charge");
 
             return null;
         }

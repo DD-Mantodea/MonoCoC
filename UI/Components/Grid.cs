@@ -160,9 +160,9 @@ namespace MonoCoC.UI.Components
 
             _dirty = false;
 
-            var width = LayoutData.ComputeWidth();
+            var width = LayoutData.ComputeWidth() - LayoutData.Padding.Left - LayoutData.Padding.Right;
 
-            var height = LayoutData.ComputeHeight();
+            var height = LayoutData.ComputeHeight() - LayoutData.Padding.Top - LayoutData.Padding.Bottom;
 
             _columnSizes = Resolve(ColumnDefinitions, width, horizontal: true);
 

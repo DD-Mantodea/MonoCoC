@@ -60,7 +60,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             HolliSprite();
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "holli")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: false);
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "holli")), () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: false);
         }
 
         public void TreeMenu(bool output = true)
@@ -257,7 +257,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                 gladesButton?.Hint = "Ask Holli to " + (Save.GetBool("growingGlades") ? "Common.Text.Stop".Localized() : "Common.Text.Start".Localized()) + " growing more corrupted glades.";
                             }
 
-                            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<CampScene>.Get()));
                         }
         }
 
@@ -2086,7 +2086,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             CoC.Instance.Flags.Set(GameFlagIds.FoughtHolli, 1);
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "holli")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "holli")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void CallDatJojo()
@@ -2103,7 +2103,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             CoC.Instance.Flags.Set(GameFlagIds.FoughtHolli, 1);
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "holli")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "holli")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void DefeatHolli()

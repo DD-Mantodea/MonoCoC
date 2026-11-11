@@ -8,7 +8,7 @@ namespace MonoCoC.ModLoader
     /// Simple NuGet-style version range used by mod dependencies.
     /// Supported forms: "1.2.3", "&gt;=1.2.0 &lt;2.0.0", "[1.0,2.0)", "1.2.*".
     /// </summary>
-    public sealed class ModVersionRange
+    public class ModVersionRange
     {
         private readonly List<Func<Version, bool>> _constraints = [];
 

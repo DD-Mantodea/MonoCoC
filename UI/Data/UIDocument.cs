@@ -1,4 +1,4 @@
-using Hjson;
+﻿using Hjson;
 using MonoCoC.Extensions;
 using System;
 using System.Collections.Generic;
@@ -6,10 +6,7 @@ using System.IO;
 
 namespace MonoCoC.UI.Data
 {
-    /// <summary>
-    /// One Hjson screen definition plus its local template table.
-    /// </summary>
-    public sealed class UIDocument
+    public class UIDocument
     {
         public string Id { get; }
 
@@ -95,10 +92,6 @@ namespace MonoCoC.UI.Data
             return reader.ReadToEnd();
         }
 
-        /// <summary>
-        /// Expands template references before the component tree is built.
-        /// Instance fields override template fields; arrays are replaced.
-        /// </summary>
         public JsonObject Expand(JsonObject node)
         {
             return Expand(node, []);

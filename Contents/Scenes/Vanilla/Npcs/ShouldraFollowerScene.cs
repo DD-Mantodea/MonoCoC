@@ -1543,7 +1543,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (Player.Armor.Id == ArmorIds.VineArmorBehavior && !SceneInstance<Areas.Swamp.AlrauneScene>.Get().AskedShouldra)
                 AddButton(11, "Common.Button.Vines".Localized(), () => SceneInstance<Areas.Swamp.AlrauneScene>.Get().AskShouldra());
 
-            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
         }
 
         public void ShouldraSexMenu()

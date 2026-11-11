@@ -9,7 +9,7 @@ namespace MonoCoC.Contents.Followers
     public class RathazulFollower : FollowerDefinition
     {
         public RathazulFollower() : base(
-            new MonoCoC.Registry.Identifier("coc", "rathazul_follower"),
+            new Registry.Identifier("coc", "rathazul_follower"),
 
             FollowerIds.Roles.Follower,
 

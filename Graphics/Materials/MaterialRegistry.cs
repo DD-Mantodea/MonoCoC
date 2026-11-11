@@ -13,7 +13,7 @@ namespace MonoCoC.Graphics.Materials
     ///   material: "coc:paper"
     ///   materialConfig: { ... }
     /// </summary>
-    public sealed class MaterialRegistry
+    public class MaterialRegistry
     {
         private readonly Dictionary<string, Func<JsonObject?, Material?>> _materials =
             new(StringComparer.OrdinalIgnoreCase);

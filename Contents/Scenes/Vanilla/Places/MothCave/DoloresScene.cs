@@ -2866,7 +2866,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
             CurrentMonster = EnemyRegistry.Create(new Identifier("coc", "riddle_demon"));
             // 原版 DoloresScene.hx:1712：monster = new RiddleDemon(); startCombat(monster, true)；
             // 旧移植把 `monster, true` 整串塞进了 Identifier，生成不存在的 id "coc:monster, true"（创建即抛异常）
-            CombatScene.Start(CurrentMonster, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(CurrentMonster, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void HikkiFightWin()
@@ -3210,7 +3210,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
             CurrentMonster = EnemyRegistry.Create(new Identifier("coc", "riddle_demon"));
             // 原版 DoloresScene.hx:1712：monster = new RiddleDemon(); startCombat(monster, true)；
             // 旧移植把 `monster, true` 整串塞进了 Identifier，生成不存在的 id "coc:monster, true"（创建即抛异常）
-            CombatScene.Start(CurrentMonster, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(CurrentMonster, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void HikkiRiddleTaunt()

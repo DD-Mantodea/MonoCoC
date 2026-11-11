@@ -137,7 +137,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             kihaEnemy.OnWon = _ => KihaLossIntro();
 
-            CombatScene.Start(kihaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(kihaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
                 }
                 else
                     if (CoC.Instance.Flags.Get(GameFlagIds.KihaToll) == 1 && Random.Shared.Next(2) == 0)
@@ -213,7 +213,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             kihaEnemy.OnWon = _ => KihaLossIntro();
 
-            CombatScene.Start(kihaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(kihaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
                             }
                         }
         }
@@ -254,7 +254,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             kihaEnemy.OnWon = _ => KihaLossIntro();
 
-            CombatScene.Start(kihaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(kihaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void AskWhy()
@@ -271,7 +271,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             kihaEnemy.OnWon = _ => KihaLossIntro();
 
-            CombatScene.Start(kihaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(kihaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void PayKihaTribute()
@@ -346,7 +346,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             kihaEnemy.OnWon = _ => KihaLossIntro();
 
-            CombatScene.Start(kihaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(kihaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void KihaVictoryIntroduction()

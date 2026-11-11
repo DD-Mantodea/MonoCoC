@@ -7,7 +7,7 @@ namespace MonoCoC.UI.Styles
     /// Component. Border is drawn after children so it stays visible above
     /// material overlays and labels.
     /// </summary>
-    public sealed class UIStateStyle
+    public class UIStateStyle
     {
         public Color NormalBackground = Color.Transparent;
 

@@ -7,14 +7,11 @@ using System.IO;
 
 namespace MonoCoC.UI.Data
 {
-    /// <summary>
-    /// Generic data-driven view: path resolution, Hjson build, hot reload,
-    /// language refresh and required-part validation live here, not in each
-    /// concrete screen.
-    /// </summary>
     public class HjsonView : View
     {
         private FileSystemWatcher? _watcher;
+
+        private FileSystemWatcher? _styleWatcher;
 
         private string _documentPath;
 
@@ -26,6 +23,19 @@ namespace MonoCoC.UI.Data
 
         private View? _content;
 
+        private IUIDataContext? _dataContext;
+
+        public IUIDataContext? DataContext
+        {
+            get => _dataContext;
+            set
+            {
+                _dataContext = value;
+
+                _content?.ApplyDataContext(value);
+            }
+        }
+
         private volatile bool _reloadRequested;
 
         private DateTime _reloadAt;
@@ -35,6 +45,15 @@ namespace MonoCoC.UI.Data
         protected HjsonView()
         {
             _screenFile = ScreenFile;
+
+            _documentPath = UIResourceLocator.ResolveDocument(_screenFile);
+
+            CreateWatcher();
+        }
+
+        protected HjsonView(string screenFile)
+        {
+            _screenFile = screenFile;
 
             _documentPath = UIResourceLocator.ResolveDocument(_screenFile);
 
@@ -65,23 +84,51 @@ namespace MonoCoC.UI.Data
 
             _watcher = null;
 
+            _styleWatcher?.Dispose();
+
+            _styleWatcher = null;
+
             var directory = Path.GetDirectoryName(_documentPath);
 
-            if (directory is null || !File.Exists(_documentPath))
-                return;
-
-            _watcher = new FileSystemWatcher(directory, Path.GetFileName(_documentPath))
+            if (directory is not null && Directory.Exists(directory))
             {
-                NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName
-            };
+                _watcher = new FileSystemWatcher(directory, Path.GetFileName(_documentPath))
+                {
+                    NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName
+                };
 
-            _watcher.Changed += OnDocumentChanged;
+                _watcher.Changed += OnDocumentChanged;
 
-            _watcher.Created += OnDocumentChanged;
+                _watcher.Created += OnDocumentChanged;
 
-            _watcher.Renamed += OnDocumentChanged;
+                _watcher.Deleted += OnDocumentChanged;
 
-            _watcher.EnableRaisingEvents = true;
+                _watcher.Renamed += OnDocumentChanged;
+
+                _watcher.EnableRaisingEvents = true;
+            }
+
+            var stylePath = UIResourceLocator.ResolveDocument("GlobalStyles.hjson");
+
+            var styleDirectory = Path.GetDirectoryName(stylePath);
+
+            if (styleDirectory is not null && Directory.Exists(styleDirectory))
+            {
+                _styleWatcher = new FileSystemWatcher(styleDirectory, Path.GetFileName(stylePath))
+                {
+                    NotifyFilter = NotifyFilters.LastWrite | NotifyFilters.Size | NotifyFilters.FileName
+                };
+
+                _styleWatcher.Changed += OnDocumentChanged;
+
+                _styleWatcher.Created += OnDocumentChanged;
+
+                _styleWatcher.Deleted += OnDocumentChanged;
+
+                _styleWatcher.Renamed += OnDocumentChanged;
+
+                _styleWatcher.EnableRaisingEvents = true;
+            }
         }
 
         public string DocumentPath => _documentPath;
@@ -129,7 +176,9 @@ namespace MonoCoC.UI.Data
             Part<T>(name) ?? throw new UIViewContractException(
                 $"View '{Contract.Id}' is missing required part '{name}' ({typeof(T).Name})");
 
-        protected virtual void OnBuilt(View root, UIDocument document)
+        protected virtual void OnBuilt(View root, UIDocument document) => BindParts();
+
+        protected virtual void BindParts()
         {
         }
 
@@ -145,9 +194,19 @@ namespace MonoCoC.UI.Data
             if (string.IsNullOrEmpty(ScreenFile))
                 return;
 
+            var previous = _content;
+
             try
             {
-                var state = CaptureState(_content);
+                var focused = UIManager.Instance?.FocusedComponent;
+
+                var focusedInContent = focused is not null &&
+                                       previous is not null &&
+                                       IsDescendant(previous, focused);
+
+                var focusedPart = focused?.PartName;
+
+                var state = CaptureState(previous);
 
                 var document = UIDocument.Load(_documentPath);
 
@@ -158,21 +217,28 @@ namespace MonoCoC.UI.Data
 
                 Contract.Validate(content);
 
-                if (_content is not null)
-                    RemoveChild(_content);
-
                 _content = content;
 
-                Document = document;
-
-                AddChild(content);
+                content.ApplyDataContext(DataContext);
 
                 OnBuilt(content, document);
 
                 RestoreState(content, state);
+
+                if (previous is not null)
+                    RemoveChild(previous);
+
+                AddChild(content);
+
+                Document = document;
+
+                if (focusedInContent)
+                    RestoreFocus(content, focusedPart);
             }
             catch (Exception exception)
             {
+                _content = previous;
+
                 MonoCoC.UI.Console.ConsoleOverlay.WriteError(
                     $"[UI] {GetType().Name} load failed [{_documentPath}]: " +
                     $"{exception.GetType().Name}: {exception.Message}");
@@ -212,6 +278,35 @@ namespace MonoCoC.UI.Data
 
             foreach (var child in component.LayoutData.Children)
                 RestoreState(child, state);
+        }
+
+        private static bool IsDescendant(Component root, Component target)
+        {
+            for (var current = target; current is not null; current = current.LayoutData.Parent)
+                if (ReferenceEquals(current, root))
+                    return true;
+
+            return false;
+        }
+
+        private static void RestoreFocus(Component content, string? partName)
+        {
+            if (UIManager.Instance is null)
+                return;
+
+            if (string.IsNullOrEmpty(partName))
+            {
+                UIManager.Instance.FocusedComponent = null;
+
+                return;
+            }
+
+            var target = FindPart<Component>(content, partName);
+
+            if (target is TextBox textBox)
+                textBox.Active = true;
+            else
+                UIManager.Instance.FocusedComponent = target;
         }
 
         private static T? FindPart<T>(Component component, string name) where T : Component

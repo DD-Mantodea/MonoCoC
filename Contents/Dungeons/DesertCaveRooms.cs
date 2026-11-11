@@ -96,7 +96,7 @@ namespace MonoCoC.Contents.Dungeons
 
                 context.Write("Scenes.DesertCave.RoomCaveCommons.BarrierBlocksExit".Localized());
 
-                context.StartCombat(EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "sand_witch_mob")));
+                context.StartCombat(EnemyRegistry.Create(new Registry.Identifier("coc", "sand_witch_mob")));
 
                 return;
             }
@@ -1097,7 +1097,7 @@ namespace MonoCoC.Contents.Dungeons
 
                 context.Write("Scenes.DesertCave.RoomCumWitchOffice.FutanariCastsSpell".Localized());
 
-                context.StartCombat(EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "cum_witch")));
+                context.StartCombat(EnemyRegistry.Create(new Registry.Identifier("coc", "cum_witch")));
             }
             else
             {
@@ -1208,7 +1208,7 @@ namespace MonoCoC.Contents.Dungeons
 
                 W("Scenes.DesertCave.ExplainYourSelfToZeSandBitch.NoWayOutFight");
 
-                context.StartCombat(EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "sand_mother")));
+                context.StartCombat(EnemyRegistry.Create(new Registry.Identifier("coc", "sand_mother")));
 
                 return;
             }
@@ -1284,15 +1284,15 @@ namespace MonoCoC.Contents.Dungeons
             Scenes.Scene.AddButton(1, "Common.Button.Talk".Localized(), () => SandMotherTalk(context));
 
             // 原版 :36-37 友好状态下的药剂买卖
-            var labova = Items.ItemRegistry.Create(new MonoCoC.Registry.Identifier("coc", "labova"));
+            var labova = Items.ItemRegistry.Create(new Registry.Identifier("coc", "labova"));
 
-            var lactaid = Items.ItemRegistry.Create(new MonoCoC.Registry.Identifier("coc", "lactaid"));
+            var lactaid = Items.ItemRegistry.Create(new Registry.Identifier("coc", "lactaid"));
 
             Scenes.Scene.AddButton(5,
 
                 "Scenes.DesertCave.FriendlySandMotherMenu.BuyLaBova".Localized(),
 
-                () => BuyPotion(context, new MonoCoC.Registry.Identifier("coc", "labova"), 25),
+                () => BuyPotion(context, new Registry.Identifier("coc", "labova"), 25),
 
                 labova.DescriptionKey.Localized());
 
@@ -1300,7 +1300,7 @@ namespace MonoCoC.Contents.Dungeons
 
                 "Scenes.DesertCave.FriendlySandMotherMenu.BuyLactaid".Localized(),
 
-                () => BuyPotion(context, new MonoCoC.Registry.Identifier("coc", "lactaid"), 50),
+                () => BuyPotion(context, new Registry.Identifier("coc", "lactaid"), 50),
 
                 lactaid.DescriptionKey.Localized());
 
@@ -1329,7 +1329,7 @@ namespace MonoCoC.Contents.Dungeons
         }
 
         // 原版 :2513 buyPotion()
-        public static void BuyPotion(DungeonContext context, MonoCoC.Registry.Identifier itemId, int price)
+        public static void BuyPotion(DungeonContext context, Registry.Identifier itemId, int price)
         {
             Scenes.Scene.ClearOutput();
 
@@ -1393,7 +1393,7 @@ namespace MonoCoC.Contents.Dungeons
         }
 
         // 原版 :2541 buyPotionConfirm()
-        public static void BuyPotionConfirm(DungeonContext context, MonoCoC.Registry.Identifier itemId, int price)
+        public static void BuyPotionConfirm(DungeonContext context, Registry.Identifier itemId, int price)
         {
             var player = CoC.Instance.Player;
 
@@ -2989,7 +2989,7 @@ namespace MonoCoC.Contents.Dungeons
 
                 context.Write("Scenes.DesertCave.MenFuckUpSomeCumWitch.WithdrawsFromPussy".Localized());
 
-                player.Pregnancy.Type = new MonoCoC.Registry.Identifier("coc", "sand_witch");
+                player.Pregnancy.Type = new Registry.Identifier("coc", "sand_witch");
 
                 player.Pregnancy.Incubation = 90;
 
@@ -3112,7 +3112,7 @@ namespace MonoCoC.Contents.Dungeons
 
             context.Write("Scenes.DesertCave.LadyVictorySex.RecoversLegsShaking".Localized());
 
-            player.Pregnancy.Type = new MonoCoC.Registry.Identifier("coc", "sand_witch");
+            player.Pregnancy.Type = new Registry.Identifier("coc", "sand_witch");
 
             player.Pregnancy.Incubation = 90;
 
@@ -4431,7 +4431,7 @@ namespace MonoCoC.Contents.Dungeons
 
             context.Write("Scenes.DesertCave.FightTheSandWitch.BrandishWeaponAdvance".Localized());
 
-            context.StartCombat(EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "sand_mother")));
+            context.StartCombat(EnemyRegistry.Create(new Registry.Identifier("coc", "sand_mother")));
         }
 
         public static void FemaleGirlsLoseToSammitches()
@@ -4915,7 +4915,7 @@ namespace MonoCoC.Contents.Dungeons
 
             var item = Items.ItemRegistry.Create(
                 // 物品 id 必须是语言无关的标识符，不能本地化
-                new MonoCoC.Registry.Identifier("coc", lactaid ? "lactaid" : "labova"));
+                new Registry.Identifier("coc", lactaid ? "lactaid" : "labova"));
 
             CoC.Instance.Player.Inventory.Add(item, 1);
 

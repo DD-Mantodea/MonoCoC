@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoCoC.UI.Components
 {
-    public sealed class BorderDecoration : DecorationComponent
+    public class BorderDecoration : DecorationComponent
     {
         public int Thickness = 1;
 

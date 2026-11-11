@@ -10,7 +10,7 @@ namespace MonoCoC.ModLoader
     /// <summary>
     /// Per-mod asset repository. Every created resource is disposed on unload.
     /// </summary>
-    public sealed class ModAssets : IDisposable
+    public class ModAssets : IDisposable
     {
         private readonly ModFiles _files;
         private readonly Dictionary<string, Texture2D> _textures = new(StringComparer.OrdinalIgnoreCase);

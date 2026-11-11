@@ -53,7 +53,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Factory
 
             CoC.Instance.Flags.Set(GameFlagIds.FactoryOmnibusDefeated, 1);
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "omnibus_overseer")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "omnibus_overseer")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             return;
         }

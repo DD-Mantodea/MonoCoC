@@ -157,7 +157,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             AddButton(13, "Common.Button.Spar".Localized(), DecideToSparNephila);
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<CampScene>.Get()));
         }
 
         public void NephilaCovenAcceptOffer()
@@ -773,7 +773,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 OutputText("Scenes.Nephilacovenfollowerscene.DecideToSparNephila.AssureHerThatShe".Localized());
             }
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "nephila_coven")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "nephila_coven")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void NephilaMouseCureInfertility()

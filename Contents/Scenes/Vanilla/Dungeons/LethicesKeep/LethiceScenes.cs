@@ -97,7 +97,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Dungeons.LethicesKeep
             if (CoC.Instance.Flags.Get(GameFlagIds.MinotaurkingsTouch) == 1)
                 Player.CreateStatusEffect(LethiceEnemy.MinotaurKingsTouchId, 0, 0, 0, 0);
 
-            CombatScene.Start(m, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(m, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void Defeated(bool hpVictory)

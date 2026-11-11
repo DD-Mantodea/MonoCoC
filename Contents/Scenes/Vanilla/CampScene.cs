@@ -866,7 +866,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             OutputText("Scenes.Camp.Actions.ChallengeTeleport3".Localized());
 
             var definition = Assets.ContentManagers.DungeonManager.Get(
-                new MonoCoC.Registry.Identifier("coc", "wizard_tower"));
+                new Identifier("coc", "wizard_tower"));
 
             if (definition == null)
             {
@@ -1116,7 +1116,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             CampFollowerDescriptions.AppendRole(FollowerIds.Roles.Slave);
 
             // 原版 Camp.hx:918 akky.locationDesc("Camp")
-            var akky = SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.AkkyScene>.Get();
+            var akky = SceneInstance<AkkyScene>.Get();
 
             akky.BuildDescs();
 
@@ -1151,9 +1151,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             OutputText("Scenes.Cabin.CabinPetsMenu.InteractPets".Localized());
 
-            if (SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.AkkyScene>.Get().IsOwned())
+            if (SceneInstance<AkkyScene>.Get().IsOwned())
             {
-                var akky = SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.AkkyScene>.Get();
+                var akky = SceneInstance<AkkyScene>.Get();
 
                 akky.name = CoC.Instance.Flags.Get(GameFlagIds.AkkyName);
 
@@ -2561,7 +2561,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
         public static List<string> CompanionsList() =>
 
-            FollowerRegistry.All.Where(definition => definition.IsPresent()).Select(definition => definition.Name).ToList();
+            [.. FollowerRegistry.All.Where(definition => definition.IsPresent()).Select(definition => definition.Name)];
 
         public static List<string> MalePartnersAtCampList()
         {

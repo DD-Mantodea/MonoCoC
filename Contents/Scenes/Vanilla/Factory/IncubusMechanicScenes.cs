@@ -130,7 +130,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Factory
 
             OutputText("Scenes.Incubusmechanicscenes.DoFightIncubus.ItsAFight".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "incubus_mechanic")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "incubus_mechanic")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void DoSubmitIncubus()
@@ -143,7 +143,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Factory
             {
                 OutputText("Scenes.Incubusmechanicscenes.DoSubmitIncubus.EnterMilkingChamber".Localized());
 
-                CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "incubus_mechanic")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+                CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "incubus_mechanic")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
                 return ;
             }
@@ -641,7 +641,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Factory
 
                 AddButton(1, "Common.Button.SuckDick".Localized(), SuckIncubusDick);
 
-                AddButton(2, "Common.Button.Fight".Localized(), () => CombatScene.Start(EnemyRegistry.Create(SceneIds.Core.IncubusMechanicScenes), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: false));
+                AddButton(2, "Common.Button.Fight".Localized(), () => CombatScene.Start(EnemyRegistry.Create(SceneIds.Core.IncubusMechanicScenes), () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: false));
             }
             else
                 if (CoC.Instance.Flags.Get(GameFlagIds.D3MechanicLastGreet) == MECHANIC_SUCKED)
@@ -656,7 +656,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Factory
 
                     AddButton(1, "Common.Button.SuckDick".Localized(), SuckIncubusDick);
 
-                    AddButton(2, "Common.Button.Fight".Localized(), () => CombatScene.Start(EnemyRegistry.Create(SceneIds.Core.IncubusMechanicScenes), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: false));
+                    AddButton(2, "Common.Button.Fight".Localized(), () => CombatScene.Start(EnemyRegistry.Create(SceneIds.Core.IncubusMechanicScenes), () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: false));
                 }
                 else
                     if (CoC.Instance.Flags.Get(GameFlagIds.D3MechanicLastGreet) == MECHANIC_PAID)
@@ -676,7 +676,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Factory
 
                         AddButton(1, "Common.Button.SuckDick".Localized(), SuckIncubusDick);
 
-                        AddButton(2, "Common.Button.Fight".Localized(), () => CombatScene.Start(EnemyRegistry.Create(SceneIds.Core.IncubusMechanicScenes), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: false));
+                        AddButton(2, "Common.Button.Fight".Localized(), () => CombatScene.Start(EnemyRegistry.Create(SceneIds.Core.IncubusMechanicScenes), () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: false));
                     }
                     else
                         if (CoC.Instance.Flags.Get(GameFlagIds.D3MechanicLastGreet) == MECHANIC_FOUGHT)

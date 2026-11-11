@@ -1046,7 +1046,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     {
                         OutputText("Scenes.Katherine.VisitAtHome.KathOutWetBitch".Localized());
 
-                        Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                        Go(SceneInstance<TelAdre>.Get());
                     }
         }
 
@@ -1061,7 +1061,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             else
                 OutputText("Scenes.Katherine.KatherineApartmentLeave.NextTimeSomeFun".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void KatherineApartmentEmptyLeave()
@@ -1069,7 +1069,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Katherine.KatherineApartmentEmptyLeave.LockUpWalkBack".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void KatherineAtUrtas()
@@ -1093,7 +1093,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 AddButton(2, "Common.Button.ToTheBar".Localized(), DateGotoBar);
 
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
             }
             else
             {
@@ -1111,7 +1111,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                     AddButton(0, "Common.Button.SayHello".Localized(), UrtaPlusKathCuddle);
 
-                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
                     }
 
                     break;
@@ -1265,7 +1265,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             AddButton(2, "Common.Button.BackToTheBar".Localized(), DateGotoBar);
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void KatherineOnDuty()
@@ -1323,7 +1323,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Katherine.KatherineOnDutyLeave.BestNotGetTrouble".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void BarDescription()
@@ -1414,7 +1414,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 AddButton(3, "Common.Button.GiveItem".Localized(), () => GiveKatherineAnItem());
 
-                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
             }
             else
                 if (IsAt(KLOC_KATHS_APT))
@@ -1448,7 +1448,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                     AddButton(6, "Common.Button.Talk".Localized(), () => TalkToKatherine());
 
-                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
                 }
         }
 
@@ -5575,7 +5575,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 AddSubmissive(KBIT_SUB_REM_BALLS);
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<TelAdre>.Get());
             }
         }
 
@@ -9281,7 +9281,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Katherine.GetHelpVsKittyKats.GoodDeedPressOn".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void InterveneWithKittyKats()
@@ -9410,7 +9410,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             CoC.Instance.Flags.Set(GameFlagIds.KatherineRandomRecruitmentDisabled, 1);
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void HelpKathAfterInterruptu()
@@ -9446,7 +9446,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Katherine.LeaveKittyKatsLikeANeeeeeerrrrd.PuttingOutOfMind".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void RepeatAmbushKatherineRecruitMent()

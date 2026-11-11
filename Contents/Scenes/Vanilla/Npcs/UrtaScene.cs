@@ -410,7 +410,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 OutputText("Scenes.Urtascene.UrtaBarApproach.NothingButLeave".Localized());
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<TelAdre>.Get());
 
                 return ;
             }
@@ -543,7 +543,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     else
                         AddButton(3, "Common.Button.VixenCream".Localized(), null);
 
-                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
 
                     return ;
                 }
@@ -582,7 +582,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                         AddButton(4, "Common.Button.Somesurprise".Localized(), UrtaAndRaphaelSurprise);
                     }
 
-                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
 
                     return ;
                 }
@@ -603,7 +603,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 AddButton(1, "Common.Button.DrinkBooze".Localized(), DrinkUrtasBooze);
 
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
 
                 return ;
             }
@@ -645,7 +645,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     AddButton(4, "Common.Button.Somesurprise".Localized(), UrtaAndRaphaelSurprise);
                 }
 
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
 
                 return ;
             }
@@ -690,7 +690,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             else
                 AddButton(1, "Common.Button.HiddenBj".Localized(), BlowUrtaUnderTable);
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void DrinkUrtasBooze()
@@ -949,7 +949,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void DualUrtaMasturbation()
@@ -3822,7 +3822,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             AddButton(1, "Common.Button.Worshipped".Localized(), SceneInstance<IvorySuccubusScene>.Get().Worship);
 
-            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void FuckUrtaWhileScyllaSucksSober()
@@ -5301,7 +5301,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     AddButton(4, "Common.Button.Shots".Localized(), UrtaWatersports);
             }
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
 
             Player.ApplyStats(new DynStat(GameStats.Lust, 25f));
         }

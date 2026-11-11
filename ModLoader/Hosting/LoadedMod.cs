@@ -1,6 +1,6 @@
 namespace MonoCoC.ModLoader
 {
-    public sealed class LoadedMod
+    public class LoadedMod
     {
         public required Mod Mod { get; init; }
 

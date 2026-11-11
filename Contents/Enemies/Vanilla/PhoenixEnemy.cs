@@ -54,10 +54,10 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             return true;
         }
 
-        public override MonoCoC.Registry.Identifier? ForcedAbility(Combat.CombatContext context)
+        public override Registry.Identifier? ForcedAbility(Combat.CombatContext context)
         {
             if (HasStatusEffect(StatusEffectIds.Uber))
-                return new MonoCoC.Registry.Identifier("coc", "phoenix_fire_breath");
+                return new Registry.Identifier("coc", "phoenix_fire_breath");
 
             return null;
         }

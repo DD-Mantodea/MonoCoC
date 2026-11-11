@@ -777,7 +777,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Seasonal
 
             CoC.Instance.Flags.Set(GameFlagIds.PigSlutDisabled, View.Time.Days);
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void DisablePigSlut()

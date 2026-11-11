@@ -51,7 +51,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             {
                 OutputText("Scenes.Gym.GymDesc.ReachPockets".Localized());
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<TelAdre>.Get());
 
                 return;
             }
@@ -103,7 +103,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             if (SceneInstance<PabloScene>.Get().PabloIntro() && CoC.Instance.Flags.Get(GameFlagIds.PabloFreakedOutOverWorms) != 1)
                 AddButton(10, CoC.Instance.Flags.Get(GameFlagIds.PabloMet) > 0 ? "Common.Text.Pablo".Localized() : "Common.Text.Imp".Localized(), SceneInstance<PabloScene>.Get().ApproachPablo);
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void BuyGymLifeTimeMembership()
@@ -144,7 +144,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 if (CoC.Instance.Flags.Get(GameFlagIds.LifetimeGymMember) == 0)
                     OutputText("Scenes.Gym.WeightLifting.SaveMoney".Localized());
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<TelAdre>.Get());
 
                 return;
             }
@@ -193,7 +193,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 if (CoC.Instance.Flags.Get(GameFlagIds.LifetimeGymMember) == 0)
                     OutputText("Scenes.Gym.GoJogging.SaveMoney".Localized());
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<TelAdre>.Get());
 
                 return;
             }

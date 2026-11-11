@@ -161,7 +161,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             soph.CreateStatusEffect(StatusEffectIds.GenericRunDisabled, 0, 0, 0, 0);
 
-            CombatScene.Start(soph, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(soph, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void BeatUpDebimboSophie(bool hpVictory)
@@ -363,7 +363,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     OutputText("Scenes.Sophiefollowerscene.FollowerSophieMainScreen.SharingBedNoCock".Localized());
                 }
 
-                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
 
                 return;
             }
@@ -427,7 +427,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             }
 
             if (CoC.Instance.Flags.Get(GameFlagIds.FollowerAtFarmSophie) == 0)
-                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
             else
                 AddButton(14, "Common.Button.Back".Localized(), null);
         }

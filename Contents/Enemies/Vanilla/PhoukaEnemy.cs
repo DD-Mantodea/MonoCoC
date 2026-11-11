@@ -267,7 +267,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         }
 
         /// <summary>原版各 transform 函数共有的数值段：阴茎类型/尺寸、身高、护甲、速度、形态标记。</summary>
-        private void ApplyForm(int form, MonoCoC.Registry.Identifier cockType, float length, float thickness,
+        private void ApplyForm(int form, Registry.Identifier cockType, float length, float thickness,
 
             float tallness, float armor, float speed)
         {

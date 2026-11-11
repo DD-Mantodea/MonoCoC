@@ -2,6 +2,7 @@ using FontStashSharp;
 using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using System;
 using System.Linq;
@@ -29,6 +30,15 @@ namespace MonoCoC.UI.Components
 
         public Color TextColor = Color.Black;
 
+        public UIBinding? TextBinding;
+
+        public Label BindText(UIBinding binding)
+        {
+            TextBinding = binding;
+
+            return this;
+        }
+
         private string _measuredText = "";
 
         private int _measuredWidth = -1;
@@ -46,6 +56,14 @@ namespace MonoCoC.UI.Components
 
         public override void Update(GameTime gameTime)
         {
+            if (TextBinding is not null)
+            {
+                var value = TextBinding.Resolve(DataContext);
+
+                if (value is not null)
+                    Text(value.ToString() ?? "");
+            }
+
             RefreshMeasurement();
 
             base.Update(gameTime);

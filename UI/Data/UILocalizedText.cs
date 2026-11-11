@@ -11,7 +11,7 @@ namespace MonoCoC.UI.Data
     /// Parameters may be strings, numbers, or nested references. Everything is
     /// resolved once while building the screen, never during Draw/Update.
     /// </summary>
-    public sealed class UILocalizedText
+    public class UILocalizedText
     {
         private const int MaxDepth = 8;
 

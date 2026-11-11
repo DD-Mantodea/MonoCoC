@@ -699,7 +699,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 if (CoC.Instance.Flags.Get(GameFlagIds.HeliaAnalTrainingOffered) > 0 && CoC.Instance.Flags.Get(GameFlagIds.HeliaAnalTraining) < 2 && Player.BiggestCockArea() > HeliaAnalCapacity() && Player.HasItem(ItemRegistry.Create(ConsumableIds.GoblinAle), 1))
                     AddRowButton(2, "Anal Train", HeliaGapeSceneChoices);
 
-                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
             }
             else
                 if (CoC.Instance.Flags.Get(GameFlagIds.HelFollowerLevel) == 1)
@@ -769,7 +769,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Helfollower.SparWithHeliaFirebuttsAreHot.ReadyWeaponForBattle".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "hel")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "hel")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             CurrentMonster.CreateStatusEffect(StatusEffectIds.Sparring, 0, 0, 0, 0);
 
@@ -1215,7 +1215,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 ClearButtons();
 
-                AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<CampScene>.Get()));
 
                 return ;
             }

@@ -341,7 +341,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 AddButton(14, "Common.Button.Back".Localized(), null );
             }
             else
-                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
         }
 
         public void ChildrenMenu()
@@ -1954,7 +1954,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (type == 1)
                 OutputText("Scenes.Isabellafollowerscene.Sparring.PlayingForKeeps".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "isabella")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "isabella")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             CurrentMonster.CreateStatusEffect(StatusEffectIds.Sparring, type, 0, 0, 0);
 

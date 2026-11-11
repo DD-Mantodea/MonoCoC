@@ -7,7 +7,7 @@ namespace MonoCoC.UI.Data
     /// Event handlers used by Hjson event properties such as onClick.
     /// Handlers are owned so a mod can remove only its own events.
     /// </summary>
-    public sealed class UIEventRegistry
+    public class UIEventRegistry
     {
         private readonly Dictionary<string, List<(string? Owner, Action Action)>> _events = [];
 

@@ -1,0 +1,17 @@
+{
+  "Views.PlayerStats.Strength": "Strength"
+  "Views.PlayerStats.Toughness": "Toughness"
+  "Views.PlayerStats.Speed": "Speed"
+  "Views.PlayerStats.Intelligence": "Intelligence"
+  "Views.PlayerStats.Libido": "Libido"
+  "Views.PlayerStats.Sensitivity": "Sensitivity"
+  "Views.PlayerStats.Corruption": "Corruption"
+  "Views.PlayerStats.HP": "HP"
+  "Views.PlayerStats.Lust": "Lust"
+  "Views.PlayerStats.Fatigue": "Fatigue"
+  "Views.PlayerStats.Level": "Level"
+  "Views.PlayerStats.XP": "XP"
+  "Views.PlayerStats.Gems": "Gems"
+  "Views.PlayerStats.Day": "Day {0}"
+  "Views.PlayerStats.Time": "Time {0:00}:{1:00}"
+}

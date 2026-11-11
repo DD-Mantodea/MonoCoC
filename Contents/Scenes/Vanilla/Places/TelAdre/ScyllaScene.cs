@@ -911,7 +911,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             View.Time.PassMinutes((int)Math.Round((double)((1) * 60)));
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void ScyllaPtVTakeAdvantage()
@@ -2360,7 +2360,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             AddButton(0, "Common.Button.Feed".Localized(), FeedScyllaSomeJizzDatJunkieNeedsIt);
 
-            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void FeedScyllaSomeJizzDatJunkieNeedsIt()

@@ -59,7 +59,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             }
 
             if (num == max && max > 0)
-                AwardAchievement(new MonoCoC.Registry.Identifier("coc", "general_scholar"));
+                AwardAchievement(new Registry.Identifier("coc", "general_scholar"));
 
             return returnMax ? max : num;
         }

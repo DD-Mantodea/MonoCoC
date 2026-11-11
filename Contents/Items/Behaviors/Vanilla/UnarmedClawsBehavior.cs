@@ -15,7 +15,7 @@ namespace MonoCoC.Contents.Items.Behaviors.Vanilla
     /// </summary>
     public class UnarmedClawsBehavior : ItemBehavior, IWeaponAttackBehavior
     {
-        public sealed record ClawData(int Attack, string Name, int BleedChance, float BleedDamage, float Penetration, string RacePattern);
+        public record ClawData(int Attack, string Name, int BleedChance, float BleedDamage, float Penetration, string RacePattern);
 
         private static readonly Dictionary<string, ClawData> Table = new()
         {

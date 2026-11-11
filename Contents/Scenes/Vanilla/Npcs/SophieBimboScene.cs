@@ -435,7 +435,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             }
 
             if (CoC.Instance.Flags.Get(GameFlagIds.FollowerAtFarmSophie) == 0)
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<CampScene>.Get()));
             else
                 AddButton(14, "Common.Button.Back".Localized(), null );
         }
@@ -892,7 +892,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             CoC.Instance.Flags.Set(GameFlagIds.SleepWith, "harpy");
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get());
+            Go(SceneInstance<CampScene>.Get());
         }
 
         public void DaughterAwaken()

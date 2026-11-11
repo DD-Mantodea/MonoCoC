@@ -11,7 +11,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
     /// </summary>
     public static class PerkPageActions
     {
-        public sealed class Entry
+        public class Entry
         {
             public Identifier Id = default!;
 

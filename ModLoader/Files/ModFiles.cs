@@ -9,7 +9,7 @@ namespace MonoCoC.ModLoader
     /// <summary>
     /// tML-style access to files inside a .cocmod package.
     /// </summary>
-    public sealed class ModFiles
+    public class ModFiles
     {
         private readonly CocModPackage _package;
 

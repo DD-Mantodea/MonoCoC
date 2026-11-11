@@ -52,7 +52,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
             if (quest.player2 != null)
                 quest.ResetToPC();
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get());
+            Go(SceneInstance<CampScene>.Get());
         }
 
         public override void Entry()
@@ -1822,7 +1822,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             OutputText("Scenes.UrtaQuest.RunIntoAGoblin.FightDeclared".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "goblin_broodmother")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "goblin_broodmother")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void WinFuckAGoblinBroodmotherAsUrta()
@@ -2632,7 +2632,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             CombatController.Instance!.ClearStatuses();
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "sirius")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "sirius")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void UrtaBeatsUpSiriusRadio()
@@ -2882,7 +2882,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             CombatController.Instance!.ClearStatuses();
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "gnoll_spear_thrower")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "gnoll_spear_thrower")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             CombatController.Instance!.Context.Enemy.Health += 350;
 
@@ -3406,7 +3406,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             CombatController.Instance!.ClearStatuses();
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "minotaur_lord")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "minotaur_lord")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void UrtaSubmitsToMinotaurBadEnd()
@@ -3714,7 +3714,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Quests
 
             Player.SetWeapon((Weapon)ItemRegistry.Create(ItemIds.UrtasHalberd));
             // 原版：startCombat(new MilkySuccubus(), true)；旧移植把 `(), true` 混进了 id（创建即抛异常）
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "milky_succubus")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "milky_succubus")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void MilkyUrtaTic()

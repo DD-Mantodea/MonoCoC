@@ -1,4 +1,4 @@
-using FontStashSharp;
+﻿using FontStashSharp;
 using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,7 +17,7 @@ namespace MonoCoC.UI.Components
 {
     public class TextArea : Component, IUIStatefulPart
     {
-        private sealed record State(string Text, int ScrollOffset, bool AutoScroll);
+        private record State(string Text, int ScrollOffset, bool AutoScroll);
 
         public TextArea(SpriteFontBase font)
         {

@@ -1,3 +1,4 @@
+using FontStashSharp;
 using FontStashSharp.RichText;
 using Hjson;
 using Microsoft.Xna.Framework;
@@ -18,990 +19,1226 @@ using System.IO;
 
 namespace MonoCoC.UI.Data
 {
-    /// <summary>
-    /// Maps Hjson nodes to the existing MonoCoC Component/View tree.
-    /// No new layout or rendering system is introduced.
-    /// </summary>
-    public sealed class UIScreenBuilder
-    {
-        private readonly UIEventRegistry _events;
-        private readonly UIWidgetRegistry _widgets;
-        private readonly UIComponentRegistry _types = new();
+	public class UIScreenBuilder
+	{
+		private readonly UIEventRegistry _events;
+		private readonly UIWidgetRegistry _widgets;
+		private readonly UIComponentRegistry _types = new();
 
-        private UIDocument? _document;
+		private UIDocument? _document;
 
-        public UIScreenBuilder(UIEventRegistry events, UIWidgetRegistry widgets)
-        {
-            _events = events;
-            _widgets = widgets;
+		public UIScreenBuilder(UIEventRegistry events, UIWidgetRegistry widgets)
+		{
+			_events = events;
+			_widgets = widgets;
 
-            RegisterCoreTypes();
-        }
+			RegisterCoreTypes();
+		}
 
-        public UIComponentRegistry Types => _types;
+		public UIComponentRegistry Types => _types;
 
-        private void RegisterCoreTypes()
-        {
-            _types.Register("coc:view", _ => new View());
-            _types.Register("coc:image", CreateImage);
-            _types.Register("coc:panel", CreatePanel);
-            _types.Register("coc:label", CreateLabel);
-            _types.Register("coc:button", CreateButton);
-            _types.Register("coc:paper_background", CreatePaperBackground);
-            _types.Register("coc:border", CreateBorder);
-            _types.Register("coc:corners", CreateCorners);
-            _types.Register("coc:symbol", CreateSymbol);
-            _types.Register("coc:divider", CreateDivider);
-            _types.Register("coc:grid", CreateGrid);
-            _types.Register("coc:text_area", CreateTextArea);
-            _types.Register("coc:text_box", CreateTextBox);
-            _types.Register("coc:player_stats", _ => new PlayerStats());
-            _types.Register("coc:combat_stats", _ => new CombatStats());
-            _types.Register("coc:custom_widget", CreateCustomComponent);
-            _types.Register("coc:custom_component", CreateCustomComponent);
-        }
+		private void RegisterCoreTypes()
+		{
+			_types.Register("coc:view", _ => new View());
+			_types.Register("coc:image", CreateImage);
+			_types.Register("coc:panel", CreatePanel);
+			_types.Register("coc:label", CreateLabel);
+			_types.Register("coc:button", CreateButton);
+			_types.Register("coc:paper_background", CreatePaperBackground);
+			_types.Register("coc:border", CreateBorder);
+			_types.Register("coc:corners", CreateCorners);
+			_types.Register("coc:symbol", CreateSymbol);
+			_types.Register("coc:divider", CreateDivider);
+			_types.Register("coc:grid", CreateGrid);
+			_types.Register("coc:text_area", CreateTextArea);
+			_types.Register("coc:text_box", CreateTextBox);
+			_types.Register("coc:bar", CreateBar);
+			_types.Register("coc:stat_bar", CreateBar);
+			_types.Register("coc:stat_row", CreateStatRow);
+			_types.Register("coc:player_stats", CreatePlayerStats);
+			_types.Register("coc:combat_stats", _ => new CombatStats());
+			_types.Register("coc:custom_widget", CreateCustomComponent);
+			_types.Register("coc:custom_component", CreateCustomComponent);
+		}
 
-        public View Build(UIDocument document)
-        {
-            _document = document;
+		public View Build(UIDocument document)
+		{
+			_document = document;
 
-            var rootNode = document.Root.TryGetValue("root", out var rootValue) && rootValue is JsonObject rootObject
-                ? rootObject
-                : document.Root;
+			var rootNode = document.Root.TryGetValue("root", out var rootValue) && rootValue is JsonObject rootObject
+				? rootObject
+				: document.Root;
 
-            rootNode = document.Expand(rootNode);
+			rootNode = document.Expand(rootNode);
 
-            var root = new View();
+			var root = new View();
 
-            ApplyLayout(root, rootNode);
+			ApplyLayout(root, rootNode);
 
-            BuildChildren(root, rootNode, document);
+			BuildChildren(root, rootNode, document);
 
-            return root;
-        }
+			return root;
+		}
 
-        private void BuildChildren(Component parent, JsonObject node, UIDocument document)
-        {
-            if (!node.TryGetValue("children", out var value) || value is not JsonArray children)
-                return;
+		private void BuildChildren(Component parent, JsonObject node, UIDocument document)
+		{
+			if (!node.TryGetValue("children", out var value) || value is not JsonArray children)
+				return;
 
-            var sequentialIndex = 0;
+			var sequentialIndex = 0;
 
-            foreach (var childValue in children)
-            {
-                if (childValue is not JsonObject child)
-                    continue;
+			foreach (var childValue in children)
+			{
+				if (childValue is not JsonObject child)
+					continue;
 
-                child = document.Expand(child);
+				child = document.Expand(child);
 
-                var component = Create(child);
+				var component = Create(child);
 
-                if (component is null)
-                    continue;
+				if (component is null)
+					continue;
 
-                if (parent is Grid { AutoIndex: true })
-                    component.LayoutData.GridIndex = sequentialIndex;
-                else if (child.TryGetValue("gridIndex", out var gridIndex))
-                    component.LayoutData.GridIndex = Int(gridIndex);
+				if (parent is Grid { AutoIndex: true })
+					component.LayoutData.GridIndex = sequentialIndex;
+				else if (child.TryGetValue("gridIndex", out var gridIndex))
+					component.LayoutData.GridIndex = Int(gridIndex);
 
-                sequentialIndex++;
+				sequentialIndex++;
 
-                ApplyMaterial(component, child);
+				ApplyMaterial(component, child);
 
-                ApplyLayout(component, child);
+				ApplyLayout(component, child);
 
-                ApplyStateStyle(component, child);
+				ApplyStateStyle(component, child);
 
-                ApplyDecorationStyle(component, child);
+				ApplyDecorationStyle(component, child);
 
-                BindEvents(component, child);
+				BindEvents(component, child);
 
-                if (component is Button button)
-                    ApplyControlTemplate(button, child, document);
+				if (component is Button button)
+					ApplyControlTemplate(button, child, document);
 
-                parent.AddChild(component);
+				parent.AddChild(component);
 
-                BuildChildren(component, child, document);
+				BuildChildren(component, child, document);
 
-                if (component is Grid grid)
-                    grid.ResizeToFit();
-            }
-        }
+				if (component is Grid grid)
+					grid.ResizeToFit();
+			}
+		}
 
-        private Component? Create(JsonObject node)
-        {
-            var type = node.Str("type", "Panel");
+		private Component? Create(JsonObject node)
+		{
+			var type = node.Str("type", "Panel");
 
-            if (!type.Contains(':', StringComparison.Ordinal))
-                type = "coc:" + type.ToLowerInvariant();
+			if (!type.Contains(':', StringComparison.Ordinal))
+				type = "coc:" + type.ToLowerInvariant();
 
-            if (!_types.TryCreate(type, node, out var component))
-                throw new InvalidDataException($"Unknown UI component type '{type}'");
+			if (!_types.TryCreate(type, node, out var component))
+				throw new InvalidDataException($"Unknown UI component type '{type}'");
 
-            return component;
-        }
+			return component;
+		}
+
+		private static Component CreateBorder(JsonObject node)
+		{
+			var border = new BorderDecoration();
+
+			if (node.TryGetValue("thickness", out var thickness))
+				border.Thickness = Int(thickness);
 
-        private static Component CreateBorder(JsonObject node)
-        {
-            var border = new BorderDecoration();
+			if (node.TryGetValue("inset", out var inset))
+				border.Inset = Int(inset);
 
-            if (node.TryGetValue("thickness", out var thickness))
-                border.Thickness = Int(thickness);
+			return border;
+		}
 
-            if (node.TryGetValue("inset", out var inset))
-                border.Inset = Int(inset);
+		private static Component CreateCorners(JsonObject node)
+		{
+			var corners = new CornerDecoration();
 
-            return border;
-        }
+			if (node.TryGetValue("length", out var length))
+				corners.Length = Int(length);
 
-        private static Component CreateCorners(JsonObject node)
-        {
-            var corners = new CornerDecoration();
+			if (node.TryGetValue("thickness", out var thickness))
+				corners.Thickness = Int(thickness);
 
-            if (node.TryGetValue("length", out var length))
-                corners.Length = Int(length);
+			if (node.TryGetValue("inset", out var inset))
+				corners.Inset = Int(inset);
 
-            if (node.TryGetValue("thickness", out var thickness))
-                corners.Thickness = Int(thickness);
+			if (node.TryGetValue("gap", out var gap))
+				corners.Gap = Int(gap);
 
-            if (node.TryGetValue("inset", out var inset))
-                corners.Inset = Int(inset);
+			return corners;
+		}
 
-            if (node.TryGetValue("gap", out var gap))
-                corners.Gap = Int(gap);
+		private static Component CreateSymbol(JsonObject node)
+		{
+			var symbol = new SymbolDecoration
+			{
+				Text = UILocalizedText.Resolve(node, "text"),
+				TextureId = node.Str("texture"),
+				FontRole = node.Str("font", "coc:button")
+			};
 
-            return corners;
-        }
+			if (node.TryGetValue("size", out var size))
+				symbol.SymbolSize = Int(size);
 
-        private static Component CreateSymbol(JsonObject node)
-        {
-            var symbol = new SymbolDecoration
-            {
-                Text = UILocalizedText.Resolve(node, "text"),
-                TextureId = node.Str("texture"),
-                FontRole = node.Str("font", "coc:button")
-            };
+			return symbol;
+		}
 
-            if (node.TryGetValue("size", out var size))
-                symbol.SymbolSize = Int(size);
+		private static Component CreateDivider(JsonObject node)
+		{
+			var ornamentText = node.TryGetValue("ornamentText", out var ornamentValue)
+				? ornamentValue.ToString().Trim('"')
+				: "✦";
 
-            return symbol;
-        }
+			var divider = new DividerDecoration
+			{
+				Vertical = string.Equals(node.Str("orientation"), "vertical", StringComparison.OrdinalIgnoreCase) ||
+						   node.Bool("vertical", false),
+				Double = node.Bool("double", false),
+				Ornament = node.Bool("ornament", true),
+				OrnamentText = ornamentText,
+				FontRole = node.Str("font", "coc:button")
+			};
 
-        private static Component CreateDivider(JsonObject node)
-        {
-            var ornamentText = node.TryGetValue("ornamentText", out var ornamentValue)
-                ? ornamentValue.ToString().Trim('"')
-                : "✦";
+			if (node.TryGetValue("thickness", out var thickness))
+				divider.Thickness = Int(thickness);
 
-            var divider = new DividerDecoration
-            {
-                Vertical = string.Equals(node.Str("orientation"), "vertical", StringComparison.OrdinalIgnoreCase) ||
-                           node.Bool("vertical", false),
-                Double = node.Bool("double", false),
-                Ornament = node.Bool("ornament", true),
-                OrnamentText = ornamentText,
-                FontRole = node.Str("font", "coc:button")
-            };
+			if (node.TryGetValue("gap", out var gap))
+				divider.Gap = Int(gap);
 
-            if (node.TryGetValue("thickness", out var thickness))
-                divider.Thickness = Int(thickness);
+			if (node.TryGetValue("ornamentPadding", out var ornamentPadding))
+				divider.OrnamentPadding = Int(ornamentPadding);
 
-            if (node.TryGetValue("gap", out var gap))
-                divider.Gap = Int(gap);
+			return divider;
+		}
 
-            if (node.TryGetValue("ornamentPadding", out var ornamentPadding))
-                divider.OrnamentPadding = Int(ornamentPadding);
+		private static void ApplyDecorationStyle(Component component, JsonObject node)
+		{
+			if (component is not DecorationComponent decoration)
+				return;
 
-            return divider;
-        }
+			var style = new UIDecorationStyle();
 
-        private static void ApplyDecorationStyle(Component component, JsonObject node)
-        {
-            if (component is not DecorationComponent decoration)
-                return;
+			if (node.TryGetValue("states", out var value) && value is JsonObject states)
+			{
+				ApplyDecorationState(states, "normal", out style.Normal, out style.NormalSecondary);
+				ApplyDecorationState(states, "hover", out style.Hover, out style.HoverSecondary);
+				ApplyDecorationState(states, "pressed", out style.Pressed, out style.PressedSecondary);
+				ApplyDecorationState(states, "disabled", out style.Disabled, out style.DisabledSecondary);
+			}
 
-            var style = new UIDecorationStyle();
+			decoration.Style = style;
+		}
 
-            if (node.TryGetValue("states", out var value) && value is JsonObject states)
-            {
-                ApplyDecorationState(states, "normal", out style.Normal, out style.NormalSecondary);
-                ApplyDecorationState(states, "hover", out style.Hover, out style.HoverSecondary);
-                ApplyDecorationState(states, "pressed", out style.Pressed, out style.PressedSecondary);
-                ApplyDecorationState(states, "disabled", out style.Disabled, out style.DisabledSecondary);
-            }
+		private static void ApplyDecorationState(
+			JsonObject states,
+			string name,
+			out Color primary,
+			out Color secondary)
+		{
+			primary = Color.Transparent;
+			secondary = Color.Transparent;
 
-            decoration.Style = style;
-        }
+			if (!states.TryGetValue(name, out var value) || value is not JsonObject state)
+				return;
 
-        private static void ApplyDecorationState(
-            JsonObject states,
-            string name,
-            out Color primary,
-            out Color secondary)
-        {
-            primary = Color.Transparent;
-            secondary = Color.Transparent;
+			if (state.TryGetValue("color", out _))
+				primary = ColorOf(state.Str("color"));
 
-            if (!states.TryGetValue(name, out var value) || value is not JsonObject state)
-                return;
+			if (state.TryGetValue("backgroundColor", out _))
+				primary = ColorOf(state.Str("backgroundColor"));
 
-            if (state.TryGetValue("color", out _))
-                primary = ColorOf(state.Str("color"));
+			if (state.TryGetValue("secondaryColor", out _))
+				secondary = ColorOf(state.Str("secondaryColor"));
 
-            if (state.TryGetValue("backgroundColor", out _))
-                primary = ColorOf(state.Str("backgroundColor"));
+			if (state.TryGetValue("borderColor", out _))
+				secondary = ColorOf(state.Str("borderColor"));
+		}
 
-            if (state.TryGetValue("secondaryColor", out _))
-                secondary = ColorOf(state.Str("secondaryColor"));
+		private static Component CreateImage(JsonObject node)
+		{
+			var textureId = node.Str("texture");
 
-            if (state.TryGetValue("borderColor", out _))
-                secondary = ColorOf(state.Str("borderColor"));
-        }
+			if (textureId.Length == 0)
+				return null;
 
-        private static Component CreateImage(JsonObject node)
-        {
-            var textureId = node.Str("texture");
+			var texture = TextureRegistry.Instance.Resolve(textureId);
 
-            if (textureId.Length == 0)
-                return null;
+			return texture is null ? null : new UIImage(texture);
+		}
 
-            var texture = TextureRegistry.Instance.Resolve(textureId);
+		private static Component CreatePanel(JsonObject node) =>
+			new()
+			{
+				CanHit = node.Bool("canHit", false),
 
-            return texture is null ? null : new UIImage(texture);
-        }
+				BackgroundColor = ColorOf(node.Str("backgroundColor", "#00000000"))
+			};
 
-        private static Component CreatePanel(JsonObject node) =>
-            new Component
-            {
-                CanHit = node.Bool("canHit", false),
+		private static Component CreateLabel(JsonObject node)
+		{
+			var label = new Label(ResolveFont(node, "coc:menu"));
 
-                BackgroundColor = ColorOf(node.Str("backgroundColor", "#00000000"))
-            };
+			var labelBinding = ReadBinding(node, "text");
 
-        private static Component CreateLabel(JsonObject node)
-        {
-            var label = new Label(UIFonts.Get(node.Str("font", "coc:menu")));
+			if (labelBinding is not null)
+				label.BindText(labelBinding);
+			else
+				label.Text(UILocalizedText.Resolve(node, "text"));
 
-            label.Text(UILocalizedText.Resolve(node, "text"));
+			label.TextColor = ColorOf(node.Str("textColor", "#000000"));
 
-            label.TextColor = ColorOf(node.Str("textColor", "#000000"));
+			if (node.TryGetValue("wrapWidth", out var wrap))
+				label.WrapWidth(Int(wrap));
+			else if (node.TryGetValue("width", out var labelWidth))
+				label.WrapWidth(Int(labelWidth));
 
-            if (node.TryGetValue("wrapWidth", out var wrap))
-                label.WrapWidth(Int(wrap));
-            else if (node.TryGetValue("width", out var labelWidth))
-                label.WrapWidth(Int(labelWidth));
+			if (node.TryGetValue("lineSpacing", out var spacing))
+				label.LineSpacing(Int(spacing));
 
-            if (node.TryGetValue("lineSpacing", out var spacing))
-                label.LineSpacing(Int(spacing));
+			var textAlign = node.Str("textHorizontalAlign", node.Str("textHAlign", node.Str("textAlign")));
 
-            var textAlign = node.Str("textHorizontalAlign", node.Str("textHAlign", node.Str("textAlign")));
+			label.Alignment(textAlign.Trim().ToLowerInvariant() switch
+			{
+				"center" => TextHorizontalAlignment.Center,
+				"right" => TextHorizontalAlignment.Right,
+				"left" or "" => TextHorizontalAlignment.Left,
+				_ => ReportInvalidTextHorizontal(textAlign)
+			});
 
-            label.Alignment(textAlign.Trim().ToLowerInvariant() switch
-            {
-                "center" => TextHorizontalAlignment.Center,
-                "right" => TextHorizontalAlignment.Right,
-                "left" or "" => TextHorizontalAlignment.Left,
-                _ => ReportInvalidTextHorizontal(textAlign)
-            });
+			var textVertical = node.Str("textVerticalAlign", node.Str("textVAlign"));
 
-            var textVertical = node.Str("textVerticalAlign", node.Str("textVAlign"));
+			label.VerticalAlign(textVertical.Trim().ToLowerInvariant() switch
+			{
+				"center" => TextVerticalAlignment.Center,
+				"bottom" => TextVerticalAlignment.Bottom,
+				"top" or "" => TextVerticalAlignment.Top,
+				_ => ReportInvalidTextVertical(textVertical)
+			});
 
-            label.VerticalAlign(textVertical.Trim().ToLowerInvariant() switch
-            {
-                "center" => TextVerticalAlignment.Center,
-                "bottom" => TextVerticalAlignment.Bottom,
-                "top" or "" => TextVerticalAlignment.Top,
-                _ => ReportInvalidTextVertical(textVertical)
-            });
+			label.AutoSize = node.Bool("autoSize", false);
 
-            label.AutoSize = node.Bool("autoSize", false);
+			return label;
+		}
 
-            return label;
-        }
+		private Component CreateButton(JsonObject node)
+		{
+			var background = node.TryGetValue("background", out var backgroundValue)
+				? backgroundValue.ToString().Trim('"')
+				: node.Str("texture");
 
-        private Component CreateButton(JsonObject node)
-        {
-            var background = node.TryGetValue("background", out var backgroundValue)
-                ? backgroundValue.ToString().Trim('"')
-                : node.Str("texture");
+			var fontRole = node.TryGetValue("font", out var fontValue) && fontValue is JsonObject fontNode
+				? fontNode.Str("id", "coc:button")
+				: node.Str("font", "coc:button");
 
-            var button = new Button(background, "", node.Str("font", "coc:button"));
+			var button = new Button(background, "", fontRole);
 
-            button.SetLabel(UILocalizedText.Resolve(node, "label"));
+			button.SetLabel(UILocalizedText.Resolve(node, "label"));
 
-            var command = node.Str("command");
+			button.Label.RichTextLayout.Font = ResolveFont(node, "coc:button");
 
-            if (command.Length > 0)
-                button.Click(() => _events.Raise(command));
+			var command = node.Str("command");
 
-            if (node.TryGetValue("hint", out var hintValue) && hintValue is JsonObject hintNode)
-                ApplyHint(button, hintNode);
+			if (command.Length > 0)
+				button.Click(() => _events.Raise(command));
 
-            if (node.TryGetValue("enabled", out _))
-                button.Enabled = node.Bool("enabled", true);
+			if (node.TryGetValue("hint", out var hintValue) && hintValue is JsonObject hintNode)
+				ApplyHint(button, hintNode);
 
-            if (node.TryGetValue("disableIf", out var disableIf))
-            {
-                var disableText = disableIf.ToString().Trim('"');
+			if (node.TryGetValue("enabled", out _))
+				button.Enabled = node.Bool("enabled", true);
 
-                if (bool.TryParse(disableText, out var disabledNow))
-                    button.Enabled = !disabledNow;
-                else
-                    button.DisableIf = disableText;
-            }
+			if (node.TryGetValue("disableIf", out var disableIf))
+			{
+				var disableText = disableIf.ToString().Trim('"');
 
-            var backgroundColor = node.Str("backgroundColor");
+				if (bool.TryParse(disableText, out var disabledNow))
+					button.Enabled = !disabledNow;
+				else
+					button.DisableIf = disableText;
+			}
 
-            if (backgroundColor.Length > 0)
-            {
-                var tint = ColorOf(backgroundColor);
+			var backgroundColor = node.Str("backgroundColor");
 
-                if (button.Background is not null)
-                    button.Background.Color = tint;
-                else
-                    button.BackgroundColor = tint;
-            }
+			if (backgroundColor.Length > 0)
+			{
+				var tint = ColorOf(backgroundColor);
 
-            var textColor = node.Str("textColor");
+				if (button.Background is not null)
+					button.Background.Color = tint;
+				else
+					button.BackgroundColor = tint;
+			}
 
-            if (textColor.Length > 0)
-                button.TextColor = ColorOf(textColor);
+			var textColor = node.Str("textColor");
 
-            button.RefreshVisual();
+			if (textColor.Length > 0)
+				button.TextColor = ColorOf(textColor);
 
-            return button;
-        }
+			button.RefreshVisual();
 
-        private void ApplyHint(Button button, JsonObject node)
-        {
-            var style = new HintStyle();
+			return button;
+		}
 
-            if (node.TryGetValue("width", out var width))
-                style.Width = Int(width);
+		private void ApplyHint(Button button, JsonObject node)
+		{
+			var style = new HintStyle();
 
-            if (node.TryGetValue("minHeight", out var minHeight))
-                style.MinHeight = Int(minHeight);
+			if (node.TryGetValue("width", out var width))
+				style.Width = Int(width);
 
-            if (node.TryGetValue("padding", out var padding))
-                style.Padding = Int(padding);
+			if (node.TryGetValue("minHeight", out var minHeight))
+				style.MinHeight = Int(minHeight);
 
-            if (node.TryGetValue("headerY", out var headerY))
-                style.HeaderY = Int(headerY);
+			if (node.TryGetValue("padding", out var padding))
+				style.Padding = Int(padding);
 
-            if (node.TryGetValue("headerHeight", out var headerHeight))
-                style.HeaderHeight = Int(headerHeight);
+			if (node.TryGetValue("headerY", out var headerY))
+				style.HeaderY = Int(headerY);
 
-            if (node.TryGetValue("separatorY", out var separatorY))
-                style.SeparatorY = Int(separatorY);
+			if (node.TryGetValue("headerHeight", out var headerHeight))
+				style.HeaderHeight = Int(headerHeight);
 
-            if (node.TryGetValue("bodyY", out var bodyY))
-                style.BodyY = Int(bodyY);
+			if (node.TryGetValue("separatorY", out var separatorY))
+				style.SeparatorY = Int(separatorY);
 
-            if (node.TryGetValue("separatorWidth", out var separatorWidth))
-                style.SeparatorWidth = Int(separatorWidth);
+			if (node.TryGetValue("bodyY", out var bodyY))
+				style.BodyY = Int(bodyY);
 
-            style.Direction = node.Str("direction", "auto");
+			if (node.TryGetValue("separatorWidth", out var separatorWidth))
+				style.SeparatorWidth = Int(separatorWidth);
 
-            if (node.TryGetValue("distance", out var distance))
-                style.Distance = Int(distance);
+			style.Direction = node.Str("direction", "auto");
 
-            if (node.TryGetValue("offsetX", out var offsetX))
-                style.OffsetX = Int(offsetX);
+			if (node.TryGetValue("distance", out var distance))
+				style.Distance = Int(distance);
 
-            if (node.TryGetValue("offsetY", out var offsetY))
-                style.OffsetY = Int(offsetY);
+			if (node.TryGetValue("offsetX", out var offsetX))
+				style.OffsetX = Int(offsetX);
 
-            if (node.TryGetValue("offset", out var offsetValue) && offsetValue is JsonObject offset)
-            {
-                style.OffsetX = offset.Int("x", style.OffsetX);
+			if (node.TryGetValue("offsetY", out var offsetY))
+				style.OffsetY = Int(offsetY);
 
-                style.OffsetY = offset.Int("y", style.OffsetY);
-            }
+			if (node.TryGetValue("offset", out var offsetValue) && offsetValue is JsonObject offset)
+			{
+				style.OffsetX = offset.Int("x", style.OffsetX);
 
-            style.HeaderFont = node.Str("headerFont", style.HeaderFont);
+				style.OffsetY = offset.Int("y", style.OffsetY);
+			}
 
-            style.BodyFont = node.Str("bodyFont", style.BodyFont);
+			style.HeaderFont = node.Str("headerFont", style.HeaderFont);
 
-            style.BackgroundTexture = node.Str("backgroundTexture");
+			style.BodyFont = node.Str("bodyFont", style.BodyFont);
 
-            if (node.TryGetValue("backgroundColor", out _))
-                style.BackgroundColor = ColorOf(node.Str("backgroundColor"));
+			style.BackgroundTexture = node.Str("backgroundTexture");
 
-            if (node.TryGetValue("alpha", out var alpha))
-                style.Alpha = Float(alpha);
+			if (node.TryGetValue("backgroundColor", out _))
+				style.BackgroundColor = ColorOf(node.Str("backgroundColor"));
 
-            if (node.TryGetValue("borderColor", out _))
-                style.BorderColor = ColorOf(node.Str("borderColor"));
+			if (node.TryGetValue("alpha", out var alpha))
+				style.Alpha = Float(alpha);
 
-            if (node.TryGetValue("borderThickness", out var borderThickness))
-                style.BorderThickness = Int(borderThickness);
+			if (node.TryGetValue("borderColor", out _))
+				style.BorderColor = ColorOf(node.Str("borderColor"));
 
-            if (node.TryGetValue("headerColor", out _))
-                style.HeaderColor = ColorOf(node.Str("headerColor"));
+			if (node.TryGetValue("borderThickness", out var borderThickness))
+				style.BorderThickness = Int(borderThickness);
 
-            if (node.TryGetValue("bodyColor", out _))
-                style.BodyColor = ColorOf(node.Str("bodyColor"));
+			if (node.TryGetValue("headerColor", out _))
+				style.HeaderColor = ColorOf(node.Str("headerColor"));
 
-            if (node.TryGetValue("separatorColor", out _))
-                style.SeparatorColor = ColorOf(node.Str("separatorColor"));
+			if (node.TryGetValue("bodyColor", out _))
+				style.BodyColor = ColorOf(node.Str("bodyColor"));
 
-            var hintText = UILocalizedText.Resolve(node, "text");
+			if (node.TryGetValue("separatorColor", out _))
+				style.SeparatorColor = ColorOf(node.Str("separatorColor"));
 
-            if (hintText.Length > 0)
-                button.Hint = hintText;
+			var hintText = UILocalizedText.Resolve(node, "text");
 
-            var hintHeader = UILocalizedText.Resolve(node, "header");
+			if (hintText.Length > 0)
+				button.Hint = hintText;
 
-            if (hintHeader.Length > 0)
-                button.HintHeader = hintHeader;
+			var hintHeader = UILocalizedText.Resolve(node, "header");
 
-            var disabledHint = UILocalizedText.Resolve(node, "disabledHint");
+			if (hintHeader.Length > 0)
+				button.HintHeader = hintHeader;
 
-            if (disabledHint.Length > 0)
-                button.DisabledReason = disabledHint;
+			var disabledHint = UILocalizedText.Resolve(node, "disabledHint");
 
-            button.HintSettings = style;
+			if (disabledHint.Length > 0)
+				button.DisabledReason = disabledHint;
 
-            var templateId = node.Str("controlTemplate");
+			button.HintSettings = style;
 
-            if (templateId.Length == 0 || _document is null)
-                return;
+			var templateId = node.Str("controlTemplate");
 
-            if (!_document.ControlTemplates.TryGetValue(templateId, out var template))
-            {
-                MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] Unknown hint control template '{templateId}'");
+			if (templateId.Length == 0 || _document is null)
+				return;
 
-                return;
-            }
+			if (!_document.ControlTemplates.TryGetValue(templateId, out var template))
+			{
+				MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] Unknown hint control template '{templateId}'");
 
-            var root = BuildTemplateNode(template, _document);
+				return;
+			}
 
-            if (root is not null)
-                button.HintView = new HintView(root, style);
-        }
+			var root = BuildTemplateNode(template, _document);
 
-        private static Component CreateTextArea(JsonObject node) =>
-            new TextArea(UIFonts.Get(node.Str("font", "coc:body")));
+			if (root is not null)
+				button.HintView = new HintView(root, style);
+		}
 
-        private static Component CreateTextBox(JsonObject node) =>
-            new TextBox(UIFonts.Get(node.Str("font", "coc:input")));
+		private static SpriteFontBase ResolveFont(JsonObject node, string defaultRole)
+		{
+			var role = defaultRole;
 
-        private static Component CreateGrid(JsonObject node)
-        {
-            var rowDefinitions = ReadGridTracks(node, "rows", "rowDefinitions");
+			var size = 0;
 
-            var columnDefinitions = ReadGridTracks(node, "columns", "columnDefinitions");
+			if (node.TryGetValue("font", out var fontValue))
+			{
+				if (fontValue is JsonObject font)
+				{
+					role = font.Str("id", defaultRole);
 
-            var grid = new Grid(
-                rowDefinitions.Count > 0 ? rowDefinitions.Count : Math.Max(1, node.Int("rows", 1)),
-                columnDefinitions.Count > 0 ? columnDefinitions.Count : Math.Max(1, node.Int("columns", 1)));
+					if (font.TryGetValue("size", out var sizeValue))
+						size = Int(sizeValue);
+				}
+				else
+				{
+					role = fontValue.ToString().Trim('"');
+				}
+			}
 
-            if (rowDefinitions.Count > 0)
-                grid.RowDefinitions = rowDefinitions;
+			if (size <= 0)
+				size = UIFonts.Size(role);
 
-            if (columnDefinitions.Count > 0)
-                grid.ColumnDefinitions = columnDefinitions;
+			return UIFonts.GetAt(UIFonts.Family(role), size);
+		}
 
-            grid.AutoSize = node.Bool("autoSize", false);
+		private static Component CreateTextArea(JsonObject node) =>
+			new TextArea(ResolveFont(node, "coc:body"));
 
-            grid.AutoIndex = node.Bool("autoIndex", false);
+		private static Component CreateTextBox(JsonObject node)
+		{
+			var box = new TextBox(ResolveFont(node, "coc:input"));
 
-            if (node.TryGetValue("spacing", out var spacing))
-                grid.Spacing = Int(spacing);
+			if (node.TryGetValue("textColor", out _))
+				box.TextColor = ColorOf(node.Str("textColor"));
 
-            return grid;
-        }
+			if (node.TryGetValue("borderColor", out _))
+				box.BorderColor = ColorOf(node.Str("borderColor"));
 
-        private static List<GridTrack> ReadGridTracks(JsonObject node, string countKey, string definitionsKey)
-        {
-            var result = new List<GridTrack>();
+			if (node.TryGetValue("showBorder", out _))
+				box.ShowBorder = node.Bool("showBorder", box.ShowBorder);
 
-            var value = node.TryGetValue(definitionsKey, out var definitions)
-                ? definitions
-                : node.TryGetValue(countKey, out var count) ? count : null;
+			if (node.TryGetValue("characterSpacing", out var characterSpacing))
+				box.CharacterSpacing = Float(characterSpacing);
 
-            if (value is not JsonArray array)
-                return result;
+			if (node.TryGetValue("keepPressDelay", out var keepPressDelay))
+				box.KeepPressDelay = Int(keepPressDelay);
 
-            foreach (var entry in array)
-                result.Add(ParseGridTrack(entry));
+			var cursor = box.Cursor;
 
-            return result;
-        }
+			if (node.TryGetValue("cursorColor", out _))
+				cursor.CursorColor = ColorOf(node.Str("cursorColor"));
 
-        private static GridTrack ParseGridTrack(JsonValue? value)
-        {
-            if (value is null)
-                return GridTrack.Star();
+			if (node.TryGetValue("selectionColor", out _))
+				cursor.SelectionColor = ColorOf(node.Str("selectionColor"));
 
-            if (value is JsonObject obj)
-            {
-                var size = obj.Str("size", obj.Str("value", obj.Str("height", obj.Str("width", "1*"))));
+			if (node.TryGetValue("cursorBlinkTime", out var blinkTime))
+				cursor.BlinkTime = Int(blinkTime);
 
-                return ParseGridTrackString(size);
-            }
+			box.Cursor = cursor;
 
-            return ParseGridTrackString(value.ToString().Trim('"'));
-        }
+			return box;
+		}
 
-        private static GridTrack ParseGridTrackString(string value)
-        {
-            value = value.Trim();
+		private static UIBinding? ReadBinding(JsonObject node, string name)
+		{
+			if (!node.TryGetValue(name, out var value) || value is not JsonObject binding)
+				return null;
 
-            if (value.Equals("auto", StringComparison.OrdinalIgnoreCase))
-                return GridTrack.Auto;
+			if (!binding.TryGetValue("bind", out var path))
+				return null;
 
-            if (value.EndsWith('*'))
-            {
-                var weight = value[..^1];
+			return new UIBinding(path.ToString().Trim('"'));
+		}
 
-                return float.TryParse(weight, NumberStyles.Float, CultureInfo.InvariantCulture, out var parsed)
-                    ? GridTrack.Star(parsed)
-                    : GridTrack.Star();
-            }
+		private static Component CreatePlayerStats(JsonObject node)
+		{
+			var view = node.Str("view");
 
-            return float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out var pixels)
-                ? GridTrack.Pixels(pixels)
-                : GridTrack.Star();
-        }
+			if (view.Length == 0)
+				throw new InvalidDataException("coc:player_stats requires 'view'");
 
-        private static Component CreatePaperBackground(JsonObject node)
-        {
-            var paper = new PaperBackground();
+			return new PlayerStats(view);
+		}
 
-            var settings = node.Str("preset").Trim().ToLowerInvariant() switch
-            {
-                "clean" => PaperSettings.Clean,
-                "aged" => PaperSettings.Aged,
-                _ => paper.Settings
-            };
+		private static Component CreateStatRow(JsonObject node)
+		{
+			var row = new StatRow(ResolveFont(node, "coc:menu"));
 
-            if (node.TryGetValue("centerColor", out _))
-                settings.CenterColor = ColorOf(node.Str("centerColor"));
+			row.Label.Text(UILocalizedText.Resolve(node, "label"));
 
-            if (node.TryGetValue("edgeColor", out _))
-                settings.EdgeColor = ColorOf(node.Str("edgeColor"));
+			row.ValueBinding = ReadBinding(node, "value");
 
-            if (node.TryGetValue("edgeStrength", out var edgeStrength))
-                settings.EdgeStrength = Float(edgeStrength);
+			if (node.TryGetValue("labelColor", out _))
+				row.Label.TextColor = ColorOf(node.Str("labelColor"));
 
-            if (node.TryGetValue("lowNoiseStrength", out var lowNoise))
-                settings.LowNoiseStrength = Float(lowNoise);
+			if (node.TryGetValue("valueColor", out _))
+				row.Value.TextColor = ColorOf(node.Str("valueColor"));
 
-            if (node.TryGetValue("fiberStrength", out var fiber))
-                settings.FiberStrength = Float(fiber);
+			return row;
+		}
 
-            paper.Settings = settings;
+		private static Component CreateBar(JsonObject node)
+		{
+			var bar = new Bar(ResolveFont(node, "coc:body"))
+			{
+				ValueBinding = ReadBinding(node, "value"),
 
-            return paper;
-        }
+				MaxBinding = ReadBinding(node, "max"),
 
-        private Component CreateCustomComponent(JsonObject node)
-        {
-            var widgetId = node.Str("widget");
+				MinBinding = ReadBinding(node, "min"),
 
-            if (widgetId.Length == 0)
-                throw new InvalidDataException("CustomWidget node is missing 'widget'");
+				MarkerBinding = ReadBinding(node, "marker")
+			};
 
-            var properties = node.TryGetValue("properties", out var value) && value is JsonObject json
-                ? json
-                : new JsonObject();
+			if (bar.ValueBinding is null && node.TryGetValue("value", out var value))
+				bar.Value = Float(value);
 
-            if (!_widgets.TryCreate(widgetId, properties, out var component) || component is null)
-                throw new InvalidDataException($"Unknown custom widget '{widgetId}'");
+			if (node.TryGetValue("current", out var current))
+				bar.Value = Float(current);
 
-            return component;
-        }
+			if (bar.MaxBinding is null && node.TryGetValue("max", out var max))
+				bar.Max = Float(max);
 
-        private void ApplyControlTemplate(Button button, JsonObject node, UIDocument document)
-        {
-            var templateId = node.Str("controlTemplate");
+			if (bar.MinBinding is null && node.TryGetValue("min", out var min))
+				bar.Min = Float(min);
 
-            if (templateId.Length == 0)
-                return;
+			if (bar.MarkerBinding is null && node.TryGetValue("marker", out var marker))
+				bar.Marker = Float(marker);
 
-            if (!document.ControlTemplates.TryGetValue(templateId, out var template))
-            {
-                Console.ConsoleOverlay.WriteError(
-                    $"[UI] Unknown control template '{templateId}' in {document.Source}");
+			if (node.TryGetValue("fillColor", out _))
+				bar.FillColor = ColorOf(node.Str("fillColor"));
 
-                return;
-            }
+			if (node.TryGetValue("trackColor", out _))
+				bar.TrackColor = ColorOf(node.Str("trackColor"));
 
-            var root = BuildTemplateNode(template, document);
+			if (node.TryGetValue("borderColor", out _))
+				bar.BorderColor = ColorOf(node.Str("borderColor"));
 
-            if (root is not null)
-                button.ApplyControlTemplate(root);
-        }
+			if (node.TryGetValue("textColor", out _))
+				bar.TextColor = ColorOf(node.Str("textColor"));
 
-        private Component? BuildTemplateNode(JsonObject node, UIDocument document)
-        {
-            node = document.Expand(node);
+			if (node.TryGetValue("markerColor", out _))
+				bar.MarkerColor = ColorOf(node.Str("markerColor"));
 
-            var component = Create(node);
+			if (node.TryGetValue("borderThickness", out var borderThickness))
+				bar.BorderThickness = Int(borderThickness);
 
-            if (component is null)
-                return null;
+			if (node.TryGetValue("textPadding", out var textPadding))
+				bar.TextPadding = Int(textPadding);
 
-            ApplyLayout(component, node);
+			bar.Label = UILocalizedText.Resolve(node, "label");
 
-            ApplyMaterial(component, node);
+			bar.TextFormat = node.Str("textFormat", bar.TextFormat);
 
-            ApplyStateStyle(component, node);
+			if (node.TryGetValue("showText", out _))
+				bar.ShowText = node.Bool("showText", bar.ShowText);
 
-            ApplyDecorationStyle(component, node);
+			return bar;
+		}
 
-            BindEvents(component, node);
+		private static Component CreateGrid(JsonObject node)
+		{
+			var rowDefinitions = ReadGridTracks(node, "rows", "rowDefinitions");
 
-            BuildChildren(component, node, document);
+			var columnDefinitions = ReadGridTracks(node, "columns", "columnDefinitions");
 
-            MakeRelative(component);
+			var grid = new Grid(
+				rowDefinitions.Count > 0 ? rowDefinitions.Count : Math.Max(1, node.Int("rows", 1)),
+				columnDefinitions.Count > 0 ? columnDefinitions.Count : Math.Max(1, node.Int("columns", 1)));
 
-            if (component is Grid grid)
-                grid.ResizeToFit();
+			if (rowDefinitions.Count > 0)
+				grid.RowDefinitions = rowDefinitions;
 
-            return component;
-        }
+			if (columnDefinitions.Count > 0)
+				grid.ColumnDefinitions = columnDefinitions;
 
-        private static void MakeRelative(Component component)
-        {
-            foreach (var child in component.LayoutData.Children)
-            {
-                child.LayoutData.LayoutType = LayoutType.Relative;
+			grid.AutoSize = node.Bool("autoSize", false);
 
-                MakeRelative(child);
-            }
-        }
+			grid.AutoIndex = node.Bool("autoIndex", false);
 
-        private static void ApplyStateStyle(Component component, JsonObject node)
-        {
-            if (!node.TryGetValue("states", out var value) || value is not JsonObject states)
-                return;
+			if (node.TryGetValue("spacing", out var spacing))
+				grid.Spacing = Int(spacing);
 
-            var style = new UIStateStyle();
+			return grid;
+		}
 
-            if (node.TryGetValue("borderThickness", out var thickness))
-                style.BorderThickness = Int(thickness);
+		private static List<GridTrack> ReadGridTracks(JsonObject node, string countKey, string definitionsKey)
+		{
+			var result = new List<GridTrack>();
 
-            ApplyState(states, "normal", out style.NormalBackground, out style.NormalBorder, out style.NormalText);
-            ApplyState(states, "hover", out style.HoverBackground, out style.HoverBorder, out style.HoverText);
-            ApplyState(states, "pressed", out style.PressedBackground, out style.PressedBorder, out style.PressedText);
-            ApplyState(states, "disabled", out style.DisabledBackground, out style.DisabledBorder, out style.DisabledText);
+			var value = node.TryGetValue(definitionsKey, out var definitions)
+				? definitions
+				: node.TryGetValue(countKey, out var count) ? count : null;
 
-            component.StateStyle = style;
-        }
+			if (value is not JsonArray array)
+			{
+				if (value is not null)
+				{
+					var text = value.ToString().Trim('"').Trim();
 
-        private static void ApplyState(
-            JsonObject states,
-            string name,
-            out Color background,
-            out Color border,
-            out Color? text)
-        {
-            background = Color.Transparent;
-            border = Color.Transparent;
-            text = null;
+					if (text.StartsWith("auto", StringComparison.OrdinalIgnoreCase))
+					{
+						var repeat = text.Length == 4
+							? 1
+							: int.TryParse(text[4..], NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsed)
+								? Math.Max(0, parsed)
+								: 0;
 
-            if (!states.TryGetValue(name, out var value) || value is not JsonObject state)
-                return;
+						for (var i = 0; i < repeat; i++)
+							result.Add(GridTrack.Auto);
+					}
+				}
 
-            if (state.TryGetValue("backgroundColor", out _))
-                background = ColorOf(state.Str("backgroundColor"));
+				return result;
+			}
 
-            if (state.TryGetValue("borderColor", out _))
-                border = ColorOf(state.Str("borderColor"));
+			foreach (var entry in array)
+				result.Add(ParseGridTrack(entry));
 
-            if (state.TryGetValue("textColor", out _))
-                text = ColorOf(state.Str("textColor"));
-        }
+			return result;
+		}
 
-        private void BindEvents(Component component, JsonObject node)
-        {
-            var click = EventId(node, "onClick", "command");
+		private static GridTrack ParseGridTrack(JsonValue? value)
+		{
+			if (value is null)
+				return GridTrack.Star();
 
-            if (click.Length > 0)
-            {
-                if (component is Button button)
-                    button.OnClick = () => _events.Raise(click);
-                else
-                    component.OnClick = () => _events.Raise(click);
-            }
+			if (value is JsonObject obj)
+			{
+				var size = obj.Str("size", obj.Str("value", obj.Str("height", obj.Str("width", "1*"))));
 
-            if (component is Button mouseButton)
-            {
-                var mouseDown = EventId(node, "onMouseDown");
+				return ParseGridTrackString(size);
+			}
 
-                if (mouseDown.Length > 0)
-                    mouseButton.OnMouseDown = () => _events.Raise(mouseDown);
+			return ParseGridTrackString(value.ToString().Trim('"'));
+		}
 
-                var mouseUp = EventId(node, "onMouseUp");
+		private static GridTrack ParseGridTrackString(string value)
+		{
+			value = value.Trim();
 
-                if (mouseUp.Length > 0)
-                    mouseButton.OnMouseUp = _ => _events.Raise(mouseUp);
+			if (value.Equals("auto", StringComparison.OrdinalIgnoreCase))
+				return GridTrack.Auto;
 
-                var mouseMove = EventId(node, "onMouseMove");
+			if (value.EndsWith('*'))
+			{
+				var weight = value[..^1];
 
-                if (mouseMove.Length > 0)
-                    mouseButton.OnMouseMove = _ => _events.Raise(mouseMove);
-            }
+				return float.TryParse(weight, NumberStyles.Float, CultureInfo.InvariantCulture, out var parsed)
+					? GridTrack.Star(parsed)
+					: GridTrack.Star();
+			}
 
-            var mouseEnter = EventId(node, "onMouseEnter");
+			return float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out var pixels)
+				? GridTrack.Pixels(pixels)
+				: GridTrack.Star();
+		}
 
-            if (mouseEnter.Length > 0)
-                component.OnMouseEnterAction = () => _events.Raise(mouseEnter);
+		private static Component CreatePaperBackground(JsonObject node)
+		{
+			var paper = new PaperBackground();
 
-            var mouseLeave = EventId(node, "onMouseLeave");
+			var settings = node.Str("preset").Trim().ToLowerInvariant() switch
+			{
+				"clean" => PaperSettings.Clean,
+				"aged" => PaperSettings.Aged,
+				_ => paper.Settings
+			};
 
-            if (mouseLeave.Length > 0)
-                component.OnMouseLeaveAction = () => _events.Raise(mouseLeave);
-        }
+			if (node.TryGetValue("centerColor", out _))
+				settings.CenterColor = ColorOf(node.Str("centerColor"));
 
-        private static string EventId(JsonObject node, string primary, string? fallback = null)
-        {
-            var command = node.Str(primary);
+			if (node.TryGetValue("edgeColor", out _))
+				settings.EdgeColor = ColorOf(node.Str("edgeColor"));
 
-            if (command.Length == 0 && fallback is not null)
-                command = node.Str(fallback);
+			if (node.TryGetValue("edgeStrength", out var edgeStrength))
+				settings.EdgeStrength = Float(edgeStrength);
 
-            return command;
-        }
+			if (node.TryGetValue("lowNoiseStrength", out var lowNoise))
+				settings.LowNoiseStrength = Float(lowNoise);
 
-        private static void ApplyMaterial(Component component, JsonObject node)
-        {
-            var materialId = node.Str("material");
+			if (node.TryGetValue("fiberStrength", out var fiber))
+				settings.FiberStrength = Float(fiber);
 
-            if (materialId.Length == 0)
-                return;
+			paper.Settings = settings;
 
-            var config = node.TryGetValue("materialConfig", out var value) && value is JsonObject json
-                ? json
-                : null;
+			return paper;
+		}
 
-            if (MaterialRegistry.Instance.TryCreate(materialId, config, out var material) && material is not null)
-                component.Material = material;
-        }
+		private Component CreateCustomComponent(JsonObject node)
+		{
+			var widgetId = node.Str("widget");
 
-        private static void ApplyLayout(Component component, JsonObject node)
-        {
-            if (node.TryGetValue("x", out var x))
-                component.LayoutData.Position.X = Int(x);
+			if (widgetId.Length == 0)
+				throw new InvalidDataException("CustomWidget node is missing 'widget'");
 
-            if (node.TryGetValue("y", out var y))
-                component.LayoutData.Position.Y = Int(y);
+			var properties = node.TryGetValue("properties", out var value) && value is JsonObject json
+				? json
+				: new JsonObject();
 
-            if (node.TryGetValue("width", out var width))
-                component.LayoutData.Size.X = Int(width);
+			if (!_widgets.TryCreate(widgetId, properties, out var component) || component is null)
+				throw new InvalidDataException($"Unknown custom widget '{widgetId}'");
 
-            if (node.TryGetValue("height", out var height))
-                component.LayoutData.Size.Y = Int(height);
+			return component;
+		}
 
-            if (node.TryGetValue("padding", out var padding))
-                component.LayoutData.Padding = ParsePadding(padding);
+		private void ApplyControlTemplate(Button button, JsonObject node, UIDocument document)
+		{
+			var templateId = node.Str("controlTemplate");
 
-            if (node.TryGetValue("alpha", out var alpha))
-                component.LayoutData.Alpha = Float(alpha);
+			if (templateId.Length == 0)
+				return;
 
-            if (node.TryGetValue("alphaType", out _))
-                component.LayoutData.AlphaType = ParseAlphaType(node.Str("alphaType"));
+			if (!document.ControlTemplates.TryGetValue(templateId, out var template))
+			{
+				Console.ConsoleOverlay.WriteError(
+					$"[UI] Unknown control template '{templateId}' in {document.Source}");
 
-            if (node.TryGetValue("sizeType", out _))
-                component.LayoutData.SizeType = ParseSizeType(node.Str("sizeType"));
+				return;
+			}
 
-            if (node.TryGetValue("layout", out _))
-                component.LayoutData.LayoutType = ParseLayoutType(node.Str("layout"));
+			var root = BuildTemplateNode(template, document);
 
-            if (node.TryGetValue("gridRow", out var gridRow))
-                component.LayoutData.GridRow = Int(gridRow);
-            else if (node.TryGetValue("row", out var row))
-                component.LayoutData.GridRow = Int(row);
+			if (root is not null)
+				button.ApplyControlTemplate(root);
+		}
 
-            if (node.TryGetValue("gridColumn", out var gridColumn))
-                component.LayoutData.GridColumn = Int(gridColumn);
-            else if (node.TryGetValue("column", out var column))
-                component.LayoutData.GridColumn = Int(column);
+		private Component? BuildTemplateNode(JsonObject node, UIDocument document)
+		{
+			node = document.Expand(node);
 
-            if (node.TryGetValue("gridRowSpan", out var gridRowSpan))
-                component.LayoutData.GridRowSpan = Math.Max(1, Int(gridRowSpan));
-            else if (node.TryGetValue("rowSpan", out var rowSpan))
-                component.LayoutData.GridRowSpan = Math.Max(1, Int(rowSpan));
+			var component = Create(node);
 
-            if (node.TryGetValue("gridColumnSpan", out var gridColumnSpan))
-                component.LayoutData.GridColumnSpan = Math.Max(1, Int(gridColumnSpan));
-            else if (node.TryGetValue("columnSpan", out var columnSpan))
-                component.LayoutData.GridColumnSpan = Math.Max(1, Int(columnSpan));
+			if (component is null)
+				return null;
 
-            ApplyAlignment(component, node);
+			ApplyLayout(component, node);
 
-            if (node.TryGetValue("visible", out _))
-                component.Visible = node.Bool("visible", true);
+			ApplyMaterial(component, node);
 
-            if (node.TryGetValue("enabled", out _))
-                component.Enabled = node.Bool("enabled", true);
+			ApplyStateStyle(component, node);
 
-            if (node.TryGetValue("scissor", out _))
-                component.Scissor = node.Bool("scissor", false);
+			ApplyDecorationStyle(component, node);
 
-            if (node.TryGetValue("canHit", out _))
-                component.CanHit = node.Bool("canHit", true);
+			BindEvents(component, node);
 
-            if (node.TryGetValue("backgroundColor", out _))
-                component.BackgroundColor = ColorOf(node.Str("backgroundColor", "#00000000"));
+			BuildChildren(component, node, document);
 
-            var part = node.Str("part");
+			MakeRelative(component);
 
-            if (part.Length > 0)
-                component.PartName = part;
-        }
+			if (component is Grid grid)
+				grid.ResizeToFit();
 
-        private static UIVec4 ParsePadding(object value)
-        {
-            if (value is JsonArray array && array.Count >= 4)
-                return new UIVec4(Int(array[0]), Int(array[1]), Int(array[2]), Int(array[3]));
+			return component;
+		}
 
-            if (value is JsonObject obj)
-                return new UIVec4(
-                    Int(obj.Str("top")),
-                    Int(obj.Str("left")),
-                    Int(obj.Str("right")),
-                    Int(obj.Str("bottom")));
+		private static void MakeRelative(Component component)
+		{
+			foreach (var child in component.LayoutData.Children)
+			{
+				child.LayoutData.LayoutType = LayoutType.Relative;
 
-            return new UIVec4(Int(value));
-        }
+				MakeRelative(child);
+			}
+		}
 
-        private static void ApplyAlignment(Component component, JsonObject node)
-        {
-            var horizontal = node.Str("horizontalAlign", node.Str("hAlign"));
+		private static void ApplyStateStyle(Component component, JsonObject node)
+		{
+			var hasStates = node.TryGetValue("states", out var value) && value is JsonObject;
 
-            var vertical = node.Str("verticalAlign", node.Str("vAlign"));
+			var hasThickness = node.TryGetValue("borderThickness", out var thickness);
 
-            var both = node.Str("alignment");
+			var hasBorderColor = node.TryGetValue("borderColor", out _);
 
-            if (both.Length > 0)
-            {
-                foreach (var part in both.Split('-', StringSplitOptions.RemoveEmptyEntries))
-                {
-                    var value = part.Trim().ToLowerInvariant();
+			if (!hasStates && !hasThickness && !hasBorderColor)
+				return;
 
-                    if (value == "center")
-                    {
-                        horizontal = "center";
-                        vertical = "center";
-                    }
-                    else if (value is "left" or "right" or "stretch")
-                        horizontal = value;
-                    else if (value is "top" or "bottom")
-                        vertical = value;
-                    else
-                        ReportAlignmentError("alignment", value);
-                }
-            }
+			var style = new UIStateStyle();
 
-            if (horizontal.Length > 0)
-                component.LayoutData.HorizontalAlign = ParseHorizontalAlign(horizontal);
+			if (hasThickness)
+				style.BorderThickness = Int(thickness);
 
-            if (vertical.Length > 0)
-                component.LayoutData.VerticalAlign = ParseVerticalAlign(vertical);
-        }
+			if (hasStates)
+			{
+				var states = (JsonObject)value!;
 
-        private static AlignHorizontal ParseHorizontalAlign(string value) =>
-            value.Trim().ToLowerInvariant() switch
-            {
-                "center" => AlignHorizontal.Center,
-                "right" => AlignHorizontal.Right,
-                "stretch" => AlignHorizontal.Stretch,
-                "left" => AlignHorizontal.Left,
-                _ => ReportInvalidHorizontal(value)
-            };
+				ApplyState(states, "normal", out style.NormalBackground, out style.NormalBorder, out style.NormalText);
+				ApplyState(states, "hover", out style.HoverBackground, out style.HoverBorder, out style.HoverText);
+				ApplyState(states, "pressed", out style.PressedBackground, out style.PressedBorder, out style.PressedText);
+				ApplyState(states, "disabled", out style.DisabledBackground, out style.DisabledBorder, out style.DisabledText);
+			}
 
-        private static AlignVertical ParseVerticalAlign(string value) =>
-            value.Trim().ToLowerInvariant() switch
-            {
-                "center" => AlignVertical.Center,
-                "bottom" => AlignVertical.Bottom,
-                "stretch" => AlignVertical.Stretch,
-                "top" => AlignVertical.Top,
-                _ => ReportInvalidVertical(value)
-            };
+			if (hasBorderColor)
+			{
+				var border = ColorOf(node.Str("borderColor"));
 
-        private static AlignHorizontal ReportInvalidHorizontal(string value)
-        {
-            ReportAlignmentError("horizontalAlign", value);
+				style.NormalBorder = border;
 
-            return AlignHorizontal.None;
-        }
+				if (style.HoverBorder == Color.Transparent)
+					style.HoverBorder = border;
 
-        private static AlignVertical ReportInvalidVertical(string value)
-        {
-            ReportAlignmentError("verticalAlign", value);
+				if (style.PressedBorder == Color.Transparent)
+					style.PressedBorder = border;
 
-            return AlignVertical.None;
-        }
+				if (style.DisabledBorder == Color.Transparent)
+					style.DisabledBorder = border;
+			}
 
-        private static void ReportAlignmentError(string field, string value) =>
-            MonoCoC.UI.Console.ConsoleOverlay.WriteError(
-                $"[UI] Invalid {field} '{value}', using default.");
+			component.StateStyle = style;
+		}
 
-        private static TextHorizontalAlignment ReportInvalidTextHorizontal(string value)
-        {
-            ReportAlignmentError("textHorizontalAlign", value);
+		private static void ApplyState(
+			JsonObject states,
+			string name,
+			out Color background,
+			out Color border,
+			out Color? text)
+		{
+			background = Color.Transparent;
+			border = Color.Transparent;
+			text = null;
 
-            return TextHorizontalAlignment.Left;
-        }
+			if (!states.TryGetValue(name, out var value) || value is not JsonObject state)
+				return;
 
-        private static TextVerticalAlignment ReportInvalidTextVertical(string value)
-        {
-            ReportAlignmentError("textVerticalAlign", value);
+			if (state.TryGetValue("backgroundColor", out _))
+				background = ColorOf(state.Str("backgroundColor"));
 
-            return TextVerticalAlignment.Top;
-        }
+			if (state.TryGetValue("borderColor", out _))
+				border = ColorOf(state.Str("borderColor"));
 
-        private static LayoutType ParseLayoutType(string value) =>
-            string.Equals(value, "relative", StringComparison.OrdinalIgnoreCase)
-                ? LayoutType.Relative
-                : LayoutType.Absolute;
+			if (state.TryGetValue("textColor", out _))
+				text = ColorOf(state.Str("textColor"));
+		}
 
-        private static SizeType ParseSizeType(string value) =>
-            string.Equals(value, "fill", StringComparison.OrdinalIgnoreCase)
-                ? SizeType.Fill
-                : SizeType.Common;
+		private void BindEvents(Component component, JsonObject node)
+		{
+			var click = EventId(node, "onClick", "command");
 
-        private static CommonDataType ParseAlphaType(string value) =>
-            string.Equals(value, "inherit", StringComparison.OrdinalIgnoreCase)
-                ? CommonDataType.Inherit
-                : CommonDataType.Independent;
+			if (click.Length > 0)
+			{
+				if (component is Button button)
+					button.OnClick = () => _events.Raise(click);
+				else
+					component.OnClick = () => _events.Raise(click);
+			}
 
-        private static int Int(object value) =>
-            int.TryParse(value.ToString(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var result) ? result : 0;
+			if (component is Button mouseButton)
+			{
+				var mouseDown = EventId(node, "onMouseDown");
 
-        private static float Float(object value) =>
-            float.TryParse(value.ToString(), NumberStyles.Float, CultureInfo.InvariantCulture, out var result) ? result : 0f;
+				if (mouseDown.Length > 0)
+					mouseButton.OnMouseDown = () => _events.Raise(mouseDown);
 
-        private static Color ColorOf(string value)
-        {
-            value = value.Trim();
+				var mouseUp = EventId(node, "onMouseUp");
 
-            if (value.Length == 0)
-                return Color.Transparent;
+				if (mouseUp.Length > 0)
+					mouseButton.OnMouseUp = _ => _events.Raise(mouseUp);
 
-            if (value[0] != '#')
-                return Color.Transparent;
+				var mouseMove = EventId(node, "onMouseMove");
 
-            var hex = value[1..];
+				if (mouseMove.Length > 0)
+					mouseButton.OnMouseMove = _ => _events.Raise(mouseMove);
+			}
 
-            if (hex.Length == 6)
-                hex += "FF";
+			var mouseEnter = EventId(node, "onMouseEnter");
 
-            if (hex.Length != 8 ||
-                !uint.TryParse(hex, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var rgba))
-                return Color.Transparent;
+			if (mouseEnter.Length > 0)
+				component.OnMouseEnterAction = () => _events.Raise(mouseEnter);
 
-            return new Color(
-                (byte)((rgba >> 24) & 0xFF),
-                (byte)((rgba >> 16) & 0xFF),
-                (byte)((rgba >> 8) & 0xFF),
-                (byte)(rgba & 0xFF));
-        }
-    }
+			var mouseLeave = EventId(node, "onMouseLeave");
+
+			if (mouseLeave.Length > 0)
+				component.OnMouseLeaveAction = () => _events.Raise(mouseLeave);
+		}
+
+		private static string EventId(JsonObject node, string primary, string? fallback = null)
+		{
+			var command = node.Str(primary);
+
+			if (command.Length == 0 && fallback is not null)
+				command = node.Str(fallback);
+
+			return command;
+		}
+
+		private static void ApplyMaterial(Component component, JsonObject node)
+		{
+			var materialId = node.Str("material");
+
+			if (materialId.Length == 0)
+				return;
+
+			var config = node.TryGetValue("materialConfig", out var value) && value is JsonObject json
+				? json
+				: null;
+
+			if (MaterialRegistry.Instance.TryCreate(materialId, config, out var material) && material is not null)
+				component.Material = material;
+		}
+
+		private static void ApplyLayout(Component component, JsonObject node)
+		{
+			if (node.TryGetValue("x", out var x))
+				component.LayoutData.Position.X = Int(x);
+
+			if (node.TryGetValue("y", out var y))
+				component.LayoutData.Position.Y = Int(y);
+
+			if (node.TryGetValue("width", out var width))
+				component.LayoutData.Size.X = Int(width);
+
+			if (node.TryGetValue("height", out var height))
+				component.LayoutData.Size.Y = Int(height);
+
+			if (node.TryGetValue("padding", out var padding))
+				component.LayoutData.Padding = ParsePadding(padding);
+
+			if (node.TryGetValue("alpha", out var alpha))
+				component.LayoutData.Alpha = Float(alpha);
+
+			if (node.TryGetValue("alphaType", out _))
+				component.LayoutData.AlphaType = ParseAlphaType(node.Str("alphaType"));
+
+			if (node.TryGetValue("sizeType", out _))
+				component.LayoutData.SizeType = ParseSizeType(node.Str("sizeType"));
+
+			if (node.TryGetValue("layout", out _))
+				component.LayoutData.LayoutType = ParseLayoutType(node.Str("layout"));
+
+			if (node.TryGetValue("gridRow", out var gridRow))
+				component.LayoutData.GridRow = Int(gridRow);
+			else if (node.TryGetValue("row", out var row))
+				component.LayoutData.GridRow = Int(row);
+
+			if (node.TryGetValue("gridColumn", out var gridColumn))
+				component.LayoutData.GridColumn = Int(gridColumn);
+			else if (node.TryGetValue("column", out var column))
+				component.LayoutData.GridColumn = Int(column);
+
+			if (node.TryGetValue("gridRowSpan", out var gridRowSpan))
+				component.LayoutData.GridRowSpan = Math.Max(1, Int(gridRowSpan));
+			else if (node.TryGetValue("rowSpan", out var rowSpan))
+				component.LayoutData.GridRowSpan = Math.Max(1, Int(rowSpan));
+
+			if (node.TryGetValue("gridColumnSpan", out var gridColumnSpan))
+				component.LayoutData.GridColumnSpan = Math.Max(1, Int(gridColumnSpan));
+			else if (node.TryGetValue("columnSpan", out var columnSpan))
+				component.LayoutData.GridColumnSpan = Math.Max(1, Int(columnSpan));
+
+			ApplyAlignment(component, node);
+
+			if (node.TryGetValue("visible", out _))
+				component.Visible = node.Bool("visible", true);
+
+			if (node.TryGetValue("enabled", out _))
+				component.Enabled = node.Bool("enabled", true);
+
+			if (node.TryGetValue("scissor", out _))
+				component.Scissor = node.Bool("scissor", false);
+
+			if (node.TryGetValue("canHit", out _))
+				component.CanHit = node.Bool("canHit", true);
+
+			if (node.TryGetValue("backgroundColor", out _))
+				component.BackgroundColor = ColorOf(node.Str("backgroundColor", "#00000000"));
+
+			if (component is TextArea textArea)
+			{
+				if (node.TryGetValue("padding", out var textPadding))
+					textArea.Padding = ParsePadding(textPadding);
+
+				if (node.TryGetValue("autoScroll", out _))
+					textArea.AutoScroll = node.Bool("autoScroll", textArea.AutoScroll);
+
+				if (node.TryGetValue("scrollStep", out var scrollStep))
+					textArea.ScrollStep = Int(scrollStep);
+
+				if (node.TryGetValue("textHorizontalAlign", out var textAlignValue))
+				{
+					var textAlign = textAlignValue.ToString().Trim('"').Trim().ToLowerInvariant();
+
+					textArea.Text.HorizontalAlignment = textAlign switch
+					{
+						"center" => TextHorizontalAlignment.Center,
+						"right" => TextHorizontalAlignment.Right,
+						_ => TextHorizontalAlignment.Left
+					};
+				}
+			}
+
+			var part = node.Str("part");
+
+			if (part.Length > 0)
+				component.PartName = part;
+		}
+
+		private static UIVec4 ParsePadding(object value)
+		{
+			if (value is JsonArray array && array.Count >= 4)
+				return new UIVec4(Int(array[0]), Int(array[1]), Int(array[2]), Int(array[3]));
+
+			if (value is JsonObject obj)
+				return new UIVec4(
+					Int(obj.Str("top")),
+					Int(obj.Str("left")),
+					Int(obj.Str("right")),
+					Int(obj.Str("bottom")));
+
+			return new UIVec4(Int(value));
+		}
+
+		private static void ApplyAlignment(Component component, JsonObject node)
+		{
+			var horizontal = node.Str("horizontalAlign", node.Str("hAlign"));
+
+			var vertical = node.Str("verticalAlign", node.Str("vAlign"));
+
+			var both = node.Str("alignment");
+
+			if (both.Length > 0)
+			{
+				foreach (var part in both.Split('-', StringSplitOptions.RemoveEmptyEntries))
+				{
+					var value = part.Trim().ToLowerInvariant();
+
+					if (value == "center")
+					{
+						horizontal = "center";
+						vertical = "center";
+					}
+					else if (value is "left" or "right" or "stretch")
+						horizontal = value;
+					else if (value is "top" or "bottom")
+						vertical = value;
+					else
+						ReportAlignmentError("alignment", value);
+				}
+			}
+
+			if (horizontal.Length > 0)
+				component.LayoutData.HorizontalAlign = ParseHorizontalAlign(horizontal);
+
+			if (vertical.Length > 0)
+				component.LayoutData.VerticalAlign = ParseVerticalAlign(vertical);
+		}
+
+		private static AlignHorizontal ParseHorizontalAlign(string value) =>
+			value.Trim().ToLowerInvariant() switch
+			{
+				"center" => AlignHorizontal.Center,
+				"right" => AlignHorizontal.Right,
+				"stretch" => AlignHorizontal.Stretch,
+				"left" => AlignHorizontal.Left,
+				_ => ReportInvalidHorizontal(value)
+			};
+
+		private static AlignVertical ParseVerticalAlign(string value) =>
+			value.Trim().ToLowerInvariant() switch
+			{
+				"center" => AlignVertical.Center,
+				"bottom" => AlignVertical.Bottom,
+				"stretch" => AlignVertical.Stretch,
+				"top" => AlignVertical.Top,
+				_ => ReportInvalidVertical(value)
+			};
+
+		private static AlignHorizontal ReportInvalidHorizontal(string value)
+		{
+			ReportAlignmentError("horizontalAlign", value);
+
+			return AlignHorizontal.None;
+		}
+
+		private static AlignVertical ReportInvalidVertical(string value)
+		{
+			ReportAlignmentError("verticalAlign", value);
+
+			return AlignVertical.None;
+		}
+
+		private static void ReportAlignmentError(string field, string value) =>
+			MonoCoC.UI.Console.ConsoleOverlay.WriteError(
+				$"[UI] Invalid {field} '{value}', using default.");
+
+		private static TextHorizontalAlignment ReportInvalidTextHorizontal(string value)
+		{
+			ReportAlignmentError("textHorizontalAlign", value);
+
+			return TextHorizontalAlignment.Left;
+		}
+
+		private static TextVerticalAlignment ReportInvalidTextVertical(string value)
+		{
+			ReportAlignmentError("textVerticalAlign", value);
+
+			return TextVerticalAlignment.Top;
+		}
+
+		private static LayoutType ParseLayoutType(string value) =>
+			string.Equals(value, "relative", StringComparison.OrdinalIgnoreCase)
+				? LayoutType.Relative
+				: LayoutType.Absolute;
+
+		private static SizeType ParseSizeType(string value) =>
+			string.Equals(value, "fill", StringComparison.OrdinalIgnoreCase)
+				? SizeType.Fill
+				: SizeType.Common;
+
+		private static CommonDataType ParseAlphaType(string value) =>
+			string.Equals(value, "inherit", StringComparison.OrdinalIgnoreCase)
+				? CommonDataType.Inherit
+				: CommonDataType.Independent;
+
+		private static int Int(object value) =>
+			int.TryParse(value.ToString(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var result) ? result : 0;
+
+		private static float Float(object value) =>
+			float.TryParse(value.ToString(), NumberStyles.Float, CultureInfo.InvariantCulture, out var result) ? result : 0f;
+
+		private static Color ColorOf(string value)
+		{
+			value = value.Trim();
+
+			if (value.Length == 0)
+				return Color.Transparent;
+
+			if (value[0] != '#')
+				return Color.Transparent;
+
+			var hex = value[1..];
+
+			if (hex.Length == 6)
+				hex += "FF";
+
+			if (hex.Length != 8 ||
+				!uint.TryParse(hex, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var rgba))
+				return Color.Transparent;
+
+			return new Color(
+				(byte)((rgba >> 24) & 0xFF),
+				(byte)((rgba >> 16) & 0xFF),
+				(byte)((rgba >> 8) & 0xFF),
+				(byte)(rgba & 0xFF));
+		}
+	}
 }
 

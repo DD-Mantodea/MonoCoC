@@ -238,7 +238,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ClearButtons();
 
-            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<Places.TelAdre.TelAdre>.Get()));
         }
 
         public void InterestedInUburDrunkurtaRuts()

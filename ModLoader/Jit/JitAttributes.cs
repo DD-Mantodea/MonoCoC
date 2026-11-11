@@ -3,12 +3,12 @@ using System;
 namespace MonoCoC.ModLoader
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Property, Inherited = true)]
-    public sealed class NoJitAttribute : Attribute
+    public class NoJitAttribute : Attribute
     {
     }
 
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Constructor | AttributeTargets.Method | AttributeTargets.Property, Inherited = true)]
-    public sealed class JitWhenModsEnabledAttribute : Attribute
+    public class JitWhenModsEnabledAttribute : Attribute
     {
         public JitWhenModsEnabledAttribute(params string[] modIds)
         {
@@ -18,7 +18,7 @@ namespace MonoCoC.ModLoader
         public string[] ModIds { get; }
     }
 
-    public sealed class ModJitException : Exception
+    public class ModJitException : Exception
     {
         public ModJitException(string modId, string member, Exception innerException)
             : base($"{modId}: failed to JIT {member}: {innerException.Message}", innerException)

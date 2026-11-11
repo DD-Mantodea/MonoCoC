@@ -274,7 +274,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (EmberAffection() > 0 && Player.HasItem(ItemRegistry.Create(ConsumableIds.DrakeHeart), 1) && CoC.Instance.Flags.Get(GameFlagIds.GiftedFlower) == 0)
                 AddButton(10, "Common.Button.GiftFlower".Localized(), GiftDrakeFlower);
 
-            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
         }
 
         public void EmberSexMenu(bool output = true)
@@ -3060,7 +3060,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             emberEnemy.OnWon = _ => LoseToEmberSpar();
 
-            CombatScene.Start(emberEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(emberEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void BeatEmberSpar()

@@ -10,7 +10,7 @@ namespace MonoCoC.ModLoader
     /// <summary>
     /// Collectible load context for one mod and its private dependencies.
     /// </summary>
-    public sealed class ModLoadContext : AssemblyLoadContext
+    public class ModLoadContext : AssemblyLoadContext
     {
         private readonly CocModPackage _package;
         private readonly Dictionary<string, Assembly> _assemblies = new(StringComparer.OrdinalIgnoreCase);

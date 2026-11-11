@@ -4,7 +4,7 @@ using System.IO;
 
 namespace MonoCoC.ModLoader
 {
-    internal sealed class CocModSubStream : Stream
+    internal class CocModSubStream : Stream
     {
         private readonly CocModPackage _package;
         private readonly CocModEntry _entry;

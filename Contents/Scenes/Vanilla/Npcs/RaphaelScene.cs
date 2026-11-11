@@ -1740,7 +1740,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                         AddButton(1, "Common.Button.Sex".Localized(), RaphaelOrphanageSexMenu);
 
-                        AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                        AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<Places.TelAdre.TelAdre>.Get()));
                     }
                     else
                     {
@@ -1748,7 +1748,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                         ClearButtons();
 
-                        AddButton(0, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                        AddButton(0, "Common.Button.Back".Localized(), () => Go(SceneInstance<Places.TelAdre.TelAdre>.Get()));
                     }
         }
 
@@ -1967,7 +1967,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             AddButton(1, "Scenes.Akbal.TakeAdvantageOfAkbitch.ButtonRideHim".Localized(), GirlOnTopOfRedFoxesOhMy);
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<Places.TelAdre.TelAdre>.Get()));
         }
 
     }

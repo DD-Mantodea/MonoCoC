@@ -14,7 +14,7 @@ namespace MonoCoC.UI.Components
     /// decorations and named "header"/"body" label parts; this class only
     /// binds text and positions the visual tree.
     /// </summary>
-    public sealed class HintView
+    public class HintView
     {
         private readonly Component _root;
 
@@ -51,11 +51,9 @@ namespace MonoCoC.UI.Components
 
         public void Show(string header, string body, Rectangle anchor)
         {
-            if (_header is not null)
-                _header.TextColor = _style.HeaderColor;
+            _header?.TextColor = _style.HeaderColor;
 
-            if (_body is not null)
-                _body.TextColor = _style.BodyColor;
+            _body?.TextColor = _style.BodyColor;
 
             if (header != _headerText)
             {

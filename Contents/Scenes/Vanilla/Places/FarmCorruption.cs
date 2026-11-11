@@ -561,10 +561,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
         // ===== 原版 FarmCorruption.hx:395 getItemObj / takeItems / afterTakeItems =====
 
         /// <summary>原版 FARM_CONTRACEPTIVE_STORED 对应的物品。</summary>
-        public static readonly MonoCoC.Registry.Identifier ContraceptiveIdentifier = new("coc", "herbal_contraceptive");
+        public static readonly Registry.Identifier ContraceptiveIdentifier = new("coc", "herbal_contraceptive");
 
         /// <summary>原版 FarmCorruption.hx:395 getItemObj()：按存放 flag 取物品。</summary>
-        public static MonoCoC.Registry.Identifier StoredItemIdentifier(Flag<int> flag)
+        public static Registry.Identifier StoredItemIdentifier(Flag<int> flag)
         {
             if (flag.Id.Equals(GameFlagIds.FarmSuccumilkStored.Id)) return ConsumableIds.SuccubiMilk;
             if (flag.Id.Equals(GameFlagIds.FarmIncudraftStored.Id)) return ConsumableIds.IncubiDraft;
@@ -599,7 +599,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
         }
 
         /// <summary>原版 Sophie 产蛋颜色 → 对应蛋物品。</summary>
-        public static MonoCoC.Registry.Identifier EggIdentifier() =>
+        public static Registry.Identifier EggIdentifier() =>
 
             F.Get(GameFlagIds.FollowerProductionSophieColorchoice) switch
             {
@@ -615,7 +615,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
             };
 
         /// <summary>物品短名（用于按钮文字）。</summary>
-        public static string ItemShortName(MonoCoC.Registry.Identifier id) =>
+        public static string ItemShortName(Registry.Identifier id) =>
 
             Contents.Items.ItemRegistry.Create(id).Name;
 

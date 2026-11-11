@@ -2613,7 +2613,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             else
                 OutputText("Scenes.Helspawnscene.SparHelspawn.StepBackGoEasy".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "helspawn")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "helspawn")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void LoseSparringToDaughter()

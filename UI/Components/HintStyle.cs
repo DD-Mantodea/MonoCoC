@@ -7,7 +7,7 @@ namespace MonoCoC.UI.Components
     /// Per-button tooltip/hint menu configuration. The global ToolTipView
     /// values remain the defaults when a Button has no HintSettings.
     /// </summary>
-    public sealed class HintStyle
+    public class HintStyle
     {
         public int Width = 350;
 

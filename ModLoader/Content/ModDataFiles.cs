@@ -7,7 +7,7 @@ namespace MonoCoC.ModLoader
     /// <summary>
     /// Scoped access to Data/**.hjson and other files inside a mod.
     /// </summary>
-    public sealed class ModDataFiles : IDataFileSource
+    public class ModDataFiles : IDataFileSource
     {
         private readonly PackageDataFileSource _source;
 

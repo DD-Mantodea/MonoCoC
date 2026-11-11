@@ -11,7 +11,7 @@ namespace MonoCoC.ModLoader
     /// <summary>
     /// Reader for the uncompressed .cocmod container.
     /// </summary>
-    public sealed class CocModPackage : IDisposable
+    public class CocModPackage : IDisposable
     {
         private const string MagicText = "COCMOD\0\0";
         private const uint FormatVersion = 1;

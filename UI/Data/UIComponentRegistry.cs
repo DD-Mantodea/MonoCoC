@@ -9,7 +9,7 @@ namespace MonoCoC.UI.Data
     /// Registered UI component types. Core types use coc: and mods should use
     /// their own namespace, e.g. my_mod:paper_background.
     /// </summary>
-    public sealed class UIComponentRegistry
+    public class UIComponentRegistry
     {
         private readonly Dictionary<string, Func<JsonObject, Component?>> _types =
             new(StringComparer.OrdinalIgnoreCase);

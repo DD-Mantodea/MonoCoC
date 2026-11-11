@@ -587,7 +587,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Ceraphscene.FinalCeraphEncounterStartFight.SnarlsDropsHarness".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "ceraph")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "ceraph")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void AgreeToBecomeCeraphsFuckpetBondageToyBitchSlut()
@@ -686,7 +686,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Ceraphscene.CeraphFirstTimeDecline.SuggestivePoseTweaks".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "ceraph")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "ceraph")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void CeraphFirstTimeVolunteer()
@@ -725,7 +725,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Ceraphscene.CeraphFirstTimeRepeat.UncurlsFlamingWhip".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "ceraph")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "ceraph")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void Level3CeraphOffer()
@@ -751,7 +751,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Ceraphscene.Level3CeraphOfferNo.FightOnYourHands".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "ceraph")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "ceraph")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void YesOHGODYESPIERCELEVEL3()
@@ -1289,7 +1289,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         public void StartAFightWithCeraph()
         {
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "ceraph")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: false);
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "ceraph")), () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: false);
         }
 
         public void RunFromCeraphsNiceDeal()

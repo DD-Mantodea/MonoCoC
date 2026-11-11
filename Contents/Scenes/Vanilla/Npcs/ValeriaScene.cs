@@ -82,7 +82,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (Player.ArmorName != "goo armor")
                 AddButton(5, "Common.Button.Take".Localized(), TakeValeria);
 
-            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
         }
 
         public void ValeriaCampLines()
@@ -149,7 +149,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             enemy.OnWon = _ => PcWinsValeriaSparDefeat();
 
-            CombatScene.Start(enemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(enemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             CurrentMonster.CreateStatusEffect(StatusEffectIds.Spar, 0, 0, 0, 0);
 

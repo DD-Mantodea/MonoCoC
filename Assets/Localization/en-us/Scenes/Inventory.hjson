@@ -41,7 +41,7 @@
   "Scenes.Inventory.InventoryMenu.LowerUnderwearLine": "[pg-]<b>Lower underwear:</b> {0}"
   "Scenes.Inventory.InventoryMenu.NailsCount": "[pg-][b: Nails:] {0}"
   "Scenes.Inventory.InventoryMenu.NoUsableItems": "[pg-]You have no usable items."
-  "Scenes.Inventory.InventoryMenu.PouchesStuck": "[pg-]You reach for your items, but you just can't get your pouches open. <b>Your ability to use items was sealed, and now you've wasted a chance to attack!</b>[pg]"
+  "Scenes.Inventory.InventoryMenu.PouchesStuck": "[pg-]You reach for your items, but you just can't get your pouches open. <b>Your ability to use items was, and now you've wasted a chance to attack!</b>[pg]"
   "Scenes.Inventory.InventoryMenu.ShieldLine": "[pg-]<b>Shield:</b> {0} (Block Rating: {1})"
   "Scenes.Inventory.InventoryMenu.StonesCount": "[pg-][b: Stones:] {0}"
   "Scenes.Inventory.InventoryMenu.UpperUnderwearLine": "[pg-]<b>Upper underwear:</b> {0}"

@@ -44,7 +44,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
             Player.UnlockCodexEntry(GameFlagIds.CodexEntryGoblins);
 
-            CombatScene.Start(EnemyRegistry.Create(EnemyIds.GoblinWarrior), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(EnemyIds.GoblinWarrior), () => Go(SceneInstance<ForestScene>.Get()));
         }
 
         public void GobboWarriorBeatYaUp()

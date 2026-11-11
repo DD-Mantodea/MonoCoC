@@ -36,10 +36,10 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             ArmorName = "robes";
         }
 
-        public override MonoCoC.Registry.Identifier? ForcedAbility(Combat.CombatContext context)
+        public override Registry.Identifier? ForcedAbility(Combat.CombatContext context)
         {
             if (Health < MaxHealth * 0.6f && Fatigue <= 90 && context.Player.HasCock())
-                return new MonoCoC.Registry.Identifier("coc", "corrupted_witch_heals");
+                return new Registry.Identifier("coc", "corrupted_witch_heals");
 
             return null;
         }

@@ -25,7 +25,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Hel
             if (hours > 0)
                 View.Time.PassTime(hours);
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get());
+            Go(SceneInstance<CampScene>.Get());
         }
 
         public static Action? _pendingRoom;

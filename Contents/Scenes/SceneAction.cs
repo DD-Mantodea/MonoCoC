@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 
 namespace MonoCoC.Contents.Scenes
 {
-    public sealed class SceneAction
+    public class SceneAction
     {
         public int Slot { get; set; } = -1;
 

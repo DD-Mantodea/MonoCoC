@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Extensions;
 using MonoCoC.UI.Data;
@@ -8,7 +8,7 @@ namespace MonoCoC.UI.Components
 {
     public class UIImage(Texture2D texture) : Component, IUIStatefulPart
     {
-        private sealed record State(Texture2D? Texture, Color Color, bool Visible);
+        private record State(Texture2D? Texture, Color Color, bool Visible);
 
         public Texture2D Texture = texture;
 

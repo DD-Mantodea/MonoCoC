@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MonoCoC.Assets;
 using MonoCoC.Assets.AssetManagers;
 using MonoCoC.Contents.Enemies;
@@ -11,7 +11,7 @@ namespace MonoCoC.UI.Components.Combat
 {
     public class CombatStats : Container, IUIStatefulPart
     {
-        private sealed record Snapshot(Enemy? Enemy, bool IsVisible);
+        private record Snapshot(Enemy? Enemy, bool IsVisible);
 
         private const int BarWidth = 214;
 

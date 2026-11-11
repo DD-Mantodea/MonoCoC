@@ -671,7 +671,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Seasonal
             if (Save.GetBool("weaponTalked"))
                 AddButton(4, Save.GetBool("guardCamp") ? "Common.Button.StopGuarding".Localized() : "Common.Button.GuardCamp".Localized(), NieveGuardToggle);
 
-            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
         }
 
         public void NieveAppearance()

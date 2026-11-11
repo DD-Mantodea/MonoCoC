@@ -12,7 +12,7 @@ namespace MonoCoC.UI.Components
 {
     public class TextBox : Component, IUIStatefulPart
     {
-        private sealed record SnapshotState(string Text, int ScrollX, bool Active, int CursorIndex, int SelectBegin);
+        private record SnapshotState(string Text, int ScrollX, int CursorIndex, int SelectBegin);
 
         public TextBox(SpriteFontBase font)
         {
@@ -45,7 +45,7 @@ namespace MonoCoC.UI.Components
         public bool ShowBorder = true;
 
         public object? CaptureState() =>
-            new SnapshotState(Text, ScrollX, Active, Cursor.CursorIndex, Cursor.SelectBegin);
+            new SnapshotState(Text, ScrollX, Cursor.CursorIndex, Cursor.SelectBegin);
 
         public void RestoreState(object value)
         {
@@ -59,8 +59,6 @@ namespace MonoCoC.UI.Components
             Cursor.CursorIndex = state.CursorIndex;
 
             Cursor.SelectBegin = state.SelectBegin;
-
-            Active = state.Active;
 
             OnTextChanged?.Invoke(Text);
         }
@@ -200,7 +198,6 @@ namespace MonoCoC.UI.Components
             if (UserInput.Ctrl)
                 return;
 
-            // 控制字符（含 ESC）不应进入文本框
             if (char.IsControl(character))
                 return;
 
@@ -494,7 +491,7 @@ namespace MonoCoC.UI.Components
 
             UIManager.Instance.ScissorStack.Push(Rectangle);
 
-            spriteBatch.Begin(rasterizerState: UIManager.ScissorRasterizer);
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, UIManager.ScissorRasterizer);
 
             try
             {
@@ -519,7 +516,7 @@ namespace MonoCoC.UI.Components
 
                 UIManager.Instance.ScissorStack.Pop();
 
-                spriteBatch.Begin(rasterizerState: UIManager.ScissorRasterizer);
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, UIManager.ScissorRasterizer);
             }
         }
     }
@@ -642,3 +639,4 @@ namespace MonoCoC.UI.Components
         OnlyNumber
     }
 }
+

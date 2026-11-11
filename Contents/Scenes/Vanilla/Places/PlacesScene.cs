@@ -222,7 +222,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
             }
 
             if (Flags.Get(GameFlagIds.DiscoveredDungeon2Zetaz) > 0)
-                AddButton(1, "Dungeons.DeepCave.Name".Localized(), () => DungeonScene.Enter(new MonoCoC.Registry.Identifier("coc", "deep_cave")),
+                AddButton(1, "Dungeons.DeepCave.Name".Localized(), () => DungeonScene.Enter(new Registry.Identifier("coc", "deep_cave")),
 
                     "Visit the cave you've found in the Deepwoods."
 
@@ -255,7 +255,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
             }
 
             if (Flags.Get(GameFlagIds.DiscoveredWitchDungeon) > 0)
-                AddButton(5, "Dungeons.DesertCave.Name".Localized(), () => DungeonScene.Enter(new MonoCoC.Registry.Identifier("coc", "desert_cave")),
+                AddButton(5, "Dungeons.DesertCave.Name".Localized(), () => DungeonScene.Enter(new Registry.Identifier("coc", "desert_cave")),
 
                     "Visit the cave you've found in the desert.");
 

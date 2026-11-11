@@ -5,7 +5,7 @@ using System.IO.Enumeration;
 
 namespace MonoCoC.ModLoader
 {
-    public sealed class PackageDataFileSource : IDataFileSource
+    public class PackageDataFileSource : IDataFileSource
     {
         private readonly ModFiles _files;
         private readonly string _root;

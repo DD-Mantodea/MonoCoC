@@ -182,7 +182,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             isabellaEnemy.OnWon = _ => VictoryLactation69();
 
-            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: true);
+            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: true);
 
                 if (!isabellaFollower())
                     SceneInstance<IsabellaFollowerScene>.Get().IsabellaAffection(-4);
@@ -396,7 +396,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             isabellaEnemy.OnWon = _ => VictoryLactation69();
 
-            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: true);
+            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: true);
 
             if (!isabellaFollower())
                 SceneInstance<IsabellaFollowerScene>.Get().IsabellaAffection(-4);
@@ -436,7 +436,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             isabellaEnemy.OnWon = _ => VictoryLactation69();
 
-            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: true);
+            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: true);
 
             CoC.Instance.Flags.Set(GameFlagIds.IsabellaAngryAtPcCounter, CoC.Instance.Flags.Get(GameFlagIds.IsabellaAngryAtPcCounter) + 72);
         }
@@ -456,7 +456,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             isabellaEnemy.OnWon = _ => VictoryLactation69();
 
-            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: true);
+            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: true);
 
             CoC.Instance.Flags.Set(GameFlagIds.IsabellaAngryAtPcCounter, CoC.Instance.Flags.Get(GameFlagIds.IsabellaAngryAtPcCounter) + 72);
         }
@@ -477,7 +477,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             isabellaEnemy.OnWon = _ => VictoryLactation69();
 
-            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), true, true);
+            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()), true, true);
 
                 if (!isabellaFollower())
                     SceneInstance<IsabellaFollowerScene>.Get().IsabellaAffection(-2);
@@ -497,7 +497,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             isabellaEnemy.OnWon = _ => VictoryLactation69();
 
-            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: true);
+            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: true);
                 }
                 else
                     if (Player.Intelligence < 75)
@@ -513,7 +513,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             isabellaEnemy.OnWon = _ => VictoryLactation69();
 
-            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: true);
+            CombatScene.Start(isabellaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: true);
                     }
                     else
                     {

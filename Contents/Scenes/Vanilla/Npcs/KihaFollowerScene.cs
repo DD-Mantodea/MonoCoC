@@ -213,7 +213,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kihafollowerscene.KihaSpiderEventIntro.FightKihaBegins".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "kiha")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "kiha")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             CurrentMonster.CreateStatusEffect(StatusEffectIds.Spiderfight, 0, 0, 0, 0);
         }
@@ -282,7 +282,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             mob.MissFirstRound = true;
 
-            CombatScene.Start(mob, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(mob, () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             Player.HealthChange(100);
 
@@ -327,7 +327,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kihafollowerscene.HelpKihaAgainstSpoidahs.HaulKihaUp".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "spider_morph_mob")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "spider_morph_mob")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             Player.HealthChange(100);
 
@@ -520,7 +520,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kihafollowerscene.SparWithKiha.ReturnSmugGrin".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "kiha")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "kiha")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             CurrentMonster.CreateStatusEffect(StatusEffectIds.Spar, 0, 0, 0, 0);
         }
@@ -1359,7 +1359,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                                 OutputText("Scenes.Kihafollowerscene.WarmLoverKihaIntro.ImpossibleNotToNotice".Localized());
                     }
 
-                    leave = () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get());
+                    leave = () => Go(SceneInstance<CampScene>.Get());
 
                     ClearButtons();
 
@@ -3309,7 +3309,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             me.OnWon = (hpVictory) => PcLosesDomFight(hpVictory);
 
-            CombatScene.Start(me, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(me, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void PcLosesDomFight(bool hpVictory, bool pcCameWorms = false)
@@ -4350,7 +4350,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             Save.SetBool("wakeUp", true);
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get());
+            Go(SceneInstance<CampScene>.Get());
         }
 
         public void Morning()

@@ -706,7 +706,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Marblescene.MarbleAfterRapeStartFight.EnterCombatStance".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "marble")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "marble")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void MarbleAfterRapeNo()

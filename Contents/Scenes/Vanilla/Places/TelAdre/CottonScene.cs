@@ -299,7 +299,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             {
                 OutputText("Scenes.Cotton.AcceptYoga.TooTiredForYoga".Localized());
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<TelAdre>.Get());
 
                 return ;
             }

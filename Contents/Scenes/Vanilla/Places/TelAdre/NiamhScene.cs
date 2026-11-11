@@ -325,7 +325,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             CoC.Instance.Flags.Set(GameFlagIds.MetNiamh, CoC.Instance.Flags.Get(GameFlagIds.MetNiamh) + 1);
 
-            Player.Inventory.Add(ItemRegistry.Create(ConsumableIds.BCBeer), 1); Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Player.Inventory.Add(ItemRegistry.Create(ConsumableIds.BCBeer), 1); Go(SceneInstance<TelAdre>.Get());
         }
 
         public void TalkToNiamh()
@@ -371,7 +371,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             else
                 AddButton(0, "Common.Button.Beer".Localized(), null);
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void LeaveNiamh()
@@ -380,7 +380,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Niamh.LeaveNiamh.DecideDont".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void GiveNiamphBimboLiquer()
@@ -786,7 +786,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             else
                 AddButton(0, "Common.Button.Yep".Localized(), YeahSeanLetsBimbooze);
 
-            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void YeahSeanLetsBimbooze()

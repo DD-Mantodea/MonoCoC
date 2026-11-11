@@ -31,7 +31,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             ArmorName = "pod";
         }
 
-        public static readonly MonoCoC.Registry.Identifier RoundId = new("coc", "encapsulation_pod_round");
+        public static readonly Registry.Identifier RoundId = new("coc", "encapsulation_pod_round");
 
         public override bool BeforeCombatAction(CombatContext context)
         {

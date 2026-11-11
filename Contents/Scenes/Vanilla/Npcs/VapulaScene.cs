@@ -414,7 +414,7 @@ CallSlaveVapula();
             if (Player.HasItem(ItemRegistry.Create(ConsumableIds.Liddellium)) && (CoC.Instance.Flags.Get(GameFlagIds.LiddelliumFlag) >= 0))
                 AddRowButton(2, "Strange Potion", IdLiddellium);
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<CampScene>.Get()));
 
             if (CoC.Instance.Flags.Get(GameFlagIds.FollowerAtFarmVapula) == 1)
                 AddButton(14, "Common.Button.Back".Localized(), null );
@@ -2080,7 +2080,7 @@ CallSlaveVapula();
 
             CoC.Instance.Flags.Set(GameFlagIds.LiddelliumFlag, -1);
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get());
+            Go(SceneInstance<CampScene>.Get());
         }
 
         public void VapulaRebeccAbuse()

@@ -14,7 +14,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
             Scene.OutputText("Scenes.Forest.Placeholder".Localized(name));
 
-            Scene.AddButton(14, "Common.Back".Localized(), () => Scene.Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            Scene.AddButton(14, "Common.Back".Localized(), () => Scene.Go(SceneInstance<ForestScene>.Get()));
         }
     }
 }

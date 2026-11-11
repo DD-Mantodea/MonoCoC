@@ -1,4 +1,4 @@
-using MonoCoC.Contents.Enemies;
+﻿using MonoCoC.Contents.Enemies;
 using MonoCoC.Extensions;
 using MonoCoC.UI.Data;
 using MonoCoC.UI.Layout;
@@ -7,12 +7,9 @@ using System.Collections.Generic;
 
 namespace MonoCoC.UI.Components.Combat
 {
-    // 原版 coc.view.MonsterStatsView 的对应实现：
-    // 按 monsterArray 顺序纵向排列多个敌人面板，点击面板切换当前攻击目标；
-    // 当前目标在面板上方显示一个向下的三角指示（程序生成的抗锯齿贴图）。
     public class MultiCombatStats : Container, IUIStatefulPart
     {
-        private sealed record Snapshot(List<Enemy> Enemies, int Selected, Action<int>? Select);
+        private record Snapshot(List<Enemy> Enemies, int Selected, Action<int>? Select);
 
         public const int Gap = 8;
 
@@ -66,7 +63,6 @@ namespace MonoCoC.UI.Components.Combat
             Visible = false;
         }
 
-        // 照原版 refreshStats：前 N 个面板显示，其余隐藏
         public void Refresh(IReadOnlyList<Enemy> enemies, int selected, Action<int> select)
         {
             _select = select;

@@ -351,7 +351,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			if (Player.CanOvipositBee())
 				AddButton(5, "Common.Button.LayEggs".Localized(), BeeEggsInCorruptJojo);
 
-			AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+			AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
 
 			if (CoC.Instance.Flags.Get(GameFlagIds.FarmCorruptionStarted) == 1 && CoC.Instance.Flags.Get(GameFlagIds.FollowerAtFarmJojo) == 0)
 				AddButton(6, "Common.Button.FarmWork".Localized(), SendToFarm);
@@ -1898,7 +1898,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			OutputText("Scenes.Jojoscene.JojoPredictsRape.HopesToPurgeLust".Localized());
 
-			CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "jojo")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+			CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "jojo")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 		}
 
 		public void JojosFirstRape(bool postCombat = false)
@@ -3506,7 +3506,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
 			Player.UnlockCodexEntry(GameFlagIds.CodexEntryRatMice);
 
-			CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "jojo")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+			CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "jojo")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 		}
 
 		public void MeditateInForest()
@@ -3751,7 +3751,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 			if (Player.IsCorruptEnough(10) && Player.Lust >= 33 && (int)Player.Gender > 0 && CoC.Instance.Flags.Get(GameFlagIds.DisabledJojoRape) <= 0)
 				AddRowButton(2, "Rape", JojoAtCampRape);
 
-			AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+			AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<CampScene>.Get()));
 		}
 
 		public void JojoAppearance()

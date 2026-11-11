@@ -216,7 +216,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 sophieEnemy.OnWon = _ => SophieLostCombat();
 
-                CombatScene.Start(sophieEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+                CombatScene.Start(sophieEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
                 return;
             }
@@ -357,7 +357,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             sophieEnemy2.OnWon = _ => SophieLostCombat();
 
-            CombatScene.Start(sophieEnemy2, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: false);
+            CombatScene.Start(sophieEnemy2, () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: false);
 
             CoC.Instance.Flags.Set(GameFlagIds.SophieAngryAtPcCounter, CoC.Instance.Flags.Get(GameFlagIds.SophieAngryAtPcCounter) + Random.Shared.Next(24));
         }
@@ -384,7 +384,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             harpyEnemy.OnWon = _ => CombatScene.CleanupAfterCombat();
 
-            CombatScene.Start(harpyEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(harpyEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void SophieLookingForDemons()
@@ -504,7 +504,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             sophieEnemy.OnWon = _ => SophieLostCombat();
 
-            CombatScene.Start(sophieEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(sophieEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void SophieMeetingGotLost()

@@ -320,7 +320,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             ConsumeTalisman();
         }
 
-        private static readonly (MonoCoC.Registry.Identifier Status, string Key)[] PLAYER_DISPEL_TARGETS =
+        private static readonly (Registry.Identifier Status, string Key)[] PLAYER_DISPEL_TARGETS =
 
         [
             (StatusEffectIds.ChargeWeapon, "Combat.Arian.Dispel.NtheTalismanSuccessfullyRemoves"),
@@ -348,7 +348,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             (StatusEffectIds.Might, "Combat.Arian.Dispel.TheGolemDoesnSeem"),
         ];
 
-        private static readonly (MonoCoC.Registry.Identifier Status, string Key)[] ENEMY_DISPEL_TARGETS =
+        private static readonly (Registry.Identifier Status, string Key)[] ENEMY_DISPEL_TARGETS =
 
         [
             (StatusEffectIds.ChargeWeapon, "Combat.Arian.Dispel.YourSpellOverpowersThe"),

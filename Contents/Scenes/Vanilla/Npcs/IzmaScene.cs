@@ -609,7 +609,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             izmaEnemy.OnWon = _ => LoseToIzma();
 
-            CombatScene.Start(izmaEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(izmaEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void DefeatIzma()
@@ -2368,7 +2368,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (Player.HasKeyItem("Old Manor Books"))
                 AddRowButton(2, "Give Books", GiveManorBooks);
 
-            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
 
             if (CoC.Instance.Flags.Get(GameFlagIds.FollowerAtFarmIzma) == 1)
                 AddButton(14, "Common.Button.Back".Localized(), () => IzmaFollowerMenu());
@@ -2394,7 +2394,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             AddNextButton("Common.Button.Accept".Localized(), IzmaSexMenu);
 
-            AddNextButton("Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+            AddNextButton("Common.Button.Leave".Localized(), () => Go(SceneInstance<CampScene>.Get()));
         }
 
         public void SendToFarm()
@@ -3575,7 +3575,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             CurrentMonster.OnWon = _ => LoseToIzma();
 
-            CombatScene.Start(CurrentMonster, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(CurrentMonster, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void WinSpar()

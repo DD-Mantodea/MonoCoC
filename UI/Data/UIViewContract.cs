@@ -1,12 +1,12 @@
-using MonoCoC.UI.Framework;
+﻿using MonoCoC.UI.Framework;
 using System;
 using System.Collections.Generic;
 
 namespace MonoCoC.UI.Data
 {
-    public sealed record UIPartRequirement(string Name, Type ComponentType);
+    public record UIPartRequirement(string Name, Type ComponentType);
 
-    public sealed record UIViewContract(string Id, IReadOnlyList<UIPartRequirement> RequiredParts)
+    public record UIViewContract(string Id, IReadOnlyList<UIPartRequirement> RequiredParts)
     {
         public static UIViewContract Empty { get; } = new("Empty", []);
 
@@ -44,7 +44,7 @@ namespace MonoCoC.UI.Data
         }
     }
 
-    public sealed class UIViewContractException : Exception
+    public class UIViewContractException : Exception
     {
         public UIViewContractException(string message)
             : base(message)

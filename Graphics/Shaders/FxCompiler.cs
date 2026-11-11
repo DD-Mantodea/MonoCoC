@@ -31,7 +31,7 @@ namespace MonoCoC.Graphics.Shaders
         }
     }
 
-    internal sealed class FxCompilerContext : ContentProcessorContext
+    internal class FxCompilerContext : ContentProcessorContext
     {
         public override string BuildConfiguration => "Debug";
 

@@ -8,7 +8,7 @@ namespace MonoCoC.ModLoader
     /// from the mod package without knowing whether they come from a
     /// directory or a .cocmod container.
     /// </summary>
-    public sealed class ModDataLoaderRegistry : IDisposable
+    public class ModDataLoaderRegistry : IDisposable
     {
         private readonly List<(string Folder, string Pattern, Action<IDataFileSource, string> Loader)> _loaders = [];
         private bool _disposed;

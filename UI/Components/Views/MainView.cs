@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using MonoCoC.Assets;
 using MonoCoC.Contents.Scenes;
 using MonoCoC.Contents.Scenes.Vanilla;
@@ -19,27 +19,25 @@ namespace MonoCoC.UI.Components.Views
     /// </summary>
     public class MainView : HjsonView
     {
+        protected override string ScreenFile => "Views\\MainView.hjson";
+
+        protected override UIViewContract Contract => MainMenuContract.Value;
+
         private readonly UIEventRegistry _events;
 
         private readonly UIWidgetRegistry _widgets;
 
         public MainView()
         {
-            LayoutData.Size = new(ScreenWidth, ScreenHeight);
-
             _events = MainMenuEvents.Create();
 
             _widgets = new UIWidgetRegistry();
 
             Initialize(_events, _widgets);
         }
-
-        protected override string ScreenFile => "Screens\\MainView.hjson";
-
-        protected override UIViewContract Contract => MainMenuContract.Value;
     }
 
-    public static class MainMenuContract
+    internal static class MainMenuContract
     {
         public static readonly UIViewContract Value = new(
             "MainMenu",
@@ -80,7 +78,7 @@ namespace MonoCoC.UI.Components.Views
                 UIManager.Instance.Root.SwitchView(new MainView());
             };
 
-            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+            UIManager.Instance.Root.SwitchView(new CampView());
 
             Scene.Go(SceneInstance<Options>.Instance);
         }
@@ -89,7 +87,12 @@ namespace MonoCoC.UI.Components.Views
         {
             Combat.PlayerStats.HiddenByMenu = false;
 
-            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+            var view = new CampView();
+
+            if (view.Content is null)
+                return;
+
+            UIManager.Instance.Root.SwitchView(view);
 
             Scene.Go(SceneInstance<CharCreation>.Instance);
         }
@@ -108,7 +111,7 @@ namespace MonoCoC.UI.Components.Views
             if (save is null)
                 return;
 
-            var gameView = GameView.CreateDefault();
+            var gameView = new CampView();
 
             save.Apply(CoC.Instance.Player);
 
@@ -123,7 +126,7 @@ namespace MonoCoC.UI.Components.Views
 
             SaveLoad.FromMainMenu = true;
 
-            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+            UIManager.Instance.Root.SwitchView(new CampView());
 
             Scene.Go(SceneInstance<SaveLoad>.Instance);
         }
@@ -132,7 +135,7 @@ namespace MonoCoC.UI.Components.Views
         {
             Combat.PlayerStats.HiddenByMenu = true;
 
-            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+            UIManager.Instance.Root.SwitchView(new CampView());
 
             Scene.Go(SceneInstance<AchievementsScene>.Instance);
         }
@@ -141,7 +144,7 @@ namespace MonoCoC.UI.Components.Views
         {
             Combat.PlayerStats.HiddenByMenu = true;
 
-            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+            UIManager.Instance.Root.SwitchView(new CampView());
 
             Scene.Go(SceneInstance<InstructionsScene>.Instance);
         }
@@ -150,7 +153,7 @@ namespace MonoCoC.UI.Components.Views
         {
             Combat.PlayerStats.HiddenByMenu = true;
 
-            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+            UIManager.Instance.Root.SwitchView(new CampView());
 
             Scene.Go(SceneInstance<CreditsScene>.Instance);
         }
@@ -158,4 +161,5 @@ namespace MonoCoC.UI.Components.Views
         private static void QuitGame() => CoC.Instance.Exit();
     }
 }
+
 

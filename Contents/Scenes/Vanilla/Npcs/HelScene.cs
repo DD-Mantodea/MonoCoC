@@ -129,7 +129,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             helEnemy.OnWon = _ => LoseToSalamander();
 
-            CombatScene.Start(helEnemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(helEnemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void GreetHelAsFuckbuddies()
@@ -2520,7 +2520,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Helscene.RunAwayFromFoxGirls.ExcuseForgotSomething".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<Places.TelAdre.TelAdre>.Get());
         }
 
         public void HeliasFoxyFourSomeFluffs()

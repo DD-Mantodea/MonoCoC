@@ -16,16 +16,16 @@ namespace MonoCoC.Contents.Scenes.Vanilla
     [Register<StatsScene>("coc:stats")]
     public class StatsScene : Scene
     {
-        private static System.Action? _returnTo;
+        private static Action? _returnTo;
 
-        public static void Show(System.Action returnTo)
+        public static void Show(Action returnTo)
         {
             _returnTo = returnTo;
 
             Go<StatsScene>();
         }
 
-        internal sealed class Section
+        internal class Section
         {
             private static string KeyOf(string title) =>
 
@@ -359,7 +359,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             children.AddNonZero("Ant Children With Phylla", flags.Get(GameFlagIds.AntKids));
 
-            var isabella = SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.IsabellaScene>.Get();
+            var isabella = SceneInstance<Npcs.IsabellaScene>.Get();
 
             children.AddNonZero("Children With Isabella (Male)", isabella.GetIsabellaChildType(1));
 
@@ -369,7 +369,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             children.AddNonZero("Total Children With Isabella", isabella.TotalIsabellaChildren());
 
-            var sophieChildren = SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.SophieBimboScene>.Get().SophieChildren();
+            var sophieChildren = SceneInstance<Npcs.SophieBimboScene>.Get().SophieChildren();
 
             children.AddNonZero("Children With Sophie", sophieChildren);
 
@@ -377,7 +377,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             children.AddNonZero("Children With Urta",
 
-                SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.UrtaPregsScene>.Get().UrtaKids());
+                SceneInstance<Npcs.UrtaPregsScene>.Get().UrtaKids());
 
             children.AddNonZero("Benoit Eggs Laid", flags.Get(GameFlagIds.BenoitEggs));
 
@@ -468,7 +468,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             body.Add("Anal Capacity", $"{MathF.Round(Player.AnalCapacity()):0}");
 
-            body.Add("Anal Looseness", $"{MathF.Round(Player.Body.Get<MonoCoC.Contents.BodyParts.Vanilla.AnalPart>().Looseness):0}");
+            body.Add("Anal Looseness", $"{MathF.Round(Player.Body.Get<BodyParts.Vanilla.AnalPart>().Looseness):0}");
 
             body.Add("Fertility Rating (Base)", $"{MathF.Round(Player.Fertility):0}");
 
@@ -520,7 +520,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             var addict = new Section("Addictions");
 
-            var marble = SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.MarbleScene>.Get();
+            var marble = SceneInstance<Npcs.MarbleScene>.Get();
 
             var marbleMilk = Player.HasPerk(PerkIds.MarbleResistant)
 
@@ -608,7 +608,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 flags.Get(GameFlagIds.AmilyMet) > 0);
 
-            var isabellaFollower = SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.IsabellaFollowerScene>.Get();
+            var isabellaFollower = SceneInstance<Npcs.IsabellaFollowerScene>.Get();
 
             people.Add("Isabella's Affection",
 
@@ -644,13 +644,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             people.Add("Body Parts Taken By Ceraph", ceraphParts, ceraphParts > 0);
 
-            var ember = SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.EmberScene>.Get();
+            var ember = SceneInstance<Npcs.EmberScene>.Get();
 
             people.Add("Ember's Affection", $"{ember.EmberAffection()}%", ember.EmberAffection() > 0);
 
             people.Add("Ember Spar Intensity", ember.EmberSparIntensity(), ember.EmberSparIntensity() > 0);
 
-            var helia = SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.HelFollowerScene>.Get();
+            var helia = SceneInstance<Npcs.HelFollowerScene>.Get();
 
             people.Add("Helia's Affection", $"{helia.HelAffection()}%", helia.HelAffection() > 0);
 
@@ -662,7 +662,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 flags.Get(GameFlagIds.SheilaXp) != 0);
 
-            var urta = SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.UrtaScene>.Get();
+            var urta = SceneInstance<Npcs.UrtaScene>.Get();
 
             var urtaStatus = "";
 
@@ -692,7 +692,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 flags.Get(GameFlagIds.BrookeAffection) > 0);
 
-            var sylvia = SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.Bog.SylviaScene>.Get();
+            var sylvia = SceneInstance<Areas.Bog.SylviaScene>.Get();
 
             people.Add("Sylvia's Affection", $"{sylvia.sylviaGetAff}%", sylvia.SylviaProg > 0);
 
@@ -704,7 +704,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             people.Add("Helia's Spar Intensity",
 
-                SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Npcs.HelScene>.Get().HeliaSparIntensity());
+                SceneInstance<Npcs.HelScene>.Get().HeliaSparIntensity());
 
             people.Add("Pablo's Affection", $"{flags.Get(GameFlagIds.PabloAffection)}%",
 
@@ -732,13 +732,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             people.Add("Rubi's Orifice Capacity",
 
-                $"{SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.RubiScene>.Get().RubiCapacity()}%",
+                $"{SceneInstance<Places.TelAdre.RubiScene>.Get().RubiCapacity()}%",
 
                 flags.Get(GameFlagIds.RubiAffection) > 0);
 
             people.Add("Katherine's Submissiveness",
 
-                SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.KatherineScene>.Get().Submissiveness(),
+                SceneInstance<Places.TelAdre.KatherineScene>.Get().Submissiveness(),
 
                 flags.Get(GameFlagIds.KatherineUnlocked) >= 4);
 
@@ -1003,7 +1003,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
     [Register<StatsDetailScene>("coc:stats_details")]
     public class StatsDetailScene : Scene
     {
-        public sealed record StatDetail(string Label, Func<string> Text);
+        public record StatDetail(string Label, Func<string> Text);
 
         private static List<StatDetail> _rows = [];
 
@@ -1156,7 +1156,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
     internal static class SectionExtensions
     {
-        public static T Also<T>(this T value, System.Action<T> action)
+        public static T Also<T>(this T value, Action<T> action)
         {
             action(value);
 

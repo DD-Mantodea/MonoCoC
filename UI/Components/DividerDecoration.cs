@@ -5,7 +5,7 @@ using System;
 
 namespace MonoCoC.UI.Components
 {
-    public sealed class DividerDecoration : DecorationComponent
+    public class DividerDecoration : DecorationComponent
     {
         public bool Vertical;
 

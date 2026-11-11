@@ -148,7 +148,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 if (CoC.Instance.Flags.Get(GameFlagIds.LiddelliumFlag) < 0)
                     AddButton(11, "Common.Button.Liddellium".Localized(), GetLiddellium);
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<CampScene>.Get()));
         }
 
         public void CeraphAppearance()

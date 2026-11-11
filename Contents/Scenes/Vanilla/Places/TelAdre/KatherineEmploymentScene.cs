@@ -211,13 +211,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
                 AddButton(0, "Common.Button.Yes".Localized(), (Player.IsPregnant() ? PregnantEdrynSexSelector : edryn.EdrynSexSelecter));
 
-                AddButton(1, "Common.Button.No".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(1, "Common.Button.No".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
             }
             else
             {
                 OutputText("Scenes.Katherineemployment.TalkToEdryn.LeaveBarHowTo".Localized());
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<TelAdre>.Get());
             }
         }
 
@@ -267,7 +267,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             {
                 OutputText("Scenes.Katherineemployment.TalkToUrta.GulpingMugWaving".Localized());
 
-                Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+                Go(SceneInstance<TelAdre>.Get());
             }
         }
 
@@ -2143,7 +2143,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             SceneInstance<KatherineScene>.Get().GiveClothing(KatherineScene.KBIT_CLOTHES_C_CLOTH);
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void PostTrainingAlleyDescription()
@@ -2162,7 +2162,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 else
                     OutputText("Scenes.Katherineemployment.PostTrainingAlleyDescription.GuardDetailAllDay".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
     }

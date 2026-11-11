@@ -1,13 +1,9 @@
-using MonoCoC.Assets;
+﻿using MonoCoC.Assets;
 using System;
 using System.IO;
 
 namespace MonoCoC.UI.Data
 {
-    /// <summary>
-    /// Resolves a UI document path from the repository source tree first,
-    /// then from the deployed runtime Assets tree.
-    /// </summary>
     public static class UIResourceLocator
     {
         public static string ResolveDocument(string relativePath)

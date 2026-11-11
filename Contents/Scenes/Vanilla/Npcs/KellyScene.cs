@@ -261,7 +261,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             CoC.Instance.Flags.Set(GameFlagIds.KeltKillPlan, 1);
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "kelt")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "kelt")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void ResistKeltsBSBreakHimIntro()
@@ -339,7 +339,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                         OutputText("Scenes.Kelly.ResistKeltsBSBreakHimIntro.KeltDrawsBow".Localized());
 
-                        CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "kelt")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+                        CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "kelt")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
                     }
                     else
                         if (CoC.Instance.Flags.Get(GameFlagIds.KeltBreakLevel) == 3)
@@ -560,7 +560,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kelly.SecondKeltBreaking.FightBegins".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "kelt")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "kelt")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void DefeatKellyNDBREAKHIM()

@@ -13,6 +13,8 @@ using System.Linq;
 using static MonoCoC.UI.Layout.LayoutConstants;
 using MonoCoC.Attributes;
 using MonoCoC.Assets.ContentManagers;
+using MonoCoC.UI.Framework;
+using MonoCoC.UI.Components.Views;
 
 namespace MonoCoC.Contents.Scenes.Vanilla
 {
@@ -1940,7 +1942,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     PerkDesc(perk));
             }
 
-            AddButton(14, "Common.Back".Localized(), () => Go<CampScene>());
+            AddButton(14, "Common.Back".Localized(), EnterCamp);
         }
 
         private static string PerkName(Identifier perk) =>
@@ -2265,7 +2267,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 Go<CharCreation>();
             });
 
-            AddButton(1, "Common.No".Localized(), () => Go<CampScene>());
+            AddButton(1, "Common.No".Localized(), EnterCamp);
         }
 
         private void ReincarnatePrompt()
@@ -2297,6 +2299,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             GenericGenderChoice(Player.Age);
         }
 
-        protected virtual void EnterCamp() => Go<CampScene>();
+        protected virtual void EnterCamp()
+        {
+            UIManager.Instance?.Root.SwitchView(new CampView());
+
+            Go<CampScene>();
+        }
     }
 }

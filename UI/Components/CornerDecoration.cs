@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MonoCoC.UI.Components
 {
-    public sealed class CornerDecoration : DecorationComponent
+    public class CornerDecoration : DecorationComponent
     {
         public int Length = 14;
 

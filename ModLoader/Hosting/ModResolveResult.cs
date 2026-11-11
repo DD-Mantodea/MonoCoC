@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace MonoCoC.ModLoader
 {
-    public sealed class ModResolveResult
+    public class ModResolveResult
     {
         public List<ModCandidate> Mods { get; } = [];
 

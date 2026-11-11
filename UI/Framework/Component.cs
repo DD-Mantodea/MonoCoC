@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoCoC.Extensions;
 using MonoCoC.Graphics.Materials;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Layout;
 using MonoCoC.UI.Styles;
 
@@ -24,6 +25,16 @@ namespace MonoCoC.UI.Framework
 
         public string PartName = "";
 
+        public IUIDataContext? DataContext;
+
+        public virtual void ApplyDataContext(IUIDataContext? context)
+        {
+            DataContext = context;
+
+            foreach (var child in LayoutData.Children)
+                child.ApplyDataContext(context);
+        }
+
         public bool IsPressed;
         #endregion
 
@@ -40,8 +51,8 @@ namespace MonoCoC.UI.Framework
 
         public bool CanHit = true;
 
-        // 通用点击回调（原版 OneMonsterView 的 CLICK → selectMonster 对应物）。
-        // UIManager 在鼠标左键抬起时，对命中的组件向上找第一个 OnClick 非空的组件并调用。
+        // 閫氱敤鐐瑰嚮鍥炶皟锛堝師鐗?OneMonsterView 鐨?CLICK 鈫?selectMonster 瀵瑰簲鐗╋級銆?
+        // UIManager 鍦ㄩ紶鏍囧乏閿姮璧锋椂锛屽鍛戒腑鐨勭粍浠跺悜涓婃壘绗竴涓?OnClick 闈炵┖鐨勭粍浠跺苟璋冪敤銆?
         public Action? OnClick;
 
         public bool WasHovering = false;
@@ -105,8 +116,8 @@ namespace MonoCoC.UI.Framework
         #region GameLoop
         public virtual void PreDraw(SpriteBatch spriteBatch, GameTime gameTime) { }
 
-        // 在真正绘制前完成所有延迟布局（例如 TextArea 的文本测量），
-        // 避免新场景第一帧以未初始化尺寸绘制。
+        // 鍦ㄧ湡姝ｇ粯鍒跺墠瀹屾垚鎵€鏈夊欢杩熷竷灞€锛堜緥濡?TextArea 鐨勬枃鏈祴閲忥級锛?
+        // 閬垮厤鏂板満鏅涓€甯т互鏈垵濮嬪寲灏哄缁樺埗銆?
         public virtual void PrepareDraw()
         {
             foreach (var child in LayoutData.Children)
@@ -120,7 +131,7 @@ namespace MonoCoC.UI.Framework
 
             DrawSelf(spriteBatch, gameTime);
 
-            if (Material is not null)
+            if (Material is not null && (BackgroundColor == default || BackgroundColor.A == 255))
                 DrawMaterial(spriteBatch);
 
             DrawStateBackground(spriteBatch);
@@ -138,7 +149,7 @@ namespace MonoCoC.UI.Framework
 
             UIManager.Instance.ScissorStack.Push(Rectangle);
 
-            spriteBatch.Begin(rasterizerState: UIManager.ScissorRasterizer);
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, UIManager.ScissorRasterizer);
 
             try
             {
@@ -150,7 +161,7 @@ namespace MonoCoC.UI.Framework
 
                 UIManager.Instance.ScissorStack.Pop();
 
-                spriteBatch.Begin(rasterizerState: UIManager.ScissorRasterizer);
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, UIManager.ScissorRasterizer);
             }
 
             PostDraw(spriteBatch, gameTime);
@@ -202,7 +213,7 @@ namespace MonoCoC.UI.Framework
             }
             finally
             {
-                spriteBatch.Begin(rasterizerState: UIManager.ScissorRasterizer);
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, UIManager.ScissorRasterizer);
             }
         }
 

@@ -53,7 +53,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                     AddButton(2, "Common.Button.EatOut".Localized(), SceneInstance<UrtaScene>.Get().EatUrtaOutNomNomPussy);
 
-                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
                 }
                 else
                 {
@@ -66,7 +66,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                     AddButton(1, "Common.Button.UrtasPlace".Localized(), SceneInstance<UrtaScene>.Get().GoBackToUrtasForLuvinz);
 
-                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
                 }
             }
             else
@@ -85,7 +85,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 if (SceneInstance<RaphaelScene>.Get().FinaleCovered() && SceneInstance<RaphaelScene>.Get().RaphaelLikes() && CoC.Instance.Flags.Get(GameFlagIds.UrtaXRaphaelHappened) == 0)
                     AddButton(8, "Common.Button.Somesurprise".Localized(), SceneInstance<UrtaScene>.Get().UrtaAndRaphaelSurprise);
 
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
             }
         }
 
@@ -130,7 +130,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                     AddButton(0, "Common.Button.Talk".Localized(), SceneInstance<UrtaScene>.Get().UrtaDialogueMenu);
 
-                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                    AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
                 }
             }
 
@@ -153,7 +153,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 AddButton(1, "Common.Button.Talk".Localized(), SceneInstance<UrtaScene>.Get().UrtaDialogueMenu);
 
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
             }
 
             if (__sw0_0 == 4)
@@ -169,7 +169,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 AddButton(1, "Common.Button.Talk".Localized(), SceneInstance<UrtaScene>.Get().UrtaDialogueMenu);
 
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
             }
 
             if (__sw0_0 == 5)
@@ -185,7 +185,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 AddButton(1, "Common.Button.Talk".Localized(), SceneInstance<UrtaScene>.Get().UrtaDialogueMenu);
 
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
             }
 
             if (__sw0_0 == 6)
@@ -201,7 +201,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 AddButton(1, "Common.Button.Talk".Localized(), SceneInstance<UrtaScene>.Get().UrtaDialogueMenu);
 
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
             }
 
             if (__sw0_0 == 7)
@@ -214,7 +214,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 AddButton(1, "Common.Button.Talk".Localized(), SceneInstance<UrtaScene>.Get().UrtaDialogueMenu);
 
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
             }
 
             if (__sw0_0 == 8)
@@ -1068,7 +1068,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Urtapregs.UrtaIsAPregnantCopScene.EdrynHelpsUp".Localized());
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get());
+            Go(SceneInstance<TelAdre>.Get());
         }
 
         public void UrtaSpecialDeliveries()
@@ -1112,7 +1112,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ClearButtons();
 
-            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void TalkToUrtaAboutHerHouse()
@@ -2653,7 +2653,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ClearButtons();
 
-            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public string UrtaKidsText(string male = "", string female = "", string plural = "")
@@ -3460,7 +3460,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             AddButton(4, "Common.Button.Kids".Localized(), PickKidSceneHere);
 
-            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void LiannasAppearance()

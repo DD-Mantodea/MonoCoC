@@ -173,7 +173,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 OutputText("Scenes.Shouldrascene.ShouldraGreeting.AcknowledgesReadiness".Localized());
 
-                CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "shouldra")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+                CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "shouldra")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
             }
             else
             {
@@ -205,7 +205,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     AddButton(1, "Common.Button.Fight".Localized(), NovemberAlphaHotel);
                 }
                 else
-                    CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "shouldra")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+                    CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "shouldra")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
             }
 
             CoC.Instance.Flags.Set(GameFlagIds.TimesMetShouldra, CoC.Instance.Flags.Get(GameFlagIds.TimesMetShouldra) + 1);
@@ -226,7 +226,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Shouldrascene.NovemberAlphaHotel.ShakeHeadRaisingWeapon".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "shouldra")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "shouldra")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void DefeatDannyPhantom()

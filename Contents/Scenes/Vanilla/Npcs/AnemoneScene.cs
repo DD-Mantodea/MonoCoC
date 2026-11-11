@@ -207,7 +207,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             var anemone = EnemyRegistry.Create(new Identifier("coc", "anemone"));
 
-            CombatScene.Start(anemone, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(anemone, () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             Player.ApplyStats(new DynStat(GameStats.Lust, 4f));
 
@@ -1033,7 +1033,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                     var anemone = EnemyRegistry.Create(new Identifier("coc", "anemone"));
 
-                    CombatScene.Start(anemone, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+                    CombatScene.Start(anemone, () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
                     Player.ApplyStats(new DynStat(GameStats.Lust, 4f));
 
@@ -1057,7 +1057,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             var anemone = EnemyRegistry.Create(new Identifier("coc", "anemone"));
 
-            CombatScene.Start(anemone, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(anemone, () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             Player.ApplyStats(new DynStat(GameStats.Lust, 4f));
 
@@ -1886,7 +1886,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 AddButton(10, "Common.Button.Evict".Localized(), EvictANemone);
             }
 
-            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+            AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
         }
 
         public void KidAAppearance()

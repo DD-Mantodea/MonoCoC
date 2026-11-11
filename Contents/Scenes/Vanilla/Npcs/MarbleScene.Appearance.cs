@@ -683,7 +683,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             Player.ApplyStats(new DynStat(GameStats.Sensitivity, -1f));
 
-            Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get());
+            Go(SceneInstance<CampScene>.Get());
         }
 
         public void MarbleNomNoms()

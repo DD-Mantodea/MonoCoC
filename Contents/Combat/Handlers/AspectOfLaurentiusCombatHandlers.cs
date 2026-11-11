@@ -90,18 +90,18 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var ids = new[]
             {
-                new MonoCoC.Registry.Identifier("coc", "amarok"),
+                new Registry.Identifier("coc", "amarok"),
 
-                new MonoCoC.Registry.Identifier("coc", "goblin_elder"),
+                new Registry.Identifier("coc", "goblin_elder"),
 
-                new MonoCoC.Registry.Identifier("coc", "phoenix"),
+                new Registry.Identifier("coc", "phoenix"),
 
-                new MonoCoC.Registry.Identifier("coc", "valkyrie"),
+                new Registry.Identifier("coc", "valkyrie"),
 
-                new MonoCoC.Registry.Identifier("coc", "basilisk")
+                new Registry.Identifier("coc", "basilisk")
             };
 
-            var pool = new System.Collections.Generic.List<MonoCoC.Registry.Identifier>(ids);
+            var pool = new System.Collections.Generic.List<Registry.Identifier>(ids);
 
             for (var i = 0; i < 3 && pool.Count > 0; i++)
             {

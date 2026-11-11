@@ -84,7 +84,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
 
             Player.UnlockCodexEntry(GameFlagIds.CodexEntryRatMice);
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "plague_rat")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "plague_rat")), () => Go(SceneInstance<CampScene>.Get()));
         }
 
         public void PlagueVictory()

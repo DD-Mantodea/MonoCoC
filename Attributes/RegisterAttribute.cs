@@ -14,7 +14,7 @@ namespace MonoCoC.Attributes
     // 无法满足泛型版要求的 new()，因此基类仍允许打在类上，仅供这些类使用；
     // 是否有例外由 Tools/PortKit/audit-register.mjs 报告。
     //
-    // 故意不 sealed：以后要派生便利子类（比如 ReplaceEnemyAttribute）还能继承。
+    // 故意不：以后要派生便利子类（比如 ReplaceEnemyAttribute）还能继承。
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = false)]
     public class RegisterAttribute(string id) : Attribute
     {

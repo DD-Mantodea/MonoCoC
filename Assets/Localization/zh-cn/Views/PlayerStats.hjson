@@ -1,0 +1,17 @@
+{
+  "Views.PlayerStats.Strength": "力量"
+  "Views.PlayerStats.Toughness": "坚韧"
+  "Views.PlayerStats.Speed": "速度"
+  "Views.PlayerStats.Intelligence": "智力"
+  "Views.PlayerStats.Libido": "性欲"
+  "Views.PlayerStats.Sensitivity": "敏感度"
+  "Views.PlayerStats.Corruption": "腐化"
+  "Views.PlayerStats.HP": "生命"
+  "Views.PlayerStats.Lust": "欲望"
+  "Views.PlayerStats.Fatigue": "疲劳"
+  "Views.PlayerStats.Level": "等级"
+  "Views.PlayerStats.XP": "经验"
+  "Views.PlayerStats.Gems": "宝石"
+  "Views.PlayerStats.Day": "第 {0} 天"
+  "Views.PlayerStats.Time": "时间 {0:00}:{1:00}"
+}

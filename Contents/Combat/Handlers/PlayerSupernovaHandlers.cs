@@ -74,7 +74,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.HealthChange(-player.Health);
 
-            player.MasteryXP(new MonoCoC.Registry.Identifier("coc", "TerrestrialFire"), 100);
+            player.MasteryXP(new Registry.Identifier("coc", "TerrestrialFire"), 100);
         }
     }
 }

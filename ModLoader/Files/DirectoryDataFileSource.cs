@@ -3,7 +3,7 @@ using System.IO;
 
 namespace MonoCoC.ModLoader
 {
-    public sealed class DirectoryDataFileSource : IDataFileSource
+    public class DirectoryDataFileSource : IDataFileSource
     {
         private readonly string _root;
 

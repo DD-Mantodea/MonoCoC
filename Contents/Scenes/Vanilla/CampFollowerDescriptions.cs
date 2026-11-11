@@ -17,7 +17,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
     /// </summary>
     public static class CampFollowerDescriptions
     {
-        private sealed class Entry
+        private class Entry
         {
             public Identifier Id = default!;
 
@@ -112,7 +112,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             AddFollower("coc:phylla", () => CoC.Instance.Flags.Get(GameFlagIds.AntWaifu) > 0,
 
-                DescribePhyllaCamp, 150, () => SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.Desert.AntsScene>.Get().IntroductionToPhyllaFollower());
+                DescribePhyllaCamp, 150, () => SceneInstance<Areas.Desert.AntsScene>.Get().IntroductionToPhyllaFollower());
 
             // 原版 Camp.hx campSlavesMenu() 的顺序
             AddFollower("coc:latex_goo", () => SceneInstance<LatexGirlScene>.Get().LatexGooAtCamp(),

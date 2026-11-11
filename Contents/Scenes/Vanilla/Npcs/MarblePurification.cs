@@ -491,7 +491,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         public void StartCombatWithMarbleSister(bool inCamp = true)
         {
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "clara")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "clara")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
 
             Player.CreateStatusEffect(StatusEffectIds.NoFlee, 0, 0, 0, 0);
 

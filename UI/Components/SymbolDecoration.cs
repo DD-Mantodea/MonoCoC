@@ -7,7 +7,7 @@ using System;
 
 namespace MonoCoC.UI.Components
 {
-    public sealed class SymbolDecoration : DecorationComponent
+    public class SymbolDecoration : DecorationComponent
     {
         public string Text = "";
 

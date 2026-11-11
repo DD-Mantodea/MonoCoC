@@ -5,12 +5,7 @@ using System.Collections.Generic;
 
 namespace MonoCoC.UI.Data
 {
-    /// <summary>
-    /// Custom widgets are C# components registered under a logical ID.
-    /// A Hjson node can use:
-    /// { type: "CustomWidget", widget: "mod:my_widget", properties: { ... } }
-    /// </summary>
-    public sealed class UIWidgetRegistry
+    public class UIWidgetRegistry
     {
         private readonly Dictionary<string, Func<JsonObject, Component>> _widgets = [];
 

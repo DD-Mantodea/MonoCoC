@@ -14,7 +14,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
     [Register<ExploreScene>("coc:explore")]
     public class ExploreScene : Scene
     {
-        private readonly PagedMenu<MonoCoC.Contents.World.Areas.AreaDefinition> _areas = new();
+        private readonly PagedMenu<AreaDefinition> _areas = new();
 
         public override void Entry()
         {

@@ -11,7 +11,7 @@ using System.IO;
 namespace MonoCoC.Contents.Input
 {
     // 可注册的快捷键定义。mod 通过 HotkeyRegistry.Register 添加自己的快捷键。
-    public sealed class HotkeyDefinition(Identifier id, string name, string description,
+    public class HotkeyDefinition(Identifier id, string name, string description,
 
         Keys defaultPrimary, Keys defaultSecondary, Action? action)
     {

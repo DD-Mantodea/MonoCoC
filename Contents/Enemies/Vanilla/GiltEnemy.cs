@@ -42,10 +42,10 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 context.Append("Combat.Gilt.Attack.Damage".Localized((int)damage));
         }
 
-        public override MonoCoC.Registry.Identifier? ForcedAbility(Combat.CombatContext context)
+        public override Registry.Identifier? ForcedAbility(Combat.CombatContext context)
         {
             if (Distance == Combat.CombatDistance.Distant && !IsFlying && Fatigue >= 10)
-                return new MonoCoC.Registry.Identifier("coc", "gilt_fly");
+                return new Registry.Identifier("coc", "gilt_fly");
 
             return null;
         }

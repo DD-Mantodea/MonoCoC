@@ -9,7 +9,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             base.Configure(definition);
 
-            CreateCock(12f, 1.75f, new MonoCoC.Registry.Identifier("coc", "demon"));
+            CreateCock(12f, 1.75f, new Registry.Identifier("coc", "demon"));
 
             Balls = 2;
 

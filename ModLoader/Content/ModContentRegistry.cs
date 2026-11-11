@@ -8,7 +8,7 @@ namespace MonoCoC.ModLoader
     /// <summary>
     /// Owns all code content instantiated by one mod.
     /// </summary>
-    public sealed class ModContentRegistry : IDisposable
+    public class ModContentRegistry : IDisposable
     {
         private readonly List<IModContent> _content = [];
 

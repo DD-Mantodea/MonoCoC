@@ -9,7 +9,7 @@ namespace MonoCoC.Contents.Followers
     public class MilkGirlSlave : FollowerDefinition
     {
         public MilkGirlSlave() : base(
-            new MonoCoC.Registry.Identifier("coc", "milk_waifu"),
+            new Registry.Identifier("coc", "milk_waifu"),
 
             FollowerIds.Roles.Slave,
 

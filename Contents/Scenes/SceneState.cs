@@ -1,8 +1,8 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace MonoCoC.Contents.Scenes
 {
-    public sealed class SceneState
+    public class SceneState
     {
         public List<SceneAction> Actions { get; } = [];
 

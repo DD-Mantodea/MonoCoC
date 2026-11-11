@@ -251,7 +251,7 @@ namespace MonoCoC.Contents.Encounters
 
             for (var i = 0; i < impAmount; i++)
             {
-                var imp = EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "imp"));
+                var imp = EnemyRegistry.Create(new Registry.Identifier("coc", "imp"));
 
                 if (context.Random.Next(100) < levelupChance)
                     imp.ScaleToLevel(Math.Max(1, adjustedLevel + 1));

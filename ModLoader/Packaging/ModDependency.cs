@@ -1,6 +1,6 @@
 namespace MonoCoC.ModLoader
 {
-    public sealed class ModDependency
+    public class ModDependency
     {
         public required string Id { get; init; }
 

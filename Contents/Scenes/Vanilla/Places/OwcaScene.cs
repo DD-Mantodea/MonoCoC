@@ -1399,7 +1399,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
 
             farmers.OnWon = _ => CombatScene.CleanupAfterCombat();
 
-            CombatScene.Start(farmers, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: false);
+            CombatScene.Start(farmers, () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: false);
 
             CurrentMonster.CreateStatusEffect(StatusEffectIds.GenericRunDisabled, 0, 0, 0, 0);
         }

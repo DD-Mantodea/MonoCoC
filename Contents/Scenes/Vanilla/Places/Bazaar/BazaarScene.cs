@@ -96,7 +96,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Bazaar.InitiateFightGuard.CombatStance".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(EnemyIds.BazaarGatekeeper), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(EnemyIds.BazaarGatekeeper), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void WinAgainstGuard()

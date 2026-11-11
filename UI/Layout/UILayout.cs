@@ -9,7 +9,7 @@ namespace MonoCoC.UI.Layout
     /// Runtime layout values loaded from Assets/UI/Layout.hjson.
     /// Existing static LayoutConstants accessors read from this object.
     /// </summary>
-    public sealed class UILayout
+    public class UILayout
     {
         private static UILayout? _current;
 

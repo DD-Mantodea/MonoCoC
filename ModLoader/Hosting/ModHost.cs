@@ -12,7 +12,7 @@ namespace MonoCoC.ModLoader
     /// <summary>
     /// Discovers, loads and unloads .cocmod packages.
     /// </summary>
-    public sealed class ModHost
+    public class ModHost
     {
         public const int ApiVersion = 1;
 

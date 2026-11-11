@@ -7,7 +7,7 @@ namespace MonoCoC.Graphics.Materials
     /// Procedural parchment background. The shader owns the paper look;
     /// this class only feeds colors, edge/noise strengths and the rect size.
     /// </summary>
-    public sealed class PaperMaterial : Material
+    public class PaperMaterial : Material
     {
         public PaperMaterial(GraphicsDevice graphicsDevice, Effect effect)
             : base(graphicsDevice, effect)

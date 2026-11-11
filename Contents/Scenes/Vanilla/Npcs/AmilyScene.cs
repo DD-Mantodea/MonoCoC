@@ -3206,7 +3206,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 if (Player.Armor.Id == ArmorIds.VineArmorBehavior && !((Areas.Swamp.AlrauneScene.Save.GetInt("questAsked", 0) & Areas.Swamp.AlrauneScene.ASKEDAM) != 0))
                     AddRowButton(2, "Vines", null );
 
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<CampScene>.Get()));
             }
             else
             {
@@ -3221,7 +3221,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 if (!noFur)
                     AddButton(6, (CoC.Instance.Flags.Get(GameFlagIds.AmilyNotFurry) == 0 ? "Common.Button.Defur".Localized() : "Common.Button.Refuzz".Localized()), (CoC.Instance.Flags.Get(GameFlagIds.AmilyNotFurry) == 0 ? AmilyDefurryOfferAtCamp : RefuzzAmily));
 
-                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<CampScene>.Get()));
 
                 if (!Player.IsPregnant() && CoC.Instance.Flags.Get(GameFlagIds.FollowerAtFarmAmily) == 0 && CoC.Instance.Flags.Get(GameFlagIds.FarmCorruptionStarted) == 1)
                     AddButton(10, "Common.Button.FarmWork".Localized(), SendCorruptCuntToFarm);
@@ -9995,7 +9995,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     OutputText("Scenes.Amilyscene.StalkingZeAmiliez.AmbushSwipeBlowpipeAgain".Localized());
                     // 原版 AmilyScene.hx:7850/7859：startCombat(new Amily(), true)；
                     // 旧移植把 `(), true` 混进 id，生成不存在的 "coc:amily(), true"（创建即抛异常）
-                    CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "amily")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+                    CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "amily")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
                 }
                 else
                     if (Player.Speed >= 65)
@@ -10009,7 +10009,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                         OutputText("Scenes.Amilyscene.StalkingZeAmiliez.PanickedDrawsKnife".Localized());
                         // 原版 AmilyScene.hx:7850/7859：startCombat(new Amily(), true)；
                     // 旧移植把 `(), true` 混进 id，生成不存在的 "coc:amily(), true"（创建即抛异常）
-                    CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "amily")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+                    CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "amily")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
                     }
                     else
                     {

@@ -233,7 +233,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             AddButton(12, "Common.Button.Frosty".Localized(), () => Go<Frosty>());
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.DesertScene>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<Areas.DesertScene>.Get()));
         }
 
         /// <summary>原版 TelAdre.hx isDiscovered()：只要拥有 Tel'Adre 状态效果即算已发现。</summary>

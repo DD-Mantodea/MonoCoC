@@ -42,7 +42,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             enemy.OnWon = _ => NephilaCovenRapesYou();
 
-            CombatScene.Start(enemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(enemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void NephilaCovenFirstTimeRepeat()
@@ -59,7 +59,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             enemy.OnWon = _ => NephilaCovenRapesYou();
 
-            CombatScene.Start(enemy, () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(enemy, () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void EncounterNephilaCoven()
@@ -393,7 +393,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         public void StartAFightWithNephilaCoven()
         {
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "nephila_coven")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: false);
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "nephila_coven")), () => Go(SceneInstance<Areas.ForestScene>.Get()), canFlee: false);
         }
 
     }

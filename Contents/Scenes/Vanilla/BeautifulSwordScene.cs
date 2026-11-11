@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                     Player.DestroyItems(WeaponIds.BeautifulSword, 1);
 
-                    CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "beautiful_sword_fight")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+                    CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "beautiful_sword_fight")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
                 }
             }
             else

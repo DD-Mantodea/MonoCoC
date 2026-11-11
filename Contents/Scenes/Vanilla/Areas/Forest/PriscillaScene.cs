@@ -95,7 +95,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
         public void StartFight()
         {
 
-            CombatScene.Start(EnemyRegistry.Create(EnemyIds.Priscilla), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()), canFlee: false);
+            CombatScene.Start(EnemyRegistry.Create(EnemyIds.Priscilla), () => Go(SceneInstance<ForestScene>.Get()), canFlee: false);
         }
 
         public void GoblinElderBeatYaUp()

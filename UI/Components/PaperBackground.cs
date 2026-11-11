@@ -11,7 +11,7 @@ namespace MonoCoC.UI.Components
     /// material drawing; if the shader is unavailable, BackgroundColor is the
     /// normal fallback.
     /// </summary>
-    public sealed class PaperBackground : Component
+    public class PaperBackground : Component
     {
         private PaperMaterial? _paperMaterial;
 
@@ -37,8 +37,7 @@ namespace MonoCoC.UI.Components
 
                 BackgroundColor = value.CenterColor;
 
-                if (_paperMaterial is not null)
-                    _paperMaterial.Settings = value;
+                _paperMaterial?.Settings = value;
             }
         }
 

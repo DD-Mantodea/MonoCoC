@@ -84,11 +84,11 @@ namespace MonoCoC.Contents.Dungeons
                 CombatScene.StartMultiple(
                     new[]
                     {
-                        EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "sentinel_of_apostasy")),
+                        EnemyRegistry.Create(new Registry.Identifier("coc", "sentinel_of_apostasy")),
 
-                        EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "sentinel_of_blasphemy")),
+                        EnemyRegistry.Create(new Registry.Identifier("coc", "sentinel_of_blasphemy")),
 
-                        EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "sentinel_of_heresy"))
+                        EnemyRegistry.Create(new Registry.Identifier("coc", "sentinel_of_heresy"))
                     },
 
                     () =>
@@ -339,7 +339,7 @@ namespace MonoCoC.Contents.Dungeons
             var dungeon = Scenes.Scene.Current as DungeonScene;
 
             CombatScene.StartMultiple(
-                new[] { EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "arch_inquisitor_vilkus")) },
+                new[] { EnemyRegistry.Create(new Registry.Identifier("coc", "arch_inquisitor_vilkus")) },
 
                 () =>
                 {
@@ -599,7 +599,7 @@ namespace MonoCoC.Contents.Dungeons
             context.Write("Scenes.WizardTower.LaurentiusChallenge2.FightingAnAspect".Localized());
 
             CombatScene.StartMultiple(
-                new[] { EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "aspect_of_laurentius")) },
+                new[] { EnemyRegistry.Create(new Registry.Identifier("coc", "aspect_of_laurentius")) },
 
                 () =>
                 {
@@ -1162,13 +1162,13 @@ namespace MonoCoC.Contents.Dungeons
             CombatScene.StartMultiple(
                 new[]
                 {
-                    EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "architect_jeremiah")),
+                    EnemyRegistry.Create(new Registry.Identifier("coc", "architect_jeremiah")),
 
-                    EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "incubus_statue")),
+                    EnemyRegistry.Create(new Registry.Identifier("coc", "incubus_statue")),
 
-                    EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "succubus_statue")),
+                    EnemyRegistry.Create(new Registry.Identifier("coc", "succubus_statue")),
 
-                    EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "imp_statue"))
+                    EnemyRegistry.Create(new Registry.Identifier("coc", "imp_statue"))
                 },
 
                 () =>
@@ -1267,7 +1267,7 @@ namespace MonoCoC.Contents.Dungeons
             Scenes.Scene.OutputText("Scenes.WizardTower.LaurentiusChallenge2.FightingAnAspect".Localized());
 
             CombatScene.StartMultiple(
-                new[] { EnemyRegistry.Create(new MonoCoC.Registry.Identifier("coc", "aspect_of_laurentius")) },
+                new[] { EnemyRegistry.Create(new Registry.Identifier("coc", "aspect_of_laurentius")) },
 
                 () =>
                 {

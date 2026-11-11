@@ -217,7 +217,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ClearButtons();
 
-            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<Places.TelAdre.TelAdre>.Get()));
         }
 
         public void HelpArianWhenYouMeetHim()
@@ -773,9 +773,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                             AddRowButton(2, "Disenchant", AskArianToDisenchant);
 
                                     if (!ArianFollower())
-                                        AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+                                        AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<Places.TelAdre.TelAdre>.Get()));
                                     else
-                                        AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                                        AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
                                 }
         }
 

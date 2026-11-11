@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoCoC.Assets;
@@ -50,7 +50,7 @@ namespace MonoCoC.UI.Framework
         {
             Root?.PrepareDraw();
 
-            spriteBatch.Begin(rasterizerState: ScissorRasterizer);
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, ScissorRasterizer);
 
             Root?.Draw(spriteBatch, gameTime);
 
@@ -74,8 +74,8 @@ namespace MonoCoC.UI.Framework
 
         public void MarkSceneChanged() => _sceneChanged = true;
 
-        // 输入派发期间可能发生 Scene.Go / SwitchView。
-        // 在 Draw 前对新建的 UI 树补一次 Update，避免首帧未初始化。
+        // 杈撳叆娲惧彂鏈熼棿鍙兘鍙戠敓 Scene.Go / SwitchView銆?
+        // 鍦?Draw 鍓嶅鏂板缓鐨?UI 鏍戣ˉ涓€娆?Update锛岄伩鍏嶉甯ф湭鍒濆鍖栥€?
         public void UpdateAfterInput(GameTime gameTime)
         {
             if (!_sceneChanged)
@@ -86,8 +86,8 @@ namespace MonoCoC.UI.Framework
             Root?.Update(gameTime);
         }
 
-        // 左键抬起时派发点击：命中组件向上找第一个带 OnClick 的组件。
-        // Button 自己处理鼠标事件，这里跳过它，避免重复触发。
+        // 宸﹂敭鎶捣鏃舵淳鍙戠偣鍑伙細鍛戒腑缁勪欢鍚戜笂鎵剧涓€涓甫 OnClick 鐨勭粍浠躲€?
+        // Button 鑷繁澶勭悊榧犳爣浜嬩欢锛岃繖閲岃烦杩囧畠锛岄伩鍏嶉噸澶嶈Е鍙戙€?
         private void DispatchClicks()
         {
             var mouse = Mouse.GetState();

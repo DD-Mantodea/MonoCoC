@@ -88,7 +88,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             ClearButtons();
 
-            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void MebbeLaterToLoppe()
@@ -99,7 +99,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             ClearButtons();
 
-            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void YesToMeetingLoppe()
@@ -175,7 +175,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             ClearButtons();
 
-            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void SureBakeryWithLoppe()
@@ -327,7 +327,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             AddButton(2, "Common.Button.Sex".Localized(), () => LoppeSexChoice());
 
-            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void TalkWithLoppe()
@@ -2656,7 +2656,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             ClearButtons();
 
-            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void FondleAndTease(bool output = true)

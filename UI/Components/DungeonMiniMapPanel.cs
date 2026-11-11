@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Assets;
 using MonoCoC.Assets.AssetManagers;
@@ -8,8 +8,8 @@ using MonoCoC.UI.Framework;
 
 namespace MonoCoC.UI.Components
 {
-    // 原版 MinimapView.minidungeonMap：32px 瓦片（原版 TILE_WIDTH * 0.8），
-    // 以玩家为中心裁切，底板用 minimapBackground。
+    // 鍘熺増 MinimapView.minidungeonMap锛?2px 鐡︾墖锛堝師鐗?TILE_WIDTH * 0.8锛夛紝
+    // 浠ョ帺瀹朵负涓績瑁佸垏锛屽簳鏉跨敤 minimapBackground銆?
     public class DungeonMiniMapPanel : Component
     {
         private const int TileSize = 32;
@@ -55,7 +55,7 @@ namespace MonoCoC.UI.Components
             if (_panel != null)
                 spriteBatch.Draw(_panel, Position.BuildRect(Width, Height), Color.White * Alpha);
 
-            // 以玩家为中心
+            // 浠ョ帺瀹朵负涓績
             var originX = Position.X + Width / 2f - TileSize / 2f - _context.X * TileSize;
 
             var originY = Position.Y + Height / 2f - TileSize / 2f - _context.Y * TileSize;
@@ -64,7 +64,7 @@ namespace MonoCoC.UI.Components
 
             UIManager.Instance.ScissorStack.Push(Rectangle);
 
-            spriteBatch.Begin(rasterizerState: UIManager.ScissorRasterizer);
+            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, UIManager.ScissorRasterizer);
 
             try
             {
@@ -76,7 +76,7 @@ namespace MonoCoC.UI.Components
 
                 UIManager.Instance.ScissorStack.Pop();
 
-                spriteBatch.Begin(rasterizerState: UIManager.ScissorRasterizer);
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, UIManager.ScissorRasterizer);
             }
         }
     }

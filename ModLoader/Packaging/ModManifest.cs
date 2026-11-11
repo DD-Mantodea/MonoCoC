@@ -6,7 +6,7 @@ using System.IO;
 
 namespace MonoCoC.ModLoader
 {
-    public sealed class ModManifest
+    public class ModManifest
     {
         public required string Id { get; init; }
 

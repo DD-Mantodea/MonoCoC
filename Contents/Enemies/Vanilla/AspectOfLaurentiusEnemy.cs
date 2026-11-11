@@ -35,11 +35,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool Won(bool hpVictory) => false;
 
-        public static readonly MonoCoC.Registry.Identifier ApotheosisId = new("coc", "aspect_of_laurentius_apotheosis");
+        public static readonly Registry.Identifier ApotheosisId = new("coc", "aspect_of_laurentius_apotheosis");
 
-        public static readonly MonoCoC.Registry.Identifier WhitefireId = new("coc", "aspect_of_laurentius_whitefire");
+        public static readonly Registry.Identifier WhitefireId = new("coc", "aspect_of_laurentius_whitefire");
 
-        public static readonly MonoCoC.Registry.Identifier SummonId = new("coc", "aspect_of_laurentius_summon_fodder");
+        public static readonly Registry.Identifier SummonId = new("coc", "aspect_of_laurentius_summon_fodder");
 
         public bool Invincible;
 
@@ -84,9 +84,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             return true;
         }
 
-        public static readonly MonoCoC.Registry.Identifier WatchId = new("coc", "aspect_of_laurentius_watch");
+        public static readonly Registry.Identifier WatchId = new("coc", "aspect_of_laurentius_watch");
 
-        public static readonly MonoCoC.Registry.Identifier UnsummonId = new("coc", "aspect_of_laurentius_unsummon");
+        public static readonly Registry.Identifier UnsummonId = new("coc", "aspect_of_laurentius_unsummon");
 
         public override CombatAiAction? ChooseCombatAction(CombatContext context, CombatAiInterpreter interpreter)
         {

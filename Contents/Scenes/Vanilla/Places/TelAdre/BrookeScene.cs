@@ -1735,7 +1735,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             ClearButtons();
 
-            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre.TelAdre>.Get()));
+            AddButton(0, "Common.Button.Next".Localized(), () => Go(SceneInstance<TelAdre>.Get()));
         }
 
         public void ButterflyMachinesGooooo()

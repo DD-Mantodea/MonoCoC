@@ -212,7 +212,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 AddRowButton(2, "Reducto", SuperReductoUsage);
 
             if (CoC.Instance.Flags.Get(GameFlagIds.FollowerAtFarmBathGirl) == 0)
-                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.CampScene>.Get()));
+                AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));
 
             if (CoC.Instance.Flags.Get(GameFlagIds.FollowerAtFarmBathGirl) == 1)
                 AddButton(14, "Common.Button.Back".Localized(), null );

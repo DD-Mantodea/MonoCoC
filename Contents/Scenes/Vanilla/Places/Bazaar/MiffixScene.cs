@@ -585,7 +585,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             Player.AddStatusEffect(new StatusEffect { Id = StatusEffectIds.ImaginaryMiffix });
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "imaginary_miffix")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "imaginary_miffix")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void MiffixPlan4()
@@ -697,7 +697,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Miffixscene.ThatCantBeHowItHappened.ShrugWord".Localized());
 
-            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "imaginary_miffix")), () => Go(SceneInstance<MonoCoC.Contents.Scenes.Vanilla.Areas.ForestScene>.Get()));
+            CombatScene.Start(EnemyRegistry.Create(new Identifier("coc", "imaginary_miffix")), () => Go(SceneInstance<Areas.ForestScene>.Get()));
         }
 
         public void MiffixTalkTopics()

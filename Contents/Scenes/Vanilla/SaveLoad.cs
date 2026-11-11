@@ -291,9 +291,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
         {
             try
             {
-                _ = Assets.ManagerInstance<MonoCoC.Assets.ContentManagers.ItemManager>.Instance;
+                _ = Assets.ManagerInstance<Assets.ContentManagers.ItemManager>.Instance;
 
-                _ = Assets.ManagerInstance<MonoCoC.Assets.ContentManagers.PerkManager>.Instance;
+                _ = Assets.ManagerInstance<Assets.ContentManagers.PerkManager>.Instance;
 
                 var legacy = Saving.Legacy.SaveLoader.Load(path);
 
@@ -390,7 +390,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 UI.Components.Combat.PlayerStats.HiddenByMenu = false;
 
-                var gameView = GameView.CreateDefault();
+                var gameView = new CampView();
 
                 data.Apply(Player);
 
@@ -480,9 +480,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 ApplyLegacyStat(root, "cor", Datas.Vanilla.GameStats.Corruption);
 
                 // 鍘熺増 age: 0=Adult, 1=Child, 2=Teen, 3=Elder
-                Player.Age = (MonoCoC.Contents.Creatures.Age)IntValue(root, "age", 0);
+                Player.Age = (Creatures.Age)IntValue(root, "age", 0);
 
-                Player.StartingAge = (MonoCoC.Contents.Creatures.Age)IntValue(root, "startingAge", 0);
+                Player.StartingAge = (Creatures.Age)IntValue(root, "startingAge", 0);
 
                 ImportLegacyPerks(root);
 
@@ -552,7 +552,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                     Stats.ModifierOperation.Addition, () => bonus,
 
-                    new MonoCoC.Contents.Stats.ModifierSources.TemporarySource(Guid.NewGuid()));
+                    new Stats.ModifierSources.TemporarySource(Guid.NewGuid()));
         }
 
         private static void ImportLegacyInventory(Hjson.JsonObject root)
@@ -575,7 +575,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 Player.UpdateItemStacks();
             }
 
-            if (Player.Storage.TryGetValue(new MonoCoC.Registry.Identifier("coc", "items"), out var area))
+            if (Player.Storage.TryGetValue(new Registry.Identifier("coc", "items"), out var area))
             {
                 ImportLegacyStorage(root, "itemStorage", area);
 
@@ -585,7 +585,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
         private static void ImportLegacyGearStorage(Hjson.JsonObject root, string key,
 
-            MonoCoC.Contents.Storage.StorageArea fallbackArea)
+            Storage.StorageArea fallbackArea)
         {
             if (!root.TryGetValue(key, out var value) || value is not Hjson.JsonArray array)
                 return;
@@ -651,7 +651,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             }
         }
 
-        private static void ImportLegacyStorage(Hjson.JsonObject root, string key, MonoCoC.Contents.Storage.StorageArea area)
+        private static void ImportLegacyStorage(Hjson.JsonObject root, string key, Storage.StorageArea area)
         {
             if (!root.TryGetValue(key, out var value) || value is not Hjson.JsonArray array)
                 return;
@@ -831,7 +831,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 }
         }
 
-        private static void AddLegacyPerkStat(MonoCoC.Registry.Identifier perkId, float value1)
+        private static void AddLegacyPerkStat(Registry.Identifier perkId, float value1)
         {
             var fatigue = perkId.Path switch
             {
@@ -851,7 +851,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                     Stats.ModifierOperation.Addition, () => fatigue,
 
-                    new MonoCoC.Contents.Stats.ModifierSources.TemporarySource(Guid.NewGuid()));
+                    new Stats.ModifierSources.TemporarySource(Guid.NewGuid()));
         }
 
         private static string NormalizePerkName(string value) =>
@@ -862,7 +862,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             json.TryGetValue(key, out var value) ? (float)(double)value : 0f;
 
-        private static void ApplyLegacyStat(Hjson.JsonObject root, string key, MonoCoC.Contents.Stats.Stat stat)
+        private static void ApplyLegacyStat(Hjson.JsonObject root, string key, Stats.Stat stat)
         {
             if (!root.TryGetValue(key, out var value))
                 return;
@@ -1067,17 +1067,17 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             return data;
         }
 
-        private static MonoCoC.Registry.Identifier LegacyStatusIdentifier(string name)
+        private static Registry.Identifier LegacyStatusIdentifier(string name)
         {
             var target = NormalizeStatusKey(name);
 
-            foreach (var field in typeof(MonoCoC.Contents.Datas.Vanilla.StatusEffectIds)
+            foreach (var field in typeof(Datas.Vanilla.StatusEffectIds)
                          .GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static))
             {
-                if (field.FieldType != typeof(MonoCoC.Registry.Identifier))
+                if (field.FieldType != typeof(Registry.Identifier))
                     continue;
 
-                var id = (MonoCoC.Registry.Identifier)field.GetValue(null)!;
+                var id = (Registry.Identifier)field.GetValue(null)!;
 
                 if (NormalizeStatusKey(id.Path) == target)
                     return id;
@@ -1171,10 +1171,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             UI.Components.Combat.PlayerStats.HiddenByMenu = false;
 
-            UIManager.Instance.Root.SwitchView(GameView.CreateDefault());
+            UIManager.Instance.Root.SwitchView(new CampView());
 
             Go<CampScene>();
         }
     }
 }
+
 
