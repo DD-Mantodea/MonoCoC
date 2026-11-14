@@ -1700,7 +1700,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Dungeons.LethicesKeep
 
             ShowImage("item-lWhip");
 
-            InventoryScene.TakeItem(ItemIds.LethicesWhip, () => ReturnToCamp(8));
+            InventoryView.TakeItem(ItemIds.LethicesWhip, () => ReturnToCamp(8));
         }
 
         public void QuitToMenu()

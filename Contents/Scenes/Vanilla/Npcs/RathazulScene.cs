@@ -715,7 +715,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             mixologyXP += 8;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.GelArmor), () => ReturnToRathazulMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.GelArmor), () => ReturnToRathazulMenu());
         }
 
         public void CraftCarapace()
@@ -740,7 +740,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             mixologyXP += 8;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.BeeArmor), () => ReturnToRathazulMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.BeeArmor), () => ReturnToRathazulMenu());
         }
 
         public void CraftSilkArmor()
@@ -952,7 +952,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             CoC.Instance.Flags.Set(GameFlagIds.RathazulSilkArmorCountdown, 0);
 
-            InventoryScene.TakeItem(ItemRegistry.Create(itype), () => ReturnToRathazulMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(itype), () => ReturnToRathazulMenu());
         }
 
         public void CraftDragonscaleArmor()
@@ -1063,7 +1063,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             mixologyXP += 8;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(itype), () => ReturnToRathazulMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(itype), () => ReturnToRathazulMenu());
         }
 
         public void CraftEbonweaveArmor()
@@ -1301,7 +1301,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             mixologyXP += 8;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(itype), () => ReturnToRathazulMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(itype), () => ReturnToRathazulMenu());
         }
 
         public void CraftMaraeArmor(bool divine = false)
@@ -1358,7 +1358,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             mixologyXP += 8;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ArmorIds.TentacleBarkArmor), () => ReturnToRathazulMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(ArmorIds.TentacleBarkArmor), () => ReturnToRathazulMenu());
         }
 
         public void TakethatMarmorD()
@@ -1381,7 +1381,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             mixologyXP += 8;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ArmorIds.DivineArmor), () => ReturnToRathazulMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(ArmorIds.DivineArmor), () => ReturnToRathazulMenu());
         }
 
         public void CraftGolemArmor()
@@ -1404,7 +1404,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             mixologyXP += 8;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.GolemArmor), () => ReturnToRathazulMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.GolemArmor), () => ReturnToRathazulMenu());
         }
 
         public void RathazulShopMenu()
@@ -1626,7 +1626,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ShowImage(image);
 
-            InventoryScene.TakeItem(ItemRegistry.Create(item), () => ReturnToShopMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(item), () => ReturnToShopMenu());
 
             mixologyXP += 4;
         }
@@ -1669,7 +1669,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ShowImage("item-box");
 
-            InventoryScene.TakeItem(ItemRegistry.Create(result), () => ReturnToShopMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(result), () => ReturnToShopMenu());
 
             mixologyXP += 8;
         }
@@ -1926,7 +1926,7 @@ ReturnToShopMenu();
 
             mixologyXP += 8;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.Taurinum), () => ReturnToShopMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.Taurinum), () => ReturnToShopMenu());
         }
 
         public void RathazulMakesEyePotion()
@@ -1955,7 +1955,7 @@ ReturnToShopMenu();
 
             mixologyXP += 8;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.OculumArachnae), () => ReturnToShopMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.OculumArachnae), () => ReturnToShopMenu());
         }
 
         public void RathazulMakesCockatricePotion()
@@ -1984,7 +1984,7 @@ ReturnToShopMenu();
 
             mixologyXP += 8;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.TonOTrice), () => ReturnToShopMenu());
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.TonOTrice), () => ReturnToShopMenu());
         }
 
         public void GrowLethiciteDefense()

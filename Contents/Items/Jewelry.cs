@@ -5,6 +5,7 @@ using MonoCoC.Attributes;
 
 namespace MonoCoC.Contents.Items
 {
+    [ItemCategory("coc:jewelry", "Icons/inventory_jewelry.svg", "Items.Type.Jewelry")]
     [Register<Jewelry>("coc:jewelry")]
     public class Jewelry : Item
     {

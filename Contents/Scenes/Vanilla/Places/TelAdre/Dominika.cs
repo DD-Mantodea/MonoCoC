@@ -1516,7 +1516,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 OutputText("Scenes.Dominika.DominikaSpellblade.GettingBeerAndSword".Localized());
             }
 
-            InventoryScene.TakeItem(ItemRegistry.Create(WeaponIds.Spellblade), () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemRegistry.Create(WeaponIds.Spellblade), () => ReturnToCamp(1));
 
             CoC.Instance.Flags.Set(GameFlagIds.DominikasSwordGiven, 1);
         }

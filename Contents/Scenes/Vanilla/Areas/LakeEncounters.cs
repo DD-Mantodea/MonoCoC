@@ -111,13 +111,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas
         {
             Scene.OutputText("Common.Text.YouFindALongAndOddly".Localized());
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.Equinum), () => Scene.Go<CampScene>());
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.Equinum), () => Scene.Go<CampScene>());
         }
         else
         {
             Scene.OutputText("Common.Text.YouFindAnOddFruitBearing".Localized());
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.W_FRUIT), () => Scene.Go<CampScene>());
+            InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.W_FRUIT), () => Scene.Go<CampScene>());
         }
     }
 

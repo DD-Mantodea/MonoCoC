@@ -1051,7 +1051,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
 
             OutputText("Scenes.Owca.BuyOwcaShit.BartenderHandsBottle".Localized());
 
-            InventoryScene.TakeItem(bleh, OwcaTavern);
+            InventoryView.TakeItem(bleh, OwcaTavern);
         }
 
         public void Herds()
@@ -1070,7 +1070,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
             {
                 OutputText("Scenes.Owca.Herds.VillagersThankYou".Localized());
 
-                InventoryScene.TakeItem(ItemIds.SheepMilk, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ItemIds.SheepMilk, () => ReturnToCamp(1));
             }
             else
                 DoNext(() => ReturnToCamp(1));

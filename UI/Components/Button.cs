@@ -1,4 +1,4 @@
-﻿using FontStashSharp.RichText;
+using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -54,6 +54,8 @@ namespace MonoCoC.UI.Components
 
         public Color TextColor = Color.Black;
 
+        public int? FontSizeOverride;
+
         private int _fittedWidth = -1;
 
         private int _fittedPadding = -1;
@@ -62,13 +64,20 @@ namespace MonoCoC.UI.Components
 
         private int _fittedRevision = -1;
 
+        private int _fittedFontSize = -1;
+
         private void FitLabel()
         {
             var text = Label.RichTextLayout.Text ?? "";
 
             var width = Width;
 
-            if (width <= 0 || (width == _fittedWidth && text == _fittedText && LabelPadding == _fittedPadding && UIFonts.Revision == _fittedRevision))
+            var size = FontSizeOverride ?? UIFonts.Size(FontRole);
+
+            if (width <= 0 || (width == _fittedWidth && text == _fittedText &&
+                               LabelPadding == _fittedPadding &&
+                               UIFonts.Revision == _fittedRevision &&
+                               size == _fittedFontSize))
                 return;
 
             _fittedWidth = width;
@@ -79,7 +88,7 @@ namespace MonoCoC.UI.Components
 
             _fittedRevision = UIFonts.Revision;
 
-            var size = UIFonts.Size(FontRole);
+            _fittedFontSize = size;
 
             var family = UIFonts.Family(FontRole);
 
@@ -170,6 +179,8 @@ namespace MonoCoC.UI.Components
 
         private double _conditionTimer;
 
+        private string _lastConditionError = "";
+
         public override void Update(GameTime gameTime)
         {
             UpdateCondition(gameTime);
@@ -204,10 +215,17 @@ namespace MonoCoC.UI.Components
 
             if (!MonoCoC.Scripting.ConditionEvaluator.TryEvaluate(DisableIf, out var disabled, out var error))
             {
-                MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] disableIf error: {error}");
+                if (error != _lastConditionError)
+                {
+                    _lastConditionError = error;
+
+                    MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] disableIf error: {error}");
+                }
 
                 return;
             }
+
+            _lastConditionError = "";
 
             if (disabled == _conditionDisabled)
                 return;
@@ -304,7 +322,7 @@ namespace MonoCoC.UI.Components
         {
             Background?.LayoutData.Alpha = !Enabled ? 0.4f : IsHovering ? 0.5f : 1f;
 
-            var stateText = StateStyle?.TextFor(Enabled, IsHovering, IsPressed);
+            var stateText = StateStyle?.TextFor(Enabled, IsHovering, IsPressed, Selected);
 
             Label?.TextColor = Enabled ? stateText ?? TextColor : UIColors.ButtonTextDisabled;
 

@@ -436,7 +436,7 @@ namespace MonoCoC.Contents.Dungeons
 
             AddMoveButton(12, "East", 3);
 
-            AddButton(13, "Common.Button.Inventory".Localized(), () => InventoryScene.InventoryMenu(),
+            AddButton(13, "Common.Button.Inventory".Localized(), () => InventoryView.InventoryMenu(),
 
                 "The inventory allows you to view or use your items.");
 
@@ -455,7 +455,7 @@ namespace MonoCoC.Contents.Dungeons
 
             AddButton(12, "Common.Button.East".Localized(), east);
 
-            AddButton(13, "Common.Button.Inventory".Localized(), () => InventoryScene.InventoryMenu(),
+            AddButton(13, "Common.Button.Inventory".Localized(), () => InventoryView.InventoryMenu(),
 
                 "The inventory allows you to view or use your items.");
 
@@ -1023,7 +1023,7 @@ namespace MonoCoC.Contents.Dungeons
             {
                 OutputText("Scenes.Manor.DiningRoom.SeeDarkCurvedDagger".Localized());
 
-                AddButton(1, "Common.Button.TakeDagger".Localized(), () => InventoryScene.TakeItem(ItemIds.CursedDagger, TookDagger, RunFunc));
+                AddButton(1, "Common.Button.TakeDagger".Localized(), () => InventoryView.TakeItem(ItemIds.CursedDagger, TookDagger, RunFunc));
             }
 
             if (!((CoC.Instance.Flags.Get(GameFlagIds.ManorProgress) & 4) != 0) || ((CoC.Instance.Flags.Get(GameFlagIds.ManorProgress) & 8) != 0) || ((CoC.Instance.Flags.Get(GameFlagIds.ManorProgress) & 64) != 0))
@@ -1311,7 +1311,7 @@ namespace MonoCoC.Contents.Dungeons
                 {
                     OutputText("Scenes.Manor.Tunnels2.SeeDarkCurvedDagger".Localized());
 
-                    AddButton(1, "Common.Button.TakeDagger".Localized(), () => InventoryScene.TakeItem(ItemIds.CursedDagger, TookDagger, RunFunc));
+                    AddButton(1, "Common.Button.TakeDagger".Localized(), () => InventoryView.TakeItem(ItemIds.CursedDagger, TookDagger, RunFunc));
                 }
         }
 
@@ -1505,7 +1505,7 @@ namespace MonoCoC.Contents.Dungeons
                 {
                     OutputText("Scenes.Manor.TheChamber.SeeDarkCrystal".Localized());
 
-                    AddButton(1, "Common.Button.TakeCrystal".Localized(), () => InventoryScene.TakeItem(UseableIds.AbyssalShard, TookCrystal, RunFunc));
+                    AddButton(1, "Common.Button.TakeCrystal".Localized(), () => InventoryView.TakeItem(UseableIds.AbyssalShard, TookCrystal, RunFunc));
                 }
 
                 OutputText("Scenes.Manor.TheChamber.NearbyTableYouSee".Localized());

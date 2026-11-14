@@ -1319,7 +1319,7 @@ ReturnToCamp(1);
                 new DynStat(GameStats.Corruption, 2.5f));
 
             // 原版 :884 取走一瓶 Cerulean 药水并回到主菜单
-            InventoryScene.TakeItem(
+            InventoryView.TakeItem(
                 ItemRegistry.Create(ConsumableIds.CeruleanPotion),
 
                 () => ReturnToCamp(1));

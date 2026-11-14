@@ -1556,7 +1556,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             Player.Orgasm("Dick");
 
-            InventoryScene.TakeItem(ConsumableIds.TigersharkTooth, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.TigersharkTooth, () => ReturnToCamp(1));
         }
 
         public void NonFightIzmaSmexASS()
@@ -1617,7 +1617,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             Player.Orgasm("Generic");
 
-            InventoryScene.TakeItem(ConsumableIds.TigersharkTooth, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.TigersharkTooth, () => ReturnToCamp(1));
         }
 
         public void IzmaStayAtTheLakeBitch()
@@ -2443,7 +2443,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 CoC.Instance.Flags.Set(GameFlagIds.IzmaTigersharkToothCountdown, CoC.Instance.Flags.Get(GameFlagIds.IzmaTigersharkToothCountdown) + 1);
 
-                InventoryScene.TakeItem(ConsumableIds.TigersharkTooth, IzmaFollowerMenu);
+                InventoryView.TakeItem(ConsumableIds.TigersharkTooth, IzmaFollowerMenu);
             }
         }
 

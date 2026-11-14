@@ -19,7 +19,7 @@ namespace MonoCoC.Assets.ContentManagers
 
         public override void FromText(string path, string text, IDictionary<string, Achievement> entries)
         {
-            var root = (JsonObject)HjsonValue.Parse(text);
+            var root = (JsonObject)MonoCoC.HjsonParser.Parse(text);
 
             if (!root.TryGetValue("achievements", out var value) || value is not JsonArray achievements)
                 throw new FormatException($"Achievement file '{path}' has no 'achievements' array");

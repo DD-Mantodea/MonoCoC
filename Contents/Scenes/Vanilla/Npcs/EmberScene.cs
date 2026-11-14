@@ -502,7 +502,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             Player.RemoveKeyItem("Dragon Eggshell");
 
-            InventoryScene.TakeItem(ItemIds.DragonShield, () => Go<Places.TelAdre.YvonneArmorShop>());
+            InventoryView.TakeItem(ItemIds.DragonShield, () => Go<Places.TelAdre.YvonneArmorShop>());
         }
 
         public void TakeEmbersEggHomeInADoggieBag()
@@ -2359,7 +2359,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 Player.ApplyStats(new DynStat(GameStats.Lust, (float)(10 + Player.Libido / 10)));
 
-                InventoryScene.TakeItem(ItemIds.DragonEgg, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ItemIds.DragonEgg, () => ReturnToCamp(1));
             }
             else
                 if (EmberAffection() < 75)
@@ -2464,7 +2464,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                     Player.ApplyStats(new DynStat(GameStats.Lust, (float)(10 + Player.Libido / 10)));
 
-                    InventoryScene.TakeItem(ItemIds.DragonEgg, () => ReturnToCamp(1));
+                    InventoryView.TakeItem(ItemIds.DragonEgg, () => ReturnToCamp(1));
                 }
         }
 
@@ -2481,7 +2481,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Emberscene.DontWatchEmberLayEgg.EyesGlazeAtSuggestion".Localized());
 
-            InventoryScene.TakeItem(ItemIds.DragonEgg, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemIds.DragonEgg, () => ReturnToCamp(1));
         }
 
         public void WatchMediumAffectionEmberEggLay()
@@ -2571,7 +2571,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Emberscene.WatchMediumAffectionEmberEggLay.ShakeHeadAndSigh".Localized());
 
-            InventoryScene.TakeItem(ItemIds.DragonEgg, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemIds.DragonEgg, () => ReturnToCamp(1));
 
             EmberAffection(5);
         }

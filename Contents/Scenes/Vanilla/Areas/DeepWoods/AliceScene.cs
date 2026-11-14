@@ -3117,7 +3117,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
             {
                 ClearButtons();
 
-                AddNextButton("Common.Button.Leave".Localized(), () => InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.RubberBall), () => ReturnToCamp(1)));
+                AddNextButton("Common.Button.Leave".Localized(), () => InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.RubberBall), () => ReturnToCamp(1)));
 
                 AddNextButton("Common.Button.UseHer".Localized(), AliceBallUse);
             }

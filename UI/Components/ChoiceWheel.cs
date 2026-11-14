@@ -1,0 +1,417 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using MonoCoC.Assets;
+using MonoCoC.Extensions;
+using MonoCoC.Graphics.Materials;
+using MonoCoC.Graphics.Shaders;
+using MonoCoC.UI.Framework;
+using MonoCoC.UI.Layout;
+using MonoCoC.UI.Styles;
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+namespace MonoCoC.UI.Components
+{
+    public class ChoiceWheel : Component
+    {
+        private sealed class Entry
+        {
+            public string Id = "";
+            public string LabelKey = "";
+            public string ElderLabelKey = "";
+            public string DescriptionKey = "";
+            public string ElderDescriptionKey = "";
+            public string Condition = "";
+            public string LockedReasonKey = "";
+            public string RequiresGender = "";
+            public string RequiresRace = "";
+        }
+
+        private readonly List<Entry> _entries = [];
+        private readonly List<Button> _buttons = [];
+
+        private readonly List<Button> _lockedButtons = [];
+        private int _selected = -1;
+        private float _scrollPosition;
+        private bool _hasFocus;
+        private int _previousWheel;
+
+        private WheelFadeMaterial? _fadeMaterial;
+
+        public bool Fade { get; set; } = true;
+
+        public Color FadeColor { get; set; } = new Color(0xE6, 0xD7, 0xBD, 255);
+
+        public float FadeTop { get; set; } = 0.2f;
+
+        public float FadeBottom { get; set; } = 0.2f;
+
+        public ChoiceWheel()
+        {
+            BackgroundColor = Color.Transparent;
+
+            Scissor = true;
+        }
+
+        public int VisibleItems { get; set; } = 1;
+        public float FadeMin { get; set; } = 1f;
+        public float AnimationSpeed { get; set; } = 1f;
+        public int FontSize { get; set; } = 1;
+        public int CenterFontSize { get; set; } = 1;
+        public UIStateStyle? OptionStyle { get; set; }
+        public UIStateStyle? LockedStyle { get; set; }
+        public Color LockColor { get; set; } = new Color(0x8A, 0x85, 0x7C, 255);
+        public string LockIcon { get; set; } = "";
+
+        public void PrewarmIcon()
+        {
+            if (string.IsNullOrWhiteSpace(LockIcon))
+                return;
+
+            foreach (var size in new[] { FontSize, CenterFontSize, 16, 20, 26 })
+            {
+                SvgTextureCache.GetFile(
+                    CoC.Instance.GraphicsDevice,
+                    LockIcon,
+                    Math.Clamp(size, 8, 32),
+                    new SkiaSharp.SKColor(LockColor.R, LockColor.G, LockColor.B, LockColor.A));
+            }
+        }
+        public Func<string, bool>? Available { get; set; }
+        public bool ShowLocked { get; set; }
+        public string CurrentGender { get; set; } = "";
+        public string CurrentAge { get; set; } = "";
+        public string ResolveText(string text) => ChoiceTextResolver.Resolve(text, CurrentAge, CurrentGender);
+        public string ExplainText(string text) => ChoiceTextResolver.Explain(text, CurrentAge, CurrentGender);
+
+        public string FormatDescription(string text)
+        {
+            var body = ExplainText(text);
+
+            if (!SelectedLocked)
+                return body;
+
+            return "Views.CharCreation.Lock.Locked".Localized() + "\n" +
+                   SelectedLockedReason + "\n\n" +
+                   body;
+        }        public string CurrentRace { get; set; } = "";
+        public Action<string>? SelectionChanged;
+        public bool Elder { get; set; }
+        public string? SelectedId => _selected >= 0 && _selected < _entries.Count ? _entries[_selected].Id : null;
+        public bool SelectedLocked => _selected >= 0 && _selected < _entries.Count && !IsAvailable(_selected);
+        public string SelectedLockedReasonKey => _selected < 0 ? "" : _entries[_selected].LockedReasonKey;
+        public string SelectedDescriptionKey => _selected < 0 ? "" : (Elder && _entries[_selected].ElderDescriptionKey.Length > 0 ? _entries[_selected].ElderDescriptionKey : _entries[_selected].DescriptionKey);
+
+        public void Load(string source)
+        {
+            _entries.Clear();
+
+            var path = Path.Combine(Paths.Assets, "Data", "Creation", source + ".hjson");
+
+            if (!File.Exists(path))
+                return;
+
+            if (MonoCoC.HjsonParser.Parse(File.ReadAllText(path)) is not Hjson.JsonObject root)
+                return;
+
+            if (!root.TryGetValue("options", out var value) || value is not Hjson.JsonArray options)
+                return;
+
+            foreach (var option in options)
+            {
+                if (option is not Hjson.JsonObject obj)
+                    continue;
+
+                _entries.Add(new Entry
+                {
+                    Id = obj.Str("id"),
+                    LabelKey = obj.Str("labelKey"),
+                    ElderLabelKey = obj.Str("elderLabelKey"),
+                    DescriptionKey = obj.Str("descriptionKey"),
+                    ElderDescriptionKey = obj.Str("elderDescriptionKey"),
+                    Condition = obj.Str("condition"),
+                    LockedReasonKey = obj.Str("lockedReasonKey"),
+                    RequiresGender = obj.Str("requiresGender"),
+                    RequiresRace = obj.Str("requiresRace")
+                });
+            }
+
+            Rebuild();
+        }
+
+        public void SetElder(bool elder)
+        {
+            if (Elder == elder)
+                return;
+
+            Elder = elder;
+            Rebuild();
+        }
+
+        public void Refresh()
+        {
+            UpdateItems();
+        }
+
+        private void Rebuild()
+        {
+            foreach (var button in _buttons)
+                RemoveChild(button);
+
+            _buttons.Clear();
+
+            for (var index = 0; index < _entries.Count; index++)
+            {
+                var optionIndex = index;
+                var button = new Button("", LabelFor(_entries[index]), "coc:menu")
+                {
+                    LayoutData = { LayoutType = LayoutType.Relative }
+                };
+
+                button.Click(() =>
+                {
+                    _hasFocus = true;
+                    Select(optionIndex);
+                });
+
+                AddChild(button);
+                _buttons.Add(button);
+            }
+
+            var first = _entries.FindIndex(entry => entry.Condition.Length == 0 || Available?.Invoke(entry.Condition) != false);
+            _selected = first >= 0 ? first : -1;
+            _scrollPosition = _selected;
+            UpdateItems();
+        }
+
+        private string LabelFor(Entry entry) =>
+            (Elder && entry.ElderLabelKey.Length > 0 ? entry.ElderLabelKey : entry.LabelKey).Localized();
+
+        private bool IsAvailable(int index) =>
+            index >= 0 && index < _entries.Count &&
+            (string.IsNullOrEmpty(_entries[index].RequiresGender) || string.Equals(_entries[index].RequiresGender, CurrentGender, StringComparison.OrdinalIgnoreCase)) &&
+            (string.IsNullOrEmpty(_entries[index].RequiresRace) || string.Equals(_entries[index].RequiresRace, CurrentRace, StringComparison.OrdinalIgnoreCase)) &&
+            (_entries[index].Condition.Length == 0 || Available?.Invoke(_entries[index].Condition) != false);
+
+        public string SelectedLockedReason
+        {
+            get
+            {
+                if (_selected < 0 || _selected >= _entries.Count)
+                    return "";
+
+                var entry = _entries[_selected];
+
+                if (!string.IsNullOrEmpty(entry.RequiresGender))
+                    return "Views.CharCreation.Lock.Gender".Localized(entry.RequiresGender);
+
+                if (!string.IsNullOrEmpty(entry.RequiresRace))
+                    return "Views.CharCreation.Lock.Race".Localized(entry.RequiresRace);
+
+                if (entry.Condition == "cock")
+                    return "Views.CharCreation.Lock.RequiresCock".Localized();
+
+                if (entry.Condition == "vagina")
+                    return "Views.CharCreation.Lock.RequiresVagina".Localized();
+
+                return entry.LockedReasonKey.Length > 0
+                    ? entry.LockedReasonKey.Localized()
+                    : "Views.CharCreation.Lock.Required".Localized();
+            }
+        }
+
+        private static int ShortestDelta(int from, int to, int count)
+        {
+            if (count == 0) return 0;
+            var delta = (to - from + count) % count;
+            if (delta > count / 2) delta -= count;
+            return delta;
+        }
+
+        private static float ShortestDeltaFloat(float from, float to, int count)
+        {
+            if (count == 0) return 0;
+            var delta = to - from;
+            delta -= count * (float)Math.Round(delta / count);
+            return delta;
+        }
+
+        private void Select(int index, bool notify = true)
+        {
+            if (_entries.Count == 0) return;
+
+            _selected = Math.Clamp(index, 0, _entries.Count - 1);
+
+            if (notify)
+                SelectionChanged?.Invoke(_entries[_selected].Id);
+        }
+
+        private void EnsureSelectionAvailable()
+        {
+            if (_entries.Count == 0)
+                return;
+
+            if (_selected >= 0 && IsAvailable(_selected))
+                return;
+
+            var fallback = _entries.FindIndex(entry => entry.Condition.Length == 0 || Available?.Invoke(entry.Condition) != false);
+
+            if (fallback >= 0)
+                _selected = fallback;
+        }
+
+        private void Move(int delta)
+        {
+            if (_entries.Count == 0) return;
+
+            var candidate = _selected + delta;
+
+            if (candidate < 0 || candidate >= _entries.Count)
+                return;
+
+            Select(candidate);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+
+            if (IsHovering)
+                _hasFocus = true;
+
+            var wheel = UserInput.CurrentMouseState.ScrollWheelValue;
+            if (IsHovering && wheel != _previousWheel)
+                Move(wheel > _previousWheel ? -1 : 1);
+            _previousWheel = wheel;
+
+            if (_hasFocus)
+            {
+                if (IsKeyPressed(Keys.Up)) Move(-1);
+                if (IsKeyPressed(Keys.Down)) Move(1);
+            }
+
+            if (_selected >= 0 && _entries.Count > 0)
+            {
+                var delta = _selected - _scrollPosition;
+
+                _scrollPosition += delta * AnimationSpeed;
+
+                if (Math.Abs(delta) < 0.01f)
+                    _scrollPosition = _selected;
+            }
+
+            UpdateItems();
+        }
+
+        private static bool IsKeyPressed(Keys key) =>
+            UserInput.PreviousKeyState.IsKeyUp(key) && UserInput.CurrentKeyState.IsKeyDown(key);
+
+        private void UpdateItems()
+        {
+            var half = VisibleItems / 2;
+            var rowHeight = Height / (float)VisibleItems;
+            var centerY = (Height - rowHeight) / 2f;
+
+            for (var index = 0; index < _buttons.Count; index++)
+                _buttons[index].Visible = false;
+
+            _lockedButtons.Clear();
+
+            if (_entries.Count == 0)
+                return;
+
+            var shown = new HashSet<int>();
+
+            for (var index = 0; index < _buttons.Count; index++)
+            {
+                var delta = index - _scrollPosition;
+
+                if (Math.Abs(delta) > half + 1)
+                    continue;
+
+                var dataIndex = (index + _entries.Count) % _entries.Count;
+
+                if (!shown.Add(dataIndex))
+                    continue;
+
+                var available = IsAvailable(dataIndex);
+
+                if (!available && !ShowLocked)
+                    continue;
+
+                var button = _buttons[index];
+                var animatedSlot = delta;
+                var centerAmount = Math.Clamp(1f - Math.Abs(animatedSlot), 0f, 1f);
+                var alpha = Fade
+                    ? Math.Clamp(FadeMin + (1f - FadeMin) * (1f - Math.Abs(animatedSlot) / (half + 1)), 0f, 1f)
+                    : 1f;
+
+                button.Visible = true;
+                button.LayoutData.Size = new Vector2(Width, rowHeight);
+                button.LayoutData.Position = new Vector2(0, centerY + animatedSlot * rowHeight);
+                button.StateStyle = OptionStyle;
+                button.Enabled = true;
+
+                if (!available)
+                    _lockedButtons.Add(button);
+
+                button.SetLabel(LabelFor(_entries[dataIndex]));
+                button.Selected = Math.Abs(animatedSlot) < 0.5f;
+                button.FontSizeOverride = (int)Math.Round(FontSize + (CenterFontSize - FontSize) * centerAmount);
+                button.LayoutData.Alpha = alpha;
+                button.Label.LayoutData.Alpha = alpha;
+                if (button.Background is not null)
+                    button.Background.LayoutData.Alpha = alpha;
+                button.RefreshVisual();
+            }
+        }
+
+        public override void PostDraw(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            base.PostDraw(spriteBatch, gameTime);
+
+            if (string.IsNullOrWhiteSpace(LockIcon))
+                return;
+
+            foreach (var button in _lockedButtons)
+            {
+                var size = Math.Clamp((int)((button.FontSizeOverride ?? FontSize) * 0.62f), 8, 18);
+
+                Texture2D? texture;
+
+                try
+                {
+                    texture = SvgTextureCache.GetFile(
+                        CoC.Instance.GraphicsDevice,
+                        LockIcon,
+                        size,
+                        new SkiaSharp.SKColor(LockColor.R, LockColor.G, LockColor.B, LockColor.A));
+                }
+                catch (Exception ex)
+                {
+                    MonoCoC.UI.Console.ConsoleOverlay.WriteError($"[UI] svg icon error: {ex.Message}");
+
+                    continue;
+                }
+
+                if (texture is null)
+                {
+                    MonoCoC.UI.Console.ConsoleOverlay.WriteError(
+                        $"[UI] lock icon render failed: icon={LockIcon}, size={size}");
+
+                    continue;
+                }
+
+                var rect = new Rectangle(
+                    button.Rectangle.X - size - 4,
+                    button.Rectangle.Y + (button.Rectangle.Height - size) / 2,
+                    size,
+                    size);
+
+                spriteBatch.Draw(texture, rect, Color.White * (button.LayoutData.Alpha));
+            }
+        }
+    }
+}

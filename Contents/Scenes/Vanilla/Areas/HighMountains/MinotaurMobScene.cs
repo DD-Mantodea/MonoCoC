@@ -628,7 +628,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
                 Player.Sleeping = true;
 
-                InventoryScene.TakeItem(ItemRegistry.Create(Identifier.Parse(CoC.Instance.Flags.Get(GameFlagIds.BonusItemAfterCombatId))), () => ReturnToCamp(1));
+                InventoryView.TakeItem(ItemRegistry.Create(Identifier.Parse(CoC.Instance.Flags.Get(GameFlagIds.BonusItemAfterCombatId))), () => ReturnToCamp(1));
             }
         }
 
@@ -1177,7 +1177,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
             {
                 OutputText("Scenes.Minotaurmobscene.VictoryMinotaurGangTitFuck.ParagraphBreak".Localized());
 
-                InventoryScene.TakeItem(ItemRegistry.Create(Identifier.Parse(CoC.Instance.Flags.Get(GameFlagIds.BonusItemAfterCombatId))), () => ReturnToCamp(1));
+                InventoryView.TakeItem(ItemRegistry.Create(Identifier.Parse(CoC.Instance.Flags.Get(GameFlagIds.BonusItemAfterCombatId))), () => ReturnToCamp(1));
             }
         }
 

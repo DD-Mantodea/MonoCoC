@@ -3,6 +3,7 @@ using MonoCoC.Attributes;
 
 namespace MonoCoC.Contents.Items
 {
+    [ItemCategory("coc:shield", "Icons/inventory_shield.svg", "Items.Type.Shield")]
     [Register<Shield>("coc:shield")]
     public class Shield : Item
     {

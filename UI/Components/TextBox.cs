@@ -484,9 +484,6 @@ namespace MonoCoC.UI.Components
         {
             base.DrawSelf(spriteBatch, gameTime);
 
-            if (ShowBorder)
-                spriteBatch.DrawBorder(Rectangle, 1, BorderColor * Alpha);
-
             spriteBatch.End();
 
             UIManager.Instance.ScissorStack.Push(Rectangle);

@@ -42,6 +42,7 @@ namespace MonoCoC.UI.Data
             _types.Register("coc:view", _ => new View());
             _types.Register("coc:image", CreateImage);
             _types.Register("coc:panel", CreatePanel);
+            _types.Register("coc:gradient", CreateGradient);
             _types.Register("coc:label", CreateLabel);
             _types.Register("coc:button", CreateButton);
             _types.Register("coc:paper_background", CreatePaperBackground);
@@ -50,12 +51,22 @@ namespace MonoCoC.UI.Data
             _types.Register("coc:symbol", CreateSymbol);
             _types.Register("coc:divider", CreateDivider);
             _types.Register("coc:grid", CreateGrid);
+            _types.Register("coc:number", CreateNumber);
+            _types.Register("coc:slider", CreateSlider);
+            _types.Register("coc:numeric_stepper", CreateNumericStepper);
+            _types.Register("coc:option_list", CreateOptionList);
+            _types.Register("coc:selector", CreateSelector);
+            _types.Register("coc:segmented", CreateSegmented);
+            _types.Register("coc:choice_detail", CreateChoiceDetail);
+            _types.Register("coc:choice_wheel", CreateChoiceWheel);
             _types.Register("coc:text_area", CreateTextArea);
             _types.Register("coc:text_box", CreateTextBox);
             _types.Register("coc:bar", CreateBar);
             _types.Register("coc:stat_bar", CreateBar);
             _types.Register("coc:stat_row", CreateStatRow);
             _types.Register("coc:player_stats", CreatePlayerStats);
+
+            _types.Register("coc:item_grid", node => CreateItemGrid(node, _document!));
             _types.Register("coc:combat_stats", _ => new CombatStats());
             _types.Register("coc:custom_widget", CreateCustomComponent);
             _types.Register("coc:custom_component", CreateCustomComponent);
@@ -279,6 +290,14 @@ namespace MonoCoC.UI.Data
                 BackgroundColor = ColorOf(node.Str("backgroundColor", "#00000000"))
             };
 
+        private static Component CreateGradient(JsonObject node) =>
+            new GradientPanel
+            {
+                FromColor = ColorOf(node.Str("fromColor", "#00000000")),
+                ToColor = ColorOf(node.Str("toColor", "#00000000")),
+                CanHit = false
+            };
+
         private static Component CreateLabel(JsonObject node)
         {
             var label = new Label(ResolveFont(node, "coc:menu"));
@@ -336,6 +355,12 @@ namespace MonoCoC.UI.Data
                 : node.Str("font", "coc:button");
 
             var button = new Button(background, "", fontRole);
+
+            if (node.TryGetValue("font", out var sizeValue) && sizeValue is JsonObject sizeNode &&
+                sizeNode.TryGetValue("size", out var size))
+            {
+                button.FontSizeOverride = Int(size);
+            }
 
             button.SetLabel(UILocalizedText.Resolve(node, "label"));
 
@@ -535,6 +560,70 @@ namespace MonoCoC.UI.Data
             if (node.TryGetValue("showBorder", out _))
                 box.ShowBorder = node.Bool("showBorder", box.ShowBorder);
 
+            if (node.TryGetValue("states", out var boxStateValue) && boxStateValue is JsonObject boxStates)
+            {
+                var boxBaseThickness = node.TryGetValue("borderThickness", out var boxBorderValue) && boxBorderValue is not JsonArray
+                    ? Int(boxBorderValue)
+                    : 1;
+
+                var style = BuildStateStyle(boxStates, boxBaseThickness);
+
+                if (node.TryGetValue("borderThickness", out var boxThickness))
+                {
+                    var sides = ReadSides(boxThickness);
+                    if (sides is not null)
+                    {
+                        style.NormalBorderSides = sides;
+                        style.HoverBorderSides = sides;
+                        style.PressedBorderSides = sides;
+                        style.SelectedBorderSides = sides;
+                    }
+                }
+
+                box.StateStyle = style;
+            }
+            else if (node.TryGetValue("backgroundColor", out _) ||
+                     node.TryGetValue("borderColor", out _) ||
+                     node.TryGetValue("borderThickness", out _))
+            {
+                var style = new UIStateStyle
+                {
+                    NormalBackground = ColorOf(node.Str("backgroundColor", "#00000000")),
+                    NormalBorder = box.BorderColor
+                };
+
+                if (node.TryGetValue("borderThickness", out var boxThickness))
+                {
+                    var sides = ReadSides(boxThickness);
+
+                    if (sides is not null)
+                        style.NormalBorderSides = sides;
+                    else
+                        style.NormalBorderThickness = Int(boxThickness);
+                }
+
+                box.StateStyle = style;
+            }
+
+            if (box.StateStyle is not null && node.TryGetValue("backgroundColor", out _))
+            {
+                var background = ColorOf(node.Str("backgroundColor"));
+
+                box.StateStyle.NormalBackground = background;
+
+                if (box.StateStyle.HoverBackground == Color.Transparent)
+                    box.StateStyle.HoverBackground = background;
+
+                if (box.StateStyle.PressedBackground == Color.Transparent)
+                    box.StateStyle.PressedBackground = background;
+
+                if (box.StateStyle.SelectedBackground == Color.Transparent)
+                    box.StateStyle.SelectedBackground = background;
+            }
+
+            if (!box.ShowBorder && box.StateStyle is not null)
+                box.StateStyle.NormalBorder = Color.Transparent;
+
             if (node.TryGetValue("characterSpacing", out var characterSpacing))
                 box.CharacterSpacing = Float(characterSpacing);
 
@@ -566,6 +655,45 @@ namespace MonoCoC.UI.Data
                 return null;
 
             return new UIBinding(path.ToString().Trim('"'));
+        }
+
+        private static Component CreateItemGrid(JsonObject node, UIDocument document)
+        {
+            var style = new MonoCoC.UI.Components.ItemSlotStyle();
+
+            if (node.TryGetValue("itemTemplate", out var templateValue))
+            {
+                JsonObject? template = null;
+
+                if (templateValue is JsonObject inline)
+                    template = inline;
+                else if (templateValue is not JsonObject &&
+                         document.Templates.TryGetValue(templateValue.ToString().Trim('"'), out var named))
+                    template = named;
+
+                if (template is not null)
+                {
+                    style.Height = template.Int("height", style.Height);
+                    style.IconSize = template.Int("iconSize", style.IconSize);
+                    style.Padding = template.Int("padding", style.Padding);
+                    style.Spacing = template.Int("spacing", style.Spacing);
+                    style.ShowName = template.Bool("showName", true);
+                    style.ShowType = template.Bool("showType", true);
+                    style.ShowQuantity = template.Bool("showQuantity", true);
+
+                    if (template.TryGetValue("states", out var statesValue) && statesValue is JsonObject states)
+                        style.States = BuildStateStyle(states, template.Int("borderThickness", 0));
+                }
+            }
+
+            return new MonoCoC.UI.Components.ItemGrid
+            {
+                Columns = node.Int("columns", 2),
+                SlotWidth = node.Int("slotWidth", 0),
+                SlotHeight = style.Height,
+                Spacing = node.Int("spacing", 8),
+                ItemTemplate = style
+            };
         }
 
         private static Component CreatePlayerStats(JsonObject node)
@@ -652,6 +780,308 @@ namespace MonoCoC.UI.Data
                 bar.ShowText = node.Bool("showText", bar.ShowText);
 
             return bar;
+        }
+
+        private static Component CreateNumber(JsonObject node)
+        {
+            var field = new NumberField
+            {
+                Min = node.Float("min", 0),
+                Max = node.Float("max", 100),
+                Step = node.Float("step", 1),
+                Unit = node.Str("unit", "")
+            };
+
+            field.SetValue(node.Float("value", field.Min));
+
+            return field;
+        }
+
+        private static Component CreateChoiceWheel(JsonObject node)
+        {
+            var wheel = new ChoiceWheel
+            {
+                VisibleItems = node.Int("visibleItems", 5),
+                FadeMin = node.Float("fadeMin", 0.35f),
+                AnimationSpeed = node.Float("animationSpeed", 0.18f),
+                FontSize = node.Int("fontSize", 20),
+                CenterFontSize = node.Int("centerFontSize", 26),
+                Fade = node.Bool("fade", true),
+                FadeColor = ColorOf(node.Str("fadeColor", "#E6D7BDFF")),
+                FadeTop = node.Float("fadeTop", 0.2f),
+                FadeBottom = node.Float("fadeBottom", 0.2f),
+                ShowLocked = node.Bool("showLocked", false),
+                LockColor = ColorOf(node.Str("lockColor", "#8A857CFF")),
+                LockIcon = node.Str("lockIcon")
+            };
+
+            var thickness = node.Int("borderThickness", 0);
+
+            if (node.TryGetValue("states", out var stateValue) && stateValue is JsonObject states)
+            {
+                var style = new UIStateStyle { BorderThickness = thickness };
+
+                ApplyState(states, "normal", out style.NormalBackground, out style.NormalBorder, out style.NormalText);
+                ApplyState(states, "hover", out style.HoverBackground, out style.HoverBorder, out style.HoverText);
+                ApplyState(states, "pressed", out style.PressedBackground, out style.PressedBorder, out style.PressedText);
+                ApplyState(states, "selected", out style.SelectedBackground, out style.SelectedBorder, out style.SelectedText);
+
+                ApplyStateThickness(states, "normal", ref style.NormalBorderThickness);
+                ApplyStateThickness(states, "hover", ref style.HoverBorderThickness);
+                ApplyStateThickness(states, "pressed", ref style.PressedBorderThickness);
+                ApplyStateThickness(states, "selected", ref style.SelectedBorderThickness);
+
+                InheritStateFallbacks(states, style);
+
+                wheel.OptionStyle = style;
+
+                if (HasStateField(states, "locked", "backgroundColor") ||
+                    HasStateField(states, "locked", "textColor"))
+                {
+                    var locked = new UIStateStyle { BorderThickness = thickness };
+
+                    ApplyState(states, "locked", out locked.NormalBackground, out locked.NormalBorder, out locked.NormalText);
+
+                    locked.HoverBackground = locked.NormalBackground;
+                    locked.HoverBorder = locked.NormalBorder;
+                    locked.HoverText = locked.NormalText;
+                    locked.PressedBackground = locked.NormalBackground;
+                    locked.PressedBorder = locked.NormalBorder;
+                    locked.PressedText = locked.NormalText;
+                    locked.SelectedBackground = locked.NormalBackground;
+                    locked.SelectedBorder = locked.NormalBorder;
+                    locked.SelectedText = locked.NormalText;
+                    locked.NormalBorderThickness = thickness;
+                    locked.HoverBorderThickness = thickness;
+                    locked.PressedBorderThickness = thickness;
+                    locked.SelectedBorderThickness = thickness;
+
+                    wheel.LockedStyle = locked;
+                }
+            }
+
+            wheel.Load(node.Str("source"));
+
+            return wheel;
+        }
+
+        private static Component CreateChoiceDetail(JsonObject node)
+        {
+            var detail = new ChoiceDetail(
+                node.Int("visibleItems", 5),
+                node.Str("font", "coc:menu"),
+                node.Str("confirmKey"),
+                node.Str("detailColor", "#35291FFF"),
+                node.Bool("fade", true));
+
+            detail.FadeMin = node.Float("fadeMin", 0.25f);
+
+            detail.AnimationSpeed = node.Float("animationSpeed", 0.18f);
+
+            detail.FontSize = node.Int("fontSize", 20);
+
+            detail.CenterFontSize = node.Int("centerFontSize", 24);
+
+            var thickness = node.Int("borderThickness", 0);
+
+            if (node.TryGetValue("centerStates", out var centerValue) && centerValue is JsonObject centerStates)
+            {
+                var style = new UIStateStyle { BorderThickness = thickness };
+
+                ApplyState(centerStates, "normal", out style.NormalBackground, out style.NormalBorder, out style.NormalText);
+                ApplyState(centerStates, "hover", out style.HoverBackground, out style.HoverBorder, out style.HoverText);
+                ApplyState(centerStates, "pressed", out style.PressedBackground, out style.PressedBorder, out style.PressedText);
+
+                detail.CenterStyle = style;
+            }
+
+            if (node.TryGetValue("otherStates", out var otherValue) && otherValue is JsonObject otherStates)
+            {
+                var style = new UIStateStyle { BorderThickness = thickness };
+
+                ApplyState(otherStates, "normal", out style.NormalBackground, out style.NormalBorder, out style.NormalText);
+                ApplyState(otherStates, "hover", out style.HoverBackground, out style.HoverBorder, out style.HoverText);
+                ApplyState(otherStates, "pressed", out style.PressedBackground, out style.PressedBorder, out style.PressedText);
+
+                detail.OtherStyle = style;
+            }
+
+            detail.Load(node.Str("source"));
+
+            return detail;
+        }
+
+        private static Component CreateSegmented(JsonObject node)
+        {
+            var control = new SegmentedControl
+            {
+                AnimationDuration = node.Float("animationDuration", 0.22f),
+                AnimationEasing = MonoCoC.UI.Animations.Easing.FromName(node.Str("animationEasing"))
+            };
+
+            if (node.TryGetValue("states", out var stateValue) && stateValue is JsonObject states)
+            {
+                var style = new UIStateStyle
+                {
+                    BorderThickness = node.Int("borderThickness", 0)
+                };
+
+                ApplyState(states, "normal", out style.NormalBackground, out style.NormalBorder, out style.NormalText);
+                ApplyState(states, "hover", out style.HoverBackground, out style.HoverBorder, out style.HoverText);
+                ApplyState(states, "pressed", out style.PressedBackground, out style.PressedBorder, out style.PressedText);
+                ApplyState(states, "selected", out style.SelectedBackground, out style.SelectedBorder, out style.SelectedText);
+
+                ApplyStateThickness(states, "normal", ref style.NormalBorderThickness);
+                ApplyStateThickness(states, "hover", ref style.HoverBorderThickness);
+                ApplyStateThickness(states, "pressed", ref style.PressedBorderThickness);
+                ApplyStateThickness(states, "selected", ref style.SelectedBorderThickness);
+
+                InheritStateFallbacks(states, style);
+
+                control.OptionStyle = style;
+            }
+
+            var values = node.Array("options");
+            var keyValues = node.Array("optionKeys");
+
+            if (keyValues is not null)
+            {
+                var options = new List<string>();
+
+                foreach (var value in keyValues)
+                    if (value is not null)
+                        options.Add(new UILocalizedText { Key = value.ToString().Trim('"') }.Resolve());
+
+                control.SetOptions(options, node.Int("value", 0));
+            }
+            else if (values is not null)
+            {
+                var options = new List<string>();
+
+                foreach (var value in values)
+                    if (value is not null)
+                        options.Add(value.ToString().Trim('"'));
+
+                control.SetOptions(options, node.Int("value", 0));
+            }
+
+            return control;
+        }
+
+        private static Component CreateOptionList(JsonObject node)
+        {
+            var list = new OptionList
+            {
+                Columns = node.Int("columns", 4),
+                Spacing = node.Int("spacing", 8)
+            };
+
+            if (node.TryGetValue("options", out var value) && value is JsonArray options)
+            {
+                var entries = new List<(string Id, string Label)>();
+
+                foreach (var option in options)
+                {
+                    if (option is not JsonObject entry)
+                        continue;
+
+                    var id = entry.Str("id");
+
+                    if (id.Length == 0)
+                        continue;
+
+                    entries.Add((id, UILocalizedText.Resolve(entry, "label")));
+                }
+
+                list.SetOptions(entries);
+            }
+
+            return list;
+        }
+
+        private static Component CreateNumericStepper(JsonObject node)
+        {
+            var stepper = new NumericStepper(
+                node.Str("font", "coc:menu"),
+                node.Int("fontSize", 18))
+            {
+                Min = node.Float("min", 0),
+                Max = node.Float("max", 100),
+                Step = node.Float("step", 1),
+                ShiftMultiplier = node.Float("shiftMultiplier", 10),
+                Unit = node.Str("unit"),
+                ButtonWidth = node.Int("buttonWidth", 44),
+                MinusColor = ColorOf(node.Str("minusColor", "#00000000")),
+                PlusColor = ColorOf(node.Str("plusColor", "#00000000")),
+                ValueColor = ColorOf(node.Str("valueColor", "#00000000")),
+                TextColor = ColorOf(node.Str("textColor", "#35291FFF"))
+            };
+
+            if (node.Array("snapValues") is { } snapValues)
+            {
+                var values = new List<float>();
+
+                foreach (var value in snapValues)
+                    values.Add(Float(value));
+
+                stepper.SnapValues = [.. values];
+            }
+
+            if (node.TryGetValue("states", out var stateValue) && stateValue is JsonObject states)
+            {
+                var thickness = node.Int("borderThickness", 0);
+
+                stepper.MinusStyle = BuildPartStateStyle(states, "minus", thickness);
+                stepper.PlusStyle = BuildPartStateStyle(states, "plus", thickness);
+                stepper.ValueStyle = BuildPartStateStyle(states, "value", thickness);
+            }
+
+            stepper.ShowRange = node.TryGetValue("min", out _) || node.TryGetValue("max", out _);
+            stepper.RangeColor = ColorOf(node.Str("rangeColor", "#5C4A38FF"));
+            stepper.RangeFontSize = node.Int("rangeFontSize", 12);
+
+            stepper.SetValue(node.Float("value", stepper.Min));
+
+            return stepper;
+        }
+
+        private static Component CreateSlider(JsonObject node)
+        {
+            var slider = new Slider
+            {
+                Min = node.Float("min", 0),
+                Max = node.Float("max", 100),
+                Step = node.Float("step", 1),
+                Unit = node.Str("unit", ""),
+                TrackColor = ColorOf(node.Str("trackColor", "#00000000")),
+                KnobColor = ColorOf(node.Str("knobColor", "#00000000")),
+                TextColor = ColorOf(node.Str("textColor", "#00000000")),
+                FontSize = node.Int("fontSize", 18)
+            };
+
+            slider.SetValue(node.Float("value", slider.Min));
+
+            return slider;
+        }
+
+        private static Component CreateSelector(JsonObject node)
+        {
+            var selector = new Selector();
+
+            var values = node.Array("options");
+
+            if (values is not null)
+            {
+                var options = new List<string>();
+
+                foreach (var value in values)
+                    if (value is not null)
+                        options.Add(value.ToString().Trim('"'));
+
+                selector.SetOptions(options, node.Int("value", 0));
+            }
+
+            return selector;
         }
 
         private static Component CreateGrid(JsonObject node)
@@ -877,7 +1307,27 @@ namespace MonoCoC.UI.Data
             var style = new UIStateStyle();
 
             if (hasThickness)
-                style.BorderThickness = Int(thickness);
+            {
+                var sides = ReadSides(thickness);
+
+                if (sides is not null)
+                {
+                    style.NormalBorderSides = sides;
+                    style.HoverBorderSides = sides;
+                    style.PressedBorderSides = sides;
+                    style.DisabledBorderSides = sides;
+                    style.SelectedBorderSides = sides;
+                }
+                else
+                {
+                    style.BorderThickness = Int(thickness);
+                    style.NormalBorderThickness = style.BorderThickness;
+                    style.HoverBorderThickness = style.BorderThickness;
+                    style.PressedBorderThickness = style.BorderThickness;
+                    style.DisabledBorderThickness = style.BorderThickness;
+                    style.SelectedBorderThickness = style.BorderThickness;
+                }
+            }
 
             if (hasStates)
             {
@@ -887,6 +1337,21 @@ namespace MonoCoC.UI.Data
                 ApplyState(states, "hover", out style.HoverBackground, out style.HoverBorder, out style.HoverText);
                 ApplyState(states, "pressed", out style.PressedBackground, out style.PressedBorder, out style.PressedText);
                 ApplyState(states, "disabled", out style.DisabledBackground, out style.DisabledBorder, out style.DisabledText);
+                ApplyState(states, "selected", out style.SelectedBackground, out style.SelectedBorder, out style.SelectedText);
+
+                ApplyStateThickness(states, "normal", ref style.NormalBorderThickness);
+                ApplyStateThickness(states, "hover", ref style.HoverBorderThickness);
+                ApplyStateThickness(states, "pressed", ref style.PressedBorderThickness);
+                ApplyStateThickness(states, "disabled", ref style.DisabledBorderThickness);
+                ApplyStateThickness(states, "selected", ref style.SelectedBorderThickness);
+
+                style.NormalBorderSides = StateSides(states, "normal");
+                style.HoverBorderSides = StateSides(states, "hover");
+                style.PressedBorderSides = StateSides(states, "pressed");
+                style.DisabledBorderSides = StateSides(states, "disabled");
+                style.SelectedBorderSides = StateSides(states, "selected");
+
+                InheritStateFallbacks(states, style);
             }
 
             if (hasBorderColor)
@@ -930,6 +1395,184 @@ namespace MonoCoC.UI.Data
 
             if (state.TryGetValue("textColor", out _))
                 text = ColorOf(state.Str("textColor"));
+        }
+
+        private static void ApplyStateThickness(JsonObject states, string name, ref int thickness)
+        {
+            if (!states.TryGetValue(name, out var value) || value is not JsonObject state)
+                return;
+
+            if (state.TryGetValue("borderThickness", out var stateThickness) && stateThickness is not JsonArray)
+                thickness = Int(stateThickness);
+        }
+
+        private static BorderSides? ReadSides(JsonValue value)
+        {
+            if (value is not JsonArray array || array.Count == 0)
+                return null;
+
+            var values = new List<int>();
+
+            foreach (var item in array)
+                values.Add(Int(item));
+
+            return values.Count switch
+            {
+                1 => BorderSides.Uniform(values[0]),
+                2 => new BorderSides(values[0], values[1], values[0], values[1]),
+                3 => new BorderSides(values[1], values[0], values[1], values[2]),
+                4 => new BorderSides(values[0], values[1], values[2], values[3]),
+                _ => null
+            };
+        }
+
+        private static BorderSides? StateSides(JsonObject states, string name)
+        {
+            if (!states.TryGetValue(name, out var value) || value is not JsonObject state ||
+                !state.TryGetValue("borderThickness", out var thickness))
+                return null;
+
+            return ReadSides(thickness);
+        }
+
+        private static UIStateStyle? ReadOptionalStateStyle(JsonObject node, string name, UIStateStyle? fallback)
+        {
+            if (!node.TryGetValue(name, out var value) || value is not JsonObject states)
+                return fallback;
+
+            return BuildStateStyle(states, node.Int("borderThickness", 0));
+        }
+
+        private static UIStateStyle BuildPartStateStyle(JsonObject states, string part, int thickness)
+        {
+            var style = new UIStateStyle { BorderThickness = thickness };
+
+            style.NormalBackground = PartColor(states, "normal", part + "Background") ?? Color.Transparent;
+            style.NormalText = PartColor(states, "normal", part + "TextColor");
+            style.NormalBorder = PartColor(states, "normal", "borderColor") ?? Color.Transparent;
+
+            style.HoverBackground = PartColor(states, "hover", part + "Background") ?? style.NormalBackground;
+            style.HoverText = PartColor(states, "hover", part + "TextColor") ?? style.NormalText;
+            style.HoverBorder = PartColor(states, "hover", "borderColor") ?? style.NormalBorder;
+
+            style.PressedBackground = PartColor(states, "pressed", part + "Background") ?? style.NormalBackground;
+            style.PressedText = PartColor(states, "pressed", part + "TextColor") ?? style.NormalText;
+            style.PressedBorder = PartColor(states, "pressed", "borderColor") ?? style.NormalBorder;
+
+            var normalThickness = PartThickness(states, "normal") ?? thickness;
+            style.NormalBorderThickness = normalThickness;
+            style.HoverBorderThickness = PartThickness(states, "hover") ?? normalThickness;
+            style.PressedBorderThickness = PartThickness(states, "pressed") ?? normalThickness;
+
+            return style;
+        }
+
+        private static Color? PartColor(JsonObject states, string stateName, string key)
+        {
+            if (!states.TryGetValue(stateName, out var value) || value is not JsonObject state)
+                return null;
+
+            return state.TryGetValue(key, out _) ? ColorOf(state.Str(key)) : null;
+        }
+
+        private static int? PartThickness(JsonObject states, string stateName)
+        {
+            if (!states.TryGetValue(stateName, out var value) || value is not JsonObject state)
+                return null;
+
+            return state.TryGetValue("borderThickness", out var thickness) ? Int(thickness) : null;
+        }
+
+        private static UIStateStyle BuildStateStyle(JsonObject states, int thickness)
+        {
+            var style = new UIStateStyle { BorderThickness = thickness };
+
+            ApplyState(states, "normal", out style.NormalBackground, out style.NormalBorder, out style.NormalText);
+            ApplyState(states, "hover", out style.HoverBackground, out style.HoverBorder, out style.HoverText);
+            ApplyState(states, "pressed", out style.PressedBackground, out style.PressedBorder, out style.PressedText);
+            ApplyState(states, "selected", out style.SelectedBackground, out style.SelectedBorder, out style.SelectedText);
+
+            ApplyStateThickness(states, "normal", ref style.NormalBorderThickness);
+            ApplyStateThickness(states, "hover", ref style.HoverBorderThickness);
+            ApplyStateThickness(states, "pressed", ref style.PressedBorderThickness);
+            ApplyStateThickness(states, "selected", ref style.SelectedBorderThickness);
+
+            style.NormalBorderSides = StateSides(states, "normal");
+            style.HoverBorderSides = StateSides(states, "hover");
+            style.PressedBorderSides = StateSides(states, "pressed");
+            style.SelectedBorderSides = StateSides(states, "selected");
+
+            InheritStateFallbacks(states, style);
+
+            return style;
+        }
+
+        private static bool HasStateField(JsonObject states, string name, string field) =>
+            states.TryGetValue(name, out var value) &&
+            value is JsonObject state &&
+            state.TryGetValue(field, out _);
+
+        private static void InheritStateFallbacks(JsonObject states, UIStateStyle style)
+        {
+            if (!HasStateField(states, "hover", "backgroundColor"))
+                style.HoverBackground = style.NormalBackground;
+
+            if (!HasStateField(states, "hover", "borderColor"))
+                style.HoverBorder = style.NormalBorder;
+
+            if (!HasStateField(states, "hover", "textColor"))
+                style.HoverText = style.NormalText;
+
+            if (!HasStateField(states, "hover", "borderThickness"))
+            {
+                style.HoverBorderThickness = style.NormalBorderThickness;
+                style.HoverBorderSides = style.NormalBorderSides;
+            }
+
+            if (!HasStateField(states, "pressed", "backgroundColor"))
+                style.PressedBackground = style.NormalBackground;
+
+            if (!HasStateField(states, "pressed", "borderColor"))
+                style.PressedBorder = style.NormalBorder;
+
+            if (!HasStateField(states, "pressed", "textColor"))
+                style.PressedText = style.NormalText;
+
+            if (!HasStateField(states, "pressed", "borderThickness"))
+            {
+                style.PressedBorderThickness = style.NormalBorderThickness;
+                style.PressedBorderSides = style.NormalBorderSides;
+            }
+
+            if (!HasStateField(states, "selected", "backgroundColor"))
+                style.SelectedBackground = style.NormalBackground;
+
+            if (!HasStateField(states, "selected", "borderColor"))
+                style.SelectedBorder = style.NormalBorder;
+
+            if (!HasStateField(states, "selected", "textColor"))
+                style.SelectedText = style.NormalText;
+
+            if (!HasStateField(states, "selected", "borderThickness"))
+            {
+                style.SelectedBorderThickness = style.NormalBorderThickness;
+                style.SelectedBorderSides = style.NormalBorderSides;
+            }
+
+            if (!HasStateField(states, "disabled", "backgroundColor"))
+                style.DisabledBackground = style.NormalBackground;
+
+            if (!HasStateField(states, "disabled", "borderColor"))
+                style.DisabledBorder = style.NormalBorder;
+
+            if (!HasStateField(states, "disabled", "textColor"))
+                style.DisabledText = style.NormalText;
+
+            if (!HasStateField(states, "disabled", "borderThickness"))
+            {
+                style.DisabledBorderThickness = style.NormalBorderThickness;
+                style.DisabledBorderSides = style.NormalBorderSides;
+            }
         }
 
         private void BindEvents(Component component, JsonObject node)

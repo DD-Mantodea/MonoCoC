@@ -37,7 +37,7 @@ namespace MonoCoC.Assets.ContentManagers
 
         public override void FromText(string path, string text, IDictionary<string, BodyPartSlot> entries)
         {
-            var config = (JsonObject)HjsonValue.Parse(text);
+            var config = (JsonObject)MonoCoC.HjsonParser.Parse(text);
 
             if (!config.TryGetValue("kind", out var kindValue))
                 throw new FormatException($"Body part config '{path}' has no 'kind' field");

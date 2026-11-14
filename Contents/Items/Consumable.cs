@@ -5,6 +5,7 @@ using MonoCoC.Attributes;
 
 namespace MonoCoC.Contents.Items
 {
+    [ItemCategory("coc:consumable", "Icons/inventory_consumable.svg", "Items.Type.Consumable")]
     [Register<Consumable>("coc:consumable")]
     public class Consumable : Item
     {

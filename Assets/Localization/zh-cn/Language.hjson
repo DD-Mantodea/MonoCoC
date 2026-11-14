@@ -2,7 +2,6 @@
   "Code": "zh-cn",
   "Name": "简体中文",
   "Order": 1,
-  // 还没翻译：缺的 key 回退到 en-us（LocalizationManager.Localize）
   "Fallback": "en-us",
   "Fonts": {
     "Body": {

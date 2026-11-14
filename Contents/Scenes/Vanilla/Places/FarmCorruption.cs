@@ -583,7 +583,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
 
             F.Set(flag, F.Get(flag) - 1);
 
-            InventoryScene.TakeItem(
+            InventoryView.TakeItem(
                 Contents.Items.ItemRegistry.Create(StoredItemIdentifier(flag)),
 
                 AfterTakeItems);

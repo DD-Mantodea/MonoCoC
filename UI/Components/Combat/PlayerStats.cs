@@ -38,6 +38,14 @@ namespace MonoCoC.UI.Components.Combat
 
         protected override string ScreenFile => _screenFile;
 
+        public override void ApplyDataContext(IUIDataContext? context)
+        {
+            if (context is null && DataContext is not null)
+                return;
+
+            base.ApplyDataContext(context);
+        }
+
         public override void Update(GameTime gameTime)
         {
             if (Content is not null && !ReferenceEquals(Content.DataContext, DataContext))

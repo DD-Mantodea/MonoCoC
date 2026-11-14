@@ -310,7 +310,7 @@ namespace MonoCoC.Contents.Combat
             AfterPlayerAction();
         }
 
-        public virtual void Items() => Scenes.Vanilla.InventoryScene.InventoryMenu(Menu, AfterItem);
+        public virtual void Items() => MonoCoC.UI.Components.Views.InventoryView.InventoryMenu(Menu, AfterItem);
 
         public virtual void Spells() => MagicMenu(null);
 

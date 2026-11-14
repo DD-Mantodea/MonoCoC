@@ -1,4 +1,4 @@
-﻿using MonoCoC.Attributes;
+using MonoCoC.Attributes;
 using MonoCoC.Contents.Scenes.Vanilla.Npcs;
 using MonoCoC.Contents.Scenes.Vanilla.Places.Farm;
 using MonoCoC.Contents.Creatures;
@@ -209,7 +209,7 @@ ReturnToCamp(1);
 ReturnToCamp(1);
             }
             else
-                InventoryScene.TakeItem(RandomUtils.Choice(ItemIds.LargeCaninePepper, ItemIds.DoubleCaninePepper, ItemIds.BlackCaninePepper), () => ReturnToCamp(1));
+                InventoryView.TakeItem(RandomUtils.Choice(ItemIds.LargeCaninePepper, ItemIds.DoubleCaninePepper, ItemIds.BlackCaninePepper), () => ReturnToCamp(1));
         }
 
         public void NightFarmLeave()
@@ -751,7 +751,7 @@ ReturnToCamp(1);
                 ConsumableIds.WOLF_PP
             );
 
-            if (itype != null) InventoryScene.TakeItem(itype.Value, () => ReturnToCamp(1));
+            if (itype != null) InventoryView.TakeItem(itype.Value, () => ReturnToCamp(1));
         }
 
         public void MeetMarble()
@@ -2128,7 +2128,7 @@ ReturnToCamp(1);
 
             OutputText("Scenes.Farm.StablesStallion.EyeUpAStallion".Localized());
 
-            OutputText("Scenes.Farm.StablesStallion.StallionStartled".Localized((metric ? "almost half a meter" : "at least a foot and a half")));
+            OutputText("Scenes.Farm.StablesStallion.StallionStartled".Localized((Metric ? "almost half a meter" : "at least a foot and a half")));
 
             OutputText("Scenes.Farm.StablesStallion.LickTheTip".Localized());
 

@@ -100,7 +100,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
                 Player.ApplyStats(new DynStat(GameStats.Libido, (float)(-(Player.Libido / 3))), new DynStat(GameStats.Lust, -15f));
 
-                InventoryScene.TakeItem(ItemRegistry.Create(WeaponIds.BeautifulSword), () => ReturnToCamp(1));
+                InventoryView.TakeItem(ItemRegistry.Create(WeaponIds.BeautifulSword), () => ReturnToCamp(1));
 
                 Player.CreateStatusEffect(StatusEffectIds.TookBlessedSword, 0, 0, 0, 0);
             }
@@ -116,7 +116,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
             OutputText("Scenes.Swordinstone.TakeBrokenSword.RestoreIdea".Localized());
 
-            InventoryScene.TakeItem(ItemRegistry.Create(WeaponIds.BeautifulSword), () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemRegistry.Create(WeaponIds.BeautifulSword), () => ReturnToCamp(1));
         }
 
     }

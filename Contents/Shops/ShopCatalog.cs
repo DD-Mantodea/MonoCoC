@@ -51,7 +51,7 @@ namespace MonoCoC.Contents.Shops
             foreach (var file in Paths.GetAssets("Data/Shops", "*.hjson"))
                 try
                 {
-                    var shop = Parse((JsonObject)HjsonValue.Parse(File.ReadAllText(file)));
+                    var shop = Parse((JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(file)));
 
                     if (shop != null)
                         _shops[shop.Id] = shop;

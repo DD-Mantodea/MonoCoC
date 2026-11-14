@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Input
                 if (!File.Exists(ConfigPath))
                     return;
 
-                var root = Hjson.HjsonValue.Parse(File.ReadAllText(ConfigPath));
+                var root = MonoCoC.HjsonParser.Parse(File.ReadAllText(ConfigPath));
 
                 if (root is not Hjson.JsonObject obj)
                     return;

@@ -83,7 +83,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
             ClearButtons();
 
             if ((CoC.Instance.Flags.Get(GameFlagIds.PrayedWithNun) == 1 || CoC.Instance.Flags.Get(GameFlagIds.DefiledNun) == 1) && CoC.Instance.Flags.Get(GameFlagIds.TookNaughtyHabit) == 0)
-                AddNextButton("Common.Button.TakeHabit".Localized(), () => InventoryScene.TakeItem(ArmorIds.NaughtyNunsHabit, JoinNunFinish, JoinNunMaybeLater));
+                AddNextButton("Common.Button.TakeHabit".Localized(), () => InventoryView.TakeItem(ArmorIds.NaughtyNunsHabit, JoinNunFinish, JoinNunMaybeLater));
 
             if (CoC.Instance.Flags.Get(GameFlagIds.PrayedWithNun) == 0 || CoC.Instance.Flags.Get(GameFlagIds.DefiledNun) == 0)
                 AddNextButton("Common.Button.Pray".Localized(), JoinNun);
@@ -315,7 +315,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
             Player.ApplyStats(new DynStat(GameStats.Corruption, -5f));
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ArmorIds.NaughtyNunsHabit), GetDefiledTake, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemRegistry.Create(ArmorIds.NaughtyNunsHabit), GetDefiledTake, () => ReturnToCamp(1));
         }
 
         public void GetDefiledTake()
@@ -495,7 +495,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
             OutputText("Scenes.Cultistnunscene.JoinNunJoinReligion.TakesHabit".Localized());
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ArmorIds.NaughtyNunsHabit), JoinNunFinish, JoinNunMaybeLater);
+            InventoryView.TakeItem(ItemRegistry.Create(ArmorIds.NaughtyNunsHabit), JoinNunFinish, JoinNunMaybeLater);
         }
 
         public void JoinNunFinish()

@@ -3,6 +3,7 @@ using MonoCoC.Attributes;
 
 namespace MonoCoC.Contents.Items
 {
+    [ItemCategory("coc:undergarment", "Icons/inventory_undergarment.svg", "Items.Type.Undergarment")]
     [Register<Undergarment>("coc:undergarment")]
     public class Undergarment : Item
     {

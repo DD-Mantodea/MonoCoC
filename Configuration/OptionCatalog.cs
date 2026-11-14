@@ -20,7 +20,7 @@ namespace MonoCoC.Configuration
             foreach (var file in files)
                 try
                 {
-                    var root = (JsonObject)HjsonValue.Parse(File.ReadAllText(file));
+                    var root = (JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(file));
 
                     var pane = ParsePane(root, optionNamespace);
 

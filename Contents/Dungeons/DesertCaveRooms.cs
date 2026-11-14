@@ -1592,7 +1592,7 @@ namespace MonoCoC.Contents.Dungeons
             var regal = "Scenes.DesertCave.SandMotherAppearance.RegalCovenLeader".Localized()
                 .Replace("[if (metric) {250 centimeters|eight feet}]",
 
-                    Configuration.OptionStore.Instance.Get("metric", 0) == 1 ? "Common.Text.Centimeters".Localized() : "Common.Text.EightFeet".Localized());
+                    Configuration.OptionStore.Instance.Get("coc:metric", 0) == 1 ? "Common.Text.Centimeters".Localized() : "Common.Text.EightFeet".Localized());
 
             context.Write(regal);
 

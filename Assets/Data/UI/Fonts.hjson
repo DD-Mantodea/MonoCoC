@@ -1,4 +1,4 @@
-﻿{
+{
   "coc:body": {
     "family": "pala",
     "size": 20,
@@ -20,5 +20,5 @@
   "coc:settingsBold": { "family": "NotoSerif-Bold", "size": 20 },
   "coc:settingsTitle": { "family": "georgia", "size": 36 },
   "coc:switcher": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 18 },
-  "coc:console": { "family": "JetBrainsMono-Regular", "size": 24 }
+  "coc:console": { "family": "JetBrainsMono-Regular", "size": 28 }
 }

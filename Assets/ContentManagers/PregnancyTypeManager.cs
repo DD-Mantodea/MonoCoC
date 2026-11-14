@@ -37,7 +37,7 @@ namespace MonoCoC.Assets.ContentManagers
 
         public override void FromText(string path, string text, IDictionary<string, PregnancyType> entries)
         {
-            var root = (JsonObject)HjsonValue.Parse(text);
+            var root = (JsonObject)MonoCoC.HjsonParser.Parse(text);
 
             if (root.TryGetValue("types", out var value) && value is JsonArray array)
             {

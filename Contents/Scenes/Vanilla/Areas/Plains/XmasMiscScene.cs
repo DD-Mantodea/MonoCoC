@@ -584,7 +584,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
 
             AddButton(0, "Scenes.Faerie.SexMenu.ButtonEat".Localized(), EatWinterPudding);
 
-            AddButton(1, "Common.Button.Take".Localized(), () => InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.WinterPudding), () => Go<CampScene>()));
+            AddButton(1, "Common.Button.Take".Localized(), () => InventoryView.TakeItem(ItemRegistry.Create(ItemIds.WinterPudding), () => Go<CampScene>()));
         }
 
         public void EatWinterPudding()
@@ -680,7 +680,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
 
             Player.Orgasm("Anal");
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.MintWhite), () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.MintWhite), () => ReturnToCamp(1));
         }
 
         public void LeaveDisFukkinPolarBear()
@@ -691,7 +691,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
 
             OutputText("Scenes.Xmasmisc.LeaveDisFukkinPolarBear.BrightSmile".Localized());
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.MintWhite), () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.MintWhite), () => ReturnToCamp(1));
         }
 
     }

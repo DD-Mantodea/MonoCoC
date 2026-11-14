@@ -36,6 +36,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 return;
             }
 
+            if (UIManager.Instance?.Root.View is CharCreationView view)
+            {
+                view.EnsureStarted();
+
+                return;
+            }
+
             NewGameGo();
         }
 

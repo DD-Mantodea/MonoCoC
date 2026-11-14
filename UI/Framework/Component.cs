@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -22,6 +23,8 @@ namespace MonoCoC.UI.Framework
         public Material? Material;
 
         public UIStateStyle? StateStyle;
+
+        public bool Selected;
 
         public string PartName = "";
 
@@ -120,7 +123,7 @@ namespace MonoCoC.UI.Framework
         // 閬垮厤鏂板満鏅涓€甯т互鏈垵濮嬪寲灏哄缁樺埗銆?
         public virtual void PrepareDraw()
         {
-            foreach (var child in LayoutData.Children)
+            foreach (var child in LayoutData.Children.ToArray())
                 child.PrepareDraw();
         }
 
@@ -178,7 +181,7 @@ namespace MonoCoC.UI.Framework
             if (StateStyle is null)
                 return;
 
-            var color = StateStyle.BackgroundFor(Enabled, IsHovering, IsPressed);
+            var color = StateStyle.BackgroundFor(Enabled, IsHovering, IsPressed, Selected);
 
             if (color != Color.Transparent)
                 spriteBatch.DrawRectangle(Rectangle, color * LayoutData.Alpha);
@@ -189,18 +192,27 @@ namespace MonoCoC.UI.Framework
             if (StateStyle is null)
                 return;
 
-            var color = StateStyle.BorderFor(Enabled, IsHovering, IsPressed);
+            var color = StateStyle.BorderFor(Enabled, IsHovering, IsPressed, Selected);
 
-            if (color == Color.Transparent || StateStyle.BorderThickness <= 0)
+            var sides = StateStyle.SidesFor(Enabled, IsHovering, IsPressed, Selected);
+
+            if (color == Color.Transparent ||
+                (sides.Left <= 0 && sides.Top <= 0 && sides.Right <= 0 && sides.Bottom <= 0))
                 return;
 
-            var thickness = StateStyle.BorderThickness;
             var rectangle = Rectangle;
 
-            spriteBatch.DrawRectangle(new Rectangle(rectangle.X, rectangle.Y, rectangle.Width, thickness), color * LayoutData.Alpha);
-            spriteBatch.DrawRectangle(new Rectangle(rectangle.X, rectangle.Bottom - thickness, rectangle.Width, thickness), color * LayoutData.Alpha);
-            spriteBatch.DrawRectangle(new Rectangle(rectangle.X, rectangle.Y, thickness, rectangle.Height), color * LayoutData.Alpha);
-            spriteBatch.DrawRectangle(new Rectangle(rectangle.Right - thickness, rectangle.Y, thickness, rectangle.Height), color * LayoutData.Alpha);
+            if (sides.Top > 0)
+                spriteBatch.DrawRectangle(new Rectangle(rectangle.X, rectangle.Y, rectangle.Width, sides.Top), color * LayoutData.Alpha);
+
+            if (sides.Bottom > 0)
+                spriteBatch.DrawRectangle(new Rectangle(rectangle.X, rectangle.Bottom - sides.Bottom, rectangle.Width, sides.Bottom), color * LayoutData.Alpha);
+
+            if (sides.Left > 0)
+                spriteBatch.DrawRectangle(new Rectangle(rectangle.X, rectangle.Y, sides.Left, rectangle.Height), color * LayoutData.Alpha);
+
+            if (sides.Right > 0)
+                spriteBatch.DrawRectangle(new Rectangle(rectangle.Right - sides.Right, rectangle.Y, sides.Right, rectangle.Height), color * LayoutData.Alpha);
         }
 
         private void DrawMaterial(SpriteBatch spriteBatch)
@@ -224,7 +236,7 @@ namespace MonoCoC.UI.Framework
 
         public virtual void DrawChildren(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            foreach (var child in LayoutData.Children)
+            foreach (var child in LayoutData.Children.ToArray())
                 child.Draw(spriteBatch, gameTime);
         }
 

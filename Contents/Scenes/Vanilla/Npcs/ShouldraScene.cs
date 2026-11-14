@@ -653,7 +653,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Shouldrascene.SlimeGinaFlation.ParagraphBreakFourth".Localized());
 
-                InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
             }
 
             CoC.Instance.Flags.Set(GameFlagIds.Slimeginaed, CoC.Instance.Flags.Get(GameFlagIds.Slimeginaed) + 1);
@@ -758,7 +758,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Shouldrascene.SlimeyPenorsAhoy.ParagraphBreak".Localized());
 
-                InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
             }
         }
 
@@ -988,7 +988,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Shouldrascene.PenisLossThatIsntALoss.ParagraphBreakThird".Localized());
 
-                InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
             }
         }
 
@@ -1049,7 +1049,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Shouldrascene.GhostBJFinisher.ParagraphBreak".Localized());
 
-                InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
             }
         }
 
@@ -1425,7 +1425,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Shouldrascene.OurDadTaughtUsNotToBeAshamedOfOurDicks.ParagraphBreak".Localized());
 
-                InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
             }
         }
 
@@ -1490,7 +1490,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Shouldrascene.GhostGinaLosses.ParagraphBreakAgain".Localized());
 
-                InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
             }
         }
 
@@ -1537,7 +1537,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Shouldrascene.LoseToShouldraAsHerm.ParagraphBreak".Localized());
 
-                InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
             }
         }
 
@@ -1743,7 +1743,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Shouldrascene.ShouldraGiantCockLoss.ParagraphBreak".Localized());
 
-                InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
             }
         }
 
@@ -1849,7 +1849,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Shouldrascene.GenderlessShouldrasLossRapes.ParagraphBreak".Localized());
 
-                InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
             }
         }
 
@@ -2023,7 +2023,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Shouldrascene.GinaBoobgartuanShouldra.ParagraphBreak".Localized());
 
-                InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
             }
         }
 
@@ -2159,7 +2159,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Shouldrascene.SlimeGhostGalForHerms.ParagraphBreak".Localized());
 
-                InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+                InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
             }
 
             CoC.Instance.Flags.Set(GameFlagIds.GhostGirlSlimeXShouldraCounter, CoC.Instance.Flags.Get(GameFlagIds.GhostGirlSlimeXShouldraCounter) + 1);

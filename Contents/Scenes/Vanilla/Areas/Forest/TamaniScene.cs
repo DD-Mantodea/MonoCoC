@@ -1953,7 +1953,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
             OutputText("Scenes.Tamani.OpenTamanisSatchel.ParagraphBreak".Localized());
 
-            AddButton(14, "Scenes.Tamani.OpenTamanisSatchel.ButtonClose".Localized(), () => InventoryScene.InventoryMenu());
+            AddButton(14, "Scenes.Tamani.OpenTamanisSatchel.ButtonClose".Localized(), () => InventoryView.InventoryMenu());
 
             if (isEmpty)
             {
@@ -1966,7 +1966,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
                 Player.RemoveKeyItem("Tamani's Satchel");
 
-                AddButton(0, "Common.Continue".Localized(), () => InventoryScene.InventoryMenu());
+                AddButton(0, "Common.Continue".Localized(), () => InventoryView.InventoryMenu());
             }
         }
 
@@ -1975,7 +1975,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
             Player.AddKeyValue("Tamani's Satchel", keyValue, -1);
 
-            InventoryScene.TakeItem(item, OpenTamanisSatchel);
+            InventoryView.TakeItem(item, OpenTamanisSatchel);
         }
 
         public void SatchelTakeGems()

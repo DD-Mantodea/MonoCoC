@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
                 ClearButtons();
 
-                InventoryScene.TakeItem(item, shopToGo);
+                InventoryView.TakeItem(item, shopToGo);
             }
             else
             {
@@ -127,7 +127,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
             else
                 OutputText("Scenes.Chillysmith.SmithShop.ChillySmithName".Localized());
 
-            OutputText("Scenes.Chillysmith.SmithShop.GlanceAround".Localized((!metric ? "6'4\"" : "193 cm")));
+            OutputText("Scenes.Chillysmith.SmithShop.GlanceAround".Localized((!Metric ? "6'4\"" : "193 cm")));
 
             ClearButtons();
 

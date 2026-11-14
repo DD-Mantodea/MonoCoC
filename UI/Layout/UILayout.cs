@@ -78,7 +78,7 @@ namespace MonoCoC.UI.Layout
             if (!File.Exists(path))
                 return _current = layout;
 
-            var root = HjsonValue.Parse(File.ReadAllText(path)) as JsonObject;
+            var root = MonoCoC.HjsonParser.Parse(File.ReadAllText(path)) as JsonObject;
 
             if (root is null)
                 return _current = layout;

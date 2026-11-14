@@ -132,7 +132,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas
 
         CoC.Instance.Flags.Set(GameFlagIds.FoundWizardStaff, CoC.Instance.Flags.Get(GameFlagIds.FoundWizardStaff) + 1);
 
-        InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.WizardStaff), () => Scene.Go<CampScene>());
+        InventoryView.TakeItem(ItemRegistry.Create(ItemIds.WizardStaff), () => Scene.Go<CampScene>());
     }
 
     public static void NailsEncounter()

@@ -14,7 +14,7 @@ namespace MonoCoC.Assets.ContentManagers
 
         public override void FromText(string path, string text, IDictionary<string, PerkType> entries)
         {
-            var root = (JsonObject)HjsonValue.Parse(text);
+            var root = (JsonObject)MonoCoC.HjsonParser.Parse(text);
 
             // 同一个 Data/Perks 目录里可以放可购买定义（purchasable 数组），交给现有的专长目录系统
             PerkPurchaseCatalog.LoadFromJson(root);

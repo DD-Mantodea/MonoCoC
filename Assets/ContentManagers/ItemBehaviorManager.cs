@@ -16,7 +16,7 @@ namespace MonoCoC.Assets.ContentManagers
 
         public override void FromText(string path, string text, IDictionary<string, ItemBehaviorDefinition> entries)
         {
-            var root = (JsonObject)HjsonValue.Parse(text);
+            var root = (JsonObject)MonoCoC.HjsonParser.Parse(text);
 
             if (!root.TryGetValue("behaviors", out var value) || value is not JsonArray behaviors)
                 throw new FormatException($"Item behavior file '{path}' has no 'behaviors' array");

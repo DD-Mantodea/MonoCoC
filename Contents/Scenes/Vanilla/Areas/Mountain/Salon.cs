@@ -670,7 +670,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Mountain
 
             SalonPay(cost, alwaysPay);
 
-            InventoryScene.TakeItem(ItemRegistry.Create(itype), ShopMenu);
+            InventoryView.TakeItem(ItemRegistry.Create(itype), ShopMenu);
         }
 
         public void ShopButton(string name, Identifier itype, int cost = 30, bool alwaysPay = false)

@@ -6751,7 +6751,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             CoC.Instance.Flags.Set(GameFlagIds.ScarredBladeStatus, 0);
 
-            InventoryScene.TakeItem(ItemIds.ScarredBlade, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemIds.ScarredBlade, () => ReturnToCamp(1));
         }
 
         public void LeaveScarredBlade()

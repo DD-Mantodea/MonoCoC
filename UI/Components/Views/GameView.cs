@@ -38,6 +38,8 @@ namespace MonoCoC.UI.Components.Views
         {
             base.Update(gameTime);
 
+            Scene.ReapplyActionsIfNeeded();
+
             if (UserInput.IsJustPress(Keys.Escape))
                 ToggleMenu();
 

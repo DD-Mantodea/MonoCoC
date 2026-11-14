@@ -512,7 +512,7 @@ public class Kittens : Scene
 
             Player.ChangeFatigue(25);
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.PinkHeartPanties), () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.PinkHeartPanties), () => ReturnToCamp(1));
         }
 
         public void KittensDontSit()

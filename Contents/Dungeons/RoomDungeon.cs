@@ -142,7 +142,7 @@ namespace MonoCoC.Contents.Dungeons
                     Scene.AddButtonDisabled(12, "East", "");
 
             if (Scene.ButtonAt(13) == null)
-                Scene.AddButton(13, "Common.Button.Inventory".Localized(), () => Scenes.Vanilla.InventoryScene.InventoryMenu());
+                Scene.AddButton(13, "Common.Button.Inventory".Localized(), () => MonoCoC.UI.Components.Views.InventoryView.InventoryMenu());
 
         }
     }

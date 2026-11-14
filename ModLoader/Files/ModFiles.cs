@@ -40,7 +40,7 @@ namespace MonoCoC.ModLoader
         public bool FileExists(string path) => Exists(path);
 
         public JsonObject ReadHjson(string path) =>
-            HjsonValue.Parse(ReadAllText(path)) as JsonObject
+            MonoCoC.HjsonParser.Parse(ReadAllText(path)) as JsonObject
             ?? throw new InvalidDataException($"{ModId}: '{path}' is not a Hjson object");
 
         public override string ToString() => $"{ModId} files";

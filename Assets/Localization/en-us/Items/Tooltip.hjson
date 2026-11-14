@@ -8,4 +8,5 @@
 "Items.Type.Jewelry": "Jewelry"
 "Items.Type.Consumable": "Consumable"
 "Items.Type.Misc": "Misc"
+"Items.Type.Empty": "Empty"
 }

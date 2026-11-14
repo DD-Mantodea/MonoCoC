@@ -53,7 +53,7 @@ namespace MonoCoC.Saving
             if (!File.Exists(path))
                 return null;
 
-            return (JsonObject)HjsonValue.Parse(File.ReadAllText(path));
+            return (JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(path));
         }
 
         public static void Save(string slot, JsonObject data)

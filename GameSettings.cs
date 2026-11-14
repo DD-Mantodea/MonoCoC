@@ -17,6 +17,12 @@ namespace MonoCoC
 
         public static bool Hyper => OptionStore.Instance.Get("hyper", 0) > 0;
 
+        public static bool Silly => OptionStore.Instance.Get("coc:silly", 0) > 0;
+
+        public static bool Realistic => OptionStore.Instance.Get("coc:realistic", 0) > 0;
+
+        public static bool Survival => OptionStore.Instance.Get("coc:survival", 0) > 0;
+
         public static bool FilthEnabled => OptionStore.Instance.Get("filth", 1) > 0;
 
         public static bool AllowChild => OptionStore.Instance.Get("underage", 1) >= 1;
@@ -35,9 +41,9 @@ namespace MonoCoC
 
         public static bool Metric
         {
-            get => OptionStore.Instance.Get("metric", 0) > 0;
+            get => OptionStore.Instance.Get("coc:metric", 0) > 0;
 
-            set => OptionStore.Instance.Set("metric", value ? 1 : 0);
+            set => OptionStore.Instance.Set("coc:metric", value ? 1 : 0);
         }
     }
 }

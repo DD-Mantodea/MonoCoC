@@ -118,7 +118,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas
 
         Scene.OutputText("Common.Text.PgYourHandReachesInAnd".Localized());
 
-        InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.EBNFLWR), () => Scene.Go<CampScene>());
+        InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.EBNFLWR), () => Scene.Go<CampScene>());
     }
 
     public static void ChickenHarpyEncounter()
@@ -183,7 +183,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas
     {
         CoC.Instance.Flags.Set(GameFlagIds.EggsBought, CoC.Instance.Flags.Get(GameFlagIds.EggsBought) + 1);
 
-        InventoryScene.TakeItem(ItemRegistry.Create(egg), () => Scene.Go<CampScene>());
+        InventoryView.TakeItem(ItemRegistry.Create(egg), () => Scene.Go<CampScene>());
     }
 }
 }

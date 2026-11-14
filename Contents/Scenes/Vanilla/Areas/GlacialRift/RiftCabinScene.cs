@@ -126,7 +126,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.GlacialRift
             }
 
             if (Save.GetBool("tookBloomers"))
-                InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.Bloomers), () => ReturnToCamp(timeSpent));
+                InventoryView.TakeItem(ItemRegistry.Create(ItemIds.Bloomers), () => ReturnToCamp(timeSpent));
             else
                 ReturnToCamp(timeSpent);
         }

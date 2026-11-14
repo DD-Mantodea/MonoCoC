@@ -14,7 +14,7 @@ namespace MonoCoC.Assets.ContentManagers
 
         public override void FromText(string path, string text, IDictionary<string, TagRule> entries)
         {
-            var value = HjsonValue.Parse(text);
+            var value = MonoCoC.HjsonParser.Parse(text);
 
             if (value is not JsonObject root || !root.TryGetValue("rules", out var rules) || rules is not JsonArray list)
                 return;

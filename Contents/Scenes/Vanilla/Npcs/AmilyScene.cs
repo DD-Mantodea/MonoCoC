@@ -3090,7 +3090,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                         OutputText("Scenes.Amilyscene.AmilyFollowerEncounter.RegularProductionPayment".Localized());
 
-                        InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.SuccubiMilk), AmilyFollowerEncounter);
+                        InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.SuccubiMilk), AmilyFollowerEncounter);
 
                         return;
                     }

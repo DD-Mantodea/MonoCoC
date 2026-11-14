@@ -263,7 +263,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             Player.DestroyItems(ArmorIds.KokiriClothes,1);
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.KokiriChain), Inside);
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.KokiriChain), Inside);
         }
 
         public void YvonneCombineLewd()
@@ -279,7 +279,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             Player.DestroyItems(ArmorIds.KokiriClothes,1);
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.KokiriLewdChain), Inside);
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.KokiriLewdChain), Inside);
         }
 
     }

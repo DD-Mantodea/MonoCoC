@@ -295,7 +295,7 @@ namespace MonoCoC.Contents.Dungeons
 
             flags.Set(GameFlagIds.ZetazLairTookBondageStraps, flags.Get(GameFlagIds.ZetazLairTookBondageStraps) + 1);
 
-            Scenes.Vanilla.InventoryScene.TakeItem(ItemRegistry.Create(ArmorIds.BondageStraps), () => context.Refresh());
+            MonoCoC.UI.Components.Views.InventoryView.TakeItem(ItemRegistry.Create(ArmorIds.BondageStraps), () => context.Refresh());
         }
 
         /// <summary>原版 DeepCave.hx:95 checkDoor1()：门未解锁则退回大厅。</summary>

@@ -49,7 +49,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                             else
                                 OutputText("Scenes.Kihascene.KillKiha.SheWouldFightSixth".Localized());
 
-            InventoryScene.TakeItem(ItemIds.KihasGreataxe, CombatScene.CleanupAfterCombat);
+            InventoryView.TakeItem(ItemIds.KihasGreataxe, CombatScene.CleanupAfterCombat);
         }
 
         public void EncounterKiha()
@@ -329,7 +329,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Kihascene.KihaExplore.WhileExploringFindItem".Localized());
 
-            if (itype != null) InventoryScene.TakeItem(itype.Value, () => ReturnToCamp(1));
+            if (itype != null) InventoryView.TakeItem(itype.Value, () => ReturnToCamp(1));
         }
 
         public void TellKihaTributeWasYourIdea()
@@ -1327,7 +1327,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             CoC.Instance.Flags.Set(GameFlagIds.GottenInquisitorRobes, 1);
 
-            InventoryScene.TakeItem(ArmorIds.I_ROBES, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ArmorIds.I_ROBES, () => ReturnToCamp(1));
         }
 
         public void CarnalityArmorIsCoolShitToo()

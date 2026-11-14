@@ -619,7 +619,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             Player.ApplyStats(new DynStat(GameStats.Lust, 10f));
 
-            InventoryScene.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
         }
 
         public void HelpMarble2()
@@ -648,7 +648,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Marblescene.HelpMarble2.DepartureRewardOffer".Localized());
 
-            InventoryScene.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
         }
 
         public bool AfterMarbleHelp()
@@ -863,7 +863,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Marblescene.MarbleChoreHelpChooseMilk.ImpressedMilkReward".Localized());
 
-            InventoryScene.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
 
             MarbleAffection -= 5;
 
@@ -878,7 +878,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Marblescene.MarbleChoreHelpChooseMarble.ThankfulBottleHandoff".Localized());
 
-            InventoryScene.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
 
             MarbleAffection += 5;
 
@@ -1087,7 +1087,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Marblescene.AshamedAddictionBegForIt.HorrorSnatchBottle".Localized());
 
-            InventoryScene.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
 
             DelayBottledMilk();
         }
@@ -1374,7 +1374,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 new DynStat(GameStats.Speed, Random.Shared.Next(2)));
 
-            InventoryScene.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.MinotaurMilk, () => ReturnToCamp(1));
         }
     }
 }

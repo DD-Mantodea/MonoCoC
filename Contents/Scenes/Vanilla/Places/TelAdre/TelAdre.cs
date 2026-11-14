@@ -466,7 +466,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             Player.Gems -= (int)Math.Round(buyMod * itype.Value);
 
-            InventoryScene.TakeItem(itype, OswaldBuyMenu);
+            InventoryView.TakeItem(itype, OswaldBuyMenu);
         }
 
         public void OswaldPawnMenu()

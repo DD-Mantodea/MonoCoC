@@ -80,7 +80,7 @@ namespace MonoCoC.Contents.Encounters
 
             var pick = items[context.Random.Next(items.Length)];
 
-            InventoryScene.TakeItem(ItemRegistry.Create(pick), context.ReturnToCamp);
+            InventoryView.TakeItem(ItemRegistry.Create(pick), context.ReturnToCamp);
         }
 
         /// <summary>原版 DungeonCore.hx:118 checkFactoryClear()：工厂是否已完全清空。</summary>

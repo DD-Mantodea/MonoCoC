@@ -128,7 +128,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Weaponshop.ForgeScarredBladeEnd.RepeatsDamnedest".Localized());
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.ScarredBlade), FinishTakingScarredBlade, Inside);
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.ScarredBlade), FinishTakingScarredBlade, Inside);
         }
 
         public void FinishTakingScarredBlade()

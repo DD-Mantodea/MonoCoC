@@ -1,66 +1,644 @@
 {
   id: "CharCreationView"
+  templates: {
+    TabButton: {
+      type: "coc:button"
+      layout: "relative"
+      width: 200
+      height: 60
+      horizontalAlign: "center"
+      font: { id: "coc:menu", size: 20 }
+      states: {
+        normal: {
+          textColor: "#7C6B58CC"
+        }
+        hover: {
+          textColor: "#2F241BFF"
+        }
+        selected: {
+          backgroundColor: "#E0C9AAFF"
+          textColor: "#2F241BFF"
+        }
+      }
+    }
+    CharSegment:{
+      type: "coc:segmented"
+      layout: "relative"
+      width: 500
+      height: 40
+      borderThickness: 2
+      states: {
+        normal: { textColor: "#7C6B58CC" }
+        hover: { textColor: "#2F241BFF" }
+        selected: { 
+          backgroundColor: "#D5D8B8FF", 
+          textColor: "#2F241BFF"
+          borderColor: "#858B62"
+        }
+      }
+    }
+    FieldLabel: {
+      type: "coc:label"
+      layout: "relative"
+      autoSize: true
+      font: { id: "coc:menu", size: 20 }
+      textColor: "#5C4A38FF"
+      canHit: false
+    }
+    SectionTitle: {
+      type: "coc:label"
+      layout: "relative"
+      autoSize: true
+      font: { id: "coc:menu", size: 34 }
+      textColor: "#35291FFF"
+      canHit: false
+    }
+    CreationPanel: {
+      type: "coc:grid"
+      layout: "relative"
+      x: 330
+      y: 70
+      width: 940
+      height: 700
+      padding: 28
+      spacing: 18
+      rows: "auto20"
+      autoIndex: true
+      visible: false
+    }
+    CreationStepper: {
+      type: "coc:numeric_stepper"
+      layout: "relative"
+      width: 300
+      height: 40
+      step: 1
+      shiftMultiplier: 10
+      fontSize: 18
+      buttonWidth: 44
+      minusColor: "#F7EFE0CC"
+      plusColor: "#F7EFE0CC"
+      valueColor: "#F7EFE0CC"
+      textColor: "#35291FFF"
+      states: {
+        normal: {
+          minusBackground: "#F7EFE0CC"
+          plusBackground: "#F7EFE0CC"
+          valueBackground: "#F7EFE0CC"
+          minusTextColor: "#35291FFF"
+          plusTextColor: "#35291FFF"
+          valueTextColor: "#35291FFF"
+          borderColor: "#B79A70AA"
+          borderThickness: 1
+        }
+        hover: {
+          minusBackground: "#FBF4E6FF"
+          plusBackground: "#FBF4E6FF"
+          valueBackground: "#FBF4E6FF"
+        }
+        pressed: {
+          minusBackground: "#E8D6B7FF"
+          plusBackground: "#E8D6B7FF"
+          valueBackground: "#E8D6B7FF"
+        }
+      }
+    }
+    CreationWheel: {
+      type: "coc:choice_wheel"
+      layout: "relative"
+      width: 150
+      height: 300
+      visibleItems: 5
+      fade: true
+      fadeColor: "#E6D7BDFF"
+      fadeTop: 0.18
+      fadeBottom: 0.18
+      fadeMin: 0.35
+      animationSpeed: 0.18
+      fontSize: 20
+      centerFontSize: 26
+      lockColor: "#7C6B58FF"
+      lockIcon: "Icons/lock.svg"
+      states: {
+        normal: { textColor: "#7C6B58CC" }
+        hover: { textColor: "#2F241BFF" }
+        selected: { backgroundColor: "#E0C9AAFF", textColor: "#2F241BFF" }
+      }
+    }
+    CreationDivider: {
+      type: "coc:divider"
+      orientation: "vertical"
+      thickness: 2
+      width: 60
+      height: 100
+      ornament: true
+      font: "coc:menu"
+      horizontalAlign: "center"
+      verticalAlign: "center"
+      states: {
+        normal: { color: "#9F8156FF" }
+      }
+    }
+    CreationDetail: {
+      type: "coc:label"
+      layout: "relative"
+      autoSize: true
+      width: 400
+      wrapWidth: 400
+      font: "coc:body"
+      textColor: "#5C4A38FF"
+      canHit: false
+      verticalAlign: "center"
+    }
+  }
   root: {
     type: "coc:view"
+    layout: "relative"
     width: 1600
     height: 900
 
     children: [
       {
         type: "coc:panel"
+        layout: "relative"
         part: "charCreation.background"
         material: "coc:paper"
         sizeType: "fill"
-        backgroundColor: "#F2E5C7FF"
+        backgroundColor: "#E6D7BDFF"
+        canHit: false
+      }
+      {
+        type: "coc:label"
+        layout: "relative"
+        width: 1600
+        height: 100
+        text: { key: "Views.CharCreation.Title" }
+        font: { id: "coc:menu", size: 28 }
+        textColor: "#382B22FF"
+        textHorizontalAlign: "center"
+        textVerticalAlign: "center"
+        canHit: false
+      }
+      {
+        type: "coc:panel"
+        layout: "relative"
+        x: 280
+        y: 70
+        width: 1
+        height: 760
+        backgroundColor: "#8A663FAA"
         canHit: false
       }
       {
         type: "coc:grid"
-        width: 315
-        height: 900
-        backgroundColor: "#FFFFFF"
+        layout: "relative"
+        part: "creation.tabs"
+        x: 0
+        y: 100
+        width: 300
+        height: 560
+        spacing: 12
+        rows: "auto7"
+        autoIndex: true
+        children: [
+          {
+            type: "coc:button"
+            label: { key: "Views.CharCreation.Tab.Identity" }
+            template: "TabButton"
+            onClick: "creation.tab.identity"
+          }
+          {
+            type: "coc:button"
+            label: { key: "Views.CharCreation.Tab.Body" }
+            template: "TabButton"
+            onClick: "creation.tab.body"
+          }
+          {
+            type: "coc:button"
+            label: { key: "Views.CharCreation.Tab.Appearance" }
+            template: "TabButton"
+            onClick: "creation.tab.appearance"
+          }
+          {
+            type: "coc:button"
+            label: { key: "Views.CharCreation.Tab.Background" }
+            template: "TabButton"
+            onClick: "creation.tab.origin"
+          }
+          {
+            type: "coc:button"
+            label: { key: "Views.CharCreation.Tab.Traits" }
+            template: "TabButton"
+            onClick: "creation.tab.experience"
+          }
+          {
+            type: "coc:button"
+            label: { key: "Views.CharCreation.Tab.Modes" }
+            template: "TabButton"
+            onClick: "creation.tab.modes"
+          }
+          {
+            type: "coc:button"
+            label: { key: "Views.CharCreation.Tab.Summary" }
+            template: "TabButton"
+            onClick: "creation.tab.summary"
+          }
+        ]
       }
       {
         type: "coc:grid"
-        autoSize: true
+        layout: "relative"
+        part: "creation.panel.identity"
+        x: 330
+        y: 70
+        width: 940
+        height: 700
+        padding: 28
+        spacing: 18
+        rows: "auto20"
         autoIndex: true
-        horizontalAlign: "center"
-        rows: "auto3"
-        spacing: 12
-        padding: [48, 20, 20, 40]
-        backgroundColor: "#FFFFFF66"
         children: [
           {
-            type: "coc:text_area"
-            part: "charCreation.output"
-            font: "coc:body"
-            layout: "relative"
-            width: 930
-            height: 750
-            backgroundColor: "#FFFFFF66"
-            padding: 16
-            autoScroll: true
-            horizontalAlign: "center"
-            borderThickness: 2
-            borderColor: "#00000022"
+            template: "SectionTitle"
+            text: { key: "Views.CharCreation.WhoAreYou" }
           }
           {
             type: "coc:text_box"
-            part: "charCreation.input"
-            font: {
-              id: "coc:input"
-              size: 22
-            }
             layout: "relative"
-            cursorColor: "#000000FF"
-            width: 930
+            part: "creation.name"
+            borderThickness: [0, 0, 0, 1]
+            borderColor: "#B99A6BFF"
+            width: 320
             height: 40
-            horizontalAlign: "center"
+            font: { id: "coc:input", size: 22 }
+            cursorColor: "#B99A6BFF"
+            textColor: "#B99A6BFF"
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.Age" }
+          }
+          {
+            template: "CharSegment"
+            part: "creation.age"
+            optionKeys: ["Views.CharCreation.Opt.Child", "Views.CharCreation.Opt.Teenager", "Views.CharCreation.Opt.Adult", "Views.CharCreation.Opt.Elder"]
+            value: 2
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.Gender" }
+          }
+          {
+            template: "CharSegment"
+            part: "creation.gender"
+            optionKeys: ["Views.CharCreation.Opt.Male", "Views.CharCreation.Opt.Female", "Views.CharCreation.Opt.Herm"]
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.Build" }
+          }
+          {
+            template: "CharSegment"
+            part: "creation.build"
+            optionKeys: ["Views.CharCreation.Opt.Lean", "Views.CharCreation.Opt.Average", "Views.CharCreation.Opt.Thick", "Views.CharCreation.Opt.Girly"]
+            value: 1
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.SexualOrientation" }
+          }
+          {
+            template: "CharSegment"
+            part: "creation.orientation"
+            optionKeys: ["Views.CharCreation.Opt.Males", "Views.CharCreation.Opt.Females", "Views.CharCreation.Opt.Bisexual"]
+            value: 2
           }
         ]
+      }
+      {
+        type: "coc:grid"
+        layout: "relative"
+        part: "creation.panel.body"
+        x: 330
+        y: 70
+        width: 940
+        height: 700
+        padding: 28
+        spacing: 20
+        rows: "auto20"
+        autoIndex: true
+        visible: false
+        children: [
+          {
+            template: "SectionTitle"
+            text: { key: "Views.CharCreation.Body" }
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.Height" }
+          }
+          {
+            template: "CreationStepper"
+            part: "creation.height"
+            min: 107
+            max: 244
+            value: 170
+            unit: "cm"
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.CockLength" }
+          }
+          {
+            template: "CreationStepper"
+            part: "creation.cock"
+            min: 8
+            max: 20
+            snapValues: [8, 9, 10, 11, 13, 14, 15, 17, 18, 19, 20]
+            value: 14
+            unit: "cm"
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.BreastSize" }
+          }
+          {
+            template: "CharSegment"
+            part: "creation.breast"
+            width: 600
+            height: 40
+            optionKeys: ["Views.CharCreation.Opt.Flat", "Views.CharCreation.Opt.ACup", "Views.CharCreation.Opt.BCup", "Views.CharCreation.Opt.CCup", "Views.CharCreation.Opt.DCup", "Views.CharCreation.Opt.DDCup"]
+          }
+        ]
+      }
+      {
+        type: "coc:grid"
+        layout: "relative"
+        part: "creation.panel.appearance"
+        x: 330
+        y: 70
+        width: 940
+        height: 700
+        padding: 28
+        spacing: 20
+        rows: "auto20"
+        autoIndex: true
+        visible: false
+        children: [
+          {
+            template: "SectionTitle"
+            text: { key: "Views.CharCreation.Appearance" }
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.Complexion" }
+          }
+          {
+            template: "CharSegment"
+            part: "creation.skin"
+            width: 700
+            height: 40
+            optionKeys: ["Views.CharCreation.Opt.Light", "Views.CharCreation.Opt.Fair", "Views.CharCreation.Opt.Olive", "Views.CharCreation.Opt.Dark", "Views.CharCreation.Opt.Ebony", "Views.CharCreation.Opt.Mahogany", "Views.CharCreation.Opt.Russet"]
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.HairColor" }
+          }
+          {
+            template: "CharSegment"
+            part: "creation.hair"
+            width: 700
+            height: 40
+            optionKeys: ["Views.CharCreation.Opt.Blonde", "Views.CharCreation.Opt.Brown", "Views.CharCreation.Opt.Black", "Views.CharCreation.Opt.Red", "Views.CharCreation.Opt.Gray", "Views.CharCreation.Opt.White", "Views.CharCreation.Opt.Auburn"]
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.HairLength" }
+          }
+          {
+            template: "CreationStepper"
+            part: "creation.hairLength"
+            min: 0
+            max: 244
+            value: 5
+            unit: "cm"
+          }
+          {
+            template: "FieldLabel"
+            part: "creation.beardStyle.label"
+            text: { key: "Views.CharCreation.BeardStyle" }
+          }
+          {
+            template: "CharSegment"
+            part: "creation.beardStyle"
+            optionKeys: ["Views.CharCreation.Opt.Normal", "Views.CharCreation.Opt.Goatee", "Views.CharCreation.Opt.CleanCut", "Views.CharCreation.Opt.Mountainman"]
+          }
+          {
+            template: "FieldLabel"
+            part: "creation.beardLength.label"
+            text: { key: "Views.CharCreation.BeardLength" }
+          }
+          {
+            template: "CharSegment"
+            part: "creation.beardLength"
+            width: 840
+            height: 40
+            optionKeys: ["Views.CharCreation.Opt.NoBeard", "Views.CharCreation.Opt.Trim", "Views.CharCreation.Opt.Short", "Views.CharCreation.Opt.Medium", "Views.CharCreation.Opt.MediumLong", "Views.CharCreation.Opt.Long", "Views.CharCreation.Opt.VeryLong"]
+          }
+        ]
+      }
+      {
+        type: "coc:grid"
+        layout: "relative"
+        part: "creation.panel.origin"
+        x: 330
+        y: 70
+        width: 940
+        height: 700
+        padding: 28
+        spacing: 20
+        rows: "auto20"
+        autoIndex: true
+        visible: false
+        children: [
+          {
+            template: "SectionTitle"
+            text: { key: "Views.CharCreation.Background" }
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.History" }
+          }
+          {
+            type: "coc:grid"
+            layout: "relative"
+            autoIndex: true
+            autoSize: true
+            columns: "auto3"
+            children: [
+              { template: "CreationWheel", part: "creation.history.normal", source: "History", showLocked: true }
+              { template: "CreationDivider", part: "creation.history.divider" }
+              { template: "CreationDetail", part: "creation.history.detail" }
+            ]
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.Virginity" }
+          }
+          {
+            type: "coc:grid"
+            layout: "relative"
+            autoIndex: true
+            autoSize: true
+            columns: "auto3"
+            children: [
+              { template: "CreationWheel", part: "creation.virginity", source: "Virginity", showLocked: true }
+              { template: "CreationDivider", part: "creation.virginity.divider" }
+              { template: "CreationDetail", part: "creation.virginity.detail" }
+            ]
+          }
+        ]
+      }
+      {
+        type: "coc:grid"
+        layout: "relative"
+        part: "creation.panel.experience"
+        x: 330
+        y: 70
+        width: 940
+        height: 700
+        padding: 28
+        spacing: 20
+        rows: "auto20"
+        autoIndex: true
+        visible: false
+        children: [
+          {
+            template: "SectionTitle"
+            text: { key: "Views.CharCreation.Traits" }
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.Endowment" }
+          }
+          {
+            type: "coc:grid"
+            layout: "relative"
+            autoIndex: true
+            autoSize: true
+            columns: "auto3"
+            children: [
+              { template: "CreationWheel", part: "creation.endowment.options", source: "Endowment", showLocked: true }
+              { template: "CreationDivider", part: "creation.endowment.divider" }
+              { template: "CreationDetail", part: "creation.endowment.detail" }
+            ]
+          }
+        ]
+      }
+      {
+        type: "coc:grid"
+        layout: "relative"
+        part: "creation.panel.modes"
+        x: 330
+        y: 70
+        width: 940
+        height: 700
+        padding: 28
+        spacing: 20
+        rows: "auto20"
+        autoIndex: true
+        visible: false
+        children: [
+          {
+            template: "SectionTitle"
+            text: { key: "Views.CharCreation.GameModes" }
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.Difficulty" }
+          }
+          {
+            template: "CharSegment"
+            part: "creation.difficulty"
+            width: 700
+            height: 40
+            optionKeys: ["Views.CharCreation.Opt.Easy", "Views.CharCreation.Opt.Normal", "Views.CharCreation.Opt.Hard", "Views.CharCreation.Opt.Nightmare", "Views.CharCreation.Opt.Extreme"]
+          }
+          {
+            template: "FieldLabel"
+            text: { key: "Views.CharCreation.Hardcore" }
+          }
+          {
+            template: "CharSegment"
+            part: "creation.hardcore"
+            width: 300
+            height: 40
+            optionKeys: ["Views.CharCreation.Opt.Off", "Views.CharCreation.Opt.On"]
+          }
+        ]
+      }
+      {
+        type: "coc:grid"
+        layout: "relative"
+        part: "creation.panel.summary"
+        x: 330
+        y: 70
+        width: 940
+        height: 700
+        padding: 28
+        spacing: 20
+        rows: "auto20"
+        autoIndex: true
+        visible: false
+        children: [
+          {
+            template: "SectionTitle"
+            text: { key: "Views.CharCreation.Summary" }
+          }
+          {
+            type: "coc:label"
+            layout: "relative"
+              autoSize: true
+            part: "creation.summary.text"
+            font: "coc:body"
+            textColor: "#35291FFF"
+            canHit: false
+          }
+          {
+            type: "coc:label"
+            layout: "relative"
+            autoSize: true
+            text: { key: "Views.CharCreation.Footer" }
+            font: "coc:body"
+            textColor: "#5C4A38FF"
+            canHit: false
+          }
+        ]
+      }
+      {
+        type: "coc:button"
+        template: "TabButton"
+        part: "creation.confirm"
+        horizontalAlign: "left"
+        verticalAlign: "bottom"
+        x: 60
+        y: -40
+        label: { key: "Views.CharCreation.Confirm" }
+        onClick: "creation.nav.confirm"
+      }
+      {
+        type: "coc:label"
+        part: "creation.error"
+        layout: "relative"
+        y: -40
+        horizontalAlign: "center"
+        verticalAlign: "bottom"
+        autoSize: true
+        font: { id: "coc:menu", size: 24 }
+        textColor: "#B03030FF"
+        textHorizontalAlign: "left"
+        textVerticalAlign: "center"
+        canHit: false
       }
     ]
   }
 }
-
-

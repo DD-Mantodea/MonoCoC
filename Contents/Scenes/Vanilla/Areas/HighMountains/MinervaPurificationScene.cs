@@ -1162,7 +1162,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
                     Player.ApplyStats(new DynStat(GameStats.Corruption, -1f));
 
-                    InventoryScene.TakeItem(ItemIds.PurePeach, () => ReturnToCamp(1));
+                    InventoryView.TakeItem(ItemIds.PurePeach, () => ReturnToCamp(1));
 
                     return;
                 }

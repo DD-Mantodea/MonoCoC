@@ -61,7 +61,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                         Player.SetUnarmed();
 
-                        InventoryScene.TakeItem(WeaponIds.BeautifulSword, PlayerMenu);
+                        InventoryView.TakeItem(WeaponIds.BeautifulSword, PlayerMenu);
                     }
                     else
                         DoNext(PlayerMenu);
@@ -106,7 +106,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             CoC.Instance.Flags.Set(GameFlagIds.SwordShardsTaken, CoC.Instance.Flags.Get(GameFlagIds.SwordShardsTaken) + 1);
 
-            InventoryScene.TakeItem(ConsumableIds.SwordShard, DestroyBeautifulSword);
+            InventoryView.TakeItem(ConsumableIds.SwordShard, DestroyBeautifulSword);
         }
 
     }

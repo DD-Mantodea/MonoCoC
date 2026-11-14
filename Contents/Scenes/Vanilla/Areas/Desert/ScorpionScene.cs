@@ -277,7 +277,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             Player.ChangeFatigue(35);
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => { CombatScene.CleanupAfterCombat(); ReturnToCamp(3); });
+            InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => { CombatScene.CleanupAfterCombat(); ReturnToCamp(3); });
         }
 
         public void Kill()
@@ -326,7 +326,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             Player.ChangeFatigue(45);
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => { CombatScene.CleanupAfterCombat(); ReturnToCamp(3); });
+            InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => { CombatScene.CleanupAfterCombat(); ReturnToCamp(3); });
         }
 
         public void Help()
@@ -407,7 +407,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             Player.Gems += 713;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => { CombatScene.CleanupAfterCombat(); ReturnToCamp(3); });
+            InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => { CombatScene.CleanupAfterCombat(); ReturnToCamp(3); });
         }
 
         public void Rude()
@@ -428,7 +428,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             Player.ChangeFatigue(35);
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => { CombatScene.CleanupAfterCombat(); ReturnToCamp(3); });
+            InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => { CombatScene.CleanupAfterCombat(); ReturnToCamp(3); });
         }
 
         public void Fuck()
@@ -556,7 +556,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             Player.Gems += 713;
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => ReturnToCamp(2));
+            InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => ReturnToCamp(2));
         }
 
         public void Climb()
@@ -579,7 +579,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             Player.ChangeFatigue(35);
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => ReturnToCamp(3));
+            InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.DesertRose), () => ReturnToCamp(3));
         }
 
     }

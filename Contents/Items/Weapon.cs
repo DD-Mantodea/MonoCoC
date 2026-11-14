@@ -7,6 +7,7 @@ using System.Linq;
 
 namespace MonoCoC.Contents.Items
 {
+    [ItemCategory("coc:weapon", "Icons/inventory_weapon.svg", "Items.Type.Weapon")]
     [Register<Weapon>("coc:weapon")]
     [Register<Weapon>("coc:sword")]
     [Register<Weapon>("coc:dagger")]

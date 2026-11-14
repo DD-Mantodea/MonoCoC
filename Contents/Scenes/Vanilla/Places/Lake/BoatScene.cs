@@ -191,7 +191,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Lake
 
             CoC.Instance.Flags.Set(GameFlagIds.GrabbedLightRailAvenger, 1);
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.LightRailAvenger), () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.LightRailAvenger), () => ReturnToCamp(1));
         }
 
         public void NothingSpecial()

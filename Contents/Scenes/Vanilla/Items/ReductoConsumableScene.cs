@@ -330,7 +330,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Items
         }
 
         /// <summary>原版 inventory.itemGoNext()：物品在使用时已消耗，这里回到背包。</summary>
-        private static void FinishUse() => Go<InventoryScene>();
+        private static void FinishUse() => InventoryView.Open();
     }
 
     /// <summary>

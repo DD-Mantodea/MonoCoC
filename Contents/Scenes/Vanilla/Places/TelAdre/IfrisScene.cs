@@ -525,7 +525,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             OutputText("Scenes.Ifris.IfrisShowerSex.SlipsBetweenThighs".Localized());
 
             OutputText("Scenes.Ifris.IfrisShowerSex.PressingStall".Localized(
-                Player.BiggestCockLength() < 5 ? "[say: I guess with a few hundred " + (metric ? "kilos" : "pounds") + " of force behind it, even a thumbtack is gonna do some damage,] she teases, grinning" : "She grunts and curls her toes as she accepts the forceful intrusion"
+                Player.BiggestCockLength() < 5 ? "[say: I guess with a few hundred " + (Metric ? "kilos" : "pounds") + " of force behind it, even a thumbtack is gonna do some damage,] she teases, grinning" : "She grunts and curls her toes as she accepts the forceful intrusion"
             ));
 
             OutputText("Scenes.Ifris.IfrisShowerSex.PumpsFaster".Localized());

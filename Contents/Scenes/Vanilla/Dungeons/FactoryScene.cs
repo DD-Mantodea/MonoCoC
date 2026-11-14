@@ -120,7 +120,7 @@ DungeonScene.Enter(DungeonIds.Factory);
 
             ShowImage("item-gro-plus");
 
-            InventoryScene.TakeItem(ItemIds.GroPlus, RunFunc);
+            InventoryView.TakeItem(ItemIds.GroPlus, RunFunc);
         }
 
         public void TakeLactaid()
@@ -131,7 +131,7 @@ DungeonScene.Enter(DungeonIds.Factory);
 
             ShowImage("item-lactaid");
 
-            InventoryScene.TakeItem(ConsumableIds.Lactaid, RunFunc);
+            InventoryView.TakeItem(ConsumableIds.Lactaid, RunFunc);
         }
 
         public void DrinkCoffee()

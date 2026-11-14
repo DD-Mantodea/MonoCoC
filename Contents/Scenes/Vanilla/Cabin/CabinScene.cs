@@ -274,7 +274,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Cabin
             // Pet 菜单按原版放在 Camp 主界面，不在 Cabin
             AddButton(2, "Common.Button.Inventory".Localized(),
 
-                () => InventoryScene.InventoryMenu(), "Scenes.Cabin.Hint.Inventory".Localized());
+                () => InventoryView.InventoryMenu(), "Scenes.Cabin.Hint.Inventory".Localized());
 
             AddButton(3, "Common.Button.Storage".Localized(),
 

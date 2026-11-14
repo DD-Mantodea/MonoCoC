@@ -1,4 +1,4 @@
-﻿using Hjson;
+using Hjson;
 using MonoCoC.Extensions;
 using System;
 using System.Collections.Generic;
@@ -36,7 +36,7 @@ namespace MonoCoC.UI.Data
         {
             var text = ReadAllTextShared(path);
 
-            var root = HjsonValue.Parse(text) as JsonObject
+            var root = MonoCoC.HjsonParser.Parse(text) as JsonObject
                 ?? throw new InvalidDataException($"{path}: UI document must be an object");
 
             var id = root.Str("id");
@@ -52,7 +52,7 @@ namespace MonoCoC.UI.Data
 
             if (File.Exists(globalPath))
             {
-                var globalRoot = HjsonValue.Parse(ReadAllTextShared(globalPath)) as JsonObject;
+                var globalRoot = MonoCoC.HjsonParser.Parse(ReadAllTextShared(globalPath)) as JsonObject;
 
                 if (globalRoot is not null)
                     ReadTables(globalRoot, templates, controlTemplates);
@@ -146,7 +146,7 @@ namespace MonoCoC.UI.Data
         }
 
         private static JsonObject Clone(JsonObject source) =>
-            (JsonObject)HjsonValue.Parse(source.ToString());
+            (JsonObject)MonoCoC.HjsonParser.Parse(source.ToString());
 
         private static JsonValue CloneValue(JsonValue value) => value switch
         {

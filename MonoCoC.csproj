@@ -19,6 +19,7 @@
 		<PackageReference Include="MonoGame.Framework.WindowsDX" Version="3.8.*" />
 		<PackageReference Include="MonoMod.RuntimeDetour" Version="22.7.31.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+		<PackageReference Include="Svg.Skia" Version="5.2.3" />
 	</ItemGroup>
 	<!-- 资源文件：随项目一起保存，生成时按“有变化则复制”放到 <输出目录>\Assets\ 下。
        Paths.Root 取 exe 所在目录，所以目标路径必须与 Assets 下的相对结构一致。 -->

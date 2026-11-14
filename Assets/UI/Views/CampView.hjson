@@ -53,7 +53,11 @@
               size: 22
             }
             layout: "relative"
-            cursorColor: "#000000FF"
+            visible: true
+            cursorColor: "#B99A6BFF"
+            textColor: "#B99A6BFF"
+            borderThickness: [0, 0, 0, 1]
+            borderColor: "#B99A6BFF"
             width: 930
             height: 40
             horizontalAlign: "center"

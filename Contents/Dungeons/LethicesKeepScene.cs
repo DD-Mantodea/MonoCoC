@@ -380,7 +380,7 @@ namespace MonoCoC.Contents.Dungeons
 
             Flags.Set(GameFlagIds.D3EggsAvailable, Flags.Get(GameFlagIds.D3EggsAvailable) + eggMask);
 
-            InventoryScene.TakeItem(eggId, PlayerMenu);
+            InventoryView.TakeItem(eggId, PlayerMenu);
         }
 
         public void FallbackFromMagpieHallS()

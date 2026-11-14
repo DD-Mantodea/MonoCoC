@@ -709,7 +709,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
                             TellyCom(TellyComType.TellyComH, true);
 
-                            InventoryScene.TakeItem(ItemRegistry.Create(UseableIds.TeddyBear), () => TellyMarket(true));
+                            InventoryView.TakeItem(ItemRegistry.Create(UseableIds.TeddyBear), () => TellyMarket(true));
                         }
 
                         break;

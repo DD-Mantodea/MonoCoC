@@ -976,7 +976,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     else
                         itype = ConsumableIds.SmallEggs[Random.Shared.Next(ConsumableIds.SmallEggs.Length)];
 
-                    InventoryScene.TakeItem(itype, PlayerMenu);
+                    InventoryView.TakeItem(itype, PlayerMenu);
                 }
         }
 

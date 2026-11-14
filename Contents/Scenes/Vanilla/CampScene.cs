@@ -277,7 +277,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             else
                 AddButtonDisabled(1, "Scenes.Camp.Places".Localized(), "Scenes.Camp.NoPlacesYet".Localized());
 
-            AddButton(2, "Scenes.Camp.Inventory".Localized(), () => Go<InventoryScene>(),
+            AddButton(2, "Scenes.Camp.Inventory".Localized(), () => InventoryView.Open(),
 
                 "Scenes.Camp.Hint.Inventory".Localized());
 

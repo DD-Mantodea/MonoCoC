@@ -40,7 +40,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             }
             else
             {
-                var root = (JsonObject)HjsonValue.Parse(
+                var root = (JsonObject)MonoCoC.HjsonParser.Parse(
                     File.ReadAllText(Path.Combine(Paths.AssetPath("Data/Credits"), "Credits.json")));
 
                 var config = (JsonObject)root[page == 0 ? "hgg" : "revamp"];

@@ -30,7 +30,7 @@ namespace MonoCoC.Contents.Encounters
                 {
                     context.Write(textKey.Localized());
 
-                    InventoryScene.TakeItem(item(), context.ReturnToCamp);
+                    InventoryView.TakeItem(item(), context.ReturnToCamp);
                 });
     }
 }

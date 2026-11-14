@@ -768,7 +768,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (item == null)
                 DoNext(PlayerMenu);
             else
-                InventoryScene.TakeItem(item, () => Go<CampScene>());
+                InventoryView.TakeItem(item, () => Go<CampScene>());
         }
 
         public void ValeriaAndGooThreeStuff()

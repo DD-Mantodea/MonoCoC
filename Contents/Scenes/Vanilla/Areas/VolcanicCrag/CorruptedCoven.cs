@@ -316,7 +316,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.VolcanicCrag
 
                 OutputText("Scenes.Corruptedcoven.CirceIntros.BeginHeadBack".Localized());
 
-                InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.LesserFocusRing), () => ReturnToCamp(1));
+                InventoryView.TakeItem(ItemRegistry.Create(ItemIds.LesserFocusRing), () => ReturnToCamp(1));
 
                 CoC.Instance.Flags.Set(GameFlagIds.CorrWitchCoven, CoC.Instance.Flags.Get(GameFlagIds.CorrWitchCoven) + TOLD_NAME);
             }
@@ -1001,7 +1001,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.VolcanicCrag
 
                 CoC.Instance.Flags.Set(GameFlagIds.CorrWitchCoven, CoC.Instance.Flags.Get(GameFlagIds.CorrWitchCoven) | GOT_RING_OF_ETHEREAL_TEARING);
 
-                InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.TearingRing), CirceRewards, () => { CoC.Instance.Flags.Set(GameFlagIds.CorrWitchCoven, CoC.Instance.Flags.Get(GameFlagIds.CorrWitchCoven) ^ GOT_RING_OF_ETHEREAL_TEARING); CirceRewards(); });
+                InventoryView.TakeItem(ItemRegistry.Create(ItemIds.TearingRing), CirceRewards, () => { CoC.Instance.Flags.Set(GameFlagIds.CorrWitchCoven, CoC.Instance.Flags.Get(GameFlagIds.CorrWitchCoven) ^ GOT_RING_OF_ETHEREAL_TEARING); CirceRewards(); });
 
                 return ;
                 }
@@ -1016,7 +1016,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.VolcanicCrag
 
                 CoC.Instance.Flags.Set(GameFlagIds.CorrWitchCoven, CoC.Instance.Flags.Get(GameFlagIds.CorrWitchCoven) | GOT_MAJOR_RING_OF_ACCURACY);
 
-                InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.GreaterFocusRing), CirceRewards, () => { CoC.Instance.Flags.Set(GameFlagIds.CorrWitchCoven, CoC.Instance.Flags.Get(GameFlagIds.CorrWitchCoven) ^ GOT_MAJOR_RING_OF_ACCURACY); CirceRewards(); });
+                InventoryView.TakeItem(ItemRegistry.Create(ItemIds.GreaterFocusRing), CirceRewards, () => { CoC.Instance.Flags.Set(GameFlagIds.CorrWitchCoven, CoC.Instance.Flags.Get(GameFlagIds.CorrWitchCoven) ^ GOT_MAJOR_RING_OF_ACCURACY); CirceRewards(); });
 
                 return ;
                 }
@@ -1031,7 +1031,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.VolcanicCrag
 
                 CoC.Instance.Flags.Set(GameFlagIds.CorrWitchCoven, CoC.Instance.Flags.Get(GameFlagIds.CorrWitchCoven) | GOT_SPECTRE_RING);
 
-                InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.SpecterRing), CirceRewards, () => { CoC.Instance.Flags.Set(GameFlagIds.CorrWitchCoven, CoC.Instance.Flags.Get(GameFlagIds.CorrWitchCoven) ^ GOT_SPECTRE_RING); CirceRewards(); });
+                InventoryView.TakeItem(ItemRegistry.Create(ItemIds.SpecterRing), CirceRewards, () => { CoC.Instance.Flags.Set(GameFlagIds.CorrWitchCoven, CoC.Instance.Flags.Get(GameFlagIds.CorrWitchCoven) ^ GOT_SPECTRE_RING); CirceRewards(); });
 
                 return ;
                 }

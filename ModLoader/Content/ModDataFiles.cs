@@ -33,7 +33,7 @@ namespace MonoCoC.ModLoader
         {
             var text = ReadAllText(path);
 
-            return HjsonValue.Parse(text) as JsonObject
+            return MonoCoC.HjsonParser.Parse(text) as JsonObject
                 ?? throw new InvalidDataException($"{ModId}: '{path}' is not a Hjson object");
         }
     }

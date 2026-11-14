@@ -494,7 +494,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
 
             if (items.Count > 0)
 
-                InventoryScene.TakeItems(items.ToArray(), nextFunc);
+                InventoryView.TakeItems(items.ToArray(), nextFunc);
             else
                 nextFunc();
         }

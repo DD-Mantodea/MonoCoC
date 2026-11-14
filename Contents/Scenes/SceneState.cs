@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace MonoCoC.Contents.Scenes
 {
@@ -6,7 +6,13 @@ namespace MonoCoC.Contents.Scenes
     {
         public List<SceneAction> Actions { get; } = [];
 
-        public void ClearActions() => Actions.Clear();
+        public int Revision { get; private set; }
+
+        public void ClearActions()
+        {
+            Actions.Clear();
+            Revision++;
+        }
 
         public SceneAction? FindAction(int slot)
         {
@@ -19,6 +25,8 @@ namespace MonoCoC.Contents.Scenes
 
         public SceneAction SetAction(int slot, SceneAction action)
         {
+            Revision++;
+
             var existing = FindAction(slot);
 
             if (existing is null)

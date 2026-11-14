@@ -1972,7 +1972,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
                 Player.HealthChange(Player.MaxHealth / 5);
 
-                InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.PurePeach), () =>
+                InventoryView.TakeItem(ItemRegistry.Create(ItemIds.PurePeach), () =>
                 {
                     CombatScene.CleanupAfterCombat();
 
@@ -2043,7 +2043,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Minervascene.GetPurePeach.ExamineStrangeTreats".Localized());
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.PurePeach), () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.PurePeach), () => ReturnToCamp(1));
         }
 
         public void GetMint()

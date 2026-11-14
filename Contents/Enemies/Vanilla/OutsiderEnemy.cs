@@ -65,7 +65,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override string Description =>
 
-            (Configuration.OptionStore.Instance.Get("metric", 0) > 0
+            (Configuration.OptionStore.Instance.Get("coc:metric", 0) > 0
 
                 ? "Npcs.Outsider.Desc.Metric"
 

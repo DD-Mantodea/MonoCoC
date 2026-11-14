@@ -15,7 +15,7 @@ namespace MonoCoC.Assets.ContentManagers
 
         public override void FromText(string path, string text, IDictionary<string, DamageTypeDefinition> entries)
         {
-            var root = (JsonObject)HjsonValue.Parse(text);
+            var root = (JsonObject)MonoCoC.HjsonParser.Parse(text);
 
             var idText = root.TryGetValue("id", out var idValue) ? Unquote(idValue.ToString()) : "";
 

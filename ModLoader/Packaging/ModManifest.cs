@@ -32,7 +32,7 @@ namespace MonoCoC.ModLoader
 
         public static ModManifest Parse(string text, string source)
         {
-            if (HjsonValue.Parse(text) is not JsonObject root)
+            if (MonoCoC.HjsonParser.Parse(text) is not JsonObject root)
                 throw new InvalidDataException($"{source}: mod.hjson must be an object");
 
             var id = root.Str("id").Trim();

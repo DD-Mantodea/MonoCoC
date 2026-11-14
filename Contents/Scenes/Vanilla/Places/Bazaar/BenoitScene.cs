@@ -619,7 +619,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                 DoNext(() => BenoitsBuyMenu());
             }
             else
-                InventoryScene.TakeItem(itype, BenoitsBuyMenu);
+                InventoryView.TakeItem(itype, BenoitsBuyMenu);
         }
 
         public void BenoitSellTransact(int slot, int sellMod)
@@ -779,7 +779,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             Player.Gems -= 200;
 
-            InventoryScene.TakeItem(ItemIds.FlintlockPistol, BenoitsBuyMenu);
+            InventoryView.TakeItem(ItemIds.FlintlockPistol, BenoitsBuyMenu);
         }
 
         public void BuyMap()

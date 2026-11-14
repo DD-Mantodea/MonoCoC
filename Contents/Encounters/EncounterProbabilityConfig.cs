@@ -33,7 +33,7 @@ namespace MonoCoC.Contents.Encounters
 
             try
             {
-                if (HjsonValue.Parse(File.ReadAllText(path)) is not JsonObject root)
+                if (MonoCoC.HjsonParser.Parse(File.ReadAllText(path)) is not JsonObject root)
                     return result;
 
                 foreach (var pair in root)

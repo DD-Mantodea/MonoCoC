@@ -1,4 +1,4 @@
-﻿using MonoCoC.Attributes;
+using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
 using MonoCoC.Contents.Enemies.Vanilla;
@@ -1247,7 +1247,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
         {
             ClearOutput();
 
-            OutputText("Scenes.Sylviascene.SylviaAppearance.VoluptuousMothGirlTall".Localized((metric ? "172 cm" : "5'8''")));
+            OutputText("Scenes.Sylviascene.SylviaAppearance.VoluptuousMothGirlTall".Localized((Metric ? "172 cm" : "5'8''")));
 
             if (Player.Pregnancy.Event > 2)
                 OutputText("Scenes.Sylviascene.SylviaAppearance.BellyCloseToPopping".Localized());

@@ -1,0 +1,16 @@
+{
+  options: [
+    { id: "coc:history_alchemist", labelKey: "CharCreation.ChooseHistory.Button2", elderLabelKey: "CharCreation.ChooseHistory.ElderButton1", descriptionKey: "CharCreation.ConfirmHistory.YouSpentSomeTime", elderDescriptionKey: "CharCreation.ConfirmHistory.YouWorkedAlchemistFor" }
+    { id: "coc:history_fighter", labelKey: "CharCreation.ChooseHistory.Button3", elderLabelKey: "CharCreation.ChooseHistory.ElderButton2", descriptionKey: "CharCreation.ConfirmHistory.YouSpentMuchYourTime", elderDescriptionKey: "CharCreation.ConfirmHistory.YouSpentMuchYourYouth" }
+    { id: "coc:history_fortune", labelKey: "CharCreation.ChooseHistory.Button4", elderLabelKey: "CharCreation.ChooseHistory.ElderButton3", descriptionKey: "CharCreation.ConfirmHistory.You'veAlwaysHadKnack", elderDescriptionKey: "CharCreation.ConfirmHistory.YouAlwaysFeelLucky" }
+    { id: "coc:history_healer", labelKey: "CharCreation.ChooseHistory.Button5", elderLabelKey: "CharCreation.ChooseHistory.ElderButton4", descriptionKey: "CharCreation.ConfirmHistory.YouOftenSpentYour", elderDescriptionKey: "CharCreation.ConfirmHistory.YouWereTheVillage" }
+    { id: "coc:history_religious", labelKey: "CharCreation.ChooseHistory.Button6", elderLabelKey: "CharCreation.ChooseHistory.ElderButton5", descriptionKey: "CharCreation.ConfirmHistory.YouSpentLotTime", elderDescriptionKey: "CharCreation.ConfirmHistory.YouWereDevoutMonk" }
+    { id: "coc:history_scholar", labelKey: "CharCreation.ChooseHistory.Button7", elderLabelKey: "CharCreation.ChooseHistory.ElderButton6", descriptionKey: "CharCreation.ConfirmHistory.YouSpentMuchYour", elderDescriptionKey: "CharCreation.ConfirmHistory.YourLifeWasDedicated" }
+    { id: "coc:history_slacker", labelKey: "CharCreation.ChooseHistory.Button8", elderLabelKey: "CharCreation.ChooseHistory.ElderButton7", descriptionKey: "CharCreation.ConfirmHistory.YouSpentLotTimeSlacking" }
+    { id: "coc:history_thief", labelKey: "CharCreation.ChooseHistory.Button9", elderLabelKey: "CharCreation.ChooseHistory.ElderButton8", descriptionKey: "CharCreation.ConfirmHistory.YouSpentMostYour", elderDescriptionKey: "CharCreation.ConfirmHistory.YouWereTheMost" }
+    { id: "coc:history_slut", labelKey: "CharCreation.ChooseHistory.Button10", elderLabelKey: "CharCreation.ChooseHistory.ElderButton9", descriptionKey: "CharCreation.ConfirmHistory.YouManagedSpendMost", elderDescriptionKey: "CharCreation.ConfirmHistory.YouSpentMostYourTime" }
+    { id: "coc:history_smith", labelKey: "CharCreation.ChooseHistory.Button11", elderLabelKey: "CharCreation.ChooseHistory.ElderButton10", descriptionKey: "CharCreation.ConfirmHistory.YouManagedGetApprenticeship", elderDescriptionKey: "CharCreation.ConfirmHistory.YouWereMasterBlacksmith" }
+    { id: "coc:history_whore", labelKey: "CharCreation.ChooseHistory.Button12", elderLabelKey: "CharCreation.ChooseHistory.ElderButton11", descriptionKey: "CharCreation.ConfirmHistory.YouManagedFindWork", elderDescriptionKey: "CharCreation.ConfirmHistory.YouStartedWhoringYoung" }
+    { id: "coc:history_paladin", labelKey: "CharCreation.ChooseHistory.Button13", elderLabelKey: "CharCreation.ChooseHistory.ElderButton12", descriptionKey: "CharCreation.ConfirmHistory.YouWereTrainedFrom" }
+  ]
+}

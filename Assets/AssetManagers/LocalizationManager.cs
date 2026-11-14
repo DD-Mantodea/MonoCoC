@@ -63,7 +63,7 @@ namespace MonoCoC.Assets.AssetManagers
 
         private static Dictionary<string, string> ReadStrings(string path)
         {
-            var root = (JsonObject)HjsonValue.Parse(ReadAllTextShared(path));
+            var root = (JsonObject)MonoCoC.HjsonParser.Parse(ReadAllTextShared(path));
 
             var strings = new Dictionary<string, string>();
 
@@ -224,7 +224,7 @@ namespace MonoCoC.Assets.AssetManagers
 
             try
             {
-                var root = (JsonObject)HjsonValue.Parse(ReadAllTextShared(path));
+                var root = (JsonObject)MonoCoC.HjsonParser.Parse(ReadAllTextShared(path));
 
                 if (root.TryGetValue("code", out var codeValue) && codeValue != null)
                     info.Code = codeValue.ToString().Trim('"');

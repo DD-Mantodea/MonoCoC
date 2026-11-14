@@ -284,6 +284,6 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Items
         }
 
         // 原版 inventory.itemGoNext()：物品已消耗，回背包
-        private static void FinishUse() => Go<InventoryScene>();
+        private static void FinishUse() => InventoryView.Open();
     }
 }

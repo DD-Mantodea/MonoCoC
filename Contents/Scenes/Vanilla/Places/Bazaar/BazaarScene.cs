@@ -767,7 +767,7 @@ ReturnToCamp(1);
 
                     View.Time.Hours = 6;
 
-                    InventoryScene.TakeItem(ItemIds.BimboLiqueur, () => ReturnToCamp(1));
+                    InventoryView.TakeItem(ItemIds.BimboLiqueur, () => ReturnToCamp(1));
 
                 }
         }

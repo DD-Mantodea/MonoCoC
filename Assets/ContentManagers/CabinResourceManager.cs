@@ -17,7 +17,7 @@ public class CabinResourceManager : ContentManager<CabinResource>
 
     public override void FromText(string path, string text, IDictionary<string, CabinResource> entries)
     {
-        var root = (JsonObject)HjsonValue.Parse(text);
+        var root = (JsonObject)MonoCoC.HjsonParser.Parse(text);
 
         foreach (var json in Entries(root, "resources", path))
         {

@@ -174,7 +174,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             FallenKnightMenu();
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.WingedSpear), FallenKnightMenu);
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.WingedSpear), FallenKnightMenu);
         }
 
         public void FallenKnightLeave()

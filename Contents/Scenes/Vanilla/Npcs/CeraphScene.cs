@@ -1380,7 +1380,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Ceraphscene.GetCeraphsArmor.SmilesKnowinglyArmor".Localized());
 
-            InventoryScene.TakeItem(ItemIds.SeductiveArmor, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ItemIds.SeductiveArmor, () => ReturnToCamp(1));
         }
 
         public void TradeCeraphBimboLiqueur()

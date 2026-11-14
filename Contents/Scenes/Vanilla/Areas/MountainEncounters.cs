@@ -84,7 +84,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas
 
         Scene.OutputText("Common.Text.TakingAMuchLessScenicRoute".Localized());
 
-        InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.Coal), () => Scene.Go<CampScene>());
+        InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.Coal), () => Scene.Go<CampScene>());
     }
 
     public static void Hike()

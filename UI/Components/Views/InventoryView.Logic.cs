@@ -1,3 +1,5 @@
+using MonoCoC.Contents.Scenes.Vanilla;
+using static MonoCoC.Contents.Scenes.Scene;
 using MonoCoC.Contents.Flags;
 using MonoCoC.Contents.Items;
 using MonoCoC.Extensions;
@@ -6,16 +8,20 @@ using System.Linq;
 using MonoCoC.Attributes;
 using MonoCoC.Registry;
 
-namespace MonoCoC.Contents.Scenes.Vanilla
+namespace MonoCoC.UI.Components.Views
 {
-    [Register<InventoryScene>("coc:inventory")]
-    public class InventoryScene : Scene
+    public partial class InventoryView
     {
         public static Action? _returnTo;
 
         public static Action? _itemUsed;
 
-        public override void Entry() => InventoryMenu();
+        public static void Open(Action? returnTo = null, Action? itemUsed = null)
+        {
+            MonoCoC.UI.Framework.UIManager.Instance?.Root.SwitchView(new InventoryView());
+
+            InventoryMenu(returnTo, itemUsed);
+        }
 
         public static void InventoryMenu() => InventoryMenu(null, null);
 
@@ -28,30 +34,6 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             Player.UpdateItemStacks();
 
             ClearOutput();
-
-            DisplayHeader("Scenes.Inventory.Title".Localized());
-
-            OutputText("Scenes.Inventory.Equipment".Localized() + "\n");
-
-            OutputText("Scenes.Inventory.Weapon".Localized(ItemName(Player.Weapon), Player.WeaponAttack) + "\n");
-
-            OutputText("Scenes.Inventory.Shield".Localized(ItemName(Player.Shield), Player.Shield.Block) + "\n");
-
-            OutputText("Scenes.Inventory.Armor".Localized(ItemName(Player.Armor), Player.ArmorDefense) + "\n");
-
-            OutputText("Scenes.Inventory.UpperGarment".Localized(ItemName(Player.UpperGarment)) + "\n");
-
-            OutputText("Scenes.Inventory.LowerGarment".Localized(ItemName(Player.LowerGarment)) + "\n");
-
-            OutputText("Scenes.Inventory.Accessory".Localized(ItemName(Player.Jewelry)) + "\n");
-
-            if (Player.KeyItems.Count > 0)
-            {
-                OutputText("Scenes.Inventory.KeyItems".Localized() + "\n");
-
-                foreach (var keyItem in Player.KeyItems.Values.OrderByDescending(item => item.DisplayName))
-                    OutputText("Scenes.Inventory.KeyItem".Localized(keyItem.DisplayName) + "\n");
-            }
 
             ClearButtons();
 
@@ -80,17 +62,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             {
                 OutputText("Scenes.Inventory.NoItems".Localized());
 
-                AddButton(14, "Common.Back".Localized(), Exit);
             }
             else
             {
-                AddButton(10, "Scenes.Inventory.Unequip".Localized(), ManageEquipment);
-
-                AddButton(11, DeleteLabel().Localized(), ToggleDelete, DeleteHint().Localized());
-
-                OutputText("Scenes.Inventory.Capacity".Localized(Player.Inventory.OccupiedSlots, Player.Inventory.MaxSlots) + "\n");
-
-                AddButton(14, "Common.Back".Localized(), Exit);
             }
         }
 
@@ -487,6 +461,8 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 return;
             }
+
+            MonoCoC.UI.Framework.UIManager.Instance?.Root.SwitchView(new UI.Components.Views.CampView());
 
             Go<CampScene>();
         }

@@ -1,4 +1,4 @@
-﻿using MonoCoC.Attributes;
+using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
@@ -3507,7 +3507,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
 
             OutputText("Scenes.Doloresscene.HikkiWinRiches.YoungSapTrinket".Localized());
 
-            InventoryScene.TakeItem(ItemIds.FabulousRing, HikkiWinReward);
+            InventoryView.TakeItem(ItemIds.FabulousRing, HikkiWinReward);
         }
 
         public void HikkiWinKnowledge()
@@ -3773,13 +3773,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
             else
                 if (doloresProg < 7)
                     OutputText("Scenes.Doloresscene.DoloresAppearance.CaterpillarGrowing".Localized(
-                        doloresProg < 5 ? (metric ? "122 cm" : "four feet") : (metric ? "140 cm" : "4'7''")
+                        doloresProg < 5 ? (Metric ? "122 cm" : "four feet") : (Metric ? "140 cm" : "4'7''")
                     ));
                 else
                     if (doloresProg < 9)
                         OutputText("Scenes.Doloresscene.DoloresAppearance.EncasedInSilkCocoon".Localized((doloresTime < 96 ? "Its fluffy exterior looks so soft that you almost want to hug it, but it's probably not a good idea to be too rough with it while she's still inside." : "Its previously fluffy exterior has hardened somewhat since it was first formed. Does this mean that Dolores is going to emerge soon?")));
                     else
-                        OutputText("Scenes.Doloresscene.DoloresAppearance.PetiteFrameHeight".Localized((metric ? "150 cm" : "five feet"), (doloresProg > 9 ? "brilliant" : "somewhat droopy")));
+                        OutputText("Scenes.Doloresscene.DoloresAppearance.PetiteFrameHeight".Localized((Metric ? "150 cm" : "five feet"), (doloresProg > 9 ? "brilliant" : "somewhat droopy")));
 
             DoNext(() => DoloresMenu());
         }

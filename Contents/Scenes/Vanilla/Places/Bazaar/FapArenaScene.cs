@@ -781,7 +781,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
                 if (!Player.HasStatusEffect(StatusEffectIds.ParasiteSlugReproduction))
                     Player.Orgasm("Dick");
 
-                InventoryScene.TakeItem(itype, () => ReturnToCamp(1));
+                InventoryView.TakeItem(itype, () => ReturnToCamp(1));
             }
             else
                 if (place == 2)

@@ -16,7 +16,7 @@ namespace MonoCoC.Assets.ContentManagers
 
         public override void FromText(string path, string text, IDictionary<string, RaceColorPalette> entries)
         {
-            var root = (JsonObject)HjsonValue.Parse(text);
+            var root = (JsonObject)MonoCoC.HjsonParser.Parse(text);
 
             if (!root.TryGetValue("palettes", out var value) || value is not JsonArray palettes)
                 throw new FormatException($"Race color file '{path}' has no 'palettes' array");

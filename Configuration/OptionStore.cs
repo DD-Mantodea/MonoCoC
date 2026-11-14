@@ -133,7 +133,7 @@ namespace MonoCoC.Configuration
 
             try
             {
-                var root = (JsonObject)HjsonValue.Parse(File.ReadAllText(FilePath));
+                var root = (JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(FilePath));
 
                 Instance.Load(root, true);
             }

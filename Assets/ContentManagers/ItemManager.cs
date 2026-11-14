@@ -15,7 +15,7 @@ namespace MonoCoC.Assets.ContentManagers
 
         public override void FromText(string path, string text, IDictionary<string, ItemDefinition> entries)
         {
-            var value = HjsonValue.Parse(text);
+            var value = MonoCoC.HjsonParser.Parse(text);
 
             var definitions = new List<ItemDefinition>();
 

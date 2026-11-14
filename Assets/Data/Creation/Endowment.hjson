@@ -1,0 +1,17 @@
+{
+  options: [
+    { id: "coc:strong", labelKey: "CharCreation.ChooseEndowment.Button2", descriptionKey: "CharCreation.ConfirmEndowment.AreYouStrongerThan" }
+    { id: "coc:tough", labelKey: "CharCreation.ChooseEndowment.Button3", descriptionKey: "CharCreation.ConfirmEndowment.AreYouUnusuallyTough" }
+    { id: "coc:fast", labelKey: "CharCreation.ChooseEndowment.Button4", descriptionKey: "CharCreation.ConfirmEndowment.AreYouVeryQuick" }
+    { id: "coc:smart", labelKey: "CharCreation.ChooseEndowment.Button5", descriptionKey: "CharCreation.ConfirmEndowment.AreYouQuickLearner" }
+    { id: "coc:lusty", labelKey: "CharCreation.ChooseEndowment.Button6", descriptionKey: "CharCreation.ConfirmEndowment.YouHaveUnusuallyHigh" }
+    { id: "coc:sensitive", labelKey: "CharCreation.ChooseEndowment.Button7", descriptionKey: "CharCreation.ConfirmEndowment.YourSkinUnusuallySensitive" }
+    { id: "coc:frigid", labelKey: "CharCreation.ChooseEndowment.Button8", descriptionKey: "CharCreation.ConfirmEndowment.AreYouLessReceptive" }
+    { id: "coc:big_cock", labelKey: "CharCreation.ChooseEndowment.Button9", descriptionKey: "CharCreation.ConfirmEndowment.YouHaveBigCock", condition: "cock" }
+    { id: "coc:messy_orgasms", labelKey: "CharCreation.ChooseEndowment.Button10", descriptionKey: "CharCreation.ConfirmEndowment.AreYourOrgasmsParticularly", condition: "cock" }
+    { id: "coc:big_tits", labelKey: "CharCreation.ChooseEndowment.Button11", descriptionKey: "CharCreation.ConfirmEndowment.AreYourBreastsBigger", condition: "vagina" }
+    { id: "coc:big_clit", labelKey: "CharCreation.ChooseEndowment.Button12", descriptionKey: "CharCreation.ConfirmEndowment.YouHaveBigClit", condition: "vagina" }
+    { id: "coc:fertile", labelKey: "CharCreation.ChooseEndowment.Button13", descriptionKey: "CharCreation.ConfirmEndowment.YourFamilyParticularlyFertile", condition: "vagina" }
+    { id: "coc:wet_pussy", labelKey: "CharCreation.ChooseEndowment.Button14", descriptionKey: "CharCreation.ConfirmEndowment.DoesYourPussyGet", condition: "vagina" }
+  ]
+}

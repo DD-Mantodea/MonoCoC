@@ -575,7 +575,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             CoC.Instance.Flags.Set(GameFlagIds.GenderlessMasturbationWithGhostCount, CoC.Instance.Flags.Get(GameFlagIds.GenderlessMasturbationWithGhostCount) + 1);
 
-            InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
         }
 
         public void NongenderlessAnalShouldraMasturbation()
@@ -698,7 +698,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             CoC.Instance.Flags.Set(GameFlagIds.GenderlessMasturbationWithGhostCount, CoC.Instance.Flags.Get(GameFlagIds.GenderlessMasturbationWithGhostCount) + 1);
 
-            InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
         }
 
         public void MaleMasturbationProper()
@@ -754,7 +754,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ShouldraSleeping((10 + Random.Shared.Next(26)), true);
 
-            InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
         }
 
         public void GirlyMasturbationWithGhosts()
@@ -1037,7 +1037,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             ShouldraSleeping((10 + Random.Shared.Next(26)), true);
 
-            InventoryScene.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.Ectoplasm, () => ReturnToCamp(1));
         }
 
         public void ShouldraDream1()

@@ -49,7 +49,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 if (Player.HasPerk(PerkIds.MarbleResistant))
                     OutputText("Scenes.Marblescene.PostAddictionCampMornings.AssuresSafeBottle".Localized());
 
-                InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.MinotaurMilk),
+                InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.MinotaurMilk),
 
                     () => ReturnToCamp(1));
             }
@@ -373,7 +373,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 Player.ChangeFatigue(15);
 
-                InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.W_FRUIT),
+                InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.W_FRUIT),
 
                     () => ReturnToCamp(1));
 
@@ -904,7 +904,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             OutputText("Scenes.Marblescene.GotMilk.AskMilkBottle".Localized());
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.MinotaurMilk),
+            InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.MinotaurMilk),
 
                 InteractWithMarbleAtCamp);
         }
@@ -918,16 +918,16 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             var itemStage = Player.StatusEffectValue(StatusEffectIds.MarbleHasItem, 0);
 
             if (CoC.Instance.Flags.Get(GameFlagIds.MarblePurificationStage) != 1 && itemStage <= 4)
-                InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.VitalityTincture),
+                InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.VitalityTincture),
 
                     InteractWithMarbleAtCamp);
             else if (CoC.Instance.Flags.Get(GameFlagIds.MarblePurificationStage) != 1 && itemStage <= 7)
 
-                InventoryScene.TakeItem(ItemRegistry.Create(ArmorIds.LeatherArmor),
+                InventoryView.TakeItem(ItemRegistry.Create(ArmorIds.LeatherArmor),
 
                     InteractWithMarbleAtCamp);
             else
-                InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.LaBova),
+                InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.LaBova),
 
                     InteractWithMarbleAtCamp);
 

@@ -192,7 +192,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Boat
 
                     OutputText("Scenes.Maraescene.EncounterMarae.PushesPearlInto".Localized());
 
-                    InventoryScene.TakeItem(UseableIds.PurePearl, () => ReturnToCamp(1));
+                    InventoryView.TakeItem(UseableIds.PurePearl, () => ReturnToCamp(1));
 
                     CoC.Instance.Flags.Set(GameFlagIds.MaraeQuestComplete, 1);
                 }

@@ -723,7 +723,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Niamh.GetBimboChampFromNiamh.LandsBigPile".Localized());
 
-            InventoryScene.TakeItem(ConsumableIds.BimboChampagne, () => ReturnToCamp(1));
+            InventoryView.TakeItem(ConsumableIds.BimboChampagne, () => ReturnToCamp(1));
         }
 
         public void BazaarSex()
@@ -826,7 +826,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             CoC.Instance.Flags.Set(GameFlagIds.NiamhSeanBrewBimboLiqueurCounter, 0);
 
-            InventoryScene.TakeItem(ItemIds.BimboLiqueur);
+            InventoryView.TakeItem(ItemIds.BimboLiqueur);
         }
 
         public void LeaveWithBeerTits()

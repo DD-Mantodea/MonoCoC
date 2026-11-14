@@ -179,6 +179,15 @@
       height: 40, 
       verticalAlign: "center", 
       horizontalAlign: "center"
+      hint: {
+        direction: "top"
+        backgroundColor: "#F2E5C7FF"
+        borderColor: "#9F8156FF"
+        borderThickness: 1
+        headerColor: "#3B2C1DFF"
+        bodyColor: "#3B2C1DFF"
+        separatorColor: "#9F8156FF"
+      }
     }
   }
 }

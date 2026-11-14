@@ -17,7 +17,7 @@ public class CabinStageManager : ContentManager<CabinStage>
 
     public override void FromText(string path, string text, IDictionary<string, CabinStage> entries)
     {
-        var root = (JsonObject)HjsonValue.Parse(text);
+        var root = (JsonObject)MonoCoC.HjsonParser.Parse(text);
 
         if (!root.TryGetValue("stages", out var value) || value is not JsonArray stages)
             throw new FormatException($"Cabin stage file '{path}' has no 'stages' array");

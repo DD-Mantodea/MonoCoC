@@ -3,6 +3,7 @@ using MonoCoC.Attributes;
 
 namespace MonoCoC.Contents.Items
 {
+    [ItemCategory("coc:consumable", "Icons/inventory_consumable.svg", "Items.Type.Consumable")]
     [Register<Useable>("coc:useable")]
     public class Useable : Item
     {

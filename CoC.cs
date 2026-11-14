@@ -166,6 +166,9 @@ namespace MonoCoC
                 if (UserInput.IsJustPress(Keys.F1))
                     UI.Console.ConsoleOverlay.Toggle();
 
+                if (UserInput.IsJustPress(Keys.F12))
+                    DebugScreenshot.Request();
+
                 UIManager.Update(gameTime);
 
                 UserInput.Dispatch(IsActive);
@@ -185,6 +188,8 @@ namespace MonoCoC
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             UIManager.Draw(SpriteBatch, gameTime);
+
+            DebugScreenshot.TryCapture(GraphicsDevice);
 
             base.Draw(gameTime);
         }

@@ -185,13 +185,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas
         {
             Scene.OutputText("Common.Text.AsYouCrossOneOfThe".Localized());
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.Icicle), () => Scene.Go<CampScene>());
+            InventoryView.TakeItem(ItemRegistry.Create(ItemIds.Icicle), () => Scene.Go<CampScene>());
         }
         else
         {
             Scene.OutputText("Common.Text.AsYouMakeYourWayAcross2".Localized());
 
-            InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.GodMead), () => Scene.Go<CampScene>());
+            InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.GodMead), () => Scene.Go<CampScene>());
         }
     }
 }

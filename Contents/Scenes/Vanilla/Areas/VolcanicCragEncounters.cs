@@ -75,7 +75,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas
 
         Scene.OutputText("Common.Text.WhileExploringTheCragYouHappen".Localized());
 
-        InventoryScene.TakeItem(ItemRegistry.Create(ConsumableIds.DrakeHeart), () => Scene.Go<CampScene>());
+        InventoryView.TakeItem(ItemRegistry.Create(ConsumableIds.DrakeHeart), () => Scene.Go<CampScene>());
     }
 
     public static void LootObsidianShard()
@@ -93,7 +93,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas
 
         Scene.OutputText("Scenes.VolcanicCrag.LootObsidianShard.SharpShardWeapon".Localized());
 
-        InventoryScene.TakeItem(ItemRegistry.Create(ItemIds.ObsidianShard), () => Scene.Go<CampScene>());
+        InventoryView.TakeItem(ItemRegistry.Create(ItemIds.ObsidianShard), () => Scene.Go<CampScene>());
     }
 
     public static void CragAprilFools()

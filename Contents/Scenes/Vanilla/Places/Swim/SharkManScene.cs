@@ -233,7 +233,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Swim
 
             OutputText("Scenes.Sharkmanscene.SharkManConclusion.CasualTone".Localized());
 
-            InventoryScene.TakeItem(ItemIds.AquamarineRing, () => CombatScene.CleanupAfterCombat());
+            InventoryView.TakeItem(ItemIds.AquamarineRing, () => CombatScene.CleanupAfterCombat());
         }
 
     }

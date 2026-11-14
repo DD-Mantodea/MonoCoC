@@ -208,7 +208,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Items
             FinishUse();
         }
 
-        private static void FinishUse() => Go<InventoryScene>();
+        private static void FinishUse() => InventoryView.Open();
     }
 
     /// <summary>原版 GroPlus.hx:19 useItem()：打开部位选择界面。</summary>

@@ -68,7 +68,7 @@ namespace MonoCoC.UI
                 if (File.Exists(path))
                     try
                     {
-                        var root = (JsonObject)HjsonValue.Parse(File.ReadAllText(path));
+                        var root = (JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(path));
 
                         if (root.TryGetValue("fonts", out var fonts) && fonts is JsonObject map)
                             LoadInto(Roles, map, merge: true);
@@ -211,7 +211,7 @@ namespace MonoCoC.UI
 
             try
             {
-                LoadInto(target, (JsonObject)HjsonValue.Parse(File.ReadAllText(path)));
+                LoadInto(target, (JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(path)));
             }
             catch
             {

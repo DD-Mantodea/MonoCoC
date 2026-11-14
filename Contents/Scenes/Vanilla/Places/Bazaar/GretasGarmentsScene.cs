@@ -88,7 +88,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
                 seaShirt.Save.SetBool("gretaBoughtUnbind", false);
 
-                InventoryScene.TakeItem(seaShirt, GretasGarments);
+                InventoryView.TakeItem(seaShirt, GretasGarments);
 
                 return ;
             }

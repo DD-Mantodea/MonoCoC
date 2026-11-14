@@ -1,4 +1,4 @@
-﻿using MonoCoC.Extensions;
+using MonoCoC.Extensions;
 using MonoCoC.Saving;
 using MonoCoC.Attributes;
 using MonoCoC.Contents.Items;
@@ -297,7 +297,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 var legacy = Saving.Legacy.SaveLoader.Load(path);
 
-                var root = (Hjson.JsonObject)Hjson.HjsonValue.Parse(legacy.ToString());
+                var root = (Hjson.JsonObject)MonoCoC.HjsonParser.Parse(legacy.ToString());
 
                 // 鍘熺増瀛樻。鏄墎骞崇殑 Haxe 瀵硅薄锛屽瓧娈电被鍨嬪拰 MonoCoC 涓嶅畬鍏ㄤ竴鑷达紱
                 // 鍙彇鑳藉畨鍏ㄦ槧灏勭殑鏍稿績瀛楁锛岄伩鍏?Enum.Parse/寮哄埗杞崲鐩存帴鎶涘紓甯搞€?
@@ -1160,7 +1160,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             if (path == null)
                 return;
 
-            var json = (Hjson.JsonObject)Hjson.HjsonValue.Parse(File.ReadAllText(path));
+            var json = (Hjson.JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(path));
 
             var data = SaveData.FromJson(json);
 

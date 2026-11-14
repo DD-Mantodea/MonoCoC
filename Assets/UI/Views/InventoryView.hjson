@@ -1,0 +1,109 @@
+{
+  id: "InventoryView"
+  templates: {
+    ItemSlot: {
+      height: 84
+      iconSize: 36
+      showName: true
+      showType: true
+      showQuantity: true
+      states: {
+        normal: { backgroundColor: "#F7EFE0CC", textColor: "#35291FFF", borderColor: "#B79A70AA", borderThickness: 1 }
+        hover: { backgroundColor: "#FBF4E6FF", textColor: "#35291FFF", borderColor: "#9F8156FF", borderThickness: 2 }
+        selected: { backgroundColor: "#E0C9AAFF", textColor: "#35291FFF", borderColor: "#9F8156FF", borderThickness: 2 }
+        disabled: { backgroundColor: "#E6DCC8AA", textColor: "#9A8B78AA", borderColor: "#B79A7066", borderThickness: 1 }
+      }
+    }
+  }
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        part: "inventory.background"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#F2E5C7FF"
+        canHit: false
+      }
+      {
+        type: "coc:player_stats"
+        view: "Views/PlayerStats.hjson"
+        part: "inventory.playerStats"
+        x: 0
+        y: 0
+        width: 300
+        height: 900
+      }
+      {
+        type: "coc:item_grid"
+        part: "inventory.grid"
+        itemTemplate: "ItemSlot"
+        layout: "relative"
+        x: 320
+        y: 60
+        width: 930
+        height: 400
+        columns: 2
+        padding: 16
+        backgroundColor: "#F7EFE0AA"
+        borderColor: "#B79A70AA"
+        borderThickness: 1
+      }
+      {
+        type: "coc:grid"
+        layout: "relative"
+        x: 1280
+        y: 60
+        width: 300
+        height: 800
+        backgroundColor: "#F7EFE0AA"
+        borderColor: "#B79A70AA"
+        borderThickness: 1
+        children: [
+          { type: "coc:label", part: "inventory.detail.name", layout: "relative", x: 16, y: 16, width: 268, height: 32, font: { id: "coc:menu", size: 30 }, textColor: "#35291FFF", canHit: false }
+          { type: "coc:label", part: "inventory.detail.type", layout: "relative", x: 16, y: 52, width: 268, height: 24, font: { id: "coc:menu", size: 16 }, textColor: "#7C6B58FF", canHit: false }
+          { type: "coc:label", part: "inventory.detail.description", layout: "relative", x: 16, y: 84, width: 268, wrapWidth: 268, height: 400, font: { id: "coc:body", size: 20 }, textColor: "#35291FFF", canHit: false }
+        ]
+      }
+      {
+        type: "coc:grid"
+        layout: "relative"
+        x: 320
+        y: 480
+        width: 930
+        height: 380
+        backgroundColor: "#F7EFE0AA"
+        borderColor: "#B79A70AA"
+        borderThickness: 1
+        children: [
+          {
+            type: "coc:label"
+            layout: "relative"
+            x: 16
+            y: 12
+            width: 590
+            height: 30
+            text: { key: "Scenes.Inventory.Equipment" }
+            font: { id: "coc:menu", size: 20 }
+            textColor: "#5C4A38FF"
+            canHit: false
+          }
+        ]
+      }
+      {
+        type: "coc:button"
+        template: "ActionButton"
+        layout: "relative"
+        x: 340
+        y: 680
+        width: 180
+        height: 44
+        label: { key: "Common.Back" }
+        onClick: "inventory.back"
+      }
+    ]
+  }
+}

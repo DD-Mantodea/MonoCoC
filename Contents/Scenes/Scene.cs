@@ -323,9 +323,21 @@ namespace MonoCoC.Contents.Scenes
             Go<CampScene>();
         }
 
-        public static void OutputText(string text) => Output.Append(Parser.Parse(text));
+        public static void OutputText(string text)
+        {
+            if (View?.Output is null)
+                return;
 
-        public static void RawOutputText(string text) => Output.Append(text);
+            View.Output.Append(Parser.Parse(text));
+        }
+
+        public static void RawOutputText(string text)
+        {
+            if (View?.Output is null)
+                return;
+
+            View.Output.Append(text);
+        }
 
         public static void DisplayHeader(string text)
         {
@@ -334,14 +346,12 @@ namespace MonoCoC.Contents.Scenes
 
         public static void ClearOutput(bool clearAll = true)
         {
-            Output.Clear();
+            View?.Output?.Clear();
 
             Parser.Reset();
 
             if (clearAll)
             {
-                FinishInput();
-
                 ClearButtons();
             }
         }
@@ -398,6 +408,18 @@ namespace MonoCoC.Contents.Scenes
         }
 
         public static Button? ButtonAt(int slot) => slot >= 0 && slot < Buttons.Length ? Buttons[slot] : null;
+
+        private static int _appliedActionRevision = -1;
+
+        public static void ReapplyActionsIfNeeded()
+        {
+            if (_appliedActionRevision == ActionState.Revision)
+                return;
+
+            _appliedActionRevision = ActionState.Revision;
+
+            ReapplyActions();
+        }
 
         public static void ReapplyActions()
         {

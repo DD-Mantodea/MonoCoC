@@ -38,7 +38,7 @@ namespace MonoCoC.Contents.Npcs
 
         public override void FromFile(string path, IDictionary<string, NpcPregnancyDefinition> entries)
         {
-            var root = (JsonObject)HjsonValue.Parse(File.ReadAllText(path));
+            var root = (JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(path));
 
             var id = Str(root, "id");
 
