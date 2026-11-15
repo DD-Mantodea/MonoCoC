@@ -359,6 +359,7 @@
           }
           {
             template: "FieldLabel"
+            part: "creation.breast.label"
             text: { key: "Views.CharCreation.BreastSize" }
           }
           {
@@ -624,6 +625,17 @@
         y: -40
         label: { key: "Views.CharCreation.Confirm" }
         onClick: "creation.nav.confirm"
+      }
+      {
+        type: "coc:button"
+        template: "TabButton"
+        part: "creation.exit"
+        horizontalAlign: "right"
+        verticalAlign: "bottom"
+        x: -60
+        y: -40
+        label: { key: "Views.CharCreation.ExitToMainMenu" }
+        onClick: "creation.exit"
       }
       {
         type: "coc:label"

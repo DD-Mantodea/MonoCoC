@@ -43,6 +43,7 @@
   "Views.CharCreation.Difficulty": "Difficulty",
   "Views.CharCreation.Hardcore": "Hardcore",
   "Views.CharCreation.Confirm": "Confirm",
+  "Views.CharCreation.ExitToMainMenu": "Exit to Main Menu",
   "Views.CharCreation.NameRequired": "Please enter a name.",
   "Views.CharCreation.VirginityConflict": "A slutty history cannot be paired with virginity for a character without a cock.",
   "Views.CharCreation.Opt.Easy": "Easy",

@@ -58,6 +58,8 @@ namespace MonoCoC.UI.Components.Views
 
         private SegmentedControl _breastSelector = null!;
 
+        private Component _breastLabel = null!;
+
         private NumericStepper _hairLengthSelector = null!;
 
         private SegmentedControl _beardStyleSelector = null!;
@@ -259,12 +261,21 @@ namespace MonoCoC.UI.Components.Views
                 ? new[] { "Views.CharCreation.Opt.Male", "Views.CharCreation.Opt.Female", "Views.CharCreation.Opt.Herm" }
                 : ["Views.CharCreation.Opt.Male", "Views.CharCreation.Opt.Female"];
 
-            _genderSelector.SetOptions(keys.Select(key => key.Localized()).ToArray(), Draft.Gender switch
+            var labels = keys.Select(key => key.Localized()).ToArray();
+
+            var selected = Draft.Gender switch
             {
                 Gender.Female => 1,
                 Gender.Hermaphrodite when unlocked => 2,
                 _ => 0
-            });
+            };
+
+            if (_genderSelector.OptionCount == labels.Length)
+                _genderSelector.SetOptionLabels(labels);
+            else
+                _genderSelector.SetOptions(labels, selected);
+
+            _genderSelector.SelectedIndex = selected;
         }
 
         [UIRequired("creation.build")]
@@ -364,6 +375,9 @@ namespace MonoCoC.UI.Components.Views
                 Refresh();
             };
         }
+
+        [UIRequired("creation.breast.label")]
+        private void BindBreastLabel(Component part) => _breastLabel = part;
 
         [UIRequired("creation.breast")]
         private void BindBreastSelector(SegmentedControl part)
@@ -525,6 +539,14 @@ namespace MonoCoC.UI.Components.Views
                 SetEndowment(endowment);
 
             Show(_lastStep);
+        }
+
+        [UIEvent("creation.exit")]
+        private void ExitToMainMenu()
+        {
+            CoC.Instance.Player.CharCreation = false;
+
+            UIManager.Instance.Root.SwitchView(new MainView());
         }
 
         [UIEvent("creation.tab.identity")]
@@ -1051,12 +1073,27 @@ namespace MonoCoC.UI.Components.Views
                     _ => 1
                 };
 
-            _buildSelector.SetOptions(labels, selected);
+            if (_buildSelector.OptionCount == labels.Length)
+                _buildSelector.SetOptionLabels(labels);
+            else
+                _buildSelector.SetOptions(labels, selected);
+
+            _buildSelector.SelectedIndex = selected;
         }
 
         private void RefreshBreastOptions()
         {
             if (_breastSelector is null)
+                return;
+
+            var show = Draft.Gender != Gender.Male;
+
+            _breastSelector.Visible = show;
+
+            if (_breastLabel is not null)
+                _breastLabel.Visible = show;
+
+            if (!show)
                 return;
 
             var rules = MonoCoC.Assets.ManagerInstance<MonoCoC.Assets.ContentManagers.CharCreationRulesManager>.Instance.Rules;
@@ -1071,7 +1108,14 @@ namespace MonoCoC.UI.Components.Views
             if (mods.Femininity >= 60f) keys.Add("Views.CharCreation.Opt.DCup");
             if (mods.Femininity >= 70f) keys.Add("Views.CharCreation.Opt.DDCup");
 
-            _breastSelector.SetOptions(keys.Select(key => key.Localized()).ToArray(), Math.Min(Draft.BreastSize, keys.Count - 1));
+            var labels = keys.Select(key => key.Localized()).ToArray();
+
+            if (_breastSelector.OptionCount == labels.Length)
+                _breastSelector.SetOptionLabels(labels);
+            else
+                _breastSelector.SetOptions(labels, Math.Min(Draft.BreastSize, labels.Length - 1));
+
+            _breastSelector.SelectedIndex = Math.Min(Draft.BreastSize, labels.Length - 1);
         }
 
         private void SetBuild(Build build)

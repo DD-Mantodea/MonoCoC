@@ -30,6 +30,8 @@ namespace MonoCoC.UI.Components
 
         public Action<int>? ValueChanged;
 
+        public int OptionCount => _buttons.Count;
+
         public UIStateStyle? OptionStyle;
 
         public SegmentedControl()
@@ -74,6 +76,17 @@ namespace MonoCoC.UI.Components
             }
         }
 
+        public void SetOptionLabels(IReadOnlyList<string> options)
+        {
+            var count = Math.Min(options.Count, _buttons.Count);
+
+            for (var index = 0; index < count; index++)
+            {
+                _buttons[index].SetLabel(options[index]);
+                _buttons[index].RefreshVisual();
+            }
+        }
+
         public void SetOptions(IEnumerable<string> options, int selected = 0)
         {
             foreach (var button in _buttons)
@@ -83,7 +96,8 @@ namespace MonoCoC.UI.Components
 
             if (OptionStyle is not null)
             {
-                _highlightColor = OptionStyle.SelectedBackground;
+                if (_highlightColor == Color.Transparent)
+                    _highlightColor = OptionStyle.SelectedBackground;
 
                 OptionStyle.SelectedBackground = Color.Transparent;
                 OptionStyle.SelectedBorder = Color.Transparent;
