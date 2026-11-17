@@ -378,7 +378,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     {
                         OutputText("Scenes.Edryn.EdrynBarTalk.PotentMuskyScentOnly".Localized());
 
-                        if (Player.IsCorruptEnough(50) || Player.StatusEffectValue(StatusEffectIds.Edryn, 0) > 0 || (OptionStore.Instance.Get("lowStandards", 0) > 0))
+                        if (Player.IsCorruptEnough(50) || Player.StatusEffectValue(StatusEffectIds.Edryn, 0) > 0 || (OptionStore.Instance.Get("coc:lowStandards", 0) > 0))
                         {
                             OutputText("Scenes.Edryn.EdrynBarTalk.MindWondersWhatHer".Localized());
 

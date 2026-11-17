@@ -1,0 +1,6 @@
+{
+  id: "origin"
+  label: "Views.CharCreation.Tab.Background"
+  panel: "creation.panel.origin"
+  order: 30
+}

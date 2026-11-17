@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Assets;
 using MonoCoC.Contents.Items;
@@ -19,14 +19,27 @@ namespace MonoCoC.UI.Components
 
         public Action<ItemStack>? Clicked;
 
+        public Action<ItemStack>? RightClicked;
+
         public override void Update(GameTime gameTime)
         {
-            if (UserInput.MouseLeftPressed && Rectangle.Contains(UserInput.GetMousePos()))
+            if (UserInput.MouseLeftPressed && Rectangle.Contains(UserInput.GetMousePos()) &&
+                Stack is not null && !Stack.IsEmpty)
             {
                 Selected = true;
 
-                if (Stack is not null && !Stack.IsEmpty)
-                    Clicked?.Invoke(Stack);
+                Clicked?.Invoke(Stack);
+            }
+
+            if (UserInput.MouseRightPressed && Rectangle.Contains(UserInput.GetMousePos()) &&
+                Stack is not null && !Stack.IsEmpty)
+            {
+                // 右键也选中（与左键一致：高亮 + 详情面板），再弹交互菜单。
+                Selected = true;
+
+                Clicked?.Invoke(Stack);
+
+                RightClicked?.Invoke(Stack);
             }
 
             base.Update(gameTime);
@@ -36,11 +49,11 @@ namespace MonoCoC.UI.Components
         {
             var style = Style.States;
 
-            var background = style?.BackgroundFor(true, IsHovering, false, Selected) ?? new Color(0xF7, 0xEF, 0xE0, 0xCC);
+            var background = style?.BackgroundFor(true, IsHovering, false, Selected) ?? UIComponentStyles.Slot.Background;
 
-            var border = style?.BorderFor(true, IsHovering, false, Selected) ?? new Color(0xB7, 0x9A, 0x70, 0xAA);
+            var border = style?.BorderFor(true, IsHovering, false, Selected) ?? UIComponentStyles.Slot.Border;
 
-            var text = style?.TextFor(true, IsHovering, false, Selected) ?? new Color(0x35, 0x29, 0x1F, 0xFF);
+            var text = style?.TextFor(true, IsHovering, false, Selected) ?? UIComponentStyles.Slot.Text;
 
             var thickness = style?.ThicknessFor(true, IsHovering, false, Selected) ?? 1;
 
@@ -52,7 +65,7 @@ namespace MonoCoC.UI.Components
             if (Stack is null || Stack.IsEmpty)
             {
                 var emptyIcon = SvgTextureCache.GetFile(CoC.Instance.GraphicsDevice,
-                    "Icons/inventory_empty.svg", Style.IconSize,
+                    Style.EmptyIcon, Style.IconSize,
                     new SkiaSharp.SKColor(text.R, text.G, text.B, text.A));
 
                 if (emptyIcon is not null)
@@ -67,8 +80,10 @@ namespace MonoCoC.UI.Components
 
             var category = ItemCategories.Resolve(Stack.Item);
 
+            var iconPath = string.IsNullOrWhiteSpace(Stack.Item.Icon) ? category.Icon : Stack.Item.Icon;
+
             var icon = SvgTextureCache.GetFile(CoC.Instance.GraphicsDevice,
-                category.Icon, Style.IconSize,
+                iconPath, Style.IconSize,
                 new SkiaSharp.SKColor(text.R, text.G, text.B, text.A));
 
             if (icon is not null)
@@ -81,7 +96,7 @@ namespace MonoCoC.UI.Components
             var textX = Rectangle.X + Style.Padding + Style.IconSize + Style.Spacing;
 
             if (Style.ShowName)
-                nameFont.DrawText(spriteBatch, Stack.InvLabel, new Vector2(textX, Rectangle.Y + 14), text * LayoutData.Alpha);
+                nameFont.DrawText(spriteBatch, Stack.Item.Name, new Vector2(textX, Rectangle.Y + 14), text * LayoutData.Alpha);
 
             if (Style.ShowType)
                 small.DrawText(spriteBatch, category.LabelKey.LocalizedOr(category.Id), new Vector2(textX, Rectangle.Y + 42), text * 0.75f * LayoutData.Alpha);

@@ -130,11 +130,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             var armorValue = Player.ArmorDefense;
 
-            var armorPerk = Player.Armor.Perk;
+            var armorPerk = Player.Armor?.Perk;
 
             if (Player.HasPerk(PerkIds.Agility))
             {
-                var speedBonus = armorPerk is "Light" or "Adornment" || Player.Armor.Name == "nothing"
+                var speedBonus = armorPerk is "Light" or "Adornment" || Player.Armor?.Name == "nothing"
 
                     ? Player.Speed / 8f
 
@@ -179,11 +179,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             var teaseBonus = Contents.Items.ArmorItemBonuses.Tease(Player);
 
-            combat.Add("Tease Chance", Player.UpperGarment.Sexiness + Player.LowerGarment.Sexiness + teaseBonus.Chance);
+            combat.Add("Tease Chance", Player.UpperGarment?.Sexiness + Player.LowerGarment?.Sexiness + teaseBonus.Chance);
 
             combat.Add("Tease Damage", Player.Stats.Addition(GameStats.TeaseDamage) + teaseBonus.Damage);
 
-            var valeriaRegen = Player.Armor.Id.Path == "goo_armor"
+            var valeriaRegen = Player.Armor?.Id.Path == "goo_armor"
 
                 ? (CoC.Instance.Flags.Get(GameFlagIds.ValeriaFluids) < 50
 
@@ -901,11 +901,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 new("Armor", () =>
 
-                    $"{Player.Armor.Name}: {Player.Armor.Defense:0}"
+                    $"{Player.Armor?.Name}: {Player.Armor.Defense:0}"
 
-                    + $"\n{Player.UpperGarment.Name}: {Player.UpperGarment.ArmorDefense:0}"
+                    + $"\n{Player.UpperGarment?.Name}: {Player.UpperGarment?.ArmorDefense:0}"
 
-                    + $"\n{Player.LowerGarment.Name}: {Player.LowerGarment.ArmorDefense:0}"
+                    + $"\n{Player.LowerGarment?.Name}: {Player.LowerGarment?.ArmorDefense:0}"
 
                     + $"\nMisc: {Player.ArmorMiscBonuses():0}"
 
@@ -942,9 +942,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 new("Tease Chance", () =>
 
-                    $"Sexiness: {Player.UpperGarment.Sexiness + Player.LowerGarment.Sexiness:0}"
+                    $"Sexiness: {Player.UpperGarment?.Sexiness + Player.LowerGarment?.Sexiness:0}"
 
-                    + $"\n\nResult: {Player.UpperGarment.Sexiness + Player.LowerGarment.Sexiness + Contents.Items.ArmorItemBonuses.Tease(Player).Chance:0}"),
+                    + $"\n\nResult: {Player.UpperGarment?.Sexiness + Player.LowerGarment?.Sexiness + Contents.Items.ArmorItemBonuses.Tease(Player).Chance:0}"),
 
                 new("Tease Damage", () =>
 

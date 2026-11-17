@@ -1,4 +1,4 @@
-using MonoCoC.Contents.Scenes;
+﻿using MonoCoC.Contents.Scenes;
 using MonoCoC.UI.Components.Combat;
 using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
@@ -8,6 +8,8 @@ namespace MonoCoC.UI.Components.Views
 {
     public class CampView : GameView
     {
+        public CampView() => Initialize();
+
         protected override string ScreenFile => "Views\\CampView.hjson";
 
         protected override void OnPartsBound()

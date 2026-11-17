@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MonoCoC.Assets;
 using MonoCoC.Assets.AssetManagers;
 using MonoCoC.Contents.Enemies;
@@ -35,6 +35,8 @@ namespace MonoCoC.UI.Components.Combat
 
         private readonly ColorRect _fatigueFill;
 
+
+
         public EnemyStatsPanel()
         {
             LayoutData.Size.X = PanelWidth;
@@ -69,17 +71,17 @@ namespace MonoCoC.UI.Components.Combat
 
             _fatigue = AddRow("FATIGUE", 150);
 
-            _hpFill = FillAt(106, new Color(177, 125, 94));
+            _hpFill = FillAt(106, UIComponentStyles.CombatStats.HpFill);
 
-            _lustFill = FillAt(138, new Color(136, 1, 1));
+            _lustFill = FillAt(138, UIComponentStyles.CombatStats.LustFill);
 
-            _fatigueFill = FillAt(170, new Color(96, 0, 0));
+            _fatigueFill = FillAt(170, UIComponentStyles.CombatStats.FatigueFill);
 
         }
 
         private void AddDivider(int y) =>
 
-            new ColorRect(new Color(96, 0, 0)).Size(214, 1).Position(8, y).LayoutType(LayoutType.Relative).Of(this);
+            new ColorRect(UIComponentStyles.CombatStats.Separator).Size(214, 1).Position(8, y).LayoutType(LayoutType.Relative).Of(this);
 
         private Label AddRow(string text, int y)
         {

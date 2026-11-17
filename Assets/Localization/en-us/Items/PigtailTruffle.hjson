@@ -1,7 +1,7 @@
 {
   "Items.PigtailTruffle.Desc": "It's clear where this fungus gets its name. A small, curly sprig resembling a pig's tail can be seen jutting out of it."
   "Items.PigtailTruffle.Long": "a pigtail truffle"
-  "Items.PigtailTruffle.Short": "PigtailTruffle"
+  "Items.PigtailTruffle.Short": "Pigtail Truffle"
 
   // 原版 items/consumables/PigTruffle.hx:23-149
   "Items.PigtailTruffle.Use": "You take a bite into the pigtail truffle. It oddly tastes like bacon. You eventually finish eating. "

@@ -79,7 +79,7 @@ namespace MonoCoC.Contents.Combat
             WeaponEffects.ApplyAfterHit(Context);
 
             // 原版 UnarmedClaws.hx:69 get_effects()：自然武器爪击有概率造成流血
-            if (Context.Player.Weapon.Id == Weapon.Claws.Id)
+            if (Context.Player.Weapon.Id == MonoCoC.Contents.Combat.NaturalAttacks.Claws.Id)
             {
                 var (chance, intensity) = Items.Behaviors.Vanilla.UnarmedClawsBehavior.Bleed(Context.Player);
 

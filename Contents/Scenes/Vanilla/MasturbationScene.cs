@@ -206,7 +206,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             if (Player.HasVagina() && Player.IsNaga() && Player.Lust >= 33)
                 AddNextButton("Common.Button.NagaTail".Localized(), NagaTailsturbation);
             // 原版 Masturbation.hx:151 — 穿着修女服才出现「Habit」自慰选项
-            if (Player.Armor.Id == ArmorIds.NaughtyNunsHabit)
+            if (Player.Armor?.Id == ArmorIds.NaughtyNunsHabit)
             {
                 var habitButton = AddNextButton("Common.Button.Habit".Localized(),
 
@@ -372,9 +372,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 {
                     OutputText("Scenes.Masturbation.DoStripCheck.HidingInRocks".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.GooArmor)
+                    if (Player.Armor?.Id == ArmorIds.GooArmor)
                     {
-                        if (Player.LowerGarment != Undergarment.Nothing)
+                        if (Player.LowerGarment is not null)
                             OutputText("Scenes.Masturbation.DoStripCheck.GooGarmentRemoval".Localized());
 
                         OutputText("Scenes.Masturbation.DoStripCheck.GroinReach".Localized());
@@ -389,9 +389,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 {
                     OutputText("Scenes.Masturbation.DoStripCheck.AloneCheck".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.GooArmor)
+                    if (Player.Armor?.Id == ArmorIds.GooArmor)
                     {
-                        if (Player.LowerGarment != Undergarment.Nothing)
+                        if (Player.LowerGarment is not null)
                             OutputText("Scenes.Masturbation.DoStripCheck.GooGarmentRemovalAlone".Localized());
 
                         OutputText("Scenes.Masturbation.DoStripCheck.GroinReachAlone".Localized());
@@ -406,9 +406,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 {
                     OutputText("Scenes.Masturbation.DoStripCheck.HappilyPrefix".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.GooArmor)
+                    if (Player.Armor?.Id == ArmorIds.GooArmor)
                     {
-                        if (Player.LowerGarment != Undergarment.Nothing)
+                        if (Player.LowerGarment is not null)
                             OutputText("Scenes.Masturbation.DoStripCheck.GarmentRemovalAnd".Localized());
 
                         OutputText("Scenes.Masturbation.DoStripCheck.GroinReachEager".Localized());
@@ -423,9 +423,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 {
                     OutputText("Scenes.Masturbation.DoStripCheck.YouPrefixWatched".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.GooArmor)
+                    if (Player.Armor?.Id == ArmorIds.GooArmor)
                     {
-                        if (Player.LowerGarment != Undergarment.Nothing)
+                        if (Player.LowerGarment is not null)
                             OutputText("Scenes.Masturbation.DoStripCheck.GarmentRemovalWatched".Localized());
 
                         OutputText("Scenes.Masturbation.DoStripCheck.GroinReachWatched".Localized());
@@ -440,9 +440,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 {
                     OutputText("Scenes.Masturbation.DoStripCheck.YouPrefixSeductive".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.GooArmor)
+                    if (Player.Armor?.Id == ArmorIds.GooArmor)
                     {
-                        if (Player.LowerGarment != Undergarment.Nothing)
+                        if (Player.LowerGarment is not null)
                             OutputText("Scenes.Masturbation.DoStripCheck.GarmentRemovalSeductive".Localized());
 
                         OutputText("Scenes.Masturbation.DoStripCheck.GroinReachSeductive".Localized());
@@ -462,11 +462,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 {
                     OutputText("Scenes.Masturbation.DoStripCheck.CabinEntryPrivate".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.GooArmor)
+                    if (Player.Armor?.Id == ArmorIds.GooArmor)
                     {
                         OutputText("Scenes.Masturbation.DoStripCheck.YouPrefixShy".Localized());
 
-                        if (Player.LowerGarment != Undergarment.Nothing)
+                        if (Player.LowerGarment is not null)
                             OutputText("Scenes.Masturbation.DoStripCheck.GarmentRemovalShy".Localized());
 
                         OutputText("Scenes.Masturbation.DoStripCheck.GroinReachShy".Localized());
@@ -481,11 +481,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 {
                     OutputText("Scenes.Masturbation.DoStripCheck.CabinEntryForgotShutters".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.GooArmor)
+                    if (Player.Armor?.Id == ArmorIds.GooArmor)
                     {
                         OutputText("Scenes.Masturbation.DoStripCheck.YouPrefixForgot".Localized());
 
-                        if (Player.LowerGarment != Undergarment.Nothing)
+                        if (Player.LowerGarment is not null)
                             OutputText("Scenes.Masturbation.DoStripCheck.GarmentRemovalForgotShutters".Localized());
 
                         OutputText("Scenes.Masturbation.DoStripCheck.GroinReachForgotShutters".Localized());
@@ -500,11 +500,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 {
                     OutputText("Scenes.Masturbation.DoStripCheck.CabinEntryOpenShutters".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.GooArmor)
+                    if (Player.Armor?.Id == ArmorIds.GooArmor)
                     {
                         OutputText("Scenes.Masturbation.DoStripCheck.YouPrefixOpen".Localized());
 
-                        if (Player.LowerGarment != Undergarment.Nothing)
+                        if (Player.LowerGarment is not null)
                             OutputText("Scenes.Masturbation.DoStripCheck.GarmentRemovalOpenShutters".Localized());
 
                         OutputText("Scenes.Masturbation.DoStripCheck.GroinReachOpenShutters".Localized());
@@ -519,11 +519,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 {
                     OutputText("Scenes.Masturbation.DoStripCheck.CabinEntryDoorOpen".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.GooArmor)
+                    if (Player.Armor?.Id == ArmorIds.GooArmor)
                     {
                         OutputText("Scenes.Masturbation.DoStripCheck.YouPrefixDoorOpen".Localized());
 
-                        if (Player.LowerGarment != Undergarment.Nothing)
+                        if (Player.LowerGarment is not null)
                             OutputText("Scenes.Masturbation.DoStripCheck.GarmentRemovalDoorOpen".Localized());
 
                         OutputText("Scenes.Masturbation.DoStripCheck.GroinReachDoorOpen".Localized());
@@ -538,11 +538,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 {
                     OutputText("Scenes.Masturbation.DoStripCheck.BedMovedWindowVisible".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.GooArmor)
+                    if (Player.Armor?.Id == ArmorIds.GooArmor)
                     {
                         OutputText("Scenes.Masturbation.DoStripCheck.YouPrefixWindow".Localized());
 
-                        if (Player.LowerGarment != Undergarment.Nothing)
+                        if (Player.LowerGarment is not null)
                             OutputText("Scenes.Masturbation.DoStripCheck.GarmentRemovalWindowView".Localized());
 
                         OutputText("Scenes.Masturbation.DoStripCheck.GroinReachWindowView".Localized());
@@ -2729,7 +2729,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                                     else
                                         OutputText("Scenes.Masturbation.Orgazmo.EndlessOrgasmEveryJet".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.GooArmor)
+                    if (Player.Armor?.Id == ArmorIds.GooArmor)
                         OutputText("Scenes.Masturbation.Orgazmo.SeedAbsorbedByGoo".Localized());
                 }
 
@@ -2867,7 +2867,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 TitDrink();
             }
 
-            if (Player.Armor.Id == ArmorIds.GooArmor)
+            if (Player.Armor?.Id == ArmorIds.GooArmor)
             {
                 var valeriaFluids = 0;
 
@@ -2932,7 +2932,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 if (Player.NippleLength >= 4)
                     OutputText("Scenes.Masturbation.TitCum.HugeSwollenTeats".Localized());
 
-                if (Player.Armor.Id == ArmorIds.GooArmor)
+                if (Player.Armor?.Id == ArmorIds.GooArmor)
                 {
                     if (Player.AverageLactation() < 2.6f)
                         OutputText("Scenes.Masturbation.TitCum.MilkSpatteringGoo".Localized());
@@ -2975,7 +2975,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 OutputText("Scenes.Masturbation.TitCum.PussyJuiceWord".Localized());
 
-                if (Player.Armor.Id == ArmorIds.GooArmor)
+                if (Player.Armor?.Id == ArmorIds.GooArmor)
                     OutputText("Scenes.Masturbation.TitCum.IntoBlueGoo".Localized());
                 else
                     OutputText("Scenes.Masturbation.TitCum.EverywhereWord".Localized());

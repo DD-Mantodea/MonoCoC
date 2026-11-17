@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using MonoCoC.UI.Common;
 
 namespace MonoCoC.UI.Components
@@ -47,11 +47,11 @@ namespace MonoCoC.UI.Components
 
         public int BorderThickness;
 
-        public Color HeaderColor = UIColors.ToolTipText;
+        public Color HeaderColor = UIComponentStyles.ToolTip.Text;
 
-        public Color BodyColor = UIColors.ToolTipText;
+        public Color BodyColor = UIComponentStyles.ToolTip.Text;
 
-        public Color SeparatorColor = UIColors.ToolTipBorder;
+        public Color SeparatorColor = UIComponentStyles.ToolTip.Separator;
 
         public static HintStyle Default { get; } = new();
     }

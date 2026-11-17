@@ -1389,7 +1389,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     if (!Save.GetBool("flowerGifted") && Player.HasItem(ItemRegistry.Create(ConsumableIds.DrakeHeart)))
                         AddRowButton(2, "DrakeHeart", KihaDrakeHeart);
 
-                    if (Player.Armor.Id == ArmorIds.VineArmorBehavior && !((Areas.Swamp.AlrauneScene.Save.GetInt("questAsked", 0) & Areas.Swamp.AlrauneScene.ASKEDAM) != 0))
+                    if (Player.Armor?.Id == ArmorIds.VineArmorBehavior && !((Areas.Swamp.AlrauneScene.Save.GetInt("questAsked", 0) & Areas.Swamp.AlrauneScene.ASKEDAM) != 0))
                         AddRowButton(2, "Vines", null );
 
                     if (CoC.Instance.Flags.Get(GameFlagIds.CorruptedGladesDestroyed) > 0 && CoC.Instance.Flags.Get(GameFlagIds.CorruptedGladesDestroyed) < 100)

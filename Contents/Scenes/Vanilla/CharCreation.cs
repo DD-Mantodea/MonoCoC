@@ -1,4 +1,4 @@
-using MonoCoC.Assets;
+﻿using MonoCoC.Assets;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.BodyParts.Vanilla;
@@ -1424,10 +1424,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     if (Player.Weapon.IsUnarmed())
                         Player.SetWeapon((Weapon)CreateItem("spear"));
 
-                    if (Player.Shield == Shield.Nothing)
+                    if (Player.Shield is null)
                         Player.SetShield((Shield)CreateItem("buckler"));
 
-                    if (Player.Armor == Armor.Nothing || Player.Armor.Id == new Identifier("coc", "comfy_clothes"))
+                    if (Player.Armor is null || Player.Armor?.Id == new Identifier("coc", "comfy_clothes"))
                         Player.SetArmor((Armor)CreateItem("leather_armor"));
 
                     Player.Strength += 30;
@@ -1460,7 +1460,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     break;
 
                 case "history_religious":
-                    if (Player.Armor == Armor.Nothing || Player.Armor.Id == new Identifier("coc", "comfy_clothes"))
+                    if (Player.Armor is null || Player.Armor?.Id == new Identifier("coc", "comfy_clothes"))
                         Player.SetArmor((Armor)CreateItem("modest_robes"));
 
                     Player.Strength += 10;
@@ -1493,7 +1493,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     if (Player.Weapon.IsUnarmed())
                         Player.SetWeapon((Weapon)CreateItem("dagger"));
 
-                    if (Player.Armor == Armor.Nothing || Player.Armor.Id == new Identifier("coc", "comfy_clothes"))
+                    if (Player.Armor is null || Player.Armor?.Id == new Identifier("coc", "comfy_clothes"))
                         Player.SetArmor((Armor)CreateItem("leather_pants"));
 
                     GrantBackpack(2);
@@ -1523,10 +1523,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     if (Player.Weapon.IsUnarmed())
                         Player.SetWeapon((Weapon)CreateItem("mace"));
 
-                    if (Player.Shield == Shield.Nothing)
+                    if (Player.Shield is null)
                         Player.SetShield((Shield)CreateItem("buckler"));
 
-                    if (Player.Armor == Armor.Nothing || Player.Armor.Id == new Identifier("coc", "comfy_clothes"))
+                    if (Player.Armor is null || Player.Armor?.Id == new Identifier("coc", "comfy_clothes"))
                         Player.SetArmor((Armor)CreateItem("leather_armor"));
 
                     Player.Strength += 15;
@@ -1552,10 +1552,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     if (Player.Weapon.IsUnarmed())
                         Player.SetWeapon((Weapon)CreateItem("mace"));
 
-                    if (Player.Shield == Shield.Nothing)
+                    if (Player.Shield is null)
                         Player.SetShield((Shield)CreateItem("kite_shield"));
 
-                    if (Player.Armor == Armor.Nothing || Player.Armor.Id == new Identifier("coc", "comfy_clothes"))
+                    if (Player.Armor is null || Player.Armor?.Id == new Identifier("coc", "comfy_clothes"))
                         Player.SetArmor((Armor)CreateItem("chainmail"));
 
                     Player.Strength += 20;
@@ -1624,11 +1624,15 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 return;
             }
 
-            Options.SelectPane(3);
+            var optionsView = new OptionsView
+            {
+                InitialPage = 3,
+                OnStart = StartTheGame
+            };
 
-            Options.OnStart = StartTheGame;
+            UIManager.Instance.Root.SwitchView(optionsView);
 
-            Go<Options>();
+            OptionsView.Open();
         }
 
         protected virtual void Arrival()
@@ -1747,7 +1751,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 else if (Player.Femininity >= 50 && ((Player.BiggestBreastSize() >= 1 && Player.IsChild()) || Player.IsTeen()))
                     Player.SetUndergarment(GetUndergarment("training_bra"));
                 else
-                    Player.SetUndergarment(Undergarment.Nothing, Undergarment.TypeUpperwear);
+                    Player.SetUndergarment(null, Undergarment.TypeUpperwear);
             }
 
             Player.Health = Player.MaxHealth;

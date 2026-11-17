@@ -115,7 +115,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var player = context.Player;
 
-            if (!player.HasStatusEffect(RemovedArmorId) && player.Armor != Armor.Nothing)
+            if (!player.HasStatusEffect(RemovedArmorId) && player.Armor is not null)
             {
                 context.Append("Combat.JeanClaude.HandleTease.JeanClaudeStops".Localized());
 

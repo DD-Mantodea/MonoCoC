@@ -807,7 +807,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Factory
             if (Player.HasVagina())
                 AddButton(3, "Common.Button.RideCock".Localized(), RideMechanicsCock);
             // 原版 IncubusMechanicScenes.hx:572 — IncubusMechanicScenes.hx:572 — 穿着修女服
-            if (Player.Armor.Id == ArmorIds.NaughtyNunsHabit)
+            if (Player.Armor?.Id == ArmorIds.NaughtyNunsHabit)
                 AddButton(4, "Scenes.Akbal.AkbalDefeated.ButtonWorshipCock".Localized(), null);
         }
 

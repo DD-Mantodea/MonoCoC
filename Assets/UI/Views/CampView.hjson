@@ -1,9 +1,11 @@
-{
+﻿{
   id: "CampView"
   root: {
     type: "coc:view"
     width: 1600
     height: 900
+
+    // 代码创建的 StoragePane 从这里取外观。
 
     children: [
       {

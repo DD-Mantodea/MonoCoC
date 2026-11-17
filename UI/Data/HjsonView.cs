@@ -1,4 +1,4 @@
-using MonoCoC.UI.Components;
+﻿using MonoCoC.UI.Components;
 using MonoCoC.UI.Framework;
 using Microsoft.Xna.Framework;
 using System;
@@ -21,6 +21,8 @@ namespace MonoCoC.UI.Data
         private string _screenFile;
 
         private UIEventRegistry? _events;
+
+        private UIScreenBuilder? _builder;
 
         private UICustomComponentRegistry? _customComponents;
 
@@ -132,6 +134,8 @@ namespace MonoCoC.UI.Data
 
         public UIDocument? Document { get; private set; }
 
+        protected UIScreenBuilder? Builder => _builder;
+
         public View? Content => _content;
 
         protected void Initialize()
@@ -191,6 +195,13 @@ namespace MonoCoC.UI.Data
         {
         }
 
+        // 外部触发的整页重建（例如字号变化后需要按新字体重新布局）。
+        public void Reload()
+        {
+            _reloadAt = DateTime.UtcNow;
+
+            _reloadRequested = true;
+        }
         private void OnDocumentChanged(object sender, FileSystemEventArgs args)
         {
             _reloadAt = DateTime.UtcNow.AddMilliseconds(150);
@@ -200,6 +211,7 @@ namespace MonoCoC.UI.Data
 
         private void TryBuild()
         {
+            UIManager.TraceEvent("build " + GetType().Name);
             if (string.IsNullOrEmpty(ScreenFile))
                 return;
 
@@ -222,9 +234,14 @@ namespace MonoCoC.UI.Data
                 if (_events is null || _customComponents is null)
                     throw new InvalidOperationException("HjsonView.Initialize was not called");
 
-                var content = new UIScreenBuilder(_events, _customComponents).Build(document);
+                _builder = new UIScreenBuilder(_events, _customComponents);
+
+                var content = _builder.Build(document);
 
                 Contract.Validate(content);
+
+                // 先发布文档，OnBuilt/OnPartsBound 里取模板（如 TabButton 的 states）依赖它。
+                Document = document;
 
                 _content = content;
 
@@ -242,8 +259,6 @@ namespace MonoCoC.UI.Data
                     RemoveChild(previous);
 
                 AddChild(content);
-
-                Document = document;
 
                 if (focusedInContent)
                     RestoreFocus(content, focusedPart);

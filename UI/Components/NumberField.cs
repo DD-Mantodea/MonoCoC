@@ -1,4 +1,4 @@
-using FontStashSharp.RichText;
+﻿using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Assets;
@@ -25,12 +25,10 @@ namespace MonoCoC.UI.Components
 
         public NumberField()
         {
-            BackgroundColor = new Color(0xF8, 0xF0, 0xDC, 0xCC);
-
             _minus = new Button("", "-", "coc:menu")
             {
                 BackgroundColor = Color.Transparent,
-                TextColor = new Color(0x38, 0x2B, 0x22, 255)
+                TextColor = UIComponentStyles.NumberField.Text
             };
 
             _minus.Click(() => Add(-Step));
@@ -40,7 +38,7 @@ namespace MonoCoC.UI.Components
             _plus = new Button("", "+", "coc:menu")
             {
                 BackgroundColor = Color.Transparent,
-                TextColor = new Color(0x38, 0x2B, 0x22, 255)
+                TextColor = UIComponentStyles.NumberField.Text
             };
 
             _plus.Click(() => Add(Step));
@@ -49,7 +47,7 @@ namespace MonoCoC.UI.Components
 
             _box = new TextBox(UIFonts.GetAt(UIFonts.Family("coc:input"), 20))
             {
-                TextColor = new Color(0x38, 0x2B, 0x22, 255),
+                TextColor = UIComponentStyles.NumberField.Text,
                 ShowBorder = false,
                 State = TextBoxState.OnlyNumber,
                 LayoutData = { LayoutType = LayoutType.Relative }
@@ -72,7 +70,7 @@ namespace MonoCoC.UI.Components
 
             _unit = new Label(UIFonts.GetAt(UIFonts.Family("coc:menu"), 18))
             {
-                TextColor = new Color(0x5B, 0x4A, 0x3A, 255),
+                TextColor = UIComponentStyles.NumberField.SecondaryText,
                 CanHit = false
             };
 
@@ -89,7 +87,10 @@ namespace MonoCoC.UI.Components
             AddChild(_unit);
 
             AddChild(_plus);
+
         }
+
+
 
         public float Min { get; set; }
 

@@ -274,7 +274,7 @@ namespace MonoCoC.Macros.Providers
 
             "ear" => (ScriptValue?)ScriptValue.FromString(player.EarsDescript()),
 
-            "armor" => (ScriptValue?)ScriptValue.FromString(player.Armor.Name),
+            "armor" => (ScriptValue?)ScriptValue.FromString(player.Armor?.Name),
 
             "hasweapon" => (ScriptValue?)ScriptValue.FromBool(!player.IsUnarmed()),
 
@@ -356,7 +356,7 @@ namespace MonoCoC.Macros.Providers
 
             "hashair" => (ScriptValue?)ScriptValue.FromBool(player.Body.Get<HairPart>().Length > 0),
 
-            "hasarmor" => (ScriptValue?)ScriptValue.FromBool(player.Armor.Id.Path != "nothing"),
+            "hasarmor" => (ScriptValue?)ScriptValue.FromBool(player.Armor?.Id.Path != "nothing"),
 
             "cumhighleast" => (ScriptValue?)ScriptValue.FromBool(player.CumQ() > 350),
 

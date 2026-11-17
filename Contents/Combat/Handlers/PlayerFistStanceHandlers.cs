@@ -22,7 +22,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 && player.Weapon.IsBareFist()
 
-                && player.Shield.Id.Path == "nothing";
+                && player.Shield is null;
         }
 
         private static int Mastery(Player player) => player.MasteryLevel(FistMastery);
@@ -107,7 +107,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
         private static void CheckEquipment(CombatContext context, Player player, Identifier stance)
         {
-            if (player.Weapon.IsBareFist() && player.Shield.Id.Path == "nothing")
+            if (player.Weapon.IsBareFist() && player.Shield is null)
                 return;
 
             context.Append("Combat.Ability.Stance.Broken".Localized());

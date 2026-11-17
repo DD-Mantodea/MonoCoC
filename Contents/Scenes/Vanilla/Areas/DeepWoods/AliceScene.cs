@@ -832,7 +832,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
                 AddNextButton("Common.Button.Pantiesplay".Localized(), AlicePanties2);
             // 鍘熺増 AliceScene.hx:651 鈥?Shouldra 鏄窡闅忚€呮椂鎵嶅嚭鐜般€孲houldra銆嶉€夐」
             if (SceneInstance<Npcs.ShouldraFollowerScene>.Get().FollowerShouldra())
-                AddNextButton("Scenes.Options.Setting.Shouldra".Localized(), ShouldraPossession);
+                AddNextButton("View.Options.Setting.Shouldra".Localized(), ShouldraPossession);
 
             AddNextButton("Common.Button.LustFuck".Localized(), () => AliceLustFuck(needDraft));
 
@@ -861,13 +861,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
             OutputText("Scenes.Alicescene.AlicePanties.EnoughForeplayPullDown".Localized());
 
-            if (Player.Armor.LongName != "nothing" && Player.LowerGarmentName == "nothing")
+            if (Player.Armor?.LongName != "nothing" && Player.LowerGarmentName == "nothing")
                 OutputText("Scenes.Alicescene.AlicePanties.RemovalArmorNameFollows".Localized());
             else
-                if (Player.Armor.LongName == "nothing" && Player.LowerGarmentName != "nothing")
+                if (Player.Armor?.LongName == "nothing" && Player.LowerGarmentName != "nothing")
                     OutputText("Scenes.Alicescene.AlicePanties.RemovalLowergarmentFollow".Localized());
                 else
-                    if (Player.Armor.LongName != "nothing" && Player.LowerGarmentName != "nothing")
+                    if (Player.Armor?.LongName != "nothing" && Player.LowerGarmentName != "nothing")
                         OutputText("Scenes.Alicescene.AlicePanties.RemovalArmorAndLowergarment".Localized());
 
             if (Player.Gender == Gender.Female)
@@ -887,7 +887,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
             OutputText("Scenes.Alicescene.AlicePanties.MaybeTinyMorselRemark".Localized());
 
-            if (Player.Armor.LongName != "nothing" || Player.LowerGarmentName != "nothing")
+            if (Player.Armor?.LongName != "nothing" || Player.LowerGarmentName != "nothing")
                 OutputText("Scenes.Alicescene.AlicePanties.ReDress".Localized());
 
             OutputText("Scenes.Alicescene.AlicePanties.WanderBackHome".Localized());
@@ -2386,7 +2386,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
                     OutputText("Scenes.Alicescene.RentAnAlicePay.FinallyBackBlazesColor".Localized());
 
-                    if (Player.IsNaked() && Player.Armor.Id != ArmorIds.VineArmorBehavior)
+                    if (Player.IsNaked() && Player.Armor?.Id != ArmorIds.VineArmorBehavior)
                         OutputText("Scenes.Alicescene.RentAnAlicePay.SameIdeaGlancesUp".Localized());
                     else
                     {
@@ -2396,7 +2396,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.DeepWoods
 
                         OutputText("Scenes.Alicescene.RentAnAlicePay.TwoWordsBarelyLouder".Localized());
 
-                        if (Player.Armor.Id == ArmorIds.VineArmorBehavior)
+                        if (Player.Armor?.Id == ArmorIds.VineArmorBehavior)
                         {
                             OutputText("Scenes.Alicescene.RentAnAlicePay.TouchStartsHesitantFingertips".Localized());
 

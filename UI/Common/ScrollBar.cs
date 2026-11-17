@@ -1,24 +1,25 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 
 namespace MonoCoC.UI.Common
 {
     public static class ScrollBar
     {
-        public const int Thickness = 15;
+        // 厚度/最小滑块高度来自 Assets/UI/Components.hjson 的 scrollBar 块。
+        public static int Thickness => UIComponentStyles.ScrollBar.Thickness;
 
-        public const int MinThumb = 24;
+        public static int MinThumb => UIComponentStyles.ScrollBar.MinThumb;
 
-        public static Rectangle Track(Rectangle area) => new(area.Right - Thickness, area.Y, Thickness, Math.Max(1, area.Height));
+        public static Rectangle Track(Rectangle area, int offsetX = 0) => new(area.Right - Thickness + offsetX, area.Y, Thickness, Math.Max(1, area.Height));
 
         public static bool Needed(int contentHeight, int viewHeight) => contentHeight > viewHeight && contentHeight > 0;
 
-        public static Rectangle Thumb(Rectangle area, int contentHeight, int viewHeight, int scroll)
+        public static Rectangle Thumb(Rectangle area, int contentHeight, int viewHeight, int scroll, int offsetX = 0)
         {
             if (!Needed(contentHeight, viewHeight))
                 return Rectangle.Empty;
 
-            var track = Track(area);
+            var track = Track(area, offsetX);
 
             var height = Math.Max(MinThumb, (int)(track.Height * (viewHeight / (float)contentHeight)));
 
@@ -31,18 +32,18 @@ namespace MonoCoC.UI.Common
             return new Rectangle(track.X + 2, track.Y + offset, Math.Max(1, track.Width - 4), height);
         }
 
-        public static bool Contains(Rectangle area, Vector2 position, int contentHeight, int viewHeight) =>
+        public static bool Contains(Rectangle area, Vector2 position, int contentHeight, int viewHeight, int offsetX = 0) =>
 
-            Needed(contentHeight, viewHeight) && Track(area).Contains(position);
+            Needed(contentHeight, viewHeight) && Track(area, offsetX).Contains(position);
 
-        public static int ScrollFrom(Rectangle area, int contentHeight, int viewHeight, float mouseY)
+        public static int ScrollFrom(Rectangle area, int contentHeight, int viewHeight, float mouseY, int offsetX = 0)
         {
             if (!Needed(contentHeight, viewHeight))
                 return 0;
 
-            var track = Track(area);
+            var track = Track(area, offsetX);
 
-            var height = Thumb(area, contentHeight, viewHeight, 0).Height;
+            var height = Thumb(area, contentHeight, viewHeight, 0, offsetX).Height;
 
             var travel = Math.Max(1, track.Height - height);
 

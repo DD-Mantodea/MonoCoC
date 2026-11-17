@@ -62,7 +62,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.TakeDamage(damage);
 
-            if (damage > 0 && player.Armor.Id == ArmorIds.BondageStraps)
+            if (damage > 0 && player.Armor?.Id == ArmorIds.BondageStraps)
             {
                 var who = enemy.Article + enemy.ShortName;
 

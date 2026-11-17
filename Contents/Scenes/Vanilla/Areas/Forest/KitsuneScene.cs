@@ -343,7 +343,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
             AddButton(0, "Common.Button.Follow".Localized(), () => Mansion(true, false));
 
-            if (Player.Armor.Id == ArmorIds.VineArmorBehavior && !((0 & 32 ) != 0))
+            if (Player.Armor?.Id == ArmorIds.VineArmorBehavior && !((0 & 32 ) != 0))
                 AddNextButton("Common.Button.Vines".Localized(), null);
 
             AddButton(14, "Common.Button.Leave".Localized(), () => LeaveKitsune(true));

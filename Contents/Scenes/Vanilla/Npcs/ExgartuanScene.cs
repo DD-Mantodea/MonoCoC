@@ -869,7 +869,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             var changed = false;
 
-            if (Player.Armor.Id == ItemIds.BeeArmor)
+            if (Player.Armor?.Id == ItemIds.BeeArmor)
             {
                 OutputText("Scenes.Exgartuan.ExgartuanMasturbate.SilkenLoinclothChitin".Localized());
 
@@ -878,7 +878,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 changed = true;
             }
             else
-                if (Player.Armor.Id == ItemIds.GelArmor)
+                if (Player.Armor?.Id == ItemIds.GelArmor)
                 {
                     OutputText("Scenes.Exgartuan.ExgartuanMasturbate.GreenGelPlate".Localized());
 
@@ -887,7 +887,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     changed = true;
                 }
                 else
-                    if (Player.Armor.Id == ArmorIds.LeatherArmor)
+                    if (Player.Armor?.Id == ArmorIds.LeatherArmor)
                     {
                         OutputText("Scenes.Exgartuan.ExgartuanMasturbate.LeatherArmorShifts".Localized());
 
@@ -896,7 +896,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                         changed = true;
                     }
                     else
-                        if (Player.Armor.Id == ArmorIds.SkimpyArmor)
+                        if (Player.Armor?.Id == ArmorIds.SkimpyArmor)
                         {
                             OutputText("Scenes.Exgartuan.ExgartuanMasturbate.ChainmailBikiniIndecent".Localized());
 
@@ -905,7 +905,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                             changed = true;
                         }
                         else
-                            if (Player.Armor.Id == ArmorIds.R_BDYST)
+                            if (Player.Armor?.Id == ArmorIds.R_BDYST)
                             {
                                 OutputText("Scenes.Exgartuan.ExgartuanMasturbate.ThinTransparentBodysuit".Localized());
 
@@ -914,7 +914,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                 changed = true;
                             }
                             else
-                                if (Player.Armor.Id == ArmorIds.SilkArmor)
+                                if (Player.Armor?.Id == ArmorIds.SilkArmor)
                                 {
                                     OutputText("Scenes.Exgartuan.ExgartuanMasturbate.FineSilkUndoes".Localized());
 
@@ -923,7 +923,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                     changed = true;
                                 }
                                 else
-                                    if (Player.Armor.Id == ArmorIds.S_SWMWR)
+                                    if (Player.Armor?.Id == ArmorIds.S_SWMWR)
                                     {
                                         OutputText("Scenes.Exgartuan.ExgartuanMasturbate.MinisculeSwimwear".Localized());
 
@@ -932,7 +932,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                         changed = true;
                                     }
                                     else
-                                        if (Player.Armor.Id == ArmorIds.Chainmail)
+                                        if (Player.Armor?.Id == ArmorIds.Chainmail)
                                         {
                                             OutputText("Scenes.Exgartuan.ExgartuanMasturbate.TakenBySurpriseChainmail".Localized());
 
@@ -941,7 +941,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                             changed = true;
                                         }
                                         else
-                                            if (Player.Armor.Id == ArmorIds.ChainBikini)
+                                            if (Player.Armor?.Id == ArmorIds.ChainBikini)
                                             {
                                                 OutputText("Scenes.Exgartuan.ExgartuanMasturbate.ChainmailBikiniRearranges".Localized());
 
@@ -950,7 +950,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                                 changed = true;
                                             }
                                             else
-                                                if (Player.Armor.Id == ArmorIds.PlateArmor)
+                                                if (Player.Armor?.Id == ArmorIds.PlateArmor)
                                                 {
                                                     OutputText("Scenes.Exgartuan.ExgartuanMasturbate.ClenchFistsPlatemail".Localized());
 
@@ -959,7 +959,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                                     changed = true;
                                                 }
                                                 else
-                                                    if (Player.Armor.Id == ArmorIds.ScaleArmor)
+                                                    if (Player.Armor?.Id == ArmorIds.ScaleArmor)
                                                     {
                                                         OutputText("Scenes.Exgartuan.ExgartuanMasturbate.SteelScalesFlap".Localized());
 
@@ -968,7 +968,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                                         changed = true;
                                                     }
                                                     else
-                                                        if (Player.Armor.Id == ArmorIds.LeatherRobes)
+                                                        if (Player.Armor?.Id == ArmorIds.LeatherRobes)
                                                         {
                                                             OutputText("Scenes.Exgartuan.ExgartuanMasturbate.LeatherArmorShiftsAgain".Localized());
 
@@ -977,7 +977,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                                             changed = true;
                                                         }
                                                         else
-                                                            if (Player.Armor.Id == ArmorIds.FetishWear)
+                                                            if (Player.Armor?.Id == ArmorIds.FetishWear)
                                                             {
                                                                 OutputText("Scenes.Exgartuan.ExgartuanMasturbate.RubberOutfitCompresses".Localized());
 
@@ -986,7 +986,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                                                 changed = true;
                                                             }
                                                             else
-                                                                if (Player.Armor.Id == ArmorIds.KokiriClothes)
+                                                                if (Player.Armor?.Id == ArmorIds.KokiriClothes)
                                                                 {
                                                                     OutputText("Scenes.Exgartuan.ExgartuanMasturbate.LayerBeneathTunic".Localized());
 
@@ -995,7 +995,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                                                     changed = true;
                                                                 }
                                                                 else
-                                                                    if (Player.Armor.Id == ArmorIds.Overall)
+                                                                    if (Player.Armor?.Id == ArmorIds.Overall)
                                                                     {
                                                                         OutputText("Scenes.Exgartuan.ExgartuanMasturbate.DenimOveralls".Localized());
 
@@ -1004,7 +1004,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                                                         changed = true;
                                                                     }
                                                                     else
-                                                                        if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                                                                        if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                                                                         {
                                                                             OutputText("Scenes.Exgartuan.ExgartuanMasturbate.ClothingShiftsTight".Localized());
 
@@ -1013,11 +1013,11 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                                                             changed = true;
                                                                         }
 
-            if (Player.Armor.Id == ArmorIds.DivineArmor || Player.Armor.Id == ArmorIds.TBARMOR)
+            if (Player.Armor?.Id == ArmorIds.DivineArmor || Player.Armor?.Id == ArmorIds.TBARMOR)
             {
                 OutputText("Scenes.Exgartuan.ExgartuanMasturbate.SilkenLoinclothBark".Localized());
 
-                Player.ModArmorName = "crotch-hugging " + Player.Armor.LongName;
+                Player.ModArmorName = "crotch-hugging " + Player.Armor?.LongName;
 
                 changed = true;
             }

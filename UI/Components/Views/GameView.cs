@@ -1,4 +1,4 @@
-using MonoCoC.Assets;
+﻿using MonoCoC.Assets;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.World;
 using MonoCoC.Assets.AssetManagers;
@@ -45,9 +45,7 @@ namespace MonoCoC.UI.Components.Views
 
             var scene = Scene.Current;
 
-            var hide = scene is Contents.Scenes.Vanilla.Options
-
-                or Contents.Scenes.Vanilla.SaveLoad
+            var hide = scene is Contents.Scenes.Vanilla.SaveLoad
 
                 or Contents.Scenes.Vanilla.AchievementsScene
 
@@ -86,8 +84,6 @@ namespace MonoCoC.UI.Components.Views
         public GameView()
         {
             Instance = this;
-
-            Initialize();
 
             Time.HourPassed += OnHourPassed;
 

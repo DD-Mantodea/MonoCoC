@@ -1,28 +1,33 @@
 {
-  "Code": "zh-cn",
-  "Name": "简体中文",
-  "Order": 1,
-  "Fallback": "en-us",
-  "Fonts": {
-    "Body": {
-      "Family": "pala",
-      "Fallback": [ "ShanHaiJingLingWuYuW-2" ],
-      "Size": 20,
-      "Bold": "palab",
-      "Italic": "palai",
-      "BoldItalic": "palabi"
-    },
-    "Input": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 16 },
-    "Menu": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 16 },
-    "MenuBold": { "family": "palab", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 16 },
-    "Button": { "family": "Shrewsbury-Titling Bold", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 18 },
-    "TooltipHeader": { "family": "Shrewsbury-Titling Bold", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 18 },
-    "TooltipBody": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 15 },
-    "Search": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 14 },
-    "SettingsBody": { "family": "NotoSerif-Regular", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 20 },
-    "SettingsSmall": { "family": "NotoSerif-Regular", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 14 },
-    "SettingsBold": { "family": "NotoSerif-Bold", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 20 },
-    "SettingsTitle": { "family": "georgia", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 36 },
-    "Switcher": { "family": "pala", "fallback": [ "ShanHaiJingLingWuYuW-2" ], "size": 18 }
+  // 语言配置。键名与 LocalizationManager.ReadLanguageInfo / UIFonts.ApplyLanguage 对应，全部小写；
+  // fonts 下的 role 名必须与 Assets/Data/UI/Fonts.hjson 一致（coc: 前缀会被去掉，大小写敏感）。
+  code: "zh-cn"
+  name: "简体中文"
+  order: 1
+  fallback: "en-us"
+  fonts: {
+    body: {
+      family: "pala"
+      fallback: [ "ShanHaiJingLingWuYuW-2" ]
+      size: 20
+      bold: "palab"
+      italic: "palai"
+      boldItalic: "palabi"
+    }
+    input: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 16 }
+    menu: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 16 }
+    menuBold: { family: "palab", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 16 }
+    sidebarTitle: { family: "palab", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 22 }
+    sidebar: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 18 }
+    button: { family: "Shrewsbury-Titling Bold", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 20 }
+    tooltipHeader: { family: "Shrewsbury-Titling Bold", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 20 }
+    tooltipBody: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 15 }
+    search: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 20 }
+    settingsBody: { family: "NotoSerif-Regular", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 28 }
+    settingsSmall: { family: "NotoSerif-Regular", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 20 }
+    settingsBold: { family: "NotoSerif-Bold", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 28 }
+    settingsTitle: { family: "georgia", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 44 }
+    switcher: { family: "pala", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 24 }
+    console: { family: "JetBrainsMono-Regular", fallback: [ "ShanHaiJingLingWuYuW-2" ], size: 28 }
   }
 }

@@ -1,0 +1,57 @@
+﻿{
+  id: "InstructionsView"
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#F2E5C7FF"
+        canHit: false
+      }
+      {
+        type: "coc:label"
+        part: "instructions.title"
+        layout: "relative"
+        x: 320
+        y: 60
+        width: 930
+        height: 44
+        font: { id: "coc:menu", size: 32 }
+        textColor: "#35291FFF"
+        canHit: false
+      }
+      {
+        type: "coc:text_area"
+        part: "instructions.text"
+        layout: "relative"
+        x: 320
+        y: 120
+        width: 940
+        height: 680
+        font: "coc:body"
+        backgroundColor: "#FFFFFF66"
+        padding: 16
+        autoScroll: true
+        borderThickness: 2
+        borderColor: "#00000022"
+      }
+      {
+        type: "coc:button"
+        template: "ActionButton"
+        layout: "relative"
+        horizontalAlign: "left"
+        verticalAlign: "top"
+        x: 1080
+        y: 820
+        width: 180
+        height: 48
+        label: { key: "Common.Back" }
+        onClick: "instructions.back"
+      }
+    ]
+  }
+}

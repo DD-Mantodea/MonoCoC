@@ -153,7 +153,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
 
             AddNextButton("Common.Button.Fight".Localized(), AlrauneFight);
 
-            if (Player.Armor.Id == ArmorIds.VineArmorBehavior && !((Save.GetInt("questAsked", 0) & ASKEDAL) != 0))
+            if (Player.Armor?.Id == ArmorIds.VineArmorBehavior && !((Save.GetInt("questAsked", 0) & ASKEDAL) != 0))
                 AddNextButton("Common.Button.Vines".Localized(), AskAlraune);
         }
 
@@ -167,7 +167,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
 
             ClearButtons();
 
-            if (!Save.GetBool("vinesTaken") && Player.Armor.Id != ArmorIds.VineArmorBehavior)
+            if (!Save.GetBool("vinesTaken") && Player.Armor?.Id != ArmorIds.VineArmorBehavior)
                 AddNextButton("Common.Button.ABackRub".Localized(), AlrauneBackrub);
 
             AddNextButton("Common.Button.AFight".Localized(), AlrauneFight);
@@ -461,7 +461,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
             else
             {
                 OutputText("Scenes.Alraunescene.AlrauneBackrubTake.AsTheySetIn".Localized(
-                    Player.UpperGarment.Id == UndergarmentIds.SeaShirt ? ", only to find it tearing its way through your undershirt" : ""));
+                    Player.UpperGarment?.Id == UndergarmentIds.SeaShirt ? ", only to find it tearing its way through your undershirt" : ""));
 
                 OutputText("Scenes.Alraunescene.AlrauneBackrubTake.BurningEnds".Localized());
 
@@ -479,15 +479,15 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
 
             Save.SetBool("vinesTaken", true);
 
-            if (Player.UpperGarment.Id == UndergarmentIds.SeaShirt)
-                Player.SetUndergarment(Undergarment.Nothing, Undergarment.TypeUpperwear);
+            if (Player.UpperGarment?.Id == UndergarmentIds.SeaShirt)
+                Player.SetUndergarment(null, Undergarment.TypeUpperwear);
 
             var items = new List<Item> { 
             Player.SetArmor((Armor)ItemRegistry.Create(ArmorIds.VineArmorBehavior)),
 
-            Player.SetUndergarment(Undergarment.Nothing, Undergarment.TypeLowerwear),
+            Player.SetUndergarment(null, Undergarment.TypeLowerwear),
 
-            Player.SetUndergarment(Undergarment.Nothing, Undergarment.TypeUpperwear),
+            Player.SetUndergarment(null, Undergarment.TypeUpperwear),
          };
 
             items = items.Where(it => it != null).ToList();
@@ -652,7 +652,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
 
             AddButton(10, "Common.Button.Kill".Localized(), AlrauneKill);
 
-            if (Player.Armor.Id != ArmorIds.VineArmorBehavior)
+            if (Player.Armor?.Id != ArmorIds.VineArmorBehavior)
                 AddButton(11, "Common.Button.Insides".Localized(), AlrauneInsides);
 
             AddButton(14, "Common.Button.Leave".Localized(), () => CombatScene.CleanupAfterCombat());
@@ -811,7 +811,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
 
             CombatScene.CleanupAfterCombat();
 
-            if (Player.Armor.Id == ArmorIds.GooArmor)
+            if (Player.Armor?.Id == ArmorIds.GooArmor)
             {
                 OutputText("Scenes.Alraunescene.AlrauneFuck3.ArmorDistendsForward".Localized());
 
@@ -974,7 +974,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
             else
             {
                 OutputText("Scenes.Alraunescene.AlrauneInsides.AsTheySetIn".Localized(
-                    Player.UpperGarment.Id == UndergarmentIds.SeaShirt ? "true" : "false"));
+                    Player.UpperGarment?.Id == UndergarmentIds.SeaShirt ? "true" : "false"));
 
                 OutputText("Scenes.Alraunescene.AlrauneInsides.BurningEnds".Localized());
 
@@ -1390,7 +1390,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Swamp
         {
             ClearOutput();
 
-            Player.SetArmor(Armor.Nothing);
+            Player.SetArmor(null);
 
             if (CoC.Instance.Flags.Get(GameFlagIds.HolliSubmissive) == 1)
             {

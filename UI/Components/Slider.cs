@@ -23,7 +23,6 @@ namespace MonoCoC.UI.Components
 
             _value = new Label(UIFonts.GetAt(UIFonts.Family("coc:menu"), 18))
             {
-                TextColor = new Color(0x38, 0x2B, 0x22, 255),
                 CanHit = false
             };
 

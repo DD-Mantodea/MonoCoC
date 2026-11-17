@@ -1,99 +1,81 @@
-using FontStashSharp;
+﻿using FontStashSharp;
 using Hjson;
 using MonoCoC.Assets;
 using MonoCoC.Assets.AssetManagers;
+using MonoCoC.Configuration;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
 namespace MonoCoC.UI
 {
+    // 字体角色表：唯一事实来源是 Assets/Localization/<lang>/Language.hjson 的 fonts: 节点。
+    // 每次切语言构建一份不可变快照并整体替换，避免原地清空/合并导致的状态污染。
     public static class UIFonts
     {
-        private class Role
-        {
-            public string Family = "pala";
+        private readonly record struct FontRole(
+            string Family,
+            int Size,
+            string[] Fallbacks,
+            string Bold,
+            string Italic,
+            string BoldItalic);
 
-            public int Size = 20;
+        private static readonly FontRole BuiltInBody = new(
+            "pala",
+            20,
+            [],
+            "palab",
+            "palai",
+            "palabi");
 
-            public string Bold = "palab";
+        private static Dictionary<string, FontRole> _roles = [];
 
-            public string Italic = "palai";
-
-            public string BoldItalic = "palabi";
-
-            public List<string> Fallback = [];
-        }
-
-        private static readonly Dictionary<string, Role> Defaults = [];
-
-        private static readonly Dictionary<string, Role> Roles = [];
+        private static Dictionary<string, string[]> _familyFallbacks = [];
 
         private static readonly Dictionary<(string Family, int Size, string Fallbacks), SpriteFontBase> Cache = [];
 
-        private static readonly Dictionary<string, List<string>> FamilyFallbacks = [];
+        private static readonly HashSet<string> WarnedRoles = [];
 
         public static int Revision { get; private set; }
 
-        public static void Initialize()
+        // 语言管理器可能尚未就绪（Initialize 早期），此时退回 en-us。
+        private static string FallbackLanguage
         {
-            Defaults.Clear();
-
-            LoadInto(Defaults, Path.Combine(Paths.AssetPath("Data/UI"), "Fonts.hjson"));
-
-            if (Defaults.Count == 0)
-                Defaults["body"] = new Role();
-
-            Roles.Clear();
-
-            foreach (var pair in Defaults)
-                Roles[pair.Key] = Copy(pair.Value);
-
-            BuildFamilyFallbacks();
-
-            Revision++;
-        }
-
-        public static void ApplyLanguage(string language)
-        {
-            Roles.Clear();
-
-            foreach (var pair in Defaults)
-                Roles[pair.Key] = Copy(pair.Value);
-
-            if (!string.IsNullOrEmpty(language))
+            get
             {
-                var path = Path.Combine(LocalizationManager.RootPath, language, "Language.hjson");
+                try
+                {
+                    var manager = ManagerInstance<LocalizationManager>.Instance;
 
-                if (File.Exists(path))
-                    try
-                    {
-                        var root = (JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(path));
+                    if (manager is not null && !string.IsNullOrEmpty(manager.Fallback))
+                        return manager.Fallback;
+                }
+                catch
+                {
+                }
 
-                        if (root.TryGetValue("fonts", out var fonts) && fonts is JsonObject map)
-                            LoadInto(Roles, map, merge: true);
-                    }
-                    catch
-                    {
-                        // Broken language font config: keep defaults.
-                    }
+                return "en-us";
             }
-
-            BuildFamilyFallbacks();
-
-            Revision++;
         }
+
+
+        // 初始化：以 fallback 语言（通常是 en-us）作为基线快照。
+        public static void Initialize() => Rebuild(FallbackLanguage);
+
+        // 切换语言：以 fallback 语言打底，再用目标语言覆盖同名角色。
+        public static void ApplyLanguage(string language) => Rebuild(language);
 
         public static SpriteFontBase Get(string role)
         {
             var info = RoleOf(role);
 
-            return Resolve(info.Family, info.Size, info.Fallback);
+            return Resolve(info.Family, info.Size, info.Fallbacks);
         }
 
         public static SpriteFontBase GetAt(string family, int size) =>
 
-            Resolve(family, size, FamilyFallbacks.TryGetValue(family, out var fallbacks) ? fallbacks : []);
+            Resolve(family, size, _familyFallbacks.TryGetValue(family, out var fallbacks) ? fallbacks : []);
 
         public static int Size(string role) => RoleOf(role).Size;
 
@@ -128,60 +110,159 @@ namespace MonoCoC.UI
             context.FontSize = Size("body");
         }
 
+        private static void Rebuild(string? language)
+        {
+            var roles = new Dictionary<string, FontRole>(StringComparer.OrdinalIgnoreCase);
+
+            // 语言文件是唯一来源；fallback 语言先打底，目标语言覆盖。
+            // 同一个语言不重复读。
+            LoadLanguage(roles, FallbackLanguage);
+
+            if (!string.IsNullOrEmpty(language) &&
+                !string.Equals(language, FallbackLanguage, StringComparison.OrdinalIgnoreCase))
+                LoadLanguage(roles, language);
+
+            if (roles.Count == 0)
+                roles["body"] = BuiltInBody;
+
+            _roles = roles;
+
+            _familyFallbacks = BuildFamilyFallbacks(roles);
+
+            Cache.Clear();
+
+            WarnedRoles.Clear();
+
+            Revision++;
+        }
+
+        private static void LoadLanguage(Dictionary<string, FontRole> target, string? language)
+        {
+            if (string.IsNullOrEmpty(language))
+                return;
+
+            var path = Path.Combine(LocalizationManager.RootPath, language, "Language.hjson");
+
+            if (!File.Exists(path))
+                return;
+
+            try
+            {
+                if (MonoCoC.HjsonParser.Parse(File.ReadAllText(path)) is not JsonObject root ||
+                    !root.TryGetValue("fonts", out var value) ||
+                    value is not JsonObject fonts)
+                    return;
+
+                foreach (var pair in fonts)
+                {
+                    if (pair.Value is not JsonObject entry)
+                        continue;
+
+                    var key = NormalizeRole(pair.Key);
+
+                    target[key] = ReadRole(entry, target.GetValueOrDefault(key));
+                }
+            }
+            catch
+            {
+                // 语言文件损坏：保留已有快照（fallback 语言那层）。
+            }
+        }
+
+        private static FontRole ReadRole(JsonObject entry, FontRole? inherit)
+        {
+            var fallbacks = entry.TryGetValue("fallback", out var fallbackValue)
+                ? ReadFallback(fallbackValue)
+                : inherit?.Fallbacks ?? [];
+
+            return new FontRole(
+                Str(entry, "family", inherit?.Family ?? BuiltInBody.Family),
+                Int(entry, "size", inherit?.Size ?? BuiltInBody.Size),
+                fallbacks,
+                Str(entry, "bold", inherit?.Bold ?? BuiltInBody.Bold),
+                Str(entry, "italic", inherit?.Italic ?? BuiltInBody.Italic),
+                Str(entry, "boldItalic", inherit?.BoldItalic ?? BuiltInBody.BoldItalic));
+        }
+
+        private static Dictionary<string, string[]> BuildFamilyFallbacks(IReadOnlyDictionary<string, FontRole> roles)
+        {
+            var result = new Dictionary<string, string[]>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var info in roles.Values)
+            {
+                Add(info.Family, info.Fallbacks);
+
+                Add(info.Bold, info.Fallbacks);
+
+                Add(info.Italic, info.Fallbacks);
+
+                Add(info.BoldItalic, info.Fallbacks);
+            }
+
+            return result;
+
+            void Add(string family, string[] fallbacks)
+            {
+                if (!string.IsNullOrEmpty(family))
+                    result[family] = fallbacks;
+            }
+        }
+
         private static SpriteFontBase Resolve(string family, int size, IReadOnlyList<string> fallbacks)
         {
             var key = (family, size, string.Join("|", fallbacks));
 
-            if (Cache.TryGetValue(key, out var font))
-                return font;
+            if (Cache.TryGetValue(key, out var cached) && cached is not null)
+                return cached;
 
-            var system = ManagerInstance<FontManager>.Instance.GetSystem(family, fallbacks);
+            var manager = ManagerInstance<FontManager>.Instance;
 
-            font = system?.GetFont(size) ?? ManagerInstance<FontManager>.Instance[family, size];
+            var font = manager.GetSystem(family, fallbacks)?.GetFont(size) ?? manager[family, size];
 
-            if (font == null)
-                font = ManagerInstance<FontManager>.Instance["pala", size];
+            if (font is null)
+            {
+                WarnOnce("字体缺失，退回 pala: " + family + " " + size);
+
+                font = manager["pala", size];
+            }
 
             Cache[key] = font;
 
             return font;
         }
 
-        private static void BuildFamilyFallbacks()
+        private static FontRole RoleOf(string role)
         {
-            FamilyFallbacks.Clear();
+            var key = NormalizeRole(role);
 
-            foreach (var info in Roles.Values)
-            {
-                Add(info.Family, info.Fallback);
-
-                Add(info.Bold, info.Fallback);
-
-                Add(info.Italic, info.Fallback);
-
-                Add(info.BoldItalic, info.Fallback);
-            }
-        }
-
-        private static void Add(string family, List<string> fallbacks)
-        {
-            if (string.IsNullOrEmpty(family))
-                return;
-
-            FamilyFallbacks[family] = [.. fallbacks];
-        }
-
-        private static Role RoleOf(string role)
-        {
-            role = NormalizeRole(role);
-
-            if (Roles.TryGetValue(role, out var info))
+            if (_roles.TryGetValue(key, out var info))
                 return info;
 
-            if (Roles.TryGetValue("body", out var body))
-                return body;
+            if (_roles.TryGetValue("body", out var body))
+            {
+                WarnOnce("字体角色未定义，退回 body: " + key);
 
-            return new Role();
+                return body;
+            }
+
+            WarnOnce("字体角色表为空，使用内置 body: " + key);
+
+            return BuiltInBody;
+        }
+
+        private static void WarnOnce(string message)
+        {
+            if (!WarnedRoles.Add(message))
+                return;
+
+            try
+            {
+                Console.ConsoleOverlay.WriteWarning("[UIFonts] " + message);
+            }
+            catch
+            {
+                // 控制台未就绪时忽略诊断输出。
+            }
         }
 
         private static string NormalizeRole(string role) =>
@@ -189,63 +270,7 @@ namespace MonoCoC.UI
                 ? role[4..]
                 : role;
 
-        private static Role Copy(Role source) => new()
-        {
-            Family = source.Family,
-
-            Size = source.Size,
-
-            Bold = source.Bold,
-
-            Italic = source.Italic,
-
-            BoldItalic = source.BoldItalic,
-
-            Fallback = [.. source.Fallback]
-        };
-
-        private static void LoadInto(Dictionary<string, Role> target, string path)
-        {
-            if (!File.Exists(path))
-                return;
-
-            try
-            {
-                LoadInto(target, (JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(path)));
-            }
-            catch
-            {
-                // Broken font config: keep whatever is already loaded.
-            }
-        }
-
-        private static void LoadInto(Dictionary<string, Role> target, JsonObject root, bool merge = false)
-        {
-            foreach (var pair in root)
-            {
-                if (pair.Value is not JsonObject entry)
-                    continue;
-
-                if (!target.TryGetValue(pair.Key, out var role) || !merge)
-                    role = new Role();
-
-                role.Family = Str(entry, "family", role.Family);
-
-                role.Size = Int(entry, "size", role.Size);
-
-                role.Bold = Str(entry, "bold", role.Bold);
-
-                role.Italic = Str(entry, "italic", role.Italic);
-
-                role.BoldItalic = Str(entry, "boldItalic", role.BoldItalic);
-
-                if (entry.TryGetValue("fallback", out var fallback))
-                    role.Fallback = ReadFallback(fallback);
-
-                target[NormalizeRole(pair.Key)] = role;            }
-        }
-
-        private static List<string> ReadFallback(JsonValue value)
+        private static string[] ReadFallback(JsonValue value)
         {
             var result = new List<string>();
 
@@ -254,7 +279,7 @@ namespace MonoCoC.UI
                 foreach (var item in array)
                     Add(item?.ToString().Trim('"') ?? "");
 
-                return result;
+                return [.. result];
             }
 
             var text = value.ToString().Trim('"');
@@ -262,7 +287,7 @@ namespace MonoCoC.UI
             foreach (var part in text.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries))
                 Add(part);
 
-            return result;
+            return [.. result];
 
             void Add(string item)
             {

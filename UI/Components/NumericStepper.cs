@@ -1,4 +1,4 @@
-using FontStashSharp.RichText;
+﻿using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -69,21 +69,20 @@ namespace MonoCoC.UI.Components
             {
                 State = TextBoxState.OnlyNumber,
                 ShowBorder = false,
-                LayoutData = { LayoutType = LayoutType.Relative }
-            };
+                LayoutData = { LayoutType = LayoutType.Relative },
+                OnTextChanged = text =>
+                {
+                    if (_updating)
+                        return;
 
-            _editor.OnTextChanged = text =>
-            {
-                if (_updating)
-                    return;
-
-                if (float.TryParse(text, out var parsed))
-                    SetValue(parsed);
+                    if (float.TryParse(text, out var parsed))
+                        SetValue(parsed);
+                }
             };
 
             _editor.Cursor.CursorColor = TextColor;
 
-            _editor.Cursor.SelectionColor = new Color(0xB7, 0x9A, 0x70, 120);
+            _editor.Cursor.SelectionColor = UIComponentStyles.NumericStepper.Selection;
 
             AddChild(_range);
             AddChild(_minus);
@@ -289,14 +288,14 @@ namespace MonoCoC.UI.Components
 
             if (!_editing && ShiftHeld)
             {
-                if (IsPressed(Keys.OemMinus) || IsPressed(Keys.Subtract))
+                if (IsKeyJustPressed(Keys.OemMinus) || IsKeyJustPressed(Keys.Subtract))
                     Add(-Step * ShiftMultiplier);
 
-                if (IsPressed(Keys.OemPlus) || IsPressed(Keys.Add))
+                if (IsKeyJustPressed(Keys.OemPlus) || IsKeyJustPressed(Keys.Add))
                     Add(Step * ShiftMultiplier);
             }
 
-            if (_editing && (IsPressed(Keys.Enter) || IsPressed(Keys.Escape)))
+            if (_editing && (IsKeyJustPressed(Keys.Enter) || IsKeyJustPressed(Keys.Escape)))
             {
                 EndEdit();
             }
@@ -349,7 +348,7 @@ namespace MonoCoC.UI.Components
             _valueButton.StateStyle = ValueStyle ?? ButtonStyle;
         }
 
-        private static bool IsPressed(Keys key) =>
+        private static bool IsKeyJustPressed(Keys key) =>
             UserInput.PreviousKeyState.IsKeyUp(key) && UserInput.CurrentKeyState.IsKeyDown(key);
     }
 }

@@ -1538,7 +1538,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             AddButton(10, "Common.Button.GoAway".Localized(), KickFollowerShouldraOutPrompt);
 
-            if (Player.Armor.Id == ArmorIds.VineArmorBehavior && !SceneInstance<Areas.Swamp.AlrauneScene>.Get().AskedShouldra)
+            if (Player.Armor?.Id == ArmorIds.VineArmorBehavior && !SceneInstance<Areas.Swamp.AlrauneScene>.Get().AskedShouldra)
                 AddButton(11, "Common.Button.Vines".Localized(), () => SceneInstance<Areas.Swamp.AlrauneScene>.Get().AskShouldra());
 
             AddButton(14, "Common.Button.Back".Localized(), () => Go(SceneInstance<CampScene>.Get()));

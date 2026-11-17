@@ -2,6 +2,7 @@ using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Items.Behaviors;
 using MonoCoC.Registry;
 using MonoCoC.Attributes;
+using System.Collections.Generic;
 
 namespace MonoCoC.Contents.Items
 {
@@ -9,9 +10,24 @@ namespace MonoCoC.Contents.Items
     [Register<Armor>("coc:armor")]
     public class Armor : Item
     {
-        public static new readonly Armor Nothing = new() { Id = new Identifier("coc", "nothing"), Name = "nothing", LongName = "nothing" };
-
         public float Defense;
+
+        public override void RegisterInteractions(ItemInteractionMenu menu, ItemInteractionContext context)
+        {
+            ItemInteractions.RegisterEquip(menu, context);
+
+            base.RegisterInteractions(menu, context);
+        }
+
+        public override List<ItemStat> GetStats()
+        {
+            var stats = base.GetStats();
+
+            if (Defense != 0)
+                stats.Insert(0, new ItemStat("Items.Stats.Defense", Defense.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)));
+
+            return stats;
+        }
 
         public string Perk = "";
 

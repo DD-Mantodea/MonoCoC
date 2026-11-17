@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Utils;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
@@ -328,11 +328,16 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 return;
             }
 
+            // 原版兜底：上方 if/else 已穷尽，属原项目死代码，保留。
+#pragma warning disable CS0162
+
             DoNext(() => ReturnToCamp(1));
 
             OutputText("Scenes.Sophiescene.MeetSophieRepeat.SomethingScrewyHappened".Localized());
 
             return;
+
+#pragma warning restore CS0162
         }
 
         public void ConsensualSexSelector()

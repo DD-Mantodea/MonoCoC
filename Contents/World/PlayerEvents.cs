@@ -1,4 +1,4 @@
-using MonoCoC.Contents.BodyParts.Vanilla;
+﻿using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Flags;
@@ -467,7 +467,7 @@ namespace MonoCoC.Contents.World
                 // 原版 :1181 Dominika 后续梦境
                 if (flags.Get(GameFlagIds.DominikaSpecialFollowup) > 0 && flags.Get(GameFlagIds.DominikaSpecialFollowup) < 4)
                 {
-                    SceneInstance<Scenes.Vanilla.Places.TelAdre.Dominika>.Get().FellatrixDream();
+                    Scenes.Vanilla.Places.TelAdre.Dominika.FellatrixDream();
 
                     return true;
                 }

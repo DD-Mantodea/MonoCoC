@@ -760,7 +760,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                                     if (CoC.Instance.Flags.Get(GameFlagIds.SleepWith) == "Arian")
                                         AddButton(9, "Common.Button.SleepAlone".Localized(), DontSleepWithArian);
 
-                                    if (Player.Armor.Id == ArmorIds.VineArmorBehavior && !((Areas.Swamp.AlrauneScene.Save.GetInt("questAsked", 0) & Areas.Swamp.AlrauneScene.ASKEDAM) != 0))
+                                    if (Player.Armor?.Id == ArmorIds.VineArmorBehavior && !((Areas.Swamp.AlrauneScene.Save.GetInt("questAsked", 0) & Areas.Swamp.AlrauneScene.ASKEDAM) != 0))
                                         AddButton(10, "Common.Button.Vines".Localized(), null );
 
                                     if (ArianFollower() && Player.HasItem(ItemRegistry.Create(ItemIds.Lethicite)))

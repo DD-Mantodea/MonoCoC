@@ -8,6 +8,8 @@ namespace MonoCoC.UI.Components
 
         public int IconSize = 36;
 
+        public string EmptyIcon = "Icons/inventory_empty.svg";
+
         public int Padding = 12;
 
         public int Spacing = 10;

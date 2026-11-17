@@ -1,4 +1,4 @@
-using FontStashSharp;
+﻿using FontStashSharp;
 using FontStashSharp.RichText;
 using Hjson;
 using Microsoft.Xna.Framework;
@@ -50,6 +50,8 @@ namespace MonoCoC.UI.Data
             _types.Register("coc:corners", CreateCorners);
             _types.Register("coc:symbol", CreateSymbol);
             _types.Register("coc:divider", CreateDivider);
+            _types.Register("coc:context_menu", CreateContextMenu);
+            
             _types.Register("coc:grid", CreateGrid);
             _types.Register("coc:number", CreateNumber);
             _types.Register("coc:slider", CreateSlider);
@@ -67,6 +69,10 @@ namespace MonoCoC.UI.Data
             _types.Register("coc:player_stats", CreatePlayerStats);
 
             _types.Register("coc:item_grid", node => CreateItemGrid(node, _document!));
+
+            _types.Register("coc:equipment_grid", node => CreateEquipmentGrid(node, _document!));
+
+            _types.Register("coc:equipment_slot", CreateEquipmentSlot);
             _types.Register("coc:combat_stats", _ => new CombatStats());
             _types.Register("coc:custom_widget", CreateCustomComponent);
             _types.Register("coc:custom_component", CreateCustomComponent);
@@ -139,6 +145,20 @@ namespace MonoCoC.UI.Data
             }
         }
 
+        // 供视图在运行期按模板构造单个组件（标签页等），补齐 BuildChildren 里那套样式应用。
+        public Component BuildTemplate(JsonObject template)
+        {
+            var component = Create(template) ?? new Component();
+
+            ApplyLayout(component, template);
+
+            ApplyStateStyle(component, template);
+
+            if (component is Button button && _document is not null)
+                ApplyControlTemplate(button, template, _document);
+
+            return component;
+        }
         private Component? Create(JsonObject node)
         {
             var type = node.Str("type", "Panel");
@@ -198,6 +218,42 @@ namespace MonoCoC.UI.Data
 
             return symbol;
         }
+
+        // 二级菜单：外观来自节点（宽/内边距/行高/间距）与 itemTemplate（条目模板）。
+        private Component CreateContextMenu(JsonObject node)
+        {
+            var menu = new ContextMenu
+            {
+                // 独立键：通用布局会把 node.padding 记为组件 padding，菜单再自己用一次就会左/上双倍、右/下贴边。
+                Padding = node.Int("menuPadding", 4),
+                ItemHeight = node.Int("itemHeight", 36),
+                Spacing = node.Int("spacing", 2)
+            };
+
+            var template = ResolveNamedTemplate(node, "itemTemplate");
+
+            if (template is not null)
+                // 走 BuildTemplate：CreateButton 只建对象，states/hover 在后续步骤里应用。
+            menu.ItemFactory = () => (Button)BuildTemplate(template);
+
+            return menu;
+        }
+
+        // itemTemplate 可以是内联对象，也可以是文档 templates 里的名字（与 item_grid 同一套规则）。
+        private JsonObject? ResolveNamedTemplate(JsonObject node, string key)
+        {
+            if (!node.TryGetValue(key, out var value))
+                return null;
+
+            if (value is JsonObject inline)
+                return inline;
+
+            var name = value.ToString().Trim('"');
+
+            return _document is not null && _document.Templates.TryGetValue(name, out var named) ? named : null;
+        }
+
+
 
         private static Component CreateDivider(JsonObject node)
         {
@@ -364,6 +420,19 @@ namespace MonoCoC.UI.Data
 
             button.SetLabel(UILocalizedText.Resolve(node, "label"));
 
+            var labelAlign = node.Str("textHorizontalAlign", node.Str("textAlign", ""));
+
+            if (labelAlign.Length > 0)
+                button.LabelAlignment = labelAlign.Trim().ToLowerInvariant() switch
+                {
+                    "left" => TextHorizontalAlignment.Left,
+                    "right" => TextHorizontalAlignment.Right,
+                    _ => TextHorizontalAlignment.Center
+                };
+
+            if (node.TryGetValue("labelPadding", out var labelPadding))
+                button.LabelPadding = Int(labelPadding);
+
             button.Label.RichTextLayout.Font = ResolveFont(node, "coc:button");
 
             var command = node.Str("command");
@@ -411,7 +480,15 @@ namespace MonoCoC.UI.Data
 
         private void ApplyHint(Button button, JsonObject node)
         {
-            var style = new HintStyle();
+            // 颜色/内边距默认取全局 ToolTip 模板（ToolTipView 启动时已写入 HintStyle.Default），
+            // 节点里的字段再逐项覆盖。
+            var style = new HintStyle
+            {
+                Padding = HintStyle.Default.Padding,
+                HeaderColor = HintStyle.Default.HeaderColor,
+                BodyColor = HintStyle.Default.BodyColor,
+                SeparatorColor = HintStyle.Default.SeparatorColor
+            };
 
             if (node.TryGetValue("width", out var width))
                 style.Width = Int(width);
@@ -635,6 +712,7 @@ namespace MonoCoC.UI.Data
             if (node.TryGetValue("cursorColor", out _))
                 cursor.CursorColor = ColorOf(node.Str("cursorColor"));
 
+
             if (node.TryGetValue("selectionColor", out _))
                 cursor.SelectionColor = ColorOf(node.Str("selectionColor"));
 
@@ -642,6 +720,7 @@ namespace MonoCoC.UI.Data
                 cursor.BlinkTime = Int(blinkTime);
 
             box.Cursor = cursor;
+
 
             return box;
         }
@@ -655,6 +734,102 @@ namespace MonoCoC.UI.Data
                 return null;
 
             return new UIBinding(path.ToString().Trim('"'));
+        }
+
+        private static Component CreateEquipmentGrid(JsonObject node, UIDocument document)
+        {
+            var grid = new MonoCoC.UI.Components.EquipmentGrid
+            {
+                Columns = node.Int("columns", 1),
+                SlotWidth = node.Int("slotWidth", 0),
+                SlotHeight = node.Int("slotHeight", 84),
+                Spacing = node.Int("spacing", 8),
+                ItemTemplate = ResolveItemSlotStyle(node, document)
+            };
+
+            if (node.Array("areas") is { } areas)
+            {
+                foreach (var value in areas)
+                {
+                    if (value is not JsonObject area)
+                        continue;
+
+                    grid.Areas.Add(new MonoCoC.UI.Components.EquipmentArea
+                    {
+                        Id = area.Str("id"),
+                        X = area.Int("x", 0),
+                        Y = area.Int("y", 0),
+                        Width = area.Int("width", 0),
+                        Height = area.Int("height", 0)
+                    });
+                }
+            }
+
+            if (node.Array("slots") is { } slots)
+            {
+                foreach (var value in slots)
+                {
+                    if (value is not JsonObject slot)
+                        continue;
+
+                    grid.Slots.Add(new MonoCoC.UI.Components.EquipmentSlotSpec
+                    {
+                        Kind = slot.Str("kind", "weapon"),
+                        LabelKey = UILocalizedText.Resolve(slot, "label"),
+                        SlotIcon = slot.Str("slotIcon"),
+                        Area = slot.Str("area"),
+                        Order = slot.Int("order", 0)
+                    });
+                }
+            }
+
+            return grid;
+        }
+
+        private static Component CreateEquipmentSlot(JsonObject node) =>
+            new MonoCoC.UI.Components.EquipmentSlot
+            {
+                Kind = node.Str("kind", "weapon"),
+                LabelKey = UILocalizedText.Resolve(node, "label"),
+                SlotIcon = node.Str("slotIcon"),
+                SlotColor = ColorOf(node.Str("slotColor", "#F7EFE0CC")),
+                BorderColor = ColorOf(node.Str("borderColor", "#B79A70AA")),
+                TextColor = ColorOf(node.Str("textColor", "#35291FFF")),
+                IconSize = node.Int("iconSize", 26)
+            };
+
+        private static MonoCoC.UI.Components.ItemSlotStyle? ResolveItemSlotStyle(JsonObject node, UIDocument document)
+        {
+            if (!node.TryGetValue("itemTemplate", out var templateValue))
+                return null;
+
+            JsonObject? template = null;
+
+            if (templateValue is JsonObject inline)
+                template = inline;
+            else if (templateValue is not JsonObject &&
+                     document.Templates.TryGetValue(templateValue.ToString().Trim('"'), out var named))
+                template = named;
+
+            if (template is null)
+                return null;
+
+            var style = new MonoCoC.UI.Components.ItemSlotStyle
+            {
+                Height = template.Int("height", 84),
+                IconSize = template.Int("iconSize", 36),
+                EmptyIcon = template.Str("emptyIcon", "Icons/inventory_empty.svg"),
+                Padding = template.Int("padding", 12),
+                Spacing = template.Int("spacing", 10),
+                ShowName = template.Bool("showName", true),
+                ShowType = template.Bool("showType", true),
+                ShowQuantity = template.Bool("showQuantity", true)
+            };
+
+            if (template.TryGetValue("states", out var statesValue) && statesValue is JsonObject states)
+                style.States = BuildStateStyle(states, template.Int("borderThickness", 0));
+
+            return style;
         }
 
         private static Component CreateItemGrid(JsonObject node, UIDocument document)
@@ -675,6 +850,7 @@ namespace MonoCoC.UI.Data
                 {
                     style.Height = template.Int("height", style.Height);
                     style.IconSize = template.Int("iconSize", style.IconSize);
+                    style.EmptyIcon = template.Str("emptyIcon", style.EmptyIcon);
                     style.Padding = template.Int("padding", style.Padding);
                     style.Spacing = template.Int("spacing", style.Spacing);
                     style.ShowName = template.Bool("showName", true);
@@ -791,6 +967,7 @@ namespace MonoCoC.UI.Data
                 Step = node.Float("step", 1),
                 Unit = node.Str("unit", "")
             };
+
 
             field.SetValue(node.Float("value", field.Min));
 
@@ -1483,7 +1660,7 @@ namespace MonoCoC.UI.Data
             return state.TryGetValue("borderThickness", out var thickness) ? Int(thickness) : null;
         }
 
-        private static UIStateStyle BuildStateStyle(JsonObject states, int thickness)
+        public static UIStateStyle BuildStateStyle(JsonObject states, int thickness)
         {
             var style = new UIStateStyle { BorderThickness = thickness };
 
@@ -1491,7 +1668,6 @@ namespace MonoCoC.UI.Data
             ApplyState(states, "hover", out style.HoverBackground, out style.HoverBorder, out style.HoverText);
             ApplyState(states, "pressed", out style.PressedBackground, out style.PressedBorder, out style.PressedText);
             ApplyState(states, "selected", out style.SelectedBackground, out style.SelectedBorder, out style.SelectedText);
-
             ApplyStateThickness(states, "normal", ref style.NormalBorderThickness);
             ApplyStateThickness(states, "hover", ref style.HoverBorderThickness);
             ApplyStateThickness(states, "pressed", ref style.PressedBorderThickness);
@@ -1860,14 +2036,11 @@ namespace MonoCoC.UI.Data
         private static float Float(object value) =>
             float.TryParse(value.ToString(), NumberStyles.Float, CultureInfo.InvariantCulture, out var result) ? result : 0f;
 
-        private static Color ColorOf(string value)
+                private static Color ColorOf(string value)
         {
             value = value.Trim();
 
-            if (value.Length == 0)
-                return Color.Transparent;
-
-            if (value[0] != '#')
+            if (value.Length == 0 || value[0] != '#')
                 return Color.Transparent;
 
             var hex = value[1..];
@@ -1885,6 +2058,71 @@ namespace MonoCoC.UI.Data
                 (byte)((rgba >> 8) & 0xFF),
                 (byte)(rgba & 0xFF));
         }
-    }
+
+        // 标签页列表：条目由 OptionStore.Panes 动态生成，Controls 页固定插在第 3 项之后。
+        // 用 Container + 显式坐标而不是 Grid：条目数量在构建期才确定，Grid 的轨道在 ApplyLayout 时
+        // 已经按空 children 求过值，后续 AddChild 不会重算，会把所有按钮叠在同一位置。
+        private Component CreateTabList(JsonObject node)
+        {
+            var template = ResolveNamedTemplate(node, "buttonTemplate");
+
+            var width = node.Int("width", 300);
+
+            var buttonWidth = node.Int("buttonWidth", 200);
+
+            var buttonHeight = node.Int("buttonHeight", 60);
+
+            var spacing = node.Int("spacing", 12);
+
+            var container = new Container
+            {
+                LayoutData = { LayoutType = LayoutType.Relative }
+            };
+
+            var index = 0;
+
+            void AddTab(string labelKey, Action clicked)
+            {
+                var buttonNode = template ?? new JsonObject();
+
+                var button = (Button)CreateButton(buttonNode);
+
+                // CreateButton 只建对象；states/字体等样式是 BuildChildren 里单独应用的，
+                // 代码构造的条目必须手动补 ApplyStateStyle，否则选中态没有背景。
+                ApplyStateStyle(button, buttonNode);
+
+                button.SetLabel(labelKey.Localized());
+
+                button.Click(clicked);
+
+                button.LayoutData.LayoutType = LayoutType.Relative;
+
+                button.LayoutData.Size = new Vector2(buttonWidth, buttonHeight);
+
+                button.LayoutData.Position = new Vector2((width - buttonWidth) / 2f, index * (buttonHeight + spacing));
+
+                container.AddChild(button);
+
+                index++;
+            }
+
+            var panes = MonoCoC.Configuration.OptionStore.Instance.Panes;
+
+            for (var paneIndex = 0; paneIndex < panes.Count; paneIndex++)
+            {
+                var pane = panes[paneIndex];
+
+                // 必须复制到局部变量再进 lambda：for 的循环变量只声明一次，
+                // 直接捕获会让所有标签都指向最后一个索引。
+                var targetPane = paneIndex;
+
+                AddTab(pane.ButtonKey, () => MonoCoC.UI.Components.Views.OptionsView.Current?.SelectPage(targetPane));
+
+                if (paneIndex == 2)
+                    AddTab("View.Options.Tab.Controls", () => MonoCoC.UI.Components.Views.OptionsView.Current?.OpenControlsPage());
+            }
+
+            return container;
+        }    }
 }
 

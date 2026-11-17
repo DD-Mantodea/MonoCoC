@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Items;
 using MonoCoC.Contents.World;
 using MonoCoC.Contents.Creatures;
@@ -154,7 +154,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         public bool ReadyForMeetWithDress()
         {
 
-            if (!rejected && Player.Armor.Id == ArmorIds.R_BDYST && dressGiven && countdownTimer == 0 && (RaphaelLikes() || !raphaelDisgusted))
+            if (!rejected && Player.Armor?.Id == ArmorIds.R_BDYST && dressGiven && countdownTimer == 0 && (RaphaelLikes() || !raphaelDisgusted))
                 return true;
             else
                 return false;
@@ -193,7 +193,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         public bool RaphaelLikes()
         {
 
-            if (((OptionStore.Instance.Get("lowStandards", 0) > 0)) && (Player.HasVagina()))
+            if (((OptionStore.Instance.Get("coc:lowStandards", 0) > 0)) && (Player.HasVagina()))
                     return true;
 
             if (!Player.IsBiped())

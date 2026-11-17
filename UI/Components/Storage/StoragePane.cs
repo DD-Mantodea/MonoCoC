@@ -1,4 +1,4 @@
-using MonoCoC.Assets;
+﻿using MonoCoC.Assets;
 using MonoCoC.Assets.AssetManagers;
 using MonoCoC.Contents.Storage;
 using FontStashSharp;
@@ -249,27 +249,28 @@ namespace MonoCoC.UI.Components.Storage
         {
             base.DrawChildren(spriteBatch, gameTime);
 
-            if (!ScrollBar.Needed(_contentHeight, Height))
-                return;
+            _scrollFade.Pinned = _draggingBar;
 
-            var track = ScrollBar.Track(Rectangle);
+            _scrollFade.Update(gameTime, Rectangle, ScrollBar.Needed(_contentHeight, Height));
+
+            if (!ScrollBar.Needed(_contentHeight, Height) || !_scrollFade.Visible)
+                return;
 
             var thumb = ScrollBar.Thumb(Rectangle, _contentHeight, Height, _scroll);
 
-            spriteBatch.DrawRectangle(track, UIColors.ScrollTrack);
-
-            spriteBatch.DrawBorder(track, 1, UIColors.ScrollTrackBorder);
-
-            spriteBatch.DrawRectangle(thumb, UIColors.ScrollThumb);
-
-            spriteBatch.DrawBorder(thumb, 1, UIColors.ScrollThumbBorder);
+            // 只画滑块，整体 alpha 渐隐渐显（与 Settings 各页一致）。
+            spriteBatch.DrawRectangle(thumb, _scrollFade.Fade(UIComponentStyles.ScrollBar.Thumb));
         }
+
+        private readonly ScrollBarFade _scrollFade = new();
 
         public override InputResult OnInput(InputEventArgs args)
         {
             switch (args.Type)
             {
                 case InputType.MouseWheel:
+                    _scrollFade.Flash();
+
                     SetScroll(_scroll + (args.WheelDelta > 0 ? -40 : 40));
 
                     return InputResult.Consumed;

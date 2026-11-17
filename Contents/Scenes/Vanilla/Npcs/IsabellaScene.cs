@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
@@ -61,7 +61,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (Player.IsChild())
                 littleBabyPenis -= 1;
 
-            if ((OptionStore.Instance.Get("lowStandards", 0) > 0))
+            if ((OptionStore.Instance.Get("coc:lowStandards", 0) > 0))
                 littleBabyPenis += 3;
 
             return littleBabyPenis;

@@ -405,7 +405,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Plains
                 {
                     AddButton(1, "Common.Button.RideFace".Localized(), FemaleTakesAdvantageOfSatyr);
 
-                    if (Player.BiggestBreastSize() >= 4 && Player.Armor.Id == ArmorIds.LightMaidenArmor)
+                    if (Player.BiggestBreastSize() >= 4 && Player.Armor?.Id == ArmorIds.LightMaidenArmor)
                         AddButton(2, "Common.Button.RideFace".Localized(), LustyMaidenPaizuri);
                 }
             }

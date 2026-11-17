@@ -345,7 +345,7 @@ namespace MonoCoC.Contents.Creatures
         {
             var parts = new List<string>();
 
-            if (Armor != null && Armor != Armor.Nothing)
+            if (Armor is not null)
                 parts.Add(Armor.Name);
 
             if (!string.IsNullOrEmpty(UpperGarmentName) && UpperGarmentName != "nothing")
@@ -429,13 +429,13 @@ namespace MonoCoC.Contents.Creatures
 
             Inventory = new Inventory(this);
 
-            SetArmor(Armor.Nothing);
+            SetArmor(null);
 
             SetUnarmed();
 
-            SetShield(Shield.Nothing);
+            SetShield(null);
 
-            SetJewelry(Jewelry.Nothing);
+            SetJewelry(null);
 
             RebuildStorage();
         }
@@ -543,17 +543,166 @@ namespace MonoCoC.Contents.Creatures
 
         public List<string> PreviouslyWornClothes = [];
 
-        public Armor Armor = Armor.Nothing;
+        public Armor? Armor;
 
-        public Undergarment UpperGarment = Undergarment.Nothing;
+        public Undergarment? UpperGarment;
 
-        public Undergarment LowerGarment = Undergarment.Nothing;
+        public Undergarment? LowerGarment;
 
-        public Weapon Weapon = Weapon.Fists;
+        public const string Hand1Slot = "coc:hand_1";
 
-        public Shield Shield = Shield.Nothing;
+        public const string Hand2Slot = "coc:hand_2";
 
-        public Jewelry Jewelry = Jewelry.Nothing;
+        public static string HandSlotId(int hand) => $"coc:hand_{hand}";
+
+        public Item? GetHand(int hand) =>
+            ExtraEquipment.TryGetValue(HandSlotId(hand), out var item) ? item : null;
+
+        public Item? Hand1 => GetHand(1);
+
+        public Item? Hand2 => GetHand(2);
+
+        // 手数由装备容量决定（四只手种族通过 addHands 变成 4 个手槽）。
+        public int HandCount =>
+            MonoCoC.Contents.Equipment.EquipmentRules.Capacity(this).TryGetValue("hand", out var hands) ? hands : 0;
+
+        // 攻击用第一把武器（按手序），没有就空手。
+        public Weapon Weapon => FindHandWeapon() ?? GetUnarmedWeapon();
+
+        // 主盾（显示用）；格挡值在 SyncHandDerived 里把所有盾相加，支持双盾。
+        public Shield? Shield => FindHandShield();
+
+        private Weapon? FindHandWeapon()
+        {
+            for (var hand = 1; hand <= HandCount; hand++)
+                if (GetHand(hand) is Weapon weapon)
+                    return weapon;
+
+            return null;
+        }
+
+        private Shield? FindHandShield()
+        {
+            for (var hand = 1; hand <= HandCount; hand++)
+                if (GetHand(hand) is Shield shield)
+                    return shield;
+
+            return null;
+        }
+
+        private void RemoveHand(Item item)
+        {
+            for (var hand = 1; hand <= HandCount; hand++)
+            {
+                if (!ReferenceEquals(GetHand(hand), item))
+                    continue;
+
+                SetHand(hand, null);
+
+                return;
+            }
+        }
+
+        public Jewelry? Jewelry;
+
+        public HashSet<string> EquipmentTags = [];
+
+        public Dictionary<string, Item> ExtraEquipment = [];
+
+        public Item? GetEquipped(string kind) => kind switch
+        {
+            "weapon" => FindHandWeapon(),
+            "shield" => FindHandShield(),
+            "hand" => null,
+            "armor" => Armor,
+            "upper" => UpperGarment,
+            "lower" => LowerGarment,
+            "jewelry" => Jewelry,
+            _ => null
+        };
+
+        public Item? SetHand(int hand, Item? item)
+        {
+            var slotId = HandSlotId(hand);
+
+            ExtraEquipment.TryGetValue(slotId, out var previous);
+
+            if (item is null || item == Item.Nothing)
+                ExtraEquipment.Remove(slotId);
+            else
+                ExtraEquipment[slotId] = item;
+
+            return previous;
+        }
+
+        // 依次放进第一个空手；所有手都满就替换手 1。
+        private void PlaceInHand(Item item)
+        {
+            for (var hand = 1; hand <= HandCount; hand++)
+            {
+                var existing = GetHand(hand);
+
+                if (existing is null || existing == Item.Nothing)
+                {
+                    SetHand(hand, item);
+
+                    return;
+                }
+            }
+
+            SetHand(1, item);
+        }
+
+        // 手牌变化后同步派生战斗数值：武器取第一把，格挡取所有盾之和（允许双盾）。
+        public void SyncHandDerived()
+        {
+            var weapon = FindHandWeapon();
+
+            if (weapon is not null)
+            {
+                WeaponName = weapon.Name;
+
+                WeaponAttack = weapon.AttackFor(this);
+
+                WeaponAccuracy = weapon.Accuracy;
+
+                WeaponValue = weapon.Value;
+            }
+            else
+            {
+                WeaponName = "nothing";
+
+                WeaponAttack = 0;
+
+                WeaponAccuracy = 1;
+
+                WeaponValue = 0;
+            }
+
+            var shieldBlock = 0f;
+            var shieldValue = 0f;
+            var shieldName = "nothing";
+
+            for (var handIndex = 1; handIndex <= HandCount; handIndex++)
+            {
+                var hand = GetHand(handIndex);
+
+                if (hand is not Shield shield)
+                    continue;
+
+                shieldBlock += shield.Block;
+
+                shieldValue += shield.Value;
+
+                shieldName = shieldName == "nothing" ? shield.Name : shieldName + ", " + shield.Name;
+            }
+
+            ShieldName = shieldName;
+
+            ShieldBlock = shieldBlock;
+
+            ShieldValue = shieldValue;
+        }
 
         public virtual void NotifyRemove(Item item)
         {
@@ -567,95 +716,123 @@ namespace MonoCoC.Contents.Creatures
                 behavior.OnEquip(this, item);
         }
 
-        public virtual Armor SetArmor(Armor armor)
+        public virtual Item SetArmor(Armor? armor)
         {
-            var old = Armor.PlayerRemove();
+            var old = Armor is null ? Item.Nothing : Armor.PlayerRemove();
 
-            NotifyRemove(old);
+            if (old != Item.Nothing)
+                NotifyRemove(old);
 
-            armor ??= Armor.Nothing;
+            Armor = armor?.PlayerEquip();
 
-            Armor = armor.PlayerEquip();
+            if (Armor is not null)
+            {
+                NotifyEquip(Armor);
 
-            NotifyEquip(Armor);
+                ArmorName = Armor.Name;
 
-            ArmorName = Armor.Name;
+                ArmorDefense = Armor.DefenseFor(this);
 
-            ArmorDefense = Armor.DefenseFor(this);
+                ArmorValue = Armor.Value;
+            }
+            else
+            {
+                ArmorName = "nothing";
 
-            ArmorValue = Armor.Value;
+                ArmorDefense = 0;
+
+                ArmorValue = 0;
+            }
 
             return old;
         }
 
-        public virtual Weapon SetWeapon(Weapon weapon)
+        public virtual Item SetWeapon(Weapon? weapon)
         {
-            var old = Weapon.PlayerRemove();
+            var old = FindHandWeapon();
 
-            NotifyRemove(old);
+            if (old is not null)
+            {
+                NotifyRemove(old);
 
-            weapon ??= GetUnarmedWeapon();
+                RemoveHand(old);
+            }
 
-            Weapon = weapon.PlayerEquip();
+            if (weapon is not null)
+            {
+                var equipped = weapon.PlayerEquip();
 
-            NotifyEquip(Weapon);
+                NotifyEquip(equipped);
 
-            WeaponName = Weapon.Name;
+                PlaceInHand(equipped);
+            }
 
-            WeaponAttack = Weapon.AttackFor(this);
+            SyncHandDerived();
 
-            WeaponAccuracy = Weapon.Accuracy;
+            return old ?? Item.Nothing;
+        }
 
-            WeaponValue = Weapon.Value;
+        public virtual Item SetShield(Shield? shield)
+        {
+            var old = FindHandShield();
+
+            if (old is not null)
+            {
+                NotifyRemove(old);
+
+                RemoveHand(old);
+            }
+
+            if (shield is not null)
+            {
+                var equipped = shield.PlayerEquip();
+
+                NotifyEquip(equipped);
+
+                PlaceInHand(equipped);
+            }
+
+            SyncHandDerived();
+
+            return old ?? Item.Nothing;
+        }
+
+        public virtual Item SetJewelry(Jewelry? jewelry)
+        {
+            var old = Jewelry is null ? Item.Nothing : Jewelry.PlayerRemove();
+
+            if (old != Item.Nothing)
+                NotifyRemove(old);
+
+            Jewelry = jewelry?.PlayerEquip();
+
+            if (Jewelry is not null)
+            {
+                NotifyEquip(Jewelry);
+
+                JewelryName = Jewelry.Name;
+
+                JewelryEffectId = Jewelry.EffectId;
+
+                JewelryEffectMagnitude = Jewelry.EffectMagnitude;
+
+                JewelryValue = Jewelry.Value;
+            }
+            else
+            {
+                JewelryName = "nothing";
+
+                JewelryEffectId = 0;
+
+                JewelryEffectMagnitude = 0;
+
+                JewelryValue = 0;
+            }
 
             return old;
         }
 
-        public virtual Shield SetShield(Shield shield)
-        {
-            var old = Shield.PlayerRemove();
-
-            NotifyRemove(old);
-
-            shield ??= Shield.Nothing;
-
-            Shield = shield.PlayerEquip();
-
-            NotifyEquip(Shield);
-
-            ShieldName = Shield.Name;
-
-            ShieldBlock = Shield.Block;
-
-            ShieldValue = Shield.Value;
-
-            return old;
-        }
-
-        public virtual Jewelry SetJewelry(Jewelry jewelry)
-        {
-            var old = Jewelry.PlayerRemove();
-
-            NotifyRemove(old);
-
-            jewelry ??= Jewelry.Nothing;
-
-            Jewelry = jewelry.PlayerEquip();
-
-            NotifyEquip(Jewelry);
-
-            JewelryName = Jewelry.Name;
-
-            JewelryEffectId = Jewelry.EffectId;
-
-            JewelryEffectMagnitude = Jewelry.EffectMagnitude;
-
-            JewelryValue = Jewelry.Value;
-
-            return old;
-        }
-
-        public virtual Undergarment SetUndergarment(Undergarment undergarment, int typeOverride = -1)
+        public virtual Item SetUndergarment(Undergarment? undergarment, int typeOverride = -1)
         {
             var type = undergarment?.Type ?? Undergarment.TypeNone;
 
@@ -664,51 +841,71 @@ namespace MonoCoC.Contents.Creatures
 
             if (type == Undergarment.TypeUpperwear)
             {
-                var previous = UpperGarment.PlayerRemove();
+                var previous = UpperGarment is null ? Item.Nothing : UpperGarment.PlayerRemove();
 
-                NotifyRemove(previous);
+                if (previous != Item.Nothing)
+                    NotifyRemove(previous);
 
-                UpperGarment = (undergarment ?? Undergarment.Nothing).PlayerEquip();
+                UpperGarment = undergarment?.PlayerEquip();
 
-                NotifyEquip(UpperGarment);
+                if (UpperGarment is not null)
+                {
+                    NotifyEquip(UpperGarment);
 
-                UpperGarmentName = UpperGarment.Name;
+                    UpperGarmentName = UpperGarment.Name;
 
-                UpperGarmentValue = UpperGarment.Value;
+                    UpperGarmentValue = UpperGarment.Value;
+                }
+                else
+                {
+                    UpperGarmentName = "nothing";
+
+                    UpperGarmentValue = 0;
+                }
 
                 return previous;
             }
 
             if (type == Undergarment.TypeLowerwear)
             {
-                var previous = LowerGarment.PlayerRemove();
+                var previous = LowerGarment is null ? Item.Nothing : LowerGarment.PlayerRemove();
 
-                NotifyRemove(previous);
+                if (previous != Item.Nothing)
+                    NotifyRemove(previous);
 
-                LowerGarment = (undergarment ?? Undergarment.Nothing).PlayerEquip();
+                LowerGarment = undergarment?.PlayerEquip();
 
-                NotifyEquip(LowerGarment);
+                if (LowerGarment is not null)
+                {
+                    NotifyEquip(LowerGarment);
 
-                LowerGarmentName = LowerGarment.Name;
+                    LowerGarmentName = LowerGarment.Name;
 
-                LowerGarmentValue = LowerGarment.Value;
+                    LowerGarmentValue = LowerGarment.Value;
+                }
+                else
+                {
+                    LowerGarmentName = "nothing";
+
+                    LowerGarmentValue = 0;
+                }
 
                 return previous;
             }
 
-            return Undergarment.Nothing;
+            return Item.Nothing;
         }
 
-        public virtual Weapon SetUnarmed() => SetWeapon(GetUnarmedWeapon());
+        public virtual void SetUnarmed() => SetWeapon(null);
 
-        public virtual Weapon GetUnarmedWeapon() => HasClaws() ? Weapon.Claws : Weapon.Fists;
+        public virtual Weapon GetUnarmedWeapon() => HasClaws() ? MonoCoC.Contents.Combat.NaturalAttacks.Claws : MonoCoC.Contents.Combat.NaturalAttacks.Fists;
 
         // 原版 ClockwordShield.hx:56 boostsDodge(4)
         public override float GetEvasionChance()
         {
             var chance = base.GetEvasionChance();
 
-            if (Shield.Id.Path == "clockwork_shield")
+            if (Shield?.Id.Path == "clockwork_shield")
                 chance += 4;
 
             return chance;
@@ -748,10 +945,10 @@ namespace MonoCoC.Contents.Creatures
 
             var level = mastery?.Level ?? 0;
 
-            if (Weapon.Id.Path == Weapon.Fists.Id.Path)
+            if (Weapon.Id.Path == MonoCoC.Contents.Combat.NaturalAttacks.Fists.Id.Path)
                 return level >= 4;
 
-            if (Weapon.Id.Path == Weapon.Claws.Id.Path)
+            if (Weapon.Id.Path == MonoCoC.Contents.Combat.NaturalAttacks.Claws.Id.Path)
                 return level >= 3;
 
             return false;
@@ -832,35 +1029,35 @@ namespace MonoCoC.Contents.Creatures
 
         public virtual bool IsEquipped(Item item) =>
 
-            Armor.Id == item.Id || Weapon.Id == item.Id || Shield.Id == item.Id ||
+            Armor?.Id == item.Id || Weapon.Id == item.Id || Shield?.Id == item.Id ||
 
-            Jewelry.Id == item.Id || UpperGarment.Id == item.Id || LowerGarment.Id == item.Id;
+            Jewelry?.Id == item.Id || UpperGarment?.Id == item.Id || LowerGarment?.Id == item.Id;
 
         public virtual bool IsNaked() =>
 
-            (Armor == Armor.Nothing || Armor.Id == new Identifier("coc", "vine_armor")) &&
+            (Armor is null || Armor?.Id == new Identifier("coc", "vine_armor")) &&
 
-            UpperGarment == Undergarment.Nothing &&
+            UpperGarment is null &&
 
-            LowerGarment == Undergarment.Nothing;
+            LowerGarment is null;
 
         public virtual bool IsNakedUpper() =>
 
-            (Armor == Armor.Nothing || Armor.Id == new Identifier("coc", "vine_armor")) &&
+            (Armor is null || Armor?.Id == new Identifier("coc", "vine_armor")) &&
 
-            UpperGarment == Undergarment.Nothing;
+            UpperGarment is null;
 
         public virtual bool IsNakedLower() =>
 
-            ((Armor == Armor.Nothing ||
+            ((Armor is null ||
 
-              Armor.Id == new Identifier("coc", "vine_armor") ||
+              Armor?.Id == new Identifier("coc", "vine_armor") ||
 
-              Armor.Id == new Identifier("coc", "ivory_corset") ||
+              Armor?.Id == new Identifier("coc", "ivory_corset") ||
 
-              Armor.Id == new Identifier("coc", "cheer_outfit")) &&
+              Armor?.Id == new Identifier("coc", "cheer_outfit")) &&
 
-             LowerGarment == Undergarment.Nothing) ||
+             LowerGarment is null) ||
 
             IsTaur() ||
 
@@ -999,13 +1196,13 @@ namespace MonoCoC.Contents.Creatures
 
         public virtual bool InBondageClothes() =>
 
-            Armor.Id == new Identifier("coc", "bondage_straps") ||
+            Armor?.Id == new Identifier("coc", "bondage_straps") ||
 
-            Armor.Id == new Identifier("coc", "vine_armor");
+            Armor?.Id == new Identifier("coc", "vine_armor");
 
         public virtual bool HasUndergarments() =>
 
-            UpperGarment != Undergarment.Nothing || LowerGarment != Undergarment.Nothing;
+            UpperGarment is not null || LowerGarment is not null;
 
         public virtual void AddToWornClothes(Item armor)
         {
@@ -1664,21 +1861,21 @@ namespace MonoCoC.Contents.Creatures
 
         public virtual bool HasDress() =>
 
-            Armor.Id == new Identifier("coc", "maid_dress") ||
+            Armor?.Id == new Identifier("coc", "maid_dress") ||
 
-            Armor.Id == new Identifier("coc", "ballroom_dress") ||
+            Armor?.Id == new Identifier("coc", "ballroom_dress") ||
 
-            Armor.Id == new Identifier("coc", "ballet_dress") ||
+            Armor?.Id == new Identifier("coc", "ballet_dress") ||
 
-            Armor.Id == new Identifier("coc", "summer_dress") ||
+            Armor?.Id == new Identifier("coc", "summer_dress") ||
 
-            Armor.Id == new Identifier("coc", "silk_summer_dress") ||
+            Armor?.Id == new Identifier("coc", "silk_summer_dress") ||
 
-            Armor.Id == new Identifier("coc", "maid_silk_dress") ||
+            Armor?.Id == new Identifier("coc", "maid_silk_dress") ||
 
-            Armor.Id == new Identifier("coc", "nephila_gown") ||
+            Armor?.Id == new Identifier("coc", "nephila_gown") ||
 
-            Armor.Id == new Identifier("coc", "china_dress");
+            Armor?.Id == new Identifier("coc", "china_dress");
 
         public virtual string InventoryName() =>
 
@@ -1785,10 +1982,10 @@ namespace MonoCoC.Contents.Creatures
             var bonus = 0f;
 
             if (HasPerk(PerkIds.Agility) &&
-                (Armor.Perk == "Light" || Armor.Perk == "Adornment" || Armor == Armor.Nothing))
+                (Armor?.Perk == "Light" || Armor?.Perk == "Adornment" || Armor is null))
 
                 bonus = Speed / 8f;
-            else if (HasPerk(PerkIds.Agility) && Armor.Perk == "Medium")
+            else if (HasPerk(PerkIds.Agility) && Armor?.Perk == "Medium")
                 bonus = Speed / 13f;
 
             return Math.Min(15, bonus);
@@ -1812,7 +2009,7 @@ namespace MonoCoC.Contents.Creatures
             if (HasStatusEffect(StatusEffectIds.TFPlate))
                 bonus += StatusEffectValue(StatusEffectIds.TFPlate, 0);
 
-            if (HasPerk(PerkIds.Juggernaut) && Toughness >= 75 && Armor.Perk == "Heavy")
+            if (HasPerk(PerkIds.Juggernaut) && Toughness >= 75 && Armor?.Perk == "Heavy")
                 bonus += 10;
 
             bonus += GetAgiSpeedBonus();
@@ -2138,15 +2335,26 @@ namespace MonoCoC.Contents.Creatures
             if (!ItemIdMap.Resolve(value, out var id))
                 return fallback;
 
-            if (id == Weapon.Fists.Id)
-                return (T)(object)Weapon.Fists;
+            if (id == MonoCoC.Contents.Combat.NaturalAttacks.Fists.Id)
+                return (T)(object)MonoCoC.Contents.Combat.NaturalAttacks.Fists;
 
-            if (id == Weapon.Claws.Id)
-                return (T)(object)Weapon.Claws;
+            if (id == MonoCoC.Contents.Combat.NaturalAttacks.Claws.Id)
+                return (T)(object)MonoCoC.Contents.Combat.NaturalAttacks.Claws;
 
             var item = ItemRegistry.Create(id);
 
             return item as T ?? fallback;
+        }
+
+        public static T? ResolveEquipmentOrNull<T>(string value) where T : Item
+        {
+            if (!ItemIdMap.Resolve(value, out var id))
+                return null;
+
+            if (id.Path == "nothing")
+                return null;
+
+            return ItemRegistry.Create(id) as T;
         }
 
         public override void Save(JsonObject json)
@@ -2195,17 +2403,24 @@ namespace MonoCoC.Contents.Creatures
 
             json["unlockedItemStacks"] = UnlockedSlots;
 
-            json["armor"] = Armor == null ? "" : Armor.Id.ToString();
+            json["armor"] = Armor == null ? "" : Armor?.Id.ToString();
 
             json["upperGarment"] = UpperGarment == null ? "" : UpperGarment.Id.ToString();
 
             json["lowerGarment"] = LowerGarment == null ? "" : LowerGarment.Id.ToString();
 
-            json["weapon"] = Weapon == null ? "" : Weapon.Id.ToString();
+            json["weapon"] = (Hand1 as Weapon ?? Hand2 as Weapon)?.Id.ToString() ?? "";
 
             json["shield"] = Shield == null ? "" : Shield.Id.ToString();
 
             json["jewelry"] = Jewelry == null ? "" : Jewelry.Id.ToString();
+
+            var extraEquipmentJson = new JsonObject();
+
+            foreach (var pair in ExtraEquipment)
+                extraEquipmentJson[pair.Key] = pair.Value?.Id.ToString() ?? "";
+
+            json["extraEquipment"] = extraEquipmentJson;
 
             var itemSlotsJson = new JsonArray();
 
@@ -2321,39 +2536,50 @@ namespace MonoCoC.Contents.Creatures
 
             var armorId = json.TryGetValue("armor", out var armorValue) ? (string)armorValue : "";
 
-            Armor = ResolveEquipment(armorId, Armor.Nothing);
+            Armor = ResolveEquipmentOrNull<Armor>(armorId);
 
             var upperGarmentId = json.TryGetValue("upperGarment", out var upperGarmentValue) ? (string)upperGarmentValue : "";
 
-            UpperGarment = ResolveEquipment(upperGarmentId, Undergarment.Nothing);
+            UpperGarment = ResolveEquipmentOrNull<Undergarment>(upperGarmentId);
 
             var lowerGarmentId = json.TryGetValue("lowerGarment", out var lowerGarmentValue) ? (string)lowerGarmentValue : "";
 
-            LowerGarment = ResolveEquipment(lowerGarmentId, Undergarment.Nothing);
+            LowerGarment = ResolveEquipmentOrNull<Undergarment>(lowerGarmentId);
 
             var weaponId = json.TryGetValue("weapon", out var weaponValue) ? (string)weaponValue : "";
 
-            Weapon = ResolveEquipment(weaponId, Weapon.Fists);
-
             var shieldId = json.TryGetValue("shield", out var shieldValue) ? (string)shieldValue : "";
-
-            Shield = ResolveEquipment(shieldId, Shield.Nothing);
 
             var jewelryId = json.TryGetValue("jewelry", out var jewelryValue) ? (string)jewelryValue : "";
 
-            Jewelry = ResolveEquipment(jewelryId, Jewelry.Nothing);
+            Jewelry = ResolveEquipmentOrNull<Jewelry>(jewelryId);
+
+            ExtraEquipment.Clear();
+
+            if (json.TryGetValue("extraEquipment", out var extraValue) && extraValue is JsonObject extraJson)
+                foreach (var pair in extraJson)
+                    ExtraEquipment[pair.Key] = ResolveEquipment(pair.Value?.ToString() ?? "", Item.Nothing);
+
+            // 手牌就是 extra 槽 coc:hand_1 / coc:hand_2；旧存档只有 weapon/shield 字段，搬进来。
+            var savedWeapon = ResolveEquipmentOrNull<Weapon>(weaponId);
+
+            if (savedWeapon is not null && !ExtraEquipment.ContainsKey(Hand1Slot))
+                ExtraEquipment[Hand1Slot] = savedWeapon;
+
+            var savedShield = ResolveEquipmentOrNull<Shield>(shieldId);
+
+            if (savedShield is not null && !ExtraEquipment.ContainsKey(Hand2Slot))
+                ExtraEquipment[Hand2Slot] = savedShield;
 
             SetArmor(Armor);
-
-            SetWeapon(Weapon);
-
-            SetShield(Shield);
 
             SetJewelry(Jewelry);
 
             SetUndergarment(UpperGarment, Undergarment.TypeUpperwear);
 
             SetUndergarment(LowerGarment, Undergarment.TypeLowerwear);
+
+            SyncHandDerived();
 
             UpdateUnarmed();
 

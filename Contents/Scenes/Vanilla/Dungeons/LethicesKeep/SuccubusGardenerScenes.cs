@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Combat;
@@ -112,7 +112,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Dungeons.LethicesKeep
                 OutputText("Scenes.Succubusgardenerscenes.TentaFail.PerhapsScyllaCould".Localized());
             else
 
-                if (SceneInstance<Dominika>.Get().FellatrixSucked())
+                if (Dominika.FellatrixSucked())
                     OutputText("Scenes.Succubusgardenerscenes.TentaFail.PerhapsDominikaCould".Localized());
 
             OutputText("Scenes.Succubusgardenerscenes.TentaFail.GrabBlubberingDemoness".Localized());

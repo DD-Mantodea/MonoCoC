@@ -37,7 +37,7 @@ namespace MonoCoC.Contents.Items.Effects.Vanilla
 
                         context.Write("Items.SlimyCloth.VineHolliRealization".Localized());
 
-                    player.SetArmor(Armor.Nothing);
+                    player.SetArmor(null);
 
                     armor.Stage = 1;
 

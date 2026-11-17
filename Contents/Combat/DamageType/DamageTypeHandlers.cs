@@ -11,7 +11,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            var vineArmor = player.Armor != null && player.Armor.Id.Path == "vine_armor";
+            var vineArmor = player.Armor != null && player.Armor?.Id.Path == "vine_armor";
 
             if (!vineArmor && player.DryadScore() < 4)
                 return;

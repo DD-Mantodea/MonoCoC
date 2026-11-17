@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Flags;
@@ -125,7 +125,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     }
                 }
 
-                if (OptionStore.Instance.Get("urtaDisabled", 0) > 0)
+                if (OptionStore.Instance.Get("coc:urtaDisabled", 0) > 0)
                     return ;
 
                 if (CoC.Instance.Flags.Get(GameFlagIds.NumberOfTimesMetScylla) < 3)

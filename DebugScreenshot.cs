@@ -36,7 +36,7 @@ namespace MonoCoC
 
                 texture.SetData(data);
 
-                System.IO.Directory.CreateDirectory(DirectoryPath);
+                Directory.CreateDirectory(DirectoryPath);
 
                 var path = Path.Combine(
                     DirectoryPath,

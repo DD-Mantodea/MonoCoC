@@ -9,6 +9,13 @@ namespace MonoCoC.Contents.Items
     {
         public Action<Item>? UseAction;
 
+        public override void RegisterInteractions(ItemInteractionMenu menu, ItemInteractionContext context)
+        {
+            ItemInteractions.RegisterUse(menu, context);
+
+            base.RegisterInteractions(menu, context);
+        }
+
         public override bool CanUse() => UseAction != null;
 
         public override bool UseItem()

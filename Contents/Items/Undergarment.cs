@@ -7,9 +7,14 @@ namespace MonoCoC.Contents.Items
     [Register<Undergarment>("coc:undergarment")]
     public class Undergarment : Item
     {
-        public static new readonly Undergarment Nothing = new() { Id = new Identifier("coc", "nothing"), Name = "nothing", LongName = "nothing" };
-
         public const int TypeNone = 0;
+
+        public override void RegisterInteractions(ItemInteractionMenu menu, ItemInteractionContext context)
+        {
+            ItemInteractions.RegisterEquip(menu, context);
+
+            base.RegisterInteractions(menu, context);
+        }
 
         public const int TypeUpperwear = 1;
 

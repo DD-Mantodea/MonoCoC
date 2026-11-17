@@ -34,4 +34,9 @@
 	<ItemGroup>
 	  <Folder Include="Graphics\Materials\" />
 	</ItemGroup>
+	<ItemGroup>
+		<!-- 独立 dump 分析工具，不属于游戏工程 -->
+		<Compile Remove="Tools\DumpAnalyze\**\*.cs" />
+		<None Remove="Tools\DumpAnalyze\**\*.*" />
+	</ItemGroup>
 </Project>

@@ -1,0 +1,6 @@
+{
+  id: "modes"
+  label: "Views.CharCreation.Tab.Modes"
+  panel: "creation.panel.modes"
+  order: 50
+}

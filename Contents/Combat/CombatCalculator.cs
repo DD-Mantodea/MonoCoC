@@ -249,7 +249,7 @@ namespace MonoCoC.Contents.Combat
             var damage = raw * DamagePercent(context, defender) / 100f * attacker.PhysMod();
 
             // 原版 UnarmedClaws.hx:63 get_armorMod()：自然武器 perk 下的爪类护甲穿透
-            if (attacker is Player clawPlayer && clawPlayer.Weapon.Id == Weapon.Claws.Id)
+            if (attacker is Player clawPlayer && clawPlayer.Weapon.Id == MonoCoC.Contents.Combat.NaturalAttacks.Claws.Id)
                 damage *= Items.Behaviors.Vanilla.UnarmedClawsBehavior.ArmorMod(clawPlayer);
 
             if (context.Random.NextDouble() < CriticalChance(attacker))

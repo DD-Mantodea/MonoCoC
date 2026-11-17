@@ -1,4 +1,4 @@
-using MonoCoC.Contents.BodyParts.Vanilla;
+﻿using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Flags;
 using MonoCoC.Contents.Stats;
@@ -171,7 +171,7 @@ namespace MonoCoC.Contents.Items.Effects.Vanilla
                 mutations.Changes += 1;
             }
 
-            if (!(OptionStore.Instance.Get("hyper", 0) > 0))
+            if (!(OptionStore.Instance.Get("coc:hyper", 0) > 0))
             {
                 if (vaginas.Count > 0)
                 {

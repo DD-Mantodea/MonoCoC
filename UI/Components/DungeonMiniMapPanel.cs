@@ -8,8 +8,8 @@ using MonoCoC.UI.Framework;
 
 namespace MonoCoC.UI.Components
 {
-    // 鍘熺増 MinimapView.minidungeonMap锛?2px 鐡︾墖锛堝師鐗?TILE_WIDTH * 0.8锛夛紝
-    // 浠ョ帺瀹朵负涓績瑁佸垏锛屽簳鏉跨敤 minimapBackground銆?
+    // 原版 MinimapView.minidungeonMap：32px 瓦片（原版 TILE_WIDTH * 0.8），
+    // 以玩家为中心裁切，底板用 minimapBackground。
     public class DungeonMiniMapPanel : Component
     {
         private const int TileSize = 32;
@@ -20,7 +20,7 @@ namespace MonoCoC.UI.Components
 
         public DungeonMiniMapPanel()
         {
-            BackgroundColor = new Color(10, 10, 10, 160);
+            BackgroundColor = UIComponentStyles.DungeonMiniMap.Background;
 
             Visible = false;
 
@@ -55,7 +55,7 @@ namespace MonoCoC.UI.Components
             if (_panel != null)
                 spriteBatch.Draw(_panel, Position.BuildRect(Width, Height), Color.White * Alpha);
 
-            // 浠ョ帺瀹朵负涓績
+            // 以玩家为中心
             var originX = Position.X + Width / 2f - TileSize / 2f - _context.X * TileSize;
 
             var originY = Position.Y + Height / 2f - TileSize / 2f - _context.Y * TileSize;

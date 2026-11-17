@@ -73,7 +73,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 || (player.HasPerk(PerkIds.Evade) && Random.Shared.Next(4) == 0)
 
-                || (player.HasPerk(PerkIds.Misdirection) && Random.Shared.Next(4) == 0 && player.Armor.Name == "red, high-society bodysuit");
+                || (player.HasPerk(PerkIds.Misdirection) && Random.Shared.Next(4) == 0 && player.Armor?.Name == "red, high-society bodysuit");
 
             if (avoided)
             {
@@ -235,7 +235,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 case 1:
                     context.Write(player.BiggestBreastSize() >= 1 ? player.AllBreastsDescript() : "Common.Text.Chest".Localized());
 
-                    damage = Math.Max(0, 9 - player.Armor.DefenseFor(player));
+                    damage = Math.Max(0, 9 - (player.Armor?.DefenseFor(player) ?? 0));
 
                     if (damage <= 0) context.Write("Common.Text.ButYouFeelNoPainThanks".Localized());
                     lustDamage = 4 + player.Sensitivity / 15;
@@ -246,9 +246,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 {
                     var groinProtection = 0;
 
-                    if (player.Armor.Id.Path != "nothing")
+                    if (player.Armor?.Id.Path != "nothing")
                     {
-                        groinProtection = player.Armor.Perk switch
+                        groinProtection = player.Armor?.Perk switch
                         {
                             "Light" => 1,
 
@@ -257,13 +257,13 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                             _ => 3
                         };
 
-                        if (player.Armor.Id.Path is "bee_armor" or "silk_armor" or "dbarmor" or "tbarmor" or "goo_armor")
+                        if (player.Armor?.Id.Path is "bee_armor" or "silk_armor" or "dbarmor" or "tbarmor" or "goo_armor")
                             groinProtection = 2;
                     }
 
-                    if (player.LowerGarment.Id.Path is "ss_loin" or "ss_panty")
+                    if (player.LowerGarment?.Id.Path is "ss_loin" or "ss_panty")
                         groinProtection += 1;
-                    else if (player.LowerGarment.Id.Path is "ds_loin" or "ds_thong")
+                    else if (player.LowerGarment?.Id.Path is "ds_loin" or "ds_thong")
                         groinProtection += 2;
 
                     if (groinProtection >= 3)
@@ -449,7 +449,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 || (player.HasPerk(PerkIds.Evade) && Random.Shared.Next(3) == 0)
 
-                || (player.HasPerk(PerkIds.Misdirection) && Random.Shared.Next(4) == 0 && player.Armor.Name == "red, high-society bodysuit");
+                || (player.HasPerk(PerkIds.Misdirection) && Random.Shared.Next(4) == 0 && player.Armor?.Name == "red, high-society bodysuit");
 
             if (avoided)
             {

@@ -1,0 +1,10 @@
+﻿{
+  pane: controls
+  kind: controls
+  order: 25
+  global: true
+  title: "View.Options.Controls.Title"
+  description: "View.Options.Controls.Description"
+  button: "View.Options.Tab.Controls"
+  settings: []
+}

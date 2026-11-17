@@ -1,0 +1,60 @@
+﻿{
+  pane: npc
+  order: 40
+  global: false
+  title: "View.Options.Pane.Npc.Title"
+  button: "View.Options.Tab.NPC"
+  description: "View.Options.Pane.Npc.Desc"
+
+  settings: [
+    {
+      id: "coc:lowStandards"
+      label: "View.Options.Setting.LowStandards"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.LowStandardsOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.LowStandardsOff" }
+      ]
+    }
+    {
+      id: "coc:shouldraChild"
+      label: "View.Options.Setting.Shouldra"
+      desc: "View.Options.Desc.Shouldra"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.Option.Child" }
+        { value: 0, label: "View.Options.Option.YoungWoman" }
+      ]
+    }
+    {
+      id: "coc:gargoyleChild"
+      label: "View.Options.Setting.Gargoyle"
+      desc: "View.Options.Desc.Gargoyle"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.Option.Child" }
+        { value: 0, label: "View.Options.Option.Mature" }
+      ]
+    }
+    {
+      id: "coc:genericLoliShota"
+      label: "View.Options.Setting.GenericNpcs"
+      desc: "View.Options.Desc.GenericNpcs"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.Option.MoreKids" }
+        { value: 0, label: "View.Options.Option.Normal" }
+      ]
+    }
+    {
+      id: "coc:urtaDisabled"
+      label: "View.Options.Setting.Urta"
+      desc: "View.Options.Desc.Urta"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.Option.DoesNotExist" }
+        { value: 0, label: "View.Options.Option.Exists" }
+      ]
+    }
+  ]
+}

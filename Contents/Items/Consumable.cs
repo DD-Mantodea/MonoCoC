@@ -15,6 +15,13 @@ namespace MonoCoC.Contents.Items
 
         public override bool UseItem() => false;
 
+        public override void RegisterInteractions(ItemInteractionMenu menu, ItemInteractionContext context)
+        {
+            ItemInteractions.RegisterUse(menu, context);
+
+            base.RegisterInteractions(menu, context);
+        }
+
         public bool UseItem(ItemUseContext context)
         {
             if (Effects.Count == 0)

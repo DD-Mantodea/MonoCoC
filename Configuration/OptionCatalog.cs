@@ -1,4 +1,4 @@
-using Hjson;
+﻿using Hjson;
 using MonoCoC.Assets;
 using MonoCoC.Registry;
 using System;
@@ -17,12 +17,12 @@ namespace MonoCoC.Configuration
 
             Array.Sort(files, StringComparer.OrdinalIgnoreCase);
 
-            foreach (var file in files)
+            for (var fileIndex = 0; fileIndex < files.Length; fileIndex++)
                 try
                 {
-                    var root = (JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(file));
+                    var root = (JsonObject)MonoCoC.HjsonParser.Parse(File.ReadAllText(files[fileIndex]));
 
-                    var pane = ParsePane(root, optionNamespace);
+                    var pane = ParsePane(root, optionNamespace, fileIndex * 10);
 
                     if (pane != null)
                         panes.Add(pane);
@@ -32,10 +32,12 @@ namespace MonoCoC.Configuration
                     // Ignore broken option files so a bad mod cannot break startup.
                 }
 
+            panes.Sort((left, right) => left.Order.CompareTo(right.Order));
+
             return panes;
         }
 
-        private static OptionPaneDefinition? ParsePane(JsonObject root, string optionNamespace)
+        private static OptionPaneDefinition? ParsePane(JsonObject root, string optionNamespace, int defaultOrder)
         {
             var pane = new OptionPaneDefinition
             {
@@ -47,7 +49,11 @@ namespace MonoCoC.Configuration
 
                 ButtonKey = Str(root, "button"),
 
-                Global = Bool(root, "global")
+                Global = Bool(root, "global"),
+
+                Kind = Str(root, "kind"),
+
+                Order = root.TryGetValue("order", out var orderValue) ? Int(root, "order") : defaultOrder
             };
 
             if (pane.Id == "")
@@ -75,10 +81,15 @@ namespace MonoCoC.Configuration
 
                         Source = Str(entry, "source"),
 
+                        Control = Str(entry, "control"),
+
                         OverridesLabel = Bool(entry, "overridesLabel"),
 
                         DefaultValue = Int(entry, "default")
                     };
+
+                    if (entry.TryGetValue("sub", out var subValue) && subValue is JsonObject subPage)
+                        setting.SubPage = subPage;
 
                     if (entry.TryGetValue("values", out var values) && values is JsonArray valueArray)
                         foreach (var valueItem in valueArray)

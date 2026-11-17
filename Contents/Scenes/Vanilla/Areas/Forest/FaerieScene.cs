@@ -93,7 +93,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
             RegisterMacros();
 
-            if (Silly && Player.HpPercent < 50 && Player.Armor.Id == ArmorIds.KokiriClothes)
+            if (Silly && Player.HpPercent < 50 && Player.Armor?.Id == ArmorIds.KokiriClothes)
             {
                 HeyListen();
 
@@ -814,10 +814,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
                 Player.ApplyStats(new DynStat(GameStats.Libido, -.5f));
 
-                if (!Player.HasStatusEffect(StatusEffectIds.Jizzpants) && Player.Armor.LongName != "nothing" && Player.Armor.Id != ArmorIds.GooArmor)
+                if (!Player.HasStatusEffect(StatusEffectIds.Jizzpants) && Player.Armor?.LongName != "nothing" && Player.Armor?.Id != ArmorIds.GooArmor)
                     Player.CreateStatusEffect(StatusEffectIds.Jizzpants, 1, 0, 0, 0);
 
-                if (Player.Armor.Id == ArmorIds.GooArmor)
+                if (Player.Armor?.Id == ArmorIds.GooArmor)
                     OutputText("Scenes.Faerie.FaerieCaptureHJ.JizzAbsorbed".Localized());
             }
 

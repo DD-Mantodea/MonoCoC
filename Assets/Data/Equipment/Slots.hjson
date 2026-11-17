@@ -1,0 +1,23 @@
+{
+  // 基础手数（种族的 addHands 在 Patches.hjson 里叠加）。手牌槽由数量自动生成，
+  // 不在这里静态写死，四只手/多手种族只是容量不同。
+  hands: 2
+  areas: [
+    { id: "top", x: 355, y: 0, width: 220, height: 80 }
+    { id: "jewelry_extra", x: 20, y: 0, width: 220, height: 80 }
+    { id: "dual_offhand", x: 690, y: 0, width: 220, height: 80 }
+    { id: "left", x: 20, y: 84, width: 220, height: 80 }
+    { id: "center", x: 355, y: 92, width: 220, height: 80 }
+    { id: "right", x: 690, y: 84, width: 220, height: 80 }
+    { id: "bottom", x: 180, y: 176, width: 580, height: 80 }
+    { id: "extra_left", x: 20, y: 260, width: 220, height: 80 }
+    { id: "tail", x: 355, y: 260, width: 220, height: 80 }
+    { id: "extra_right", x: 690, y: 260, width: 220, height: 80 }
+  ]
+  slots: [
+    { id: "coc:jewelry", kind: "jewelry", area: "top", order: 0, label: "Scenes.Inventory.Slot.Jewelry", slotIcon: "Icons/inventory_jewelry.svg", accepts: ["coc:jewelry"], capacity: { jewelry: 1 } }
+    { id: "coc:armor", kind: "armor", area: "center", order: 0, label: "Scenes.Inventory.Slot.Armor", slotIcon: "Icons/inventory_armor.svg", accepts: ["coc:armor"], capacity: { armor: 1 } }
+    { id: "coc:upper", kind: "upper", area: "bottom", order: 0, label: "Scenes.Inventory.Slot.UpperGarment", slotIcon: "Icons/inventory_undergarment.svg", accepts: ["coc:undergarment"], capacity: { upper: 1 } }
+    { id: "coc:lower", kind: "lower", area: "bottom", order: 1, label: "Scenes.Inventory.Slot.LowerGarment", slotIcon: "Icons/inventory_undergarment.svg", accepts: ["coc:undergarment"], capacity: { lower: 1 } }
+  ]
+}

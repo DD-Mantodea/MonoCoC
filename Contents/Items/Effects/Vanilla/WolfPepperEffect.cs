@@ -1,4 +1,4 @@
-using MonoCoC.Contents.BodyParts.Vanilla;
+﻿using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Configuration;
@@ -399,7 +399,7 @@ namespace MonoCoC.Contents.Items.Effects.Vanilla
             }
 
             if (mutations.Changes < mutations.ChangeLimit && TrueOnceInN(random, 3)
-                && !(OptionStore.Instance.Get("hyper", 0) > 0))
+                && !(OptionStore.Instance.Get("coc:hyper", 0) > 0))
             {
                 var threshold = 0f;
 

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using MonoCoC.UI.Framework;
@@ -56,9 +56,10 @@ namespace MonoCoC.UI.Components
 
         private bool _dirty = true;
 
-        public override void Update(GameTime gameTime)
+        public override void PerformLayout(GameTime gameTime)
         {
-            base.Update(gameTime);
+            // 子组件先完成尺寸测量，再根据它们计算轨道与自身大小。
+            base.PerformLayout(gameTime);
 
             if (AutoSize)
             {
@@ -68,9 +69,9 @@ namespace MonoCoC.UI.Components
                     LayoutData.Size = desired;
             }
 
-            // Auto tracks depend on child content sizes, which can change when
-            // labels use autoSize. Recompute the cheap track table per frame.
             _dirty = true;
+
+            EnsureTracks();
         }
 
         public void ResizeToFit()

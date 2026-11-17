@@ -670,9 +670,9 @@ namespace MonoCoC.Contents.Mutations
 
             // 原版 :659 穿附魔海衬衫时禁止改变鳃（人鱼例外）
             if (newGillType != 3
-                && player.UpperGarment.Id == Items.UndergarmentIds.SeaShirt
+                && player.UpperGarment?.Id == Items.UndergarmentIds.SeaShirt
 
-                && player.UpperGarment.Save.GetBool("enchanted"))
+                && player.UpperGarment?.Save.GetBool("enchanted") == true)
 
                 return 0;
 

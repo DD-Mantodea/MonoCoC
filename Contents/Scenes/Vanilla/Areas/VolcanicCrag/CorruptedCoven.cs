@@ -380,7 +380,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.VolcanicCrag
 
             AddNextButton("Common.Button.Religious".Localized(), () => AnswerWine(3));
 
-            AddNextButton("Scenes.Options.Setting.Underage".Localized(), () => AnswerWine(4));
+            AddNextButton("View.Options.Setting.Underage".Localized(), () => AnswerWine(4));
         }
 
         public void AnswerWine(int answer)
@@ -1227,7 +1227,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.VolcanicCrag
                 AddNextButton("Common.Button.Teladre".Localized(), () => TalkAbout(TALKED_TELADRE_WIZARDS));
 
             if (CoC.Instance.Flags.Get(GameFlagIds.GarCathedral) > 0)
-                AddNextButton("Scenes.Options.Setting.Gargoyle".Localized(), () => TalkAbout(TALKED_GARGOYLE));
+                AddNextButton("View.Options.Setting.Gargoyle".Localized(), () => TalkAbout(TALKED_GARGOYLE));
 
             if (Player.HasPerk(PerkIds.MagicalVirility) || Player.HasPerk(PerkIds.MagicalFertility))
                 AddNextButton("Common.Button.SandWitches".Localized(), () => TalkAbout(TALKED_SANDWITCH_BLESS));

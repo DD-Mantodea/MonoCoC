@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoCoC.Assets;
 using MonoCoC.Extensions;
@@ -314,6 +314,12 @@ namespace MonoCoC.UI.Components
             if (Math.Abs(_visualOffset) < 0.001f)
                 _visualOffset = 0;
 
+        }
+
+        public override void PerformLayout(GameTime gameTime)
+        {
+            base.PerformLayout(gameTime);
+
             UpdateItems();
         }
 
@@ -374,8 +380,7 @@ namespace MonoCoC.UI.Components
 
                 button.Label.LayoutData.Alpha = alpha;
 
-                if (button.Background is not null)
-                    button.Background.LayoutData.Alpha = alpha;
+                button.Background?.LayoutData.Alpha = alpha;
 
                 button.RefreshVisual();
 

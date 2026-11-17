@@ -1278,7 +1278,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             OutputText("Scenes.Camp.Actions.SwimIntro".Localized());
 
-            OutputText(Player.Armor.Name == "slutty swimwear" ? "Scenes.Camp.Actions.SwimSwimwear".Localized() : "Scenes.Camp.Actions.SwimStrip".Localized());
+            OutputText(Player.Armor?.Name == "slutty swimwear" ? "Scenes.Camp.Actions.SwimSwimwear".Localized() : "Scenes.Camp.Actions.SwimStrip".Localized());
 
             OutputText("Scenes.Camp.Actions.SwimDeepIntro".Localized());
 
@@ -1487,10 +1487,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 multiplier *= 0.75f;
             }
 
-            if (Player.Armor.Id.Path == "goo_armor" && Flags.Get(GameFlagIds.ValeriaFluids) <= 0)
+            if (Player.Armor?.Id.Path == "goo_armor" && Flags.Get(GameFlagIds.ValeriaFluids) <= 0)
                 OutputText("Common.Text.YouFeelTheFluidStarvedGoo".Localized());
 
-            if (Player.Armor.Id.Path == "tentacle_bark")
+            if (Player.Armor?.Id.Path == "tentacle_bark")
             {
                 OutputText("Scenes.Camp.SleepRecovery.LivingTentaclesTease".Localized());
 
@@ -1710,7 +1710,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 pop += SceneInstance<IsabellaScene>.Get().TotalIsabellaChildren();
 
             // 原版 :3511 穿着 Valeria（goo armor）时她也算一个人
-            if (Player.Armor.Id == ArmorIds.GooArmor)
+            if (Player.Armor?.Id == ArmorIds.GooArmor)
                 pop += 1;
 
             if (Flags.Get(GameFlagIds.ClaraImprisoned) > 0)
@@ -2080,25 +2080,25 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             if (dungeonsCleared >= 7) Award("dungeon_delver_master");
 
             // Fashion
-            if (player.Armor.Id.Path == "wizard_robes" && player.Weapon.Id.Path == "wizard_staff")
+            if (player.Armor?.Id.Path == "wizard_robes" && player.Weapon.Id.Path == "wizard_staff")
                 Award("fashion_wannabe_wizard");
 
             if (player.PreviouslyWornClothes.Count >= 10)
                 Award("fashion_cosplayer");
 
-            if (player.Armor.Id.Path is "fetish_wear" or "bondage_straps" or "nurse_outfit"
+            if (player.Armor?.Id.Path is "fetish_wear" or "bondage_straps" or "nurse_outfit"
                 && player.Weapon.Id.Path is "riding_crop" or "whip" or "succubus_whip" or "lethices_whip")
 
                 Award("fashion_dominatrix");
 
-            if (player.Armor.Id.Path != "nothing"
-                && player.LowerGarment.Id.Path == "nothing"
+            if (player.Armor?.Id.Path != "nothing"
+                && player.LowerGarment?.Id.Path == "nothing"
 
-                && player.UpperGarment.Id.Path == "nothing")
+                && player.UpperGarment?.Id.Path == "nothing")
 
                 Award("fashion_going_commando");
 
-            if (player.Jewelry.Value >= 1000)
+            if (player.Jewelry?.Value >= 1000)
                 Award("fashion_bling_bling");
 
             // Wealth
@@ -2160,7 +2160,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             if (flags.Get(GameFlagIds.TimesMasturbated) >= 100)
                 Award("general_fapster");
 
-            if (player.Armor.Id.Path == "goo_armor")
+            if (player.Armor?.Id.Path == "goo_armor")
                 Award("goo_armor");
 
             if (SceneInstance<HelSpawnScene>.Get().HelspawnFollower())
@@ -2358,13 +2358,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                 Flags.Set(GameFlagIds.ModSaveVersion, 6);
 
                 // 原版被重分类的三件装备里，C# 数据只剩毛皮缠腰布
-                if (Player.Armor.Id.Path == "fur_loincloth")
+                if (Player.Armor?.Id.Path == "fur_loincloth")
                 {
                     ClearOutput();
 
                     OutputText("Scenes.Camp.PromptSaveUpdate.Reclassified".Localized());
 
-                    var removed = Player.SetArmor(Armor.Nothing);
+                    var removed = Player.SetArmor(null);
 
                     Player.Inventory.Add(removed, 1);
 
@@ -2384,7 +2384,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
                 Flags.Set(GameFlagIds.CorruptedGladesDestroyed, 0);
 
-                if (Player.Armor.Id.Path == "goo_armor")
+                if (Player.Armor?.Id.Path == "goo_armor")
                     Flags.Set(GameFlagIds.ValeriaFluids, 100);
 
                 Flags.Set(GameFlagIds.ModSaveVersion, 7);
@@ -2720,9 +2720,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
         public static bool HasBeeCock => Player.Cocks.Exists(cock => cock.Id == new Identifier("coc", "bee"));
 
-        public static bool IsGooArmor => Player.Armor.Id == ArmorIds.GooArmor;
+        public static bool IsGooArmor => Player.Armor?.Id == ArmorIds.GooArmor;
 
-        public static bool IsTentacleBarkArmor => Player.Armor.Id == ArmorIds.TentacleBarkArmor;
+        public static bool IsTentacleBarkArmor => Player.Armor?.Id == ArmorIds.TentacleBarkArmor;
 
         public static string HourText(int hours) => hours == 1 ? "1 hour" : hours + "Common.Text.Hours".Localized();
 

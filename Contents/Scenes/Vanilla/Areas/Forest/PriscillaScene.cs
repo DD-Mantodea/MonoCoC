@@ -1264,7 +1264,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
             else
             {
                 OutputText("Scenes.Priscillascene.GatsGoblinBoners.TellFuckEarsPerk".Localized(
-                    Player.ClothedOrNakedLower("You open up your [armorname]" + ((Player.Armor.LongName != "nothing" && Player.LowerGarment.Name != "nothing") ? " and [lowergarment]" : "") + ", revealing your [cocks].", "")
+                    Player.ClothedOrNakedLower("You open up your [armorname]" + ((Player.Armor?.LongName != "nothing" && Player.LowerGarment?.Name != "nothing") ? " and [lowergarment]" : "") + ", revealing your [cocks].", "")
                 ));
 
                 OutputText("Scenes.Priscillascene.GatsGoblinBoners.FondleCockAgain".Localized());

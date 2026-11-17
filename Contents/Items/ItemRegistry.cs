@@ -102,11 +102,11 @@ namespace MonoCoC.Contents.Items
             if (id == Item.Nothing.Id)
                 return Item.Nothing;
 
-            if (id == Weapon.Fists.Id)
-                return Weapon.Fists;
+            if (id == MonoCoC.Contents.Combat.NaturalAttacks.Fists.Id)
+                return MonoCoC.Contents.Combat.NaturalAttacks.Fists;
 
-            if (id == Weapon.Claws.Id)
-                return Weapon.Claws;
+            if (id == MonoCoC.Contents.Combat.NaturalAttacks.Claws.Id)
+                return MonoCoC.Contents.Combat.NaturalAttacks.Claws;
 
             return Create(id);
         }

@@ -19,20 +19,14 @@ namespace MonoCoC.UI.Components.Views
         [UIEvent("main.options")]
         private static void OpenOptions()
         {
-            Options.OnStart = null;
-
-            Combat.PlayerStats.HiddenByMenu = true;
-
-            Options.OnBack = () =>
+            var view = new OptionsView
             {
-                Combat.PlayerStats.HiddenByMenu = false;
-
-                UIManager.Instance.Root.SwitchView(new MainView());
+                OnBack = () => UIManager.Instance.Root.SwitchView(new MainView())
             };
 
-            UIManager.Instance.Root.SwitchView(new CampView());
+            UIManager.Instance.Root.SwitchView(view);
 
-            Scene.Go(SceneInstance<Options>.Instance);
+            OptionsView.Open();
         }
 
         [UIEvent("main.new_game")]
@@ -77,11 +71,9 @@ namespace MonoCoC.UI.Components.Views
         [UIEvent("main.load_game")]
         private static void OpenData()
         {
-            Combat.PlayerStats.HiddenByMenu = true;
-
             SaveLoad.FromMainMenu = true;
 
-            UIManager.Instance.Root.SwitchView(new CampView());
+            UIManager.Instance.Root.SwitchView(new SaveLoadView());
 
             Scene.Go(SceneInstance<SaveLoad>.Instance);
         }
@@ -89,32 +81,18 @@ namespace MonoCoC.UI.Components.Views
         [UIEvent("main.achievements")]
         private static void OpenAchievements()
         {
-            Combat.PlayerStats.HiddenByMenu = true;
-
-            UIManager.Instance.Root.SwitchView(new CampView());
+            UIManager.Instance.Root.SwitchView(new AchievementsView());
 
             Scene.Go(SceneInstance<AchievementsScene>.Instance);
         }
 
         [UIEvent("main.instructions")]
-        private static void OpenInstructions()
-        {
-            Combat.PlayerStats.HiddenByMenu = true;
-
-            UIManager.Instance.Root.SwitchView(new CampView());
-
-            Scene.Go(SceneInstance<InstructionsScene>.Instance);
-        }
+        private static void OpenInstructions() =>
+            UIManager.Instance.Root.SwitchView(new InstructionsView());
 
         [UIEvent("main.credits")]
-        private static void OpenCredits()
-        {
-            Combat.PlayerStats.HiddenByMenu = true;
-
-            UIManager.Instance.Root.SwitchView(new CampView());
-
-            Scene.Go(SceneInstance<CreditsScene>.Instance);
-        }
+        private static void OpenCredits() =>
+            UIManager.Instance.Root.SwitchView(new CreditView());
 
         [UIEvent("main.quit")]
         private static void QuitGame() => CoC.Instance.Exit();

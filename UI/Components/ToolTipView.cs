@@ -1,4 +1,4 @@
-using FontStashSharp;
+﻿using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Assets;
@@ -60,12 +60,12 @@ namespace MonoCoC.UI.Components
 
             _header = new Label(headerFont)
             {
-                TextColor = UIColors.ToolTipText
+                TextColor = UIComponentStyles.ToolTip.Text
             };
 
             _text = new Label(textFont)
             {
-                TextColor = UIColors.ToolTipText
+                TextColor = UIComponentStyles.ToolTip.Text
             };
 
             _text.WrapWidth(ContentWidth);

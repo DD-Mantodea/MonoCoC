@@ -145,7 +145,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 player.TakeDamage(damage);
 
-                if (LustVulnerability > 0 && player.Armor.Id.Path == "bondage_straps")
+                if (LustVulnerability > 0 && player.Armor?.Id.Path == "bondage_straps")
                 {
                     context.Append((Plural
 

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Structures;
+using System;
 using System.Collections.Generic;
 
 namespace MonoCoC.UI.Layout
@@ -53,9 +54,14 @@ namespace MonoCoC.UI.Layout
 
             var origin = Parent.Position + parentPadding.TopLeft() + Parent.SlotOf(GridIndex);
 
-            var area = Parent.SlotSize(GridIndex);
+            // 只有需要对齐时才问父容器的插槽尺寸：SlotSize 在 Grid 里要测量子节点尺寸，
+            // 无条件问会形成 子.Size → 父.SlotSize → 子.Size 的环（2026-11-17 背包右键菜单崩溃）。
+            var needsArea = HorizontalAlign is AlignHorizontal.Center or AlignHorizontal.Right or AlignHorizontal.Stretch
+                            || VerticalAlign is AlignVertical.Center or AlignVertical.Bottom or AlignVertical.Stretch;
 
-            if (area.X <= 0 || area.Y <= 0)
+            var area = needsArea ? Parent.SlotSize(GridIndex) : Vector2.Zero;
+
+            if (needsArea && (area.X <= 0 || area.Y <= 0))
                 area = Parent.Size - parentPadding.TopLeft() - parentPadding.BottomRight();
 
             var size = ComputeSize();
@@ -81,12 +87,25 @@ namespace MonoCoC.UI.Layout
 
         public readonly Vector2 ComputeSize()
         {
+            return ComputeSizeCore();
+        }
+
+        private readonly Vector2 ComputeSizeCore()
+        {
             switch (SizeType)
             {
                 case SizeType.Common:
                     var size = Size;
 
                     if (Parent is null)
+                        return size;
+
+                    // 只有 Stretch 才需要父容器的插槽尺寸。以前这里无条件问 Parent.SlotSize，
+                    // 而 Grid.SlotSize 依赖轨道测量（要问子节点 Size），于是
+                    // 子.Size → 父.SlotSize → 子.Size 无限递归（背包右键菜单崩溃的根源）。
+                    var stretch = HorizontalAlign == AlignHorizontal.Stretch || VerticalAlign == AlignVertical.Stretch;
+
+                    if (!stretch)
                         return size;
 
                     var area = Parent.SlotSize(GridIndex);

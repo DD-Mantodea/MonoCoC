@@ -1,0 +1,6 @@
+{
+  id: "body"
+  label: "Views.CharCreation.Tab.Body"
+  panel: "creation.panel.body"
+  order: 10
+}

@@ -1,0 +1,68 @@
+﻿{
+  pane: gameplay
+  order: 0
+  global: true
+  title: "View.Options.Pane.Gameplay.Title"
+  button: "View.Options.Tab.Gameplay"
+  description: "View.Options.Pane.Gameplay.Desc"
+
+  settings: [
+    {
+      id: "coc:autoLevel"
+      label: "View.Options.Setting.AutoLevel"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.AutoLevelOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.AutoLevelOff" }
+      ]
+    }
+    {
+      id: "coc:debug"
+      label: "View.Options.Setting.Debug"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.DebugOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.DebugOff" }
+      ]
+    }
+    {
+      id: "coc:quickloadAnywhere"
+      label: "View.Options.Setting.QuickloadAnywhere"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.QuickloadAnywhereOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.QuickloadAnywhereOff" }
+      ]
+    }
+    {
+      id: "coc:quicksaveConfirm"
+      label: "View.Options.Setting.QuicksaveConfirm"
+      default: 1
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.QuicksaveConfirmOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.QuicksaveConfirmOff" }
+      ]
+    }
+    {
+      id: "coc:quickloadConfirm"
+      label: "View.Options.Setting.QuickloadConfirm"
+      default: 1
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.QuickloadConfirmOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.QuickloadConfirmOff" }
+      ]
+    }
+    {
+      id: "coc:preload"
+      label: "View.Options.Setting.Preload"
+      desc: "View.Options.Desc.Preload"
+      overridesLabel: true
+      default: 1
+      values: [
+        { value: 1, label: "View.Options.Option.Auto" }
+        { value: 2, label: "View.Options.Option.Custom" }
+        { value: 0, label: "View.Options.Option.Off" }
+      ]
+    }
+  ]
+}

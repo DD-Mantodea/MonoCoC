@@ -3,6 +3,8 @@ using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Items.Behaviors;
 using MonoCoC.Registry;
 using MonoCoC.Attributes;
+using MonoCoC.Extensions;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MonoCoC.Contents.Items
@@ -22,31 +24,12 @@ namespace MonoCoC.Contents.Items
     {
         public const string UnarmedTag = "coc:unarmed";
 
-        public static readonly Weapon Fists = new()
+        public override void RegisterInteractions(ItemInteractionMenu menu, ItemInteractionContext context)
         {
-            Id = new Identifier("coc", "fists"),
+            ItemInteractions.RegisterEquip(menu, context);
 
-            Name = "fists",
-
-            LongName = "fists",
-
-            Tags = [UnarmedTag]
-        };
-
-        public static readonly Weapon Claws = new()
-        {
-            Id = new Identifier("coc", "claws"),
-
-            Name = "claws",
-
-            LongName = "claws",
-
-            Tags = [UnarmedTag, "claw", "bare_claw"]
-        };
-
-        static Weapon() =>
-            // 原版 UnarmedClaws.hx:15：徒手爪的攻击/穿透按玩家爪子类型动态计算
-            Claws.Behavior = new Behaviors.Vanilla.UnarmedClawsBehavior();
+            base.RegisterInteractions(menu, context);
+        }
 
         public float Attack;
 
@@ -147,6 +130,19 @@ namespace MonoCoC.Contents.Items
         public bool IsDual() => Matches("dual");
 
         public bool IsTwoHanded() => Matches("two_handed");
+
+        public override List<ItemStat> GetStats()
+        {
+            var stats = base.GetStats();
+
+            if (Attack != 0)
+                stats.Insert(0, new ItemStat("Items.Stats.Attack", Attack.ToString("0.#", System.Globalization.CultureInfo.InvariantCulture)));
+
+            if (IsTwoHanded())
+                stats.Add(new ItemStat("Items.Stats.TwoHanded", ""));
+
+            return stats;
+        }
 
         public bool Is2HBlunt() => HasTag("2H Blunt");
 

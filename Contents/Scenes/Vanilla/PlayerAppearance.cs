@@ -59,7 +59,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     : "Scenes.PlayerAppearance.HairPinOnHead".Localized());
 
             if (Player.JewelryName != "nothing")
-                WriteLine("Scenes.PlayerAppearance.Jewelry".Localized(Player.Jewelry.LongName));
+                WriteLine("Scenes.PlayerAppearance.Jewelry".Localized(Player.Jewelry?.LongName));
 
             WriteFace();
 

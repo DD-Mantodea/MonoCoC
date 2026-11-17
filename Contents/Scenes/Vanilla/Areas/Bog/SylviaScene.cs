@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
 using MonoCoC.Contents.Enemies.Vanilla;
@@ -1660,7 +1660,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
 
             ClearButtons();
 
-            AddNextButton("Scenes.Options.Option.MoreKids".Localized(), () => SylviaDoloresTalkAnswer(0));
+            AddNextButton("View.Options.Option.MoreKids".Localized(), () => SylviaDoloresTalkAnswer(0));
 
             AddNextButton("Common.Button.Jealousy".Localized(), () => SylviaDoloresTalkAnswer(1));
 
@@ -1687,7 +1687,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Bog
 
                 OutputText("Scenes.Sylviascene.SylviaDoloresTalkAnswer.ThighsGrindIdeas".Localized());
 
-                AddButton(0, "Scenes.Options.Option.MoreKids".Localized(), null);
+                AddButton(0, "View.Options.Option.MoreKids".Localized(), null);
                 }
 
                 break;

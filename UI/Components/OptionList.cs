@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Assets;
 using MonoCoC.UI.Framework;
@@ -35,8 +35,8 @@ namespace MonoCoC.UI.Components
             {
                 var button = new Button("", label, "coc:menu")
                 {
-                    BackgroundColor = new Color(0xF7, 0xEF, 0xE0, 0xCC),
-                    TextColor = new Color(0x35, 0x29, 0x1F, 255),
+                    BackgroundColor = UIComponentStyles.OptionList.Background,
+                    TextColor = UIComponentStyles.OptionList.Text,
                     LayoutData = { LayoutType = LayoutType.Relative }
                 };
 
@@ -70,8 +70,8 @@ namespace MonoCoC.UI.Components
                     var selected = _ids[index] == _selected;
 
                     _buttons[index].BackgroundColor = selected
-                        ? new Color(0xF2, 0xE1, 0xBE, 255)
-                        : new Color(0xF7, 0xEF, 0xE0, 0xCC);
+                        ? UIComponentStyles.OptionList.SelectedBackground
+                        : UIComponentStyles.OptionList.Background;
                 }
             }
         }

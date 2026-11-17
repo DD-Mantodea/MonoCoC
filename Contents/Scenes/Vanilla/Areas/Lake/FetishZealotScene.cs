@@ -212,7 +212,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
         public void StudentRape()
         {
 
-            if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+            if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                 Player.ModArmorName = Player.Mf("formal vest, tie, and crotchless pants", "backless female teacher's clothes");
 
             OutputText("Scenes.Fetishzealotscene.StudentRape.SnapsAttention".Localized());
@@ -263,7 +263,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
             OutputText("Scenes.Fetishzealotscene.StudentRapeFinishGood.HoursLater".Localized());
 
-            if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+            if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                 OutputText("Scenes.Fetishzealotscene.StudentRapeFinishGood.StillHave".Localized());
             else
                 OutputText("Scenes.Fetishzealotscene.StudentRapeFinishGood.ArmorBack".Localized());

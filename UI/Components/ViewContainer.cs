@@ -1,4 +1,4 @@
-using MonoCoC.Extensions;
+﻿using MonoCoC.Extensions;
 using MonoCoC.UI.Components.Views;
 using MonoCoC.UI.Framework;
 
@@ -22,6 +22,8 @@ namespace MonoCoC.UI.Components
             View = view.Of(this);
 
             console?.Of(this);
+
+            UIManager.TraceEvent("switch " + view.GetType().Name);
 
             UIManager.Instance?.MarkSceneChanged();
         }

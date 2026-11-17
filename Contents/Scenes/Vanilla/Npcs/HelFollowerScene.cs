@@ -1930,7 +1930,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                 OutputText("Scenes.Helfollower.TakeABath.NuzzleAgainstYou".Localized());
 
-                if (Player.Armor.LongName == "goo armor" && Player.Lust >= 33 && 9999 == 0)
+                if (Player.Armor?.LongName == "goo armor" && Player.Lust >= 33 && 9999 == 0)
                 {
                     OutputText("Scenes.Helfollower.TakeABath.CuddleInRiver".Localized());
 
@@ -2305,7 +2305,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         {
             ClearOutput();
 
-            if (Player.Armor.LongName == "goo armor")
+            if (Player.Armor?.LongName == "goo armor")
                 OutputText("Scenes.Helfollower.HelAndValeriaCampThreesomes.WinkingAtClothing".Localized());
             else
                 OutputText("Scenes.Helfollower.HelAndValeriaCampThreesomes.WhistlingForValeria".Localized());

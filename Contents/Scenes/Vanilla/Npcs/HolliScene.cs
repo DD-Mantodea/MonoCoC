@@ -209,10 +209,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
                                 var milkTotal = Player.ItemCount(ConsumableIds.SuccubiMilk) + Player.ItemCount(ConsumableIds.PurifiedSuccubiMilk) + Player.ItemCount(ConsumableIds.IsabellaMilk) + Player.ItemCount(ConsumableIds.MinotaurMilk) + Player.ItemCount(ItemIds.SheepMilk);
 
-                                if (Player.Armor.Id == ArmorIds.VineArmorBehavior && !vinesAsked)
+                                if (Player.Armor?.Id == ArmorIds.VineArmorBehavior && !vinesAsked)
                                     AddButton(10, "Common.Button.Vines".Localized(), alrauneScene.AskHolli).Hint("Any idea how to fix this?");
 
-                                else if (Player.Armor.Id == ArmorIds.VineArmorBehavior)
+                                else if (Player.Armor?.Id == ArmorIds.VineArmorBehavior)
                                     AddButton(10, "Common.Button.CureVines".Localized(), alrauneScene.HolliSolution)
                                         .Hint("Common.Text.AtLongLastYouCan".Localized())
                                         .DisableIf(!(Player.ItemCount(ConsumableIds.SlimyClothoth) >= 5
@@ -231,10 +231,10 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                             {
                                 AddButton(4, "Common.Button.Guarding".Localized(), AskBrokenHolliToGuard);
 
-                                if (Player.Armor.Id == ArmorIds.VineArmorBehavior && !vinesAsked)
+                                if (Player.Armor?.Id == ArmorIds.VineArmorBehavior && !vinesAsked)
                                     AddButton(10, "Common.Button.Vines".Localized(), alrauneScene.AskHolli).Hint("Any idea how to fix this?");
 
-                                else if (Player.Armor.Id == ArmorIds.VineArmorBehavior)
+                                else if (Player.Armor?.Id == ArmorIds.VineArmorBehavior)
                                     AddButton(10, "Common.Button.CureVines".Localized(), alrauneScene.HolliSolution)
                                         .Hint("Common.Text.AtLongLastYouCan".Localized())
                                         .DisableIf(Player.ItemCount(ConsumableIds.SlimyClothoth) < 1,

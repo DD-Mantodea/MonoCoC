@@ -65,7 +65,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.GlacialRift
 
             Reset();
 
-            Save.SetBool("loliVersion", OptionStore.Instance.Get("genericLoliShota", 0) > 0 && false);
+            Save.SetBool("loliVersion", OptionStore.Instance.Get("coc:genericLoliShota", 0) > 0 && false);
 
             Save.SetBool("encountered", true);
 

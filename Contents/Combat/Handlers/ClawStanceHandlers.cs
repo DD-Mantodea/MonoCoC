@@ -25,7 +25,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             && context.Player.Weapon.IsUnarmed()
 
-            && context.Player.Shield.Id.Path == "nothing"
+            && context.Player.Shield is null
 
             && context.Player.MasteryLevel(ClawMastery) >= 1;
 
@@ -57,7 +57,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = (Player)host;
 
-            if (player.Weapon.IsBareClaw() && player.Shield.Id.Path == "nothing")
+            if (player.Weapon.IsBareClaw() && player.Shield is null)
                 return;
 
             context.WriteAction("Combat.Effect.ClawStance.Broken".Localized());

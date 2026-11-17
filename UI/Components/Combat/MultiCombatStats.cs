@@ -25,6 +25,7 @@ namespace MonoCoC.UI.Components.Combat
 
         private int _selected;
 
+
         public object? CaptureState() => new Snapshot([.. _enemies], _selected, _select);
 
         public void RestoreState(object value)

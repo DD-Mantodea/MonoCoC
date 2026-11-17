@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Flags;
@@ -822,12 +822,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             if (!IsDiscovered())
             {
-                OutputText("Scenes.Teladre.DiscoverTelAdre.1".Localized());
+                OutputText("Scenes.Teladre.DiscoverTelAdre.DesertSands".Localized());
 
-                OutputText("Scenes.Teladre.DiscoverTelAdre.2".Localized());
+                OutputText("Scenes.Teladre.DiscoverTelAdre.InvestigateCity".Localized());
             }
             else
-                OutputText("Scenes.Teladre.DiscoverTelAdre.3".Localized());
+                OutputText("Scenes.Teladre.DiscoverTelAdre.ProwlingDunes".Localized());
 
             ClearButtons();
 
@@ -846,37 +846,37 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             if (!IsDiscovered())
             {
-                OutputText("Scenes.Teladre.EncounterTelAdre.1".Localized(urtaDisabled
+                OutputText("Scenes.Teladre.EncounterTelAdre.SlogsSands".Localized(urtaDisabled
 
                     ? "burly, dog-eared man"
 
                     : noFur ? "fox-eared girl with gray hair" : "female gray fox"));
 
-                OutputText("Scenes.Teladre.EncounterTelAdre.2".Localized(
+                OutputText("Scenes.Teladre.EncounterTelAdre.DetectingThoughts".Localized(
                     urtaDisabled ? "he" : "she",
 
                     urtaDisabled ? "he" : "she"
                 ));
 
-                OutputText("Scenes.Teladre.EncounterTelAdre.3".Localized(urtaDisabled
+                OutputText("Scenes.Teladre.EncounterTelAdre.BarksHoldIt".Localized(urtaDisabled
 
                     ? "dog-man, his tail"
 
                     : noFur ? "fox-girl, her dark gray tail" : "fox, her dark gray fur"));
 
-                OutputText("Scenes.Teladre.EncounterTelAdre.4".Localized(
+                OutputText("Scenes.Teladre.EncounterTelAdre.ShrugsExplains".Localized(
                     urtaDisabled ? "man" : "girl",
 
                     urtaDisabled ? "He" : "She"
                 ));
 
-                OutputText("Scenes.Teladre.EncounterTelAdre.5".Localized(urtaDisabled
+                OutputText("Scenes.Teladre.EncounterTelAdre.NothingToLose".Localized(urtaDisabled
 
                     ? "guard"
 
                     : "cute vulpine-girl"));
 
-                OutputText("Scenes.Teladre.EncounterTelAdre.6".Localized(
+                OutputText("Scenes.Teladre.EncounterTelAdre.AsksHorseWoman".Localized(
                     urtaDisabled ? "Captain" : "Urta",
 
                     urtaDisabled ? "The dog-eared guard captain shakes his" : "Urta the fox shakes her",
@@ -884,16 +884,16 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     Player.Mf("He's", "She's")
                 ));
 
-                OutputText("Scenes.Teladre.EncounterTelAdre.7".Localized());
+                OutputText("Scenes.Teladre.EncounterTelAdre.WatchesCentaur".Localized());
 
-                OutputText("Scenes.Teladre.EncounterTelAdre.8".Localized());
+                OutputText("Scenes.Teladre.EncounterTelAdre.PlacesHand".Localized());
 
                 TelAdreCrystal();
 
                 return;
             }
 
-            OutputText("Scenes.Teladre.EncounterTelAdre.9".Localized(
+            OutputText("Scenes.Teladre.EncounterTelAdre.FindGuardingAgain".Localized(
                 urtaDisabled ? "muscular guard captain" : noFur ? "gray-haired fox, Urta," : "gray fox, Urta,",
 
                 urtaDisabled ? "He" : "She",
@@ -913,9 +913,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             if (Player.HasStatusEffect(StatusEffectIds.Exgartuan) || !Player.IsPureEnough(70))
             {
-                OutputText("Scenes.Teladre.Crystal.1".Localized());
+                OutputText("Scenes.Teladre.TelAdreCrystal.PendantVibrates".Localized());
 
-                OutputText("Scenes.Teladre.Crystal.2".Localized());
+                OutputText("Scenes.Teladre.TelAdreCrystal.ShrugsStepsBack".Localized());
 
                 DoNext(() => ReturnToCamp(1));
 
@@ -923,13 +923,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             }
 
             if (!Player.IsPureEnough(50) || SceneInstance<JojoScene>.Get().IsJojoCorrupted())
-                OutputText("Scenes.Teladre.Crystal.3".Localized());
+                OutputText("Scenes.Teladre.TelAdreCrystal.PendantShimmers".Localized());
             else if (!Player.IsPureEnough(25) || Flags.Get(GameFlagIds.FactoryShutdown) == 2)
-                OutputText("Scenes.Teladre.Crystal.4".Localized());
+                OutputText("Scenes.Teladre.TelAdreCrystal.PendantTwirls".Localized());
             else
-                OutputText("Scenes.Teladre.Crystal.5".Localized());
+                OutputText("Scenes.Teladre.TelAdreCrystal.ShinesWhite".Localized());
 
-            OutputText("Scenes.Teladre.Crystal.6".Localized(urtaDisabled
+            OutputText("Scenes.Teladre.TelAdreCrystal.GesturesDoor".Localized(urtaDisabled
 
                 ? "guard captain introduces himself as Ranis, then"
 
@@ -937,7 +937,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             if (Player.IsChild())
             {
-                OutputText("Scenes.Teladre.Crystal.7".Localized(
+                OutputText("Scenes.Teladre.TelAdreCrystal.BeforeAnswer".Localized(
                     urtaDisabled ? "the dog-man" : "Urta",
 
                     urtaDisabled ? "Captain" : "Urta",
@@ -945,18 +945,18 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     urtaDisabled ? "Ranis" : "Urta"
                 ));
 
-                OutputText("Scenes.Teladre.Crystal.8".Localized(urtaDisabled ? "dog" : "fox"));
+                OutputText("Scenes.Teladre.TelAdreCrystal.EdrynBreathes".Localized(urtaDisabled ? "dog" : "fox"));
 
-                OutputText("Scenes.Teladre.Crystal.9".Localized());
+                OutputText("Scenes.Teladre.TelAdreCrystal.ThinksAboutIt".Localized());
 
-                OutputText("Scenes.Teladre.Crystal.10".Localized());
+                OutputText("Scenes.Teladre.TelAdreCrystal.PendantVibrates0".Localized());
 
                 DoNext(TelAdreTourLoli);
 
                 return;
             }
 
-            OutputText("Scenes.Teladre.Crystal.11".Localized(
+            OutputText("Scenes.Teladre.TelAdreCrystal.PendantVibrates1".Localized(
                 urtaDisabled ? "Ranis" : "Urta",
 
                 urtaDisabled ? "" : " You do notice her gait is a bit odd, and her fluffy fox-tail seems to be permanently wrapped around her right leg"
@@ -973,36 +973,36 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             SpriteSelect(null);
 
-            OutputText("Scenes.Teladre.TourLoli.1".Localized(Player.Mf("boy", "girl")));
+            OutputText("Scenes.Teladre.TelAdreTourLoli.GallopsStreets".Localized(Player.Mf("boy", "girl")));
 
-            OutputText("Scenes.Teladre.TourLoli.2".Localized());
+            OutputText("Scenes.Teladre.TelAdreTourLoli.BriefRunDown".Localized());
 
-            OutputText("Scenes.Teladre.TourLoli.3".Localized());
+            OutputText("Scenes.Teladre.TelAdreTourLoli.MovesTowardsCenter".Localized());
 
-            OutputText("Scenes.Teladre.TourLoli.4".Localized());
+            OutputText("Scenes.Teladre.TelAdreTourLoli.EyesWidening".Localized());
 
-            OutputText("Scenes.Teladre.TourLoli.5".Localized());
+            OutputText("Scenes.Teladre.TelAdreTourLoli.AfterFewMinutes".Localized());
 
-            OutputText("Scenes.Teladre.TourLoli.6".Localized());
+            OutputText("Scenes.Teladre.TelAdreTourLoli.EntersStore".Localized());
 
-            OutputText("Scenes.Teladre.TourLoli.7".Localized());
+            OutputText("Scenes.Teladre.TelAdreTourLoli.CentauressShows".Localized());
 
             if (Player.Gems < 40)
-                OutputText("Scenes.Teladre.TourLoli.8".Localized());
+                OutputText("Scenes.Teladre.TelAdreTourLoli.NotLikeYou".Localized());
             else
-                OutputText("Scenes.Teladre.TourLoli.9".Localized());
+                OutputText("Scenes.Teladre.TelAdreTourLoli.CouldPay".Localized());
 
-            OutputText("Scenes.Teladre.TourLoli.10".Localized());
+            OutputText("Scenes.Teladre.TelAdreTourLoli.GallopsStreets0".Localized());
 
-            OutputText("Scenes.Teladre.TourLoli.11".Localized());
+            OutputText("Scenes.Teladre.TelAdreTourLoli.GallopsStreets1".Localized());
 
-            OutputText("Scenes.Teladre.TourLoli.12".Localized(GameSettings.UrtaDisabled ? "Ranis" : "Urta"));
+            OutputText("Scenes.Teladre.TelAdreTourLoli.GallopsStreets2".Localized(GameSettings.UrtaDisabled ? "Ranis" : "Urta"));
 
-            OutputText("Scenes.Teladre.TourLoli.13".Localized());
+            OutputText("Scenes.Teladre.TelAdreTourLoli.GallopsStreets3".Localized());
 
-            OutputText("Scenes.Teladre.TourLoli.14".Localized());
+            OutputText("Scenes.Teladre.TelAdreTourLoli.GallopsStreets4".Localized());
 
-            OutputText("Scenes.Teladre.TourLoli.15".Localized());
+            OutputText("Scenes.Teladre.TelAdreTourLoli.GallopsStreets5".Localized());
 
             Player.RefillHunger(30);
 
@@ -1019,13 +1019,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             var urtaDisabled = GameSettings.UrtaDisabled;
 
-            OutputText("Scenes.Teladre.Tour.1".Localized(
+            OutputText("Scenes.Teladre.TelAdreTour.LeadsStreets".Localized(
                 urtaDisabled ? "Ranis" : "Urta",
 
                 urtaDisabled ? "the" : "her and her"
             ));
 
-            OutputText("Scenes.Teladre.Tour.2".Localized(
+            OutputText("Scenes.Teladre.TelAdreTour.FindsCenter".Localized(
                 urtaDisabled ? "Ranis" : "Urta",
 
                 urtaDisabled ? "He" : "She",
@@ -1037,13 +1037,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText(Player.Corruption < 25
 
-                ? "Scenes.Teladre.Tour.3".Localized()
+                ? "Scenes.Teladre.TelAdreTour.BlushWord".Localized()
 
-                : "Scenes.Teladre.Tour.4".Localized());
+                : "Scenes.Teladre.TelAdreTour.ChuckleWord".Localized());
 
-            OutputText("Scenes.Teladre.Tour.5".Localized(urtaDisabled ? "Ranis" : "Urta"));
+            OutputText("Scenes.Teladre.TelAdreTour.SuggestiveName".Localized(urtaDisabled ? "Ranis" : "Urta"));
 
-            OutputText("Scenes.Teladre.Tour.6".Localized(
+            OutputText("Scenes.Teladre.TelAdreTour.FurtherOnPiercing".Localized(
                 urtaDisabled ? "his" : "Urta's",
 
                 urtaDisabled ? "Ranis" : "Urta",
@@ -1055,13 +1055,13 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     : ", though the tail she keeps wrapped around her leg twitches as she"
             ));
 
-            OutputText("Scenes.Teladre.Tour.7".Localized(urtaDisabled
+            OutputText("Scenes.Teladre.TelAdreTour.OnShoulderSays".Localized(urtaDisabled
 
                 ? "He claps you roughly"
 
                 : "She gives you a friendly punch"));
 
-            OutputText("Scenes.Teladre.Tour.8".Localized(urtaDisabled
+            OutputText("Scenes.Teladre.TelAdreTour.BeforeAnswer".Localized(urtaDisabled
 
                 ? "he's taken off back towards the city gates, leaving you free to explore the city on your own."
 

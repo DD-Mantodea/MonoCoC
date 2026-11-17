@@ -27,7 +27,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.GlacialRift
 
             OutputText("Scenes.Frostgiantscene.WinAgainstGiant.GiantFalls".Localized());
 
-            if (Player.Weapon.IsUnarmed() && Player.Armor.LongName == "nothing" && Player.ShieldName == "nothing")
+            if (Player.Weapon.IsUnarmed() && Player.Armor?.LongName == "nothing" && Player.ShieldName == "nothing")
                 AwardAchievement(AchievementIds.ChuckNorris);
 
             ClearButtons();

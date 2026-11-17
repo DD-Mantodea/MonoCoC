@@ -1,0 +1,6 @@
+{
+  id: "appearance"
+  label: "Views.CharCreation.Tab.Appearance"
+  panel: "creation.panel.appearance"
+  order: 20
+}

@@ -1,4 +1,4 @@
-using MonoCoC.Contents.Stats;
+﻿using MonoCoC.Contents.Stats;
 using MonoCoC.Extensions;
 using System;
 using System.Collections.Generic;
@@ -141,7 +141,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
                 Scene.OutputText("Scenes.FarmCorruption.Takeover.BeforeHim".Localized());
             }
 
-            Scene.OutputText("Scenes.FarmCorruption.Takeover.2".Localized());
+            Scene.OutputText("Scenes.FarmCorruption.Takeover.QuestionSuffix".Localized());
         }
 
         // 原版 FarmCorruption.hx:581 takeoverPromptMarbleRape()
@@ -162,12 +162,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
                 Scene.OutputText("Scenes.FarmCorruption.Takeover.AndTheRodentSlut".Localized());
 
                 if (amily && jojo)
-                    Scene.OutputText("Scenes.FarmCorruption.Takeover.3".Localized());
+                    Scene.OutputText("Scenes.FarmCorruption.Takeover.PluralSuffix".Localized());
 
                 Scene.OutputText("Scenes.FarmCorruption.Takeover.BeforeHer".Localized());
             }
 
-            Scene.OutputText("Scenes.FarmCorruption.Takeover.2".Localized());
+            Scene.OutputText("Scenes.FarmCorruption.Takeover.QuestionSuffix".Localized());
         }
 
         // 原版 FarmCorruption.hx:590 takeoverPromptGeneric()
@@ -1646,9 +1646,9 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
             // 原版 :2044
             Scene.OutputText("Scenes.FarmCorruption.CockOral.Stage2.TwentyFour".Localized());
             // 原版 :2045
-            Scene.OutputText("Scenes.FarmCorruption.CockOral.Stage2.25".Localized());
+            Scene.OutputText("Scenes.FarmCorruption.CockOralTrainingStageTwo.WoozyMistressPraise".Localized());
             // 原版 :2046
-            Scene.OutputText("Scenes.FarmCorruption.CockOral.Stage2.26".Localized());
+            Scene.OutputText("Scenes.FarmCorruption.CockOralTrainingStageTwo.UnderstoodMasterLine".Localized());
         }
 
         // ===== 原版 FarmCorruption.hx:1816 firstCockOralTraining()：第一次口交训练（有阴茎）=====

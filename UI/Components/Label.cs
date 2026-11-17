@@ -1,4 +1,4 @@
-using FontStashSharp;
+﻿using FontStashSharp;
 using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -64,15 +64,18 @@ namespace MonoCoC.UI.Components
                     Text(value.ToString() ?? "");
             }
 
+            base.Update(gameTime);
+        }
+
+        public override void PerformLayout(GameTime gameTime)
+        {
             RefreshMeasurement();
 
-            base.Update(gameTime);
+            base.PerformLayout(gameTime);
         }
 
         public override void DrawSelf(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            RefreshMeasurement();
-
             var offset = VerticalAlignment switch
             {
                 TextVerticalAlignment.Center => new Vector2(0, (Height - _textSize.Y) * 0.5f),
@@ -141,21 +144,23 @@ namespace MonoCoC.UI.Components
 
             var wrapWidth = RichTextLayout.Width ?? 0;
 
-            if (text == _measuredText && wrapWidth == _measuredWidth)
-                return;
+            // 只在文本/换行宽度变化时重新测量；AutoSize 的应用必须每帧执行，
+            // 否则先测量、后把 AutoSize 置 true 的标签永远拿不到尺寸（高度 0 会压扁所在网格行）。
+            if (text != _measuredText || wrapWidth != _measuredWidth)
+            {
+                _measuredText = text;
 
-            _measuredText = text;
+                _measuredWidth = wrapWidth;
 
-            _measuredWidth = wrapWidth;
+                var measured = RichTextLayout.Measure(wrapWidth > 0 ? wrapWidth : 100000);
 
-            var measured = RichTextLayout.Measure(wrapWidth > 0 ? wrapWidth : 100000);
+                _textSize = new Vector2(measured.X, measured.Y);
 
-            _textSize = new Vector2(measured.X, measured.Y);
+                _naturalWidth = measured.X;
 
-            _naturalWidth = measured.X;
-
-            foreach (var line in RichTextLayout.Lines)
-                _naturalWidth = Math.Max(_naturalWidth, line.Size.X);
+                foreach (var line in RichTextLayout.Lines)
+                    _naturalWidth = Math.Max(_naturalWidth, line.Size.X);
+            }
 
             if (!AutoSize)
                 return;
@@ -169,6 +174,10 @@ namespace MonoCoC.UI.Components
         public Label Text(string text)
         {
             RichTextLayout.Text = text;
+
+            // 文本一改就立刻重新测量：否则同一帧里读 Width/Height 或用旧尺寸居中的地方
+            // 会先按旧文本画一次，下一帧才纠正 —— 视觉上就是“点一下文字跳一下”。
+            RefreshMeasurement();
 
             return this;
         }

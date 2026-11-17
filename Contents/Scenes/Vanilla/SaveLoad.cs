@@ -1,4 +1,4 @@
-using MonoCoC.Extensions;
+﻿using MonoCoC.Extensions;
 using MonoCoC.Saving;
 using MonoCoC.Attributes;
 using MonoCoC.Contents.Items;
@@ -287,7 +287,8 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             ApplyLegacySave(path);
         }
 
-        private void ApplyLegacySave(string path)
+        // 公开给工具/探针调用：导入旧版 .coc/.sol 存档。
+        public void ApplyLegacySave(string path)
         {
             try
             {

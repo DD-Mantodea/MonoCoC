@@ -45,7 +45,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         public bool ValeriaFollower()
         {
 
-            return CoC.Instance.Flags.Get(GameFlagIds.ValariaAtCamp) == 1 || Player.Armor.Id == ArmorIds.GooArmor;
+            return CoC.Instance.Flags.Get(GameFlagIds.ValariaAtCamp) == 1 || Player.Armor?.Id == ArmorIds.GooArmor;
         }
 
         public void ValeriaFollowerMenu()
@@ -88,7 +88,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         public void ValeriaCampLines()
         {
 
-            if (Player.Armor.Id == ArmorIds.GooArmor)
+            if (Player.Armor?.Id == ArmorIds.GooArmor)
                 return ;
 
             if (View.Time.Hours < 21)
@@ -750,7 +750,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
         {
             ClearOutput();
 
-            if (Player.Armor.Id == ArmorIds.VineArmorBehavior)
+            if (Player.Armor?.Id == ArmorIds.VineArmorBehavior)
             {
                 OutputText("Scenes.Valeria.TakeValeria.TheSapphireOozeSays".Localized());
 

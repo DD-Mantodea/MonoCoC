@@ -1,6 +1,12 @@
 {
 "Items.Tooltip.Type": "Type: {0}"
 "Items.Tooltip.BaseValue": "Base value: {0}"
+"Items.Stats.Attack": "Attack"
+"Items.Stats.Defense": "Defense"
+"Items.Stats.Block": "Block"
+"Items.Stats.Value": "Value"
+"Items.Stats.Durability": "Durability"
+"Items.Stats.TwoHanded": "Two-handed"
 "Items.Type.Weapon": "Weapon"
 "Items.Type.Armor": "Armor"
 "Items.Type.Shield": "Shield"

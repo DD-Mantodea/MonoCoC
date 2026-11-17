@@ -203,7 +203,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             Player.ApplyStats(new DynStat(GameStats.Corruption, 10f), new DynStat(GameStats.Libido, 5f));
 
-            Player.SetUndergarment(Undergarment.Nothing, Undergarment.TypeUpperwear);
+            Player.SetUndergarment(null, Undergarment.TypeUpperwear);
 
             OutputText("Scenes.Oasisshamanscene.FuckedByOasisShamanNext.BlinkingLooksUp".Localized());
 
@@ -269,7 +269,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             RegisterMacro("lustwon", !hpVictory);
 
-            Player.SetUndergarment(Undergarment.Nothing, Undergarment.TypeUpperwear);
+            Player.SetUndergarment(null, Undergarment.TypeUpperwear);
 
             OutputText("Scenes.Oasisshamanscene.WinCombatOasisShaman.DemonGivesIn".Localized());
 
@@ -436,7 +436,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Desert
 
             Player.SlimeFeed();
 
-            Player.SetUndergarment(Undergarment.Nothing, Undergarment.TypeUpperwear);
+            Player.SetUndergarment(null, Undergarment.TypeUpperwear);
 
             if (Player.HasVagina())
             {

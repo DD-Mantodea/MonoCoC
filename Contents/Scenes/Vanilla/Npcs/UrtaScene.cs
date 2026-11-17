@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Utils;
 using MonoCoC.Contents.Items;
 using MonoCoC.Contents.Creatures;
@@ -151,7 +151,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
 
             if (CoC.Instance.Flags.Get(GameFlagIds.UrtaPcLoveCounter) == 1)
             {
-                if (love > 0 && CoC.Instance.Flags.Get(GameFlagIds.AmilyVisitingUrta) == 0 && SceneInstance<AmilyScene>.Get().AmilyFollowerPure() && !(OptionStore.Instance.Get("urtaDisabled", 0) > 0))
+                if (love > 0 && CoC.Instance.Flags.Get(GameFlagIds.AmilyVisitingUrta) == 0 && SceneInstance<AmilyScene>.Get().AmilyFollowerPure() && !(OptionStore.Instance.Get("coc:urtaDisabled", 0) > 0))
                     CoC.Instance.Flags.Set(GameFlagIds.AmilyNeedToFreakAboutUrta, 1);
 
                 return true;

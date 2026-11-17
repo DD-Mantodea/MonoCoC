@@ -1,0 +1,6 @@
+{
+  id: "identity"
+  label: "Views.CharCreation.Tab.Identity"
+  panel: "creation.panel.identity"
+  order: 0
+}

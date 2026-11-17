@@ -1,0 +1,143 @@
+﻿{
+  pane: modes
+  order: 30
+  global: false
+  title: "View.Options.Pane.Modes.Title"
+  button: "View.Options.Tab.GameModes"
+  description: "View.Options.Pane.Modes.Desc"
+
+  settings: [
+    {
+      id: "coc:difficulty"
+      label: "View.Options.Mode.Difficulty"
+      default: 0
+      values: [
+        { value: -2, label: "View.Options.Difficulty.Easy", desc: "View.Options.DifficultyDesc.Easy" }
+        { value: 0,  label: "View.Options.Difficulty.Normal",  desc: "View.Options.DifficultyDesc.Normal" }
+        { value: 1,  label: "View.Options.Difficulty.Hard",  desc: "View.Options.DifficultyDesc.Hard" }
+        { value: 2,  label: "View.Options.Difficulty.Nightmare",  desc: "View.Options.DifficultyDesc.Nightmare" }
+        { value: 3,  label: "View.Options.Difficulty.Extreme",  desc: "View.Options.DifficultyDesc.Extreme" }
+      ]
+    }
+    {
+      id: "coc:survival"
+      label: "View.Options.Mode.Survival"
+      desc: "View.Options.Desc.Survival"
+      action: survival
+      sub: {
+        kind: "confirm"
+        title: "View.Options.Sub.Survival.Title"
+        message: "View.Options.Sub.Survival.Warning"
+        option: "survival"
+      }
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.Enable" }
+      ]
+    }
+    {
+      id: "coc:realistic"
+      label: "View.Options.Mode.Realistic"
+      desc: "View.Options.Desc.Realistic"
+      action: realistic
+      sub: {
+        kind: "confirm"
+        title: "View.Options.Sub.Realistic.Title"
+        message: "View.Options.Sub.Realistic.Warning"
+        option: "realistic"
+      }
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.Enable" }
+      ]
+    }
+    {
+      id: "coc:hardcore"
+      label: "View.Options.Mode.Hardcore"
+      desc: "View.Options.Desc.Hardcore"
+      action: hardcore
+      sub: {
+        kind: "hardcore"
+        title: "View.Options.Sub.Five.Title"
+        message: "View.Options.Sub.Hardcore.Warning"
+        slots: 14
+      }
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.Enable" }
+      ]
+    }
+    {
+      id: "coc:silly"
+      label: "View.Options.Mode.Silly"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.SillyOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.SillyOff" }
+      ]
+    }
+    {
+      id: "coc:hyper"
+      label: "View.Options.Mode.Hyper"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.HyperOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.HyperOff" }
+      ]
+    }
+    {
+      id: "coc:temptation"
+      label: "View.Options.Mode.Temptation"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.TemptationOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.TemptationOff" }
+      ]
+    }
+    {
+      id: "coc:taint"
+      label: "View.Options.Mode.Taint"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.TaintOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.TaintOff" }
+      ]
+    }
+    {
+      id: "coc:cooldowns"
+      label: "View.Options.Mode.Cooldowns"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.CooldownsOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.CooldownsOff" }
+      ]
+    }
+    {
+      id: "coc:scaling"
+      label: "View.Options.Mode.Scaling"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.ScalingOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.ScalingOff" }
+      ]
+    }
+    {
+      id: "coc:longHaul"
+      label: "View.Options.Mode.LongHaul"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.LongHaulOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.LongHaulOff" }
+      ]
+    }
+    {
+      id: "coc:oldAscension"
+      label: "View.Options.Mode.OldAscension"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.OldAscensionOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.OldAscensionOff" }
+      ]
+    }
+  ]
+}

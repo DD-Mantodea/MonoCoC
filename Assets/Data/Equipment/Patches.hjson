@@ -1,0 +1,39 @@
+{
+  patches: [
+    {
+      id: "coc:extra_jewelry"
+      requiresTags: ["extra_jewelry"]
+      addSlot: {
+        id: "coc:extra_jewelry_slot"
+        kind: "jewelry"
+        area: "jewelry_extra"
+        order: 0
+        accepts: ["coc:jewelry"]
+        label: "Scenes.Inventory.Slot.Jewelry"
+        slotIcon: "Icons/inventory_jewelry.svg"
+        capacity: { jewelry: 1 }
+      }
+    }
+    {
+      // 手数增加 = 多一双手，手牌槽由容量自动生成，不需要额外的 weapon 槽。
+      id: "coc:four_arms"
+      requiresTags: ["four_arms"]
+      addHands: 2
+    }
+    {
+      id: "coc:tail_weapon"
+      requiresTags: ["tail"]
+      addSlot: {
+        id: "coc:tail_weapon_slot"
+        kind: "tail"
+        area: "tail"
+        order: 0
+        fallbackAttack: "coc:tail_whip"
+        accepts: ["coc:weapon"]
+        label: "Scenes.Inventory.Slot.Tail"
+        slotIcon: "Icons/inventory_weapon.svg"
+        capacity: { tail: 1 }
+      }
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Combat;
@@ -4696,7 +4696,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.MothCave
 
             AddNextButton("Common.Button.Undress".Localized(), () => DoloresSex2(false));
 
-            AddNextButton("Scenes.Options.Start".Localized(), () => DoloresSex2(true));
+            AddNextButton("View.Options.Start".Localized(), () => DoloresSex2(true));
         }
 
         public void DoloresSex2(bool dressed)

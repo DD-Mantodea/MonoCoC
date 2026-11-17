@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 
 using MonoCoC.Contents.Combat;
 using MonoCoC.Contents.Creatures;
@@ -22,7 +22,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             FellatrixBarAppearance();
         }
 
-        public void FellatrixBarAppearance()
+        public static void FellatrixBarAppearance()
         {
 
             if (CoC.Instance.Flags.Get(GameFlagIds.DominikaStage) == 0)
@@ -32,19 +32,19 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     OutputText("Scenes.Dominika.FellatrixBarAppearance.NoticeDominikaSpeaking".Localized());
         }
 
-        public bool FellatrixSucked()
+        public static bool FellatrixSucked()
         {
 
             return TimesFellatrixSucked() > 0;
         }
 
-        public int TimesFellatrixSucked()
+        public static int TimesFellatrixSucked()
         {
 
             return CoC.Instance.Flags.Get(GameFlagIds.DominikaTimesHypnoBj) + CoC.Instance.Flags.Get(GameFlagIds.DominikaTimesMulticockSlobbered) + CoC.Instance.Flags.Get(GameFlagIds.DominikaSuckedOffDogcocks) + CoC.Instance.Flags.Get(GameFlagIds.DominikaSuckedOffLargeCocks) + CoC.Instance.Flags.Get(GameFlagIds.DominikaSuckedOffSmallCocks) + CoC.Instance.Flags.Get(GameFlagIds.DominikaVaginalOralReceived) + CoC.Instance.Flags.Get(GameFlagIds.DominikaSuckedOffHorsecocks);
         }
 
-        public void FellatrixBarApproach()
+        public static void FellatrixBarApproach()
         {
             ClearOutput();
 
@@ -142,12 +142,17 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                         return;
                     }
 
+            // 原版兜底：上方 if/else 已穷尽，属原项目死代码，保留。
+#pragma warning disable CS0162
+
             OutputText("Scenes.Dominika.FellatrixBarApproach.ErrorAlertTheFenfen".Localized());
 
             DoNext(() => ReturnToCamp(1));
+
+#pragma warning restore CS0162
         }
 
-        public void TurnDownDominikasKnowledge()
+        public static void TurnDownDominikasKnowledge()
         {
             ClearOutput();
 
@@ -158,7 +163,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             Go<TelAdre>();
         }
 
-        public void AcceptDominikasKnowledge()
+        public static void AcceptDominikasKnowledge()
         {
             ClearOutput();
 
@@ -337,7 +342,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             DoNext(() => FellatrixSexWarmup());
         }
 
-        public void FellatrixSexWarmup()
+        public static void FellatrixSexWarmup()
         {
             ClearOutput();
 
@@ -381,7 +386,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             AddButton(1, "Common.Button.No".Localized(), DeclineFellatrixOral);
         }
 
-        public void DeclineFellatrixOral()
+        public static void DeclineFellatrixOral()
         {
             ClearOutput();
 
@@ -413,7 +418,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             }
         }
 
-        public void DeclineFellatrixOralHARDCORE()
+        public static void DeclineFellatrixOralHARDCORE()
         {
             ClearOutput();
 
@@ -428,7 +433,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             AddButton(1, "Common.Button.No".Localized(), DeclineFellatrixOralSUPERHARDCORE);
         }
 
-        public void DeclineFellatrixOralSUPERHARDCORE()
+        public static void DeclineFellatrixOralSUPERHARDCORE()
         {
             ClearOutput();
 
@@ -443,7 +448,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             Go<TelAdre>();
         }
 
-        public void AcceptFellatrixOral()
+        public static void AcceptFellatrixOral()
         {
             ClearOutput();
 
@@ -1025,7 +1030,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 DoNext(() => ReturnToCamp(2));
         }
 
-        public void AgreeWithDominika()
+        public static void AgreeWithDominika()
         {
             ClearOutput();
 
@@ -1072,7 +1077,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             DoNext(() => ReturnToCamp(1));
         }
 
-        public void EhhhhDominika()
+        public static void EhhhhDominika()
         {
             ClearOutput();
 
@@ -1087,7 +1092,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             DoNext(() => ReturnToCamp(1));
         }
 
-        public void DisagreeDominika()
+        public static void DisagreeDominika()
         {
             ClearOutput();
 
@@ -1115,7 +1120,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             DoNext(() => ReturnToCamp(1));
         }
 
-        public void FellatrixDream()
+        public static void FellatrixDream()
         {
 
             CoC.Instance.Flags.Set(GameFlagIds.DominikaSpecialFollowup, CoC.Instance.Flags.Get(GameFlagIds.DominikaSpecialFollowup) + 3);
@@ -1134,7 +1139,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             PlayerMenu();
         }
 
-        public void Dominidrama()
+        public static void Dominidrama()
         {
             ClearOutput();
 
@@ -1155,7 +1160,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             AddButton(1, "Common.Button.No".Localized(), DominidramaNo);
         }
 
-        public void DominidramaYes()
+        public static void DominidramaYes()
         {
             ClearOutput();
 
@@ -1172,7 +1177,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             DoNext(() => ReturnToCamp(1));
         }
 
-        public void DominidramaNo()
+        public static void DominidramaNo()
         {
             ClearOutput();
 
@@ -1191,7 +1196,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             DoNext(() => ReturnToCamp(1));
         }
 
-        public void DominikaBlowjobs()
+        public static void DominikaBlowjobs()
         {
             ClearOutput();
 
@@ -1447,7 +1452,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             DoNext(() => DominikaBlowjobs2());
         }
 
-        public void DominikaBlowjobs2()
+        public static void DominikaBlowjobs2()
         {
             ClearOutput();
 
@@ -1475,7 +1480,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
             DoNext(() => ReturnToCamp(1));
         }
 
-        public void DominikaSpellblade()
+        public static void DominikaSpellblade()
         {
             ClearOutput();
 

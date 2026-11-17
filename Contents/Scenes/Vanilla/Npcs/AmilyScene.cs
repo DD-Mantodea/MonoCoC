@@ -3201,7 +3201,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                 if (Player.HasItem(ItemRegistry.Create(ConsumableIds.Liddellium)) && !(CoC.Instance.Flags.Get(GameFlagIds.LiddelliumFlag) < 0))
                     AddRowButton(2, "Strange Potion", IdLiddellium);
 
-                if (Player.Armor.Id == ArmorIds.VineArmorBehavior && !((Areas.Swamp.AlrauneScene.Save.GetInt("questAsked", 0) & Areas.Swamp.AlrauneScene.ASKEDAM) != 0))
+                if (Player.Armor?.Id == ArmorIds.VineArmorBehavior && !((Areas.Swamp.AlrauneScene.Save.GetInt("questAsked", 0) & Areas.Swamp.AlrauneScene.ASKEDAM) != 0))
                     AddRowButton(2, "Vines", null );
 
                 AddButton(14, "Common.Button.Leave".Localized(), () => Go(SceneInstance<CampScene>.Get()));

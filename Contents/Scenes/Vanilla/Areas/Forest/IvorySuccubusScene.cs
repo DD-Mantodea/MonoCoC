@@ -176,9 +176,15 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
 
             OutputText("Scenes.Ivorysuccubusscene.BadEnd2.IncubusContinues".Localized());
             // 鍘熺増 IvorySuccubusScene.hx:128 鍗充负 if (/*lidellium placeholder*/ false)锛氫笂娓告湭瀹炶 Liddellium 鍓ф儏
+            // 原版 IvorySuccubusScene.hx:128 即为 if (false)：上游未实装 Liddellium 剧情，
+            // C# 保留原分支结构（原项目死代码，不删除）。
+#pragma warning disable CS0162
+
             if (false)
                 OutputText("Scenes.Ivorysuccubusscene.BadEnd2.ParagraphBreak".Localized());
             else
+#pragma warning restore CS0162
+
                 OutputText("Scenes.Ivorysuccubusscene.BadEnd2.BringsHand".Localized(
                     Player.DogScore() >= 4 || Player.WolfScore() >= 4
 

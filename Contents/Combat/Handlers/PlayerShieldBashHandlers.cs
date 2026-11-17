@@ -20,14 +20,14 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            return player.Shield != Shield.Nothing && player.MasteryLevel(ShieldMastery) >= 1;
+            return player.Shield is not null && player.MasteryLevel(ShieldMastery) >= 1;
         }
 
         private static int BashDamage(CombatContext context, Player player)
         {
             var damage = 10f + player.Strength / 1.5f + context.Random.Next((int)MathF.Max(0, player.Strength / 2));
 
-            damage += player.Shield.Block * 2 * player.MasteryLevel(ShieldMastery);
+            damage += (player.Shield?.Block ?? 0) * 2 * player.MasteryLevel(ShieldMastery);
 
             if (player.HasPerk(PerkIds.ShieldSlam))
                 damage *= 1.2f;

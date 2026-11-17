@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Flags;
@@ -39,7 +39,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.Bazaar
 
             OutputText("Scenes.Faparena.FapArenaGOOOO.LineAdvances".Localized());
 
-            if ((Player.BiggestCockLength() < 8 && !(OptionStore.Instance.Get("lowStandards", 0) > 0)) || !Player.HasCock())
+            if ((Player.BiggestCockLength() < 8 && !(OptionStore.Instance.Get("coc:lowStandards", 0) > 0)) || !Player.HasCock())
             {
                 OutputText("Scenes.Faparena.FapArenaGOOOO.NotWellEndowed".Localized());
 

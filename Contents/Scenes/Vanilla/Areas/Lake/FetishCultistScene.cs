@@ -147,7 +147,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
                         OutputText("Scenes.Fetishcultistscene.CultistRapesYou.OnceAgainTheLoud".Localized());
 
-                        if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                        if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                             Player.ModArmorName = "bridle bit and saddle set";
 
                         if (Player.Intelligence <= 10 && Random.Shared.Next(2) == 0)
@@ -156,7 +156,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                         {
                             OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FewHoursLaterMind".Localized());
 
-                            if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                            if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FindYourBackOn".Localized());
                             else
                                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.StillWearingThat".Localized());
@@ -256,7 +256,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                             else
                                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.PlaceholderLickMarathon".Localized());
 
-                    if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                    if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                         Player.ModArmorName = "bridle bit and saddle set";
 
                     if (Player.Intelligence <= 10 && Random.Shared.Next(2) == 0)
@@ -265,7 +265,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                     {
                         OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FewHoursLaterAgain".Localized());
 
-                        if (Player.Armor.Id != ArmorIds.ComfortableClothes)
+                        if (Player.Armor?.Id != ArmorIds.ComfortableClothes)
                             OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FindBackOnAgain".Localized());
                         else
                             OutputText("Scenes.Fetishcultistscene.CultistRapesYou.StillWearingThatAgain".Localized());
@@ -385,7 +385,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                                     OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FeelingFluidsFourth".Localized());
                                 }
 
-                        if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                        if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                             Player.ModArmorName = "headdress, necklaces, and many body-chains";
 
                         if (Player.Intelligence <= 10 && Random.Shared.Next(2) == 0)
@@ -394,7 +394,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                         {
                             OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FewHoursLaterThird".Localized());
 
-                            if (Player.Armor.Id != ArmorIds.ComfortableClothes)
+                            if (Player.Armor?.Id != ArmorIds.ComfortableClothes)
                                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FindBackOnThird".Localized());
                             else
                                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.StillWearingThatThird".Localized());
@@ -446,7 +446,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.StartedToBecomeErect".Localized());
                             }
 
-                            if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                            if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                                 Player.ModArmorName = "black leather collar with a badge on it";
 
                             if (Player.Intelligence <= 10 && Random.Shared.Next(2) == 0)
@@ -455,7 +455,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                             {
                                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FewHoursLaterFourth".Localized());
 
-                                if (Player.Armor.Id != ArmorIds.ComfortableClothes)
+                                if (Player.Armor?.Id != ArmorIds.ComfortableClothes)
                                     OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FindBackOnFourth".Localized());
                                 else
                                     OutputText("Scenes.Fetishcultistscene.CultistRapesYou.StillWearingThatFourth".Localized());
@@ -478,7 +478,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                             {
                                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.PlaceholderSluttyKitty".Localized());
 
-                                if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                                if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                                     Player.ModArmorName = "black leather collar with a bell";
 
                                 if (Player.Intelligence <= 10 && Random.Shared.Next(2) == 0)
@@ -487,7 +487,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                                 {
                                     OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FewHoursLaterFifth".Localized());
 
-                                    if (Player.Armor.Id != ArmorIds.ComfortableClothes)
+                                    if (Player.Armor?.Id != ArmorIds.ComfortableClothes)
                                         OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FindBackOnFifth".Localized());
                                     else
                                         OutputText("Scenes.Fetishcultistscene.CultistRapesYou.StillWearingThatFifth".Localized());
@@ -521,7 +521,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.ParagraphBreak".Localized());
 
-                if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                     Player.ModArmorName = "bondage patient clothes";
 
                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.ArentSupposedToBe".Localized());
@@ -666,7 +666,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                 {
                     OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FewHoursPassAgain".Localized());
 
-                    if (Player.Armor.Id != ArmorIds.ComfortableClothes)
+                    if (Player.Armor?.Id != ArmorIds.ComfortableClothes)
                         OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FindBackOnSixth".Localized());
                     else
                         OutputText("Scenes.Fetishcultistscene.CultistRapesYou.StillWearingThatSixth".Localized());
@@ -709,7 +709,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                              Player.VaginaDescript(0)
                         ));
 
-                        if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                        if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                             Player.ModArmorName = "crotch-revealing clothes";
 
                         OutputText("Scenes.Fetishcultistscene.CultistRapesYou.SaysToYou".Localized());
@@ -757,7 +757,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
                             OutputText("Scenes.Fetishcultistscene.CultistRapesYou.AndYourAssUndergarments".Localized());
 
-                            if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                            if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                                 Player.ModArmorName = "cute servant's clothes";
 
                             OutputText("Scenes.Fetishcultistscene.CultistRapesYou.BoyFeelingAroused".Localized());
@@ -806,7 +806,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
 
                                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.AndYourAss".Localized());
 
-                                if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                                if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                                     Player.ModArmorName = "maid's clothes";
 
                                 OutputText("Scenes.Fetishcultistscene.CultistRapesYou.GirlFeelingAroused".Localized());
@@ -839,7 +839,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                     {
                         OutputText("Scenes.Fetishcultistscene.CultistRapesYou.SeeCocksBecomeThird".Localized());
 
-                        if (Player.Armor.Id == ArmorIds.ComfortableClothes)
+                        if (Player.Armor?.Id == ArmorIds.ComfortableClothes)
                             Player.ModArmorName = "servant's clothes";
 
                         OutputText("Scenes.Fetishcultistscene.CultistRapesYou.ServantFeelingAroused".Localized());
@@ -861,7 +861,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Lake
                     {
                         OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FewHoursLaterSixth".Localized());
 
-                        if (Player.Armor.Id != ArmorIds.ComfortableClothes)
+                        if (Player.Armor?.Id != ArmorIds.ComfortableClothes)
                             OutputText("Scenes.Fetishcultistscene.CultistRapesYou.FindBackOnSeventh".Localized());
                         else
                             OutputText("Scenes.Fetishcultistscene.CultistRapesYou.StillWearingThatSeventh".Localized());

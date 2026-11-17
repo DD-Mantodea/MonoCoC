@@ -7,6 +7,8 @@ using System.Collections.Generic;
 
 namespace MonoCoC.Contents.Items
 {
+    public sealed record ItemStat(string LabelKey, string Value);
+
     [Register<Item>("coc:default")]
     public class Item : IIdentifiable, ITaggable
     {
@@ -31,6 +33,8 @@ namespace MonoCoC.Contents.Items
         public string LongNameKey = "";
 
         public string DescriptionKey = "";
+
+        public string Icon = "";
 
         public string UseTextKey = "";
 
@@ -58,6 +62,20 @@ namespace MonoCoC.Contents.Items
 
         public virtual bool Matches(string ruleId) => TagQuery.Matches(this, ruleId);
 
+        public virtual string EffectDescription => "";
+
+        public virtual List<ItemStat> GetStats()        {
+            var stats = new List<ItemStat>();
+
+            if (Value != 0)
+                stats.Add(new("Items.Stats.Value", Value.ToString("0", System.Globalization.CultureInfo.InvariantCulture)));
+
+            if (Durability > 0)
+                stats.Add(new("Items.Stats.Durability", Durability.ToString(System.Globalization.CultureInfo.InvariantCulture)));
+
+            return stats;
+        }
+
         public IItemBehavior? Behavior;
 
         public virtual Item PlayerEquip() => this;
@@ -69,6 +87,17 @@ namespace MonoCoC.Contents.Items
         public virtual bool CanUse() => false;
 
         public virtual bool UseItem() => false;
+
+        // 每类物品在这里注册自己的右键交互；特殊物品覆写后追加自己的条目。
+        // 默认：背包里的物品可以丢，装备槽里的物品可以卸下。
+        public virtual void RegisterInteractions(ItemInteractionMenu menu, ItemInteractionContext context)
+        {
+            if (context.Stack is not null)
+                menu.Add("drop", "Scenes.Inventory.Drop", ItemInteractions.Drop, order: 100);
+
+            if (context.EquipmentSlotId is not null)
+                menu.Add("unequip", "Scenes.Inventory.Unequip", ItemInteractions.Unequip, order: 100);
+        }
 
         public virtual void OnUse() { }
 
@@ -97,6 +126,8 @@ namespace MonoCoC.Contents.Items
             LongNameKey = definition.LongNameKey;
 
             DescriptionKey = definition.DescriptionKey;
+
+            Icon = definition.Icon;
 
             UseTextKey = definition.UseTextKey;
 

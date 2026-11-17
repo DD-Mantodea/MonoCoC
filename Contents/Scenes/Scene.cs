@@ -1,4 +1,4 @@
-using MonoCoC.Assets;
+﻿using MonoCoC.Assets;
 using MonoCoC.Macros;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Dungeons;
@@ -49,7 +49,7 @@ namespace MonoCoC.Contents.Scenes
 
         public static SaveContent SaveContent(Identifier sceneId) => SceneSaveRegistry.For(sceneId);
 
-        public static Enemies.Enemy? _currentMonster;
+        private static Enemies.Enemy? _currentMonster;
 
         public static Enemies.Enemy? CurrentMonster
         {
@@ -78,17 +78,59 @@ namespace MonoCoC.Contents.Scenes
             return monster == null ? ScriptValue.FromString("") : ScriptValue.FromString(selector(monster));
         }
 
-        public static bool InDungeon;
+        private static bool _inDungeon;
 
-        public static bool InRoomedDungeon;
+        private static bool _inRoomedDungeon;
 
-        public static string InRoomedDungeonName = "";
+        private static string _inRoomedDungeonName = "";
 
-        public static Action? InRoomedDungeonResume;
+        private static Action? _inRoomedDungeonResume;
 
-        public static bool Debug;
+        private static bool _debug;
 
-        public static Scene? Current;
+        private static Scene? _current;
+
+        public static bool InDungeon
+        {
+            get => _inDungeon;
+
+            set => _inDungeon = value;
+        }
+
+        public static bool InRoomedDungeon
+        {
+            get => _inRoomedDungeon;
+
+            set => _inRoomedDungeon = value;
+        }
+
+        public static string InRoomedDungeonName
+        {
+            get => _inRoomedDungeonName;
+
+            set => _inRoomedDungeonName = value;
+        }
+
+        public static Action? InRoomedDungeonResume
+        {
+            get => _inRoomedDungeonResume;
+
+            set => _inRoomedDungeonResume = value;
+        }
+
+        public static bool Debug
+        {
+            get => _debug;
+
+            set => _debug = value;
+        }
+
+        public static Scene? Current
+        {
+            get => _current;
+
+            set => _current = value;
+        }
 
         public Identifier Id { get; set; }
 
@@ -276,7 +318,7 @@ namespace MonoCoC.Contents.Scenes
 
             string.IsNullOrEmpty(text) ? text : char.ToUpperInvariant(text[0]) + text[1..];
 
-        public static MacroScope? _sceneTags;
+        private static MacroScope? _sceneTags;
 
         public virtual void OnLeave()
         {
@@ -424,8 +466,7 @@ namespace MonoCoC.Contents.Scenes
         public static void ReapplyActions()
         {
             foreach (var button in Buttons)
-                if (button is not null)
-                    button.Visible = false;
+                button?.Visible = false;
 
             foreach (var action in ActionState.Actions)
             {
@@ -715,7 +756,7 @@ namespace MonoCoC.Contents.Scenes
 
         public static void GenericNamePrompt(string defaultName = "") => PromptInput(text: defaultName);
 
-        public static void PromptInput(int? x = null, int? y = null, int? width = null, string text = "")
+        public static void PromptInput(string text = "")
         {
             View.Input.Text = text;
 

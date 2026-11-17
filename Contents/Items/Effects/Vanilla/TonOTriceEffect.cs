@@ -1,4 +1,4 @@
-using MonoCoC.Contents.BodyParts.Vanilla;
+﻿using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Flags;
@@ -130,7 +130,7 @@ namespace MonoCoC.Contents.Items.Effects.Vanilla
             }
 
             if (mutations.Changes < mutations.ChangeLimit && rows.Count > 1 && random.Next(3) == 0
-                && !(OptionStore.Instance.Get("hyper", 0) > 0))
+                && !(OptionStore.Instance.Get("coc:hyper", 0) > 0))
 
                 mutations.RemoveExtraBreastRow("TonOTrice");
 

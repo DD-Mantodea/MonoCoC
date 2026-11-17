@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
@@ -23,7 +23,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
         public bool GarLoli()
         {
 
-            return OptionStore.Instance.Get("gargoyleChild", 0) > 0 && false;
+            return OptionStore.Instance.Get("coc:gargoyleChild", 0) > 0 && false;
         }
 
         public int GargoyleConfidence(int arg = 0)

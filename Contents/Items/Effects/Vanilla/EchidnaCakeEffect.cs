@@ -1,4 +1,4 @@
-using MonoCoC.Contents.BodyParts.Vanilla;
+﻿using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Configuration;
@@ -323,7 +323,7 @@ namespace MonoCoC.Contents.Items.Effects.Vanilla
             if (random.Next(3) == 0 && mutations.Changes < mutations.ChangeLimit
                 && player.Gender == Gender.Male && AverageBreastSize(player) > 2
 
-                && !(OptionStore.Instance.Get("hyper", 0) > 0))
+                && !(OptionStore.Instance.Get("coc:hyper", 0) > 0))
             {
                 context.Write("Items.EchidnaCake.ShrinkTits".Localized());
 

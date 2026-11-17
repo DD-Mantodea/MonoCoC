@@ -55,6 +55,8 @@ namespace MonoCoC.Assets.ContentManagers
 
             DescriptionKey = Str(json, "descriptionKey"),
 
+            Icon = Str(json, "icon"),
+
             UseTextKey = Str(json, "useTextKey"),
 
             HeaderKey = Str(json, "headerKey"),
@@ -84,6 +86,8 @@ namespace MonoCoC.Assets.ContentManagers
             Perk = Str(json, "perk"),
 
             TwoHanded = Bool(json, "twoHanded"),
+
+            Uses = ReadUses(json),
 
             SupportsBulge = Bool(json, "supportsBulge"),
 
@@ -143,6 +147,20 @@ namespace MonoCoC.Assets.ContentManagers
         private static bool Bool(JsonObject json, string key, bool fallback = false) =>
 
             bool.TryParse(Str(json, key), out var value) ? value : fallback;
+
+        private static Dictionary<string, int> ReadUses(JsonObject json)
+        {
+            var result = new Dictionary<string, int>();
+
+            if (!json.TryGetValue("uses", out var value) || value is not JsonObject uses)
+                return result;
+
+            foreach (var pair in uses)
+                if (int.TryParse(pair.Value?.ToString(), out var count) && count > 0)
+                    result[pair.Key] = count;
+
+            return result;
+        }
 
         private static List<string> Strings(JsonObject json, string key)
         {

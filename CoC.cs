@@ -1,4 +1,4 @@
-using FontStashSharp.RichText;
+﻿using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -176,6 +176,9 @@ namespace MonoCoC
                 UIManager.UpdateAfterInput(gameTime);
 
                 base.Update(gameTime);
+
+                // 布局阶段：Update 之后、Draw 之前；Draw 只负责渲染。
+                UIManager.Layout(gameTime);
             }
             catch (Exception)
             {

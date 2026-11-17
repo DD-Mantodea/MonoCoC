@@ -147,7 +147,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (damage > 0)
             {
 
-                if (enemy.LustVulnerability > 0 && player.Armor.Id == ArmorIds.BondageStraps)
+                if (enemy.LustVulnerability > 0 && player.Armor?.Id == ArmorIds.BondageStraps)
                 {
                     var who = enemy.Article + enemy.ShortName;
 

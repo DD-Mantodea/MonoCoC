@@ -60,7 +60,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.Forest
             if (Player.HasPerk(PerkIds.Runner))
                 baseVal += 20;
 
-            if (Player.HasPerk(PerkIds.Unhindered) && (Player.Armor == Armor.Nothing || Player.Armor.Perk == "Adornment"))
+            if (Player.HasPerk(PerkIds.Unhindered) && (Player.Armor is null || Player.Armor?.Perk == "Adornment"))
                 baseVal += 20;
 
             if (Player.IsDrider())

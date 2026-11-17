@@ -1,40 +1,88 @@
-using MonoCoC.Contents.Creation;
+﻿using MonoCoC.Contents.Creation;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Flags;
 using MonoCoC.Contents.Scenes;
 using MonoCoC.Contents.Scenes.Vanilla;
+using Hjson;
+using MonoCoC.Assets;
 using MonoCoC.Extensions;
+using System.IO;
 using MonoCoC.UI.Animations;
-using MonoCoC.UI.Styles;
-using MonoCoC.UI.Components;
-using MonoCoC.UI.Components;
-using MonoCoC.UI.Components.Views;
 using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using Microsoft.Xna.Framework;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MonoCoC.UI.Components.Views
 {
-    public class CharCreationView : HjsonView
+    public class CharCreationView : TabPageView
     {
-        private enum Step
+        private sealed record CreationStep(string Id, string LabelKey, string PanelPart);
+
+        private static List<CreationStep> PageIndexs = [];
+
+        private static List<CreationStep> Steps
         {
-            Identity,
-            Body,
-            Appearance,
-            Origin,
-            Experience,
-            Modes,
-            Summary
+            get
+            {
+                if (PageIndexs.Count > 0)
+                    return PageIndexs;
+
+                var list = new List<CreationStep>();
+
+                try
+                {
+                    var folder = Path.Combine(Paths.AssetPath("Data/Creation"), "Steps");
+
+                    if (Directory.Exists(folder))
+                    {
+                        var files = Directory.GetFiles(folder, "*" + "." + "hjson").OrderBy(Path.GetFileName).ToList();
+
+                        var ordered = new List<(int Order, CreationStep Step)>();
+
+                        foreach (var file in files)
+                        {
+                            if (HjsonParser.Parse(File.ReadAllText(file)) is not JsonObject node)
+                                continue;
+
+                            var id = node.Str("id", "");
+
+                            var panel = node.Str("panel", "");
+
+                            if (id.Length == 0 || panel.Length == 0)
+                                continue;
+
+                            ordered.Add((node.Int("order", 0), new CreationStep(id, node.Str("label", ""), panel)));
+                        }
+
+                        list = ordered.OrderBy(entry => entry.Order).Select(entry => entry.Step).ToList();
+                    }
+                }
+                catch
+                {
+
+                }
+
+                PageIndexs = list;
+
+                return PageIndexs;
+            }
         }
 
-        private readonly Component[] _panels = new Component[7];
+        private static int StepIndex(string id)
+        {
+            var steps = Steps;
 
-        private readonly float[] _tabAnimation = new float[7];
+            for (var index = 0; index < steps.Count; index++)
+                if (string.Equals(steps[index].Id, id, StringComparison.OrdinalIgnoreCase))
+                    return index;
 
-        private Button[] _tabs = [];
+            return -1;
+        }
+
+        protected override int ActiveTabIndex => PageIndex;
 
         private TextBox _name = null!;
 
@@ -45,8 +93,6 @@ namespace MonoCoC.UI.Components.Views
         private SegmentedControl _difficultySelector = null!;
 
         private SegmentedControl _hardcoreSelector = null!;
-
-        private TextBox _nameBox = null!;
 
         private SegmentedControl _skinSelector = null!;
 
@@ -96,7 +142,7 @@ namespace MonoCoC.UI.Components.Views
 
         private SegmentedControl _orientationSelector = null!;
 
-        private Step _step = Step.Identity;
+        private int PageIndex;
 
         private bool _started;
 
@@ -116,20 +162,6 @@ namespace MonoCoC.UI.Components.Views
             base.Update(gameTime);
 
             _animations.Update(gameTime);
-
-            var delta = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            for (var index = 0; index < _tabs.Length; index++)
-            {
-                var target = index == (int)_step ? 1f : 0f;
-
-                _tabAnimation[index] = MathHelper.Lerp(
-                    _tabAnimation[index],
-                    target,
-                    MathHelper.Clamp(delta * 12f, 0f, 1f));
-
-                ApplyTabVisual(_tabs[index], _tabAnimation[index]);
-            }
         }
 
         public void EnsureStarted()
@@ -144,38 +176,8 @@ namespace MonoCoC.UI.Components.Views
 
             CoC.Instance.Player.CharCreation = true;
 
-            Show(Step.Identity);
+            Show(0);
         }
-
-        [UIRequired("charCreation.background")]
-        private void BindBackground(Component part)
-        {
-        }
-
-        [UIRequired("creation.tabs")]
-        private void BindTabs(Component part) =>
-            _tabs = part.LayoutData.Children.OfType<Button>().ToArray();
-
-        [UIRequired("creation.panel.identity")]
-        private void BindIdentity(Component part) => _panels[(int)Step.Identity] = part;
-
-        [UIRequired("creation.panel.body")]
-        private void BindBody(Component part) => _panels[(int)Step.Body] = part;
-
-        [UIRequired("creation.panel.appearance")]
-        private void BindAppearance(Component part) => _panels[(int)Step.Appearance] = part;
-
-        [UIRequired("creation.panel.origin")]
-        private void BindOrigin(Component part) => _panels[(int)Step.Origin] = part;
-
-        [UIRequired("creation.panel.experience")]
-        private void BindExperience(Component part) => _panels[(int)Step.Experience] = part;
-
-        [UIRequired("creation.panel.modes")]
-        private void BindModesPanel(Component part) => _panels[(int)Step.Modes] = part;
-
-        [UIRequired("creation.panel.summary")]
-        private void BindSummaryPanel(Component part) => _panels[(int)Step.Summary] = part;
 
         [UIRequired("creation.error")]
         private void BindError(Label part) => _errorLabel = part;
@@ -491,8 +493,7 @@ namespace MonoCoC.UI.Components.Views
                     _ => 0
                 });
 
-                if (_virginityDetail is not null)
-                    _virginityDetail.Text(_virginityOptions.FormatDescription(_virginityOptions.SelectedDescriptionKey.Localized()));
+                _virginityDetail?.Text(_virginityOptions.FormatDescription(_virginityOptions.SelectedDescriptionKey.Localized()));
             };
         }
 
@@ -510,6 +511,13 @@ namespace MonoCoC.UI.Components.Views
 
         protected override void OnPartsBound()
         {
+            var pages = new List<TabPageDefinition>(Steps.Count);
+
+            foreach (var step in Steps)
+                pages.Add(new TabPageDefinition(step.Id, step.LabelKey, step.PanelPart, 0));
+
+            SetupTabPages(pages);
+
             _historyOptions.CurrentGender = Draft.Gender.ToString();
             _endowmentOptions.CurrentGender = Draft.Gender.ToString();
             _virginityOptions.CurrentGender = Draft.Gender.ToString();
@@ -538,11 +546,11 @@ namespace MonoCoC.UI.Components.Views
             if (_endowmentOptions.SelectedId is { } endowment)
                 SetEndowment(endowment);
 
-            Show(_lastStep);
+            Show(PageIndex);
         }
 
         [UIEvent("creation.exit")]
-        private void ExitToMainMenu()
+        private static void ExitToMainMenu()
         {
             CoC.Instance.Player.CharCreation = false;
 
@@ -550,38 +558,38 @@ namespace MonoCoC.UI.Components.Views
         }
 
         [UIEvent("creation.tab.identity")]
-        private void ShowIdentity() => Show(Step.Identity);
+        private void ShowIdentity() => Show(StepIndex("identity"));
 
         [UIEvent("creation.tab.body")]
-        private void ShowBody() => Show(Step.Body);
+        private void ShowBody() => Show(StepIndex("body"));
 
         [UIEvent("creation.tab.appearance")]
-        private void ShowAppearance() => Show(Step.Appearance);
+        private void ShowAppearance() => Show(StepIndex("appearance"));
 
         [UIEvent("creation.tab.origin")]
-        private void ShowOrigin() => Show(Step.Origin);
+        private void ShowOrigin() => Show(StepIndex("origin"));
 
         [UIEvent("creation.tab.experience")]
-        private void ShowExperience() => Show(Step.Experience);
+        private void ShowExperience() => Show(StepIndex("experience"));
 
         [UIEvent("creation.tab.modes")]
-        private void ShowModes() => Show(Step.Modes);
+        private void ShowModes() => Show(StepIndex("modes"));
 
         [UIEvent("creation.tab.summary")]
-        private void ShowSummary() => Show(Step.Summary);
+        private void ShowSummary() => Show(StepIndex("summary"));
 
         [UIEvent("creation.nav.back")]
         private void Back()
         {
-            if (_step > Step.Identity)
-                Show(_step - 1);
+            if (PageIndex > 0)
+                Show(PageIndex - 1);
         }
 
         [UIEvent("creation.nav.next")]
         private void Next()
         {
-            if (_step < Step.Summary)
-                Show(_step + 1);
+            if (PageIndex < Steps.Count - 1)
+                Show(PageIndex + 1);
         }
 
         private void ClearError()
@@ -591,6 +599,25 @@ namespace MonoCoC.UI.Components.Views
             _animations.StopAll();
         }
 
+        // 跳到包含指定组件的步骤页（锁定项/名称输入所在页），不再写死步骤 id。
+        private void ShowContaining(Component component)
+        {
+            for (var index = 0; index < PagePanels.Count; index++)
+            {
+                var panel = PagePanels[index];
+
+                if (panel is null)
+                    continue;
+
+                for (var node = component.LayoutData.Parent; node is not null; node = node.LayoutData.Parent)
+                    if (ReferenceEquals(node, panel))
+                    {
+                        Show(index);
+
+                        return;
+                    }
+            }
+        }
         private void ShowError(string text)
         {
             _errorLabel.Text(text);
@@ -610,7 +637,7 @@ namespace MonoCoC.UI.Components.Views
 
             if (string.IsNullOrWhiteSpace(Draft.Name))
             {
-                Show(Step.Identity);
+                ShowContaining(_name);
 
                 ShowError("Views.CharCreation.NameRequired".Localized());
 
@@ -621,7 +648,7 @@ namespace MonoCoC.UI.Components.Views
 
             if (_historyOptions.SelectedLocked)
             {
-                Show(Step.Origin);
+                ShowContaining(_historyOptions);
 
                 ShowError("Views.CharCreation.LockedConfirm".Localized());
 
@@ -632,16 +659,25 @@ namespace MonoCoC.UI.Components.Views
                 Draft.Gender == Gender.Female &&
                 Draft.VirginityState == 0)
             {
-                Show(Step.Origin);
+                ShowContaining(_historyOptions);
 
                 ShowError("Views.CharCreation.VirginityConflict".Localized());
 
                 return;
             }
 
-            if (_endowmentOptions.SelectedLocked || _virginityOptions.SelectedLocked)
+            if (_endowmentOptions.SelectedLocked)
             {
-                Show(Step.Experience);
+                ShowContaining(_endowmentOptions);
+
+                ShowError("Views.CharCreation.LockedConfirm".Localized());
+
+                return;
+            }
+
+            if (_virginityOptions.SelectedLocked)
+            {
+                ShowContaining(_virginityOptions);
 
                 ShowError("Views.CharCreation.LockedConfirm".Localized());
 
@@ -1090,8 +1126,7 @@ namespace MonoCoC.UI.Components.Views
 
             _breastSelector.Visible = show;
 
-            if (_breastLabel is not null)
-                _breastLabel.Visible = show;
+            _breastLabel?.Visible = show;
 
             if (!show)
                 return;
@@ -1217,17 +1252,9 @@ namespace MonoCoC.UI.Components.Views
             Refresh();
         }
 
-        private static Step _lastStep = Step.Identity;
-
-        private void Show(Step step)
+        private void Show(int step)
         {
-            _lastStep = step;
-
-            _step = step;
-
-            for (var index = 0; index < _panels.Length; index++)
-                if (_panels[index] is not null)
-                    _panels[index].Visible = index == (int)step;
+            SelectPage(step);
 
             Refresh();
         }
@@ -1236,8 +1263,6 @@ namespace MonoCoC.UI.Components.Views
         {
             if (_summary is null)
                 return;
-
-            var hasVagina = Draft.Gender is Gender.Female or Gender.Hermaphrodite;
 
             _virginityOptions.Refresh();
 
@@ -1284,17 +1309,6 @@ namespace MonoCoC.UI.Components.Views
                 return $"{centimetres:0.#} " + "Views.CharCreation.Unit.Cm".Localized();
 
             return $"{centimetres / 2.54f:0.#} " + "Views.CharCreation.Unit.Inch".Localized();
-        }
-
-        private void ApplyTabVisual(Button button, float progress)
-        {
-            button.Selected = progress >= 0.5f;
-
-            button.FontSizeOverride = (int)Math.Round(20 + 4 * progress);
-
-            button.LayoutData.Position.X = 28 - 20 * progress;
-
-            button.RefreshVisual();
         }
     }
 }

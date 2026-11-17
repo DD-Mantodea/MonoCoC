@@ -126,15 +126,15 @@ namespace MonoCoC.Contents.Commands
 
             context.Output("  Weapon: " + context.Player.Weapon.Name);
 
-            context.Output("  Shield: " + context.Player.Shield.Name);
+            context.Output("  Shield: " + (context.Player.Shield?.Name ?? "nothing"));
 
-            context.Output("  Armor: " + context.Player.Armor.Name);
+            context.Output("  Armor: " + context.Player.Armor?.Name);
 
-            context.Output("  Upper: " + context.Player.UpperGarment.Name);
+            context.Output("  Upper: " + context.Player.UpperGarment?.Name);
 
-            context.Output("  Lower: " + context.Player.LowerGarment.Name);
+            context.Output("  Lower: " + context.Player.LowerGarment?.Name);
 
-            context.Output("  Accessory: " + context.Player.Jewelry.Name);
+            context.Output("  Accessory: " + context.Player.Jewelry?.Name);
 
             context.Output("Items:");
 

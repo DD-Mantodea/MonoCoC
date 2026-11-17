@@ -1,0 +1,78 @@
+﻿{
+  pane: fetish
+  order: 20
+  global: true
+  title: "View.Options.Pane.Fetishes.Title"
+  button: "View.Options.Tab.Fetishes"
+  description: "View.Options.Pane.Fetishes.Desc"
+
+  settings: [
+    {
+      id: "coc:addiction"
+      label: "View.Options.Setting.Addiction"
+      default: 1
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.AddictionOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.AddictionOff" }
+      ]
+    }
+    {
+      id: "coc:furry"
+      label: "View.Options.Setting.Furry"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.FurryOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.FurryOff" }
+      ]
+    }
+    {
+      id: "coc:watersports"
+      label: "View.Options.Setting.Watersports"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.WatersportsOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.WatersportsOff" }
+      ]
+    }
+    {
+      id: "coc:gore"
+      label: "View.Options.Setting.Gore"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.GoreOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.GoreOff" }
+      ]
+    }
+    {
+      id: "coc:filth"
+      label: "View.Options.Setting.Filth"
+      default: 1
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.FilthOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.FilthOff" }
+      ]
+    }
+    {
+      id: "coc:parasites"
+      label: "View.Options.Setting.Parasites"
+      desc: "View.Options.Desc.Parasites"
+      default: 0
+      values: [
+        { value: 2, label: "View.Options.On" }
+        { value: 1, label: "View.Options.Option.Low" }
+        { value: 0, label: "View.Options.Off" }
+      ]
+    }
+    {
+      id: "coc:underage"
+      label: "View.Options.Setting.Underage"
+      desc: "View.Options.Desc.Underage"
+      default: 1
+      values: [
+        { value: 2, label: "View.Options.On" }
+        { value: 1, label: "View.Options.Option.Half" }
+        { value: 0, label: "View.Options.Off" }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoCoC.Contents.Commands;
@@ -13,8 +13,34 @@ using static MonoCoC.UI.Layout.LayoutConstants;
 
 namespace MonoCoC.UI.Console
 {
+        // 开发者控制台配色：工具自身样式，不参与游戏 UI 主题（HJSON 外观系统）。
+    internal static class ConsoleDevTheme
+    {
+        public static readonly Color Background = new(0x1C, 0x1C, 0x1C, 0xDC);
+
+        public static readonly Color ErrorText = new(255, 90, 90);
+
+        public static readonly Color WarningText = new(255, 205, 100);
+
+        public static readonly Color Border = new(0x82, 0x82, 0x82);
+
+        public static readonly Color TopLine = new(0xB4, 0xB4, 0xB4);
+
+
+        // 命令补全列表
+        public static readonly Color CompletionText = new(190, 190, 190);
+
+        public static readonly Color CompletionSelectedText = Color.White;
+
+        public static readonly Color CompletionBorder = new(120, 120, 120);
+
+        public static readonly Color CompletionSelectedRow = new(70, 70, 70);
+    }
+
     public class ConsoleOverlay : Container
     {
+        // 开发者控制台配色：工具自身样式，不参与游戏 UI 主题（HJSON 外观系统）。
+
         private const int PanelPadding = 12;
 
         private const int InputHeight = 36;
@@ -62,7 +88,7 @@ namespace MonoCoC.UI.Console
                 .Position(0, ScreenHeight - panelHeight)
                 .Of(this);
 
-            _panel.BackgroundColor = new Color(28, 28, 28, 220);
+            _panel.BackgroundColor = ConsoleDevTheme.Background;
 
             var outputHeight = panelHeight - InputHeight - PanelPadding * 3 - 26;
 
@@ -100,7 +126,7 @@ namespace MonoCoC.UI.Console
 
             _input.ShowBorder = false;
 
-            _input.Cursor = new Cursor(Color.White, UIColors.InputSelection)
+            _input.Cursor = new Cursor(Color.White, UIComponentStyles.TextBox.Selection)
             {
                 TextBox = _input
             };
@@ -178,13 +204,13 @@ namespace MonoCoC.UI.Console
 
         public static void WriteError(string text)
         {
-            WriteLine(text, new Color(255, 90, 90));
+            WriteLine(text, ConsoleDevTheme.ErrorText);
 
             Open();
         }
 
         public static void WriteWarning(string text) =>
-            WriteLine(text, new Color(255, 205, 100));
+            WriteLine(text, ConsoleDevTheme.WarningText);
 
         private void ClearLines()
         {
@@ -467,9 +493,9 @@ namespace MonoCoC.UI.Console
         {
             base.DrawSelf(spriteBatch, gameTime);
 
-            spriteBatch.DrawBorder(Rectangle, 2, new Color(130, 130, 130));
+            spriteBatch.DrawBorder(Rectangle, 2, ConsoleDevTheme.Border);
 
-            spriteBatch.DrawRectangle(new Rectangle(Rectangle.X, Rectangle.Y, Rectangle.Width, 2), new Color(180, 180, 180));
+            spriteBatch.DrawRectangle(new Rectangle(Rectangle.X, Rectangle.Y, Rectangle.Width, 2), ConsoleDevTheme.TopLine);
         }
     }
 }

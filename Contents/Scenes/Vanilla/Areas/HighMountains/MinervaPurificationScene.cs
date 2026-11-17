@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Combat;
@@ -2318,7 +2318,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
                 return;
             }
 
+            // 原版尾随 ReturnToCamp（上方 if/else 已穷尽，属原项目死代码，保留）。
+#pragma warning disable CS0162
+
             DoNext(() => ReturnToCamp(1));
+
+#pragma warning restore CS0162
         }
 
         public void PregnancyStage3(bool repeat = false)
@@ -2424,7 +2429,12 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
                 return;
             }
 
+            // 原版尾随 ReturnToCamp（上方 if/else 已穷尽，属原项目死代码，保留）。
+#pragma warning disable CS0162
+
             DoNext(() => ReturnToCamp(1));
+
+#pragma warning restore CS0162
         }
 
         public void PostPregnancyStage3Sex()

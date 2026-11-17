@@ -164,7 +164,7 @@ namespace MonoCoC.Contents.Items.Behaviors.Vanilla
         // 原版 :179 wearingEnchanted()
         public static bool WearingEnchanted() =>
 
-            Enchanted && CoC.Instance.Player.UpperGarment.Id == ItemId;
+            Enchanted && CoC.Instance.Player.UpperGarment?.Id == ItemId;
 
         // 原版 :183 knownBound()
         public static bool KnownBound() => Bound && UnequipTried;

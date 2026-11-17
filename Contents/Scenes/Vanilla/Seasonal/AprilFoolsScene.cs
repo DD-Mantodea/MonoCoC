@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Datas.Vanilla;
@@ -167,7 +167,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Seasonal
 
             AddButton(3, "Common.Button.Gems".Localized(), () => ProceedToCheckout("Gems", nextFunc));
 
-            AddButton(14, "Scenes.Options.Cancel".Localized(), nextFunc);
+            AddButton(14, "View.Options.Cancel".Localized(), nextFunc);
         }
 
         public void ProceedToCheckout(string method, Action nextFunc = null)

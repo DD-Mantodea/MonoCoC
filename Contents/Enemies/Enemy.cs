@@ -455,7 +455,7 @@ namespace MonoCoC.Contents.Enemies
         {
             var player = context.Player;
 
-            var armorName = player.Armor != Armor.Nothing ? player.Armor.Name : player.ArmorName;
+            var armorName = player.Armor is not null ? player.Armor?.Name : player.ArmorName;
 
             if (damage <= 0)
             {

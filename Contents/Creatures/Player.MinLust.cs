@@ -46,7 +46,7 @@ namespace MonoCoC.Contents.Creatures
             }
 
             // 原版 JewelryLib.hx:131-136：冰石戒指降下限，绯红石戒指抬下限
-            var jewelryBonus = (Jewelry.Definition?.Id.Path ?? "") switch
+            var jewelryBonus = (Jewelry?.Definition?.Id.Path ?? "") switch
             {
                 "lesser_icestone_ring" => -10f,
 
@@ -151,10 +151,10 @@ namespace MonoCoC.Contents.Creatures
             }
 
             // 原版「下限的下限」：只取最大值，不叠加
-            if (Armor.Definition?.Id.Path == "lusty_maidens_armor")
+            if (Armor?.Definition?.Id.Path == "lusty_maidens_armor")
                 minMin = Math.Max(minMin, 30);
 
-            if (Armor.Definition?.Id.Path == "tentacle_bark")
+            if (Armor?.Definition?.Id.Path == "tentacle_bark")
                 minMin = Math.Max(minMin, 20);
 
             if (HasStatusEffect(StatusEffectIds.Luststick))

@@ -9,9 +9,14 @@ namespace MonoCoC.Contents.Items
     [Register<Jewelry>("coc:jewelry")]
     public class Jewelry : Item
     {
-        public static new readonly Jewelry Nothing = new() { Id = new Identifier("coc", "nothing"), Name = "nothing", LongName = "nothing" };
-
         public float EffectId;
+
+        public override void RegisterInteractions(ItemInteractionMenu menu, ItemInteractionContext context)
+        {
+            ItemInteractions.RegisterEquip(menu, context);
+
+            base.RegisterInteractions(menu, context);
+        }
 
         public float EffectMagnitude;
 

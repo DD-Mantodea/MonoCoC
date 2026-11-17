@@ -8,8 +8,8 @@ using System;
 
 namespace MonoCoC.UI.Components
 {
-    // 澶у湴鍥撅細鍙缉鏀?骞崇Щ鐨勭摝鐗囧湴鍥撅紙鍘熺増 DungeonMap 鐨?alternative 妯″紡锛夈€?
-    // 鐡︾墖/杩炴帴绾跨粯鍒跺湪 DungeonMapDrawing 閲岋紝鍜屽皬鍦板浘鍏辩敤銆?
+    // 大地图：可缩放平移的瓦片地图（原版 DungeonMap 的 alternative 模式）。
+    // 瓦片/连接线绘制在 DungeonMapDrawing 里，和小地图共用。
     public class DungeonMapPanel : Container
     {
         private const int TileSize = 40;
@@ -30,7 +30,7 @@ namespace MonoCoC.UI.Components
 
         public DungeonMapPanel()
         {
-            BackgroundColor = new Color(0, 0, 0, 190);
+            BackgroundColor = UIComponentStyles.DungeonMap.Background;
 
             Visible = false;
 

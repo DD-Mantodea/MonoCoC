@@ -354,7 +354,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (Player.HasItem(UseableIds.TeddyBear) && !Save.GetBool("giftedBear"))
                 AddButton(7, "Common.Button.GiftBear".Localized(), RathazulBear);
 
-            if (Player.Armor.Id == ArmorIds.VineArmorBehavior && !((0 & 0) != 0))
+            if (Player.Armor?.Id == ArmorIds.VineArmorBehavior && !((0 & 0) != 0))
                 AddButton(10, "Common.Button.Vines".Localized(), () => { });
 
             if (Player.HasItem(ItemRegistry.Create(ConsumableIds.Liddellium)) && (CoC.Instance.Flags.Get(GameFlagIds.LiddelliumFlag) >= 0))

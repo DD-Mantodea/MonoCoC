@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -84,6 +84,20 @@ namespace MonoCoC.UI.Framework
             if (child == null)
                 return false;
 
+            // 环检测：把 X 挂到 X 自己的后代下会让 Parent 链成环，
+            // 之后每次布局求值（Size/Position）都会沿父链无限递归，最终栈溢出崩溃。
+            // 这里拒绝并打日志，避免整棵树被一个错误挂接搞死。
+            for (var ancestor = this; ancestor is not null; ancestor = ancestor.LayoutData.Parent)
+            {
+                if (!ReferenceEquals(ancestor, child))
+                    continue;
+
+                MonoCoC.UI.Console.ConsoleOverlay.WriteError(
+                    $"[UI] 拒绝挂接：{child.GetType().Name} 是 {GetType().Name} 的祖先，会形成 Parent 环。\n{Environment.StackTrace}");
+
+                return false;
+            }
+
             LayoutData.Children.Add(child);
 
             child.LayoutData.Parent = this;
@@ -121,10 +135,11 @@ namespace MonoCoC.UI.Framework
 
         // 鍦ㄧ湡姝ｇ粯鍒跺墠瀹屾垚鎵€鏈夊欢杩熷竷灞€锛堜緥濡?TextArea 鐨勬枃鏈祴閲忥級锛?
         // 閬垮厤鏂板満鏅涓€甯т互鏈垵濮嬪寲灏哄缁樺埗銆?
-        public virtual void PrepareDraw()
+        // 布局阶段：只计算尺寸/位置，不绘制；在 Update 之后、Draw 之前调用。
+        public virtual void PerformLayout(GameTime gameTime)
         {
             foreach (var child in LayoutData.Children.ToArray())
-                child.PrepareDraw();
+                child.PerformLayout(gameTime);
         }
 
         public virtual void Draw(SpriteBatch spriteBatch, GameTime gameTime)

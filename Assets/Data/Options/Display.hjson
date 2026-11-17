@@ -1,0 +1,102 @@
+﻿{
+  pane: display
+  order: 10
+  global: true
+  title: "View.Options.Pane.Display.Title"
+  button: "View.Options.Tab.Display"
+  description: "View.Options.Pane.Display.Desc"
+
+  settings: [
+    {
+      id: "coc:language"
+      kind: switcher
+      source: languages
+      control: dropdown
+      label: "View.Options.Setting.Language"
+      apply: language
+      default: 0
+    }
+    {
+      id: "coc:theme"
+      label: "View.Options.Setting.Theme"
+      action: theme
+      sub: {
+        kind: "message"
+        title: "View.Options.Sub.Seven.Title"
+        message: "View.Options.Pane.NotImplemented"
+      }
+      default: 0
+      values: [
+        { value: 0, label: "View.Options.Choose" }
+      ]
+    }
+    {
+      id: "coc:sprites"
+      label: "View.Options.Setting.Sprites"
+      desc: "View.Options.Desc.Sprites"
+      default: 0
+      values: [
+        { value: 2, label: "View.Options.Option.New" }
+        { value: 1, label: "View.Options.Option.Old" }
+        { value: 0, label: "View.Options.Option.Off" }
+      ]
+    }
+    {
+      id: "coc:images"
+      label: "View.Options.Setting.ImagePack"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.ImagePackOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.ImagePackOff" }
+      ]
+    }
+    {
+      id: "coc:time12Hour"
+      label: "View.Options.Setting.TimeFormat"
+      desc: "View.Options.Desc.TimeFormat"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.Option.12Hour" }
+        { value: 0, label: "View.Options.Option.24Hour" }
+      ]
+    }
+    {
+      id: "coc:metric"
+      label: "View.Options.Setting.Measurements"
+      desc: "View.Options.Desc.Measurements"
+      default: 0
+      values: [
+        { value: 0, label: "View.Options.Option.Imperial" }
+        { value: 1, label: "View.Options.Option.Metric" }
+      ]
+    }
+    {
+      id: "coc:animateStatBars"
+      label: "View.Options.Setting.AnimateStats"
+      default: 1
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.AnimateStatsOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.AnimateStatsOff" }
+      ]
+    }
+    {
+      id: "coc:oldFont"
+      label: "View.Options.Setting.SidebarFont"
+      desc: "View.Options.Desc.SidebarFont"
+      default: 0
+      values: [
+        { value: 0, label: "View.Options.Option.New" }
+        { value: 1, label: "View.Options.Option.Old" }
+      ]
+    }
+    {
+      id: "coc:showHotkeys"
+      label: "View.Options.Setting.ShowHotkeys"
+      default: 0
+      values: [
+        { value: 1, label: "View.Options.On",  desc: "View.Options.Desc.ShowHotkeysOn" }
+        { value: 0, label: "View.Options.Off", desc: "View.Options.Desc.ShowHotkeysOff" }
+      ]
+    }
+  ]
+}

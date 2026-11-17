@@ -3187,7 +3187,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             RegisterMacro("strapon", Player.HasKeyItem("Demonic Strap-On"));
 
-            RegisterMacro("vines", Player.Armor.Id == ArmorIds.VineArmorBehavior);
+            RegisterMacro("vines", Player.Armor?.Id == ArmorIds.VineArmorBehavior);
 
             OutputText("Scenes.Rubi.ExhibitionistAnal.OutdoorGulpConsent".Localized());
 

@@ -92,7 +92,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 foreach (var stat in new[] { "str", "spe", "tou", "inte" })
                     DebuffStat(context, stat);
 
-            var armorId = player.Armor.Id;
+            var armorId = player.Armor?.Id;
 
             if (armorId == ArmorIds.DivineArmor || armorId == ArmorIds.GooArmor
                 || armorId == ArmorIds.TentacleBarkBehavior || armorId == ArmorIds.VineArmor)
@@ -105,7 +105,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             context.Append("Combat.Mora.Despair.Lead".Localized());
 
             if (weakenedArmor)
-                context.Append(player.Armor.Id == ArmorIds.GooArmor
+                context.Append(player.Armor?.Id == ArmorIds.GooArmor
 
                     ? "Combat.Mora.Despair.WeakenedValeria".Localized()
 

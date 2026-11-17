@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Scenes.Vanilla.Npcs;
 using MonoCoC.Contents.Scenes.Vanilla.Places.Farm;
 using MonoCoC.Contents.Creatures;
@@ -21,7 +21,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places
     public class FarmScene : Scene
     {
 
-        public static bool UrtaDisabled => OptionStore.Instance.Get("urtaDisabled", 0) > 0;
+        public static bool UrtaDisabled => OptionStore.Instance.Get("coc:urtaDisabled", 0) > 0;
 
         public static SaveContent Save => SaveContent(SceneIds.Places.Farm);
 

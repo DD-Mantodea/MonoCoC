@@ -35,7 +35,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            if (player.Shield.Is(ItemIds.DragonShield) && context.Random.Next(2) == 0)
+            if (player.Shield?.Is(ItemIds.DragonShield) == true && context.Random.Next(2) == 0)
             {
                 context.Append("Combat.GoblinBroodmother.Drug.Absorbed".Localized());
 

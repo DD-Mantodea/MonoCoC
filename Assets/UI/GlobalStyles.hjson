@@ -1,4 +1,4 @@
-{
+﻿{
   id: "GlobalStyles"
 
   controlTemplates: {
@@ -151,6 +151,11 @@
           borderColor: "#704D28FF"
           textColor: "#3B2C1DFF"
         }
+        selected: {
+          backgroundColor: "#D5D8B8FF"
+          borderColor: "#858B62FF"
+          textColor: "#2F241BFF"
+        }
         disabled: {
           backgroundColor: "#C4B8A6FF"
           borderColor: "#8C7E6CFF"
@@ -189,5 +194,152 @@
         separatorColor: "#9F8156FF"
       }
     }
+
+    ContextMenu: {
+      type: "coc:context_menu"
+      width: 160
+      itemHeight: 40
+      spacing: 2
+      menuPadding: 4
+      itemTemplate: "MenuItem"
+      visible: false
+      states: {
+        normal: { backgroundColor: "#F7EFE0FF", borderColor: "#B79A70FF", borderThickness: 1 }
+      }
+    }
+
+    MenuItem: {
+      type: "coc:button"
+      height: 36
+      layout: "relative"
+      textHorizontalAlign: "left"
+      labelPadding: 10
+      states: {
+        normal: { backgroundColor: "#00000000", textColor: "#35291FFF" }
+        hover: { backgroundColor: "#E0C9AAFF", textColor: "#35291FFF" }
+      }
+    }
+  }
+
+  components: {
+    scrollBar: {
+      thickness: 15
+      minThumb: 24
+      track: "#ECE0C4FF"
+      thumb: "#B79A70FF"
+      revealDistance: 28
+      fadeInSpeed: 8
+      fadeOutSpeed: 4
+    }
+
+    textBox: {
+      text: "#000000FF"
+      border: "#000000FF"
+      borderThickness: 1
+      cursor: "#000000FF"
+      selection: "#31405172"
+    }
+
+    searchBar: {
+      background: "#EEE4CDFF"
+      border: "#5C4126FF"
+      borderThickness: 1
+      hint: "#7D694EFF"
+      text: "#281E14FF"
+    }
+
+    toolTip: {
+      text: "#000000FF"
+      separator: "#000000FF"
+    }
+
+    dropdown: {
+      headerText: "#35291FFF"
+      listBackground: "#F7EFE0FF"
+      itemText: "#35291FFF"
+    }
+
+    dropdownHeader: {
+      normal: { background: "#F7EFE0FF", border: "#B79A70FF", borderThickness: 1 }
+      hover: { background: "#EFE3CCFF", border: "#9F8156FF", borderThickness: 1 }
+      pressed: { background: "#E0C9AAFF", border: "#9F8156FF", borderThickness: 1 }
+    }
+
+    settingsChip: {
+      normalText: "#7C6B58CC"
+      hoverText: "#2F241BFF"
+      selectedText: "#2F241BFF"
+      selectedBackground: "#D5D8B8FF"
+      selectedBorder: "#858B62FF"
+      selectedBorderThickness: 2
+    }
+
+    keyChip: {
+      fill: "#D5D8B8FF"
+      fillHover: "#DDDFC4FF"
+      border: "#858B62FF"
+      borderThickness: 2
+      text: "#2F241BFF"
+
+      emptyFill: "#00000000"
+      emptyFillHover: "#EFE3CCFF"
+      emptyBorder: "#B79A708C"
+      emptyBorderThickness: 1
+      emptyText: "#7C6B58CC"
+    }
+
+    combatStats: {
+      hpFill: "#B17D5EFF"
+      lustFill: "#880101FF"
+      fatigueFill: "#600000FF"
+      separator: "#600000FF"
+    }
+
+    slot: {
+      background: "#F7EFE0CC"
+      border: "#B79A70AA"
+      text: "#35291FFF"
+      selectedBackground: "#E0C9AAFF"
+      selectedBorder: "#9F8156FF"
+    }
+
+    numberField: {
+      background: "#F8F0DCCC"
+      text: "#382B22FF"
+      secondaryText: "#5B4A3AFF"
+    }
+
+    numericStepper: {
+      selection: "#B79A7078"
+    }
+
+    optionList: {
+      background: "#F7EFE0CC"
+      text: "#35291FFF"
+      selectedBackground: "#F2E1BEFF"
+    }
+
+    selector: {
+      background: "#F5EBDDCC"
+      text: "#382B22FF"
+    }
+
+    slider: {
+      text: "#382B22FF"
+    }
+
+    choiceWheel: {
+      fade: "#E6D7BDFF"
+      lock: "#8A857CFF"
+    }
+
+    dungeonMap: {
+      background: "#000000BE"
+    }
+
+    dungeonMiniMap: {
+      background: "#0A0A0AA0"
+    }
   }
 }
+

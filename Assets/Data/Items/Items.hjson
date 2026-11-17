@@ -271,7 +271,7 @@
       longNameKey: Items.BeautifulSword.Long
       descriptionKey: Items.BeautifulSword.Desc
       value: 400
-      type: "coc:sword"
+      type: "coc:beautiful_sword"
       verb: slash
       attack: 7
       behavior: coc:beautiful_sword

@@ -1,9 +1,10 @@
-using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework.Input;
 using MonoCoC.Registry;
 using MonoCoC.UI.Components;
 using MonoCoC.UI.Framework;
 using MonoCoC.Assets;
 using MonoCoC.Contents.Scenes.Vanilla;
+using MonoCoC.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -125,6 +126,18 @@ namespace MonoCoC.Contents.Input
 
         public static bool PendingPrimary { get; private set; }
 
+        private static string _notice = "";
+
+        // UI 取走一次性提示（冲突解绑 / 清空），取走即清空。
+        public static string TakeNotice()
+        {
+            var notice = _notice;
+
+            _notice = "";
+
+            return notice;
+        }
+
         public static void BeginBind(HotkeyDefinition definition, bool primary)
         {
             PendingBinding = definition;
@@ -141,6 +154,8 @@ namespace MonoCoC.Contents.Input
                 definition.Secondary = definition.DefaultSecondary;
             }
 
+            _notice = "View.Options.Controls.ResetNotice".Localized();
+
             Save();
         }
 
@@ -153,20 +168,21 @@ namespace MonoCoC.Contents.Input
                 definition.Secondary = Keys.None;
             }
 
+            _notice = "View.Options.Controls.ClearedNotice".Localized();
+
             Save();
         }
 
-        public static string KeyName(Keys key) => key == Keys.None ? "Unbound" : key.ToString();
+        public static string KeyName(Keys key) =>
+            key == Keys.None ? "View.Options.Controls.Unbound".Localized() : key.ToString();
 
         public static void Update()
         {
             if (UIManager.Instance?.FocusedComponent is TextBox)
                 return;
 
-            // 启动阶段 Scene/UI 尚未就绪时，按键状态可能被判定为首次按下
-            if (UIManager.Instance?.Root == null || Scenes.Scene.Current == null)
-                return;
-
+            // 待命绑定必须排在 Scene 守卫之前：主菜单打开 Options 时 Scene.Current 是 null，
+            // 放到守卫后面会导致“点了 chip 却按什么都没反应、Esc 也退不出”（2026-11-16 报过）。
             if (PendingBinding != null)
             {
                 foreach (var key in UserInput.CurrentKeyState.GetPressedKeys())
@@ -174,17 +190,31 @@ namespace MonoCoC.Contents.Input
                     if (UserInput.PreviousKeyState.IsKeyDown(key))
                         continue;
 
+                    // Esc 取消待命，不写入任何键位。
+                    if (key == Keys.Escape)
+                    {
+                        PendingBinding = null;
+
+                        MonoCoC.UI.Components.Views.OptionsView.RefreshControls();
+
+                        return;
+                    }
+
                     Assign(PendingBinding, PendingPrimary, key);
 
                     PendingBinding = null;
 
-                    Options.RefreshControls();
+                    MonoCoC.UI.Components.Views.OptionsView.RefreshControls();
 
                     return;
                 }
 
                 return;
             }
+
+            // 启动阶段 Scene/UI 尚未就绪时，按键状态可能被判定为首次按下
+            if (UIManager.Instance?.Root == null || Scenes.Scene.Current == null)
+                return;
 
             foreach (var definition in _all)
                 if (definition.Primary != Keys.None && UserInput.IsJustPress(definition.Primary)
@@ -198,22 +228,35 @@ namespace MonoCoC.Contents.Input
 
         private static void Assign(HotkeyDefinition target, bool primary, Keys key)
         {
+            var unbound = new List<string>();
+
             foreach (var definition in _all)
             {
                 if (definition == target)
                     continue;
 
                 if (definition.Primary == key)
+                {
                     definition.Primary = Keys.None;
 
+                    unbound.Add(definition.Name);
+                }
+
                 if (definition.Secondary == key)
+                {
                     definition.Secondary = Keys.None;
+
+                    unbound.Add(definition.Name);
+                }
             }
 
             if (primary)
                 target.Primary = key;
             else
                 target.Secondary = key;
+
+            if (unbound.Count > 0)
+                _notice = "View.Options.Controls.UnboundNotice".Localized(KeyName(key), string.Join(", ", unbound));
 
             Save();
         }

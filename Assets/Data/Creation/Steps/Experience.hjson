@@ -1,0 +1,6 @@
+{
+  id: "experience"
+  label: "Views.CharCreation.Tab.Traits"
+  panel: "creation.panel.experience"
+  order: 40
+}

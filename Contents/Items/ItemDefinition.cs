@@ -17,6 +17,8 @@ namespace MonoCoC.Contents.Items
 
         public string DescriptionKey = "";
 
+        public string Icon = "";
+
         public string UseTextKey = "";
 
         public string HeaderKey = "";
@@ -46,6 +48,8 @@ namespace MonoCoC.Contents.Items
         public string Perk = "";
 
         public bool TwoHanded;
+
+        public Dictionary<string, int> Uses = [];
 
         public bool SupportsBulge;
 

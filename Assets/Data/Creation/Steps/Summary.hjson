@@ -1,0 +1,6 @@
+{
+  id: "summary"
+  label: "Views.CharCreation.Tab.Summary"
+  panel: "creation.panel.summary"
+  order: 60
+}

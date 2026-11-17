@@ -117,7 +117,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             context.Write("Common.Text.YourDemonicFoePlacesHisHands".Localized());
 
-            if (player.Shield.Is(ItemIds.DragonShield) && Random.Shared.Next(2) == 0)
+            if (player.Shield?.Is(ItemIds.DragonShield) == true && Random.Shared.Next(2) == 0)
             {
                 context.Write("Scenes.IncubusMechanic.SpoogeAttack.ShieldAbsorbsCum".Localized());
 

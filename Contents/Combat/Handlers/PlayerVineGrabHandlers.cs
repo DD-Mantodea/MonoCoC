@@ -46,7 +46,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             return player.Armor != null
 
-                && player.Armor.Id.Path == "vine_armor"
+                && player.Armor?.Id.Path == "vine_armor"
 
                 && player.Armor.Stage > 4
 

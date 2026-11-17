@@ -16,13 +16,13 @@ namespace MonoCoC.Contents.Items
         // LustyMaidensArmor.hx:16 / MothSilkDress.hx:8 / NaughtyNunsHabit.hx:17
         public static (float Chance, float Damage) Tease(Player player)
         {
-            switch (player.Armor.Id.Path)
+            switch (player.Armor?.Id.Path)
             {
                 case "kokiri_lewd_chain":
                 {
                     var bonus = player.HasCock()
 
-                        && player.LowerGarment.Id.Path is "ebon_jock" or "runed_jock"
+                        && player.LowerGarment?.Id.Path is "ebon_jock" or "runed_jock"
 
                         ? 8f
 
@@ -61,7 +61,7 @@ namespace MonoCoC.Contents.Items
         // 原版 MothSilkDress.hx:14 getDodgeBonus()：战斗中随敌人淫欲提高闪避
         public static float Dodge(Player player)
         {
-            if (player.Armor.Id.Path != "maid_silk_dress")
+            if (player.Armor?.Id.Path != "maid_silk_dress")
                 return 0f;
 
             if (!CombatController.InCombat || CombatController.Instance?.Context.Enemy is not { } enemy)
@@ -73,7 +73,7 @@ namespace MonoCoC.Contents.Items
         // 原版 NephilaQueensGown.hx:16 getSpellBonus()：百分比点
         public static float Spell(Player player)
         {
-            if (player.Armor.Id.Path != "nephila_gown")
+            if (player.Armor?.Id.Path != "nephila_gown")
                 return 0f;
 
             var bonus = 10f;
@@ -87,7 +87,7 @@ namespace MonoCoC.Contents.Items
         // 原版 NephilaQueensGown.hx:16 getLustBonus()：最低淫欲的减量（负值）
         public static float MinLust(Player player)
         {
-            if (player.Armor.Id.Path != "nephila_gown")
+            if (player.Armor?.Id.Path != "nephila_gown")
                 return 0f;
 
             var bonus = -10f;

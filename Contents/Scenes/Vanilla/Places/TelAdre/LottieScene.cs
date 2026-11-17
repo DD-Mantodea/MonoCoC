@@ -1,4 +1,4 @@
-using MonoCoC.Attributes;
+﻿using MonoCoC.Attributes;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Flags;
@@ -1619,7 +1619,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.TimidlyRemovesTopBends".Localized());
 
-            if (OptionStore.Instance.Get("urtaDisabled", 0) > 0)
+            if (OptionStore.Instance.Get("coc:urtaDisabled", 0) > 0)
             {
                 OutputText("Scenes.Lottie.LottieFatLoserCulminationHumiliationChoice.WalkFamiliarBackAlley".Localized());
 
@@ -2814,7 +2814,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
 
             OutputText("Scenes.Lottie.LottieRepeatWalkies.LookBackToShed".Localized());
 
-            if (OptionStore.Instance.Get("urtaDisabled", 0) > 0)
+            if (OptionStore.Instance.Get("coc:urtaDisabled", 0) > 0)
             {
                 OutputText("Scenes.Lottie.LottieRepeatWalkies.WalkFamiliarBackAlley".Localized());
 

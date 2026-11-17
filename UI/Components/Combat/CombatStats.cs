@@ -31,6 +31,8 @@ namespace MonoCoC.UI.Components.Combat
 
         private readonly ColorRect _fatigueFill;
 
+
+
         private Enemy? _enemy;
 
         private float _hpValue;
@@ -69,16 +71,16 @@ namespace MonoCoC.UI.Components.Combat
 
             _fatigue = AddRow("FATIGUE", 144);
 
-            _hpFill = FillAt(100, new Color(177, 125, 94));
+            _hpFill = FillAt(100, UIComponentStyles.CombatStats.HpFill);
 
-            _lustFill = FillAt(132, new Color(136, 1, 1));
+            _lustFill = FillAt(132, UIComponentStyles.CombatStats.LustFill);
 
-            _fatigueFill = FillAt(164, new Color(96, 0, 0));
+            _fatigueFill = FillAt(164, UIComponentStyles.CombatStats.FatigueFill);
         }
 
         private void AddDivider(int y) =>
 
-            new ColorRect(new Color(96, 0, 0))
+            new ColorRect(UIComponentStyles.CombatStats.Separator)
                 .Size(214, 1)
                 .Position(8, y)
                 .LayoutType(LayoutType.Relative)

@@ -1,3 +1,99 @@
 ﻿{
-    
+  id: "CreditView"
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#F2E5C7FF"
+        canHit: false
+      }
+      {
+        type: "coc:label"
+        part: "credits.heading"
+        layout: "relative"
+        x: 320
+        y: 40
+        width: 930
+        height: 44
+        font: { id: "coc:menu", size: 32 }
+        textColor: "#35291FFF"
+        canHit: false
+      }
+      {
+        type: "coc:button"
+        part: "credits.tab.hgg"
+        template: "ActionButton"
+        layout: "relative"
+        horizontalAlign: "left"
+        verticalAlign: "top"
+        x: 320
+        y: 96
+        width: 220
+        height: 44
+        label: { key: "MainMenu.Credits.Hgg" }
+        onClick: "credits.tab.hgg"
+      }
+      {
+        type: "coc:button"
+        part: "credits.tab.revamp"
+        template: "ActionButton"
+        layout: "relative"
+        horizontalAlign: "left"
+        verticalAlign: "top"
+        x: 552
+        y: 96
+        width: 220
+        height: 44
+        label: { key: "MainMenu.Credits.Revamp" }
+        onClick: "credits.tab.revamp"
+      }
+      {
+        type: "coc:button"
+        part: "credits.tab.vanilla"
+        template: "ActionButton"
+        layout: "relative"
+        horizontalAlign: "left"
+        verticalAlign: "top"
+        x: 784
+        y: 96
+        width: 220
+        height: 44
+        label: { key: "MainMenu.Credits.VanillaTab" }
+        onClick: "credits.tab.vanilla"
+      }
+      {
+        type: "coc:text_area"
+        part: "credits.text"
+        layout: "relative"
+        x: 320
+        y: 156
+        width: 940
+        height: 620
+        font: "coc:body"
+        backgroundColor: "#FFFFFF66"
+        padding: 16
+        autoScroll: true
+        borderThickness: 2
+        borderColor: "#00000022"
+      }
+      {
+        type: "coc:button"
+        template: "ActionButton"
+        layout: "relative"
+        horizontalAlign: "left"
+        verticalAlign: "top"
+        x: 1080
+        y: 800
+        width: 180
+        height: 48
+        label: { key: "Common.Back" }
+        onClick: "credits.back"
+      }
+    ]
+  }
 }

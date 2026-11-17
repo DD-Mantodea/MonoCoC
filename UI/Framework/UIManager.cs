@@ -46,9 +46,32 @@ namespace MonoCoC.UI.Framework
             ScissorTestEnable = true
         };
 
+        public static int UpdateSerial;
+
+        public static int LayoutSerial;
+
+        public static int DrawSerial;
+
+        public static readonly System.Collections.Generic.List<string> Trace = [];
+
+        public static void TraceEvent(string message)
+        {
+            if (Trace.Count > 400)
+                Trace.RemoveAt(0);
+
+            Trace.Add($"U{UpdateSerial} L{LayoutSerial} D{DrawSerial} {message}");
+        }
+
+        public void Layout(GameTime gameTime)
+        {
+            LayoutSerial++;
+
+            Root?.PerformLayout(gameTime);
+        }
+
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            Root?.PrepareDraw();
+            DrawSerial++;
 
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.NonPremultiplied, null, null, ScissorRasterizer);
 
@@ -61,6 +84,8 @@ namespace MonoCoC.UI.Framework
 
         public void Update(GameTime gameTime)
         {
+            UpdateSerial++;
+
             Root?.Update(gameTime);
 
             UpdateCursor();
@@ -214,6 +239,10 @@ namespace MonoCoC.UI.Framework
         {
             LeftPressed = Root?.HitComponent(mousePos);
 
+            // 点击输入框以外的地方取消焦点（否则搜索框会一直保持激活）。
+            if (FocusedComponent is MonoCoC.UI.Components.TextBox textBox && !ReferenceEquals(LeftPressed, textBox))
+                textBox.Active = false;
+
             return Dispatch(new()
             {
                 Type = InputType.MouseLeftDown,
@@ -257,7 +286,27 @@ namespace MonoCoC.UI.Framework
             return result;
         }
 
-        public InputResult DispatchMouseLeftClick(Vector2 mousePos) => Dispatch(new() { Type = InputType.MouseLeftClick, MousePosition = mousePos, MouseButtonState = ButtonState.Released, Shift = UserInput.Shift, Ctrl = UserInput.Ctrl, Alt = UserInput.Alt });
+        public InputResult DispatchMouseLeftClick(Vector2 mousePos)
+        {
+            // 点击输入框以外的地方取消焦点（真实鼠标与合成点击都要走这里）。
+            if (FocusedComponent is MonoCoC.UI.Components.TextBox textBox && !ReferenceEquals(Root?.HitComponent(mousePos), textBox))
+                textBox.Active = false;
+
+            return Dispatch(new()
+            {
+                Type = InputType.MouseLeftClick,
+
+                MousePosition = mousePos,
+
+                MouseButtonState = ButtonState.Released,
+
+                Shift = UserInput.Shift,
+
+                Ctrl = UserInput.Ctrl,
+
+                Alt = UserInput.Alt
+            });
+        }
 
         public InputResult DispatchMouseRightDown(Vector2 mousePos)
         {

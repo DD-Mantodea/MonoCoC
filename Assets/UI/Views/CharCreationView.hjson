@@ -189,60 +189,13 @@
         canHit: false
       }
       {
-        type: "coc:grid"
+        type: "coc:panel"
+        part: "page.tabs"
         layout: "relative"
-        part: "creation.tabs"
         x: 0
         y: 100
         width: 300
         height: 560
-        spacing: 12
-        rows: "auto7"
-        autoIndex: true
-        children: [
-          {
-            type: "coc:button"
-            label: { key: "Views.CharCreation.Tab.Identity" }
-            template: "TabButton"
-            onClick: "creation.tab.identity"
-          }
-          {
-            type: "coc:button"
-            label: { key: "Views.CharCreation.Tab.Body" }
-            template: "TabButton"
-            onClick: "creation.tab.body"
-          }
-          {
-            type: "coc:button"
-            label: { key: "Views.CharCreation.Tab.Appearance" }
-            template: "TabButton"
-            onClick: "creation.tab.appearance"
-          }
-          {
-            type: "coc:button"
-            label: { key: "Views.CharCreation.Tab.Background" }
-            template: "TabButton"
-            onClick: "creation.tab.origin"
-          }
-          {
-            type: "coc:button"
-            label: { key: "Views.CharCreation.Tab.Traits" }
-            template: "TabButton"
-            onClick: "creation.tab.experience"
-          }
-          {
-            type: "coc:button"
-            label: { key: "Views.CharCreation.Tab.Modes" }
-            template: "TabButton"
-            onClick: "creation.tab.modes"
-          }
-          {
-            type: "coc:button"
-            label: { key: "Views.CharCreation.Tab.Summary" }
-            template: "TabButton"
-            onClick: "creation.tab.summary"
-          }
-        ]
       }
       {
         type: "coc:grid"
@@ -642,12 +595,13 @@
         part: "creation.error"
         layout: "relative"
         y: -40
+        width: 940
+        wrapWidth: 940
         horizontalAlign: "center"
         verticalAlign: "bottom"
-        autoSize: true
         font: { id: "coc:menu", size: 24 }
         textColor: "#B03030FF"
-        textHorizontalAlign: "left"
+        textHorizontalAlign: "center"
         textVerticalAlign: "center"
         canHit: false
       }

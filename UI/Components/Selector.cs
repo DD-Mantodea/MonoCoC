@@ -1,4 +1,4 @@
-using FontStashSharp.RichText;
+﻿using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -25,13 +25,13 @@ namespace MonoCoC.UI.Components
 
         public Selector()
         {
-            BackgroundColor = new Color(0xF5, 0xEB, 0xDD, 0xCC);
+            BackgroundColor = UIComponentStyles.Selector.Background;
 
             _previous = new Button("", "<", "coc:menu")
             {
                 BackgroundColor = Color.Transparent,
                 FontSizeOverride = 22,
-                TextColor = new Color(0x38, 0x2B, 0x22, 255)
+                TextColor = UIComponentStyles.Selector.Text
             };
 
             _previous.Click(() => Move(-1));
@@ -42,7 +42,7 @@ namespace MonoCoC.UI.Components
             {
                 BackgroundColor = Color.Transparent,
                 FontSizeOverride = 22,
-                TextColor = new Color(0x38, 0x2B, 0x22, 255)
+                TextColor = UIComponentStyles.Selector.Text
             };
 
             _next.Click(() => Move(1));
@@ -51,7 +51,7 @@ namespace MonoCoC.UI.Components
 
             _value = new Label(UIFonts.GetAt(UIFonts.Family("coc:menu"), 20))
             {
-                TextColor = new Color(0x38, 0x2B, 0x22, 255),
+                TextColor = UIComponentStyles.Selector.Text,
                 CanHit = false,
                 AutoSize = false
             };
@@ -111,9 +111,9 @@ namespace MonoCoC.UI.Components
             ValueChanged?.Invoke(_index);
         }
 
-        public override void Update(GameTime gameTime)
+        public override void PerformLayout(GameTime gameTime)
         {
-            base.Update(gameTime);
+            base.PerformLayout(gameTime);
 
             var buttonWidth = Math.Min(48, Math.Max(32, Width / 6));
 

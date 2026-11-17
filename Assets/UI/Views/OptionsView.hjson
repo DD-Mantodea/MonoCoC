@@ -1,0 +1,126 @@
+﻿{
+  id: "OptionsView"
+  templates: {
+    TabButton: {
+      type: "coc:button"
+      layout: "relative"
+      width: 200
+      height: 60
+      horizontalAlign: "center"
+      font: { id: "coc:menu", size: 20 }
+      states: {
+        normal: { textColor: "#7C6B58CC" }
+        hover: { textColor: "#2F241BFF" }
+        selected: { backgroundColor: "#E0C9AAFF", textColor: "#2F241BFF" }
+      }
+    }
+  }
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+
+    children: [
+      {
+        type: "coc:panel"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#F2E5C7FF"
+        canHit: false
+      }
+      {
+        type: "coc:panel"
+        layout: "relative"
+        x: 280
+        y: 70
+        width: 1
+        height: 760
+        backgroundColor: "#8A663FAA"
+        canHit: false
+      }
+      {
+        type: "coc:panel"
+        part: "page.tabs"
+        layout: "relative"
+        x: 0
+        y: 100
+        width: 300
+        height: 560
+      }
+      {
+        part: "options.search"
+        layout: "relative"
+        x: 975
+        y: 72
+        width: 290
+        height: 34
+        visible: false
+        font: "coc:search"
+        padding: [4, 8, 4, 8]
+        backgroundColor: "#EEE4CDFF"
+        borderColor: "#5C4126FF"
+        borderThickness: 1
+        textColor: "#281E14FF"
+        hint: { key: "View.Options.Search" }
+        hintColor: "#7D694EFF"
+        caretColor: "#281E14FF"
+        selectionColor: "#31405172"
+      }
+      {
+        type: "coc:button"
+        part: "options.controls.reset"
+        template: "TabButton"
+        layout: "relative"
+        horizontalAlign: "left"
+        verticalAlign: "bottom"
+        x: 280
+        y: -40
+        width: 200
+        height: 60
+        label: { key: "View.Options.ResetControls" }
+        onClick: "options.controls.reset"
+      }
+      {
+        type: "coc:button"
+        part: "options.controls.clear"
+        template: "TabButton"
+        layout: "relative"
+        horizontalAlign: "left"
+        verticalAlign: "bottom"
+        x: 500
+        y: -40
+        width: 200
+        height: 60
+        label: { key: "View.Options.ClearControls" }
+        onClick: "options.controls.clear"
+      }
+      {
+        type: "coc:label"
+        part: "options.controls.note"
+        layout: "relative"
+        x: 654
+        y: 650
+        width: 480
+        wrapWidth: 480
+        height: 24
+        font: { id: "coc:body", size: 18 }
+        textColor: "#7C6B58FF"
+        canHit: false
+        visible: false
+      }
+      {
+        type: "coc:button"
+        template: "TabButton"
+        layout: "relative"
+        horizontalAlign: "right"
+        verticalAlign: "bottom"
+        x: -60
+        y: -40
+        width: 200
+        height: 60
+        label: { key: "Common.Back" }
+        onClick: "options.back"
+      }
+    ]
+  }
+}

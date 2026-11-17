@@ -1,4 +1,4 @@
-using MonoCoC.Contents.Creatures;
+﻿using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.Flags;
 using MonoCoC.Contents.Items;
@@ -117,7 +117,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                 return ;
             }
             else
-                if (Player.Tallness > 65 && !(OptionStore.Instance.Get("lowStandards", 0) > 0))
+                if (Player.Tallness > 65 && !(OptionStore.Instance.Get("coc:lowStandards", 0) > 0))
                 {
                     OutputText("Scenes.YvonneArmorShop.YvonneFlirt.NotMyTypeTwo".Localized());
 
@@ -126,7 +126,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Places.TelAdre
                     return ;
                 }
                 else
-                    if (Player.CockThatFits(75) == -1 && !(OptionStore.Instance.Get("lowStandards", 0) > 0))
+                    if (Player.CockThatFits(75) == -1 && !(OptionStore.Instance.Get("coc:lowStandards", 0) > 0))
                     {
                         OutputText("Scenes.YvonneArmorShop.YvonneFlirt.NotMyTypeThree".Localized());
 

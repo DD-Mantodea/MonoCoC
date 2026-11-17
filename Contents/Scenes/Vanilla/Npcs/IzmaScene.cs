@@ -2360,7 +2360,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
                     AddButton(10, "Common.Button.GoCamp".Localized(), BackToCamp);
             }
 
-            if (Player.UpperGarment.Id == Undergarments.SEA_SHIRT.Id && Save.GetInt("izmaAsked", 0) == 0)
+            if (Player.UpperGarment?.Id == Undergarments.SEA_SHIRT.Id && Save.GetInt("izmaAsked", 0) == 0)
                 AddRowButton(2, "Cursed Shirt", AskIzmaAboutNobleShirt);
 
             if (Player.HasKeyItem("Old Manor Books"))
@@ -5730,7 +5730,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             {
                 OutputText("Scenes.Izmascene.IzmaValeriaToggle.ApproveFeedingHug".Localized());
 
-                if (Player.Armor.Id == ArmorIds.GooArmor)
+                if (Player.Armor?.Id == ArmorIds.GooArmor)
                     OutputText("Scenes.Izmascene.IzmaValeriaToggle.GooThanksDecision".Localized());
 
                 CoC.Instance.Flags.Set(GameFlagIds.IzmaFeedingValeria, 1);

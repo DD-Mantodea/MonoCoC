@@ -1,4 +1,4 @@
-using FontStashSharp.RichText;
+﻿using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -52,6 +52,9 @@ namespace MonoCoC.UI.Components
 
         public int LabelPadding = 10;
 
+        // 文案水平对齐（模板可用 textHorizontalAlign 声明，例如菜单条目左对齐）。
+        public TextHorizontalAlignment LabelAlignment = TextHorizontalAlignment.Center;
+
         public Color TextColor = Color.Black;
 
         public int? FontSizeOverride;
@@ -60,11 +63,16 @@ namespace MonoCoC.UI.Components
 
         private int _fittedPadding = -1;
 
+        private TextHorizontalAlignment _fittedAlignment = TextHorizontalAlignment.Center;
+
         private string _fittedText = "";
 
         private int _fittedRevision = -1;
 
         private int _fittedFontSize = -1;
+
+        // 位置/字号动画后立即重排文字，避免文字沿用上一帧的位置。
+        public void RefreshLabelFit() => FitLabel();
 
         private void FitLabel()
         {
@@ -76,6 +84,7 @@ namespace MonoCoC.UI.Components
 
             if (width <= 0 || (width == _fittedWidth && text == _fittedText &&
                                LabelPadding == _fittedPadding &&
+                               LabelAlignment == _fittedAlignment &&
                                UIFonts.Revision == _fittedRevision &&
                                size == _fittedFontSize))
                 return;
@@ -85,6 +94,8 @@ namespace MonoCoC.UI.Components
             _fittedText = text;
 
             _fittedPadding = LabelPadding;
+
+            _fittedAlignment = LabelAlignment;
 
             _fittedRevision = UIFonts.Revision;
 
@@ -107,11 +118,18 @@ namespace MonoCoC.UI.Components
 
             var labelY = lineHeight > 0 ? Math.Max(0, (Height - lineHeight) / 2) : ButtonLabelY;
 
-            Label.WrapWidth(width);
+            Label.Alignment(LabelAlignment);
 
-            Label.LayoutData.Size = new Vector2(width, Label.Height);
+            // 非居中时按 LabelPadding 内缩；居中保持原来的整宽绘制。
+            var inset = LabelAlignment == TextHorizontalAlignment.Center ? 0 : Math.Max(0, LabelPadding);
 
-            Label.Position(0, labelY);
+            var innerWidth = Math.Max(1, width - inset * 2);
+
+            Label.WrapWidth(innerWidth);
+
+            Label.LayoutData.Size = new Vector2(innerWidth, Label.Height);
+
+            Label.Position(inset, labelY);
         }
 
         public UIImage Background;
@@ -324,7 +342,7 @@ namespace MonoCoC.UI.Components
 
             var stateText = StateStyle?.TextFor(Enabled, IsHovering, IsPressed, Selected);
 
-            Label?.TextColor = Enabled ? stateText ?? TextColor : UIColors.ButtonTextDisabled;
+            Label?.TextColor = stateText ?? TextColor;
 
             return this;
         }

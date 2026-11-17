@@ -132,7 +132,13 @@ namespace MonoCoC.Contents.Input
                 new MainView());
         }
 
-        private static void OpenOptions() => Scene.Go(SceneInstance<Options>.Instance);
+        private static void OpenOptions()
+        {
+            MonoCoC.UI.Framework.UIManager.Instance.Root.SwitchView(
+                new MonoCoC.UI.Components.Views.OptionsView());
+
+            MonoCoC.UI.Components.Views.OptionsView.Open();
+        }
 
         private static void OpenData()
         {

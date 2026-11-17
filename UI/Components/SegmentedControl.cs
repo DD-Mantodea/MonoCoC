@@ -131,7 +131,6 @@ namespace MonoCoC.UI.Components
 
             SelectedIndex = selected;
         }
-
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
@@ -140,6 +139,15 @@ namespace MonoCoC.UI.Components
                 return;
 
             _animator.Update(gameTime);
+
+        }
+
+        public override void PerformLayout(GameTime gameTime)
+        {
+            base.PerformLayout(gameTime);
+
+            if (_buttons.Count == 0)
+                return;
 
             var width = Width / _buttons.Count;
 

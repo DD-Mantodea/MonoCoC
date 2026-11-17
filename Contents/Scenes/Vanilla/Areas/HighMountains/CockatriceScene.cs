@@ -275,7 +275,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             OutputText("Scenes.Cockatricescene.CockatriceRideHimAnal.EnjoyAfterglow".Localized());
 
-            if (Player.Armor != Armor.Nothing)
+            if (Player.Armor is not null)
                 OutputText("Scenes.Cockatricescene.CockatriceRideHimAnal.GetsDressed".Localized());
             else
                 OutputText("Scenes.Cockatricescene.CockatriceRideHimAnal.GrabsGear".Localized());
@@ -502,7 +502,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Areas.HighMountains
 
             Player.BiggestBreastSize();
 
-            if (Player.Armor != Armor.Nothing)
+            if (Player.Armor is not null)
                 OutputText("Scenes.Cockatricescene.RideCockatriceForeplay.StrippingArmor".Localized());
 
             OutputText("Scenes.Cockatricescene.RideCockatriceForeplay.StandingOver".Localized());

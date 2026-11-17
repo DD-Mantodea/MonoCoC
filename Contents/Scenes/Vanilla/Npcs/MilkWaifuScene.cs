@@ -465,7 +465,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (SceneInstance<LatexGirlScene>.Get().LatexGooAtCamp())
                 count += 1;
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.ValariaAtCamp) == 1 || Player.Armor.Id == ArmorIds.GooArmor)
+            if (CoC.Instance.Flags.Get(GameFlagIds.ValariaAtCamp) == 1 || Player.Armor?.Id == ArmorIds.GooArmor)
                 count += 1;
 
             if (SceneInstance<AmilyScene>.Get().AmilyFollower() && !SceneInstance<AmilyScene>.Get().AmilyCorrupt())
@@ -533,7 +533,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Npcs
             if (SceneInstance<LatexGirlScene>.Get().LatexGooAtCamp())
                 OutputText("Scenes.Milkwaifu.CommunalBath.WaveOverEbony".Localized());
 
-            if (CoC.Instance.Flags.Get(GameFlagIds.ValariaAtCamp) == 1 || Player.Armor.Id == ArmorIds.GooArmor)
+            if (CoC.Instance.Flags.Get(GameFlagIds.ValariaAtCamp) == 1 || Player.Armor?.Id == ArmorIds.GooArmor)
             {
                 OutputText("Scenes.Milkwaifu.CommunalBath.GooeyValeriaMaterializes".Localized());
 

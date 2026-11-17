@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoCoC.Assets;
@@ -38,11 +38,9 @@ namespace MonoCoC.UI.Components
         private bool _hasFocus;
         private int _previousWheel;
 
-        private WheelFadeMaterial? _fadeMaterial;
-
         public bool Fade { get; set; } = true;
 
-        public Color FadeColor { get; set; } = new Color(0xE6, 0xD7, 0xBD, 255);
+        public Color FadeColor { get; set; } = UIComponentStyles.ChoiceWheel.Fade;
 
         public float FadeTop { get; set; } = 0.2f;
 
@@ -62,7 +60,7 @@ namespace MonoCoC.UI.Components
         public int CenterFontSize { get; set; } = 1;
         public UIStateStyle? OptionStyle { get; set; }
         public UIStateStyle? LockedStyle { get; set; }
-        public Color LockColor { get; set; } = new Color(0x8A, 0x85, 0x7C, 255);
+        public Color LockColor { get; set; } = UIComponentStyles.ChoiceWheel.Lock;
         public string LockIcon { get; set; } = "";
 
         public void PrewarmIcon()
@@ -302,6 +300,12 @@ namespace MonoCoC.UI.Components
                     _scrollPosition = _selected;
             }
 
+        }
+
+        public override void PerformLayout(GameTime gameTime)
+        {
+            base.PerformLayout(gameTime);
+
             UpdateItems();
         }
 
@@ -362,8 +366,7 @@ namespace MonoCoC.UI.Components
                 button.FontSizeOverride = (int)Math.Round(FontSize + (CenterFontSize - FontSize) * centerAmount);
                 button.LayoutData.Alpha = alpha;
                 button.Label.LayoutData.Alpha = alpha;
-                if (button.Background is not null)
-                    button.Background.LayoutData.Alpha = alpha;
+                button.Background?.LayoutData.Alpha = alpha;
                 button.RefreshVisual();
             }
         }

@@ -1,10 +1,12 @@
-using FontStashSharp;
+﻿using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Extensions;
 using MonoCoC.UI.Common;
+using MonoCoC.UI.Components;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
+using MonoCoC.UI.Styles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,17 +15,24 @@ namespace MonoCoC.UI.Components.Settings
 {
     public class SettingPane : Container
     {
-        public const int RowHeight = 55;
+        public const int RowHeight = 78;
 
-        public const int RowGap = 4;
+        public const int RowGap = 10;
 
         public const int ButtonHeight = 40;
+
+        public const int ScrollOffset = 0;
 
         public const int LabelMargin = 10;
 
         public const int LabelReservedWidth = 304;
 
-        private readonly Container _content;
+        // 右侧控件区（两个 key chip）：148 + 4 + 148 = 300，右缘留 4px。
+        private const int ChipGap = 4;
+
+        private const int ChipBlockWidth = KeyChip.ChipWidth * 2 + ChipGap;
+
+        private readonly ContentContainer _content;
 
         private readonly List<Row> _rows = [];
 
@@ -45,12 +54,13 @@ namespace MonoCoC.UI.Components.Settings
 
             LayoutData.Position = new Vector2(x, y);
 
-            _content = new Container()
+            _content = new ContentContainer()
                 .Size(width, 0)
                 .Position(0, 0)
                 .LayoutType(LayoutType.Relative)
                 .Of(this);
         }
+
 
                 public SpriteFontBase TextFont => UIFonts.Get("settingsBody");
 
@@ -133,12 +143,12 @@ namespace MonoCoC.UI.Components.Settings
             Relayout();
         }
 
-        public void BindRow(string label, string primary, string secondary, Action primaryClick, Action secondaryClick)
+        public void BindRow(string label, string description, string primary, bool primaryFilled,
+            string secondary, bool secondaryFilled, Action primaryClick, Action secondaryClick)
         {
             var rowWidth = Width - 20 - ScrollBar.Thickness;
 
-            // 原版 BindDisplay：左侧动作名，右侧 Primary / Secondary 两个按钮
-            var labelWidth = rowWidth - 300;
+            var labelWidth = rowWidth - LabelReservedWidth;
 
             var box = new Container()
                 .Size(rowWidth, RowHeight)
@@ -146,41 +156,76 @@ namespace MonoCoC.UI.Components.Settings
                 .LayoutType(LayoutType.Relative)
                 .Of(_content);
 
+            var head = BoldTag + label + "/fd";
+
+            if (description != "")
+                head += "\n" + SmallTag + description + "/fd";
+
             new Label(TextFont)
-                .Text(BoldTag + label + "/fd")
+                .Text(head)
                 .Position(0, 0)
                 .WrapWidth(labelWidth)
                 .LayoutType(LayoutType.Relative)
                 .Of(box);
 
-            var buttonWidth = 140;
-
-            var left = new Button("button0", primary)
-                .Size(buttonWidth, ButtonHeight)
-                .Position(labelWidth + 4, 0)
+            // 与 Toggle 的 On/Off chip 共用同一条右缘线（最右 chip 结束于 rowWidth - 2）。
+            var primaryChip = CreateKeyChip(primary, primaryFilled, primaryClick)
+                .Size(KeyChip.ChipWidth, KeyChip.ChipHeight)
+                .Position(rowWidth - KeyChip.ChipWidth * 2 - ChipGap - 2, 0)
                 .LayoutType(LayoutType.Relative)
                 .Of(box);
 
-            left.OnClick = primaryClick;
-
-            var right = new Button("button1", secondary)
-                .Size(buttonWidth, ButtonHeight)
-                .Position(labelWidth + 4 + buttonWidth + 4, 0)
+            var secondaryChip = CreateKeyChip(secondary, secondaryFilled, secondaryClick)
+                .Size(KeyChip.ChipWidth, KeyChip.ChipHeight)
+                .Position(rowWidth - KeyChip.ChipWidth - 2, 0)
                 .LayoutType(LayoutType.Relative)
                 .Of(box);
-
-            right.OnClick = secondaryClick;
 
             _rows.Add(new Row
             {
                 Box = box,
 
+                Label = label,
+
+                Description = description,
+
+                Primary = (KeyChip)primaryChip,
+
+                Secondary = (KeyChip)secondaryChip,
+
                 Height = RowHeight + RowGap,
 
-                Text = label.ToLowerInvariant()
+                Text = (label + " " + description).ToLowerInvariant()
             });
 
             Relayout();
+        }
+
+        public void UpdateBindRow(string label, string primary, bool primaryFilled,
+            string secondary, bool secondaryFilled)
+        {
+            foreach (var row in _rows)
+            {
+                if (row.Primary is null || row.Label != label)
+                    continue;
+
+                row.Primary.SetState(primary, primaryFilled);
+
+                row.Secondary?.SetState(secondary, secondaryFilled);
+
+                return;
+            }
+        }
+
+        private static KeyChip CreateKeyChip(string text, bool filled, Action clicked)
+        {
+            var chip = new KeyChip();
+
+            chip.SetState(text, filled);
+
+            chip.Clicked = clicked;
+
+            return chip;
         }
 
         public void Switcher(string label, string description, string value, Action previous, Action next)
@@ -275,39 +320,48 @@ namespace MonoCoC.UI.Components.Settings
                 .LayoutType(LayoutType.Relative)
                 .Of(_content);
 
-            new Label(TextFont)
+            var headLabel = new Label(TextFont)
                 .Text(head)
                 .Position(0, 0)
                 .WrapWidth(labelWidth)
                 .LayoutType(LayoutType.Relative)
                 .Of(box);
 
-            var buttonWidth = options.Length <= 2 ? 150 : 98;
+            var buttonWidth = options.Length <= 2 ? KeyChip.ChipWidth : 98;
+
+            var segmentWidth = (buttonWidth + 4) * options.Length;
+
+            // 右缘对齐：段控件最右 chip 结束于 rowWidth - 2，与 BindRow 的 key chip 同一条线。
+            var segmentX = Math.Max(labelWidth, rowWidth - segmentWidth);
+
+            var segment = new SegmentedControl
+            {
+                OptionStyle = UIComponentStyles.SettingsChip.Style
+            }
+                .Size(segmentWidth, ButtonHeight)
+                .Position(segmentX, 0)
+                .LayoutType(LayoutType.Relative)
+                .Of(box);
+
+            var selected = 0;
 
             for (var index = 0; index < options.Length; index++)
-            {
-                var option = options[index];
+                if (options[index].Current)
+                    selected = index;
 
-                var texture = options.Length <= 2 ? "button" + index : "buttonMedium" + index;
+            segment.SetOptions(options.Select(option => option.Name), selected);
 
-                var button = new Button(texture, option.Name)
-                    .Size(buttonWidth, ButtonHeight)
-                    .Position(labelWidth + 4 + index * (buttonWidth + 4), 0)
-                    .LayoutType(LayoutType.Relative)
-                    .Of(box);
-
-                button.LabelPadding = options.Length <= 2 ? 10 : 4;
-
-                button.OnClick = option.OnClick;
-
-                button.Enabled = !option.Current;
-
-                button.RefreshVisual();
-            }
+            segment.ValueChanged = index => options[index].OnClick();
 
             _rows.Add(new Row
             {
                 Box = box,
+
+                Head = headLabel,
+
+                Label = label,
+
+                Description = description,
 
                 Height = RowHeight + RowGap,
 
@@ -322,7 +376,12 @@ namespace MonoCoC.UI.Components.Settings
             var words = query.ToLowerInvariant().Split([' ', '\t', '\n'], StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var row in _rows)
-                row.Box.Visible = words.Length == 0 || words.Any(word => row.Text.Contains(word));
+            {
+                row.Filtered = words.Length == 0 || words.Any(word => row.Text.Contains(word));
+
+                // 清空搜索时必须把行重新显示出来，不能只依赖 Relayout 的可见性分支。
+                row.Box?.Visible = row.Filtered;
+            }
 
             Relayout();
         }
@@ -331,41 +390,39 @@ namespace MonoCoC.UI.Components.Settings
         {
             base.DrawChildren(spriteBatch, gameTime);
 
-            if (!ScrollBar.Needed(_contentHeight, Height))
+            _scrollFade.Pinned = _draggingBar;
+
+            _scrollFade.Update(gameTime, Rectangle, ScrollBar.Needed(_contentHeight, Height));
+
+            if (!ScrollBar.Needed(_contentHeight, Height) || !_scrollFade.Visible)
                 return;
 
-            var track = ScrollBar.Track(Rectangle);
+            var thumb = ScrollBar.Thumb(Rectangle, _contentHeight, Height, _scroll, ScrollOffset);
 
-            var thumb = ScrollBar.Thumb(Rectangle, _contentHeight, Height, _scroll);
-
-            spriteBatch.DrawRectangle(track, UIColors.ScrollTrack);
-
-            spriteBatch.DrawBorder(track, 1, UIColors.ScrollTrackBorder);
-
-            spriteBatch.DrawRectangle(thumb, UIColors.ScrollThumb);
-
-            spriteBatch.DrawBorder(thumb, 1, UIColors.ScrollThumbBorder);
-
-            if (thumb.Height > 6)
-                spriteBatch.DrawRectangle(new Rectangle(thumb.X + 2, thumb.Y + 2, Math.Max(1, thumb.Width - 4), 1), UIColors.ScrollThumbHighlight);
+            // 只画滑块本身，整体 alpha 渐隐渐显；不画轨道底色，避免出现一条"黑条"在淡入淡出。
+            spriteBatch.DrawRectangle(thumb, _scrollFade.Fade(UIComponentStyles.ScrollBar.Thumb));
         }
+
+        private readonly ScrollBarFade _scrollFade = new();
 
         public override InputResult OnInput(InputEventArgs args)
         {
             switch (args.Type)
             {
                 case InputType.MouseWheel:
+                    _scrollFade.Flash();
+
                     SetScroll(_scroll + (args.WheelDelta > 0 ? -40 : 40));
 
                     return InputResult.Consumed;
 
                 case InputType.MouseLeftDown:
-                    if (!ScrollBar.Contains(Rectangle, args.MousePosition, _contentHeight, Height))
+                    if (!ScrollBar.Contains(Rectangle, args.MousePosition, _contentHeight, Height, ScrollOffset))
                         break;
 
                     _draggingBar = true;
 
-                    SetScroll(ScrollBar.ScrollFrom(Rectangle, _contentHeight, Height, args.MousePosition.Y));
+                    SetScroll(ScrollBar.ScrollFrom(Rectangle, _contentHeight, Height, args.MousePosition.Y, ScrollOffset));
 
                     return InputResult.Consumed;
 
@@ -373,7 +430,7 @@ namespace MonoCoC.UI.Components.Settings
                     if (!_draggingBar)
                         break;
 
-                    SetScroll(ScrollBar.ScrollFrom(Rectangle, _contentHeight, Height, args.MousePosition.Y));
+                    SetScroll(ScrollBar.ScrollFrom(Rectangle, _contentHeight, Height, args.MousePosition.Y, ScrollOffset));
 
                     return InputResult.Consumed;
 
@@ -393,9 +450,26 @@ namespace MonoCoC.UI.Components.Settings
         {
             var y = _headerHeight;
 
-            foreach (var row in _rows.Where(row => row.Box.Visible))
+            var viewTop = _scroll;
+
+            var viewBottom = _scroll + Height;
+
+            foreach (var row in _rows)
             {
+                if (!row.Filtered)
+                {
+                    row.Box.Visible = false;
+
+                    continue;
+                }
+
                 row.Box.LayoutData.Position = new Vector2(LabelMargin, y);
+
+                // 只让视口内的行参与 Update/Draw。
+                // Controls 页有 39 行（约 220 个组件），全量更新会把单核打到 80%+；
+                // Component.Draw 自己会跳过 Visible，但 Component.Update 不会，所以配合
+                // ContentContainer 一起裁。
+                row.Box.Visible = y + row.Height > viewTop - RowHeight && y < viewBottom + RowHeight;
 
                 y += row.Height;
             }
@@ -411,9 +485,14 @@ namespace MonoCoC.UI.Components.Settings
 
         private void SetScroll(int value)
         {
-            _scroll = Math.Clamp(value, 0, Math.Max(0, _contentHeight - Height));
+            var clamped = Math.Clamp(value, 0, Math.Max(0, _contentHeight - Height));
 
-            _content.LayoutData.Position = new Vector2(0, -_scroll);
+            if (clamped == _scroll)
+                return;
+
+            _scroll = clamped;
+
+            Relayout();
         }
 
         private static string Colored(string value) => value.ToLowerInvariant() switch
@@ -431,9 +510,91 @@ namespace MonoCoC.UI.Components.Settings
         {
             public Component Box = null!;
 
+            public Label Head = null!;
+
+            public string Label = "";
+
+            public string Description = "";
+
             public int Height;
 
             public string Text = "";
+
+            public bool Filtered = true;
+
+            public KeyChip? Primary;
+
+            public KeyChip? Secondary;
+        }
+
+        public void Dropdown(string label, string description, IReadOnlyList<string> options, int selected, Action<int> changed)
+        {
+            var rowWidth = Width - 20 - ScrollBar.Thickness;
+
+            var labelWidth = rowWidth - LabelReservedWidth;
+
+            var box = new Container()
+                .Size(rowWidth, RowHeight)
+                .Position(LabelMargin, 0)
+                .LayoutType(LayoutType.Relative)
+                .Of(_content);
+
+            var head = BoldTag + label + "/fd";
+
+            if (description != "")
+                head += "\n" + SmallTag + description + "/fd";
+
+            new Label(TextFont)
+                .Text(head)
+                .Position(0, 0)
+                .WrapWidth(labelWidth)
+                .LayoutType(LayoutType.Relative)
+                .Of(box);
+
+            var dropdown = new Dropdown()
+                .Size(260, 40)
+                .Position(labelWidth + 4, 0)
+                .LayoutType(LayoutType.Relative)
+                .Of(box);
+
+            dropdown.SetOptions(options, selected);
+
+            dropdown.ValueChanged = changed;
+
+            _rows.Add(new Row
+            {
+                Box = box,
+                Height = RowHeight + RowGap,
+                Text = (label + " " + description).ToLowerInvariant()
+            });
+        }
+
+        public void UpdateValue(string label, string current)        {
+            foreach (var row in _rows)
+            {
+                if (row.Label != label)
+                    continue;
+
+                var head = BoldTag + label + ": " + Colored(current) + "/fd";
+
+                if (row.Description != "")
+                    head += "\n" + SmallTag + row.Description + "/fd";
+
+                row.Head.Text(head);
+
+                return;
+            }
+        }
+        // Component.Update 不检查 Visible：滚出视口的行仍然会走整套布局计算。
+        // 这里接管子节点更新，跳过不可见的行（Draw 本身已经会跳过）。
+        private sealed class ContentContainer : Container
+        {
+            public override void UpdateChildren(GameTime gameTime)
+            {
+                foreach (var child in LayoutData.Children.ToArray())
+                    if (child.Visible)
+                        child.Update(gameTime);
+            }
         }
     }
 }

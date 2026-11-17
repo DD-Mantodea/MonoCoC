@@ -4195,7 +4195,7 @@ CeraphFollowerAppearance();
 
                 OutputText("Scenes.Ceraphfollowerscene.CeraphRemoveNobleShirt.CursedShirtOff".Localized());
 
-                Player.SetUndergarment(Undergarment.Nothing, Undergarment.TypeUpperwear);
+                Player.SetUndergarment(null, Undergarment.TypeUpperwear);
             }
 
             DoNext(() => ReturnToCamp(1));

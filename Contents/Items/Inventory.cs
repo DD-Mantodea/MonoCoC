@@ -136,12 +136,35 @@ namespace MonoCoC.Contents.Items
             return true;
         }
 
+        public string LastEquipError = "";
+
         public virtual Item Equip(ItemStack slot)
         {
             if (slot.IsEmpty)
                 return Item.Nothing;
 
             var item = slot.Item;
+
+            // 武器/盾都进手牌（手 1 优先的第一个空手），不再区分 weapon/shield 槽。
+            if (item is Weapon or Shield)
+                return EquipToHand(slot);
+
+            var replacing = item switch
+            {
+                Armor => Owner.Armor,
+                Jewelry => Owner.Jewelry,
+                Undergarment => (Item)Owner.UpperGarment,
+                _ => null
+            };
+
+            if (!MonoCoC.Contents.Equipment.EquipmentRules.CanEquip(Owner, item, replacing, out var reason))
+            {
+                LastEquipError = reason;
+
+                return Item.Nothing;
+            }
+
+            LastEquipError = "";
 
             Item previous = Item.Nothing;
 
@@ -158,10 +181,79 @@ namespace MonoCoC.Contents.Items
             else if (item is Undergarment undergarment)
                 previous = Owner.SetUndergarment(undergarment);
 
-            if (previous != null && previous != Item.Nothing && previous != Weapon.Fists && previous != Weapon.Claws)
+            if (previous != null && previous != Item.Nothing && previous != MonoCoC.Contents.Combat.NaturalAttacks.Fists && previous != MonoCoC.Contents.Combat.NaturalAttacks.Claws)
                 Add(previous);
 
             return previous;
+        }
+
+        // 放进"顺序的第一个空手"；手用完了就报容量不足。
+        // 手数由容量决定，双手武器只是 Uses=2，四只手时它只占两格，不特判。
+        private Item EquipToHand(ItemStack slot)
+        {
+            for (var hand = 1; hand <= Owner.HandCount; hand++)
+            {
+                var handSlot = MonoCoC.Contents.Creatures.Player.HandSlotId(hand);
+
+                if (Owner.ExtraEquipment.ContainsKey(handSlot))
+                    continue;
+
+                if (!EquipToSlot(slot, handSlot))
+                    continue;
+
+                Owner.SyncHandDerived();
+
+                return Item.Nothing;
+            }
+
+            LastEquipError = "Scenes.Inventory.NotEnoughEquipmentCapacity";
+
+            return Item.Nothing;
+        }
+
+        public virtual bool EquipToSlot(ItemStack source, string equipmentSlotId)
+        {
+            if (source.IsEmpty)
+                return false;
+
+            MonoCoC.UI.Components.EquipmentSlotSpec? target = null;
+
+            foreach (var slot in MonoCoC.Contents.Equipment.EquipmentCatalog.Compose(Owner.EquipmentTags))
+            {
+                if (slot.Id != equipmentSlotId)
+                    continue;
+
+                target = slot;
+
+                break;
+            }
+
+            if (target is null || !target.IsExtra)
+                return false;
+
+            var item = source.Item;
+
+            Owner.ExtraEquipment.TryGetValue(equipmentSlotId, out var previous);
+
+            if (!MonoCoC.Contents.Equipment.EquipmentRules.CanEquip(Owner, item, previous, out var reason))
+            {
+                LastEquipError = reason;
+
+                return false;
+            }
+
+            LastEquipError = "";
+
+            source.RemoveOneItem();
+
+            Owner.ExtraEquipment[equipmentSlotId] = item;
+
+            Owner.SyncHandDerived();
+
+            if (previous is not null)
+                Add(previous);
+
+            return true;
         }
 
         public virtual bool Use(ItemStack slot, Action<string> write, Random random)

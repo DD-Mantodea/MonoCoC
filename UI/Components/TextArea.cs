@@ -91,6 +91,7 @@ namespace MonoCoC.UI.Components
 
         public bool ScrollBarVisible => ScrollBar.Needed(_contentHeight, ViewHeight);
 
+
         public override void Update(GameTime gameTime)
         {
             EnsureLayout();
@@ -100,11 +101,11 @@ namespace MonoCoC.UI.Components
             base.Update(gameTime);
         }
 
-        public override void PrepareDraw()
+        public override void PerformLayout(GameTime gameTime)
         {
             EnsureLayout();
 
-            base.PrepareDraw();
+            base.PerformLayout(gameTime);
         }
 
         private void EnsureLayout()
@@ -149,24 +150,20 @@ namespace MonoCoC.UI.Components
         {
             base.DrawSelf(spriteBatch, gameTime);
 
-            if (!ScrollBarVisible)
-                return;
+            _scrollFade.Pinned = _dragging;
 
-            var track = ScrollBar.Track(Rectangle);
+            _scrollFade.Update(gameTime, Rectangle, ScrollBarVisible);
+
+            if (!ScrollBarVisible || !_scrollFade.Visible)
+                return;
 
             var thumb = ScrollBar.Thumb(Rectangle, _contentHeight, ViewHeight, ScrollOffset);
 
-            spriteBatch.DrawRectangle(track, UIColors.ScrollTrack);
-
-            spriteBatch.DrawBorder(track, 1, UIColors.ScrollTrackBorder);
-
-            spriteBatch.DrawRectangle(thumb, UIColors.ScrollThumb);
-
-            spriteBatch.DrawBorder(thumb, 1, UIColors.ScrollThumbBorder);
-
-            if (thumb.Height > 6)
-                spriteBatch.DrawRectangle(new Rectangle(thumb.X + 2, thumb.Y + 2, Math.Max(1, thumb.Width - 4), 1), UIColors.ScrollThumbHighlight);
+            // 只画滑块，整体 alpha 渐隐渐显（与 Settings 各页一致）。
+            spriteBatch.DrawRectangle(thumb, _scrollFade.Fade(UIComponentStyles.ScrollBar.Thumb));
         }
+
+        private readonly ScrollBarFade _scrollFade = new();
 
         public override InputResult OnInput(InputEventArgs args)
         {
@@ -175,6 +172,8 @@ namespace MonoCoC.UI.Components
                 case InputType.MouseWheel:
                     if (!Rectangle.Contains(args.MousePosition))
                         break;
+
+                    _scrollFade.Flash();
 
                     EnsureLayout();
 

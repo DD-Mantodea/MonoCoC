@@ -567,8 +567,8 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
             Player.Gems *= 0;
 
-            if (Player.Armor.Id != ArmorIds.VineArmorBehavior)
-                Player.SetArmor(Armor.Nothing);
+            if (Player.Armor?.Id != ArmorIds.VineArmorBehavior)
+                Player.SetArmor(null);
 
             Player.SetUnarmed();
 

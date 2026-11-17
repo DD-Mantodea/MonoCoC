@@ -23,7 +23,17 @@ namespace MonoCoC.UI.Components
 
         public Action<ItemStack>? SelectionChanged;
 
+        public Action<ItemStack>? ItemRightClicked;
+
         public int SelectedIndex = -1;
+
+        public void ClearSelection()
+        {
+            SelectedIndex = -1;
+
+            foreach (var slot in _slots)
+                slot.Selected = false;
+        }
 
         private readonly List<ItemSlot> _slots = [];
 
@@ -61,6 +71,8 @@ namespace MonoCoC.UI.Components
                         SelectionChanged?.Invoke(stack);
                     };
 
+                    slot.RightClicked += stack => ItemRightClicked?.Invoke(stack);
+
                     AddChild(slot);
                     _slots.Add(slot);
                 }
@@ -90,7 +102,7 @@ namespace MonoCoC.UI.Components
 
             var wheel = UserInput.GetDeltaWheelValue();
 
-            if (wheel != 0)
+            if (wheel != 0 && Rectangle.Contains(UserInput.GetMousePos()))
                 _scroll = Math.Clamp(_scroll - Math.Sign(wheel) * 48, 0, maxScroll);
 
             _scroll = Math.Clamp(_scroll, 0, maxScroll);

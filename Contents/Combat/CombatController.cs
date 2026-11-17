@@ -1048,7 +1048,7 @@ namespace MonoCoC.Contents.Combat
             if (Context.Enemy != null)
                 CombatCalculator.ClearLinkedBuffs(Context.Enemy);
 
-            Context.Player?.ArmorDefense = Context.Player.Armor.DefenseFor(Context.Player);
+            Context.Player?.ArmorDefense = Context.Player.Armor?.DefenseFor(Context.Player) ?? 0;
 
             CombatScene.LastEnemy = Context.Enemy;
 

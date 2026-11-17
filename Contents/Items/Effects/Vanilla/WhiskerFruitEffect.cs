@@ -1,4 +1,4 @@
-using MonoCoC.Contents.BodyParts.Vanilla;
+﻿using MonoCoC.Contents.BodyParts.Vanilla;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Configuration;
 using MonoCoC.Contents.Datas.Vanilla;
@@ -200,7 +200,7 @@ namespace MonoCoC.Contents.Items.Effects.Vanilla
             var rows = body.GetList<BreastRowPart>();
 
             if (mutations.Changes < mutations.ChangeLimit && random.Next(4) == 0
-                && !(OptionStore.Instance.Get("hyper", 0) > 0))
+                && !(OptionStore.Instance.Get("coc:hyper", 0) > 0))
             {
                 var threshold = 0f;
 
@@ -292,7 +292,7 @@ namespace MonoCoC.Contents.Items.Effects.Vanilla
             if (player.CountCocksOfType("Cat") > 0 && random.Next(3) == 0
                 && mutations.Changes < mutations.ChangeLimit
 
-                && !(OptionStore.Instance.Get("hyper", 0) > 0))
+                && !(OptionStore.Instance.Get("coc:hyper", 0) > 0))
             {
                 var found = -1;
 

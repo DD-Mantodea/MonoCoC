@@ -1,4 +1,4 @@
-using FontStashSharp;
+﻿using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -43,6 +43,8 @@ namespace MonoCoC.UI.Components
         public Color BorderColor = Color.Black;
 
         public bool ShowBorder = true;
+
+        public Color HintColor = Color.Transparent;
 
         public object? CaptureState() =>
             new SnapshotState(Text, ScrollX, Cursor.CursorIndex, Cursor.SelectBegin);
@@ -181,18 +183,48 @@ namespace MonoCoC.UI.Components
 
         public void DeleteCharacter()
         {
-            if (Cursor.DeleteSelection() && Cursor.CursorIndex > 0)
+            // DeleteSelection 在没有选区时也会返回 true（remove 0 个字符），
+            // 所以必须先显式判断选区是否存在，否则正常退格会被吞掉。
+            if (Cursor.SelectBegin != Cursor.CursorIndex)
             {
-                Text = Text.Remove(Cursor.CursorIndex - 1, 1);
-
-                Cursor.SelectBegin--;
-
-                Cursor.CursorIndex--;
+                Cursor.DeleteSelection();
 
                 OnTextChanged?.Invoke(Text);
-            }
-        }
 
+                return;
+            }
+
+            if (Cursor.CursorIndex <= 0)
+                return;
+
+            Text = Text.Remove(Cursor.CursorIndex - 1, 1);
+
+            Cursor.SelectBegin--;
+
+            Cursor.CursorIndex--;
+
+            OnTextChanged?.Invoke(Text);
+        }
+        public void DeleteForward()
+        {
+            if (Cursor.SelectBegin != Cursor.CursorIndex)
+            {
+                Cursor.DeleteSelection();
+
+                OnTextChanged?.Invoke(Text);
+
+                return;
+            }
+
+            if (Cursor.CursorIndex >= Text.Length)
+                return;
+
+            Text = Text.Remove(Cursor.CursorIndex, 1);
+
+            Cursor.SelectBegin = Cursor.CursorIndex;
+
+            OnTextChanged?.Invoke(Text);
+        }
         private void CharPressed(char character)
         {
             if (UserInput.Ctrl)
@@ -288,6 +320,11 @@ namespace MonoCoC.UI.Components
 
                 case Keys.Back:
                     DeleteCharacter();
+
+                    break;
+
+                case Keys.Delete:
+                    DeleteForward();
 
                     break;
             }

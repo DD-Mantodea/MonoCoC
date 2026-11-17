@@ -1,4 +1,4 @@
-using MonoCoC.Configuration;
+﻿using MonoCoC.Configuration;
 
 namespace MonoCoC.Contents.Settings
 {
@@ -34,7 +34,7 @@ namespace MonoCoC.Contents.Settings
         public virtual bool Silly => OptionStore.Instance.Get("silly", 0) > 0;
 
         /// <summary>原版 :119 hyper</summary>
-        public virtual bool Hyper => OptionStore.Instance.Get("hyper", 0) > 0;
+        public virtual bool Hyper => OptionStore.Instance.Get("coc:hyper", 0) > 0;
 
         /// <summary>原版 :120 temptation —— 高淫欲时强制显示诱惑按钮</summary>
         public virtual bool Temptation => OptionStore.Instance.Get("temptation", 0) > 0;

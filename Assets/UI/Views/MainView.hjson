@@ -170,7 +170,6 @@
                 type: "coc:label"
                 layout: "relative"
                 font: "coc:menu"
-                wrapWidth: 500
                 text: { key: "MainMenu.Disclaimer" }
                 canHit: false
                 autoSize: true
@@ -185,6 +184,8 @@
       {
         type: "coc:label"
         part: "main.version"
+        width: 760
+        wrapWidth: 760
         font: "coc:menuBold"
         text: { 
           key: "MainMenu.Version"

@@ -1,4 +1,4 @@
-using FontStashSharp;
+﻿using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Extensions;
@@ -12,6 +12,20 @@ namespace MonoCoC.UI.Console
 {
     public class CommandCompletionList : Container
     {
+        // 开发者控制台补全列表配色：工具自身样式，不参与游戏 UI 主题。
+        private static class DevTheme
+        {
+            public static readonly Color Background = new(32, 32, 32, 240);
+
+            public static readonly Color Text = new(190, 190, 190);
+
+            public static readonly Color SelectedText = Color.White;
+
+            public static readonly Color Border = new(120, 120, 120);
+
+            public static readonly Color SelectedRow = new(70, 70, 70);
+        }
+
         public const int RowHeight = 32;
 
         public const int VisibleRows = 6;
@@ -30,7 +44,7 @@ namespace MonoCoC.UI.Console
 
             Scissor = true;
 
-            BackgroundColor = new Color(32, 32, 32, 240);
+            BackgroundColor = ConsoleDevTheme.Background;
 
             Visible = false;
         }
@@ -125,7 +139,7 @@ namespace MonoCoC.UI.Console
 
                 row.LayoutData.Position = new Vector2(10, 4 + (index - _scroll) * RowHeight + (RowHeight - _font.LineHeight) / 2);
 
-                row.TextColor = index == _selected ? Color.White : new Color(190, 190, 190);
+                row.TextColor = index == _selected ? ConsoleDevTheme.CompletionSelectedText : ConsoleDevTheme.CompletionText;
 
                 row.Visible = index >= _scroll && index < _scroll + VisibleRows;
             }
@@ -135,14 +149,14 @@ namespace MonoCoC.UI.Console
         {
             base.DrawSelf(spriteBatch, gameTime);
 
-            spriteBatch.DrawBorder(Rectangle, 1, new Color(120, 120, 120));
+            spriteBatch.DrawBorder(Rectangle, 1, ConsoleDevTheme.CompletionBorder);
 
             var selected = _selected - _scroll;
 
             if (selected < 0 || selected >= VisibleRows)
                 return;
 
-            spriteBatch.DrawRectangle(new Rectangle(Rectangle.X + 2, Rectangle.Y + 4 + selected * RowHeight, Rectangle.Width - 4, RowHeight), new Color(70, 70, 70));
+            spriteBatch.DrawRectangle(new Rectangle(Rectangle.X + 2, Rectangle.Y + 4 + selected * RowHeight, Rectangle.Width - 4, RowHeight), ConsoleDevTheme.CompletionSelectedRow);
         }
     }
 }
