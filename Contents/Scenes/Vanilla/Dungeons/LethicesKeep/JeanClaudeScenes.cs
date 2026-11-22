@@ -21,7 +21,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Dungeons.LethicesKeep
 
             CombatController.Instance = null;
 
-            UI.Components.Views.GameView.Instance?.HideCombatStats();
+            UI.Components.Views.CombatView.Current?.HideCombatStats();
 
             RoomDungeon.ResumeFromFight();
         }

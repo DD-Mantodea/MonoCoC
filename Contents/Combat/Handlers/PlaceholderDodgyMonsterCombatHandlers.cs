@@ -29,19 +29,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = (PlaceholderDodgyMonsterEnemy)context.Enemy;
 
-            context.Append("Combat.PlaceholderDodgyMonster.DodgeExec.MovesAwayFrom".Localized());
+            context.AppendLog("Combat.PlaceholderDodgyMonster.DodgeExec.MovesAwayFrom".Localized());
 
             if (player.Strength > 75
                 && context.Random.Next(Math.Max(1, (int)player.Strength)) > 70
 
                 && player.Toughness > 80)
             {
-                context.Append("Combat.PlaceholderDodgyMonster.DodgeExec.YouFightThrough".Localized());
+                context.AppendLog("Combat.PlaceholderDodgyMonster.DodgeExec.YouFightThrough".Localized());
 
                 return;
             }
 
-            context.Append("Combat.PlaceholderDodgyMonster.DodgeExec.OverwhelmedByThe".Localized());
+            context.AppendLog("Combat.PlaceholderDodgyMonster.DodgeExec.OverwhelmedByThe".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player,
 
@@ -50,7 +50,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             player.TakeDamage(damage);
 
             if (player.Bleed(enemy, 3, 3))
-                context.Append("Combat.PlaceholderDodgyMonster.DodgeExec.BloodGushesOut".Localized());
+                context.AppendLog("Combat.PlaceholderDodgyMonster.DodgeExec.BloodGushesOut".Localized());
         }
 
         [Register("coc:placeholder_dodgy_monster_toss_dagger")]
@@ -60,7 +60,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = (PlaceholderDodgyMonsterEnemy)context.Enemy;
 
-            context.Append("Combat.PlaceholderDodgyMonster.TossDagger.HeSaysFrustrated".Localized());
+            context.AppendLog("Combat.PlaceholderDodgyMonster.TossDagger.HeSaysFrustrated".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -78,14 +78,14 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (avoid.Outcome)
             {
                 case AvoidOutcome.Block:
-                    context.Append("Combat.PlaceholderDodgyMonster.TossDagger.Blocked".Localized());
+                    context.AppendLog("Combat.PlaceholderDodgyMonster.TossDagger.Blocked".Localized());
 
                     enemy.TossedDagger = "blocked";
 
                     break;
 
                 case AvoidOutcome.Dodge:
-                    context.Append("Combat.PlaceholderDodgyMonster.TossDagger.Dodged".Localized());
+                    context.AppendLog("Combat.PlaceholderDodgyMonster.TossDagger.Dodged".Localized());
 
                     enemy.TossedDagger = "dodged";
 
@@ -93,7 +93,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 case AvoidOutcome.Hit:
                 {
-                    context.Append("Combat.PlaceholderDodgyMonster.TossDagger.YouDonT".Localized());
+                    context.AppendLog("Combat.PlaceholderDodgyMonster.TossDagger.YouDonT".Localized());
 
                     var damage = CombatCalculator.ReduceDamage(context, player,
 
@@ -119,25 +119,25 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (enemy.TossedDagger)
             {
                 case "hit":
-                    context.Append("Combat.PlaceholderDodgyMonster.RetrieveDagger.LungesForwardSeemingly".Localized());
+                    context.AppendLog("Combat.PlaceholderDodgyMonster.RetrieveDagger.LungesForwardSeemingly".Localized());
 
                     if (!PlaceholderDodgyMonsterEnemy.ShookDogHand)
                     {
-                        context.Append("Combat.PlaceholderDodgyMonster.RetrieveDagger.YourShoulderBurns".Localized());
+                        context.AppendLog("Combat.PlaceholderDodgyMonster.RetrieveDagger.YourShoulderBurns".Localized());
 
                         if (player.HasPerk(PerkIds.Resolute))
-                            context.Append("Combat.PlaceholderDodgyMonster.RetrieveDagger.YouGritThrough".Localized());
+                            context.AppendLog("Combat.PlaceholderDodgyMonster.RetrieveDagger.YouGritThrough".Localized());
                         else
-                            context.Append("Combat.PlaceholderDodgyMonster.RetrieveDagger.YouReOverwhelmed".Localized());
+                            context.AppendLog("Combat.PlaceholderDodgyMonster.RetrieveDagger.YouReOverwhelmed".Localized());
                     }
                     else
                     {
-                        context.Append("Combat.PlaceholderDodgyMonster.RetrieveDagger.HeTakesThe".Localized());
+                        context.AppendLog("Combat.PlaceholderDodgyMonster.RetrieveDagger.HeTakesThe".Localized());
 
                         if (player.HasPerk(PerkIds.Resolute))
-                            context.Append("Combat.PlaceholderDodgyMonster.RetrieveDagger.HeDecidesTo".Localized());
+                            context.AppendLog("Combat.PlaceholderDodgyMonster.RetrieveDagger.HeDecidesTo".Localized());
                         else
-                            context.Append("Combat.PlaceholderDodgyMonster.RetrieveDagger.HeDecidesTo2".Localized());
+                            context.AppendLog("Combat.PlaceholderDodgyMonster.RetrieveDagger.HeDecidesTo2".Localized());
                     }
 
                     player.Bleed(enemy);
@@ -145,14 +145,14 @@ namespace MonoCoC.Contents.Combat.Handlers
                     break;
 
                 case "dodged":
-                    context.Append("Combat.PlaceholderDodgyMonster.RetrieveDagger.LungesForwardSeemingly2".Localized());
+                    context.AppendLog("Combat.PlaceholderDodgyMonster.RetrieveDagger.LungesForwardSeemingly2".Localized());
 
                     break;
 
                 case "blocked":
-                    context.Append("Combat.PlaceholderDodgyMonster.RetrieveDagger.LungesForwardSeemingly3".Localized());
+                    context.AppendLog("Combat.PlaceholderDodgyMonster.RetrieveDagger.LungesForwardSeemingly3".Localized());
 
-                    context.Append("Combat.PlaceholderDodgyMonster.RetrieveDagger.HeAnalyzesHis".Localized());
+                    context.AppendLog("Combat.PlaceholderDodgyMonster.RetrieveDagger.HeAnalyzesHis".Localized());
 
                     break;
             }

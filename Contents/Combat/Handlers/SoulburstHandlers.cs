@@ -17,9 +17,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Spell.Soulburst.Text".Localized());
+            context.Log.Add("Combat.Spell.Soulburst.Text".Localized());
 
-            context.Append("Combat.Spell.Soulburst.Burst".Localized());
+            context.AppendLog("Combat.Spell.Soulburst.Burst".Localized());
 
             // 原版：已有则层数 +1，否则创建（v1 = 1）
             var existing = player.StatusEffectByType(Soulburst);

@@ -25,7 +25,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Special.AimedShot.Intro".Localized());
+            context.AppendLog("Combat.Special.AimedShot.Intro".Localized());
 
             var distant = enemy.Distance == CombatDistance.Distant;
 
@@ -40,7 +40,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append(distant
+                context.AppendLog(distant
 
                     ? "Combat.Special.AimedShot.MissFar".Localized()
 
@@ -49,7 +49,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.Special.AimedShot.Hit".Localized());
+            context.AppendLog("Combat.Special.AimedShot.Hit".Localized());
 
             var damage = CombatCalculator.PhysicalDamage(context, player, enemy) * 1.5f;
 

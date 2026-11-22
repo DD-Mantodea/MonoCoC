@@ -30,7 +30,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (master == null || master.Health <= 0)
             {
-                context.Append("Combat.Hel.SuccubusInert".Localized());
+                context.AppendLog("Combat.Hel.SuccubusInert".Localized());
 
                 Health = 0;
 
@@ -39,7 +39,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (Lust >= MaxLust)
             {
-                context.Append("Combat.Hel.StatueLustBreak".Localized());
+                context.AppendLog("Combat.Hel.StatueLustBreak".Localized());
 
                 Health = MaxHealth / 2;
 
@@ -50,7 +50,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (Health >= MaxHealth)
             {
-                context.Append("Combat.Hel.SuccubusLustpocalypse".Localized());
+                context.AppendLog("Combat.Hel.SuccubusLustpocalypse".Localized());
 
                 var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
                 {
@@ -61,22 +61,22 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 if (avoid.Outcome == AvoidOutcome.Hit)
                     if (context.Player.Shield != null && context.Player.Shield.Is(ItemIds.DragonShield) && Random.Shared.Next(3) == 0)
-                        context.Append("Combat.Hel.StatueShield".Localized());
+                        context.AppendLog("Combat.Hel.StatueShield".Localized());
                     else
                     {
-                        context.Append("Combat.Hel.SuccubusLustpocalypseHit".Localized());
+                        context.AppendLog("Combat.Hel.SuccubusLustpocalypseHit".Localized());
 
                         context.Player.TakeLustDamage(60 + context.Player.Libido / 10f + context.Player.Sensitivity / 10f);
                     }
 
-                context.Append("Combat.Hel.SuccubusAfter".Localized());
+                context.AppendLog("Combat.Hel.SuccubusAfter".Localized());
 
                 Health = MaxHealth / 2;
 
                 return true;
             }
 
-            context.Append("Combat.Hel.SuccubusRebuild".Localized());
+            context.AppendLog("Combat.Hel.SuccubusRebuild".Localized());
 
             return true;
         }

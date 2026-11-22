@@ -16,11 +16,11 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.InfestedChameleonGirl.Tease.Lead".Localized());
+            context.AppendLog("Combat.InfestedChameleonGirl.Tease.Lead".Localized());
 
-            context.Append("Combat.InfestedChameleonGirl.Tease.Release".Localized());
+            context.AppendLog("Combat.InfestedChameleonGirl.Tease.Release".Localized());
 
-            context.Append(player.Gender switch
+            context.AppendLog(player.Gender switch
             {
                 Gender.Hermaphrodite => "Combat.InfestedChameleonGirl.Tease.Herm".Localized(),
 
@@ -33,12 +33,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (player.Corruption < 40)
             {
-                context.Append("Combat.InfestedChameleonGirl.Tease.Shiver".Localized());
+                context.AppendLog("Combat.InfestedChameleonGirl.Tease.Shiver".Localized());
 
                 return;
             }
 
-            context.Append("Combat.InfestedChameleonGirl.Tease.Aroused".Localized());
+            context.AppendLog("Combat.InfestedChameleonGirl.Tease.Aroused".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 30);
         }
@@ -50,7 +50,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.InfestedChameleonGirl.GooBlind.Lead".Localized());
+            context.AppendLog("Combat.InfestedChameleonGirl.GooBlind.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -59,14 +59,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.InfestedChameleonGirl.GooBlind.Miss".Localized());
+                context.AppendLog("Combat.InfestedChameleonGirl.GooBlind.Miss".Localized());
 
                 enemy.ChangeFatigue(10, FatigueType.Physical);
 
                 return;
             }
 
-            context.Append("Combat.InfestedChameleonGirl.GooBlind.Hit".Localized());
+            context.AppendLog("Combat.InfestedChameleonGirl.GooBlind.Hit".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.Blind, 1 + context.Random.Next(3));
 
@@ -89,7 +89,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.ChameleonGirl.Claws.Miss".Localized());
+                context.AppendLog("Combat.ChameleonGirl.Claws.Miss".Localized());
 
                 return;
             }
@@ -98,12 +98,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage > 0)
             {
-                context.Append("Combat.ChameleonGirl.Claws.Hit".Localized());
+                context.AppendLog("Combat.ChameleonGirl.Claws.Hit".Localized());
 
                 player.HealthChange(-damage);
             }
             else
-                context.Append("Combat.ChameleonGirl.Claws.Absorbed".Localized());
+                context.AppendLog("Combat.ChameleonGirl.Claws.Absorbed".Localized());
         }
 
         [Register("coc:infested_chameleon_girl_roll_kick_claw_what_the_fuck_combo_is_this_shit")]
@@ -120,7 +120,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.ChameleonGirl.RollKick.Dodged".Localized());
+                context.AppendLog("Combat.ChameleonGirl.RollKick.Dodged".Localized());
 
                 player.HealthChange(-(1 + context.Random.Next(10)));
 
@@ -131,12 +131,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage > 0)
             {
-                context.Append("Combat.ChameleonGirl.RollKick.Hit".Localized());
+                context.AppendLog("Combat.ChameleonGirl.RollKick.Hit".Localized());
 
                 player.HealthChange(-damage);
             }
             else
-                context.Append("Combat.ChameleonGirl.RollKick.Absorbed".Localized());
+                context.AppendLog("Combat.ChameleonGirl.RollKick.Absorbed".Localized());
         }
     }
 }

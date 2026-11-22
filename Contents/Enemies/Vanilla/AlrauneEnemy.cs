@@ -196,7 +196,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             var dodged = avoid.Outcome != AvoidOutcome.Hit;
 
-            context.WriteAction("Scenes.Alraune.VineTrip.HiddenVinesTrip".Localized(dodged
+            context.Log.Add("Scenes.Alraune.VineTrip.HiddenVinesTrip".Localized(dodged
 
                 ? "Scenes.Alraune.VineTrip.NearlySnaring".Localized()
 
@@ -227,7 +227,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (key == null)
                 return false;
 
-            context.Write(key.Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write(key.Localized());
 
             return true;
         }

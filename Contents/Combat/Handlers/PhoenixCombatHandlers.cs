@@ -43,7 +43,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Phoenix.DoubleSlash.Lead".Localized());
+            context.AppendLog("Combat.Phoenix.DoubleSlash.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -51,7 +51,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.Outcome == AvoidOutcome.Parry)
-                context.Append("Combat.Phoenix.DoubleSlash.Parry".Localized());
+                context.AppendLog("Combat.Phoenix.DoubleSlash.Parry".Localized());
 
             var blocked = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -60,12 +60,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (blocked)
             {
-                context.Append("Combat.Phoenix.DoubleSlash.Blocked".Localized());
+                context.AppendLog("Combat.Phoenix.DoubleSlash.Blocked".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Phoenix.DoubleSlash.Hit".Localized());
+            context.AppendLog("Combat.Phoenix.DoubleSlash.Hit".Localized());
 
             for (var i = 0; i < 2; i++)
                 player.HealthChange(-CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack + context.Random.Next(80)));
@@ -80,7 +80,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (!enemy.HasStatusEffect(StatusEffectIds.Uber))
             {
-                context.Append("Combat.Phoenix.FireBreath.Charge".Localized());
+                context.AppendLog("Combat.Phoenix.FireBreath.Charge".Localized());
 
                 enemy.CreateStatusEffect(StatusEffectIds.Uber);
 
@@ -88,10 +88,10 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
 
             if (context.PlayerWaited)
-                context.Append("Combat.Phoenix.FireBreath.Dodged".Localized());
+                context.AppendLog("Combat.Phoenix.FireBreath.Dodged".Localized());
             else
             {
-                context.Append("Combat.Phoenix.FireBreath.Hit".Localized());
+                context.AppendLog("Combat.Phoenix.FireBreath.Hit".Localized());
 
                 player.HealthChange(-CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack + 300 + context.Random.Next(250)));
             }
@@ -106,7 +106,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Phoenix.LustBang.Lead".Localized());
+            context.AppendLog("Combat.Phoenix.LustBang.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -115,23 +115,23 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Phoenix.LustBang.Miss".Localized());
+                context.AppendLog("Combat.Phoenix.LustBang.Miss".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Phoenix.LustBang.HitLead".Localized());
+            context.AppendLog("Combat.Phoenix.LustBang.HitLead".Localized());
 
             if (player.IsGenderless())
-                context.Append("Combat.Phoenix.LustBang.Genderless".Localized());
+                context.AppendLog("Combat.Phoenix.LustBang.Genderless".Localized());
 
             if (player.HasCock())
-                context.Append("Combat.Phoenix.LustBang.Cock".Localized());
+                context.AppendLog("Combat.Phoenix.LustBang.Cock".Localized());
 
             if (player.HasVagina())
-                context.Append("Combat.Phoenix.LustBang.Vagina".Localized());
+                context.AppendLog("Combat.Phoenix.LustBang.Vagina".Localized());
 
-            context.Append("Combat.Phoenix.LustBang.Tail".Localized());
+            context.AppendLog("Combat.Phoenix.LustBang.Tail".Localized());
 
             var lust = 30 + context.Random.Next(30);
 

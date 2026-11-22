@@ -13,7 +13,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:corrupted_witch_shell_defense")]
         public static void ShellDefense(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.CorruptedWitch.Shell.Lead".Localized());
+            context.AppendLog("Combat.CorruptedWitch.Shell.Lead".Localized());
 
             context.Enemy.CreateStatusEffect(StatusEffectIds.Shell, 3);
         }
@@ -23,16 +23,16 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.CorruptedWitch.CumHunger.Lead".Localized());
+            context.AppendLog("Combat.CorruptedWitch.CumHunger.Lead".Localized());
 
             if (player.Pregnancy.Incubation > 0)
             {
-                context.Append("Combat.CorruptedWitch.CumHunger.Pregnant".Localized());
+                context.AppendLog("Combat.CorruptedWitch.CumHunger.Pregnant".Localized());
 
                 return;
             }
 
-            context.Append("Combat.CorruptedWitch.CumHunger.Hit".Localized());
+            context.AppendLog("Combat.CorruptedWitch.CumHunger.Hit".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 5 + player.Libido / 12);
         }
@@ -42,7 +42,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.CorruptedWitch.CumMagic.Lead".Localized());
+            context.AppendLog("Combat.CorruptedWitch.CumMagic.Lead".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 5 + player.Libido / 12);
 
@@ -56,7 +56,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.CorruptedWitch.Heals.Lead".Localized());
+            context.AppendLog("Combat.CorruptedWitch.Heals.Lead".Localized());
 
             var cum = player.CumQ();
 
@@ -64,19 +64,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (cum < 100)
             {
-                context.Append("Combat.CorruptedWitch.Heals.Weak".Localized());
+                context.AppendLog("Combat.CorruptedWitch.Heals.Weak".Localized());
 
                 healAmount = 0.1f;
             }
             else if (cum < 500)
             {
-                context.Append("Combat.CorruptedWitch.Heals.Normal".Localized());
+                context.AppendLog("Combat.CorruptedWitch.Heals.Normal".Localized());
 
                 healAmount = 0.2f;
             }
             else
             {
-                context.Append("Combat.CorruptedWitch.Heals.Huge".Localized());
+                context.AppendLog("Combat.CorruptedWitch.Heals.Huge".Localized());
 
                 healAmount = 0.3f;
             }
@@ -85,7 +85,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             enemy.AddHp(healed);
 
-            context.Append("Combat.CorruptedWitch.Heals.Healed".Localized());
+            context.AppendLog("Combat.CorruptedWitch.Heals.Healed".Localized());
 
             enemy.Fatigue += 10;
         }
@@ -97,7 +97,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.CorruptedWitch.Queen.Lead".Localized());
+            context.AppendLog("Combat.CorruptedWitch.Queen.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -119,14 +119,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (dodgeKey != null)
             {
-                context.Append(dodgeKey.Localized());
+                context.AppendLog(dodgeKey.Localized());
 
                 return;
             }
 
-            context.Append("Combat.CorruptedWitch.Queen.Hit".Localized());
+            context.AppendLog("Combat.CorruptedWitch.Queen.Hit".Localized());
 
-            context.Append("Combat.CorruptedWitch.Queen.Pinned".Localized());
+            context.AppendLog("Combat.CorruptedWitch.Queen.Pinned".Localized());
 
             if (!player.HasPerk(PerkIds.Juggernaut))
             {
@@ -135,7 +135,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 player.CreateStatusEffect(StatusEffectIds.CorrWitchBind);
             }
             else
-                context.Append("Combat.CorruptedWitch.Queen.Juggernaut".Localized());
+                context.AppendLog("Combat.CorruptedWitch.Queen.Juggernaut".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 5 + player.Libido / 10);
 
@@ -158,9 +158,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append(player.Strength >= 100
+            context.AppendLog(player.Strength >= 100
 
                 ? "Combat.CorruptedWitch.GrabSuccess.Str100".Localized()
 
@@ -175,7 +175,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (struggle)
             {
@@ -185,10 +185,10 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                     : "Combat.CorruptedWitch.GrabFail.StrLow";
 
-                context.Append(key.Localized());
+                context.AppendLog(key.Localized());
             }
             else
-                context.Append("Combat.CorruptedWitch.GrabFail.Relax".Localized());
+                context.AppendLog("Combat.CorruptedWitch.GrabFail.Relax".Localized());
 
             enemy.Lust = Math.Max(0, enemy.Lust - 5);
 
@@ -196,7 +196,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.HealthChange(-20);
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
         }
 
         [Register("coc:corrupted_witch_breed_trance")]
@@ -206,42 +206,42 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var inte = player.Intelligence;
 
-            context.Append("Scenes.CorruptedWitch.BreedTrance.GesturesSeries".Localized());
+            context.AppendLog("Scenes.CorruptedWitch.BreedTrance.GesturesSeries".Localized());
 
             if (player.HasCock())
             {
                 if (inte < 100)
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.ThrustsWildly".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.ThrustsWildly".Localized());
 
                 if (inte < 80)
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.LetsGroan".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.LetsGroan".Localized());
 
                 if (inte < 60)
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.LustRemains".Localized(
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.LustRemains".Localized(
                         player.Cocks.Count > 1 ? "[cocks] are" : "[cock] is"));
 
                 if (inte < 40)
                 {
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.ConcoctionRevives".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.ConcoctionRevives".Localized());
 
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.UnsheathesSelf".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.UnsheathesSelf".Localized());
                 }
 
                 if (inte < 20)
                 {
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.MindlessNod".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.MindlessNod".Localized());
 
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.ErectAgain".Localized(
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.ErectAgain".Localized(
                         player.Cocks.Count > 1 ? "[cocks] stand" : "[cock] stands"));
 
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.NoResistance".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.NoResistance".Localized());
 
                     context.EndOfRoundOverride = () =>
 
                         Scenes.SceneInstance<Scenes.Vanilla.Areas.VolcanicCrag.CorruptedWitchScene>.Get().MindControlBadEnd();
                 }
                 else
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.WaitWhatGoingOn".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.WaitWhatGoingOn".Localized());
 
                 return;
             }
@@ -250,55 +250,55 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 if (inte < 100)
                 {
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.WakesInBed".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.WakesInBed".Localized());
 
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.MoansIncessantly".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.MoansIncessantly".Localized());
                 }
 
                 if (inte < 80)
                 {
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.ReflexOrgasm".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.ReflexOrgasm".Localized());
 
                     if (player.HasTailInsteadOfLegs())
-                        context.Append("Scenes.CorruptedWitch.BreedTrance.CoilAround".Localized());
+                        context.AppendLog("Scenes.CorruptedWitch.BreedTrance.CoilAround".Localized());
 
                     if (player.IsGoo())
-                        context.Append("Scenes.CorruptedWitch.BreedTrance.EnvelopWitch".Localized());
+                        context.AppendLog("Scenes.CorruptedWitch.BreedTrance.EnvelopWitch".Localized());
                     else
-                        context.Append("Scenes.CorruptedWitch.BreedTrance.LockWitch".Localized());
+                        context.AppendLog("Scenes.CorruptedWitch.BreedTrance.LockWitch".Localized());
 
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.ContractsMilks".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.ContractsMilks".Localized());
                 }
 
                 if (inte < 60)
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.RaisedDragged".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.RaisedDragged".Localized());
 
                 if (inte < 40)
                 {
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.CaressesAbdomen".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.CaressesAbdomen".Localized());
 
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.OlderWitch".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.OlderWitch".Localized());
                 }
 
                 if (inte < 20)
                 {
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.ManyAsYouCan".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.ManyAsYouCan".Localized());
 
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.TinglesAgain".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.TinglesAgain".Localized());
 
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.NoResistanceAgain".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.NoResistanceAgain".Localized());
 
                     context.EndOfRoundOverride = () =>
 
                         Scenes.SceneInstance<Scenes.Vanilla.Areas.VolcanicCrag.CorruptedWitchScene>.Get().MindControlBadEnd();
                 }
                 else
-                    context.Append("Scenes.CorruptedWitch.BreedTrance.WhatGoingOnAgain".Localized());
+                    context.AppendLog("Scenes.CorruptedWitch.BreedTrance.WhatGoingOnAgain".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.CorruptedWitch.BreedTrance.RegainsComposure".Localized());
+            context.AppendLog("Scenes.CorruptedWitch.BreedTrance.RegainsComposure".Localized());
         }
     }
 }

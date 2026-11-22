@@ -184,9 +184,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleSpellResistance(CombatContext context, Identifier spell)
         {
-            context.WriteAction("Scenes.Doppelganger.HandleSpellResistance.BarelyFlinches".Localized());
+            context.Log.Add("Scenes.Doppelganger.HandleSpellResistance.BarelyFlinches".Localized());
 
-            context.WriteAction("Scenes.Doppelganger.HandleSpellResistance.YawnsFlame".Localized());
+            context.Log.Add("Scenes.Doppelganger.HandleSpellResistance.YawnsFlame".Localized());
 
             var player = context.Player;
 
@@ -225,9 +225,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         public override bool HandlePlayerWait(CombatContext context)
         {
 
-            context.WriteAction("Scenes.Doppelganger.React.NoAction".Localized());
+            context.Log.Add("Scenes.Doppelganger.React.NoAction".Localized());
 
-            context.WriteAction("Scenes.Doppelganger.HandlePlayerWait.WaitsToo".Localized());
+            context.Log.Add("Scenes.Doppelganger.HandlePlayerWait.WaitsToo".Localized());
 
             AddTalkShit(context);
 
@@ -238,7 +238,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleStun(CombatContext context)
         {
-            context.WriteAction("Scenes.Doppelganger.DoAI.DuplicateStunned".Localized());
+            context.Log.Add("Scenes.Doppelganger.DoAI.DuplicateStunned".Localized());
 
             RemoveStatusEffect(StunnedId);
 
@@ -247,7 +247,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool BeforeCombatAction(CombatContext context)
         {
-            context.WriteAction("Scenes.Doppelganger.DoAI.DuplicateChuckles".Localized());
+            context.Log.Add("Scenes.Doppelganger.DoAI.DuplicateChuckles".Localized());
 
             AddTalkShit(context);
 
@@ -272,28 +272,28 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         public void MirrorAttack(CombatContext context, float damage)
         {
 
-            context.WriteAction("Scenes.Doppelganger.MirrorAttack.SwingWeapon".Localized());
+            context.Log.Add("Scenes.Doppelganger.MirrorAttack.SwingWeapon".Localized());
 
             if (damage > 0 && context.Player.Intelligence > context.Random.Next(140))
             {
-                context.Append("Scenes.Doppelganger.MirrorAttack.TwistsDownwards".Localized(
+                context.AppendLog("Scenes.Doppelganger.MirrorAttack.TwistsDownwards".Localized(
                     "#ff0000", (int)Math.Round(damage)));
 
                 HealthChange(-damage);
             }
             else
             {
-                context.Append("Scenes.Doppelganger.MirrorAttack.YourWord".Localized());
+                context.AppendLog("Scenes.Doppelganger.MirrorAttack.YourWord".Localized());
 
-                context.Append(context.Player.IsUnarmed()
+                context.AppendLog(context.Player.IsUnarmed()
 
                     ? "Scenes.Doppelganger.MirrorAttack.WeaponWord".Localized()
 
                     : "Scenes.Doppelganger.MirrorAttack.WeaponsPlural".Localized());
 
-                context.Append("Scenes.Doppelganger.MirrorAttack.BoneJarringImpact".Localized());
+                context.AppendLog("Scenes.Doppelganger.MirrorAttack.BoneJarringImpact".Localized());
 
-                context.Append("Scenes.Doppelganger.MirrorAttack.TryAgainTaunt".Localized());
+                context.AppendLog("Scenes.Doppelganger.MirrorAttack.TryAgainTaunt".Localized());
             }
 
             AddTalkShit(context);
@@ -301,11 +301,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override void OnTeased(CombatContext context, float lustDelta)
         {
-            context.WriteAction("Scenes.Doppelganger.MirrorTease.HandsSeductive".Localized());
+            context.Log.Add("Scenes.Doppelganger.MirrorTease.HandsSeductive".Localized());
 
-            context.WriteAction("Scenes.Doppelganger.MirrorTease.DisplaysCarnal".Localized());
+            context.Log.Add("Scenes.Doppelganger.MirrorTease.DisplaysCarnal".Localized());
 
-            context.Append("Scenes.Doppelganger.MirrorTease.ItsBeenSoLong".Localized());
+            context.AppendLog("Scenes.Doppelganger.MirrorTease.ItsBeenSoLong".Localized());
 
             AddTalkShit(context);
         }
@@ -315,64 +315,64 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             switch (_roundCount)
             {
                 case 0:
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.YouFeelIt".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.YouFeelIt".Localized());
 
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.DullCroon".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.DullCroon".Localized());
 
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.FlutteringArm".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.FlutteringArm".Localized());
 
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.FinishFastBanner".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.FinishFastBanner".Localized());
 
                     break;
 
                 case 1:
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.CantRemember".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.CantRemember".Localized());
 
                     break;
 
                 case 2:
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.ClosesEyes".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.ClosesEyes".Localized());
 
                     if (context.Player.HasCock())
-                        context.Append("Scenes.Doppelganger.AddTalkShit.StrokesCock".Localized());
+                        context.AppendLog("Scenes.Doppelganger.AddTalkShit.StrokesCock".Localized());
                     else if (context.Player.HasVagina())
-                        context.Append("Scenes.Doppelganger.AddTalkShit.FingersVagina".Localized());
+                        context.AppendLog("Scenes.Doppelganger.AddTalkShit.FingersVagina".Localized());
                     else
-                        context.Append("Scenes.Doppelganger.AddTalkShit.SlipsHand".Localized());
+                        context.AppendLog("Scenes.Doppelganger.AddTalkShit.SlipsHand".Localized());
 
-                    context.Append("Scenes.Doppelganger.AddTalkShit.BizarrenessSeen".Localized(ArmorName));
+                    context.AppendLog("Scenes.Doppelganger.AddTalkShit.BizarrenessSeen".Localized(ArmorName));
 
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.HarderToIgnore".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.HarderToIgnore".Localized());
 
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.SomethingRealize".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.SomethingRealize".Localized());
 
                     break;
 
                 case 3:
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.MemoriesFlow".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.MemoriesFlow".Localized());
 
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.NotBadTaunt".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.NotBadTaunt".Localized());
 
                     break;
 
                 case 4:
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.DidYouThink".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.DidYouThink".Localized());
 
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.DareNotOpen".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.DareNotOpen".Localized());
 
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.LastGaspBanner".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.LastGaspBanner".Localized());
 
                     break;
 
                 case 5:
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.ShimmerIntensifies".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.ShimmerIntensifies".Localized());
 
                     context.Player.TakeLustDamage(1000, true);
 
                     break;
 
                 default:
-                    context.WriteAction("Scenes.Doppelganger.AddTalkShit.HowSurvive".Localized());
+                    context.Log.Add("Scenes.Doppelganger.AddTalkShit.HowSurvive".Localized());
 
                     break;
             }

@@ -86,7 +86,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var capitalA = Utils.Utils.CapitalizeFirstLetter(Article);
 
-            context.WriteAction((lustDelta == 0
+            context.Log.Add((lustDelta == 0
 
                 ? "Combat.LethiciteCrystal.OutputDefaultTeaseReaction.OneDoesn"
 
@@ -117,17 +117,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             var damageHigh = damage < 100 || damage < maxHealth * 0.15f;
 
             if (damage <= 0)
-                context.WriteAction("Combat.LethiciteCrystal.ReplacesDescribeAttacked.Your0Bounces".Localized(attackNoun, theMonster));
+                context.Log.Add("Combat.LethiciteCrystal.ReplacesDescribeAttacked.Your0Bounces".Localized(attackNoun, theMonster));
             else if (damageLow)
-                context.WriteAction("Combat.LethiciteCrystal.ReplacesDescribeAttacked.YouStrikeA".Localized(theMonster));
+                context.Log.Add("Combat.LethiciteCrystal.ReplacesDescribeAttacked.YouStrikeA".Localized(theMonster));
             else if (damageMed)
-                context.WriteAction("Combat.LethiciteCrystal.ReplacesDescribeAttacked.You01".Localized(attackVerb, theMonster, Pronoun2));
+                context.Log.Add("Combat.LethiciteCrystal.ReplacesDescribeAttacked.You01".Localized(attackVerb, theMonster, Pronoun2));
             else if (damageHigh)
-                context.WriteAction("Combat.LethiciteCrystal.ReplacesDescribeAttacked.ZeroCracksUnder".Localized(theMonsterCap, attackNoun));
+                context.Log.Add("Combat.LethiciteCrystal.ReplacesDescribeAttacked.ZeroCracksUnder".Localized(theMonsterCap, attackNoun));
             else
-                context.WriteAction("Combat.LethiciteCrystal.ReplacesDescribeAttacked.You0With".Localized(theMonster, attackNoun));
+                context.Log.Add("Combat.LethiciteCrystal.ReplacesDescribeAttacked.You0With".Localized(theMonster, attackNoun));
 
-            context.Append("Combat.LethiciteCrystal.DescribeAttacked.DamageText".Localized("#ff0000", (int)MathF.Round(damage)));
+            context.AppendLog("Combat.LethiciteCrystal.DescribeAttacked.DamageText".Localized("#ff0000", (int)MathF.Round(damage)));
 
             return true;
         }

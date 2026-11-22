@@ -21,7 +21,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Random.Next(5) == 0)
             {
-                context.WriteAction("Combat.Aiko.Basic.Double".Localized());
+                context.Log.Add("Combat.Aiko.Basic.Double".Localized());
 
                 player.HealthChange(-CombatCalculator.ReduceDamage(context, player, damage - context.Random.Next(10)));
 
@@ -49,21 +49,21 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction("Combat.Aiko.Basic.Miss".Localized());
+                context.Log.Add("Combat.Aiko.Basic.Miss".Localized());
 
                 return;
             }
 
             if (player.ArmorDefense > 4 && context.Random.Next(3) == 0)
             {
-                context.WriteAction("Combat.Aiko.Basic.Glance".Localized());
+                context.Log.Add("Combat.Aiko.Basic.Glance".Localized());
 
                 player.HealthChange(-CombatCalculator.ReduceDamage(context, player, damage - player.ArmorDefense * 2));
 
                 return;
             }
 
-            context.WriteAction("Combat.Aiko.Basic.Hit".Localized());
+            context.Log.Add("Combat.Aiko.Basic.Hit".Localized());
 
             player.HealthChange(-CombatCalculator.ReduceDamage(context, player, damage));
 
@@ -75,7 +75,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Aiko.CorruptBasic.Text".Localized());
+            context.Log.Add("Combat.Aiko.CorruptBasic.Text".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -92,7 +92,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction("Combat.Aiko.CorruptBasic.Avoided".Localized());
+                context.Log.Add("Combat.Aiko.CorruptBasic.Avoided".Localized());
 
                 return;
             }
@@ -109,7 +109,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Aiko.DarkFoxfire.Text".Localized());
+            context.Log.Add("Combat.Aiko.DarkFoxfire.Text".Localized());
 
             var damage = context.Enemy.Strength / 2f + context.Random.Next(15);
 
@@ -129,7 +129,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Aiko.Terrorize.Text".Localized());
+            context.Log.Add("Combat.Aiko.Terrorize.Text".Localized());
 
             float resist;
 
@@ -141,14 +141,14 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (player.HasStatusEffect(StatusEffectIds.Whispered))
                 resist += 35;
             else
-                context.WriteAction("Combat.Aiko.Terrorize.NoResist".Localized());
+                context.Log.Add("Combat.Aiko.Terrorize.NoResist".Localized());
 
             if (player.IsPureEnough(20))
                 resist += (int)(15 - player.CorAdjustedDown());
 
             if (context.Random.Next(100) < resist)
             {
-                context.WriteAction("Combat.Aiko.Terrorize.Resisted".Localized());
+                context.Log.Add("Combat.Aiko.Terrorize.Resisted".Localized());
 
                 if (player.HasStatusEffect(StatusEffectIds.Fear))
                     player.RemoveStatusEffect(StatusEffectIds.Fear);
@@ -188,12 +188,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction("Combat.Aiko.Tomahawk.Miss".Localized());
+                context.Log.Add("Combat.Aiko.Tomahawk.Miss".Localized());
 
                 return;
             }
 
-            context.WriteAction("Combat.Aiko.Tomahawk.Hit".Localized());
+            context.Log.Add("Combat.Aiko.Tomahawk.Hit".Localized());
 
             var damage = context.Enemy.Strength + context.Random.Next(15);
 
@@ -216,7 +216,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 "Combat.Aiko.Tease.Four"
             };
 
-            context.WriteAction(lines[context.Random.Next(lines.Length)].Localized());
+            context.Log.Add(lines[context.Random.Next(lines.Length)].Localized());
 
             AddLust(context, 8f + player.Sensitivity / 5f);
         }
@@ -226,9 +226,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.WriteAction("Combat.Aiko.ArcaneArcher.One".Localized());
+            context.Log.Add("Combat.Aiko.ArcaneArcher.One".Localized());
 
-            context.WriteAction("Combat.Aiko.ArcaneArcher.Two".Localized());
+            context.Log.Add("Combat.Aiko.ArcaneArcher.Two".Localized());
 
             enemy.CreateStatusEffect(StatusEffectIds.AikoArcaneArcher);
 
@@ -242,9 +242,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Aiko.SplinterLightning.One".Localized());
+            context.Log.Add("Combat.Aiko.SplinterLightning.One".Localized());
 
-            context.WriteAction("Combat.Aiko.SplinterLightning.Two".Localized());
+            context.Log.Add("Combat.Aiko.SplinterLightning.Two".Localized());
 
             CombatCalculator.AddCombatBuff(player, GameStats.Strength, -10, "Aiko");
 
@@ -262,11 +262,11 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Aiko.LightArrowCage.One".Localized());
+            context.Log.Add("Combat.Aiko.LightArrowCage.One".Localized());
 
             if (player.Corruption > 40)
             {
-                context.WriteAction("Combat.Aiko.LightArrowCage.Corrupt".Localized());
+                context.Log.Add("Combat.Aiko.LightArrowCage.Corrupt".Localized());
 
                 player.HealthChange(-CombatCalculator.ReduceDamage(context, player, 2f * (80f + player.Corruption)));
             }
@@ -281,7 +281,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Aiko.IceArrow.One".Localized());
+            context.Log.Add("Combat.Aiko.IceArrow.One".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -298,12 +298,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction("Combat.Aiko.IceArrow.Miss".Localized());
+                context.Log.Add("Combat.Aiko.IceArrow.Miss".Localized());
 
                 return;
             }
 
-            context.WriteAction("Combat.Aiko.IceArrow.Hit".Localized());
+            context.Log.Add("Combat.Aiko.IceArrow.Hit".Localized());
 
             CombatCalculator.AddCombatBuff(player, GameStats.Speed, -15, "Aiko");
 
@@ -317,7 +317,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var arrows = context.Random.Next(4) + 2;
 
-            context.WriteAction("Combat.Aiko.ArrowRain.Text".Localized(arrows));
+            context.Log.Add("Combat.Aiko.ArrowRain.Text".Localized(arrows));
 
             for (var i = 0; i < arrows; i++)
                 player.HealthChange(-CombatCalculator.ReduceDamage(context, player, context.Enemy.Strength + context.Random.Next(15)));
@@ -330,7 +330,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var arrows = context.Random.Next(3) + 3;
 
-            context.WriteAction("Combat.Aiko.ArrowBarrage.Text".Localized());
+            context.Log.Add("Combat.Aiko.ArrowBarrage.Text".Localized());
 
             for (var i = 0; i < arrows; i++)
             {
@@ -359,7 +359,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:aiko_hyper_attack_one")]
         public static void HyperAttack1(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Aiko.HyperAttack1".Localized());
+            context.Log.Add("Combat.Aiko.HyperAttack1".Localized());
 
             context.Enemy.CreateOrFindStatusEffect(StatusEffectIds.AikoCharging);
         }
@@ -373,9 +373,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             enemy.RemoveStatusEffect(StatusEffectIds.AikoCharging);
 
-            context.WriteAction("Combat.Aiko.HyperAttack2.One".Localized());
+            context.Log.Add("Combat.Aiko.HyperAttack2.One".Localized());
 
-            context.WriteAction("Combat.Aiko.HyperAttack2.Two".Localized());
+            context.Log.Add("Combat.Aiko.HyperAttack2.Two".Localized());
 
             CombatCalculator.AddCombatBuff(player, GameStats.Speed, -20, "Aiko");
 
@@ -384,7 +384,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             player.HealthChange(-CombatCalculator.ReduceDamage(context, player, player.IsPureEnough(20) ? 250f : 350f));
 
             if (player.Health > 0)
-                context.WriteAction("Combat.Aiko.HyperAttack2.Survive".Localized());
+                context.Log.Add("Combat.Aiko.HyperAttack2.Survive".Localized());
 
             enemy.RemoveStatusEffect(StatusEffectIds.AikoArcaneArcher);
         }

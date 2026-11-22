@@ -70,7 +70,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void TimeWaster(CombatContext context)
         {
-            context.Write("Scenes.Kiha.KihaTimeWaster.AxeShoulderStretch".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Kiha.KihaTimeWaster.AxeShoulderStretch".Localized());
 
             context.Player.TakeLustDamage(5);
         }
@@ -79,7 +79,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var player = context.Player;
 
-            context.Write("Common.Text.TheDraconicGirlThrowsHerTrusty".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheDraconicGirlThrowsHerTrusty".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -99,7 +99,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             var damage = CombatCalculator.ReduceDamage(context, player, Strength);
 
-            context.Write("Scenes.Kiha.KihaFirePunch.FirePunchHits".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Kiha.KihaFirePunch.FirePunchHits".Localized());
 
             player.HealthChange(-damage);
         }
@@ -108,7 +108,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var player = context.Player;
 
-            context.Write("Common.Text.KihaThrowsHerArmsBackAnd".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.KihaThrowsHerArmsBackAnd".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -128,7 +128,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             var damage = 90 + Random.Shared.Next(10);
 
-            context.Write("Scenes.Kiha.KihaFireBreath.InfernoSlams".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Kiha.KihaFireBreath.InfernoSlams".Localized());
 
             player.HealthChange(-damage);
         }
@@ -137,7 +137,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var player = context.Player;
 
-            context.Write("Common.Text.BeforeYouCanStopToThink".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.BeforeYouCanStopToThink".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -154,14 +154,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Write("Common.Text.YouTakeTheOpportunityToWalk".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouTakeTheOpportunityToWalk".Localized());
 
                 return;
             }
 
             var damage = CombatCalculator.ReduceDamage(context, player, Strength + WeaponAttack) + 5;
 
-            context.Write("Common.Text.ATorrentOfHeatBurstsFrom".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.ATorrentOfHeatBurstsFrom".Localized());
 
             player.HealthChange(-damage);
         }

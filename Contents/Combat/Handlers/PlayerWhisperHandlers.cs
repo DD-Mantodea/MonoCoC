@@ -28,14 +28,14 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (player.HasStatusEffect(StatusEffectIds.ThroatPunch)
                 || player.HasStatusEffect(StatusEffectIds.WebSilence))
             {
-                context.Append("Combat.Spell.Whisper.Silence".Localized());
+                context.AppendLog("Combat.Spell.Whisper.Silence".Localized());
 
                 return;
             }
 
             if (enemy.Id.Path == "pod" || enemy.Intelligence == 0)
             {
-                context.Append("Combat.Spell.Whisper.NoMind".Localized());
+                context.AppendLog("Combat.Spell.Whisper.NoMind".Localized());
 
                 player.ChangeFatigue(1);
 
@@ -44,7 +44,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy is LivingStatueEnemy || enemy is VolcanicGolemEnemy)
             {
-                context.Append("Combat.Spell.Whisper.NoSoul".Localized());
+                context.AppendLog("Combat.Spell.Whisper.NoSoul".Localized());
 
                 player.ChangeFatigue(1);
 
@@ -53,14 +53,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasPerk(PerkIds.Focused))
             {
-                context.Append("Combat.Spell.Whisper.Focused".Localized());
+                context.AppendLog("Combat.Spell.Whisper.Focused".Localized());
 
                 return;
             }
 
             if (player.Intelligence < enemy.Intelligence || enemy.Plural)
             {
-                context.Append("Combat.Spell.Whisper.TooStrong".Localized());
+                context.AppendLog("Combat.Spell.Whisper.TooStrong".Localized());
 
                 player.ChangeFatigue(10);
 
@@ -69,14 +69,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Random.Next(10) == 0)
             {
-                context.Append("Combat.Spell.Whisper.Distracted".Localized());
+                context.AppendLog("Combat.Spell.Whisper.Distracted".Localized());
 
                 player.ChangeFatigue(10);
 
                 return;
             }
 
-            context.Append("Combat.Spell.Whisper.Success".Localized());
+            context.AppendLog("Combat.Spell.Whisper.Success".Localized());
 
             enemy.CreateStatusEffect(StatusEffectIds.Fear, 1, 0, 0, 0);
         }

@@ -1,20 +1,6 @@
-﻿{
+{
+  require: ["GlobalStyles"]
   id: "OptionsView"
-  templates: {
-    TabButton: {
-      type: "coc:button"
-      layout: "relative"
-      width: 200
-      height: 60
-      horizontalAlign: "center"
-      font: { id: "coc:menu", size: 20 }
-      states: {
-        normal: { textColor: "#7C6B58CC" }
-        hover: { textColor: "#2F241BFF" }
-        selected: { backgroundColor: "#E0C9AAFF", textColor: "#2F241BFF" }
-      }
-    }
-  }
   root: {
     type: "coc:view"
     width: 1600
@@ -30,7 +16,6 @@
       }
       {
         type: "coc:panel"
-        layout: "relative"
         x: 280
         y: 70
         width: 1
@@ -41,7 +26,6 @@
       {
         type: "coc:panel"
         part: "page.tabs"
-        layout: "relative"
         x: 0
         y: 100
         width: 300
@@ -49,7 +33,6 @@
       }
       {
         part: "options.search"
-        layout: "relative"
         x: 975
         y: 72
         width: 290
@@ -69,8 +52,7 @@
       {
         type: "coc:button"
         part: "options.controls.reset"
-        template: "TabButton"
-        layout: "relative"
+        style: "FooterButton"
         horizontalAlign: "left"
         verticalAlign: "bottom"
         x: 280
@@ -83,8 +65,7 @@
       {
         type: "coc:button"
         part: "options.controls.clear"
-        template: "TabButton"
-        layout: "relative"
+        style: "FooterButton"
         horizontalAlign: "left"
         verticalAlign: "bottom"
         x: 500
@@ -97,7 +78,6 @@
       {
         type: "coc:label"
         part: "options.controls.note"
-        layout: "relative"
         x: 654
         y: 650
         width: 480
@@ -110,8 +90,7 @@
       }
       {
         type: "coc:button"
-        template: "TabButton"
-        layout: "relative"
+        style: "FooterButton"
         horizontalAlign: "right"
         verticalAlign: "bottom"
         x: -60

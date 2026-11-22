@@ -41,7 +41,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Valkyrie.SpearAttack.Lead".Localized());
+            context.AppendLog("Combat.Valkyrie.SpearAttack.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -67,12 +67,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (dodgeKey != null)
             {
-                context.Append(dodgeKey.Localized());
+                context.AppendLog(dodgeKey.Localized());
 
                 return;
             }
 
-            context.Append("Combat.Valkyrie.SpearAttack.Hit".Localized());
+            context.AppendLog("Combat.Valkyrie.SpearAttack.Hit".Localized());
 
             var strikes = 1 + context.Random.Next(3);
 
@@ -91,7 +91,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Valkyrie.ShieldBash.Lead".Localized());
+            context.AppendLog("Combat.Valkyrie.ShieldBash.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -115,14 +115,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (dodgeKey != null)
             {
-                context.Append(dodgeKey.Localized());
+                context.AppendLog(dodgeKey.Localized());
 
                 return;
             }
 
-            context.Append("Combat.Valkyrie.ShieldBash.HitLead".Localized());
+            context.AppendLog("Combat.Valkyrie.ShieldBash.HitLead".Localized());
 
-            context.Append(player.Stun(0, 33)
+            context.AppendLog(player.Stun(0, 33)
 
                 ? "Combat.Valkyrie.ShieldBash.Stunned".Localized()
 
@@ -147,7 +147,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.Valkyrie.AerialRave.Lead".Localized());
+            context.AppendLog("Combat.Valkyrie.AerialRave.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -169,12 +169,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (dodgeKey != null)
             {
-                context.Append(dodgeKey.Localized());
+                context.AppendLog(dodgeKey.Localized());
 
                 return;
             }
 
-            context.Append("Combat.Valkyrie.AerialRave.Hit".Localized());
+            context.AppendLog("Combat.Valkyrie.AerialRave.Hit".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + 200 + context.Random.Next(100));
 

@@ -24,7 +24,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             host.HealthChange(-damage);
 
-            context.Append("Combat.Effect.OnFire.Burning".Localized());
+            context.AppendLog("Combat.Effect.OnFire.Burning".Localized());
         }
 
         [Register("coc:special_tail_slap")]
@@ -34,7 +34,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Special.TailSlap.Intro".Localized());
+            context.AppendLog("Combat.Special.TailSlap.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -45,12 +45,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.Special.TailSlap.Miss".Localized());
+                context.AppendLog("Combat.Special.TailSlap.Miss".Localized());
 
                 return;
             }
 
-            context.Append(enemy.Plural
+            context.AppendLog(enemy.Plural
 
                 ? "Combat.Special.TailSlap.HitPlural".Localized()
 
@@ -70,7 +70,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (inferno > 0)
             {
-                context.Append("Combat.Special.TailSlap.Burn".Localized());
+                context.AppendLog("Combat.Special.TailSlap.Burn".Localized());
 
                 enemy.CreateStatusEffect(StatusEffectIds.OnFire, InfernoModifiers.CalcInfernoMod(context, 40), 0, 0, 0, 1 + inferno);
             }

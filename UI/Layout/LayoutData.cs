@@ -22,7 +22,7 @@ namespace MonoCoC.UI.Layout
 
         public int GridColumnSpan = 1;
 
-        public LayoutType LayoutType = LayoutType.Absolute;
+        public LayoutType LayoutType = LayoutType.Relative;
 
         public UIVec4 Padding = 0;
 

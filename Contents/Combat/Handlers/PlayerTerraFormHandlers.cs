@@ -117,7 +117,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.CreateStatusEffect(StatusEffectIds.TFMoltenPlate, 0, 0, 0, 0, 99);
 
-            context.Append((hadPlate
+            context.AppendLog((hadPlate
 
                 ? "Combat.Terra.MoltenPlate.Text1"
 
@@ -145,7 +145,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.CreateStatusEffect(StatusEffectIds.TFShell, 0, 0, 0, 0, 1);
 
-            context.Append("Combat.Terra.Shell.Text".Localized());
+            context.AppendLog("Combat.Terra.Shell.Text".Localized());
 
             player.MasteryXP(TerraMastery, 30);
         }
@@ -222,17 +222,17 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 didStun |= QuakeOnEnemy(context, enemy, enemy == mainTarget, false, text));
 
-            context.Append("Combat.Terra.Quake.Intro".Localized());
+            context.AppendLog("Combat.Terra.Quake.Intro".Localized());
 
-            context.Append(didStun
+            context.AppendLog(didStun
 
                 ? "Combat.Terra.Quake.TopplePlural".Localized()
 
                 : "Combat.Terra.Quake.Topple".Localized());
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
 
-            context.Append(text.ToString());
+            context.AppendLog(text.ToString());
 
             player.MasteryXP(TerraMastery, 20);
         }
@@ -244,7 +244,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (status.Duration >= 3)
                 return;
 
-            context.Append("Combat.Terra.Quake.Aftershocks".Localized());
+            context.AppendLog("Combat.Terra.Quake.Aftershocks".Localized());
 
             var text = new System.Text.StringBuilder();
 
@@ -252,7 +252,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 QuakeOnEnemy(context, enemy, false, true, text));
 
-            context.Append(text.ToString());
+            context.AppendLog(text.ToString());
         }
 
         [Register("coc:can_tf_spout")]
@@ -301,7 +301,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var damage = FireAreaDamage(context);
 
-            context.Append("Combat.Terra.Spout.Text".Localized());
+            context.AppendLog("Combat.Terra.Spout.Text".Localized());
 
             CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Magical);
 
@@ -313,7 +313,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Terra.Eruption.Text".Localized());
+            context.AppendLog("Combat.Terra.Eruption.Text".Localized());
 
             InfernoModifiers.InfernoDisplay(context);
 
@@ -321,7 +321,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 var damage = FireAreaDamage(context);
 
-                context.Append("Combat.Terra.Eruption.Engulf".Localized());
+                context.AppendLog("Combat.Terra.Eruption.Engulf".Localized());
 
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Magical);
             });
@@ -382,14 +382,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var reduced = CombatCalculator.ReduceDamage(context, enemy, total);
 
-            context.Append("Combat.Terra.StoneKnives.Intro".Localized());
+            context.AppendLog("Combat.Terra.StoneKnives.Intro".Localized());
 
             if (hits == 0)
-                context.Append("Combat.Terra.StoneKnives.None".Localized());
+                context.AppendLog("Combat.Terra.StoneKnives.None".Localized());
             else if (hits * 2 < stones)
-                context.Append("Combat.Terra.StoneKnives.Most".Localized(hits));
+                context.AppendLog("Combat.Terra.StoneKnives.Most".Localized(hits));
             else
-                context.Append((reduced > 5
+                context.AppendLog((reduced > 5
 
                     ? "Combat.Terra.StoneKnives.Hit"
 
@@ -436,7 +436,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Terra.Scorch.Text".Localized());
+            context.AppendLog("Combat.Terra.Scorch.Text".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.TFScorch, 0, 0, 0, 0, 99);
 
@@ -465,7 +465,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var perEnemy = Math.Max(1, stones / enemyCount);
 
-            context.Append("Combat.Terra.MeteorShower.Intro".Localized());
+            context.AppendLog("Combat.Terra.MeteorShower.Intro".Localized());
 
             CombatCalculator.ForEachEnemy(context, target => MeteorShowerOnTarget(context, player, target, perEnemy, mastery));
 
@@ -520,11 +520,11 @@ namespace MonoCoC.Contents.Combat.Handlers
             var reduced = CombatCalculator.ReduceDamage(context, enemy, total);
 
             if (grounded && enemy.Stun(1, 100))
-                context.Append("Combat.Terra.MeteorShower.Grounded".Localized(hits));
+                context.AppendLog("Combat.Terra.MeteorShower.Grounded".Localized(hits));
             else if (hits == 0)
-                context.Append("Combat.Terra.MeteorShower.None".Localized());
+                context.AppendLog("Combat.Terra.MeteorShower.None".Localized());
             else
-                context.Append((reduced > 5
+                context.AppendLog((reduced > 5
 
                     ? "Combat.Terra.MeteorShower.Hit"
 
@@ -565,7 +565,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var mod = 1.3f + 0.35f * (mastery - 3);
 
-            context.Append("Combat.Terra.GeodeKnuckle.Text".Localized());
+            context.AppendLog("Combat.Terra.GeodeKnuckle.Text".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.TFGeodeKnuckle, 0, 0, 0, 0, 99);
 
@@ -593,7 +593,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:tf_geode_dispel")]
         public static void GeodeDispel(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Terra.GeodeDispel.Text".Localized());
+            context.AppendLog("Combat.Terra.GeodeDispel.Text".Localized());
 
             context.Player.SetUnarmed();
         }
@@ -621,9 +621,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var aoe = player.Lust / player.MaxLust * 100f > 70f;
 
-            context.Append("Combat.Terra.CarnalBurn.Intro".Localized());
+            context.AppendLog("Combat.Terra.CarnalBurn.Intro".Localized());
 
-            context.Append(aoe
+            context.AppendLog(aoe
 
                 ? "Combat.Terra.CarnalBurn.All".Localized()
 
@@ -640,7 +640,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (aoe)
                 CombatCalculator.ForEachEnemy(context, target =>
                 {
-                    context.Append("Combat.Terra.CarnalBurn.Burnt".Localized());
+                    context.AppendLog("Combat.Terra.CarnalBurn.Burnt".Localized());
 
                     CombatCalculator.DamageEnemy(context, damage * target.FireResistance, CombatDamageKind.Magical);
                 });
@@ -700,7 +700,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var damage = TerraCoreDamage(context);
 
-            context.Append("Combat.Terra.TerraCore.Intro".Localized());
+            context.AppendLog("Combat.Terra.TerraCore.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -713,13 +713,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.Terra.TerraCore.Miss".Localized());
+                context.AppendLog("Combat.Terra.TerraCore.Miss".Localized());
 
                 player.CreateStatusEffect(StatusEffectIds.TFTerraCore, 0, 0, 0, 0, 2);
             }
             else
             {
-                context.Append("Combat.Terra.TerraCore.Hit".Localized());
+                context.AppendLog("Combat.Terra.TerraCore.Hit".Localized());
 
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Magical);
             }
@@ -751,16 +751,16 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.AttackFailed)
-                context.Append("Combat.Terra.TerraCore.RetryMiss".Localized());
+                context.AppendLog("Combat.Terra.TerraCore.RetryMiss".Localized());
             else if (context.Random.Next(2) == 0)
             {
-                context.Append("Combat.Terra.TerraCore.RetryWeak".Localized());
+                context.AppendLog("Combat.Terra.TerraCore.RetryWeak".Localized());
 
                 CombatCalculator.DamageEnemy(context, damage * 0.5f, CombatDamageKind.Magical);
             }
             else
             {
-                context.Append("Combat.Terra.TerraCore.RetryHit".Localized());
+                context.AppendLog("Combat.Terra.TerraCore.RetryHit".Localized());
 
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Magical);
             }
@@ -784,7 +784,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var level = Math.Min(player.Level, 30);
 
-            context.Append("Combat.Terra.TerraFlames.Text".Localized());
+            context.AppendLog("Combat.Terra.TerraFlames.Text".Localized());
 
             InfernoModifiers.InfernoDisplay(context);
 
@@ -796,7 +796,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 var damage = CombatCalculator.ReduceDamage(context, target, baseDamage) * target.FireResistance;
 
-                context.Append("Combat.Terra.TerraFlames.Wreathed".Localized());
+                context.AppendLog("Combat.Terra.TerraFlames.Wreathed".Localized());
 
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Magical);
             });
@@ -858,9 +858,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Terra.TerraStar.Text1".Localized());
+            context.AppendLog("Combat.Terra.TerraStar.Text1".Localized());
 
-            context.Append("Combat.Terra.TerraStar.Text2".Localized());
+            context.AppendLog("Combat.Terra.TerraStar.Text2".Localized());
 
             player.Fatigue = player.MaxFatigue();
 
@@ -908,26 +908,26 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (avoid.Outcome)
             {
                 case AvoidOutcome.Dodge:
-                    context.Append("Combat.Terra.TerraStar.AttackDodge".Localized());
+                    context.AppendLog("Combat.Terra.TerraStar.AttackDodge".Localized());
 
                     return;
 
                 case AvoidOutcome.Parry:
-                    context.Append("Combat.Terra.TerraStar.AttackParry".Localized());
+                    context.AppendLog("Combat.Terra.TerraStar.AttackParry".Localized());
 
                     damage *= 0.4f;
 
                     break;
 
                 case AvoidOutcome.Block:
-                    context.Append("Combat.Terra.TerraStar.AttackBlock".Localized());
+                    context.AppendLog("Combat.Terra.TerraStar.AttackBlock".Localized());
 
                     damage *= 0.6f;
 
                     break;
 
                 default:
-                    context.Append("Combat.Terra.TerraStar.AttackHit".Localized());
+                    context.AppendLog("Combat.Terra.TerraStar.AttackHit".Localized());
 
                     break;
             }
@@ -952,7 +952,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             CombatCalculator.AddArmorBonus(player, armor);
 
-            context.Append("Combat.Terra.Plate.Text".Localized());
+            context.AppendLog("Combat.Terra.Plate.Text".Localized());
 
             GainXp(player);
         }
@@ -962,7 +962,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             host.ArmorDefense = Math.Max(0, host.ArmorDefense - (int)status.Values[0]);
 
-            context.Append("Combat.Effect.TFPlate.Expire".Localized());
+            context.AppendLog("Combat.Effect.TFPlate.Expire".Localized());
         }
 
         [Register("coc:tf_inflame")]
@@ -982,7 +982,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.CreateStatusEffect(StatusEffectIds.TFInflame, damage, spellblade, selfDamage, 0, 99);
 
-            context.Append("Combat.Terra.Inflame.Text".Localized());
+            context.AppendLog("Combat.Terra.Inflame.Text".Localized());
 
             GainXp(player);
         }
@@ -990,7 +990,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:effect_tf_inflame_round")]
         public static void InflameRound(CombatContext context, Creature host, StatusEffect status)
         {
-            context.Append("Combat.Effect.TFInflame.Burning".Localized());
+            context.AppendLog("Combat.Effect.TFInflame.Burning".Localized());
 
             host.HealthChange(-status.Values[2]);
         }

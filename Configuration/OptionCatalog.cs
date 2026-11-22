@@ -29,7 +29,6 @@ namespace MonoCoC.Configuration
                 }
                 catch
                 {
-                    // Ignore broken option files so a bad mod cannot break startup.
                 }
 
             panes.Sort((left, right) => left.Order.CompareTo(right.Order));

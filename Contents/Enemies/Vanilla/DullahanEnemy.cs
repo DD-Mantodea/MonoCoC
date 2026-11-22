@@ -108,13 +108,13 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void Determination(CombatContext context)
         {
-            context.WriteAction(Determined == 0
+            context.Log.Add(Determined == 0
 
                 ? "Combat.Dullahan.Determination.First".Localized()
 
                 : "Combat.Dullahan.Determination.Second".Localized());
 
-            context.WriteAction("Combat.Dullahan.Determination.Line".Localized());
+            context.Log.Add("Combat.Dullahan.Determination.Line".Localized());
 
             Strength += 10;
 
@@ -128,21 +128,21 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             HealthChange(healed);
 
-            context.WriteAction("Combat.Dullahan.Determination.Heal".Localized(healed));
+            context.Log.Add("Combat.Dullahan.Determination.Heal".Localized(healed));
         }
 
         public override bool HandleStun(CombatContext context)
         {
             if (IsRude && Random.Shared.Next(2) == 0)
             {
-                context.WriteAction("Combat.Dullahan.Stun.Determined".Localized());
+                context.Log.Add("Combat.Dullahan.Stun.Determined".Localized());
 
                 RemoveStatusEffect(StatusEffectIds.Stunned);
 
                 return true;
             }
 
-            context.WriteAction("Combat.Dullahan.Stun.BodyKeepsGoing".Localized());
+            context.Log.Add("Combat.Dullahan.Stun.BodyKeepsGoing".Localized());
 
             RemoveStatusEffect(StatusEffectIds.Stunned);
 
@@ -153,7 +153,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleFear(CombatContext context)
         {
-            context.WriteAction(IsRude
+            context.Log.Add(IsRude
 
                 ? "Combat.Dullahan.Fear.Rude".Localized()
 
@@ -204,7 +204,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                             context.Random.Next(15);
 
-                        context.WriteAction("Combat.Dullahan.Counter".Localized(thorns));
+                        context.Log.Add("Combat.Dullahan.Counter".Localized(thorns));
 
                         context.Player.HealthChange(-thorns);
 
@@ -216,7 +216,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                         if (!context.Player.IsDisarmed())
                             return true;
 
-                        context.WriteAction("Combat.Dullahan.PickUpWeapon".Localized());
+                        context.Log.Add("Combat.Dullahan.PickUpWeapon".Localized());
 
                         WeaponName = "saber";
 

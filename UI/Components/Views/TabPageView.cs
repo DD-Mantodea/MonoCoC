@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Hjson;
 using MonoCoC.Extensions;
 using MonoCoC.UI.Data;
@@ -35,6 +35,18 @@ namespace MonoCoC.UI.Components.Views
 
         public int PageIndex { get; private set; }
 
+        public bool SelectPage(string id)
+        {
+            var target = IndexOfPage(id);
+
+            if (target < 0)
+                return false;
+
+            SelectPage(target);
+
+            return true;
+        }
+
         public int IndexOfPage(string id)
         {
             for (var index = 0; index < _pages.Count; index++)
@@ -44,7 +56,6 @@ namespace MonoCoC.UI.Components.Views
             return -1;
         }
 
-        // 基类统一：标签按钮、面板按 part 绑定、显隐切换、当前页索引；子类只实现 OnPageSelected。
         protected void SetupTabPages(IReadOnlyList<TabPageDefinition> pages, bool selectFirst = true)
         {
             _pages = pages;
@@ -93,21 +104,20 @@ namespace MonoCoC.UI.Components.Views
 
             if (!ReferenceEquals(_currentPage, page))
             {
-                if (_currentPage is not null)
-                    _currentPage.Visible = false;
+                _currentPage?.Visible = false;
 
                 _currentPage = page;
 
-                if (page is not null)
-                    page.Visible = true;
+                page?.Visible = true;
             }
 
             OnPageAttached(index, page);
 
+            UIManager.Instance?.MarkSceneChanged();
+
             OnPageSelected(index, fromTab);
         }
 
-        // 丢弃指定页的缓存并重新构建（子页打开/关闭、热刷新用）。
         protected void RefreshPage()
         {
             _pageCache.Remove(PageIndex);
@@ -135,9 +145,32 @@ namespace MonoCoC.UI.Components.Views
             return page;
         }
 
-        // 默认页内容就是定义里声明的 HJSON panel；动态页面的子类覆盖它。
         protected virtual Component? CreatePage(int index) => _pagePanels[index];
 
+        private readonly Stack<Action> _subPageStack = [];
+
+        protected bool SubPageOpen => _subPageStack.Count > 0;
+
+        protected Action? CurrentSubPage => _subPageStack.Count > 0 ? _subPageStack.Peek() : null;
+
+        protected void PushSubPage(Action renderer)
+        {
+            _subPageStack.Push(renderer);
+
+            RefreshPage();
+        }
+
+        protected void PopSubPage()
+        {
+            if (_subPageStack.Count == 0)
+                return;
+
+            _subPageStack.Pop();
+
+            RefreshPage();
+        }
+
+        protected void ClearSubPages() => _subPageStack.Clear();
         protected virtual void OnPageSelecting(int index, bool fromTab)
         {
         }
@@ -150,8 +183,6 @@ namespace MonoCoC.UI.Components.Views
         {
         }
 
-        // 绑 Component 而不是 Grid：标签页数量由数据决定时，容器不一定用 Grid 排布。
-        // 唯一的标签页实现：条目由子类提供，按钮从 TabButton 模板生成（模板缺省时退化为纯文字按钮）。
         protected void BuildTabs(IReadOnlyList<(string LabelKey, Action Selected)> entries)
         {
             var host = Part<Component>("page.tabs");
@@ -160,7 +191,7 @@ namespace MonoCoC.UI.Components.Views
 
             JsonObject? template = null;
 
-            if (Document?.Templates is { } templates && templates.TryGetValue("TabButton", out var tabTemplate))
+            if (Document?.Styles is { } templates && templates.TryGetValue("TabButton", out var tabTemplate))
                 template = tabTemplate;
 
             for (var index = 0; index < entries.Count; index++)
@@ -190,7 +221,6 @@ namespace MonoCoC.UI.Components.Views
 
             _tabAnimation = new float[Tabs.Count];
 
-            // 首次构建时把标签直接放到最终视觉状态，避免入场从居中位置滑过来。
             for (var index = 0; index < Tabs.Count; index++)
             {
                 _tabAnimation[index] = index == ActiveTabIndex ? 1f : 0f;

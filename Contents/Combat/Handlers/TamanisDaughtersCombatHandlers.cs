@@ -30,26 +30,26 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (color == "blue")
             {
 
-                context.WriteAction("Combat.TamanisDaughters.BlueDouse".Localized());
+                context.Log.Add("Combat.TamanisDaughters.BlueDouse".Localized());
 
                 if (context.Enemy.Health < context.Enemy.MaxHealth)
                 {
-                    context.WriteAction("Combat.TamanisDaughters.BlueHeal".Localized());
+                    context.Log.Add("Combat.TamanisDaughters.BlueHeal".Localized());
 
                     context.Enemy.HealthChange(80 * multiplier);
                 }
                 else
-                    context.WriteAction("Combat.TamanisDaughters.BlueNoEffect".Localized());
+                    context.Log.Add("Combat.TamanisDaughters.BlueNoEffect".Localized());
 
                 return;
             }
 
-            context.WriteAction("Combat.TamanisDaughters.DrugThrow".Localized(color));
+            context.Log.Add("Combat.TamanisDaughters.DrugThrow".Localized(color));
 
             if ((player.HasPerk(PerkIds.Evade) && context.Random.Next(10) <= 3) ||
                 context.Random.Next(100) < player.Speed / 5)
             {
-                context.WriteAction("Combat.Goblin.Dodge".Localized());
+                context.Log.Add("Combat.Goblin.Dodge".Localized());
 
                 return;
             }
@@ -57,7 +57,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (color)
             {
                 case "red":
-                    context.WriteAction("Combat.Goblin.Red".Localized());
+                    context.Log.Add("Combat.Goblin.Red".Localized());
 
                     if (!player.HasStatusEffect(StatusEffectIds.TemporaryHeat))
                         StatusEffects.EffectApplication.Apply(
@@ -66,7 +66,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                     break;
 
                 case "green":
-                    context.WriteAction("Combat.Goblin.Green".Localized());
+                    context.Log.Add("Combat.Goblin.Green".Localized());
 
                     if (!player.HasStatusEffect(StatusEffectIds.Poison))
                         StatusEffects.EffectApplication.Apply(
@@ -75,7 +75,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                     break;
 
                 case "white":
-                    context.WriteAction("Combat.Goblin.White".Localized());
+                    context.Log.Add("Combat.Goblin.White".Localized());
 
                     if (!player.HasStatusEffect(StatusEffectIds.NoFlee))
                         player.CreateStatusEffect(StatusEffectIds.NoFlee, 0, 0, 0, 0, 10);
@@ -83,7 +83,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                     break;
 
                 case "black":
-                    context.WriteAction("Combat.Goblin.Black".Localized());
+                    context.Log.Add("Combat.Goblin.Black".Localized());
 
                     player.ChangeFatigue(10 + context.Random.Next(25) * multiplier);
 

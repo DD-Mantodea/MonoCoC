@@ -84,7 +84,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             CoC.Instance.Flags.Set(GameFlagIds.CumWitchDefeated, 1);
 
-            CombatController.Instance?.Context.Append("Combat.Hel.CumWitchVictory".Localized());
+            CombatController.Instance?.Context.AppendLog("Combat.Hel.CumWitchVictory".Localized());
 
             return false;
         }

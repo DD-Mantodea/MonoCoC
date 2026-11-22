@@ -117,13 +117,13 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (!player.HasStatusEffect(RemovedArmorId) && player.Armor is not null)
             {
-                context.Append("Combat.JeanClaude.HandleTease.JeanClaudeStops".Localized());
+                context.AppendLog("Combat.JeanClaude.HandleTease.JeanClaudeStops".Localized());
 
-                context.Append("Combat.JeanClaude.HandleTease.HeHusksHis".Localized());
+                context.AppendLog("Combat.JeanClaude.HandleTease.HeHusksHis".Localized());
 
-                context.Append("Combat.JeanClaude.HandleTease.YourIntentIs".Localized());
+                context.AppendLog("Combat.JeanClaude.HandleTease.YourIntentIs".Localized());
 
-                context.Append("Combat.JeanClaude.HandleTease.JeanClaudeBreathes".Localized());
+                context.AppendLog("Combat.JeanClaude.HandleTease.JeanClaudeBreathes".Localized());
 
                 player.CreateStatusEffect(RemovedArmorId);
 
@@ -140,7 +140,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             }
             else
             {
-                context.Append("Combat.JeanClaude.HandleTease.JeanClaudeSighs".Localized());
+                context.AppendLog("Combat.JeanClaude.HandleTease.JeanClaudeSighs".Localized());
 
                 player.TakeLustDamage(20, true);
             }
@@ -161,20 +161,20 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                         if (player.Lust <= 30)
                         {
-                            context.Append("Combat.JeanClaude.React.JeanClaudeDoesn".Localized());
+                            context.AppendLog("Combat.JeanClaude.React.JeanClaudeDoesn".Localized());
 
-                            context.Append("Combat.JeanClaude.React.HeSaysThe".Localized());
+                            context.AppendLog("Combat.JeanClaude.React.HeSaysThe".Localized());
                         }
                         else if (player.Lust <= 50)
                         {
-                            context.Append("Combat.JeanClaude.React.AgainYourThumps".Localized());
+                            context.AppendLog("Combat.JeanClaude.React.AgainYourThumps".Localized());
 
-                            context.Append("Combat.JeanClaude.React.HeSaysHe".Localized());
+                            context.AppendLog("Combat.JeanClaude.React.HeSaysHe".Localized());
                         }
                         else if (player.Lust <= 80)
-                            context.Append("Combat.JeanClaude.React.GrowlsJeanClaude".Localized());
+                            context.AppendLog("Combat.JeanClaude.React.GrowlsJeanClaude".Localized());
                         else
-                            context.Append("Combat.JeanClaude.React.YouCanT".Localized());
+                            context.AppendLog("Combat.JeanClaude.React.YouCanT".Localized());
 
                         player.TakeLustDamage(25, true);
 
@@ -184,16 +184,16 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     return true;
 
                 case CombatReactionContext.Blinded:
-                    context.Append("Combat.JeanClaude.React.JeanClaudeHowls".Localized());
+                    context.AppendLog("Combat.JeanClaude.React.JeanClaudeHowls".Localized());
 
-                    context.Append("Combat.JeanClaude.React.HeSnarlsThe".Localized());
+                    context.AppendLog("Combat.JeanClaude.React.HeSnarlsThe".Localized());
 
                     if (context.Random.Next(Math.Max(1, (int)player.Speed)) >= 50 ||
                         context.Random.Next(Math.Max(1, (int)player.Intelligence)) >= 50)
                     {
-                        context.Append("Combat.JeanClaude.React.TheLightSears".Localized());
+                        context.AppendLog("Combat.JeanClaude.React.TheLightSears".Localized());
 
-                        context.Append("Combat.JeanClaude.React.TheMonsterSnaps".Localized());
+                        context.AppendLog("Combat.JeanClaude.React.TheMonsterSnaps".Localized());
 
                         var damage = (int)(10 +
 
@@ -207,9 +207,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     }
                     else
                     {
-                        context.Append("Combat.JeanClaude.React.TheLightSears2".Localized());
+                        context.AppendLog("Combat.JeanClaude.React.TheLightSears2".Localized());
 
-                        context.Append("Combat.JeanClaude.React.Text".Localized());
+                        context.AppendLog("Combat.JeanClaude.React.Text".Localized());
 
                         player.CreateStatusEffect(StatusEffectIds.Blind,
 

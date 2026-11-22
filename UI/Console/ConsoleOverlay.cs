@@ -1,10 +1,11 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoCoC.Contents.Commands;
 using MonoCoC.Extensions;
 using MonoCoC.UI.Common;
 using MonoCoC.UI.Components;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
 using System;
@@ -49,6 +50,10 @@ namespace MonoCoC.UI.Console
 
         private static readonly List<string> InputHistory = [];
 
+        private static string _draftText = "";
+
+        private static int _draftCursor;
+
         private static ConsoleOverlay? _instance;
 
         private readonly TextArea _output;
@@ -59,17 +64,11 @@ namespace MonoCoC.UI.Console
 
         private readonly CommandCompletionList _completionList;
 
-        private readonly List<string> _suggestions = [];
+        private readonly List<MonoCoC.Contents.Commands.Suggestion> _suggestions = [];
+
+        private readonly Label _errorHint;
 
         private bool _applyingSuggestion;
-
-        private const float CompletionRepeatDelay = 0.30f;
-
-        private const float CompletionRepeatInterval = 0.05f;
-
-        private Keys? _repeatKey;
-
-        private float _repeatDelay;
 
         private int _inputHistoryIndex;
 
@@ -102,6 +101,8 @@ namespace MonoCoC.UI.Console
 
             _output.ScrollStep = 48;
 
+            _output.ScrollThumbColor = UIParseUtils.ColorOf("#8A8A8ACC");
+
             var prompt = new Label(UIFonts.Get("console"))
                 .Text(">")
                 .Position(PanelPadding, panelHeight - InputHeight - PanelPadding + 6)
@@ -124,12 +125,31 @@ namespace MonoCoC.UI.Console
 
             _input.TextColor = Color.White;
 
+            _input.EnableChineseInput = true;
+
+            _input.KeyInterceptor = HandleCommandKey;
+
             _input.ShowBorder = false;
 
-            _input.Cursor = new Cursor(Color.White, UIComponentStyles.TextBox.Selection)
+            _errorHint = new Label(UIFonts.Get("console"))
+                .Text("")
+                .Position(PanelPadding + 18, panelHeight - InputHeight - PanelPadding - 52)
+                .CanHit(false)
+                .LayoutType(LayoutType.Relative)
+                .Of(_panel);
+
+            _errorHint.TextColor = ConsoleDevTheme.ErrorText;
+
+            _input.Cursor = new Cursor(Color.White, UIParseUtils.ColorOf("#31405172"))
             {
                 TextBox = _input
             };
+
+            _input.Text = _draftText;
+
+            _input.Cursor.CursorIndex = Math.Clamp(_draftCursor, 0, _input.Text.Length);
+
+            _input.Cursor.SelectBegin = _input.Cursor.CursorIndex;
 
             _previousFocus = UIManager.Instance?.FocusedComponent;
 
@@ -252,11 +272,15 @@ namespace MonoCoC.UI.Console
             _suggestions.Clear();
 
             _completionList.Clear();
+
+            _errorHint.Text("");
         }
 
         private void RefreshSuggestions()
         {
             _suggestions.Clear();
+
+            _errorHint.Text("");
 
             if (_input.Text == "")
             {
@@ -265,11 +289,28 @@ namespace MonoCoC.UI.Console
                 return;
             }
 
-            _suggestions.AddRange(CommandRegistry.Complete(_input.Text, _input.Cursor.CursorIndex));
+            if (_input.Text.TrimEnd().EndsWith(']'))
+            {
+                _completionList.Clear();
+
+                _errorHint.Text(CommandRegistry.GetHint(_input.Text));
+
+                return;
+            }
+
+            _suggestions.AddRange(CommandRegistry.GetSuggestions(_input.Text, _input.Cursor.CursorIndex));
 
             _completionList.SetSuggestions(_suggestions);
 
-            _completionList.LayoutData.Position = new Vector2(PanelPadding, ScreenHeight / 2 - InputHeight - PanelPadding - _completionList.Height - 4);
+            var listTop = _panel.LayoutData.Size.Y - InputHeight - PanelPadding - _completionList.Height - 8;
+
+            _completionList.LayoutData.Position = new Vector2(PanelPadding, listTop);
+
+            _errorHint.LayoutData.Position = new Vector2(PanelPadding + 18, listTop - 26);
+
+            var error = CommandRegistry.GetHint(_input.Text);
+
+            _errorHint.Text(_suggestions.Count > 0 ? "" : error);
         }
 
         private void Complete()
@@ -290,19 +331,11 @@ namespace MonoCoC.UI.Console
             RefreshSuggestions();
         }
 
-        private void ApplySuggestion(string value)
+        private void ApplySuggestion(MonoCoC.Contents.Commands.Suggestion suggestion)
         {
-            var cursor = _input.Cursor.CursorIndex;
-
-            var start = cursor;
-
-            while (start > 0 && !char.IsWhiteSpace(_input.Text[start - 1]))
-
-                start--;
-
             _applyingSuggestion = true;
 
-            _input.ReplaceRange(start, cursor - start, value + (_suggestions.Count == 1 ? " " : ""));
+            _input.ReplaceRange(suggestion.Start, suggestion.Length, suggestion.Text);
 
             _applyingSuggestion = false;
         }
@@ -324,78 +357,82 @@ namespace MonoCoC.UI.Console
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-
-            if (!IsOpen)
-                return;
-
-            if (UserInput.IsJustPress(Keys.Escape))
-            {
-                Close();
-
-                return;
-            }
-
-            if (UserInput.IsJustPress(Keys.Enter))
-            {
-                ClearSuggestions();
-
-                Submit();
-
-                return;
-            }
-
-            if (UserInput.IsJustPress(Keys.Tab))
-            {
-                Complete();
-
-                return;
-            }
-
-            HandleCompletionRepeat(Keys.Up, -1, gameTime);
-
-            HandleCompletionRepeat(Keys.Down, 1, gameTime);
         }
 
-        private void HandleCompletionRepeat(Keys key, int direction, GameTime gameTime)
+        private bool HandleCommandKey(InputEventArgs args)
         {
-            if (UserInput.IsJustPress(key))
+            if (args.Type == InputType.KeyDown && args.Key == Keys.Enter &&
+                MonoCoC.Contents.Input.RimeIme.HasComposition)
             {
+                _input.CommitImeLetters();
+
+                RefreshSuggestions();
+
+                return true;
+            }
+
+            if (args.Type == InputType.KeyDown && args.Ctrl && args.Key == Keys.Space &&
+                MonoCoC.Contents.Input.RimeIme.HasComposition)
+            {
+                _input.CommitImeLetters();
+
+                MonoCoC.Contents.Input.RimeIme.ToggleLanguage();
+
+                RefreshSuggestions();
+
+                return true;
+            }
+
+            if (MonoCoC.Contents.Input.RimeIme.HasComposition)
+                return false;
+
+            if (args.Type == InputType.KeyKeepPress)
+            {
+                if (args.Key is not (Keys.Up or Keys.Down))
+                    return false;
+
                 if (_completionList.Visible)
-                {
-                    _completionList.Select(direction);
+                    _completionList.Select(args.Key == Keys.Up ? -1 : 1);
 
-                    _repeatKey = key;
-
-                    _repeatDelay = CompletionRepeatDelay;
-                }
-                else
-                {
-                    HistoryStep(direction);
-
-                    _repeatKey = null;
-                }
-
-                return;
+                return true;
             }
 
-            if (_repeatKey != key)
-                return;
+            if (args.Type != InputType.KeyDown)
+                return false;
 
-            if (!UserInput.IsKeyDown(key) || !_completionList.Visible)
+            switch (args.Key)
             {
-                _repeatKey = null;
+                case Keys.Escape:
+                    Close();
 
-                return;
+                    return true;
+
+                case Keys.Enter:
+                    ClearSuggestions();
+
+                    Submit();
+
+                    return true;
+
+                case Keys.Tab:
+                    Complete();
+
+                    return true;
+
+                case Keys.Up:
+                case Keys.Down:
+                    var direction = args.Key == Keys.Up ? -1 : 1;
+
+                    if (_completionList.Visible)
+                        _completionList.Select(direction);
+                    else
+                        HistoryStep(direction);
+
+                    return true;
+
+                default:
+                    return false;
             }
-
-            _repeatDelay -= (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            if (_repeatDelay > 0)
-                return;
-
-            _completionList.Select(direction);
-
-            _repeatDelay = CompletionRepeatInterval;
         }
 
         public override void DrawSelf(SpriteBatch spriteBatch, GameTime gameTime)
@@ -460,6 +497,10 @@ namespace MonoCoC.UI.Console
 
         private void Close()
         {
+            _draftText = _input.Text;
+
+            _draftCursor = _input.Cursor.CursorIndex;
+
             _input.Active = false;
 
             if (ReferenceEquals(UIManager.Instance?.InputBlock, this))

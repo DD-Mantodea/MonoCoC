@@ -4418,7 +4418,7 @@ namespace MonoCoC.Contents.Dungeons
             Scenes.Scene.OutputText("Scenes.DesertCave.DeclineSandWitch.DustsOffLeaves".Localized());
 
             if (Combat.CombatController.Instance != null)
-                Combat.CombatController.Instance.Context.ReturnToCamp();
+                Combat.CombatScene.ReturnToCampAction?.Invoke();
             else
                 Scenes.Scene.Go<Scenes.Vanilla.CampScene>();
         }

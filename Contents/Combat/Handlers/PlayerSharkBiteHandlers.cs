@@ -23,24 +23,24 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.Id.Path == "worms")
             {
-                context.Append("Combat.Special.SharkBite.Worms".Localized());
+                context.AppendLog("Combat.Special.SharkBite.Worms".Localized());
 
                 return;
             }
 
             if (enemy.HasPerk(PerkIds.BiteImmune))
             {
-                context.Append("Combat.Special.SharkBite.BiteImmune".Localized());
+                context.AppendLog("Combat.Special.SharkBite.BiteImmune".Localized());
 
                 player.HealthChange(-5);
 
                 return;
             }
 
-            context.Append("Combat.Special.SharkBite.Intro".Localized());
+            context.AppendLog("Combat.Special.SharkBite.Intro".Localized());
 
             if (player.HasStatusEffect(StatusEffectIds.Blind))
-                context.Append("Combat.Special.SharkBite.Blind".Localized());
+                context.AppendLog("Combat.Special.SharkBite.Blind".Localized());
 
             var damage = (player.Strength + 45) * player.PhysMod();
 
@@ -60,13 +60,13 @@ namespace MonoCoC.Contents.Combat.Handlers
                 var speedDelta = enemy.Speed - player.Speed;
 
                 if (speedDelta < 8)
-                    context.Append("Combat.Special.SharkBite.DodgeNarrow".Localized());
+                    context.AppendLog("Combat.Special.SharkBite.DodgeNarrow".Localized());
                 else if (speedDelta < 20)
-                    context.Append("Combat.Special.SharkBite.DodgeFast".Localized());
+                    context.AppendLog("Combat.Special.SharkBite.DodgeFast".Localized());
                 else
-                    context.Append("Combat.Special.SharkBite.DodgeDextrous".Localized());
+                    context.AppendLog("Combat.Special.SharkBite.DodgeDextrous".Localized());
 
-                context.Append("[pg]");
+                context.AppendLog("[pg]");
 
                 return;
             }
@@ -77,23 +77,23 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 reduced = 0;
 
-                context.Append("Combat.Special.SharkBite.Blocked".Localized());
+                context.AppendLog("Combat.Special.SharkBite.Blocked".Localized());
             }
             else if (reduced < 10)
-                context.Append("Combat.Special.SharkBite.Low".Localized());
+                context.AppendLog("Combat.Special.SharkBite.Low".Localized());
             else if (reduced < 20)
-                context.Append("Combat.Special.SharkBite.Medium".Localized());
+                context.AppendLog("Combat.Special.SharkBite.Medium".Localized());
             else if (reduced < 30)
-                context.Append("Combat.Special.SharkBite.High".Localized());
+                context.AppendLog("Combat.Special.SharkBite.High".Localized());
             else
-                context.Append("Combat.Special.SharkBite.Mutilate".Localized());
+                context.AppendLog("Combat.Special.SharkBite.Mutilate".Localized());
 
             if (reduced > 0 && enemy.Bleed(player))
-                context.Append("Combat.Special.SharkBite.Bleed".Localized());
+                context.AppendLog("Combat.Special.SharkBite.Bleed".Localized());
 
             CombatCalculator.DamageEnemy(context, reduced, CombatDamageKind.Melee);
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
         }
     }
 }

@@ -16,7 +16,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var player = context.Player;
 
-            context.Append("Combat.Ability.BrigidPoke.Text".Localized());
+            context.AppendLog("Combat.Ability.BrigidPoke.Text".Localized());
 
             var damage = 30 + Random.Shared.Next(15);
 
@@ -28,7 +28,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Ability.BrigidBop.Text".Localized());
+            context.AppendLog("Combat.Ability.BrigidBop.Text".Localized());
 
             player.HealthChange(-5);
 
@@ -40,7 +40,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:brigid_ass_grind_two")]
         public static void AssGrind(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.BrigidAssGrind.Text".Localized());
+            context.AppendLog("Combat.Ability.BrigidAssGrind.Text".Localized());
 
             context.Player.TakeLustDamage(30);
         }

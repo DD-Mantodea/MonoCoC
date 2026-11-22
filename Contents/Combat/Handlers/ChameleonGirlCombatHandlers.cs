@@ -38,7 +38,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasStatusEffect(StatusEffectIds.Blind) && context.Random.Next(3) < 1)
             {
-                context.Append("Combat.ChameleonGirl.Claws.Blind".Localized());
+                context.AppendLog("Combat.ChameleonGirl.Claws.Blind".Localized());
 
                 return;
             }
@@ -50,7 +50,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.ChameleonGirl.Claws.Miss".Localized());
+                context.AppendLog("Combat.ChameleonGirl.Claws.Miss".Localized());
 
                 return;
             }
@@ -59,12 +59,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage > 0)
             {
-                context.Append("Combat.ChameleonGirl.Claws.Hit".Localized());
+                context.AppendLog("Combat.ChameleonGirl.Claws.Hit".Localized());
 
                 player.HealthChange(-damage);
             }
             else
-                context.Append("Combat.ChameleonGirl.Claws.Absorbed".Localized());
+                context.AppendLog("Combat.ChameleonGirl.Claws.Absorbed".Localized());
         }
 
         [Register("coc:chameleon_girl_roll_kick_claw_what_the_fuck_combo_is_this_shit")]
@@ -76,7 +76,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasStatusEffect(StatusEffectIds.Blind) && context.Random.Next(3) < 1)
             {
-                context.Append("Combat.ChameleonGirl.RollKick.Blind".Localized());
+                context.AppendLog("Combat.ChameleonGirl.RollKick.Blind".Localized());
 
                 return;
             }
@@ -88,7 +88,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.ChameleonGirl.RollKick.Dodged".Localized());
+                context.AppendLog("Combat.ChameleonGirl.RollKick.Dodged".Localized());
 
                 player.HealthChange(-(1 + context.Random.Next(10)));
 
@@ -99,12 +99,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage > 0)
             {
-                context.Append("Combat.ChameleonGirl.RollKick.Hit".Localized());
+                context.AppendLog("Combat.ChameleonGirl.RollKick.Hit".Localized());
 
                 player.HealthChange(-damage);
             }
             else
-                context.Append("Combat.ChameleonGirl.RollKick.Absorbed".Localized());
+                context.AppendLog("Combat.ChameleonGirl.RollKick.Absorbed".Localized());
         }
 
         [Register("coc:chameleon_girl_attack")]

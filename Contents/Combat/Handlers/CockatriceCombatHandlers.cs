@@ -30,25 +30,25 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append(enemy.CanFly() ? "Combat.Cockatrice.Compulsion.LeadFly".Localized() : "Combat.Cockatrice.Compulsion.Lead".Localized());
+            context.AppendLog(enemy.CanFly() ? "Combat.Cockatrice.Compulsion.LeadFly".Localized() : "Combat.Cockatrice.Compulsion.Lead".Localized());
 
             enemy.Fatigue += SpellCostCompulsion;
 
             if (player.Intelligence / 5f + context.Random.Next(20) >= 24)
             {
-                context.Append("Combat.Cockatrice.Compulsion.Resisted".Localized());
+                context.AppendLog("Combat.Cockatrice.Compulsion.Resisted".Localized());
 
                 return;
             }
 
             if (player.HasPerk(PerkIds.BasiliskResistance) || player.CanUseStare() || player.HasKeyItem("Laybans"))
             {
-                context.Append("Combat.Cockatrice.Compulsion.Immune".Localized());
+                context.AppendLog("Combat.Cockatrice.Compulsion.Immune".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Cockatrice.Compulsion.Hit".Localized());
+            context.AppendLog("Combat.Cockatrice.Compulsion.Hit".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 3);
 
@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append(enemy.CanFly() ? "Combat.Cockatrice.SandAttack.LeadFly".Localized() : "Combat.Cockatrice.SandAttack.Lead".Localized());
+            context.AppendLog(enemy.CanFly() ? "Combat.Cockatrice.SandAttack.LeadFly".Localized() : "Combat.Cockatrice.SandAttack.Lead".Localized());
 
             enemy.Fatigue += SpellCostSandAttack;
 
@@ -85,15 +85,15 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 if (context.Random.Next(2) == 0)
                 {
-                    context.Append("Combat.Cockatrice.SandAttack.Hit".Localized());
+                    context.AppendLog("Combat.Cockatrice.SandAttack.Hit".Localized());
 
                     player.CreateStatusEffect(StatusEffectIds.Blind, 2 + context.Random.Next(3));
                 }
                 else
-                    context.Append("Combat.Cockatrice.SandAttack.Blocked".Localized());
+                    context.AppendLog("Combat.Cockatrice.SandAttack.Blocked".Localized());
             }
             else
-                context.Append("Combat.Cockatrice.SandAttack.Dodged".Localized());
+                context.AppendLog("Combat.Cockatrice.SandAttack.Dodged".Localized());
         }
 
         [Register("coc:cockatrice_tail_swipe")]
@@ -110,7 +110,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.Cockatrice.TailSwipe.Lead".Localized());
+            context.AppendLog("Combat.Cockatrice.TailSwipe.Lead".Localized());
 
             enemy.Fatigue += SpellCostTailSwipe;
 
@@ -122,7 +122,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             player.HealthChange(-damage);
 
             if (damage == 0)
-                context.Append("Combat.Cockatrice.TailSwipe.Harmless".Localized());
+                context.AppendLog("Combat.Cockatrice.TailSwipe.Harmless".Localized());
         }
 
         [Register("coc:cockatrice_cocka_tease")]
@@ -130,7 +130,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append(context.Random.Next(2) == 0
+            context.AppendLog(context.Random.Next(2) == 0
 
                 ? "Combat.Cockatrice.Tease.Rump".Localized()
 

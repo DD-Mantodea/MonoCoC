@@ -98,13 +98,13 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             CoC.Instance.Flags.Set(GameFlagIds.SandwitchThroneUnlocked, 1);
 
-            CombatController.Instance?.Context.Append("Scenes.DesertCave.DefeatTheSandMother.PantingWord".Localized());
+            CombatController.Instance?.Context.AppendLog("Scenes.DesertCave.DefeatTheSandMother.PantingWord".Localized());
 
-            CombatController.Instance?.Context.Append("Scenes.DesertCave.DefeatTheSandMother.InExhaustion".Localized());
+            CombatController.Instance?.Context.AppendLog("Scenes.DesertCave.DefeatTheSandMother.InExhaustion".Localized());
 
-            CombatController.Instance?.Context.Append("Scenes.DesertCave.DefeatTheSandMother.WithLust".Localized());
+            CombatController.Instance?.Context.AppendLog("Scenes.DesertCave.DefeatTheSandMother.WithLust".Localized());
 
-            CombatController.Instance?.Context.Append("Scenes.DesertCave.DefeatTheSandMother.SinksBackIntoThrone".Localized());
+            CombatController.Instance?.Context.AppendLog("Scenes.DesertCave.DefeatTheSandMother.SinksBackIntoThrone".Localized());
 
             return false;
         }

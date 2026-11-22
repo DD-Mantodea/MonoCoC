@@ -1,15 +1,18 @@
-﻿using Microsoft.Xna.Framework;
+using Hjson;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Assets;
 using MonoCoC.Contents.Items;
 using MonoCoC.Extensions;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Styles;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace MonoCoC.UI.Components
 {
-    public class ItemSlot : Component
+    public class ItemSlot : Component, IFromHjson<ItemSlot>
     {
         public ItemStack? Stack;
 
@@ -49,11 +52,11 @@ namespace MonoCoC.UI.Components
         {
             var style = Style.States;
 
-            var background = style?.BackgroundFor(true, IsHovering, false, Selected) ?? UIComponentStyles.Slot.Background;
+            var background = style?.BackgroundFor(true, IsHovering, false, Selected) ?? UIParseUtils.ColorOf("#F7EFE0CC");
 
-            var border = style?.BorderFor(true, IsHovering, false, Selected) ?? UIComponentStyles.Slot.Border;
+            var border = style?.BorderFor(true, IsHovering, false, Selected) ?? UIParseUtils.ColorOf("#B79A70AA");
 
-            var text = style?.TextFor(true, IsHovering, false, Selected) ?? UIComponentStyles.Slot.Text;
+            var text = style?.TextFor(true, IsHovering, false, Selected) ?? UIParseUtils.ColorOf("#35291FFF");
 
             var thickness = style?.ThicknessFor(true, IsHovering, false, Selected) ?? 1;
 
@@ -110,5 +113,14 @@ namespace MonoCoC.UI.Components
                 nameFont.DrawText(spriteBatch, qty, new Vector2(Rectangle.Right - 14 - size.X, Rectangle.Y + 14), text * LayoutData.Alpha);
             }
         }
+        public static string TypeId => "coc:item_slot";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext context) => new ItemSlot
+        {
+            Index = node.Int("index", 0)
+        };
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<ItemSlot>();
     }
 }

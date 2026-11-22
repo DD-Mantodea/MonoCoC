@@ -17,7 +17,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var player = context.Player;
 
-            context.Append("Combat.Ability.ImpHordeClaw.Wave".Localized());
+            context.AppendLog("Combat.Ability.ImpHordeClaw.Wave".Localized());
 
             var hits = 2 + Random.Shared.Next(5);
 
@@ -41,7 +41,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 if (avoid.Outcome == AvoidOutcome.Dodge)
                     continue;
 
-                context.Append(index % 2 == 0
+                context.AppendLog(index % 2 == 0
 
                     ? "Combat.Ability.ImpHordeClaw.HitA".Localized()
 
@@ -62,7 +62,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var player = context.Player;
 
-            context.Append("Combat.Ability.ImpHordeBukkake.Start".Localized());
+            context.AppendLog("Combat.Ability.ImpHordeBukkake.Start".Localized());
 
             var hits = 2 + Random.Shared.Next(5);
 
@@ -85,7 +85,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 if (avoid.Outcome != AvoidOutcome.Dodge)
                 {
-                    context.Append(index % 2 == 0
+                    context.AppendLog(index % 2 == 0
 
                         ? "Combat.Ability.ImpHordeBukkake.HitA".Localized()
 
@@ -107,14 +107,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (!enemy.UberCharged)
             {
-                context.Append("Combat.Ability.ImpHordeUber.Charging".Localized());
+                context.AppendLog("Combat.Ability.ImpHordeUber.Charging".Localized());
 
                 enemy.UberCharged = true;
 
                 return;
             }
 
-            context.Append("Combat.Ability.ImpHordeUber.Burst".Localized());
+            context.AppendLog("Combat.Ability.ImpHordeUber.Burst".Localized());
 
             context.Player.TakeLustDamage(50);
 
@@ -128,7 +128,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (Random.Shared.Next(2) != 0)
                 return;
 
-            context.Append("Combat.Ability.ImpHorde.LegHump".Localized());
+            context.AppendLog("Combat.Ability.ImpHorde.LegHump".Localized());
 
             context.Player.TakeLustDamage(1);
         }

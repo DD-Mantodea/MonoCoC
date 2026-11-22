@@ -18,7 +18,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:sentinel_of_blasphemy_seal_magical")]
         public static void SealMagical(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.SentinelOfBlasphemySealMagical.Text".Localized());
+            context.AppendLog("Combat.Ability.SentinelOfBlasphemySealMagical.Text".Localized());
 
             context.Player.CreateStatusEffect(StatusEffectIds.SentinelOmniSilence, 3, 0, 0, 0);
 
@@ -35,15 +35,15 @@ namespace MonoCoC.Contents.Combat.Handlers
                 DoDodge = true, DoParry = false, DoBlock = false
             });
 
-            context.Append("Combat.Ability.SentinelOfBlasphemyDispel.Text".Localized());
+            context.AppendLog("Combat.Ability.SentinelOfBlasphemyDispel.Text".Localized());
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
-                context.Append("Combat.Ability.SentinelOfBlasphemyDispel.Dodged".Localized());
+                context.AppendLog("Combat.Ability.SentinelOfBlasphemyDispel.Dodged".Localized());
             else if (context.Player.Shield != null && context.Player.Shield.Is(ItemIds.DragonShield) && Random.Shared.Next(3) == 0)
-                context.Append("Combat.Ability.SentinelOfBlasphemyDispel.Absorbed".Localized());
+                context.AppendLog("Combat.Ability.SentinelOfBlasphemyDispel.Absorbed".Localized());
             else
             {
-                context.Append("Combat.Ability.SentinelOfBlasphemyDispel.Hit".Localized());
+                context.AppendLog("Combat.Ability.SentinelOfBlasphemyDispel.Hit".Localized());
 
                 Identifier[] dispellable =
 

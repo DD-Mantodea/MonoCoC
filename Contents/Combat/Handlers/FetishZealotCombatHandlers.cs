@@ -28,7 +28,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 _ => "Combat.FetishZealot.Special1.Default"
             };
 
-            context.Append(key.Localized());
+            context.AppendLog(key.Localized());
 
             player.Lust = Math.Min(player.MaxLust,
 
@@ -42,7 +42,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.FetishZealot.Special2.Lead".Localized());
+            context.AppendLog("Combat.FetishZealot.Special2.Lead".Localized());
 
             var amount = enemy.Lust / 2;
 
@@ -78,9 +78,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage > 0)
             {
-                context.Append("Combat.FetishZealot.PostAttack.Lead".Localized());
+                context.AppendLog("Combat.FetishZealot.PostAttack.Lead".Localized());
 
-                context.Append(player.Intelligence > 50
+                context.AppendLog(player.Intelligence > 50
 
                     ? "Combat.FetishZealot.PostAttack.Smart".Localized()
 

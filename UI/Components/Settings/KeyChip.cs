@@ -1,11 +1,14 @@
-﻿using FontStashSharp;
+using FontStashSharp;
+using Hjson;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Extensions;
 using MonoCoC.UI.Common;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace MonoCoC.UI.Components.Settings
 {
@@ -13,29 +16,29 @@ namespace MonoCoC.UI.Components.Settings
     // 已绑定 = 浅绿填充 + 2px 橄榄绿描边 + 深色字；
     // 空位   = 透明填充 + 1px 半透明浅棕描边 + 灰字；
     // 等待按键 = 外部文案 + 填充态（由 OptionsView 决定文案）。
-    public class KeyChip : Component
+    public class KeyChip : Component, IFromHjson<KeyChip>
     {
         public const int ChipWidth = 148;
 
         public const int ChipHeight = 40;
 
-        private static readonly Color BoundFill = UIComponentStyles.KeyChip.Fill;
+        private static readonly Color BoundFill = UIParseUtils.ColorOf("#D5D8B8FF");
 
-        private static readonly Color BoundFillHover = UIComponentStyles.KeyChip.FillHover;
+        private static readonly Color BoundFillHover = UIParseUtils.ColorOf("#DDDFC4FF");
 
-        private static readonly Color BoundBorder = UIComponentStyles.KeyChip.Border;
+        private static readonly Color BoundBorder = UIParseUtils.ColorOf("#858B62FF");
 
-        private static readonly Color BoundText = UIComponentStyles.KeyChip.Text;
+        private static readonly Color BoundText = UIParseUtils.ColorOf("#2F241BFF");
 
-        private static readonly Color EmptyBorder = UIComponentStyles.KeyChip.EmptyBorder;
+        private static readonly Color EmptyBorder = UIParseUtils.ColorOf("#B79A708C");
 
-        private static readonly Color EmptyFillHover = UIComponentStyles.KeyChip.EmptyFillHover;
+        private static readonly Color EmptyFillHover = UIParseUtils.ColorOf("#EFE3CCFF");
 
-        private static readonly Color EmptyText = UIComponentStyles.KeyChip.EmptyText;
+        private static readonly Color EmptyText = UIParseUtils.ColorOf("#7C6B58CC");
 
-        private static readonly int BoundBorderThickness = UIComponentStyles.KeyChip.BorderThickness;
+        private static readonly int BoundBorderThickness = 2;
 
-        private static readonly int EmptyBorderThickness = UIComponentStyles.KeyChip.EmptyBorderThickness;
+        private static readonly int EmptyBorderThickness = 1;
 
         private readonly SpriteFontBase _font;
 
@@ -124,5 +127,11 @@ namespace MonoCoC.UI.Components.Settings
             if (IsHovering)
                 spriteBatch.DrawBorder(Rectangle, BoundBorderThickness, BoundBorder * (LayoutData.Alpha * 0.5f));
         }
+        public static string TypeId => "coc:key_chip";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext context) => new KeyChip();
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<KeyChip>();
     }
 }

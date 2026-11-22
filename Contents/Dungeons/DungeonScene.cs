@@ -59,13 +59,16 @@ namespace MonoCoC.Contents.Dungeons
 
         public override void Entry() => Render();
 
+        private static UI.Components.Views.DungeonView? ActiveDungeonView =>
+            UI.Components.Views.GameView.Current as UI.Components.Views.DungeonView;
+
         public virtual void Render()
         {
             DungeonSession.Sync(_context);
 
-            UI.Components.Views.GameView.Instance?.DungeonMap?.Hide();
+            ActiveDungeonView?.DungeonMap?.Hide();
 
-            UI.Components.Views.GameView.Instance?.DungeonMiniMap?.Show(_context);
+            ActiveDungeonView?.DungeonMiniMap?.Show(_context);
 
             ClearOutput();
 
@@ -119,9 +122,9 @@ namespace MonoCoC.Contents.Dungeons
         {
             DungeonSession.End();
 
-            UI.Components.Views.GameView.Instance?.DungeonMap?.Hide();
+            ActiveDungeonView?.DungeonMap?.Hide();
 
-            UI.Components.Views.GameView.Instance?.DungeonMiniMap?.Hide();
+            ActiveDungeonView?.DungeonMiniMap?.Hide();
 
             Go<CampScene>();
         }
@@ -150,14 +153,14 @@ namespace MonoCoC.Contents.Dungeons
 
             OutputText("Common.Text.NIScrollToZoomHold".Localized());
 
-            UI.Components.Views.GameView.Instance?.DungeonMap?.Show(_context);
+            ActiveDungeonView?.DungeonMap?.Show(_context);
 
             AddButton(0, "Common.Button.CloseMap".Localized(), CloseMap);
         }
 
         public virtual void CloseMap()
         {
-            UI.Components.Views.GameView.Instance?.DungeonMap?.Hide();
+            ActiveDungeonView?.DungeonMap?.Hide();
 
             Render();
         }

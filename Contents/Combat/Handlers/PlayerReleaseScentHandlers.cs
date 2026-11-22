@@ -26,15 +26,15 @@ namespace MonoCoC.Contents.Combat.Handlers
             var player = context.Player;
 
             if (player.CockTotal() == 1)
-                context.Append("Combat.Special.ReleaseScent.Single".Localized());
+                context.AppendLog("Combat.Special.ReleaseScent.Single".Localized());
             else if (player.CockTotal() > 1)
-                context.Append("Combat.Special.ReleaseScent.Multiple".Localized());
+                context.AppendLog("Combat.Special.ReleaseScent.Multiple".Localized());
 
-            context.Append("Combat.Special.ReleaseScent.Dizzy".Localized());
+            context.AppendLog("Combat.Special.ReleaseScent.Dizzy".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.ParasiteSlugMusk, 4, 0, 0, 0, 99);
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
         }
 
         [Register("coc:effect_parasite_slug_musk_round")]
@@ -44,19 +44,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (status.Values[0] > 0)
             {
-                context.Append("Combat.Special.ReleaseScent.Round".Localized());
+                context.AppendLog("Combat.Special.ReleaseScent.Round".Localized());
 
                 if (enemy.Lust < 50)
-                    context.Append("Combat.Special.ReleaseScent.NotMuch".Localized());
+                    context.AppendLog("Combat.Special.ReleaseScent.NotMuch".Localized());
 
                 if (enemy.Lust >= 50 && enemy.Lust < 70)
-                    context.Append("Combat.Special.ReleaseScent.Bother".Localized());
+                    context.AppendLog("Combat.Special.ReleaseScent.Bother".Localized());
 
                 if (enemy.Lust >= 70)
-                    context.Append("Combat.Special.ReleaseScent.Aroused".Localized());
+                    context.AppendLog("Combat.Special.ReleaseScent.Aroused".Localized());
 
                 if (host.Lust > 90)
-                    context.Append("Combat.Special.ReleaseScent.PlayerAroused".Localized());
+                    context.AppendLog("Combat.Special.ReleaseScent.PlayerAroused".Localized());
 
                 status.Values[0] -= 1;
 
@@ -64,13 +64,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 host.Lust = Math.Min(host.MaxLust, host.Lust + 5);
 
-                context.Append("[pg]");
+                context.AppendLog("[pg]");
             }
             else
             {
                 host.RemoveStatusEffect(StatusEffectIds.ParasiteSlugMusk);
 
-                context.Append("Combat.Special.ReleaseScent.Fade".Localized());
+                context.AppendLog("Combat.Special.ReleaseScent.Fade".Localized());
             }
         }
     }

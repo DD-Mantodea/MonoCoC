@@ -1,4 +1,4 @@
-﻿using MonoCoC.Contents.Creation;
+using MonoCoC.Contents.Creation;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Flags;
 using MonoCoC.Contents.Scenes;
@@ -90,27 +90,27 @@ namespace MonoCoC.UI.Components.Views
 
         private Label _errorLabel = null!;
 
-        private SegmentedControl _difficultySelector = null!;
+        private SegmentedComponent _difficultySelector = null!;
 
-        private SegmentedControl _hardcoreSelector = null!;
+        private SegmentedComponent _hardcoreSelector = null!;
 
-        private SegmentedControl _skinSelector = null!;
+        private SegmentedComponent _skinSelector = null!;
 
-        private SegmentedControl _hairSelector = null!;
+        private SegmentedComponent _hairSelector = null!;
 
         private NumericStepper _heightSelector = null!;
 
         private NumericStepper _cockSelector = null!;
 
-        private SegmentedControl _breastSelector = null!;
+        private SegmentedComponent _breastSelector = null!;
 
         private Component _breastLabel = null!;
 
         private NumericStepper _hairLengthSelector = null!;
 
-        private SegmentedControl _beardStyleSelector = null!;
+        private SegmentedComponent _beardStyleSelector = null!;
 
-        private SegmentedControl _beardLengthSelector = null!;
+        private SegmentedComponent _beardLengthSelector = null!;
 
         private ChoiceWheel _historyOptions = null!;
 
@@ -134,15 +134,14 @@ namespace MonoCoC.UI.Components.Views
 
         private DividerDecoration _virginityDivider = null!;
 
-        private SegmentedControl _ageSelector = null!;
+        private SegmentedComponent _ageSelector = null!;
 
-        private SegmentedControl _genderSelector = null!;
+        private SegmentedComponent _genderSelector = null!;
 
-        private SegmentedControl _buildSelector = null!;
+        private SegmentedComponent _buildSelector = null!;
 
-        private SegmentedControl _orientationSelector = null!;
+        private SegmentedComponent _orientationSelector = null!;
 
-        private int PageIndex;
 
         private bool _started;
 
@@ -183,7 +182,7 @@ namespace MonoCoC.UI.Components.Views
         private void BindError(Label part) => _errorLabel = part;
 
         [UIRequired("creation.difficulty")]
-        private void BindDifficulty(SegmentedControl part)
+        private void BindDifficulty(SegmentedComponent part)
         {
             _difficultySelector = part;
 
@@ -195,7 +194,7 @@ namespace MonoCoC.UI.Components.Views
         }
 
         [UIRequired("creation.hardcore")]
-        private void BindHardcore(SegmentedControl part)
+        private void BindHardcore(SegmentedComponent part)
         {
             _hardcoreSelector = part;
 
@@ -218,7 +217,7 @@ namespace MonoCoC.UI.Components.Views
         private void BindSummary(Label part) => _summary = part;
 
         [UIRequired("creation.age")]
-        private void BindAgeSelector(SegmentedControl part)
+        private void BindAgeSelector(SegmentedComponent part)
         {
             _ageSelector = part;
 
@@ -235,7 +234,7 @@ namespace MonoCoC.UI.Components.Views
         }
 
         [UIRequired("creation.gender")]
-        private void BindGenderSelector(SegmentedControl part)
+        private void BindGenderSelector(SegmentedComponent part)
         {
             _genderSelector = part;
 
@@ -281,7 +280,7 @@ namespace MonoCoC.UI.Components.Views
         }
 
         [UIRequired("creation.build")]
-        private void BindBuildSelector(SegmentedControl part)
+        private void BindBuildSelector(SegmentedComponent part)
         {
             _buildSelector = part;
 
@@ -289,7 +288,7 @@ namespace MonoCoC.UI.Components.Views
         }
 
         [UIRequired("creation.orientation")]
-        private void BindOrientationSelector(SegmentedControl part)
+        private void BindOrientationSelector(SegmentedComponent part)
         {
             _orientationSelector = part;
 
@@ -305,7 +304,7 @@ namespace MonoCoC.UI.Components.Views
         }
 
         [UIRequired("creation.skin")]
-        private void BindSkinSelector(SegmentedControl part)
+        private void BindSkinSelector(SegmentedComponent part)
         {
             _skinSelector = part;
 
@@ -327,7 +326,7 @@ namespace MonoCoC.UI.Components.Views
         }
 
         [UIRequired("creation.hair")]
-        private void BindHairSelector(SegmentedControl part)
+        private void BindHairSelector(SegmentedComponent part)
         {
             _hairSelector = part;
 
@@ -382,7 +381,7 @@ namespace MonoCoC.UI.Components.Views
         private void BindBreastLabel(Component part) => _breastLabel = part;
 
         [UIRequired("creation.breast")]
-        private void BindBreastSelector(SegmentedControl part)
+        private void BindBreastSelector(SegmentedComponent part)
         {
             _breastSelector = part;
 
@@ -410,7 +409,7 @@ namespace MonoCoC.UI.Components.Views
         }
 
         [UIRequired("creation.beardStyle")]
-        private void BindBeardStyleSelector(SegmentedControl part)
+        private void BindBeardStyleSelector(SegmentedComponent part)
         {
             _beardStyleSelector = part;
 
@@ -423,7 +422,7 @@ namespace MonoCoC.UI.Components.Views
         }
 
         [UIRequired("creation.beardLength")]
-        private void BindBeardLengthSelector(SegmentedControl part)
+        private void BindBeardLengthSelector(SegmentedComponent part)
         {
             _beardLengthSelector = part;
 
@@ -686,7 +685,7 @@ namespace MonoCoC.UI.Components.Views
 
             ApplyCharacter();
 
-            UIManager.Instance.Root.SwitchView(new CampView());
+            GameView.SwitchTo<CampView>();
 
             Scene.Go(SceneInstance<CampScene>.Get());
         }
@@ -1135,7 +1134,7 @@ namespace MonoCoC.UI.Components.Views
 
             var mods = rules.Builds[Draft.Build].Mods(Draft.BuildGender)[Draft.Age];
 
-            var keys = new System.Collections.Generic.List<string> { "Views.CharCreation.Opt.Flat" };
+            var keys = new List<string> { "Views.CharCreation.Opt.Flat" };
 
             if (mods.Femininity >= 35f) keys.Add("Views.CharCreation.Opt.ACup");
             if (mods.Femininity >= 40f) keys.Add("Views.CharCreation.Opt.BCup");

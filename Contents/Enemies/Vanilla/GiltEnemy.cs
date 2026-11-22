@@ -32,14 +32,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override void OutputAttack(Combat.CombatContext context, float damage)
         {
-            context.Append(IsFlying
+            context.AppendLog(IsFlying
 
                 ? "Combat.Gilt.Attack.Flying".Localized()
 
                 : "Combat.Gilt.Attack.Ground".Localized());
 
             if (damage > 0)
-                context.Append("Combat.Gilt.Attack.Damage".Localized((int)damage));
+                context.AppendLog("Combat.Gilt.Attack.Damage".Localized((int)damage));
         }
 
         public override Registry.Identifier? ForcedAbility(Combat.CombatContext context)

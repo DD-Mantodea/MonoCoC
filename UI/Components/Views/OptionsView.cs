@@ -1,4 +1,4 @@
-﻿using MonoCoC.Configuration;
+using MonoCoC.Configuration;
 using MonoCoC.Contents.Scenes;
 using MonoCoC.Extensions;
 using MonoCoC.UI.Components.Settings;
@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using MonoCoC.Contents.Input;
 using System.Linq;
+using MonoCoC;
 
 namespace MonoCoC.UI.Components.Views
 {
@@ -33,9 +34,7 @@ namespace MonoCoC.UI.Components.Views
 
         public SearchBar? Search { get; set; }
 
-        public Action? OnStart { get; set; }
-
-        public Action? OnBack { get; set; }
+        public Action? BackHandler { get; set; }
 
         public bool ActionsRegistered { get; set; }
 
@@ -46,6 +45,8 @@ namespace MonoCoC.UI.Components.Views
             Current = this;
 
             OptionStore.Instance.Initialize();
+
+            _pageRenderers["controls"] = CreateControlsPage;
 
             Initialize();
         }
@@ -76,7 +77,7 @@ namespace MonoCoC.UI.Components.Views
 
         public override void Update(Microsoft.Xna.Framework.GameTime gameTime)
         {
-            var controls = ControlsOpen;
+            var controls = Pane is not null && ReferenceEquals(Pane, _controlsPane);
 
             _resetControls.Visible = controls;
 
@@ -93,7 +94,7 @@ namespace MonoCoC.UI.Components.Views
         [UIEvent("options.controls.reset")]
         private static void ResetControls()
         {
-            MonoCoC.Contents.Input.HotkeyRegistry.Reset();
+            Contents.Input.HotkeyRegistry.Reset();
 
             RefreshControls();
         }
@@ -101,62 +102,38 @@ namespace MonoCoC.UI.Components.Views
         [UIEvent("options.controls.clear")]
         private static void ClearControls()
         {
-            MonoCoC.Contents.Input.HotkeyRegistry.Clear();
+            Contents.Input.HotkeyRegistry.Clear();
 
             RefreshControls();
         }
 
 
         [UIEvent("options.back")]
-        private static void Back() => BackOrSub();
-        // 子页用回调表达（打开哪个子页由选项的 action 决定），不再用枚举常量。
-        private Action? _detail;
+        private void Back() => HandleBack();
 
-        // Controls 是顶层页签，必须有自己的面板实例，不能复用数据页的 Pane。
         private SettingPane? _controlsPane;
 
-        // 标签顺序：panes 索引，Controls 用 -1；与 CreateTabList 的构建顺序保持一致。
-        public bool DetailOpen => _detail is not null;
-
-        public bool ControlsOpen
-        {
-            get
-            {
-                var panes = OptionStore.Instance.Panes;
-
-                return PageIndex >= 0 && PageIndex < panes.Count && panes[PageIndex].Kind == "controls";
-            }
-        }
+        private readonly Dictionary<string, Func<OptionPaneDefinition, SettingPane>> _pageRenderers = new(StringComparer.OrdinalIgnoreCase);
 
         public void OpenDetail(Action page)
         {
-            _detail = page;
-
             SearchText = "";
 
-            RefreshPage();
+            PushSubPage(page);
 
             ShowSearch();
         }
 
         public void CloseDetail()
         {
-            _detail = null;
-
             SearchText = "";
 
-            RefreshPage();
+            PopSubPage();
 
             ShowSearch();
         }
 
         public static void Open() => Current?.OpenPage();
-
-        public static void SwitchPane(int index) => Current?.SelectPage(index);
-
-        public static void OpenControls() => Current?.OpenControlsPage();
-
-        public static void BackOrSub() => Current?.BackOrSubPage();
 
         public static void RefreshControls() => Current?.RefreshControlsPage();
 
@@ -168,56 +145,28 @@ namespace MonoCoC.UI.Components.Views
 
             SelectPage(InitialPage > 0 && PageIndex == 0 ? InitialPage : PageIndex);
 
-            if (!DetailOpen)
-            {
-                ShowSearch();
-
-                return;
-            }
-
             ShowSearch();
         }
 
-        public void OpenControlsPage()
+        public void HandleBack()
         {
-            var panes = OptionStore.Instance.Panes;
-
-            for (var index = 0; index < panes.Count; index++)
-                if (panes[index].Kind == "controls")
-                {
-                    SelectPage(index);
-
-                    return;
-                }
-        }
-        public void BackOrSubPage()
-        {
-            // Controls 是顶层页签（和 Gameplay/Display 同级），Back 应该直接退出 Options，
-            // 而不是退回上一个 Settings 页（2026-11-16 反馈）。
-            if (DetailOpen)
+            if (SubPageOpen)
             {
                 CloseDetail();
 
                 return;
             }
 
-            if (Current?.OnStart != null)
-            {
-                Start();
-
-                return;
-            }
-
-            if (Current?.OnBack != null)
-            {
-                BackPage();
-
-                return;
-            }
-
             Close();
 
-            UIManager.Instance.Root.SwitchView(new CampView());
+            if (ViewNavigator.Back(this))
+                return;
+
+            var handler = BackHandler;
+
+            BackHandler = null;
+
+            handler?.Invoke();
         }
 
         protected override void OnPageSelecting(int index, bool fromTab)
@@ -225,7 +174,7 @@ namespace MonoCoC.UI.Components.Views
             if (!fromTab)
                 return;
 
-            _detail = null;
+            ClearSubPages();
 
             SearchText = "";
         }
@@ -239,7 +188,8 @@ namespace MonoCoC.UI.Components.Views
 
         protected override Component? CreatePage(int index)
         {
-            Framework.UIManager.TraceEvent("createPage " + index);
+            UIManager.TraceEvent("createPage " + index);
+
             var panes = OptionStore.Instance.Panes;
 
             if (panes.Count == 0)
@@ -249,65 +199,74 @@ namespace MonoCoC.UI.Components.Views
 
             var definition = panes[index];
 
-            if (definition.Kind == "controls")
-            {
-                if (_controlsPane is null)
-                {
-                    _controlsPane = new SettingPane(330, 70, 940, 700).Of(Current);
+            var factory = _pageRenderers.TryGetValue(definition.Kind, out var registered)
+                ? registered
+                : CreateSettingsPage;
 
-                    Pane = _controlsPane;
+            Pane = factory(definition);
 
-                    ShowControlsPane();
-                }
-                else
-                {
-                    Pane = _controlsPane;
-
-                    Pane.Visible = true;
-
-                    // 复用同一实例，只原地刷新行（无闪烁）。
-                    RefreshControlsPage();
-                }
-
+            if (!SubPageOpen)
                 Pane.ApplyFilter(SearchText);
 
-                return Pane;
-            }
+            return Pane;
+        }
 
-            // 原版 GameSettings.hx:575：未加载存档时，本地设置页显示 SAVE NOT LOADED 警告
-            if (!DetailOpen && !MonoCoC.CoC.Instance.Player.Loaded && !MonoCoC.CoC.Instance.Player.CharCreation && !definition.Global)
+        private SettingPane CreateSettingsPage(OptionPaneDefinition definition)
+        {
+            if (!SubPageOpen && !CoC.Instance.Player.Loaded && !CoC.Instance.Player.CharCreation && !definition.Global)
             {
-                Pane = new SettingPane(330, 70, 940, 700).Of(Current);
+                var missing = new SettingPane(330, 70, 940, 700).Of(Current);
 
-                Pane.Header("SAVE NOT LOADED",
+                missing.Header("SAVE NOT LOADED",
 
                     "The settings in this tab are local settings, saved to your character. Load a save or start a new game to change them.",
 
                     "");
 
-                return Pane;
+                return missing;
             }
 
-            Pane = new SettingPane(330, 70, 940, 700).Of(Current);
+            var pane = new SettingPane(330, 70, 940, 700).Of(Current);
+
+            Pane = pane;
 
             var note = definition.Global ? "View.Options.Note.Global" : "View.Options.Note.Local";
 
-            Pane.Header(definition.TitleKey.Localized(), definition.DescriptionKey.Localized(), note.Localized());
+            pane.Header(definition.TitleKey.Localized(), definition.DescriptionKey.Localized(), note.Localized());
 
-            if (DetailOpen)
+            if (SubPageOpen)
             {
                 ShowSub();
 
-                return Pane;
+                return pane;
             }
 
             RenderPane(definition);
 
-            Pane.ApplyFilter(SearchText);
-
-            return Pane;
+            return pane;
         }
 
+        private SettingPane CreateControlsPage(OptionPaneDefinition definition)
+        {
+            if (_controlsPane is null)
+            {
+                _controlsPane = new SettingPane(330, 70, 940, 700).Of(Current);
+
+                Pane = _controlsPane;
+
+                ShowControlsPane();
+            }
+            else
+            {
+                Pane = _controlsPane;
+
+                Pane.Visible = true;
+
+                RefreshControlsPage();
+            }
+
+            return _controlsPane;
+        }
         public void RenderPane(OptionPaneDefinition definition)
         {
             foreach (var setting in definition.Settings)
@@ -397,7 +356,7 @@ namespace MonoCoC.UI.Components.Views
             Pane?.UpdateValue(setting.LabelKey.Localized(), choice.LabelKey.Localized());
         }
 
-        public void ShowSub() => _detail?.Invoke();
+        public void ShowSub() => CurrentSubPage?.Invoke();
 
         public void OpenDetailFor(OptionDefinition setting)
         {
@@ -464,7 +423,7 @@ namespace MonoCoC.UI.Components.Views
 
         public void RefreshControlsPage()
         {
-            if (!ControlsOpen || Pane == null)
+            if (Pane is null || !ReferenceEquals(Pane, _controlsPane))
                 return;
 
             foreach (var binding in HotkeyRegistry.All)
@@ -484,7 +443,6 @@ namespace MonoCoC.UI.Components.Views
                 ShowControlsNote(notice);
         }
 
-        // 提示条放在 pane 下方（不是 pane 内的浮层）：字号与正文一致，也不会盖住最后一行。
         public void ShowControlsNote(string text, double seconds = 5)
         {
             if (_controlsNote is null)
@@ -519,7 +477,6 @@ namespace MonoCoC.UI.Components.Views
 
             ActionsRegistered = true;
 
-            // 子页现在由选项数据自带 sub 节点驱动，这里不再需要注册 action→页面映射。
 
             OptionHandlers.RegisterApplier("language", LanguageService.Use);
 
@@ -556,28 +513,6 @@ namespace MonoCoC.UI.Components.Views
             SearchText = "";
 
             OptionStore.SaveGlobal();
-        }
-
-        public void BackPage()
-        {
-            Close();
-
-            var action = Current?.OnBack;
-
-            Current?.OnBack = null;
-
-            action?.Invoke();
-        }
-
-        public void Start()
-        {
-            Close();
-
-            var action = Current?.OnStart;
-
-            Current?.OnStart = null;
-
-            action?.Invoke();
         }
     }
 }

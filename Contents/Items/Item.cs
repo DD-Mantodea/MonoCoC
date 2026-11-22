@@ -93,7 +93,7 @@ namespace MonoCoC.Contents.Items
         public virtual void RegisterInteractions(ItemInteractionMenu menu, ItemInteractionContext context)
         {
             if (context.Stack is not null)
-                menu.Add("drop", "Scenes.Inventory.Drop", ItemInteractions.Drop, order: 100);
+                menu.Add("delete", "Scenes.Inventory.Delete", ItemInteractions.Delete, order: 100);
 
             if (context.EquipmentSlotId is not null)
                 menu.Add("unequip", "Scenes.Inventory.Unequip", ItemInteractions.Unequip, order: 100);
@@ -174,6 +174,26 @@ namespace MonoCoC.Contents.Items
 
         public string InvLabel => Name;
 
+        public virtual ItemSlotDetail GetSlotDetail()
+        {
+            var text = TooltipText;
+
+            var lines = new List<string>();
+
+            foreach (var stat in GetStats())
+                lines.Add(stat.Value.Length == 0
+                    ? stat.LabelKey.Localized()
+                    : stat.LabelKey.Localized() + ": " + stat.Value);
+
+            if (lines.Count > 0)
+                text += "\n\n" + string.Join("\n", lines);
+
+            if (EffectDescription.Length > 0)
+                text += "\n\n" + EffectDescription;
+
+            return new ItemSlotDetail(Name, ItemCategories.Resolve(this).LabelKey.Localized(), text);
+        }
+
         public static bool operator ==(Item? item, Identifier id) =>
 
             item is null ? id.Equals(default) : item.Id.Equals(id);
@@ -191,4 +211,6 @@ namespace MonoCoC.Contents.Items
 
         public override int GetHashCode() => Id.GetHashCode();
     }
+
+    public sealed record ItemSlotDetail(string Name, string Type, string Description);
 }

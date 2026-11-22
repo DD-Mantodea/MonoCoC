@@ -26,15 +26,15 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Mora.Attack.Dodged".Localized());
+                context.AppendLog("Combat.Mora.Attack.Dodged".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Mora.Attack.Hit".Localized());
+            context.AppendLog("Combat.Mora.Attack.Hit".Localized());
 
             if (context.Random.Next(100) < enemy.GetBaseCritChance())
-                context.Append("Combat.Mora.Attack.Critical".Localized());
+                context.AppendLog("Combat.Mora.Attack.Critical".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack);
 
@@ -54,7 +54,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var stacks = AfflictFrostbite(context);
 
-            context.Append("Combat.Mora.Mist.Lead".Localized());
+            context.AppendLog("Combat.Mora.Mist.Lead".Localized());
 
             player.HealthChange(-(20 + 10 * stacks));
         }
@@ -66,7 +66,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var stacks = AfflictFrostbite(context);
 
-            context.Append("Combat.Mora.Surge.Lead".Localized());
+            context.AppendLog("Combat.Mora.Surge.Lead".Localized());
 
             player.HealthChange(-(20 + 10 * stacks));
         }
@@ -74,7 +74,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:mora_shroud_attack")]
         public static void ShroudAttack(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Mora.Shroud.Lead".Localized());
+            context.AppendLog("Combat.Mora.Shroud.Lead".Localized());
 
             var mora = context.EnemyAs<MoraEnemy>();
 
@@ -102,16 +102,16 @@ namespace MonoCoC.Contents.Combat.Handlers
                 weakenedArmor = true;
             }
 
-            context.Append("Combat.Mora.Despair.Lead".Localized());
+            context.AppendLog("Combat.Mora.Despair.Lead".Localized());
 
             if (weakenedArmor)
-                context.Append(player.Armor?.Id == ArmorIds.GooArmor
+                context.AppendLog(player.Armor?.Id == ArmorIds.GooArmor
 
                     ? "Combat.Mora.Despair.WeakenedValeria".Localized()
 
                     : "Combat.Mora.Despair.WeakenedArmor".Localized());
 
-            context.Append("Combat.Mora.Despair.Tail".Localized());
+            context.AppendLog("Combat.Mora.Despair.Tail".Localized());
         }
 
         public static void DebuffStat(CombatContext context, string stat)

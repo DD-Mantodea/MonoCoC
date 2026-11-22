@@ -15,7 +15,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.GoblinWarrior.Slash.SwordCharge".Localized());
+            context.AppendLog("Scenes.GoblinWarrior.Slash.SwordCharge".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -26,12 +26,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Scenes.GoblinWarrior.Slash.SlashAvoided".Localized());
+                context.AppendLog("Scenes.GoblinWarrior.Slash.SlashAvoided".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.GoblinWarrior.Slash.SlashHit".Localized());
+            context.AppendLog("Scenes.GoblinWarrior.Slash.SlashHit".Localized());
 
             var damage = enemy.Strength + enemy.WeaponAttack + Random.Shared.Next(40);
 
@@ -47,7 +47,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.GoblinWarrior.ShieldBash.ShieldCharge".Localized());
+            context.AppendLog("Scenes.GoblinWarrior.ShieldBash.ShieldCharge".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -58,15 +58,15 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Scenes.GoblinWarrior.ShieldBash.ShieldBashAvoided".Localized());
+                context.AppendLog("Scenes.GoblinWarrior.ShieldBash.ShieldBashAvoided".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.GoblinWarrior.ShieldBash.ShieldBashHit".Localized());
+            context.AppendLog("Scenes.GoblinWarrior.ShieldBash.ShieldBashHit".Localized());
 
             if (player.Stun(1, 40))
-                context.Append("Scenes.GoblinWarrior.ShieldBash.ConcussionStun".Localized());
+                context.AppendLog("Scenes.GoblinWarrior.ShieldBash.ConcussionStun".Localized());
 
             var damage = enemy.Strength + Random.Shared.Next(10);
 

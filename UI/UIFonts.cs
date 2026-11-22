@@ -1,16 +1,16 @@
-﻿using FontStashSharp;
+using FontStashSharp;
 using Hjson;
 using MonoCoC.Assets;
 using MonoCoC.Assets.AssetManagers;
 using MonoCoC.Configuration;
+using MonoCoC.Extensions;
+using MonoCoC.UI.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
 
 namespace MonoCoC.UI
 {
-    // 字体角色表：唯一事实来源是 Assets/Localization/<lang>/Language.hjson 的 fonts: 节点。
-    // 每次切语言构建一份不可变快照并整体替换，避免原地清空/合并导致的状态污染。
     public static class UIFonts
     {
         private readonly record struct FontRole(
@@ -21,6 +21,32 @@ namespace MonoCoC.UI
             string Italic,
             string BoldItalic);
 
+        public static SpriteFontBase Resolve(JsonObject node, string defaultRole)
+        {
+            var role = defaultRole;
+
+            var size = 0;
+
+            if (node.TryGetValue("font", out var fontValue))
+            {
+                if (fontValue is JsonObject font)
+                {
+                    role = font.Str("id", defaultRole);
+
+                    if (font.TryGetValue("size", out var sizeValue))
+                        size = UIParseUtils.Int(sizeValue);
+                }
+                else
+                {
+                    role = fontValue.ToString().Trim('"');
+                }
+            }
+
+            if (size <= 0)
+                size = Size(role);
+
+            return GetAt(Family(role), size);
+        }
         private static readonly FontRole BuiltInBody = new(
             "pala",
             20,
@@ -39,7 +65,6 @@ namespace MonoCoC.UI
 
         public static int Revision { get; private set; }
 
-        // 语言管理器可能尚未就绪（Initialize 早期），此时退回 en-us。
         private static string FallbackLanguage
         {
             get
@@ -60,10 +85,8 @@ namespace MonoCoC.UI
         }
 
 
-        // 初始化：以 fallback 语言（通常是 en-us）作为基线快照。
         public static void Initialize() => Rebuild(FallbackLanguage);
 
-        // 切换语言：以 fallback 语言打底，再用目标语言覆盖同名角色。
         public static void ApplyLanguage(string language) => Rebuild(language);
 
         public static SpriteFontBase Get(string role)
@@ -114,8 +137,6 @@ namespace MonoCoC.UI
         {
             var roles = new Dictionary<string, FontRole>(StringComparer.OrdinalIgnoreCase);
 
-            // 语言文件是唯一来源；fallback 语言先打底，目标语言覆盖。
-            // 同一个语言不重复读。
             LoadLanguage(roles, FallbackLanguage);
 
             if (!string.IsNullOrEmpty(language) &&
@@ -165,7 +186,6 @@ namespace MonoCoC.UI
             }
             catch
             {
-                // 语言文件损坏：保留已有快照（fallback 语言那层）。
             }
         }
 
@@ -261,7 +281,6 @@ namespace MonoCoC.UI
             }
             catch
             {
-                // 控制台未就绪时忽略诊断输出。
             }
         }
 

@@ -48,11 +48,11 @@ namespace MonoCoC.Contents.Combat.Handlers
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + 20 + enemy.WeaponAttack);
 
             if (damage <= 0)
-                context.Append("Combat.Marble.SpecialAttackOne.Deflect".Localized());
+                context.AppendLog("Combat.Marble.SpecialAttackOne.Deflect".Localized());
 
             if (damage > 0)
             {
-                context.Append("Combat.Marble.SpecialAttackOne.Hit".Localized());
+                context.AppendLog("Combat.Marble.SpecialAttackOne.Hit".Localized());
 
                 player.TakeDamage(damage);
             }
@@ -90,16 +90,16 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
 
             if (enemy.HasStatusEffect(StatusEffectIds.Blind))
-                context.Append("Combat.Marble.SpecialAttackTwo.BlindSwing".Localized());
+                context.AppendLog("Combat.Marble.SpecialAttackTwo.BlindSwing".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + 40 + enemy.WeaponAttack);
 
             damage /= 2;
 
             if (damage <= 0)
-                context.Append("Combat.Marble.SpecialAttackTwo.Deflect".Localized());
+                context.AppendLog("Combat.Marble.SpecialAttackTwo.Deflect".Localized());
 
-            context.Append("Combat.Marble.SpecialAttackTwo.Hit".Localized());
+            context.AppendLog("Combat.Marble.SpecialAttackTwo.Hit".Localized());
 
             if (damage > 0)
                 player.TakeDamage(damage);
@@ -130,7 +130,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 _ => "Combat.Marble.SpecialAttackTwo.DodgeUnhandled"
             };
 
-            context.Append(key.Localized());
+            context.AppendLog(key.Localized());
         }
     }
 }

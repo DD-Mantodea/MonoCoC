@@ -58,13 +58,13 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (Health <= 0 || Invincible)
                 return;
 
-            context.Append("Combat.Hel.LaurentiusReality".Localized());
+            context.AppendLog("Combat.Hel.LaurentiusReality".Localized());
 
             var healed = damage * 0.6f;
 
             Health = Math.Min(MaxHealth, Health + healed);
 
-            context.Append("Combat.Hel.LaurentiusHealed".Localized((int)healed));
+            context.AppendLog("Combat.Hel.LaurentiusHealed".Localized((int)healed));
         }
 
         public override bool HandleStun(CombatContext context)
@@ -79,7 +79,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleFear(CombatContext context)
         {
-            context.Append("Combat.Hel.LaurentiusFear".Localized());
+            context.AppendLog("Combat.Hel.LaurentiusFear".Localized());
 
             return true;
         }

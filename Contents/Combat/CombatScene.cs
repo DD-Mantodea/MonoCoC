@@ -16,6 +16,8 @@ namespace MonoCoC.Contents.Combat
 
         public static CombatOutcome? LastOutcome;
 
+        public static Action? ReturnToCampAction;
+
         public static void Start(Enemy enemy, Action returnToCamp, bool canFlee = true, bool enemyFirst = false, string introDescription = "")
         {
             var context = new CombatContext
@@ -26,32 +28,12 @@ namespace MonoCoC.Contents.Combat
 
                 Random = Random.Shared,
 
-                Write = OutputText,
-
-                AddButton = (slot, text, action) => AddButton(slot, text, action),
-
-                AddButtonDisabled = (slot, text, hint) => AddButtonDisabled(slot, text, hint),
-
-                Clear = () => ClearOutput(),
-
-                ClearButtons = () => ClearButtons(),
-
-                ReturnToCamp = returnToCamp,
-
                 CanFlee = canFlee,
 
                 IntroDescription = introDescription
             };
 
-            context.WriteAction = text => context.Log.Add(text);
-
-            context.Append = text =>
-            {
-                if (context.Log.Count > 0)
-                    context.Log[^1] += text;
-                else
-                    context.Log.Add(text);
-            };
+            ReturnToCampAction = returnToCamp;
 
             Go(new CombatScene(context));
         }
@@ -75,6 +57,10 @@ namespace MonoCoC.Contents.Combat
 
         public override void Entry()
         {
+            CombatContext.ReturnView ??= MonoCoC.UI.Components.Views.GameView.Current;
+
+            MonoCoC.UI.Components.Views.GameView.SwitchTo<MonoCoC.UI.Components.Views.CombatView>(CombatContext);
+
             RefreshStats(CombatContext);
 
             Controller = new CombatController
@@ -90,15 +76,17 @@ namespace MonoCoC.Contents.Combat
 
         public static void RefreshStats(CombatContext context)
         {
+            if (MonoCoC.UI.Components.Views.GameView.Current is not MonoCoC.UI.Components.Views.CombatView view)
+                return;
 
             if (context.Enemies.Count <= 1)
             {
-                View.ShowCombatStats(context.Enemy);
+                view.ShowCombatStats(context.Enemy);
 
                 return;
             }
 
-            View.ShowCombatStats(context.Enemies, context.CurrTarget, index =>
+            view.ShowCombatStats(context.Enemies, context.CurrTarget, index =>
             {
                 context.SetTarget(index);
 
@@ -118,9 +106,10 @@ namespace MonoCoC.Contents.Combat
 
             CombatController.Instance = null;
 
-            UI.Components.Views.GameView.Instance?.HideCombatStats();
+            var returnView = (Current as CombatScene)?.CombatContext.ReturnView;
 
-            Go<CampScene>();
+            if (returnView is not null)
+                MonoCoC.UI.Components.Views.GameView.SwitchTo(returnView);
         }
     }
 }

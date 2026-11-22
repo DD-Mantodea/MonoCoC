@@ -174,15 +174,15 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool OnPlayerRunAttempt(CombatContext context)
         {
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.WriteAction(context.Player.CanFly()
+            context.Log.Add(context.Player.CanFly()
 
                 ? "Scenes.Scorpion.RunCheck.Wings".Localized()
 
                 : "Scenes.Scorpion.RunCheck.Climb".Localized());
 
-            context.WriteAction("Scenes.Scorpion.RunCheck.Sorrow".Localized());
+            context.Log.Add("Scenes.Scorpion.RunCheck.Sorrow".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, context.Player, 50);
 
@@ -216,14 +216,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public static bool Blocked(CombatContext context, string prefix, int version)
         {
-            context.WriteAction((prefix + "V" + version).Localized());
+            context.Log.Add((prefix + "V" + version).Localized());
 
             return false;
         }
 
         public override void OnTeased(CombatContext context, float lustDelta) =>
 
-            context.WriteAction(("Scenes.Scorpion.Tease.V" + context.Random.Next(7)).Localized());
+            context.Log.Add(("Scenes.Scorpion.Tease.V" + context.Random.Next(7)).Localized());
 
         public override void OutputDefaultFantasy(CombatContext context, float lustDamage)
         {
@@ -239,7 +239,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 text += ".";
             }
 
-            context.WriteAction(text);
+            context.Log.Add(text);
         }
 
         public override bool ShouldMove(CombatDistance newPos, bool forceAction = false) => false;

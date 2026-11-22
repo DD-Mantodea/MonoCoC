@@ -116,7 +116,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (ItsADraw)
             {
-                context.Write("Scenes.Goblinsharpshooter.HandleCombatLossText.SighBackToCamp".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Goblinsharpshooter.HandleCombatLossText.SighBackToCamp".Localized());
 
                 return 1;
             }

@@ -52,17 +52,17 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.JellyFishGirl.JellyGrapple.RibbonLikeTendrils".Localized());
+            context.AppendLog("Combat.JellyFishGirl.JellyGrapple.RibbonLikeTendrils".Localized());
 
             if (context.Random.Next(2) == 0 || context.Random.Next(100) < player.Strength * 1.25f)
             {
-                context.Append("Combat.JellyFishGirl.JellyGrapple.NoMatterHow".Localized());
+                context.AppendLog("Combat.JellyFishGirl.JellyGrapple.NoMatterHow".Localized());
 
                 if (!player.HasStatusEffect(StatusEffectIds.Grappled))
                     player.CreateStatusEffect(StatusEffectIds.Grappled, 0, 0);
             }
             else
-                context.Append("Combat.JellyFishGirl.JellyGrapple.FortunatelyWithA".Localized());
+                context.AppendLog("Combat.JellyFishGirl.JellyGrapple.FortunatelyWithA".Localized());
         }
 
         [Register("coc:jelly_fish_girl_molest_player")]
@@ -73,17 +73,17 @@ namespace MonoCoC.Contents.Combat.Handlers
             var grappled = (int)player.StatusEffectValue(StatusEffectIds.Grappled, 1);
 
             if (grappled > 1)
-                context.Append("Combat.JellyFishGirl.MolestPlayer.TheJellyGirl".Localized());
+                context.AppendLog("Combat.JellyFishGirl.MolestPlayer.TheJellyGirl".Localized());
             else if (grappled == 1)
-                context.Append("Combat.JellyFishGirl.MolestPlayer.WhileLookingAt".Localized());
+                context.AppendLog("Combat.JellyFishGirl.MolestPlayer.WhileLookingAt".Localized());
             else
             {
                 if (context.PlayerWaited)
-                    context.Append("Combat.JellyFishGirl.MolestPlayer.YouConserveYour".Localized());
+                    context.AppendLog("Combat.JellyFishGirl.MolestPlayer.YouConserveYour".Localized());
                 else
-                    context.Append("Combat.JellyFishGirl.MolestPlayer.TheMoreYou".Localized());
+                    context.AppendLog("Combat.JellyFishGirl.MolestPlayer.TheMoreYou".Localized());
 
-                context.Append("Combat.JellyFishGirl.MolestPlayer.TheJellyGirl2".Localized());
+                context.AppendLog("Combat.JellyFishGirl.MolestPlayer.TheJellyGirl2".Localized());
             }
 
             var lustDamage = 3 + context.Random.Next(4) +
@@ -107,18 +107,18 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!player.HasStatusEffect(StatusEffectIds.Grappled))
                 return;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (context.Random.Next(3) == 0 || context.Random.Next(100) < player.Strength * 1.25f)
             {
-                context.Append("Combat.JellyFishGirl.Struggle.WrithingAgainstThe".Localized());
+                context.AppendLog("Combat.JellyFishGirl.Struggle.WrithingAgainstThe".Localized());
 
                 player.RemoveStatusEffect(StatusEffectIds.Grappled);
 
                 enemy.HealthChange(-(player.Strength / 10f + context.Random.Next(10)));
             }
             else
-                context.Append("Combat.JellyFishGirl.Struggle.YourStrugglesManage".Localized());
+                context.AppendLog("Combat.JellyFishGirl.Struggle.YourStrugglesManage".Localized());
         }
     }
 }

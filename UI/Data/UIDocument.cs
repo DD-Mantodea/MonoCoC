@@ -3,6 +3,7 @@ using MonoCoC.Extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace MonoCoC.UI.Data
 {
@@ -14,22 +15,22 @@ namespace MonoCoC.UI.Data
 
         public JsonObject Root { get; }
 
-        public IReadOnlyDictionary<string, JsonObject> Templates { get; }
+        public IReadOnlyDictionary<string, JsonObject> Styles { get; }
 
-        public IReadOnlyDictionary<string, JsonObject> ControlTemplates { get; }
+        public IReadOnlyDictionary<string, JsonObject> ComponentTemplates { get; }
 
         private UIDocument(
             string id,
             string source,
             JsonObject root,
-            IReadOnlyDictionary<string, JsonObject> templates,
-            IReadOnlyDictionary<string, JsonObject> controlTemplates)
+            IReadOnlyDictionary<string, JsonObject> styles,
+            IReadOnlyDictionary<string, JsonObject> componentTemplates)
         {
             Id = id;
             Source = source;
             Root = root;
-            Templates = templates;
-            ControlTemplates = controlTemplates;
+            Styles = styles;
+            ComponentTemplates = componentTemplates;
         }
 
         public static UIDocument Load(string path)
@@ -44,39 +45,90 @@ namespace MonoCoC.UI.Data
             if (id.Length == 0)
                 throw new InvalidDataException($"{path}: UI document is missing id");
 
-            var templates = new Dictionary<string, JsonObject>(StringComparer.OrdinalIgnoreCase);
+            var styles = new Dictionary<string, JsonObject>(StringComparer.OrdinalIgnoreCase);
 
-            var controlTemplates = new Dictionary<string, JsonObject>(StringComparer.OrdinalIgnoreCase);
+            var componentTemplates = new Dictionary<string, JsonObject>(StringComparer.OrdinalIgnoreCase);
 
-            var globalPath = UIResourceLocator.ResolveDocument("GlobalStyles.hjson");
+            LoadRequires(root, path, styles, componentTemplates, new HashSet<string>(StringComparer.OrdinalIgnoreCase));
 
-            if (File.Exists(globalPath))
+            ReadTables(root, styles, componentTemplates);
+
+            return new UIDocument(id, path, root, styles, componentTemplates);
+        }
+
+        private sealed record CachedDocument(DateTime Stamp, JsonObject Root);
+
+        private static readonly Dictionary<string, CachedDocument> Cache =
+            new(StringComparer.OrdinalIgnoreCase);
+
+        private static JsonObject LoadCached(string path)
+        {
+            var stamp = File.GetLastWriteTimeUtc(path);
+
+            if (Cache.TryGetValue(path, out var cached) && cached.Stamp == stamp)
+                return cached.Root;
+
+            var root = MonoCoC.HjsonParser.Parse(ReadAllTextShared(path)) as JsonObject
+                ?? throw new InvalidDataException($"{path}: UI document must be an object");
+
+            Cache[path] = new CachedDocument(stamp, root);
+
+            return root;
+        }
+
+        private static void LoadRequires(
+            JsonObject root,
+            string source,
+            IDictionary<string, JsonObject> styles,
+            IDictionary<string, JsonObject> componentTemplates,
+            HashSet<string> stack)
+        {
+            if (!root.TryGetValue("require", out var value))
+                return;
+
+            var names = value is JsonArray array
+                ? array.Where(item => item is not null).Select(item => item!.ToString().Trim('"'))
+                : [value.ToString().Trim('"')];
+
+            foreach (var name in names)
             {
-                var globalRoot = MonoCoC.HjsonParser.Parse(ReadAllTextShared(globalPath)) as JsonObject;
+                if (name.Length == 0)
+                    continue;
 
-                if (globalRoot is not null)
-                    ReadTables(globalRoot, templates, controlTemplates);
+                var file = name.EndsWith(".hjson", StringComparison.OrdinalIgnoreCase) ? name : name + ".hjson";
+
+                var requiredPath = UIResourceLocator.ResolveDocument(file);
+
+                if (!File.Exists(requiredPath))
+                    throw new InvalidDataException($"{source}: required UI document '{name}' was not found");
+
+                if (!stack.Add(requiredPath))
+                    throw new InvalidDataException($"{source}: UI require cycle at '{name}'");
+
+                var requiredRoot = LoadCached(requiredPath);
+
+                LoadRequires(requiredRoot, requiredPath, styles, componentTemplates, stack);
+
+                ReadTables(requiredRoot, styles, componentTemplates);
+
+                stack.Remove(requiredPath);
             }
-
-            ReadTables(root, templates, controlTemplates);
-
-            return new UIDocument(id, path, root, templates, controlTemplates);
         }
 
         private static void ReadTables(
             JsonObject root,
-            IDictionary<string, JsonObject> templates,
-            IDictionary<string, JsonObject> controlTemplates)
+            IDictionary<string, JsonObject> styles,
+            IDictionary<string, JsonObject> componentTemplates)
         {
-            if (root.TryGetValue("templates", out var value) && value is JsonObject table)
+            if (root.TryGetValue("styles", out var value) && value is JsonObject table)
                 foreach (var pair in table)
                     if (pair.Value is JsonObject definition)
-                        templates[pair.Key] = definition;
+                        styles[pair.Key] = definition;
 
-            if (root.TryGetValue("controlTemplates", out var controlValue) && controlValue is JsonObject controlTable)
-                foreach (var pair in controlTable)
+            if (root.TryGetValue("componentTemplates", out var componentValue) && componentValue is JsonObject componentTable)
+                foreach (var pair in componentTable)
                     if (pair.Value is JsonObject definition)
-                        controlTemplates[pair.Key] = definition;
+                        componentTemplates[pair.Key] = definition;
         }
 
         private static string ReadAllTextShared(string path)
@@ -99,24 +151,24 @@ namespace MonoCoC.UI.Data
 
         private JsonObject Expand(JsonObject node, HashSet<string> stack)
         {
-            var templateId = node.Str("template");
+            var styleId = node.Str("style");
 
-            if (templateId.Length == 0)
+            if (styleId.Length == 0)
                 return Clone(node);
 
-            if (!Templates.TryGetValue(templateId, out var template))
-                throw new InvalidDataException($"Unknown UI template '{templateId}' in {Source}");
+            if (!Styles.TryGetValue(styleId, out var template))
+                throw new InvalidDataException($"Unknown UI template '{styleId}' in {Source}");
 
-            if (!stack.Add(templateId))
-                throw new InvalidDataException($"UI template cycle detected at '{templateId}' in {Source}");
+            if (!stack.Add(styleId))
+                throw new InvalidDataException($"UI template cycle detected at '{styleId}' in {Source}");
 
             var baseNode = Expand(template, stack);
 
-            stack.Remove(templateId);
+            stack.Remove(styleId);
 
             var result = Merge(baseNode, node);
 
-            result.Remove("template");
+            result.Remove("style");
 
             return result;
         }
@@ -127,7 +179,7 @@ namespace MonoCoC.UI.Data
 
             foreach (var pair in overlay)
             {
-                if (string.Equals(pair.Key, "template", StringComparison.Ordinal))
+                if (string.Equals(pair.Key, "style", StringComparison.Ordinal))
                     continue;
 
                 if (result.TryGetValue(pair.Key, out var existing) &&

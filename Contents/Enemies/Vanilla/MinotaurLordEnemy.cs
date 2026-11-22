@@ -106,9 +106,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!context.Player.HasStatusEffect(StatusEffectIds.MinotaurEntangled))
                 return true;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Combat.MinotaurLord.React.YouSighAnd".Localized());
+            context.AppendLog("Combat.MinotaurLord.React.YouSighAnd".Localized());
 
             context.Player.TakeLustDamage(30 + context.Random.Next(5));
 

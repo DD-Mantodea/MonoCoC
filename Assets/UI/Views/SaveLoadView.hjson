@@ -1,0 +1,287 @@
+{
+  require: ["GlobalStyles"]
+  id: "SaveLoadView"
+
+  componentTemplates: {
+    SaveSlotCard: {
+      type: "coc:panel"
+      width: 1000
+      height: 88
+      backgroundColor: "#00000000"
+      canHit: false
+      children: [
+        {
+          type: "coc:button"
+          part: "slot.hit"
+          x: 0
+          y: 0
+          width: 1000
+          height: 88
+          fitLabel: false
+          borderThickness: 1
+          borderColor: "#D8D0C0FF"
+          backgroundColor: "#F2E8D6FF"
+          states: {
+            normal: { textColor: "#35291FFF" }
+            hover: { backgroundColor: "#EADBC2FF" }
+            selected: { backgroundColor: "#E7D8B8FF", borderColor: "#B79A70FF" }
+          }
+        },
+        {
+          type: "coc:label"
+          part: "slot.title"
+          x: 16
+          y: 10
+          width: 792
+          height: 32
+          font: { id: "coc:menu", size: 22 }
+          textColor: "#35291FFF"
+          canHit: false
+        }
+        {
+          type: "coc:label"
+          part: "slot.meta"
+          x: 16
+          y: 48
+          width: 792
+          height: 24
+          font: "coc:body"
+          textColor: "#7C6B58FF"
+          canHit: false
+        }
+        {
+          type: "coc:button"
+          part: "slot.icon.save"
+          style: "SaveSlotIcon"
+          x: 848
+          y: 27
+          hint: {
+            text: { key: "Scenes.SaveLoad.Button.ExportFile" }
+            header: { key: "Scenes.SaveLoad.Button.ExportFile" }
+          }
+        }
+        {
+          type: "coc:button"
+          part: "slot.icon.load"
+          style: "SaveSlotIcon"
+          x: 886
+          y: 27
+          hint: {
+            text: { key: "Scenes.SaveLoad.Button.ImportFile" }
+            header: { key: "Scenes.SaveLoad.Button.ImportFile" }
+          }
+        }
+        {
+          type: "coc:button"
+          part: "slot.icon.delete"
+          style: "SaveSlotIcon"
+          x: 924
+          y: 27
+          hint: {
+            text: { key: "Scenes.SaveLoad.Button.Delete" }
+            header: { key: "Scenes.SaveLoad.Button.Delete" }
+          }
+        }
+      ]
+    }
+  }
+
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#F2E5C7FF"
+        canHit: false
+      }
+      {
+        type: "coc:label"
+        x: 40
+        y: 28
+        width: 800
+        height: 48
+        font: { id: "coc:menu", size: 34 }
+        textColor: "#35291FFF"
+        canHit: false
+        text: { key: "Scenes.SaveLoad.Title" }
+      }
+      {
+        type: "coc:segmented"
+        part: "saveload.tabs"
+        x: 40
+        y: 78
+        width: 560
+        height: 56
+        borderThickness: 2
+        states: {
+          normal: { textColor: "#7C6B58CC" }
+          hover: { textColor: "#2F241BFF" }
+          selected: {
+            backgroundColor: "#D5D8B8FF"
+            textColor: "#2F241BFF"
+            borderColor: "#858B62"
+          }
+        }
+      }
+      {
+        type: "coc:panel"
+        part: "saveload.list"
+        x: 40
+        y: 146
+        width: 1060
+        height: 600
+        scissor: true
+        backgroundColor: "#F7EFE0CC"
+        borderColor: "#9F8156FF"
+        borderThickness: 1
+        children: [
+          {
+            type: "coc:grid"
+            part: "saveload.rows"
+            x: 16
+            y: 16
+            width: 1000
+            height: 970
+            autoIndex: true
+            rows: 10
+            columns: 1
+            spacing: 10
+            children: [
+              { type: "coc:panel", componentTemplate: "SaveSlotCard", width: 1000, height: 88 }
+              { type: "coc:panel", componentTemplate: "SaveSlotCard", width: 1000, height: 88 }
+              { type: "coc:panel", componentTemplate: "SaveSlotCard", width: 1000, height: 88 }
+              { type: "coc:panel", componentTemplate: "SaveSlotCard", width: 1000, height: 88 }
+              { type: "coc:panel", componentTemplate: "SaveSlotCard", width: 1000, height: 88 }
+              { type: "coc:panel", componentTemplate: "SaveSlotCard", width: 1000, height: 88 }
+              { type: "coc:panel", componentTemplate: "SaveSlotCard", width: 1000, height: 88 }
+              { type: "coc:panel", componentTemplate: "SaveSlotCard", width: 1000, height: 88 }
+              { type: "coc:panel", componentTemplate: "SaveSlotCard", width: 1000, height: 88 }
+              { type: "coc:panel", componentTemplate: "SaveSlotCard", width: 1000, height: 88 }
+            ]
+          }
+        ]
+      }
+      {
+        type: "coc:panel"
+        x: 1120
+        y: 146
+        width: 440
+        height: 600
+        backgroundColor: "#F7EFE0CC"
+        borderColor: "#9F8156FF"
+        borderThickness: 1
+        children: [
+          {
+            type: "coc:label"
+            part: "saveload.detail.name"
+            x: 20
+            y: 20
+            width: 400
+            height: 38
+            font: { id: "coc:menu", size: 28 }
+            textColor: "#35291FFF"
+            canHit: false
+          }
+          {
+            type: "coc:label"
+            part: "saveload.detail.meta"
+            x: 20
+            y: 64
+            width: 400
+            height: 26
+            font: "coc:body"
+            textColor: "#7C6B58FF"
+            canHit: false
+          }
+          {
+            type: "coc:label"
+            part: "saveload.detail.notes"
+            x: 20
+            y: 110
+            width: 400
+            height: 360
+            font: "coc:body"
+            textColor: "#35291FFF"
+            wrapWidth: 400
+            canHit: false
+          }
+          {
+            type: "coc:label"
+            part: "saveload.notes.label"
+            x: 20
+            y: 468
+            width: 280
+            height: 24
+            text: { key: "Scenes.SaveLoad.NotesLabel" }
+            font: "coc:body"
+            textColor: "#7C6B58FF"
+            canHit: false
+          }
+          {
+            type: "coc:text_box"
+            part: "saveload.notes.input"
+            x: 20
+            y: 500
+            width: 280
+            height: 36
+            font: { id: "coc:input", size: 16 }
+            borderThickness: [0, 0, 0, 1]
+            borderColor: "#B99A6BFF"
+            textColor: "#35291FFF"
+            cursorColor: "#B99A6BFF"
+          }
+          {
+            type: "coc:button"
+            part: "saveload.notes.save"
+            x: 310
+            y: 500
+            width: 90
+            height: 36
+            font: { id: "coc:menu", size: 16 }
+            textColor: "#7C6B58FF"
+            backgroundColor: "#00000000"
+            borderThickness: 0
+            states: {
+              normal: { textColor: "#7C6B58FF" }
+              hover: { textColor: "#2F241BFF" }
+            }
+          }
+        ]
+      }
+      {
+        type: "coc:label"
+        part: "saveload.hint"
+        x: 40
+        y: 778
+        width: 1080
+        height: 30
+        font: "coc:body"
+        textColor: "#A23B2AFF"
+        wrapWidth: 1080
+        canHit: false
+      }
+      {
+        type: "coc:button"
+        style: "FooterButton"
+        part: "saveload.primary"
+        x: 1180
+        y: 790
+        width: 180
+        height: 56
+      }
+      {
+        type: "coc:button"
+        style: "FooterButton"
+        part: "saveload.back"
+        x: 1380
+        y: 790
+        width: 180
+        height: 56
+      }
+    ]
+  }
+}

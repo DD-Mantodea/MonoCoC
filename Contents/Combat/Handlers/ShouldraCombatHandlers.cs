@@ -45,17 +45,17 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (context.Random.Next(3))
             {
                 case 0:
-                    context.Append("Combat.Shouldra.Shouldrattack.DuckingInClose".Localized());
+                    context.AppendLog("Combat.Shouldra.Shouldrattack.DuckingInClose".Localized());
 
                     break;
 
                 case 1:
-                    context.Append("Combat.Shouldra.Shouldrattack.TheGirlFeints".Localized());
+                    context.AppendLog("Combat.Shouldra.Shouldrattack.TheGirlFeints".Localized());
 
                     break;
 
                 default:
-                    context.Append("Combat.Shouldra.Shouldrattack.YouMomentarilyDrop".Localized());
+                    context.AppendLog("Combat.Shouldra.Shouldrattack.YouMomentarilyDrop".Localized());
 
                     break;
             }
@@ -66,7 +66,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 var who = enemy.Article + enemy.ShortName;
 
-                context.Append("Combat.Shouldra.Attack.BondageStraps".Localized(
+                context.AppendLog("Combat.Shouldra.Attack.BondageStraps".Localized(
                     char.ToUpperInvariant(who[0]) + who[1..]));
 
                 enemy.Lust = Math.Min(enemy.MaxLust, enemy.Lust + 5 * enemy.LustVulnerability);
@@ -89,10 +89,10 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                     : "Combat.Shouldra.LustAttack.FirmButt".Localized();
 
-                context.Append("Combat.Shouldra.ShouldraLustAttack.TheGirlSpins".Localized(butt));
+                context.AppendLog("Combat.Shouldra.ShouldraLustAttack.TheGirlSpins".Localized(butt));
             }
             else
-                context.Append("Combat.Shouldra.ShouldraLustAttack.TheGirlS".Localized());
+                context.AppendLog("Combat.Shouldra.ShouldraLustAttack.TheGirlS".Localized());
 
             player.TakeLustDamage(8 + player.Libido / 10f, true);
         }
@@ -104,7 +104,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Shouldra.ShouldraMagicLazers.FallingBackA".Localized());
+            context.AppendLog("Combat.Shouldra.ShouldraMagicLazers.FallingBackA".Localized());
 
             player.TakeDamage(16 + enemy.Level + context.Random.Next(10));
         }
@@ -126,7 +126,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 _ => "Combat.Shouldra.Attack.DodgeUnhandled"
             };
 
-            context.Append(key.Localized());
+            context.AppendLog(key.Localized());
         }
     }
 }

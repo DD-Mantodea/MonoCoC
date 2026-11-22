@@ -37,7 +37,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.Append("Combat.Marae.Smite.MaraeMouthsA".Localized());
+            context.AppendLog("Combat.Marae.Smite.MaraeMouthsA".Localized());
 
             if (!enemy.HasStatusEffect(StatusEffectIds.Uber))
                 enemy.CreateStatusEffect(StatusEffectIds.Uber, 1);
@@ -51,13 +51,13 @@ namespace MonoCoC.Contents.Combat.Handlers
             var enemy = context.Enemy;
 
             if (context.PlayerWaited)
-                context.Append("Combat.Marae.SmiteHit.YouLookUp".Localized());
+                context.AppendLog("Combat.Marae.SmiteHit.YouLookUp".Localized());
             else
             {
-                context.Append("Combat.Marae.SmiteHit.WithoutWarningThe".Localized());
+                context.AppendLog("Combat.Marae.SmiteHit.WithoutWarningThe".Localized());
 
                 if (player.Corruption >= 50)
-                    context.Append("Combat.Marae.SmiteHit.TheIntensityOf".Localized());
+                    context.AppendLog("Combat.Marae.SmiteHit.TheIntensityOf".Localized());
 
                 var damage = 100 + enemy.Strength + player.CorAdjustedDown() * 5;
 
@@ -76,7 +76,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Marae.TentacleAttack.YouSpotBarrage".Localized());
+            context.AppendLog("Combat.Marae.TentacleAttack.YouSpotBarrage".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -93,19 +93,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.DodgeReason == "Speed")
             {
-                context.Append("Combat.Marae.TentacleAttack.AndYouSuccessfully".Localized());
+                context.AppendLog("Combat.Marae.TentacleAttack.AndYouSuccessfully".Localized());
 
                 return;
             }
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Marae.TentacleAttack.AndYouSuccessfully2".Localized());
+                context.AppendLog("Combat.Marae.TentacleAttack.AndYouSuccessfully2".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Marae.TentacleAttack.ButYouFail".Localized());
+            context.AppendLog("Combat.Marae.TentacleAttack.ButYouFail".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player,
 
@@ -123,7 +123,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Marae.TentacleRape.YouSpotBarrage".Localized());
+            context.AppendLog("Combat.Marae.TentacleRape.YouSpotBarrage".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -140,19 +140,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.DodgeReason == "Speed")
             {
-                context.Append("Combat.Marae.TentacleRape.YouManageTo".Localized());
+                context.AppendLog("Combat.Marae.TentacleRape.YouManageTo".Localized());
 
                 return;
             }
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Marae.TentacleRape.YouManageTo2".Localized());
+                context.AppendLog("Combat.Marae.TentacleRape.YouManageTo2".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Marae.TentacleRape.YouAttemptTo".Localized());
+            context.AppendLog("Combat.Marae.TentacleRape.YouAttemptTo".Localized());
 
             var lust = 20 + context.Random.Next((int)(player.Corruption / 10)) +
 

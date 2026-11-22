@@ -15,11 +15,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Gilt.Dive.Lead".Localized());
+            context.AppendLog("Combat.Gilt.Dive.Lead".Localized());
 
             if (context.PlayerWaited)
             {
-                context.Append("Combat.Gilt.Dive.Waited".Localized());
+                context.AppendLog("Combat.Gilt.Dive.Waited".Localized());
 
                 enemy.IsFlying = false;
 
@@ -34,20 +34,20 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (avoid.Outcome)
             {
                 case AvoidOutcome.Block:
-                    context.Append("Combat.Gilt.Dive.Blocked".Localized());
+                    context.AppendLog("Combat.Gilt.Dive.Blocked".Localized());
 
                     break;
 
                 case AvoidOutcome.Hit:
                 case AvoidOutcome.Counter:
-                    context.Append("Combat.Gilt.Dive.Hit".Localized());
+                    context.AppendLog("Combat.Gilt.Dive.Hit".Localized());
 
                     player.HealthChange(-CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack + context.Random.Next(50)));
 
                     break;
 
                 default:
-                    context.Append("Combat.Gilt.Dive.Dodged".Localized());
+                    context.AppendLog("Combat.Gilt.Dive.Dodged".Localized());
 
                     break;
             }
@@ -92,7 +92,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:gilt_fly")]
         public static void Fly(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Gilt.Fly.Lead".Localized());
+            context.AppendLog("Combat.Gilt.Fly.Lead".Localized());
 
             context.Enemy.IsFlying = true;
         }

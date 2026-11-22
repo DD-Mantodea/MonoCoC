@@ -15,23 +15,23 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Basilisk.Compulsion.Lead".Localized());
+            context.AppendLog("Combat.Basilisk.Compulsion.Lead".Localized());
 
             if (player.Intelligence / 5f + context.Random.Next(20) >= 24)
             {
-                context.Append("Combat.Basilisk.Compulsion.Resisted".Localized());
+                context.AppendLog("Combat.Basilisk.Compulsion.Resisted".Localized());
 
                 return;
             }
 
             if (player.HasPerk(PerkIds.BasiliskResistance) || player.CanUseStare() || player.HasKeyItem("Laybans"))
             {
-                context.Append("Combat.Basilisk.Compulsion.Immune".Localized());
+                context.AppendLog("Combat.Basilisk.Compulsion.Immune".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Basilisk.Compulsion.Hit".Localized());
+            context.AppendLog("Combat.Basilisk.Compulsion.Hit".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 3);
 
@@ -53,7 +53,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Basilisk.TailSwipe.Lead".Localized());
+            context.AppendLog("Combat.Basilisk.TailSwipe.Lead".Localized());
 
             var damage = (int)(enemy.Strength + 20 - context.Random.NextDouble() * (player.Toughness + player.ArmorDefense));
 
@@ -61,7 +61,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 damage = 0;
 
             if (damage == 0)
-                context.Append("Combat.Basilisk.TailSwipe.Harmless".Localized());
+                context.AppendLog("Combat.Basilisk.TailSwipe.Harmless".Localized());
 
             player.HealthChange(-damage);
         }

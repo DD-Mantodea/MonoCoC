@@ -32,7 +32,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append(enemy.Plural
+                context.AppendLog(enemy.Plural
 
                     ? "Combat.Special.AnemoneSting.MissPlural".Localized()
 
@@ -41,11 +41,11 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.Special.AnemoneSting.Intro".Localized());
+            context.AppendLog("Combat.Special.AnemoneSting.Intro".Localized());
 
-            context.Append("Combat.Special.AnemoneSting.Swipes".Localized());
+            context.AppendLog("Combat.Special.AnemoneSting.Swipes".Localized());
 
-            context.Append(enemy.Plural
+            context.AppendLog(enemy.Plural
 
                 ? "Combat.Special.AnemoneSting.VenomPlural".Localized()
 

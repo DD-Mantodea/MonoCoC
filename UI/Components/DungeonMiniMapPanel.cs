@@ -1,17 +1,25 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Assets;
 using MonoCoC.Assets.AssetManagers;
 using MonoCoC.Contents.Dungeons;
 using MonoCoC.Extensions;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 
 namespace MonoCoC.UI.Components
 {
     // 原版 MinimapView.minidungeonMap：32px 瓦片（原版 TILE_WIDTH * 0.8），
     // 以玩家为中心裁切，底板用 minimapBackground。
-    public class DungeonMiniMapPanel : Component
+    public class DungeonMiniMapPanel : Component, IFromHjson<DungeonMiniMapPanel>
     {
+        public static string TypeId => "coc:mini_map";
+
+        public static Component FromHjson(Hjson.JsonObject node, UIBuildContext services) => new DungeonMiniMapPanel();
+
+        [System.Runtime.CompilerServices.ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<DungeonMiniMapPanel>();
+
         private const int TileSize = 32;
 
         private DungeonContext? _context;
@@ -20,7 +28,7 @@ namespace MonoCoC.UI.Components
 
         public DungeonMiniMapPanel()
         {
-            BackgroundColor = UIComponentStyles.DungeonMiniMap.Background;
+            BackgroundColor = UIParseUtils.ColorOf("#0A0A0AA0");
 
             Visible = false;
 

@@ -141,7 +141,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleStun(CombatContext context)
         {
-            context.WriteAction("Combat.MinotaurKing.HandleStun.ItOnlyTakes".Localized());
+            context.Log.Add("Combat.MinotaurKing.HandleStun.ItOnlyTakes".Localized());
 
             RemoveStatusEffect(StatusEffectIds.Stunned);
 
@@ -201,30 +201,30 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             MilkDrinks += 1;
 
-            context.Append("Combat.MinotaurKing.HpRestore.StaggeringBackThe".Localized());
+            context.AppendLog("Combat.MinotaurKing.HpRestore.StaggeringBackThe".Localized());
 
-            context.Append("Combat.MinotaurKing.HpRestore.HeLooksLike".Localized());
+            context.AppendLog("Combat.MinotaurKing.HpRestore.HeLooksLike".Localized());
 
             if (MilkDrinks >= 10)
-                context.Append("Combat.MinotaurKing.HpRestore.ItLooksLike".Localized());
+                context.AppendLog("Combat.MinotaurKing.HpRestore.ItLooksLike".Localized());
         }
 
         public void LustDump(CombatContext context)
         {
             Orgasms += 1;
 
-            context.Append("Combat.MinotaurKing.LustDump.TheIncrediblyAroused".Localized());
+            context.AppendLog("Combat.MinotaurKing.LustDump.TheIncrediblyAroused".Localized());
 
-            context.Append("Combat.MinotaurKing.LustDump.AMonstrousHand".Localized());
+            context.AppendLog("Combat.MinotaurKing.LustDump.AMonstrousHand".Localized());
 
-            context.Append("Combat.MinotaurKing.LustDump.TheBruteFucks".Localized());
+            context.AppendLog("Combat.MinotaurKing.LustDump.TheBruteFucks".Localized());
 
-            context.Append("Combat.MinotaurKing.LustDump.ExcelliaSMaster".Localized());
+            context.AppendLog("Combat.MinotaurKing.LustDump.ExcelliaSMaster".Localized());
 
             if (context.Player.HasPerk(PerkIds.MinotaurCumAddict))
-                context.Append("Combat.MinotaurKing.LustDump.YouReJealous".Localized());
+                context.AppendLog("Combat.MinotaurKing.LustDump.YouReJealous".Localized());
 
-            context.Append("Combat.MinotaurKing.LustDump.WhateverSpellThis".Localized());
+            context.AppendLog("Combat.MinotaurKing.LustDump.WhateverSpellThis".Localized());
 
             Lust = 0;
         }

@@ -28,14 +28,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasStatusEffect(StatusEffectIds.NagaVenom))
             {
-                context.Append("Combat.Special.NagaTease.Venomed".Localized());
+                context.AppendLog("Combat.Special.NagaTease.Venomed".Localized());
 
                 return;
             }
 
             if (enemy.Gender == Gender.Genderless)
             {
-                context.Append("Combat.Special.NagaTease.Genderless".Localized());
+                context.AppendLog("Combat.Special.NagaTease.Genderless".Localized());
 
                 return;
             }
@@ -100,15 +100,15 @@ namespace MonoCoC.Contents.Combat.Handlers
             damage += context.Random.Next(7);
 
             if (enemy.Id.Path == "demons")
-                context.Append("Combat.Special.NagaTease.Demons".Localized());
+                context.AppendLog("Combat.Special.NagaTease.Demons".Localized());
             else if (enemy.Id.Path == "slime")
-                context.Append("Combat.Special.NagaTease.Slime".Localized());
+                context.AppendLog("Combat.Special.NagaTease.Slime".Localized());
             else if (enemy.Gender == Gender.Male)
-                context.Append("Combat.Special.NagaTease.Male".Localized());
+                context.AppendLog("Combat.Special.NagaTease.Male".Localized());
             else if (enemy.Gender == Gender.Female)
-                context.Append("Combat.Special.NagaTease.Female".Localized());
+                context.AppendLog("Combat.Special.NagaTease.Female".Localized());
             else
-                context.Append("Combat.Special.NagaTease.Herm".Localized());
+                context.AppendLog("Combat.Special.NagaTease.Herm".Localized());
 
             if (context.Random.Next(100) <= chance)
             {
@@ -126,16 +126,16 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
             else
             {
-                context.Append("Combat.Special.NagaTease.Unimpressed".Localized());
+                context.AppendLog("Combat.Special.NagaTease.Unimpressed".Localized());
 
                 player.MasteryXP(TeaseMastery, 4 + context.Random.Next(33));
             }
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
 
             if (enemy is DullahanEnemy)
             {
-                context.Append("Combat.Special.NagaTease.DullahanBite".Localized());
+                context.AppendLog("Combat.Special.NagaTease.DullahanBite".Localized());
 
                 player.HealthChange(-10);
             }

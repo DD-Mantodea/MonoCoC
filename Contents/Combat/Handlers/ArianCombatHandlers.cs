@@ -22,7 +22,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Arian.ShieldingSpell.BarrierOfLight".Localized());
+            context.Log.Add("Combat.Arian.ShieldingSpell.BarrierOfLight".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.Shielding);
 
@@ -58,12 +58,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.WriteAction("Combat.TailSlam.YouSwingYourMighty".Localized());
+                context.Log.Add("Combat.TailSlam.YouSwingYourMighty".Localized());
 
                 return;
             }
 
-            context.WriteAction("Combat.TailSlam.WithGreatSweepYou".Localized());
+            context.Log.Add("Combat.TailSlam.WithGreatSweepYou".Localized());
 
             // 原版 :5283 tailslamcalc()
             var damage = TailSlamCalc(context);
@@ -85,7 +85,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.Stun(1, chance))
             {
-                context.WriteAction("Combat.TailSlam.TheHarshBlowAlso".Localized());
+                context.Log.Add("Combat.TailSlam.TheHarshBlowAlso".Localized());
 
                 if (!enemy.HasStatusEffect(StatusEffectIds.TimesBashed))
                     enemy.CreateStatusEffect(StatusEffectIds.TimesBashed, 1, 0, 0, 0);
@@ -95,7 +95,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             // 原版 :5298 流血
             if (enemy.Bleed(player))
-                context.WriteAction("Combat.TailSlam.MonsterPluralProfuselyFrom".Localized());
+                context.Log.Add("Combat.TailSlam.MonsterPluralProfuselyFrom".Localized());
         }
 
         /// <summary>原版 CombatAbilities.hx:5309 tailslamcalc()</summary>
@@ -179,7 +179,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:mermaid_chant")]
         public static void MermaidChant(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.MermaidChant.DespiteTheRentsYou".Localized());
+            context.Log.Add("Combat.MermaidChant.DespiteTheRentsYou".Localized());
 
             var enemy = context.Enemy;
 
@@ -196,7 +196,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var speedAfter = enemy.Speed;
 
-            context.WriteAction(
+            context.Log.Add(
                 "Combat.MermaidChant.Line5300".Localized(
                     MathF.Round(speedBefore - speedAfter).ToString(),
 
@@ -256,9 +256,9 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
 
             if (state.Round - state.FireMagicLastTurn == 1)
-                context.Append("Combat.Inferno.WithSimpleThoughtYou".Localized());
+                context.AppendLog("Combat.Inferno.WithSimpleThoughtYou".Localized());
             else if (state.FireMagicLastTurn > 0)
-                context.Append("Combat.Inferno.TwirlingLikeTopYou".Localized());
+                context.AppendLog("Combat.Inferno.TwirlingLikeTopYou".Localized());
         }
 
         /// <summary>原版 CombatAbilities.hx:359 getInfernoCount()</summary>
@@ -297,13 +297,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.WriteAction("Combat.Arian.Dispel.TwirlingLikeTopYou".Localized());
+            context.Log.Add("Combat.Arian.Dispel.TwirlingLikeTopYou".Localized());
 
             // 原版 :2578 起：逐条移除玩家身上的增益/诅咒
             foreach (var (status, key) in PLAYER_DISPEL_TARGETS)
                 if (player.HasStatusEffect(status))
                 {
-                    context.Append(key.Localized());
+                    context.AppendLog(key.Localized());
 
                     player.RemoveStatusEffect(status);
                 }
@@ -312,7 +312,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             foreach (var (status, key) in ENEMY_DISPEL_TARGETS)
                 if (enemy.HasStatusEffect(status))
                 {
-                    context.Append(key.Localized());
+                    context.AppendLog(key.Localized());
 
                     enemy.RemoveStatusEffect(status);
                 }
@@ -380,7 +380,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:arian_heal")]
         public static void Heal(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Arian.Heal.YouTryReadySpecial".Localized());
+            context.Log.Add("Combat.Arian.Heal.YouTryReadySpecial".Localized());
 
             context.Player.HealthChange(TalismanHealCalc(context));
 
@@ -414,14 +414,14 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.WriteAction("Combat.Arian.Immolate.YouRoarAndUnleash".Localized());
+            context.Log.Add("Combat.Arian.Immolate.YouRoarAndUnleash".Localized());
 
             var damage = ImmolationDamageCalc(context);
 
             // 原版 :2703：熔岩魔像不吃火伤，但吸血护盾仍会被消耗
             if (enemy.Id == EnemyIds.VolcanicGolem)
             {
-                context.Append("Combat.Arian.Immolate.TheGolemDoesnSeem".Localized());
+                context.AppendLog("Combat.Arian.Immolate.TheGolemDoesnSeem".Localized());
 
                 ConsumeTalisman();
 
@@ -455,7 +455,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Arian.LustReduce.YouGatherEnergyYour".Localized());
+            context.Log.Add("Combat.Arian.LustReduce.YouGatherEnergyYour".Localized());
 
             var temp = (int)(30 + Random.Shared.Next((int)Math.Max(1, player.Intelligence / 5)) * player.SpellMod());
 
@@ -494,7 +494,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.AttackFailed)
             {
                 // 原版 :666-681：按闪避原因分别播报
-                context.Append(avoid.DodgeReason switch
+                context.AppendLog(avoid.DodgeReason switch
                 {
                     "Evade" => "Combat.PackAttack.YouThrustYourPalm".Localized(),
 
@@ -512,12 +512,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage <= 0)
             {
-                context.Append("Combat.PackAttack.YouThrustYourPalmForward".Localized(enemy.WeaponVerb));
+                context.AppendLog("Combat.PackAttack.YouThrustYourPalmForward".Localized(enemy.WeaponVerb));
 
                 return;
             }
 
-            context.Append(damage switch
+            context.AppendLog(damage switch
             {
                 <= 5 => "Combat.PackAttack.Testtest".Localized(),
 
@@ -538,11 +538,11 @@ namespace MonoCoC.Contents.Combat.Handlers
             var player = context.Player;
 
             if (player.Lust < 35)
-                context.Append("Combat.PackLust.YouGatherEnergyYour".Localized());
+                context.AppendLog("Combat.PackLust.YouGatherEnergyYour".Localized());
             else if (player.Lust < 65)
-                context.Append("Combat.PackLust.NyourWeaponLongerGlows".Localized());
+                context.AppendLog("Combat.PackLust.NyourWeaponLongerGlows".Localized());
             else
-                context.Append("Combat.PackLust.TheIncantationSurroundingYour".Localized());
+                context.AppendLog("Combat.PackLust.TheIncantationSurroundingYour".Localized());
 
             // 原版 :738：lustDmg = 10 + 敏感度/10
             player.Lust = Math.Min(player.MaxLust, player.Lust + (int)(10 + player.Sensitivity / 10f));

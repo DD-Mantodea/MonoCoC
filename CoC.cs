@@ -1,4 +1,4 @@
-﻿using FontStashSharp.RichText;
+using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -106,7 +106,7 @@ namespace MonoCoC
 
             PerkIds.Touch();
 
-            Contents.Commands.VanillaCommands.Register();
+            Contents.Commands.GameCommands.Register();
 
             Contents.Input.Hotkeys.Register();
         }

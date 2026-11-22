@@ -32,7 +32,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 player.IsCrippled = false;
 
-                context.Append("Combat.RhinoBouncer.Backbroken.Recovered".Localized());
+                context.AppendLog("Combat.RhinoBouncer.Backbroken.Recovered".Localized());
 
                 return;
             }
@@ -47,10 +47,10 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 player.IsCrippled = false;
 
-                context.Append("Combat.RhinoBouncer.Backbroken.Recovered".Localized());
+                context.AppendLog("Combat.RhinoBouncer.Backbroken.Recovered".Localized());
             }
             else
-                context.Append("Combat.RhinoBouncer.Backbroken.StillCrippled".Localized());
+                context.AppendLog("Combat.RhinoBouncer.Backbroken.StillCrippled".Localized());
         }
 
         public override void Configure(EnemyDefinition definition)

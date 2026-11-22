@@ -45,11 +45,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             PlayerClimbed = true;
 
-            context.WriteAction("Combat.SandTrap.WaitIntro".Localized());
+            context.Log.Add("Combat.SandTrap.WaitIntro".Localized());
 
             if (TrapLevel() == 4)
             {
-                context.Append("Combat.SandTrap.WaitTop".Localized());
+                context.AppendLog("Combat.SandTrap.WaitTop".Localized());
 
                 return;
             }
@@ -57,13 +57,13 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             // 原版 :23：力量检定成功则上升两层
             if (player.Strength / 10f + Random.Shared.Next(20) > 10)
             {
-                context.Append("Combat.SandTrap.ClimbSuccess".Localized());
+                context.AppendLog("Combat.SandTrap.ClimbSuccess".Localized());
 
                 TrapLevel(2);
             }
             else
             {
-                context.Append("Combat.SandTrap.ClimbFail".Localized());
+                context.AppendLog("Combat.SandTrap.ClimbFail".Localized());
 
                 TrapLevel(1);
             }
@@ -74,7 +74,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.SandTrap.PheromonesIntro".Localized());
+            context.Log.Add("Combat.SandTrap.PheromonesIntro".Localized());
 
             // 原版 :55：速度检定 或 闪避成功
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
@@ -88,12 +88,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (player.Speed / 10f + Random.Shared.Next(20) > 10 || avoid.AttackFailed)
             {
-                context.Append("Combat.SandTrap.PheromonesAvoid".Localized());
+                context.AppendLog("Combat.SandTrap.PheromonesAvoid".Localized());
 
                 return;
             }
 
-            context.Append("Combat.SandTrap.PheromonesHit".Localized());
+            context.AppendLog("Combat.SandTrap.PheromonesHit".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + (int)(10 + player.Libido / 10f));
         }
@@ -103,7 +103,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.SandTrap.QuiksandIntro".Localized());
+            context.Log.Add("Combat.SandTrap.QuiksandIntro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -116,15 +116,15 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (player.Speed / 10f + Random.Shared.Next(20) > 10 || avoid.AttackFailed)
             {
-                context.Append("Combat.SandTrap.QuiksandAvoid".Localized());
+                context.AppendLog("Combat.SandTrap.QuiksandAvoid".Localized());
 
                 return;
             }
 
-            context.Append("Combat.SandTrap.QuiksandHit".Localized());
+            context.AppendLog("Combat.SandTrap.QuiksandHit".Localized());
 
             if (player.CanFly())
-                context.Append("Combat.SandTrap.QuiksandWings".Localized());
+                context.AppendLog("Combat.SandTrap.QuiksandWings".Localized());
 
             TrapLevel(-1);
 
@@ -151,7 +151,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                         && !player.HasStatusEffect(StatusEffectIds.FirstAttack)
 
                         && !context.Player.Weapon.IsRanged())                    {
-                        context.WriteAction("Combat.SandTrap.ChargeDown".Localized());
+                        context.Log.Add("Combat.SandTrap.ChargeDown".Localized());
 
                         TrapLevel(-4);
                     }
@@ -187,7 +187,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             // 原版 :126：本回合没成功攀爬就继续下沉一层
             if (!PlayerClimbed)
             {
-                context.Append("Combat.SandTrap.Sinking".Localized());
+                context.AppendLog("Combat.SandTrap.Sinking".Localized());
 
                 TrapLevel(-1);
             }

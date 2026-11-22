@@ -91,17 +91,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 switch (++_timesWaited)
                 {
                     case 1:
-                        context.WriteAction("Combat.Outsider.Wait.First".Localized());
+                        context.Log.Add("Combat.Outsider.Wait.First".Localized());
 
                         break;
 
                     case 2:
-                        context.WriteAction("Combat.Outsider.Wait.Second".Localized());
+                        context.Log.Add("Combat.Outsider.Wait.Second".Localized());
 
                         break;
 
                     case 3:
-                        context.WriteAction("Combat.Outsider.Wait.Third".Localized());
+                        context.Log.Add("Combat.Outsider.Wait.Third".Localized());
 
                         break;
                 }
@@ -113,13 +113,13 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 if (_attacked)
                 {
-                    context.WriteAction("Combat.Outsider.React.Tendril".Localized());
+                    context.Log.Add("Combat.Outsider.React.Tendril".Localized());
 
                     context.Player.TakeDamage(_damage);
                 }
                 else
                 {
-                    context.WriteAction("Combat.Outsider.React.NoResistance".Localized());
+                    context.Log.Add("Combat.Outsider.React.NoResistance".Localized());
 
                     _damage = (int)(context.Player.Health * 0.55f);
 

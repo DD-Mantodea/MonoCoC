@@ -34,7 +34,7 @@ namespace MonoCoC.Contents.Combat
 
             if (weaponId == DullahanScythe)
             {
-                context.Write("Combat.WeaponEffects.DullahanDrain".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.WeaponEffects.DullahanDrain".Localized());
 
                 player.HealthChange(-(30 + context.Random.Next(10)));
             }
@@ -49,7 +49,7 @@ namespace MonoCoC.Contents.Combat
             else if (weaponId == FinalArgument)
             {
                 if (player.Stun(0, 150 - (int)player.Strength))
-                    context.Write("Combat.WeaponEffects.StrongRecoil".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.WeaponEffects.StrongRecoil".Localized());
             }
             else if (weaponId == GeodeKnuckle)
             {
@@ -70,7 +70,7 @@ namespace MonoCoC.Contents.Combat
 
                     if (player.Fatigue >= player.MaxFatigue())
                     {
-                        context.Write("Combat.WeaponEffects.SummonedFade".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.WeaponEffects.SummonedFade".Localized());
 
                         player.SetUnarmed();
                     }
@@ -85,13 +85,13 @@ namespace MonoCoC.Contents.Combat
             var enemy = context.Enemy;
 
             if (enemy.Stun(context.Random.Next(3), chanceStun))
-                context.Write("Combat.WeaponEffects.Stun".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.WeaponEffects.Stun".Localized());
 
             if (context.Random.Next(100) <= chanceBleed && !enemy.HasStatusEffect(StatusEffectIds.IzmaBleed))
                 if (!enemy.Bleed(player, 3))
-                    context.Write("Combat.WeaponEffects.BleedNo".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.WeaponEffects.BleedNo".Localized());
                 else
-                    context.Write("Combat.WeaponEffects.Bleed".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.WeaponEffects.Bleed".Localized());
         }
 
         private static void CorruptedTease(CombatContext context, int chance, int baseTease, int playerCorRatio)
@@ -103,7 +103,7 @@ namespace MonoCoC.Contents.Combat
             if (context.Random.Next(100) > chance || enemy.LustVulnerability <= 0)
                 return;
 
-            context.Write(enemy.Plural
+            MonoCoC.UI.Components.Views.GameView.Current.Write(enemy.Plural
 
                 ? "Combat.WeaponEffects.CorruptTeasePlural".Localized()
 
@@ -115,7 +115,7 @@ namespace MonoCoC.Contents.Combat
 
             if (context.Random.Next(2) == 0)
             {
-                context.Write("Combat.WeaponEffects.CorruptThrill".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.WeaponEffects.CorruptThrill".Localized());
 
                 player.Lust = Math.Min(player.MaxLust, player.Lust + 1);
             }
@@ -130,7 +130,7 @@ namespace MonoCoC.Contents.Combat
             if (enemy.LustVulnerability <= 0)
                 return;
 
-            context.Write(type == "coiled"
+            MonoCoC.UI.Components.Views.GameView.Current.Write(type == "coiled"
 
                 ? "Combat.WeaponEffects.Coiled".Localized()
 

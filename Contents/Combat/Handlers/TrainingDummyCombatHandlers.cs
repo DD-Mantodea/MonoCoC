@@ -45,7 +45,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 _ => "Combat.TrainingDummy.DummyWait.TheDummyStands2"
             };
 
-            context.Append(key.Localized());
+            context.AppendLog(key.Localized());
         }
     }
 }

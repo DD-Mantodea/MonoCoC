@@ -19,7 +19,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.Append("Combat.GoblinShaman.Whitefire.TheGoblinNarrows".Localized());
+            context.AppendLog("Combat.GoblinShaman.Whitefire.TheGoblinNarrows".Localized());
 
             var damage = enemy.Intelligence + Random.Shared.Next(50) * Multiplier(context);
 
@@ -33,16 +33,16 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.GoblinShaman.Blind.TheGoblinGlares".Localized());
+            context.AppendLog("Combat.GoblinShaman.Blind.TheGoblinGlares".Localized());
 
             if (Random.Shared.Next(Math.Max(1, (int)player.Intelligence / 5)) <= 4)
             {
                 player.CreateStatusEffect(StatusEffectIds.Blind, 1 + Random.Shared.Next(3), 0, 0, 0);
 
-                context.Append("Combat.GoblinShaman.Blind.YouAreBlinded".Localized());
+                context.AppendLog("Combat.GoblinShaman.Blind.YouAreBlinded".Localized());
             }
             else
-                context.Append("Combat.GoblinShaman.Blind.YouManageTo".Localized());
+                context.AppendLog("Combat.GoblinShaman.Blind.YouManageTo".Localized());
         }
 
         [Register("coc:goblin_shaman_arouse")]
@@ -52,7 +52,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.GoblinShaman.Arouse.SheMakesA".Localized());
+            context.AppendLog("Combat.GoblinShaman.Arouse.SheMakesA".Localized());
 
             var lust = (int)((enemy.Intelligence / 10f) + (player.Libido / 10f)
 
@@ -64,7 +64,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:goblin_shaman_chargeweapon")]
         public static void ChargeWeapon(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.GoblinShaman.ChargeWeapon.TheGoblinUtters".Localized());
+            context.AppendLog("Combat.GoblinShaman.ChargeWeapon.TheGoblinUtters".Localized());
 
             context.Enemy.CreateStatusEffect(
                 StatusEffectIds.ChargeWeapon, 25 * Multiplier(context), 0, 0, 0);
@@ -75,7 +75,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.Append("Combat.GoblinShaman.Heal.SheFocusesOn".Localized());
+            context.AppendLog("Combat.GoblinShaman.Heal.SheFocusesOn".Localized());
 
             var inner = (int)(10 + enemy.Intelligence / 2f
 
@@ -83,7 +83,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var amount = (int)(inner * Multiplier(context));
 
-            context.Append("Combat.GoblinShaman.Heal.SheFlushesWith".Localized(
+            context.AppendLog("Combat.GoblinShaman.Heal.SheFlushesWith".Localized(
                 CombatCalculator.GetHealText(amount)));
 
             enemy.HealthChange(amount);
@@ -94,9 +94,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.Append("Combat.GoblinShaman.Might.SheFlushesDrawing".Localized());
+            context.AppendLog("Combat.GoblinShaman.Might.SheFlushesDrawing".Localized());
 
-            context.Append("Combat.GoblinShaman.Might.TheRushOf".Localized());
+            context.AppendLog("Combat.GoblinShaman.Might.TheRushOf".Localized());
 
             var boost = 20 * Multiplier(context);
 
@@ -118,13 +118,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var color = Random.Shared.Next(2) == 0 ? "red" : "green";
 
-            context.Append("Combat.GoblinShaman.DrugThrow".Localized(
+            context.AppendLog("Combat.GoblinShaman.DrugThrow".Localized(
                 Utils.Utils.CapitalizeFirstLetter(enemy.Article), enemy.ShortName, color));
 
             if ((player.HasPerk(PerkIds.Evade) && Random.Shared.Next(10) <= 3)
                 || Random.Shared.Next(100) < player.Speed / 5)
             {
-                context.Append("Combat.GoblinShaman.DrugDodged".Localized());
+                context.AppendLog("Combat.GoblinShaman.DrugDodged".Localized());
 
                 return;
             }
@@ -132,21 +132,21 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (player.Shield != null && player.Shield.Is(ItemIds.DragonShield)
                 && Random.Shared.Next(2) == 0)
             {
-                context.Append("Combat.GoblinShaman.DrugShield".Localized());
+                context.AppendLog("Combat.GoblinShaman.DrugShield".Localized());
 
                 return;
             }
 
             if (color == "red")
             {
-                context.Append("Combat.GoblinShaman.DrugRed".Localized());
+                context.AppendLog("Combat.GoblinShaman.DrugRed".Localized());
 
                 if (!player.HasStatusEffect(StatusEffectIds.TemporaryHeat))
                     player.CreateStatusEffect(StatusEffectIds.TemporaryHeat, 0, multiplier, 0, 0);
             }
             else
             {
-                context.Append("Combat.GoblinShaman.DrugGreen".Localized());
+                context.AppendLog("Combat.GoblinShaman.DrugGreen".Localized());
 
                 if (!player.HasStatusEffect(StatusEffectIds.Poison))
                     player.CreateStatusEffect(StatusEffectIds.Poison, 0, multiplier, 0, 0);
@@ -171,15 +171,15 @@ namespace MonoCoC.Contents.Combat.Handlers
                 _ => "Combat.GoblinShaman.TeaseAss".Localized(capitalA, enemy.ShortName)
             };
 
-            context.Append(line);
+            context.AppendLog(line);
 
             var lust = (int)((Random.Shared.Next(Math.Max(1, (int)(player.Libido / 10))) + 8) * 1.6f);
 
-            context.Append("Combat.GoblinShaman.TeaseAfter".Localized());
+            context.AppendLog("Combat.GoblinShaman.TeaseAfter".Localized());
 
             player.TakeLustDamage(lust);
 
-            context.Append("Combat.GoblinShaman.TeaseParagraph".Localized());
+            context.AppendLog("Combat.GoblinShaman.TeaseParagraph".Localized());
         }
 
         [Register("coc:goblin_shaman_attack")]

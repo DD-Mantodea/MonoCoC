@@ -19,32 +19,32 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var color = Random.Shared.Next(2) == 0 ? "red" : "green";
 
-            context.Append("Combat.GoblinElder.DrugThrow".Localized(enemy.ShortName, color));
+            context.AppendLog("Combat.GoblinElder.DrugThrow".Localized(enemy.ShortName, color));
 
             if (Random.Shared.Next(100) < player.Speed / 5)
             {
-                context.Append("Combat.GoblinElder.DrugDodged".Localized());
+                context.AppendLog("Combat.GoblinElder.DrugDodged".Localized());
 
                 return;
             }
 
             if (player.Shield != null && player.Shield.Is(ItemIds.DragonShield) && Random.Shared.Next(2) == 0)
             {
-                context.Append("Combat.GoblinElder.DrugShield".Localized());
+                context.AppendLog("Combat.GoblinElder.DrugShield".Localized());
 
                 return;
             }
 
             if (color == "red")
             {
-                context.Append("Combat.GoblinElder.DrugHeat".Localized());
+                context.AppendLog("Combat.GoblinElder.DrugHeat".Localized());
 
                 if (!player.HasStatusEffect(StatusEffectIds.TemporaryHeat))
                     player.CreateStatusEffect(StatusEffectIds.TemporaryHeat, 0, multiplier, 0, 0);
             }
             else
             {
-                context.Append("Combat.GoblinElder.DrugPoison".Localized());
+                context.AppendLog("Combat.GoblinElder.DrugPoison".Localized());
 
                 if (!player.HasStatusEffect(StatusEffectIds.Poison))
                     player.CreateStatusEffect(StatusEffectIds.Poison, 0, multiplier, 0, 0);
@@ -57,7 +57,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var det = Random.Shared.Next(3);
 
-            context.Append(det switch
+            context.AppendLog(det switch
             {
                 0 => "Combat.GoblinElder.TeaseBoneClad".Localized(context.Enemy.ShortName),
 
@@ -70,7 +70,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             context.Player.TakeLustDamage(lust);
 
-            context.Append("Combat.GoblinElder.TeaseAfter".Localized());
+            context.AppendLog("Combat.GoblinElder.TeaseAfter".Localized());
         }
 
         [Register("coc:goblin_elder_attack")]

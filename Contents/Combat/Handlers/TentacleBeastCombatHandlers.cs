@@ -13,7 +13,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:tentacle_beast_tentacle_physical_attack")]
         public static void Attack(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.TentacleBeast.TentaclePhysicalAttack.TheShamblingHorrorThrowsItsTentacles".Localized());
+            context.Log.Add("Combat.TentacleBeast.TentaclePhysicalAttack.TheShamblingHorrorThrowsItsTentacles".Localized());
 
             var damage = CombatCalculator.PhysicalDamage(context, context.Enemy, context.Player);
 
@@ -30,12 +30,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage <= 0 || avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction("Combat.TentacleBeast.TentaclePhysicalAttack.HoweverYouQuicklyEvadeTheClumsy".Localized());
+                context.Log.Add("Combat.TentacleBeast.TentaclePhysicalAttack.HoweverYouQuicklyEvadeTheClumsy".Localized());
 
                 return;
             }
 
-            context.WriteAction("Combat.TentacleBeast.TentaclePhysicalAttack.TheTentaclesCrashUponYourBody".Localized());
+            context.Log.Add("Combat.TentacleBeast.TentaclePhysicalAttack.TheTentaclesCrashUponYourBody".Localized());
 
             context.Player.HealthChange(-damage);
         }
@@ -44,7 +44,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:tentacle_beast_tentacle_entwine")]
         public static void Entwine(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.TentacleBeast.TentacleEntwine.TheBeastLungesItsTentaclesAt".Localized());
+            context.Log.Add("Combat.TentacleBeast.TentacleEntwine.TheBeastLungesItsTentaclesAt".Localized());
 
             if (context.Player.HasStatusEffect(StatusEffectIds.TentacleBind))
                 return;
@@ -62,19 +62,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction("Combat.TentacleBeast.TentacleEntwine.InAnImpressiveDisplayOfGymnastics".Localized());
+                context.Log.Add("Combat.TentacleBeast.TentacleEntwine.InAnImpressiveDisplayOfGymnastics".Localized());
 
                 return;
             }
 
-            context.WriteAction("Combat.TentacleBeast.TentacleEntwine.WhileYouAttemptToAvoidThe".Localized());
+            context.Log.Add("Combat.TentacleBeast.TentacleEntwine.WhileYouAttemptToAvoidThe".Localized());
 
             if (context.Player.HasCock())
-                context.WriteAction("Combat.TentacleBeast.TentacleEntwine.TheCreatureHavingImmobilizedYouCoils".Localized());
+                context.Log.Add("Combat.TentacleBeast.TentacleEntwine.TheCreatureHavingImmobilizedYouCoils".Localized());
             else if (context.Player.HasVagina())
-                context.WriteAction("Combat.TentacleBeast.TentacleEntwine.TheCreatureQuicklyPositionsALong".Localized());
+                context.Log.Add("Combat.TentacleBeast.TentacleEntwine.TheCreatureQuicklyPositionsALong".Localized());
             else
-                context.WriteAction("Combat.TentacleBeast.TentacleEntwine.TheCreatureQuicklyPositionsALong2".Localized());
+                context.Log.Add("Combat.TentacleBeast.TentacleEntwine.TheCreatureQuicklyPositionsALong2".Localized());
 
             var lust = (float)Math.Floor(8 + context.Player.Sensitivity / 20f);
 

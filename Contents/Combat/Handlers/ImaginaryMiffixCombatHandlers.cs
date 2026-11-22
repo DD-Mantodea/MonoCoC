@@ -12,15 +12,15 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.ImaginaryMiffix.Onepunch.MiffixLooksAt".Localized());
+            context.AppendLog("Combat.ImaginaryMiffix.Onepunch.MiffixLooksAt".Localized());
 
-            context.Append("Combat.ImaginaryMiffix.Onepunch.YouReadyYourself".Localized());
+            context.AppendLog("Combat.ImaginaryMiffix.Onepunch.YouReadyYourself".Localized());
 
             player.TakeDamage(99999);
 
             player.Health = 0;
 
-            context.Append("Combat.ImaginaryMiffix.Onepunch.YouCollapseOn".Localized());
+            context.AppendLog("Combat.ImaginaryMiffix.Onepunch.YouCollapseOn".Localized());
         }
     }
 }

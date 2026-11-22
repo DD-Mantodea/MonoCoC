@@ -65,14 +65,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction("Combat.Gnoll.Attack.Dodged".Localized());
+                context.Log.Add("Combat.Gnoll.Attack.Dodged".Localized());
 
                 return;
             }
 
             var roll = context.Random.Next(6);
 
-            context.WriteAction(AttackTexts[roll].Localized());
+            context.Log.Add(AttackTexts[roll].Localized());
 
             var damage = AttackBonus[roll] + context.Enemy.Strength + context.Enemy.WeaponAttack;
 
@@ -80,7 +80,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage <= 0)
             {
-                context.WriteAction("Combat.Gnoll.Attack.Blocked".Localized());
+                context.Log.Add("Combat.Gnoll.Attack.Blocked".Localized());
 
                 return;
             }
@@ -95,7 +95,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var roll = context.Random.Next(6);
 
-            context.WriteAction(TeaseTexts[roll].Localized());
+            context.Log.Add(TeaseTexts[roll].Localized());
 
             var lust = TeaseBonus[roll] + 10f + player.Libido / 20f + context.Random.Next((int)(player.Corruption / 20));
 

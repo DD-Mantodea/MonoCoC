@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Contents.Scenes;
+using MonoCoC.Extensions;
 using MonoCoC.Scripting;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
@@ -24,6 +25,8 @@ namespace MonoCoC.UI.Components
 
         private readonly HintStyle _style;
 
+        private readonly bool _autoLayout;
+
         private readonly Parser _parser = new(new ScriptContext());
 
         private string _headerText = "";
@@ -37,16 +40,50 @@ namespace MonoCoC.UI.Components
         public Label? Body => _body;
 
         public HintView(Component root, HintStyle style)
+            : this(root, style, false)
+        {
+        }
+
+        public HintView(Component root, HintStyle style, bool autoLayout)
         {
             _root = root;
 
             _style = style;
+
+            _autoLayout = autoLayout;
 
             _header = FindPart(root, "header") as Label;
 
             _body = FindPart(root, "body") as Label;
 
             _parser.Context.Resolver = Scene.ResolveTag;
+        }
+
+        public static HintView CreateDefault(HintStyle style)
+        {
+            var root = new Container
+            {
+                CanHit = false,
+                BackgroundColor = style.BackgroundColor * style.Alpha
+            };
+
+            var header = new Label(UIFonts.Get(style.HeaderFont))
+            {
+                PartName = "header",
+                CanHit = false
+            };
+
+            var body = new Label(UIFonts.Get(style.BodyFont))
+            {
+                PartName = "body",
+                CanHit = false
+            };
+
+            header.Of(root);
+
+            body.Of(root);
+
+            return new HintView(root, style, true);
         }
 
         public void Show(string header, string body, Rectangle anchor)
@@ -80,6 +117,23 @@ namespace MonoCoC.UI.Components
             _root.LayoutData.Size = new Vector2(_style.Width, height);
 
             _root.LayoutData.Position = HintPlacement.Resolve(_style, anchor, _style.Width, height);
+
+            if (!_autoLayout)
+                return;
+
+            if (_header is not null)
+            {
+                _header.LayoutData.Position = new Vector2(_style.Padding, _style.HeaderY);
+
+                _header.LayoutData.Size = new Vector2(contentWidth, _style.HeaderHeight);
+            }
+
+            if (_body is not null)
+            {
+                _body.LayoutData.Position = new Vector2(_style.Padding, _style.BodyY);
+
+                _body.LayoutData.Size = new Vector2(contentWidth, height - _style.BodyY - _style.Padding);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime) =>

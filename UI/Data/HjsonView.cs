@@ -1,5 +1,6 @@
-﻿using MonoCoC.UI.Components;
+using MonoCoC.UI.Components;
 using MonoCoC.UI.Framework;
+using MonoCoC.UI.Layout;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,7 @@ namespace MonoCoC.UI.Data
 
         private UIEventRegistry? _events;
 
-        private UIScreenBuilder? _builder;
-
-        private UICustomComponentRegistry? _customComponents;
+        private UIHjsonLoader? _builder;
 
         private View? _content;
 
@@ -134,7 +133,7 @@ namespace MonoCoC.UI.Data
 
         public UIDocument? Document { get; private set; }
 
-        protected UIScreenBuilder? Builder => _builder;
+        protected UIHjsonLoader? Builder => _builder;
 
         public View? Content => _content;
 
@@ -142,11 +141,7 @@ namespace MonoCoC.UI.Data
         {
             _events = new UIEventRegistry();
 
-            _customComponents = new UICustomComponentRegistry();
-
-            UIAttributeScanner.RegisterEvents(_events, this);
-
-            UIAttributeScanner.RegisterComponents(_customComponents, this);
+            _events.RegisterFrom(this);
 
             TryBuild();
 
@@ -195,7 +190,6 @@ namespace MonoCoC.UI.Data
         {
         }
 
-        // 外部触发的整页重建（例如字号变化后需要按新字体重新布局）。
         public void Reload()
         {
             _reloadAt = DateTime.UtcNow;
@@ -231,16 +225,15 @@ namespace MonoCoC.UI.Data
 
                 var document = UIDocument.Load(_documentPath);
 
-                if (_events is null || _customComponents is null)
+                if (_events is null)
                     throw new InvalidOperationException("HjsonView.Initialize was not called");
 
-                _builder = new UIScreenBuilder(_events, _customComponents);
+                _builder = new UIHjsonLoader(_events);
 
                 var content = _builder.Build(document);
 
                 Contract.Validate(content);
 
-                // 先发布文档，OnBuilt/OnPartsBound 里取模板（如 TabButton 的 states）依赖它。
                 Document = document;
 
                 _content = content;
@@ -257,6 +250,10 @@ namespace MonoCoC.UI.Data
 
                 if (previous is not null)
                     RemoveChild(previous);
+
+                content.LayoutData.LayoutType = LayoutType.Relative;
+
+                content.LayoutData.Position = Vector2.Zero;
 
                 AddChild(content);
 

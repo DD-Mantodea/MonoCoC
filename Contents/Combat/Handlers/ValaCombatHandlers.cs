@@ -20,19 +20,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (ratio > 0.7f)
             {
-                context.Append("Combat.Ability.ValaSpecial1.Light".Localized());
+                context.AppendLog("Combat.Ability.ValaSpecial1.Light".Localized());
 
                 player.TakeLustDamage(5 + player.Libido / 20f);
             }
             else if (ratio > 0.4f)
             {
-                context.Append("Combat.Ability.ValaSpecial1.Medium".Localized());
+                context.AppendLog("Combat.Ability.ValaSpecial1.Medium".Localized());
 
                 player.TakeLustDamage(10 + player.Libido / 20f);
             }
             else
             {
-                context.Append("Combat.Ability.ValaSpecial1.Heavy".Localized());
+                context.AppendLog("Combat.Ability.ValaSpecial1.Heavy".Localized());
 
                 player.TakeLustDamage(30 + player.Libido / 10f);
             }
@@ -43,7 +43,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Ability.ValaSpecial2.Text".Localized());
+            context.AppendLog("Combat.Ability.ValaSpecial2.Text".Localized());
 
             if (!player.HasStatusEffect(StatusEffectIds.Milk))
                 player.CreateStatusEffect(StatusEffectIds.Milk, 5, 0, 0, 0);
@@ -56,7 +56,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Ability.ValaMasturbate.Text".Localized());
+            context.AppendLog("Combat.Ability.ValaMasturbate.Text".Localized());
 
             player.TakeLustDamage(4 + player.Corruption / 10f);
         }

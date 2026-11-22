@@ -24,11 +24,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var toHit = alraune.DidTrip ? 100f : player.StandardDodgeFunc(alraune) / 2f;
 
-            context.WriteAction("Scenes.Alraune.Entangle.VinesSling".Localized());
+            context.Log.Add("Scenes.Alraune.Entangle.VinesSling".Localized());
 
             if (player.IsGoo())
             {
-                context.WriteAction("Scenes.Alraune.Entangle.SlimeSlipsFree".Localized());
+                context.Log.Add("Scenes.Alraune.Entangle.SlimeSlipsFree".Localized());
 
                 return;
             }
@@ -50,12 +50,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction("Scenes.Alraune.Entangle.VinesMissLeap".Localized());
+                context.Log.Add("Scenes.Alraune.Entangle.VinesMissLeap".Localized());
 
                 return;
             }
 
-            context.WriteAction("Scenes.Alraune.Entangle.TightlyBound".Localized());
+            context.Log.Add("Scenes.Alraune.Entangle.TightlyBound".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.VineTangled, 0, 0, 0, 0, 3);
 
@@ -74,7 +74,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var toHit = alraune.DidTrip ? 100f : player.StandardDodgeFunc(alraune);
 
-            context.WriteAction("Scenes.Alraune.Whip.VineWhipLead".Localized());
+            context.Log.Add("Scenes.Alraune.Whip.VineWhipLead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -93,7 +93,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction(avoid.Outcome == AvoidOutcome.Parry
+                context.Log.Add(avoid.Outcome == AvoidOutcome.Parry
 
                     ? "Scenes.Alraune.Whip.Parried".Localized()
 
@@ -102,7 +102,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.WriteAction("Scenes.Alraune.Whip.VineWhipHit".Localized());
+            context.Log.Add("Scenes.Alraune.Whip.VineWhipHit".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, alraune.Strength + alraune.WeaponAttack);
 
@@ -138,7 +138,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var lust = context.Random.Next(10) + context.Random.Next(10) + context.Random.Next(10);
 
-            context.WriteAction(texts[context.Random.Next(texts.Count)].Localized());
+            context.Log.Add(texts[context.Random.Next(texts.Count)].Localized());
 
             player.TakeLustDamage(lust);
         }
@@ -155,7 +155,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var toHit = alraune.DidTrip ? 100f : player.StandardDodgeFunc(alraune);
 
-            context.WriteAction("Scenes.Alraune.Charge.RootsFlexCharge".Localized());
+            context.Log.Add("Scenes.Alraune.Charge.RootsFlexCharge".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -176,7 +176,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction(avoid.Outcome == AvoidOutcome.Block
+                context.Log.Add(avoid.Outcome == AvoidOutcome.Block
 
                     ? "Scenes.Alraune.Charge.Blocked".Localized()
 
@@ -185,7 +185,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.WriteAction("Scenes.Alraune.Charge.ClawSlamHit".Localized());
+            context.Log.Add("Scenes.Alraune.Charge.ClawSlamHit".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, (alraune.Strength + alraune.WeaponAttack) * 1.5f);
 
@@ -206,7 +206,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var toHit = alraune.DidTrip ? 100f : player.StandardDodgeFunc(alraune);
 
-            context.WriteAction("Scenes.Alraune.Lash.VineClawSwipe".Localized());
+            context.Log.Add("Scenes.Alraune.Lash.VineClawSwipe".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -234,12 +234,12 @@ namespace MonoCoC.Contents.Combat.Handlers
                     _ => "Scenes.Alraune.Lash.Miss"
                 };
 
-                context.WriteAction(missKey.Localized());
+                context.Log.Add(missKey.Localized());
 
                 return;
             }
 
-            context.WriteAction("Scenes.Alraune.Lash.VineClawBites".Localized());
+            context.Log.Add("Scenes.Alraune.Lash.VineClawBites".Localized());
 
             var baseDamage = alraune.Strength + alraune.WeaponAttack;
 
@@ -261,7 +261,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (context.EnemyAs<AlrauneEnemy>() is not { } alraune || alraune.Rooted)
                 return;
 
-            context.WriteAction("Scenes.Alraune.Root.RetreatsToNest".Localized());
+            context.Log.Add("Scenes.Alraune.Root.RetreatsToNest".Localized());
 
             alraune.Root();
         }
@@ -272,7 +272,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (context.EnemyAs<AlrauneEnemy>() is not { } alraune || !alraune.Rooted)
                 return;
 
-            context.WriteAction("Scenes.Alraune.Uproot.UprootsFromNest".Localized());
+            context.Log.Add("Scenes.Alraune.Uproot.UprootsFromNest".Localized());
 
             alraune.Uproot();
         }

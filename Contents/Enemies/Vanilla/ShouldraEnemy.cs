@@ -79,7 +79,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (reaction != CombatReactionContext.Blinded)
                 return true;
 
-            context.Append("Combat.Shouldra.React.RemarkablyItSeems".Localized());
+            context.AppendLog("Combat.Shouldra.React.RemarkablyItSeems".Localized());
 
             return false;
         }

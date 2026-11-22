@@ -16,7 +16,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var player = context.Player;
 
-            context.Append("Combat.Ability.CumWitchBukkake.Text".Localized());
+            context.AppendLog("Combat.Ability.CumWitchBukkake.Text".Localized());
 
             var hits = 2 + Random.Shared.Next(5);
 
@@ -49,7 +49,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:cum_witch_cum_magic_attack")]
         public static void CumMagic(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.CumWitchCumMagic.Text".Localized());
+            context.AppendLog("Combat.Ability.CumWitchCumMagic.Text".Localized());
 
             context.Player.TakeLustDamage(5 + context.Player.Libido / 12f);
 
@@ -59,11 +59,11 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:cum_witch_cum_hunger_attack")]
         public static void CumHunger(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.CumWitchCumHunger.Text".Localized());
+            context.AppendLog("Combat.Ability.CumWitchCumHunger.Text".Localized());
 
             if (context.Player.IsPregnant())
             {
-                context.Append("Combat.Ability.CumWitchCumHunger.Immune".Localized());
+                context.AppendLog("Combat.Ability.CumWitchCumHunger.Immune".Localized());
 
                 return;
             }
@@ -76,22 +76,22 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Ability.CumWitchGenderConfusion.Text".Localized());
+            context.AppendLog("Combat.Ability.CumWitchGenderConfusion.Text".Localized());
 
             if (player.Intelligence / 5 + Random.Shared.Next(20) + player.Level / 2 < 18)
             {
-                context.Append("Combat.Ability.CumWitchGenderConfusion.Stunned".Localized());
+                context.AppendLog("Combat.Ability.CumWitchGenderConfusion.Stunned".Localized());
 
                 player.CreateStatusEffect(StatusEffectIds.Confusion);
             }
             else
-                context.Append("Combat.Ability.CumWitchGenderConfusion.Resisted".Localized());
+                context.AppendLog("Combat.Ability.CumWitchGenderConfusion.Resisted".Localized());
         }
 
         [Register("coc:cum_witch_shell_defense")]
         public static void ShellDefense(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.CumWitchShell.Text".Localized());
+            context.AppendLog("Combat.Ability.CumWitchShell.Text".Localized());
 
             context.Enemy.CreateStatusEffect(StatusEffectIds.Shell, 3, 0, 0, 0);
 
@@ -103,16 +103,16 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Ability.CumWitchCocknosis.Text".Localized());
+            context.AppendLog("Combat.Ability.CumWitchCocknosis.Text".Localized());
 
             if (player.Intelligence / 20 + Random.Shared.Next(20) >= 13)
             {
-                context.Append("Combat.Ability.CumWitchCocknosis.Resisted".Localized());
+                context.AppendLog("Combat.Ability.CumWitchCocknosis.Resisted".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Ability.CumWitchCocknosis.Hypnotized".Localized());
+            context.AppendLog("Combat.Ability.CumWitchCocknosis.Hypnotized".Localized());
 
             player.TakeLustDamage(20);
         }
@@ -120,7 +120,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:cum_witch_sand_witch_cunt_heals")]
         public static void Heal(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.CumWitchHeal.Text".Localized());
+            context.AppendLog("Combat.Ability.CumWitchHeal.Text".Localized());
 
             context.Enemy.Health = Math.Min(context.Enemy.MaxHealth, context.Enemy.Health + context.Enemy.MaxHealth * 0.33f);
 

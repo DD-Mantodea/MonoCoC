@@ -39,7 +39,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.WriteAction("Combat.Spell.Wither.Text".Localized());
+            context.Log.Add("Combat.Spell.Wither.Text".Localized());
 
             // 原版 witherChance(): standardStatComparison(player.inte, (monster.inte + monster.tou)/2, -10)
             var chance = StandardStatComparison(
@@ -51,7 +51,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Random.Next(100) <= chance)
             {
-                context.Append("Combat.Spell.Wither.Hits".Localized());
+                context.AppendLog("Combat.Spell.Wither.Hits".Localized());
 
                 // 原版 new WitheringDebuff(Std.int(1 + Math.fround(player.spellMod() * 2)))
                 var duration = MathF.Round(1f + player.SpellMod() * 2f);
@@ -59,19 +59,19 @@ namespace MonoCoC.Contents.Combat.Handlers
                 enemy.CreateStatusEffect(WitheringDebuff, 0, 0, 0, 0, duration);
             }
             else
-                context.Append("Combat.Spell.Wither.Resists".Localized());
+                context.AppendLog("Combat.Spell.Wither.Resists".Localized());
         }
 
         /// <summary>原版 WitheringDebuff.onAttach 的 updateString。</summary>
         [Register("coc:effect_withering_round")]
         public static void Round(CombatContext context, Creature host, StatusEffect status) =>
 
-            context.Append("Combat.Effect.Withering.StillWithered".Localized(host.ShortName));
+            context.AppendLog("Combat.Effect.Withering.StillWithered".Localized(host.ShortName));
 
         /// <summary>原版 WitheringDebuff.onAttach 的 removeString。</summary>
         [Register("coc:effect_withering_expire")]
         public static void Expire(CombatContext context, Creature host, StatusEffect status) =>
 
-            context.Append("Combat.Effect.Withering.NoLonger".Localized(host.ShortName));
+            context.AppendLog("Combat.Effect.Withering.NoLonger".Localized(host.ShortName));
     }
 }

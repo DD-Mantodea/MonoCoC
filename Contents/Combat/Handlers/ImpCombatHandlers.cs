@@ -14,11 +14,11 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Imp.LustMagic.Gestures".Localized());
+            context.Log.Add("Combat.Imp.LustMagic.Gestures".Localized());
 
             var lust = player.LustPercent;
 
-            context.WriteAction(lust < 30
+            context.Log.Add(lust < 30
 
                 ? "Combat.Imp.LustMagic.Warm".Localized()
 
@@ -30,9 +30,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (player.Cocks.Count > 0)
                 if (lust >= 60)
-                    context.WriteAction("Combat.Imp.LustMagic.PreCum".Localized());
+                    context.Log.Add("Combat.Imp.LustMagic.PreCum".Localized());
                 else if (lust >= 30)
-                    context.WriteAction(player.Cocks.Count == 1
+                    context.Log.Add(player.Cocks.Count == 1
 
                         ? "Combat.Imp.LustMagic.HardenOne".Localized()
 
@@ -58,7 +58,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 };
 
                 if (key != "")
-                    context.WriteAction(key.Localized(player.VaginaDescript(0)));
+                    context.Log.Add(key.Localized(player.VaginaDescript(0)));
             }
 
             player.TakeLustDamage((int)(player.Libido / 10f + player.Corruption / 10f + 10f));
@@ -88,7 +88,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction("Combat.Imp.Attack.Miss".Localized());
+                context.Log.Add("Combat.Imp.Attack.Miss".Localized());
 
                 return;
             }
@@ -97,14 +97,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage <= 0)
             {
-                context.WriteAction("Combat.Imp.Attack.Blocked".Localized());
+                context.Log.Add("Combat.Imp.Attack.Blocked".Localized());
 
                 return;
             }
 
             player.HealthChange(-damage);
 
-            context.WriteAction("Combat.Imp.Attack.Hit".Localized());
+            context.Log.Add("Combat.Imp.Attack.Hit".Localized());
         }
     }
 }

@@ -61,7 +61,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void Pheromones(CombatContext context, Player player)
         {
-            context.Write("Scenes.Sylvia.SylviaPheromones.WingGustPheromones".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sylvia.SylviaPheromones.WingGustPheromones".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -78,12 +78,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Write("Common.Text.YourQuickReactionAllowsYouTo".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YourQuickReactionAllowsYouTo".Localized());
 
                 return;
             }
 
-            context.Write("Common.Text.UnableToGetOutOfThe".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.UnableToGetOutOfThe".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.MothPheromones, 5, 0, 0, 0);
 
@@ -94,7 +94,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void Hypnotize(CombatContext context, Player player)
         {
-            context.Write("Scenes.Sylvia.SylviaHypnotize.GrappleApproach".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sylvia.SylviaHypnotize.GrappleApproach".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -111,15 +111,15 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Write("Common.Text.YouDeftlyManageToAvoidThe".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouDeftlyManageToAvoidThe".Localized());
 
                 return;
             }
 
-            context.Write("Common.Text.TheMothWrapsHerArmsAround".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheMothWrapsHerArmsAround".Localized());
 
             if (player.Stun(2, 66))
-                context.Write("Common.Text.WhenShePullsAwayYouStumble".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.WhenShePullsAwayYouStumble".Localized());
 
             CreateStatusEffect(StatusEffectIds.StunCooldown, 4, 0, 0, 0);
 
@@ -131,17 +131,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             switch (Random.Shared.Next(3))
             {
                 case 0:
-                    context.Write("Scenes.Sylvia.SeduceAttack.ChestPuffTease".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sylvia.SeduceAttack.ChestPuffTease".Localized());
 
                     break;
 
                 case 1:
-                    context.Write("Scenes.Sylvia.SeduceAttack.AerialManeuver".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sylvia.SeduceAttack.AerialManeuver".Localized());
 
                     break;
 
                 default:
-                    context.Write("Common.Text.SheSuddenlySwoopsInCloseFrom".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SheSuddenlySwoopsInCloseFrom".Localized());
 
                     break;
             }

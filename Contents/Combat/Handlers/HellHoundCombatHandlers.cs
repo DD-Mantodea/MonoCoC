@@ -17,7 +17,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasStatusEffect(StatusEffectIds.Blind))
             {
-                context.Append("Scenes.Hellhound.HellhoundFire.BlindFireMiss".Localized());
+                context.AppendLog("Scenes.Hellhound.HellhoundFire.BlindFireMiss".Localized());
 
                 return;
             }
@@ -29,12 +29,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Scenes.Hellhound.HellhoundFire.FireWaveEvaded".Localized());
+                context.AppendLog("Scenes.Hellhound.HellhoundFire.FireWaveEvaded".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.Hellhound.HellhoundFire.FireWaveHit".Localized());
+            context.AppendLog("Scenes.Hellhound.HellhoundFire.FireWaveHit".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.WeaponAttack + 5);
 
@@ -59,13 +59,13 @@ namespace MonoCoC.Contents.Combat.Handlers
                     return;
                 }
 
-                context.Append("Scenes.Hellhound.HellhoundScent.ScentCircling".Localized());
+                context.AppendLog("Scenes.Hellhound.HellhoundScent.ScentCircling".Localized());
 
                 enemy.Speed = 100;
             }
             else
             {
-                context.Append("Scenes.Hellhound.HellhoundScent.ScentGround".Localized());
+                context.AppendLog("Scenes.Hellhound.HellhoundScent.ScentGround".Localized());
 
                 enemy.Speed += 40;
 
@@ -79,40 +79,40 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Scenes.Infestedhellhound.HellHoundWormCannon.WormCannonFire".Localized());
+            context.AppendLog("Scenes.Infestedhellhound.HellHoundWormCannon.WormCannonFire".Localized());
 
-            context.Append("Scenes.Infestedhellhound.HellHoundWormCannon.BlankLine".Localized());
+            context.AppendLog("Scenes.Infestedhellhound.HellHoundWormCannon.BlankLine".Localized());
 
             if (context.Random.Next(2) == 0)
             {
-                context.Append("Scenes.Infestedhellhound.HellHoundWormCannon.JismSplatters".Localized());
+                context.AppendLog("Scenes.Infestedhellhound.HellHoundWormCannon.JismSplatters".Localized());
 
                 player.TakeLustDamage(5 + player.Libido / 20f, true);
 
                 if (player.HasStatusEffect(StatusEffectIds.Infested) && player.Cocks.Count > 0)
                 {
-                    context.Append("Scenes.Infestedhellhound.HellHoundWormCannon.OwnWormLead".Localized());
+                    context.AppendLog("Scenes.Infestedhellhound.HellHoundWormCannon.OwnWormLead".Localized());
 
-                    context.Append("Scenes.Infestedhellhound.HellHoundWormCannon.OwnWormsExpelled".Localized());
+                    context.AppendLog("Scenes.Infestedhellhound.HellHoundWormCannon.OwnWormsExpelled".Localized());
 
                     if (player.Balls > 0)
-                        context.Append("Scenes.Infestedhellhound.HellHoundWormCannon.BallsHeavier".Localized());
+                        context.AppendLog("Scenes.Infestedhellhound.HellHoundWormCannon.BallsHeavier".Localized());
                     else
-                        context.Append("Scenes.Infestedhellhound.HellHoundWormCannon.WormsSettle".Localized());
+                        context.AppendLog("Scenes.Infestedhellhound.HellHoundWormCannon.WormsSettle".Localized());
 
                     player.TakeLustDamage(10, true);
                 }
                 else if (player.Cocks.Count > 0)
                 {
-                    context.Append("Scenes.Infestedhellhound.HellHoundWormCannon.WormsBrushAway".Localized());
+                    context.AppendLog("Scenes.Infestedhellhound.HellHoundWormCannon.WormsBrushAway".Localized());
 
                     player.TakeLustDamage(5 + player.Corruption / 20f, true);
                 }
                 else if (player.HasVagina())
-                    context.Append("Scenes.Infestedhellhound.HellHoundWormCannon.WormsDropGround".Localized());
+                    context.AppendLog("Scenes.Infestedhellhound.HellHoundWormCannon.WormsDropGround".Localized());
             }
             else
-                context.Append("Scenes.Infestedhellhound.HellHoundWormCannon.GushSidestepped".Localized());
+                context.AppendLog("Scenes.Infestedhellhound.HellHoundWormCannon.GushSidestepped".Localized());
         }
     }
 }

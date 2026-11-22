@@ -24,7 +24,7 @@ namespace MonoCoC.Contents.Combat
             if (Context.Player.Weapon.Behavior is Items.Behaviors.Vanilla.IceWeaponBehavior
                 && !Items.Behaviors.Vanilla.IceWeaponBehavior.Melt(Context.Player, true,
 
-                    text => Context.Write(text)))
+                    text => MonoCoC.UI.Components.Views.GameView.Current.Write(text)))
 
                 return;
 
@@ -40,22 +40,22 @@ namespace MonoCoC.Contents.Combat
             switch (result.Outcome)
             {
                 case AvoidOutcome.Dodge:
-                    Context.WriteAction("Combat.Resolve.PlayerMiss".Localized());
+                    Context.Log.Add("Combat.Resolve.PlayerMiss".Localized());
 
                     return;
 
                 case AvoidOutcome.Parry:
-                    Context.WriteAction("Combat.Resolve.EnemyParries".Localized(Context.Enemy.ShortName));
+                    Context.Log.Add("Combat.Resolve.EnemyParries".Localized(Context.Enemy.ShortName));
 
                     return;
 
                 case AvoidOutcome.Block:
-                    Context.WriteAction("Combat.Resolve.EnemyBlocks".Localized(Context.Enemy.ShortName));
+                    Context.Log.Add("Combat.Resolve.EnemyBlocks".Localized(Context.Enemy.ShortName));
 
                     return;
 
                 case AvoidOutcome.Counter:
-                    Context.WriteAction("Combat.Resolve.EnemyCounters".Localized(Context.Enemy.ShortName));
+                    Context.Log.Add("Combat.Resolve.EnemyCounters".Localized(Context.Enemy.ShortName));
 
                     return;
             }
@@ -89,7 +89,7 @@ namespace MonoCoC.Contents.Combat
 
             CombatCalculator.ApplyLeech(Context.Player, damage);
 
-            Context.WriteAction("Combat.Resolve.HitEnemy".Localized(Context.Enemy.ShortName, damage));
+            Context.Log.Add("Combat.Resolve.HitEnemy".Localized(Context.Enemy.ShortName, damage));
         }
 
         public virtual void PlayerTease()
@@ -102,7 +102,7 @@ namespace MonoCoC.Contents.Combat
 
             if (enemy.HasStatusEffect(Datas.Vanilla.StatusEffectIds.Blind))
             {
-                Context.Write("Combat.Tease.Blind".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Blind".Localized());
 
                 return;
             }
@@ -110,21 +110,21 @@ namespace MonoCoC.Contents.Combat
             if (player.HasStatusEffect(Datas.Vanilla.StatusEffectIds.Sealed)
                 && (int)player.StatusEffectValue(Datas.Vanilla.StatusEffectIds.Sealed, 1) == 1)
             {
-                Context.Write("Combat.Tease.Sealed".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Sealed".Localized());
 
                 return;
             }
 
             if (enemy.ShortName == "Sirius, a naga hypnotist")
             {
-                Context.Write("Combat.Tease.Sirius".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Sirius".Localized());
 
                 return;
             }
 
             if (enemy.ShortName == "outsider")
             {
-                Context.Write("Combat.Tease.Outsider".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Outsider".Localized());
 
                 return;
             }
@@ -157,22 +157,22 @@ namespace MonoCoC.Contents.Combat
             switch (result.Outcome)
             {
                 case AvoidOutcome.Dodge:
-                    Context.WriteAction("Combat.Resolve.EnemyMiss".Localized(Context.Enemy.ShortName));
+                    Context.Log.Add("Combat.Resolve.EnemyMiss".Localized(Context.Enemy.ShortName));
 
                     return;
 
                 case AvoidOutcome.Parry:
-                    Context.WriteAction("Combat.Resolve.Parry".Localized(Context.Enemy.ShortName));
+                    Context.Log.Add("Combat.Resolve.Parry".Localized(Context.Enemy.ShortName));
 
                     return;
 
                 case AvoidOutcome.Block:
-                    Context.WriteAction("Combat.Resolve.Block".Localized(Context.Enemy.ShortName));
+                    Context.Log.Add("Combat.Resolve.Block".Localized(Context.Enemy.ShortName));
 
                     return;
 
                 case AvoidOutcome.Counter:
-                    Context.WriteAction("Combat.Resolve.Counter".Localized(Context.Enemy.ShortName));
+                    Context.Log.Add("Combat.Resolve.Counter".Localized(Context.Enemy.ShortName));
 
                     return;
             }
@@ -183,7 +183,7 @@ namespace MonoCoC.Contents.Combat
 
                 Context.Player.Lust = Math.Min(Context.Player.MaxLust, Context.Player.Lust + lust);
 
-                Context.WriteAction("Combat.Resolve.EnemyTease".Localized(Context.Enemy.ShortName, lust));
+                Context.Log.Add("Combat.Resolve.EnemyTease".Localized(Context.Enemy.ShortName, lust));
 
                 return;
             }
@@ -194,7 +194,7 @@ namespace MonoCoC.Contents.Combat
 
             Context.Player.HealthChange(-damage);
 
-            Context.WriteAction("Combat.Resolve.EnemyHit".Localized(Context.Enemy.ShortName, damage));
+            Context.Log.Add("Combat.Resolve.EnemyHit".Localized(Context.Enemy.ShortName, damage));
 
             if (Context.Player.HasStatusEffect(Datas.Vanilla.StatusEffectIds.TFMoltenPlate)
                 && ability.Range is CombatRange.Melee or CombatRange.ChargingMelee or CombatRange.FlyingMelee)
@@ -203,9 +203,9 @@ namespace MonoCoC.Contents.Combat
 
                 var selfBurn = Handlers.PlayerTerraFormHandlers.MoltenPlateLava(Context.Player, true);
 
-                Context.Append("Combat.Terra.MoltenPlate.React".Localized());
+                Context.AppendLog("Combat.Terra.MoltenPlate.React".Localized());
 
-                Context.Append((Context.Enemy.Plural
+                Context.AppendLog((Context.Enemy.Plural
 
                     ? "Combat.Terra.MoltenPlate.BurnPlural"
 
@@ -213,9 +213,9 @@ namespace MonoCoC.Contents.Combat
 
                 Context.Enemy.HealthChange(-lava);
 
-                Context.Append("Combat.Terra.MoltenPlate.Damage".Localized((int)lava));
+                Context.AppendLog("Combat.Terra.MoltenPlate.Damage".Localized((int)lava));
 
-                Context.Append("Combat.Terra.MoltenPlate.SelfBurn".Localized());
+                Context.AppendLog("Combat.Terra.MoltenPlate.SelfBurn".Localized());
 
                 Context.Player.HealthChange(-selfBurn);
             }

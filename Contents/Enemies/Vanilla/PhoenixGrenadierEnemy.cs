@@ -53,7 +53,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 if (leader.HasStatusEffect(StatusEffectIds.Stunned) || leader.HasStatusEffect(StatusEffectIds.Fear))
                 {
-                    context.Append("Combat.Hel.PhoenixGrenadierLeaderless".Localized());
+                    context.AppendLog("Combat.Hel.PhoenixGrenadierLeaderless".Localized());
 
                     return null;
                 }
@@ -62,7 +62,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             }
             else if (leader == null && Random.Shared.Next(4) == 0)
             {
-                context.Append("Combat.Hel.PhoenixGrenadierLeaderless".Localized());
+                context.AppendLog("Combat.Hel.PhoenixGrenadierLeaderless".Localized());
 
                 return null;
             }

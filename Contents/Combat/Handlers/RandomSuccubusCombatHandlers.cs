@@ -24,7 +24,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var wingsNone = enemy.Body.Get<BodyParts.Vanilla.WingsPart>().Id == BodyPartTypes.None;
 
-            context.Append("Combat.RandomSuccubus.Swipe.The0S".Localized(
+            context.AppendLog("Combat.RandomSuccubus.Swipe.The0S".Localized(
                 enemy.ShortName, wingsNone ? "legs tense" : "wings flap"));
 
             var hitChance = player.StandardDodgeFunc(enemy);
@@ -41,7 +41,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.AttackFailed)
                 return;
 
-            context.Append("Combat.RandomSuccubus.Swipe.ZeroClawsSwing".Localized(
+            context.AppendLog("Combat.RandomSuccubus.Swipe.ZeroClawsSwing".Localized(
                 enemy.Gender == Creatures.Gender.Male ? "His" : "Her"));
 
             var damage = enemy.Strength + enemy.WeaponAttack;
@@ -49,7 +49,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             damage = CombatCalculator.ReduceDamage(context, player, damage);
 
             if (damage < player.MaxHealth / 100)
-                context.Append("Combat.RandomSuccubus.Swipe.ItDoesnT".Localized());
+                context.AppendLog("Combat.RandomSuccubus.Swipe.ItDoesnT".Localized());
 
             player.TakeDamage(damage);
         }
@@ -61,7 +61,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = (RandomSuccubusEnemy)context.Enemy;
 
-            context.Append("Combat.RandomSuccubus.LustMagicAttack.TheDemon0".Localized(
+            context.AppendLog("Combat.RandomSuccubus.LustMagicAttack.TheDemon0".Localized(
                 enemy.Gender == Creatures.Gender.Male ? "" : "ess"));
 
             var lust = (int)((5 + context.Random.Next(6))
@@ -69,7 +69,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 * ((2 * enemy.Intelligence + player.Libido + 2 * player.Corruption) / 200f));
 
             if (lust > 10)
-                context.Append("Combat.RandomSuccubus.LustMagicAttack.ZeroMagicFires".Localized(
+                context.AppendLog("Combat.RandomSuccubus.LustMagicAttack.ZeroMagicFires".Localized(
                     enemy.Gender == Creatures.Gender.Male ? "His" : "Her"));
 
             player.TakeLustDamage(lust, true);
@@ -86,7 +86,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var damage = (enemy.Strength + enemy.WeaponAttack) / 3f;
 
-            context.Append("Combat.RandomSuccubus.TailWhip.HopingToCatch".Localized(enemy.ShortName));
+            context.AppendLog("Combat.RandomSuccubus.TailWhip.HopingToCatch".Localized(enemy.ShortName));
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -100,7 +100,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.AttackFailed)
                 return;
 
-            context.Append("Combat.RandomSuccubus.TailWhip.TheSpadeSlaps".Localized());
+            context.AppendLog("Combat.RandomSuccubus.TailWhip.TheSpadeSlaps".Localized());
 
             damage = CombatCalculator.ReduceDamage(context, player, damage);
 
@@ -122,7 +122,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var damage = (enemy.Strength + enemy.WeaponAttack) * 2;
 
-            context.Append("Combat.RandomSuccubus.HeelKick.TwistingHerBody".Localized());
+            context.AppendLog("Combat.RandomSuccubus.HeelKick.TwistingHerBody".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -136,7 +136,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.AttackFailed)
                 return;
 
-            context.Append("Combat.RandomSuccubus.HeelKick.WithAStrong".Localized());
+            context.AppendLog("Combat.RandomSuccubus.HeelKick.WithAStrong".Localized());
 
             damage = CombatCalculator.ReduceDamage(context, player, damage);
 

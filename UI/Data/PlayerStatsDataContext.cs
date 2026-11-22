@@ -30,6 +30,18 @@ namespace MonoCoC.UI.Data
                 "gems" => Model.Gems,
                 "day" => Model.DayText,
                 "time" => Model.TimeText,
+                "attackdamage" => Model.AttackDamage,
+                "physicaldamage" => Model.PhysicalDamage,
+                "criticalchance" => Model.CriticalChance,
+                "weaponcrit" => Model.WeaponCrit,
+                "dodgechance" => Model.DodgeChance,
+                "parrychance" => Model.ParryChance,
+                "armor" => Model.Armor,
+                "teasechance" => Model.TeaseChance,
+                "teasedamage" => Model.TeaseDamage,
+                "lustresistance" => Model.LustResistance,
+                "spellmod" => Model.SpellMod,
+                "spellcost" => Model.SpellCost,
                 _ => null
             };
     }

@@ -80,22 +80,22 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     var weapon = context.Player.Weapon;
 
                     if (weapon.IsBladed())
-                        context.WriteAction("Combat.ImaginaryMiffix.React.YouSwingYour".Localized());
+                        context.Log.Add("Combat.ImaginaryMiffix.React.YouSwingYour".Localized());
                     else if (weapon.IsRanged())
-                        context.WriteAction("Combat.ImaginaryMiffix.React.YouTakeAim".Localized());
+                        context.Log.Add("Combat.ImaginaryMiffix.React.YouTakeAim".Localized());
                     else if (weapon.IsBlunt())
                     {
-                        context.WriteAction("Combat.ImaginaryMiffix.React.YouSwingYour2".Localized());
+                        context.Log.Add("Combat.ImaginaryMiffix.React.YouSwingYour2".Localized());
 
-                        context.WriteAction("Combat.ImaginaryMiffix.React.ToYourAbsolute".Localized());
+                        context.Log.Add("Combat.ImaginaryMiffix.React.ToYourAbsolute".Localized());
                     }
                     else
                     {
-                        context.WriteAction("Combat.ImaginaryMiffix.React.TheImpRemains".Localized());
+                        context.Log.Add("Combat.ImaginaryMiffix.React.TheImpRemains".Localized());
 
-                        context.WriteAction("Combat.ImaginaryMiffix.React.YourAttackLands".Localized());
+                        context.Log.Add("Combat.ImaginaryMiffix.React.YourAttackLands".Localized());
 
-                        context.WriteAction("Combat.ImaginaryMiffix.React.YouReStill".Localized());
+                        context.Log.Add("Combat.ImaginaryMiffix.React.YouReStill".Localized());
                     }
 
                     return false;

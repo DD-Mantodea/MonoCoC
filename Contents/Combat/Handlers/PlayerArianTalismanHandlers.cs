@@ -34,7 +34,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Arian.Talisman.Heal.Text".Localized());
+            context.AppendLog("Combat.Arian.Talisman.Heal.Text".Localized());
 
             var heal = ((player.Level * 5) + (player.Intelligence / 1.5f)
 
@@ -52,7 +52,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Arian.Talisman.Immolation.Text".Localized());
+            context.AppendLog("Combat.Arian.Talisman.Immolation.Text".Localized());
 
             var damage = 75 + (player.Intelligence / 2f + context.Random.Next(Math.Max(1, (int)player.Intelligence))) * player.SpellMod();
 
@@ -62,7 +62,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 damage *= 0.2f;
 
-                context.Append("Combat.Arian.Talisman.Immolation.Golem".Localized());
+                context.AppendLog("Combat.Arian.Talisman.Immolation.Golem".Localized());
             }
             else
             {
@@ -83,7 +83,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Arian.Talisman.Lust.Text".Localized());
+            context.AppendLog("Combat.Arian.Talisman.Lust.Text".Localized());
 
             var amount = 30 + context.Random.Next(Math.Max(1, (int)(player.Intelligence / 5))) * player.SpellMod();
 

@@ -104,14 +104,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 if (HealthRatio() < 1 && Health > 1)
                 {
-                    context.Append("Combat.Holli.HolliBonusHealing.WhatWoundsYou".Localized());
+                    context.AppendLog("Combat.Holli.HolliBonusHealing.WhatWoundsYou".Localized());
 
                     HealthChange(25);
                 }
 
                 if (Lust > 20 && LustRatio() <= 0.99f)
                 {
-                    context.Append("Combat.Holli.HolliBonusHealing.ASingleRent".Localized());
+                    context.AppendLog("Combat.Holli.HolliBonusHealing.ASingleRent".Localized());
 
                     Lust -= 10;
                 }
@@ -135,19 +135,19 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         public override void RunFail(CombatContext context)
         {
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Combat.Holli.RunFail.You".Localized());
+            context.AppendLog("Combat.Holli.RunFail.You".Localized());
 
             if (context.Player.CanFly())
-                context.Append("Combat.Holli.RunFail.BeatYourWings".Localized());
+                context.AppendLog("Combat.Holli.RunFail.BeatYourWings".Localized());
 
-            context.Append("Combat.Holli.RunFail.TryToEscape".Localized(ShortName));
+            context.AppendLog("Combat.Holli.RunFail.TryToEscape".Localized(ShortName));
 
             if (!context.Player.HasPerk(PerkIds.Juggernaut) && ArmorPerk != "Heavy")
                 context.Player.TakeDamage(15);
 
-            context.Append("Combat.Holli.RunFail.Text".Localized());
+            context.AppendLog("Combat.Holli.RunFail.Text".Localized());
 
             context.Player.CreateStatusEffect(ConstrictStatus, 0, 0, 0, 0);
         }
@@ -158,24 +158,24 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             player.ChangeStatusValue(ConstrictStatus, 1, 9);
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (player.Body.Get<TonguePart>().Id != BodyPartTypes.Human)
             {
-                context.Append("Combat.Holli.StruggleOutOfHolli.YouCanT".Localized());
+                context.AppendLog("Combat.Holli.StruggleOutOfHolli.YouCanT".Localized());
 
                 player.RemoveStatusEffect(ConstrictStatus);
             }
             else if (player.Strength / 10f + context.Random.Next(20) + 1
                      + player.StatusEffectValue(ConstrictStatus, 0) > 30)
             {
-                context.Append("Combat.Holli.StruggleOutOfHolli.YouManageTo".Localized());
+                context.AppendLog("Combat.Holli.StruggleOutOfHolli.YouManageTo".Localized());
 
                 player.RemoveStatusEffect(ConstrictStatus);
             }
             else
             {
-                context.Append("Combat.Holli.StruggleOutOfHolli.YouTryTo".Localized());
+                context.AppendLog("Combat.Holli.StruggleOutOfHolli.YouTryTo".Localized());
 
                 WaitForConstrict(context, false);
 
@@ -188,9 +188,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         public void WaitForConstrict(CombatContext context, bool newScreen)
         {
             if (newScreen)
-                context.Clear();
+                MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Combat.Holli.WaitForHolliConstrict.TheOminousRoseate".Localized());
+            context.AppendLog("Combat.Holli.WaitForHolliConstrict.TheOminousRoseate".Localized());
 
             Lust -= 20;
 
@@ -218,7 +218,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 _teasedWhileBurning = false;
 
-                context.WriteAction("Combat.Holli.Teased.HolliDoesnT".Localized());
+                context.Log.Add("Combat.Holli.Teased.HolliDoesnT".Localized());
 
                 return;
             }

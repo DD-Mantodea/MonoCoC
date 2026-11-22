@@ -48,18 +48,18 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.Amily.AmilyDartGo.AmilyDashesAt".Localized());
+                context.AppendLog("Combat.Amily.AmilyDartGo.AmilyDashesAt".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Amily.AmilyDartGo.AmilyDashesAt2".Localized());
+            context.AppendLog("Combat.Amily.AmilyDartGo.AmilyDashesAt2".Localized());
 
             ApplyVenom(context);
 
             if (player.Speed <= 2 && player.Strength <= 2)
             {
-                context.Append("Combat.Amily.AmilyDartGo.YouVeBecome".Localized());
+                context.AppendLog("Combat.Amily.AmilyDartGo.YouVeBecome".Localized());
 
                 player.TakeDamage(8999);
             }
@@ -68,7 +68,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:amily_concentration")]
         public static void Concentration(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Amily.AmilyConcentration.AmilyTakesA".Localized());
+            context.AppendLog("Combat.Amily.AmilyConcentration.AmilyTakesA".Localized());
 
             context.Enemy.CreateStatusEffect(StatusEffectIds.Concentration, 0, 0, 0, 0);
         }

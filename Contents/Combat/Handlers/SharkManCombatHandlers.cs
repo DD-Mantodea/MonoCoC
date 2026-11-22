@@ -50,17 +50,17 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.SharkMan.ThrustGrab.InAHuff".Localized());
+            context.AppendLog("Combat.SharkMan.ThrustGrab.InAHuff".Localized());
 
             if (context.Random.Next(2) == 0 || context.Random.Next(100) < player.Strength * 1.15f)
             {
-                context.Append("Combat.SharkMan.ThrustGrab.InMomentsYou".Localized());
+                context.AppendLog("Combat.SharkMan.ThrustGrab.InMomentsYou".Localized());
 
                 if (!player.HasStatusEffect(StatusEffectIds.Grappled))
                     player.CreateStatusEffect(StatusEffectIds.Grappled, 0, 0);
             }
             else
-                context.Append("Combat.SharkMan.ThrustGrab.AllHeManages".Localized());
+                context.AppendLog("Combat.SharkMan.ThrustGrab.AllHeManages".Localized());
         }
 
         [Register("coc:shark_man_thrust_fuck")]
@@ -68,7 +68,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.SharkMan.ThrustFuck.TheLustfulShark".Localized());
+            context.AppendLog("Combat.SharkMan.ThrustFuck.TheLustfulShark".Localized());
 
             player.TakeLustDamage(context.Random.Next(6) *
 
@@ -78,7 +78,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:shark_man_charge_pt_one")]
         public static void ChargePt1(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.SharkMan.ChargePt1.TheSharkGrowls".Localized());
+            context.AppendLog("Combat.SharkMan.ChargePt1.TheSharkGrowls".Localized());
 
             if (context.Enemy is SharkManEnemy shark)
                 shark.IsCharging = true;
@@ -108,7 +108,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (didHit)
             {
-                context.Append("Combat.SharkMan.ChargePt2.YouReImpacted".Localized());
+                context.AppendLog("Combat.SharkMan.ChargePt2.YouReImpacted".Localized());
 
                 player.Stun(1, 10 * (3 + Math.Max(GameSettings.Difficulty, -1)));
 
@@ -119,7 +119,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 player.HealthChange(-damage);
             }
             else
-                context.Append("Combat.SharkMan.ChargePt2.WithAFocused".Localized());
+                context.AppendLog("Combat.SharkMan.ChargePt2.WithAFocused".Localized());
 
             if (enemy is SharkManEnemy shark)
                 shark.IsCharging = false;
@@ -134,18 +134,18 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!player.HasStatusEffect(StatusEffectIds.Grappled))
                 return;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (context.Random.Next(3) == 0 || context.Random.Next(100) < player.Strength * 1.25f)
             {
-                context.Append("Combat.SharkMan.Struggle.InYourTwisting".Localized());
+                context.AppendLog("Combat.SharkMan.Struggle.InYourTwisting".Localized());
 
                 player.RemoveStatusEffect(StatusEffectIds.Grappled);
 
                 enemy.HealthChange(-(player.Strength / 10f + context.Random.Next(10)));
             }
             else
-                context.Append("Combat.SharkMan.Struggle.YouFlailAnd".Localized());
+                context.AppendLog("Combat.SharkMan.Struggle.YouFlailAnd".Localized());
         }
     }
 }

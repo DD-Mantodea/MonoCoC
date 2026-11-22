@@ -191,7 +191,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void Land(CombatContext context)
         {
-            context.Append("Combat.IvorySuccubus.Land.TheSuccubusHolds".Localized());
+            context.AppendLog("Combat.IvorySuccubus.Land.TheSuccubusHolds".Localized());
 
             RemoveStatusEffect(PermaFly);
 

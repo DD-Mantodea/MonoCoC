@@ -24,13 +24,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             context.Player.CreateStatusEffect(StatusEffectIds.ChargeWeapon, value);
 
-            context.WriteAction("Combat.Spell.ChargeWeapon.Text".Localized());
+            context.Log.Add("Combat.Spell.ChargeWeapon.Text".Localized());
         }
 
         [Register("coc:spell_blind")]
         public static void Blind(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Spell.Blind.Text".Localized());
+            context.Log.Add("Combat.Spell.Blind.Text".Localized());
 
             if (context.Random.Next(3) != 0)
             {
@@ -41,10 +41,10 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 context.Enemy.CreateStatusEffect(StatusEffectIds.Blind, duration, 0, 0, 0, duration);
 
-                context.Append("Combat.Spell.Blind.Success".Localized());
+                context.AppendLog("Combat.Spell.Blind.Success".Localized());
             }
             else
-                context.Append("Combat.Spell.Blind.Blinked".Localized());
+                context.AppendLog("Combat.Spell.Blind.Blinked".Localized());
         }
 
         public static float WhiteFireDamage(CombatContext context, Player player, Creature target)
@@ -59,13 +59,13 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:spell_whitefire")]
         public static void Whitefire(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Spell.Whitefire.Text".Localized());
+            context.Log.Add("Combat.Spell.Whitefire.Text".Localized());
 
             var damage = WhiteFireDamage(context, context.Player, context.Enemy);
 
             CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Magical);
 
-            context.Append("Combat.Spell.Whitefire.Damage".Localized(damage));
+            context.AppendLog("Combat.Spell.Whitefire.Damage".Localized(damage));
         }
 
         public static float ArouseCalc(CombatContext context, Player player, Creature target)
@@ -82,18 +82,18 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:spell_arouse")]
         public static void Arouse(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Spell.Arouse.Text".Localized());
+            context.Log.Add("Combat.Spell.Arouse.Text".Localized());
 
             if (context.Enemy.LustVulnerability <= 0)
             {
-                context.Append("Combat.Spell.Arouse.NoEffect".Localized());
+                context.AppendLog("Combat.Spell.Arouse.NoEffect".Localized());
 
                 return;
             }
 
             var lust = ArouseCalc(context, context.Player, context.Enemy);
 
-            context.WriteAction(context.Enemy.LustRatio() switch
+            context.Log.Add(context.Enemy.LustRatio() switch
             {
                 < 0.3f => "Combat.Spell.Arouse.Squirms".Localized(),
 
@@ -104,7 +104,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             context.Enemy.Teased(lust);
 
-            context.Append("Combat.Spell.Arouse.Damage".Localized(lust));
+            context.AppendLog("Combat.Spell.Arouse.Damage".Localized(lust));
         }
 
         public static float HealCalc(CombatContext context, Player player) =>
@@ -114,7 +114,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:spell_heal")]
         public static void Heal(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Spell.Heal.Text".Localized());
+            context.Log.Add("Combat.Spell.Heal.Text".Localized());
 
             if (RollBackfire(context))
             {
@@ -127,7 +127,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             context.Player.HealthChange(healed);
 
-            context.Append("Combat.Spell.Heal.Healed".Localized(healed));
+            context.AppendLog("Combat.Spell.Heal.Healed".Localized(healed));
         }
 
         public static float MightCalc(Player player) => (float)Math.Round(10 * player.SpellMod());
@@ -135,7 +135,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:spell_might")]
         public static void Might(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Spell.Might.Text".Localized());
+            context.Log.Add("Combat.Spell.Might.Text".Localized());
 
             if (RollBackfire(context))
             {
@@ -154,7 +154,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             context.Player.CreateStatusEffect(StatusEffectIds.Might, value);
 
-            context.Append("Combat.Spell.Might.Success".Localized(value));
+            context.AppendLog("Combat.Spell.Might.Success".Localized(value));
         }
 
         public static bool RollBackfire(CombatContext context)
@@ -170,7 +170,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             context.Player.Lust = Math.Min(context.Player.MaxLust, context.Player.Lust + 15);
 
-            context.WriteAction(messageKey.Localized());
+            context.Log.Add(messageKey.Localized());
         }
 
         public static float GrayMagicMod(Player player)
@@ -199,16 +199,16 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:spell_tk_blast")]
         public static void TkBlast(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Spell.TKBlast.Text".Localized());
+            context.Log.Add("Combat.Spell.TKBlast.Text".Localized());
 
             var damage = TkBlastCalc(context, context.Player);
 
             CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Magical);
 
-            context.Append("Combat.Spell.TKBlast.Damage".Localized(damage));
+            context.AppendLog("Combat.Spell.TKBlast.Damage".Localized(damage));
 
             if (context.Enemy.Stun(0, context.Random.Next((int)context.Player.Intelligence), (int)context.Enemy.Strength))
-                context.Append("Combat.Spell.TKBlast.Stun".Localized());
+                context.AppendLog("Combat.Spell.TKBlast.Stun".Localized());
         }
 
         public static float LeechCalc(Player player) =>
@@ -218,7 +218,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:spell_leech")]
         public static void Leech(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Spell.Leech.Text".Localized());
+            context.Log.Add("Combat.Spell.Leech.Text".Localized());
 
             context.Player.CreateStatusEffect(StatusEffectIds.Leeching, 3, LeechCalc(context.Player), 0, 0);
         }

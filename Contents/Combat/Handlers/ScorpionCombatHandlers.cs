@@ -18,7 +18,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var version = context.Random.Next(5);
 
-            context.Append(Key("Scenes.Scorpion.Attack.Lead.V.", version));
+            context.AppendLog(Key("Scenes.Scorpion.Attack.Lead.V.", version));
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -37,19 +37,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append(Key("Scenes.Scorpion.Attack.Avoid.V.", version));
+                context.AppendLog(Key("Scenes.Scorpion.Attack.Avoid.V.", version));
 
                 return;
             }
 
             if (avoid.Outcome == AvoidOutcome.Block)
             {
-                context.Append(Key("Scenes.Scorpion.Attack.Block.V.", version));
+                context.AppendLog(Key("Scenes.Scorpion.Attack.Block.V.", version));
 
                 return;
             }
 
-            context.Append(Key("Scenes.Scorpion.Attack.Hit.V.", version));
+            context.AppendLog(Key("Scenes.Scorpion.Attack.Hit.V.", version));
 
             var raw = enemy.Strength + enemy.WeaponAttack + context.Random.Next(10);
 
@@ -63,7 +63,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.Scorpion.Grab.Lead".Localized());
+            context.AppendLog("Scenes.Scorpion.Grab.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -80,12 +80,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Scenes.Scorpion.Grab.Avoid".Localized());
+                context.AppendLog("Scenes.Scorpion.Grab.Avoid".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.Scorpion.Grab.Hit".Localized());
+            context.AppendLog("Scenes.Scorpion.Grab.Hit".Localized());
 
             var raw = (enemy.Strength + enemy.WeaponAttack) / 2 + context.Random.Next(5);
 
@@ -110,9 +110,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
         public static void Escape(CombatContext context)
         {
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Scenes.Scorpion.Escape.Text".Localized());
+            context.AppendLog("Scenes.Scorpion.Escape.Text".Localized());
 
             context.Player.RemoveStatusEffect(StatusEffectIds.ScorpGrabbed);
 
@@ -121,9 +121,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
         public static void Constrict(CombatContext context)
         {
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append(Key("Scenes.Scorpion.Constrict.V.", context.Random.Next(5)));
+            context.AppendLog(Key("Scenes.Scorpion.Constrict.V.", context.Random.Next(5)));
         }
 
         public static void Grapple(CombatContext context)
@@ -132,7 +132,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append(Key("Scenes.Scorpion.Grapple.V.", context.Random.Next(7)));
+            context.AppendLog(Key("Scenes.Scorpion.Grapple.V.", context.Random.Next(7)));
 
             var raw = enemy.Strength + enemy.WeaponAttack;
 
@@ -146,7 +146,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.Scorpion.Sting.Lead".Localized());
+            context.AppendLog("Scenes.Scorpion.Sting.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -165,19 +165,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Scenes.Scorpion.Sting.Avoid".Localized());
+                context.AppendLog("Scenes.Scorpion.Sting.Avoid".Localized());
 
                 return;
             }
 
             if (avoid.Outcome == AvoidOutcome.Block)
             {
-                context.Append("Scenes.Scorpion.Sting.Block".Localized());
+                context.AppendLog("Scenes.Scorpion.Sting.Block".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.Scorpion.Sting.Hit".Localized());
+            context.AppendLog("Scenes.Scorpion.Sting.Hit".Localized());
 
             var raw = (enemy.Strength + enemy.WeaponAttack) / 2 + context.Random.Next(5);
 
@@ -193,7 +193,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.Scorpion.Slam.Lead".Localized());
+            context.AppendLog("Scenes.Scorpion.Slam.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -211,12 +211,12 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
-                context.Append("Scenes.Scorpion.Slam.Avoid".Localized());
+                context.AppendLog("Scenes.Scorpion.Slam.Avoid".Localized());
             else if (avoid.Outcome == AvoidOutcome.Block)
-                context.Append("Scenes.Scorpion.Slam.Block".Localized());
+                context.AppendLog("Scenes.Scorpion.Slam.Block".Localized());
             else
             {
-                context.Append("Scenes.Scorpion.Slam.Hit".Localized());
+                context.AppendLog("Scenes.Scorpion.Slam.Hit".Localized());
 
                 var raw = enemy.Strength + enemy.WeaponAttack * 2 + context.Random.Next(25);
 
@@ -233,7 +233,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.Scorpion.Sand.Lead".Localized());
+            context.AppendLog("Scenes.Scorpion.Sand.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -252,12 +252,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Block)
             {
-                context.Append("Scenes.Scorpion.Sand.Block".Localized());
+                context.AppendLog("Scenes.Scorpion.Sand.Block".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.Scorpion.Sand.Hit".Localized());
+            context.AppendLog("Scenes.Scorpion.Sand.Hit".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.ScorpBlind);
 
@@ -276,7 +276,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (second.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Scenes.Scorpion.Sand.Avoid".Localized());
+                context.AppendLog("Scenes.Scorpion.Sand.Avoid".Localized());
 
                 return;
             }
@@ -293,7 +293,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.Scorpion.Trample.Lead".Localized());
+            context.AppendLog("Scenes.Scorpion.Trample.Lead".Localized());
 
             for (var index = 0; index < 6; index++)
             {
@@ -312,12 +312,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 if (avoid.Outcome == AvoidOutcome.Dodge)
                 {
-                    context.Append(Key("Scenes.Scorpion.Trample.Avoid.V.", index));
+                    context.AppendLog(Key("Scenes.Scorpion.Trample.Avoid.V.", index));
 
                     continue;
                 }
 
-                context.Append(Key("Scenes.Scorpion.Trample.Hit.V.", index));
+                context.AppendLog(Key("Scenes.Scorpion.Trample.Hit.V.", index));
 
                 var raw = index is 0 or 5
 
@@ -328,7 +328,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 player.HealthChange(-CombatCalculator.ReduceDamage(context, player, raw));
             }
 
-            context.Append("Scenes.Scorpion.Trample.End".Localized());
+            context.AppendLog("Scenes.Scorpion.Trample.End".Localized());
 
             CombatRangeData.MoveDistantSafe(enemy);
         }
@@ -340,7 +340,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.Scorpion.Hammer.Lead".Localized());
+            context.AppendLog("Scenes.Scorpion.Hammer.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -359,19 +359,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Scenes.Scorpion.Hammer.Avoid".Localized());
+                context.AppendLog("Scenes.Scorpion.Hammer.Avoid".Localized());
 
                 return;
             }
 
             if (avoid.Outcome == AvoidOutcome.Block)
             {
-                context.Append("Scenes.Scorpion.Hammer.Block".Localized());
+                context.AppendLog("Scenes.Scorpion.Hammer.Block".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.Scorpion.Hammer.Hit".Localized());
+            context.AppendLog("Scenes.Scorpion.Hammer.Hit".Localized());
 
             var raw = enemy.Strength + enemy.WeaponAttack * 1.5f + context.Random.Next(25);
 
@@ -383,7 +383,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:scorpion_scuttle")]
         public static void Scuttle(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Scenes.Scorpion.Scuttle.Text".Localized());
+            context.AppendLog("Scenes.Scorpion.Scuttle.Text".Localized());
 
             CombatRangeData.MoveDistantSafe(context.Enemy);
         }
@@ -391,7 +391,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:scorpion_idle")]
         public static void Idle(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append(Key("Scenes.Scorpion.Idle.V.", context.Random.Next(9)));
+            context.AppendLog(Key("Scenes.Scorpion.Idle.V.", context.Random.Next(9)));
 
             context.Enemy.ChangeFatigue(-25);
         }

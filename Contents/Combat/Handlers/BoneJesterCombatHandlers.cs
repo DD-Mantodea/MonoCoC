@@ -21,14 +21,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (jester == null || !jester.Hidden)
             {
-                context.Append("Combat.BoneJester.HideInShadows.TheJesterBegins".Localized());
+                context.AppendLog("Combat.BoneJester.HideInShadows.TheJesterBegins".Localized());
 
                 jester?.Hidden = true;
 
                 return;
             }
 
-            context.Append("Combat.BoneJester.HideInShadows.TheJesterJumps".Localized());
+            context.AppendLog("Combat.BoneJester.HideInShadows.TheJesterJumps".Localized());
 
             jester.Hidden = false;
 
@@ -40,7 +40,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:bone_jester_harvest")]
         public static void Harvest(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.BoneJester.Harvest.TheJesterJumps".Localized());
+            context.AppendLog("Combat.BoneJester.Harvest.TheJesterJumps".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -58,7 +58,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
 
-                context.Append(avoid.DodgeReason switch
+                context.AppendLog(avoid.DodgeReason switch
                 {
                     "Evade" => "Combat.BoneJester.Harvest.YouEvadeThe".Localized(),
 
@@ -72,7 +72,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append(context.Player.Bleed(context.Enemy)
+            context.AppendLog(context.Player.Bleed(context.Enemy)
 
                 ? "Combat.BoneJester.Harvest.BeforeYouCan".Localized()
 

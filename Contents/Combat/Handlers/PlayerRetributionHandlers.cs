@@ -43,7 +43,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Special.Retribution.Start".Localized());
+            context.AppendLog("Combat.Special.Retribution.Start".Localized());
 
             // Values[1] 记录施放时的 HP，回合结束据此估算本回合承受的伤害
             player.CreateStatusEffect(StatusEffectIds.RetributionBuff, 0, player.Health, 0, 0, 1);
@@ -56,7 +56,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Special.Retribution.Exec".Localized());
+            context.AppendLog("Combat.Special.Retribution.Exec".Localized());
 
             var taken = Math.Max(0f, status.Values[1] - player.Health);
 

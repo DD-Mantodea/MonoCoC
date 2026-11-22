@@ -1,11 +1,10 @@
-﻿{
+{
+  require: ["GlobalStyles"]
   id: "CampView"
   root: {
     type: "coc:view"
     width: 1600
     height: 900
-
-    // 代码创建的 StoragePane 从这里取外观。
 
     children: [
       {
@@ -17,8 +16,8 @@
         canHit: false
       }
       {
-        type: "coc:player_stats"
-        view: "Views/PlayerStats.hjson"
+        type: "coc:simple_stats"
+        view: "Views/SimpleStats.hjson"
         part: "game.playerStats"
         width: 300
         height: 900
@@ -37,12 +36,11 @@
             type: "coc:text_area"
             part: "game.output"
             font: "coc:body"
-            layout: "relative"
             width: 930
             height: 600
             backgroundColor: "#FFFFFF66"
             padding: 16
-            autoScroll: true
+            autoScroll: false
             horizontalAlign: "center"
             borderThickness: 2
             borderColor: "#00000022"
@@ -54,7 +52,6 @@
               id: "coc:input"
               size: 22
             }
-            layout: "relative"
             visible: true
             cursorColor: "#B99A6BFF"
             textColor: "#B99A6BFF"
@@ -69,26 +66,25 @@
             part: "game.buttons"
             width: 940
             height: 150
-            layout: "relative"
             autoIndex: true
             rows: 3
             columns: 5
             children: [
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
-              {type:"coc:button", template: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
             ]
           }
         ]

@@ -68,7 +68,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             UnitAmount = (int)MathF.Ceiling(Health / 100f);
 
-            context.Append("\n");
+            context.AppendLog("\n");
 
             for (var i = 0; i < UnitAmount; i++)
             {

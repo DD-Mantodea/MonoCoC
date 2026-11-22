@@ -12,7 +12,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:nameless_horror_overwhelm")]
         public static void Overwhelm(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.NamelessHorror.Overwhelm.DozensOfTentacles".Localized());
+            context.AppendLog("Combat.NamelessHorror.Overwhelm.DozensOfTentacles".Localized());
 
             context.Enemy.CreateStatusEffect(StatusEffectIds.Attacks, 4);
 
@@ -33,11 +33,11 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:nameless_horror_refashion_it")]
         public static void RefashionIt(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.NamelessHorror.RefashionIt.TheCreatureLifts".Localized());
+            context.AppendLog("Combat.NamelessHorror.RefashionIt.TheCreatureLifts".Localized());
 
-            context.Append("Combat.NamelessHorror.RefashionIt.YouReHit".Localized());
+            context.AppendLog("Combat.NamelessHorror.RefashionIt.YouReHit".Localized());
 
-            context.Append("Combat.NamelessHorror.RefashionIt.BeforeYouCan".Localized());
+            context.AppendLog("Combat.NamelessHorror.RefashionIt.BeforeYouCan".Localized());
 
             var player = context.Player;
 
@@ -72,7 +72,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:nameless_horror_reveal")]
         public static void Reveal(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.NamelessHorror.Reveal.TheCreatureLifts".Localized());
+            context.AppendLog("Combat.NamelessHorror.Reveal.TheCreatureLifts".Localized());
 
             var horror = context.EnemyAs<NamelessHorrorEnemy>();
 
@@ -88,7 +88,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:nameless_horror_become_nothingness")]
         public static void BecomeNothingness(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.NamelessHorror.BecomeNothingness.TheCreatureShrieks".Localized());
+            context.AppendLog("Combat.NamelessHorror.BecomeNothingness.TheCreatureShrieks".Localized());
 
             context.Player.CreateStatusEffect(StatusEffectIds.Nothingness, 2, 0, 0, 0, 2);
         }
@@ -100,9 +100,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var doomLevel = horror?.DoomLevel ?? 1f;
 
-            context.Append("Combat.NamelessHorror.Conjoin.TheCreatureShrieks".Localized());
+            context.AppendLog("Combat.NamelessHorror.Conjoin.TheCreatureShrieks".Localized());
 
-            context.Append("Combat.NamelessHorror.Conjoin.TheVisionShatters".Localized());
+            context.AppendLog("Combat.NamelessHorror.Conjoin.TheVisionShatters".Localized());
 
             context.Player.TakeDamage(context.Player.Health * 0.25f * doomLevel);
 

@@ -19,7 +19,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:spell_divine_wind")]
         public static void DivineWindCast(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Spell.DivineWind.Text".Localized());
+            context.Log.Add("Combat.Spell.DivineWind.Text".Localized());
 
             context.Player.CreateStatusEffect(DivineWind, 0, 0, 0, 0, 4);
         }
@@ -39,7 +39,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Random.Next(4) < 2)
             {
-                context.Append("Combat.Effect.DivineWind.HealsFoe".Localized(context.Enemy.ShortName));
+                context.AppendLog("Combat.Effect.DivineWind.HealsFoe".Localized(context.Enemy.ShortName));
 
                 context.Enemy.HealthChange(heal);
             }
@@ -48,7 +48,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 host.HealthChange(heal);
 
-                context.Append("Combat.Effect.DivineWind.HealsYou".Localized());
+                context.AppendLog("Combat.Effect.DivineWind.HealsYou".Localized());
             }
         }
 
@@ -56,6 +56,6 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:effect_divine_wind_expire")]
         public static void Expire(CombatContext context, Creature host, StatusEffect status) =>
 
-            context.Append("Combat.Effect.DivineWind.Fades".Localized());
+            context.AppendLog("Combat.Effect.DivineWind.Fades".Localized());
     }
 }

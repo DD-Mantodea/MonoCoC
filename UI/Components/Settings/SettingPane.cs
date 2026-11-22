@@ -1,19 +1,22 @@
-﻿using FontStashSharp;
+using FontStashSharp;
+using Hjson;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Extensions;
 using MonoCoC.UI.Common;
 using MonoCoC.UI.Components;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
 using MonoCoC.UI.Styles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace MonoCoC.UI.Components.Settings
 {
-    public class SettingPane : Container
+    public class SettingPane : Container, IFromHjson<SettingPane>
     {
         public const int RowHeight = 78;
 
@@ -334,9 +337,9 @@ namespace MonoCoC.UI.Components.Settings
             // 右缘对齐：段控件最右 chip 结束于 rowWidth - 2，与 BindRow 的 key chip 同一条线。
             var segmentX = Math.Max(labelWidth, rowWidth - segmentWidth);
 
-            var segment = new SegmentedControl
+            var segment = new SegmentedComponent
             {
-                OptionStyle = UIComponentStyles.SettingsChip.Style
+                OptionStyle = SettingsChipStyle()
             }
                 .Size(segmentWidth, ButtonHeight)
                 .Position(segmentX, 0)
@@ -400,7 +403,7 @@ namespace MonoCoC.UI.Components.Settings
             var thumb = ScrollBar.Thumb(Rectangle, _contentHeight, Height, _scroll, ScrollOffset);
 
             // 只画滑块本身，整体 alpha 渐隐渐显；不画轨道底色，避免出现一条"黑条"在淡入淡出。
-            spriteBatch.DrawRectangle(thumb, _scrollFade.Fade(UIComponentStyles.ScrollBar.Thumb));
+            spriteBatch.DrawRectangle(thumb, _scrollFade.Fade(UIParseUtils.ColorOf("#B79A70FF")));
         }
 
         private readonly ScrollBarFade _scrollFade = new();
@@ -596,5 +599,26 @@ namespace MonoCoC.UI.Components.Settings
                         child.Update(gameTime);
             }
         }
+        private static UIStateStyle SettingsChipStyle() => new()
+        {
+            NormalText = UIParseUtils.ColorOf("#7C6B58CC"),
+            HoverText = UIParseUtils.ColorOf("#2F241BFF"),
+            SelectedText = UIParseUtils.ColorOf("#2F241BFF"),
+            SelectedBackground = UIParseUtils.ColorOf("#D5D8B8FF"),
+            SelectedBorder = UIParseUtils.ColorOf("#858B62FF"),
+            SelectedBorderThickness = 2
+        };
+
+        public static string TypeId => "coc:setting_pane";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext context) =>
+            new SettingPane(
+                node.Int("x", 0),
+                node.Int("y", 0),
+                node.Int("width", 940),
+                node.Int("height", 700));
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<SettingPane>();
     }
 }

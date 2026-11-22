@@ -22,7 +22,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Mimic.MimicBite.TheCreatureLashes".Localized());
+            context.AppendLog("Combat.Mimic.MimicBite.TheCreatureLashes".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -39,12 +39,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.Mimic.MimicBite.ThankfullyYouRe".Localized());
+                context.AppendLog("Combat.Mimic.MimicBite.ThankfullyYouRe".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Mimic.MimicBite.OwTheMouth".Localized());
+            context.AppendLog("Combat.Mimic.MimicBite.OwTheMouth".Localized());
 
             var damage = (10 + enemy.Strength / 2
 

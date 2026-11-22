@@ -2575,6 +2575,12 @@ namespace MonoCoC.Contents.Creatures
 
             SetJewelry(Jewelry);
 
+            if (Jewelry is null && json.TryGetValue("legacyJewelryHp", out var legacyJewelryHp) &&
+                (float)legacyJewelryHp > 0)
+                Stats.AddModifier(MonoCoC.Contents.Datas.Vanilla.GameStats.MaxHealth,
+                    MonoCoC.Contents.Stats.ModifierOperation.Addition, () => (float)legacyJewelryHp,
+                    new MonoCoC.Contents.Stats.ModifierSources.TemporarySource(Guid.NewGuid()));
+
             SetUndergarment(UpperGarment, Undergarment.TypeUpperwear);
 
             SetUndergarment(LowerGarment, Undergarment.TypeLowerwear);
@@ -2584,11 +2590,23 @@ namespace MonoCoC.Contents.Creatures
             UpdateUnarmed();
 
             if (json.TryGetValue("itemSlots", out var itemSlotsValue) && itemSlotsValue is JsonArray itemSlotsArray)
+            {
+                if (itemSlotsArray.Count > ItemStacks.Length)
+                {
+                    var resized = new ItemStack[itemSlotsArray.Count];
+
+                    for (var index = 0; index < resized.Length; index++)
+                        resized[index] = index < ItemStacks.Length ? ItemStacks[index] : new ItemStack();
+
+                    ItemStacks = resized;
+                }
+
                 for (var index = 0; index < ItemStacks.Length; index++)
                     if (index < itemSlotsArray.Count && itemSlotsArray[index] is JsonObject slotJson)
                         ItemStacks[index].Load(slotJson);
                     else
                         ItemStacks[index].Clear();
+            }
 
             LoadStorage(json);
 
@@ -2652,6 +2670,8 @@ namespace MonoCoC.Contents.Creatures
             UpdateItemStacks();
 
             FixStorage();
+
+            ClampLust();
         }
 
         public virtual void StartPregnancy(Identifier type, int incubation, int count = 0, Identifier eggType = default)

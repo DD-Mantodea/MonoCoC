@@ -1,0 +1,89 @@
+{
+  require: ["GlobalStyles"]
+  id: "TransferBarView"
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        part: "transfer.panel"
+        x: 500
+        y: 900
+        width: 600
+        height: 120
+        backgroundColor: "#F2E5C7FF"
+        borderColor: "#9F815680"
+        borderThickness: 2
+        children: [
+          {
+            type: "coc:label"
+            part: "transfer.title"
+            x: 20
+            y: 12
+            width: 380
+            height: 30
+            font: { id: "coc:menu", size: 22 }
+            textColor: "#35291FFF"
+            canHit: false
+          }
+          {
+            type: "coc:label"
+            part: "transfer.value"
+            x: 500
+            y: 14
+            width: 80
+            height: 24
+            font: { id: "coc:menu", size: 18 }
+            textColor: "#5C4A38FF"
+            textHorizontalAlign: "right"
+            canHit: false
+          }
+          {
+            type: "coc:slider"
+            part: "transfer.slider"
+            x: 20
+            y: 50
+            width: 400
+            height: 28
+            min: 1
+            max: 1
+            value: 1
+            step: 1
+            showBorder: false
+            trackColor: "#B79A70FF"
+            fillColor: "#6D5436FF"
+            knobColor: "#35291FFF"
+          }
+          {
+            type: "coc:button"
+            style: "FooterButton"
+            part: "transfer.confirm"
+            x: 330
+            y: 80
+            width: 120
+            height: 30
+            horizontalAlign: "left"
+            verticalAlign: "top"
+            label: { key: "Scenes.Storage.Confirm" }
+            onClick: "transfer.confirm"
+          }
+          {
+            type: "coc:button"
+            style: "FooterButton"
+            part: "transfer.cancel"
+            x: 460
+            y: 80
+            width: 120
+            height: 30
+            horizontalAlign: "left"
+            verticalAlign: "top"
+            label: { key: "Scenes.Storage.Cancel" }
+            onClick: "transfer.cancel"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -148,11 +148,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                     player.RemoveStatusEffect(StatusEffectIds.Blind);
 
-                    context.Append("Combat.DriderIncubus.CombatRound.PurpleHazeEnds".Localized());
+                    context.AppendLog("Combat.DriderIncubus.CombatRound.PurpleHazeEnds".Localized());
                 }
                 else
                 {
-                    context.Append("Combat.DriderIncubus.CombatRound.PurpleHazeTick".Localized());
+                    context.AppendLog("Combat.DriderIncubus.CombatRound.PurpleHazeTick".Localized());
 
                     player.TakeLustDamage(3, true);
                 }
@@ -166,7 +166,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 {
                     player.RemoveStatusEffect(TaintedMindId);
 
-                    context.Append("Combat.DriderIncubus.CombatRound.TaintedMindEnds".Localized());
+                    context.AppendLog("Combat.DriderIncubus.CombatRound.TaintedMindEnds".Localized());
                 }
             }
 
@@ -177,7 +177,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 player.RemoveStatusEffect(DriderIncubusVenomId);
 
-                context.Append("Combat.DriderIncubus.CombatRound.VenomCleansed".Localized());
+                context.AppendLog("Combat.DriderIncubus.CombatRound.VenomCleansed".Localized());
             }
         }
 

@@ -18,7 +18,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Hellmouth.Bite.Lead".Localized());
+            context.AppendLog("Combat.Hellmouth.Bite.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -27,15 +27,15 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Hellmouth.Bite.Miss".Localized());
+                context.AppendLog("Combat.Hellmouth.Bite.Miss".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Hellmouth.Bite.Hit".Localized());
+            context.AppendLog("Combat.Hellmouth.Bite.Hit".Localized());
 
             if (player.Bleed(context.Enemy, 2, 2))
-                context.Append("Combat.Hellmouth.Bite.Bleed".Localized());
+                context.AppendLog("Combat.Hellmouth.Bite.Bleed".Localized());
 
             player.HealthChange(-CombatCalculator.ReduceDamage(context, player, enemy.Strength / 1.25f + enemy.Level));
         }
@@ -47,7 +47,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Hellmouth.FireBreath.Lead".Localized());
+            context.AppendLog("Combat.Hellmouth.FireBreath.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -56,12 +56,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Hellmouth.FireBreath.Miss".Localized());
+                context.AppendLog("Combat.Hellmouth.FireBreath.Miss".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Hellmouth.FireBreath.Hit".Localized());
+            context.AppendLog("Combat.Hellmouth.FireBreath.Hit".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Intelligence * 1.30f + enemy.Level) - 40;
 
@@ -71,7 +71,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:hellmouth_summon")]
         public static void HellmouthSummon(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Hellmouth.Summon.Lead".Localized());
+            context.AppendLog("Combat.Hellmouth.Summon.Lead".Localized());
 
             var imp = EnemyRegistry.Create(EnemyIds.Imp);
 
@@ -84,7 +84,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:hellmouth_hellmaw")]
         public static void Hellmaw(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Scenes.Hellmouth.Hellmaw.MawLunge".Localized());
+            context.AppendLog("Scenes.Hellmouth.Hellmaw.MawLunge".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -105,7 +105,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Hit)
             {
-                context.Append("Scenes.Hellmouth.Hellmaw.MawBiteFail".Localized());
+                context.AppendLog("Scenes.Hellmouth.Hellmaw.MawBiteFail".Localized());
 
                 // 原版 :59-60：monsterDamageType = DAMAGE_FIRE，且伤害经 reduceDamage(..., 85, false, true)
                 var damage = CombatCalculator.ReduceDamage(context, context.Player,
@@ -115,7 +115,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 context.Player.TakeDamage(damage);
             }
             else
-                context.Append("Common.Text.YouManageToDashToThe".Localized());
+                context.AppendLog("Common.Text.YouManageToDashToThe".Localized());
         }
     }
 }

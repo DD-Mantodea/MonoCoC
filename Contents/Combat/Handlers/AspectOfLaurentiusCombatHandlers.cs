@@ -24,9 +24,9 @@ namespace MonoCoC.Contents.Combat.Handlers
                 _ => "Combat.Hel.LaurentiusApotheosisDefault"
             };
 
-            context.Append(text.Localized());
+            context.AppendLog(text.Localized());
 
-            context.Append("Combat.Hel.LaurentiusApotheosisPulse".Localized());
+            context.AppendLog("Combat.Hel.LaurentiusApotheosisPulse".Localized());
 
             if (!context.Player.HasStatusEffect(StatusEffectIds.Apotheosis))
             {
@@ -56,9 +56,9 @@ namespace MonoCoC.Contents.Combat.Handlers
                 "Combat.Hel.LaurentiusWhitefire4"
             };
 
-            context.Append(quotes[Random.Shared.Next(quotes.Length)].Localized());
+            context.AppendLog(quotes[Random.Shared.Next(quotes.Length)].Localized());
 
-            context.Append("Combat.Hel.LaurentiusWhitefireBurst".Localized());
+            context.AppendLog("Combat.Hel.LaurentiusWhitefireBurst".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -69,12 +69,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Combat.Hel.LaurentiusWhitefireDodged".Localized());
+                context.AppendLog("Combat.Hel.LaurentiusWhitefireDodged".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Hel.LaurentiusWhitefireHit".Localized());
+            context.AppendLog("Combat.Hel.LaurentiusWhitefireHit".Localized());
 
             var stacks = (int)context.Enemy.StatusEffectValue(StatusEffectIds.Apotheosis, 0);
 
@@ -86,7 +86,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:aspect_of_laurentius_summon_fodder")]
         public static void SummonFodder(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Hel.LaurentiusSummon".Localized());
+            context.AppendLog("Combat.Hel.LaurentiusSummon".Localized());
 
             var ids = new[]
             {
@@ -117,10 +117,10 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 context.Enemies.Add(enemy);
 
-                context.Append("Combat.Hel.LaurentiusSummonAppears".Localized(enemy.ShortName));
+                context.AppendLog("Combat.Hel.LaurentiusSummonAppears".Localized(enemy.ShortName));
             }
 
-            context.Append("Combat.Hel.LaurentiusShield".Localized());
+            context.AppendLog("Combat.Hel.LaurentiusShield".Localized());
 
             if (context.Enemy is Enemies.Vanilla.AspectOfLaurentiusEnemy aspect)
             {
@@ -133,13 +133,13 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:aspect_of_laurentius_watch")]
         public static void Watch(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Hel.LaurentiusWatches".Localized());
+            context.AppendLog("Combat.Hel.LaurentiusWatches".Localized());
         }
 
         [Register("coc:aspect_of_laurentius_unsummon")]
         public static void Unsummon(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Hel.LaurentiusUnsummon".Localized());
+            context.AppendLog("Combat.Hel.LaurentiusUnsummon".Localized());
 
             var defeated = 0;
 
@@ -155,7 +155,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 context.Enemy.HealthChange(-100 * defeated);
 
-                context.Append("Combat.Hel.LaurentiusAbsorbHurt".Localized(100 * defeated));
+                context.AppendLog("Combat.Hel.LaurentiusAbsorbHurt".Localized(100 * defeated));
             }
 
             if (context.Enemy is Enemies.Vanilla.AspectOfLaurentiusEnemy aspect)

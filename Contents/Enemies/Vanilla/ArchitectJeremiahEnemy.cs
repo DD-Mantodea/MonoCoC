@@ -62,9 +62,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (context.Player.DemonScore() > 3)
                 quotes.Add("Combat.Hel.JeremiahRebuildDemon");
 
-            context.Append(quotes[Random.Shared.Next(quotes.Count)].Localized());
+            context.AppendLog(quotes[Random.Shared.Next(quotes.Count)].Localized());
 
-            context.Append("Combat.Hel.JeremiahRebuildText".Localized());
+            context.AppendLog("Combat.Hel.JeremiahRebuildText".Localized());
 
             ArmorDefense = 100;
 
@@ -75,10 +75,10 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 ally.Health = Math.Min(ally.MaxHealth, ally.Health + 100);
 
-                context.Append("Combat.Hel.StatueHealed".Localized(ally.ShortName, 100));
+                context.AppendLog("Combat.Hel.StatueHealed".Localized(ally.ShortName, 100));
             }
 
-            context.Append("Combat.Hel.JeremiahArmorRestored".Localized());
+            context.AppendLog("Combat.Hel.JeremiahArmorRestored".Localized());
 
             return true;
         }

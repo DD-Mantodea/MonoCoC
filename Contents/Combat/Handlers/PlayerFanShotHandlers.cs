@@ -29,12 +29,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (player.HasStatusEffect(StatusEffectIds.BowDisabled))
             {
-                context.Append("Combat.Special.FireBow.Disabled".Localized());
+                context.AppendLog("Combat.Special.FireBow.Disabled".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Special.FanShot.Intro".Localized());
+            context.AppendLog("Combat.Special.FanShot.Intro".Localized());
 
             var hitChance = PlayerFireBowHandlers.FireBowChance(context);
 

@@ -3,5 +3,7 @@
   "default": 0,
   "higherIsBetter": true,
   "format": "int",
-  "visible": true
+  "visible": true,
+  "group": "core",
+  "order": 3
 }

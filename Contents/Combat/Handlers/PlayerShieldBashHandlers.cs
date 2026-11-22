@@ -51,7 +51,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Special.ShieldBash.Ready".Localized());
+            context.AppendLog("Combat.Special.ShieldBash.Ready".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -67,11 +67,11 @@ namespace MonoCoC.Contents.Combat.Handlers
                 var speedDelta = enemy.Speed - player.Speed;
 
                 if (speedDelta >= 8 && speedDelta < 20)
-                    context.Append("Combat.Special.ShieldBash.DodgeFast".Localized());
+                    context.AppendLog("Combat.Special.ShieldBash.DodgeFast".Localized());
                 else if (speedDelta >= 20)
-                    context.Append("Combat.Special.ShieldBash.DodgeDextrous".Localized());
+                    context.AppendLog("Combat.Special.ShieldBash.DodgeDextrous".Localized());
                 else
-                    context.Append("Combat.Special.ShieldBash.DodgeNarrow".Localized());
+                    context.AppendLog("Combat.Special.ShieldBash.DodgeNarrow".Localized());
 
                 player.MasteryXP(ShieldMastery, 5 + context.Random.Next(31));
 
@@ -91,7 +91,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             enemy.HandleDamaged(context, final, CombatDamageKind.Melee);
 
-            context.Append("Combat.Special.ShieldBash.Hit".Localized((int)final));
+            context.AppendLog("Combat.Special.ShieldBash.Hit".Localized((int)final));
 
             if (enemy is VolcanicGolemEnemy)
             {
@@ -99,9 +99,9 @@ namespace MonoCoC.Contents.Combat.Handlers
                 {
                     if (!enemy.HasStatusEffect(StatusEffectIds.VolcanicFrenzy))
                     {
-                        context.Append("Combat.Special.ShieldBash.GolemStun1".Localized());
+                        context.AppendLog("Combat.Special.ShieldBash.GolemStun1".Localized());
 
-                        context.Append("Combat.Special.ShieldBash.GolemStun2".Localized());
+                        context.AppendLog("Combat.Special.ShieldBash.GolemStun2".Localized());
 
                         enemy.CreateStatusEffect(StatusEffectIds.Stunned, 1, 0, 0, 0);
 
@@ -109,26 +109,26 @@ namespace MonoCoC.Contents.Combat.Handlers
                     }
                     else
                     {
-                        context.Append("Combat.Special.ShieldBash.GolemFrenzy".Localized());
+                        context.AppendLog("Combat.Special.ShieldBash.GolemFrenzy".Localized());
 
                         BreakArmor(enemy);
                     }
 
-                    context.Append("[pg]");
+                    context.AppendLog("[pg]");
 
                     return;
                 }
 
-                context.Append("Combat.Special.ShieldBash.GolemPlates".Localized());
+                context.AppendLog("Combat.Special.ShieldBash.GolemPlates".Localized());
 
-                context.Append("[pg]");
+                context.AppendLog("[pg]");
 
                 return;
             }
 
             if (enemy.Stun(1, chance))
             {
-                context.Append("Combat.Special.ShieldBash.Stunned".Localized());
+                context.AppendLog("Combat.Special.ShieldBash.Stunned".Localized());
 
                 var increment = player.HasPerk(PerkIds.ShieldSlam) ? 0.5f : 1f;
 
@@ -138,7 +138,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                     enemy.AddStatusValue(StatusEffectIds.TimesBashed, 0, increment);
             }
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
 
             player.MasteryXP(ShieldMastery, 5 + context.Random.Next(21));
         }

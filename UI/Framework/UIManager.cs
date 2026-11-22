@@ -1,9 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 using MonoCoC.Assets;
 using MonoCoC.Assets.AssetManagers;
+using MonoCoC.Contents.Input;
 using MonoCoC.UI.Components;
+using LibRimeSharp.Data;
 
 namespace MonoCoC.UI.Framework
 {
@@ -18,6 +21,29 @@ namespace MonoCoC.UI.Framework
         public Component? FocusedComponent;
 
         public Component? InputBlock;
+
+        private ImeCandidateBar? _imeBar;
+
+        public void ShowIme(Rectangle anchor, IReadOnlyList<RimeCandidate> candidates, int highlight)
+        {
+            if (Root is null)
+                return;
+
+            if (_imeBar is null)
+            {
+                _imeBar = new ImeCandidateBar
+                {
+                    CanHit = false
+                };
+            }
+
+            _imeBar.ShowAt(anchor, candidates, highlight);
+        }
+
+        public void HideIme()
+        {
+            _imeBar?.Hide();
+        }
 
         public bool IsInputBlocked(Component component)
         {
@@ -37,7 +63,11 @@ namespace MonoCoC.UI.Framework
 
         public MouseCursor MouseCursor;
 
-        public ToolTipView ToolTip = new(ManagerInstance<TextureManager>.Instance["tooltip"], UIFonts.Get("tooltipHeader"), UIFonts.Get("tooltipBody"));
+        private HintView? _activeHint;
+
+        private HintView? _defaultHint;
+
+        private HintStyle? _defaultHintStyle;
 
         public static readonly RasterizerState ScissorRasterizer = new()
         {
@@ -52,7 +82,7 @@ namespace MonoCoC.UI.Framework
 
         public static int DrawSerial;
 
-        public static readonly System.Collections.Generic.List<string> Trace = [];
+        public static readonly List<string> Trace = [];
 
         public static void TraceEvent(string message)
         {
@@ -77,7 +107,10 @@ namespace MonoCoC.UI.Framework
 
             Root?.Draw(spriteBatch, gameTime);
 
-            ToolTip.Draw(spriteBatch, gameTime);
+            if (_imeBar is { Visible: true })
+                _imeBar.Draw(spriteBatch, gameTime);
+
+            _activeHint?.Draw(spriteBatch, gameTime);
 
             spriteBatch.End();
         }
@@ -85,6 +118,8 @@ namespace MonoCoC.UI.Framework
         public void Update(GameTime gameTime)
         {
             UpdateSerial++;
+
+            RimeIme.Tick();
 
             Root?.Update(gameTime);
 
@@ -99,8 +134,6 @@ namespace MonoCoC.UI.Framework
 
         public void MarkSceneChanged() => _sceneChanged = true;
 
-        // 杈撳叆娲惧彂鏈熼棿鍙兘鍙戠敓 Scene.Go / SwitchView銆?
-        // 鍦?Draw 鍓嶅鏂板缓鐨?UI 鏍戣ˉ涓€娆?Update锛岄伩鍏嶉甯ф湭鍒濆鍖栥€?
         public void UpdateAfterInput(GameTime gameTime)
         {
             if (!_sceneChanged)
@@ -108,11 +141,11 @@ namespace MonoCoC.UI.Framework
 
             _sceneChanged = false;
 
+            TraceEvent("updateAfterInput");
+
             Root?.Update(gameTime);
         }
 
-        // 宸﹂敭鎶捣鏃舵淳鍙戠偣鍑伙細鍛戒腑缁勪欢鍚戜笂鎵剧涓€涓甫 OnClick 鐨勭粍浠躲€?
-        // Button 鑷繁澶勭悊榧犳爣浜嬩欢锛岃繖閲岃烦杩囧畠锛岄伩鍏嶉噸澶嶈Е鍙戙€?
         private void DispatchClicks()
         {
             var mouse = Mouse.GetState();
@@ -154,11 +187,33 @@ namespace MonoCoC.UI.Framework
                 break;
             }
 
-            if (source != null)
-                ToolTip.Show(source);
+            if (source is not Button button)
+            {
+                _activeHint = null;
+
+                return;
+            }
+
+            var style = button.HintSettings ?? HintStyle.Default;
+
+            if (button.HintView is not null)
+                _activeHint = button.HintView;
             else
-                ToolTip.Hide();
+            {
+                if (_defaultHint is null || !ReferenceEquals(_defaultHintStyle, style))
+                {
+                    _defaultHint = HintView.CreateDefault(style);
+
+                    _defaultHintStyle = style;
+                }
+
+                _activeHint = _defaultHint;
+            }
+
+            _activeHint.Show(button.ToolTipHeader ?? "", button.ToolTipText ?? "", source.Rectangle);
         }
+
+        public void HideHint() => _activeHint = null;
 
         public void UpdateCursor()
         {
@@ -239,8 +294,7 @@ namespace MonoCoC.UI.Framework
         {
             LeftPressed = Root?.HitComponent(mousePos);
 
-            // 点击输入框以外的地方取消焦点（否则搜索框会一直保持激活）。
-            if (FocusedComponent is MonoCoC.UI.Components.TextBox textBox && !ReferenceEquals(LeftPressed, textBox))
+            if (FocusedComponent is TextBox textBox && !ReferenceEquals(LeftPressed, textBox))
                 textBox.Active = false;
 
             return Dispatch(new()
@@ -288,8 +342,7 @@ namespace MonoCoC.UI.Framework
 
         public InputResult DispatchMouseLeftClick(Vector2 mousePos)
         {
-            // 点击输入框以外的地方取消焦点（真实鼠标与合成点击都要走这里）。
-            if (FocusedComponent is MonoCoC.UI.Components.TextBox textBox && !ReferenceEquals(Root?.HitComponent(mousePos), textBox))
+            if (FocusedComponent is TextBox textBox && !ReferenceEquals(Root?.HitComponent(mousePos), textBox))
                 textBox.Active = false;
 
             return Dispatch(new()

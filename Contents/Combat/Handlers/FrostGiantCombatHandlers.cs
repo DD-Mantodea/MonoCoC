@@ -23,7 +23,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var giantSpe = Math.Max(1, (int)enemy.Speed);
 
-            context.Append("Combat.FrostGiant.Punch.Lead".Localized());
+            context.AppendLog("Combat.FrostGiant.Punch.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -32,14 +32,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.FrostGiant.Punch.Miss".Localized());
+                context.AppendLog("Combat.FrostGiant.Punch.Miss".Localized());
 
                 return;
             }
 
             if (context.Random.Next(Math.Max(1, (int)player.Speed + 40)) < giantSpe)
             {
-                context.Append("Combat.FrostGiant.Punch.HitFull".Localized());
+                context.AppendLog("Combat.FrostGiant.Punch.HitFull".Localized());
 
                 var damage = CombatCalculator.ReduceDamage(context, player, giantStr + 50 + context.Random.Next(100));
 
@@ -50,7 +50,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
             else
             {
-                context.Append("Combat.FrostGiant.Punch.HitGlance".Localized());
+                context.AppendLog("Combat.FrostGiant.Punch.HitGlance".Localized());
 
                 player.HealthChange(-CombatCalculator.ReduceDamage(context, player, context.Random.Next(Math.Max(1, (int)giantStr))));
             }
@@ -65,7 +65,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var giantSpe = Math.Max(1, (int)enemy.Speed);
 
-            context.Append("Combat.FrostGiant.Grab.Lead".Localized());
+            context.AppendLog("Combat.FrostGiant.Grab.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 var barely = context.Random.Next(Math.Max(1, (int)player.Speed)) < giantSpe;
 
-                context.Append(barely
+                context.AppendLog(barely
 
                     ? "Combat.FrostGiant.Grab.DodgeBarely".Localized()
 
@@ -85,14 +85,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 enemy.HealthChange(-(10 + context.Random.Next(20)));
 
-                context.Append("Combat.FrostGiant.Grab.GiantStunned".Localized());
+                context.AppendLog("Combat.FrostGiant.Grab.GiantStunned".Localized());
 
                 enemy.CreateStatusEffect(StatusEffectIds.Stunned, duration: 1);
 
                 return;
             }
 
-            context.Append("Combat.FrostGiant.Grab.Hit".Localized());
+            context.AppendLog("Combat.FrostGiant.Grab.Hit".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.GiantGrabbed, duration: 2);
         }
@@ -113,7 +113,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             var str = player.Strength;
 
@@ -129,7 +129,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 : "Combat.FrostGiant.GrabSuccess.StrLow";
 
-            context.Append(key.Localized());
+            context.AppendLog(key.Localized());
 
             player.RemoveStatusEffect(StatusEffectIds.GiantGrabbed);
         }
@@ -144,7 +144,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var str = player.Strength;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (struggle)
             {
@@ -158,7 +158,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                     : "Combat.FrostGiant.GrabFail.StrLow";
 
-                context.Append(key.Localized());
+                context.AppendLog(key.Localized());
 
                 if (str >= 60 && str < 80)
                     GiantStrengthLoss(context, 1);
@@ -179,19 +179,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (SceneInstance<CeraphScene>.Get().HasBondage())
             {
-                context.Append("Combat.FrostGiant.GrabFail.Bondage".Localized());
+                context.AppendLog("Combat.FrostGiant.GrabFail.Bondage".Localized());
 
                 player.Lust = Math.Min(player.MaxLust, player.Lust + 5);
             }
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
 
             switch (context.Random.Next(6))
             {
                 case 0:
                 case 1:
                 case 2:
-                    context.Append("Combat.FrostGiant.GrabFail.Taunt".Localized());
+                    context.AppendLog("Combat.FrostGiant.GrabFail.Taunt".Localized());
 
                     player.RemoveStatusEffect(StatusEffectIds.GiantGrabbed);
 
@@ -201,9 +201,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 case 3:
                 case 4:
-                    context.Append("Combat.FrostGiant.GrabFail.GroundPound1".Localized());
+                    context.AppendLog("Combat.FrostGiant.GrabFail.GroundPound1".Localized());
 
-                    context.Append("Combat.FrostGiant.GrabFail.GroundPound2".Localized());
+                    context.AppendLog("Combat.FrostGiant.GrabFail.GroundPound2".Localized());
 
                     player.RemoveStatusEffect(StatusEffectIds.GiantGrabbed);
 
@@ -212,7 +212,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                     return;
 
                 default:
-                    context.Append("Combat.FrostGiant.GrabFail.Throw".Localized());
+                    context.AppendLog("Combat.FrostGiant.GrabFail.Throw".Localized());
 
                     player.RemoveStatusEffect(StatusEffectIds.GiantGrabbed);
 
@@ -248,9 +248,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:frost_giant_giant_boulder_throw")]
         public static void GiantBoulderThrow(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.FrostGiant.Boulder.Throw1".Localized());
+            context.AppendLog("Combat.FrostGiant.Boulder.Throw1".Localized());
 
-            context.Append("Combat.FrostGiant.Boulder.Throw2".Localized());
+            context.AppendLog("Combat.FrostGiant.Boulder.Throw2".Localized());
 
             if (!context.Player.HasStatusEffect(StatusEffectIds.GiantBoulder))
                 context.Player.CreateStatusEffect(StatusEffectIds.GiantBoulder);
@@ -262,9 +262,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append(mode switch
+            context.AppendLog(mode switch
             {
                 0 => "Combat.FrostGiant.Boulder.Hit0".Localized(),
 
@@ -282,7 +282,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.HealthChange(-damage);
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
         }
 
         public static void GiantBoulderMiss(CombatContext context)
@@ -291,42 +291,42 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Combat.FrostGiant.Boulder.Miss".Localized());
+            context.AppendLog("Combat.FrostGiant.Boulder.Miss".Localized());
 
             player.RemoveStatusEffect(StatusEffectIds.GiantBoulder);
 
             player.HealthChange(-CombatCalculator.ReduceDamage(context, player, 10 + context.Random.Next(Math.Max(1, (int)(enemy.Strength / 2)))));
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
         }
 
         public static void GiantBoulderFantasize(CombatContext context)
         {
             var player = context.Player;
 
-            context.Append("Combat.FrostGiant.Boulder.FantasizeBase".Localized());
+            context.AppendLog("Combat.FrostGiant.Boulder.FantasizeBase".Localized());
 
             if (player.Cocks.Count > 0)
             {
                 if (player.BiggestCockArea() >= 24)
                 {
-                    context.Append("Combat.FrostGiant.Boulder.FantasizeBigCock".Localized());
+                    context.AppendLog("Combat.FrostGiant.Boulder.FantasizeBigCock".Localized());
 
-                    context.Append(player.Cocks.Count > 1
+                    context.AppendLog(player.Cocks.Count > 1
 
                         ? "Combat.FrostGiant.Boulder.FantasizeMulti".Localized()
 
                         : "Combat.FrostGiant.Boulder.FantasizeSingle".Localized());
 
-                    context.Append("Combat.FrostGiant.Boulder.FantasizeBigCockNose".Localized());
+                    context.AppendLog("Combat.FrostGiant.Boulder.FantasizeBigCockNose".Localized());
                 }
                 else
-                    context.Append("Combat.FrostGiant.Boulder.FantasizeSmallCock".Localized());
+                    context.AppendLog("Combat.FrostGiant.Boulder.FantasizeSmallCock".Localized());
             }
             else
-                context.Append("Combat.FrostGiant.Boulder.FantasizeNoCock".Localized());
+                context.AppendLog("Combat.FrostGiant.Boulder.FantasizeNoCock".Localized());
 
             if (player.HasStatusEffect(StatusEffectIds.GiantBoulder))
                 GiantBoulderHit(context, 1);

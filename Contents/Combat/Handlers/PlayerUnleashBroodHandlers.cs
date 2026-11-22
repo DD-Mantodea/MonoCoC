@@ -24,26 +24,26 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy is EncapsulationPodEnemy)
             {
-                context.Append("Combat.Special.UnleashBrood.Pod".Localized());
+                context.AppendLog("Combat.Special.UnleashBrood.Pod".Localized());
 
                 return;
             }
 
             if (enemy is TentacleBeastEnemy)
             {
-                context.Append("Combat.Special.UnleashBrood.TentacleBeast".Localized());
+                context.AppendLog("Combat.Special.UnleashBrood.TentacleBeast".Localized());
 
                 return;
             }
 
             if (enemy.HasStatusEffect(StatusEffectIds.Shell))
             {
-                context.Append("Combat.Special.UnleashBrood.Shell".Localized());
+                context.AppendLog("Combat.Special.UnleashBrood.Shell".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Special.UnleashBrood.Intro".Localized());
+            context.AppendLog("Combat.Special.UnleashBrood.Intro".Localized());
 
             var damage = 10 + (player.Toughness / 3f + context.Random.Next((int)Math.Max(1, player.Intelligence / 2))) * player.SpellMod();
 
@@ -63,43 +63,43 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 reduced = 0;
 
-                context.Append("Combat.Special.UnleashBrood.Blocked".Localized());
+                context.AppendLog("Combat.Special.UnleashBrood.Blocked".Localized());
             }
             else if (reduced < 10)
-                context.Append("Combat.Special.UnleashBrood.Low".Localized());
+                context.AppendLog("Combat.Special.UnleashBrood.Low".Localized());
             else if (reduced < 20)
-                context.Append("Combat.Special.UnleashBrood.Medium".Localized());
+                context.AppendLog("Combat.Special.UnleashBrood.Medium".Localized());
             else if (reduced < 30)
-                context.Append("Combat.Special.UnleashBrood.High".Localized());
+                context.AppendLog("Combat.Special.UnleashBrood.High".Localized());
             else
-                context.Append("Combat.Special.UnleashBrood.Mutilate".Localized());
+                context.AppendLog("Combat.Special.UnleashBrood.Mutilate".Localized());
 
             CombatCalculator.DamageEnemy(context, reduced, CombatDamageKind.Ranged);
 
             if (enemy.Bleed(player))
-                context.Append(enemy.Plural
+                context.AppendLog(enemy.Plural
 
                     ? "Combat.Special.UnleashBrood.BleedPlural".Localized()
 
                     : "Combat.Special.UnleashBrood.Bleed".Localized());
             else if (enemy is LivingStatueEnemy)
-                context.Append("Combat.Special.UnleashBrood.NoBleedStatue".Localized());
+                context.AppendLog("Combat.Special.UnleashBrood.NoBleedStatue".Localized());
 
             if (!enemy.HasStatusEffect(StatusEffectIds.NephilaCompulsion))
             {
-                context.Append("Combat.Special.UnleashBrood.First".Localized());
+                context.AppendLog("Combat.Special.UnleashBrood.First".Localized());
 
                 enemy.CreateStatusEffect(StatusEffectIds.NephilaCompulsion, 0, 0, 0, 0);
             }
             else if (enemy.Speed <= 1)
-                context.Append(enemy.Plural
+                context.AppendLog(enemy.Plural
 
                     ? "Combat.Special.UnleashBrood.FinalPlural".Localized()
 
                     : "Combat.Special.UnleashBrood.Final".Localized());
             else
             {
-                context.Append(enemy.Plural
+                context.AppendLog(enemy.Plural
 
                     ? "Combat.Special.UnleashBrood.IntermediatePlural".Localized()
 

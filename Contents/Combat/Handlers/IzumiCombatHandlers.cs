@@ -17,7 +17,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Izumi.StraightJab.Lead".Localized());
+            context.AppendLog("Combat.Izumi.StraightJab.Lead".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + 175);
 
@@ -28,27 +28,27 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Combat.Izumi.StraightJab.Dodged".Localized());
+                context.AppendLog("Combat.Izumi.StraightJab.Dodged".Localized());
 
                 return;
             }
 
             if (damage <= 0)
             {
-                context.Append("Combat.Izumi.StraightJab.Deflected".Localized());
+                context.AppendLog("Combat.Izumi.StraightJab.Deflected".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Izumi.StraightJab.Hit".Localized());
+            context.AppendLog("Combat.Izumi.StraightJab.Hit".Localized());
 
-            context.Append(player.HasTailInsteadOfLegs()
+            context.AppendLog(player.HasTailInsteadOfLegs()
 
                 ? "Combat.Izumi.StraightJab.RiseTail".Localized()
 
                 : "Combat.Izumi.StraightJab.Stand".Localized());
 
-            context.Append("Combat.Izumi.StraightJab.DustOff".Localized());
+            context.AppendLog("Combat.Izumi.StraightJab.DustOff".Localized());
 
             player.HealthChange(-damage);
         }
@@ -58,17 +58,17 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Izumi.RoundhouseKick.Lead".Localized());
+            context.AppendLog("Combat.Izumi.RoundhouseKick.Lead".Localized());
 
             if (player.Corruption >= 50 || player.Libido >= 50 || player.Sensitivity >= 50)
             {
-                context.Append("Combat.Izumi.RoundhouseKick.Affected".Localized());
+                context.AppendLog("Combat.Izumi.RoundhouseKick.Affected".Localized());
 
                 player.Lust = Math.Min(player.MaxLust, player.Lust + 10 + player.Libido / 10);
             }
             else
             {
-                context.Append("Combat.Izumi.RoundhouseKick.Confused".Localized());
+                context.AppendLog("Combat.Izumi.RoundhouseKick.Confused".Localized());
 
                 player.Lust = Math.Min(player.MaxLust, player.Lust + 5 + player.Libido / 20);
             }
@@ -88,12 +88,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Combat.Izumi.ChokeSlam.Dodged".Localized());
+                context.AppendLog("Combat.Izumi.ChokeSlam.Dodged".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Izumi.ChokeSlam.Hit".Localized());
+            context.AppendLog("Combat.Izumi.ChokeSlam.Hit".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.Chokeslam, 3);
         }
@@ -105,9 +105,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Izumi.GroundPound.Lead".Localized());
+            context.AppendLog("Combat.Izumi.GroundPound.Lead".Localized());
 
-            context.Append("Combat.Izumi.GroundPound.Hit".Localized());
+            context.AppendLog("Combat.Izumi.GroundPound.Hit".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + 225);
 
@@ -130,22 +130,22 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!player.HasStatusEffect(StatusEffectIds.Chokeslam))
                 return;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (context.Random.Next(Math.Max(1, (int)player.Strength)) > enemy.Strength / 2)
             {
-                context.Append("Combat.Izumi.Struggle.EscapeLead".Localized());
+                context.AppendLog("Combat.Izumi.Struggle.EscapeLead".Localized());
 
                 if (player.IsBiped())
-                    context.Append("Combat.Izumi.Struggle.EscapeBiped".Localized());
+                    context.AppendLog("Combat.Izumi.Struggle.EscapeBiped".Localized());
                 else if (player.HasTailInsteadOfLegs())
-                    context.Append("Combat.Izumi.Struggle.EscapeTail".Localized());
+                    context.AppendLog("Combat.Izumi.Struggle.EscapeTail".Localized());
                 else
-                    context.Append("Combat.Izumi.Struggle.EscapeOther".Localized());
+                    context.AppendLog("Combat.Izumi.Struggle.EscapeOther".Localized());
 
-                context.Append("Combat.Izumi.Struggle.EscapeDrop".Localized());
+                context.AppendLog("Combat.Izumi.Struggle.EscapeDrop".Localized());
 
-                context.Append("Combat.Izumi.Struggle.EscapeAfter".Localized());
+                context.AppendLog("Combat.Izumi.Struggle.EscapeAfter".Localized());
 
                 enemy.HealthChange(-(50 + context.Random.Next(Math.Max(1, (int)player.Strength))));
 
@@ -154,15 +154,15 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.Izumi.Struggle.Fail".Localized());
+            context.AppendLog("Combat.Izumi.Struggle.Fail".Localized());
 
-            context.Append(player.Strength < 90
+            context.AppendLog(player.Strength < 90
 
                 ? "Combat.Izumi.Struggle.FailImmense".Localized()
 
                 : "Combat.Izumi.Struggle.FailImpressive".Localized());
 
-            context.Append("Combat.Izumi.Struggle.FailTail".Localized());
+            context.AppendLog("Combat.Izumi.Struggle.FailTail".Localized());
 
             player.HealthChange(-(75 + context.Random.Next(15)));
         }
@@ -173,15 +173,15 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (player.HasStatusEffect(StatusEffectIds.Titsmother))
             {
-                context.Clear();
+                MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-                context.Append("Combat.Izumi.TitSmother.WaitLead".Localized());
+                context.AppendLog("Combat.Izumi.TitSmother.WaitLead".Localized());
 
                 player.TakeLustDamage(player.Libido / 10 + 5 + context.Random.Next(5), true);
 
                 if (CeraphHasBondage())
                 {
-                    context.Append("Combat.Izumi.TitSmother.WaitBondage".Localized());
+                    context.AppendLog("Combat.Izumi.TitSmother.WaitBondage".Localized());
 
                     player.TakeLustDamage(5, true);
                 }
@@ -192,9 +192,9 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!player.HasStatusEffect(StatusEffectIds.Chokeslam))
                 return true;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Combat.Izumi.Wait.Lead".Localized());
+            context.AppendLog("Combat.Izumi.Wait.Lead".Localized());
 
             player.HealthChange(-(75 + context.Random.Next(15)));
 
@@ -215,15 +215,15 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Izumi.TitSmother.Lead".Localized());
+            context.AppendLog("Combat.Izumi.TitSmother.Lead".Localized());
 
-            context.Append(player.HasMuzzle()
+            context.AppendLog(player.HasMuzzle()
 
                 ? "Combat.Izumi.TitSmother.Muzzle".Localized()
 
                 : "Combat.Izumi.TitSmother.Face".Localized());
 
-            context.Append("Combat.Izumi.TitSmother.Grab".Localized());
+            context.AppendLog("Combat.Izumi.TitSmother.Grab".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.Titsmother, 0, 0, 0, 0);
 
@@ -237,7 +237,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (context.Random.Next(Math.Max(1, (int)player.Strength)) > enemy.Strength / 4)
             {
@@ -248,22 +248,22 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Random.Next(2) == 0)
             {
-                context.Append("Combat.Izumi.TitSmother.StruggleFailForce".Localized());
+                context.AppendLog("Combat.Izumi.TitSmother.StruggleFailForce".Localized());
 
-                context.Append("Combat.Izumi.TitSmother.StruggleFailStruggle".Localized());
+                context.AppendLog("Combat.Izumi.TitSmother.StruggleFailStruggle".Localized());
             }
             else if (player.HasCock())
             {
-                context.Append("Combat.Izumi.TitSmother.StruggleFailCockLead".Localized());
+                context.AppendLog("Combat.Izumi.TitSmother.StruggleFailCockLead".Localized());
 
-                context.Append(player.Cocks.Count > 1
+                context.AppendLog(player.Cocks.Count > 1
 
                     ? "Combat.Izumi.TitSmother.StruggleFailCockMany".Localized()
 
                     : "Combat.Izumi.TitSmother.StruggleFailCockOne".Localized());
             }
             else
-                context.Append("Combat.Izumi.TitSmother.StruggleFailNoCock".Localized());
+                context.AppendLog("Combat.Izumi.TitSmother.StruggleFailNoCock".Localized());
 
             player.TakeLustDamage(player.Libido / 15f + 5 + context.Random.Next(5), true);
         }
@@ -275,21 +275,21 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (player.Strength < 90)
-                context.Append("Combat.Izumi.TitSmother.EscapeWeak".Localized());
+                context.AppendLog("Combat.Izumi.TitSmother.EscapeWeak".Localized());
             else
             {
-                context.Append("Combat.Izumi.TitSmother.EscapeStrong".Localized());
+                context.AppendLog("Combat.Izumi.TitSmother.EscapeStrong".Localized());
 
                 if (player.IsBiped())
-                    context.Append("Combat.Izumi.TitSmother.EscapeStrongBiped".Localized());
+                    context.AppendLog("Combat.Izumi.TitSmother.EscapeStrongBiped".Localized());
 
-                context.Append("Combat.Izumi.TitSmother.EscapeStrongEnd".Localized());
+                context.AppendLog("Combat.Izumi.TitSmother.EscapeStrongEnd".Localized());
             }
 
-            context.Append("Combat.Izumi.TitSmother.EscapeTaunt".Localized());
+            context.AppendLog("Combat.Izumi.TitSmother.EscapeTaunt".Localized());
 
             player.RemoveStatusEffect(StatusEffectIds.Titsmother);
 

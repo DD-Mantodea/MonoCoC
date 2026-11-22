@@ -18,9 +18,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:bone_general_crushing_blow")]
         public static void CrushingBlow(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.BoneGeneral.CrushingBlow.TheBoneGuardian".Localized());
+            context.AppendLog("Combat.BoneGeneral.CrushingBlow.TheBoneGuardian".Localized());
 
-            context.Append(context.Player.Stun(context.Random.Next(2), 25)
+            context.AppendLog(context.Player.Stun(context.Random.Next(2), 25)
 
                 ? "Combat.BoneGeneral.CrushingBlow.YouLoseYour".Localized()
 
@@ -34,13 +34,13 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:bone_general_guard_ally")]
         public static void GuardAlly(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.BoneGeneral.GuardAlly.TheBoneGuardian".Localized());
+            context.AppendLog("Combat.BoneGeneral.GuardAlly.TheBoneGuardian".Localized());
 
             var necromancer = context.Enemies.FirstOrDefault(e => e is NecromancerEnemy && e.Health > 0);
 
             if (necromancer != null)
             {
-                context.Append("Combat.BoneGeneral.GuardAlly.TheNecromancerIs".Localized());
+                context.AppendLog("Combat.BoneGeneral.GuardAlly.TheNecromancerIs".Localized());
 
                 necromancer.CreateStatusEffect(StatusEffectIds.GuardAB, 2, 0, 0, 0);
 
@@ -56,7 +56,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var target = candidates[context.Random.Next(candidates.Count)];
 
-            context.Append("Combat.BoneGeneral.GuardAlly.OneIs".Localized(
+            context.AppendLog("Combat.BoneGeneral.GuardAlly.OneIs".Localized(
                 Utils.Utils.CapitalizeFirstLetter(target.Article),
 
                 target.ShortName,

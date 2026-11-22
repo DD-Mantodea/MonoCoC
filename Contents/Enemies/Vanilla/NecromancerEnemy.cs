@@ -112,7 +112,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleFear(CombatContext context)
         {
-            context.WriteAction("Combat.Necromancer.HandleFear.TheNecromancerIsn".Localized());
+            context.Log.Add("Combat.Necromancer.HandleFear.TheNecromancerIsn".Localized());
 
             RemoveStatusEffect(StatusEffectIds.Fear);
 

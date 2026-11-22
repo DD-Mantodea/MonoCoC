@@ -15,7 +15,7 @@ namespace MonoCoC.UI.Components
 
         public void SwitchView(View view)
         {
-            var console = LayoutData.Children.Find(child => child is UI.Console.ConsoleOverlay);
+            var console = LayoutData.Children.Find(child => child is Console.ConsoleOverlay);
 
             RemoveAllChild();
 

@@ -17,7 +17,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Minerva.Bite.Lead".Localized());
+            context.AppendLog("Combat.Minerva.Bite.Lead".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + 85);
 
@@ -28,26 +28,26 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Combat.Minerva.Bite.Dodged".Localized());
+                context.AppendLog("Combat.Minerva.Bite.Dodged".Localized());
 
                 return;
             }
 
             if (avoid.Outcome == AvoidOutcome.Block)
             {
-                context.Append("Combat.Minerva.Bite.Blocked".Localized());
+                context.AppendLog("Combat.Minerva.Bite.Blocked".Localized());
 
                 return;
             }
 
             if (damage <= 0)
             {
-                context.Append("Combat.Minerva.Bite.Deflected".Localized());
+                context.AppendLog("Combat.Minerva.Bite.Deflected".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Minerva.Bite.Hit".Localized());
+            context.AppendLog("Combat.Minerva.Bite.Hit".Localized());
 
             player.HealthChange(-damage);
         }
@@ -59,7 +59,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Minerva.Kungfu.Lead".Localized());
+            context.AppendLog("Combat.Minerva.Kungfu.Lead".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack + 100);
 
@@ -71,12 +71,12 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
-                context.Append("Combat.Minerva.Kungfu.Dodged".Localized());
+                context.AppendLog("Combat.Minerva.Kungfu.Dodged".Localized());
             else if (damage <= 0)
-                context.Append("Combat.Minerva.Kungfu.Deflected".Localized());
+                context.AppendLog("Combat.Minerva.Kungfu.Deflected".Localized());
             else
             {
-                context.Append("Combat.Minerva.Kungfu.Hit".Localized());
+                context.AppendLog("Combat.Minerva.Kungfu.Hit".Localized());
 
                 player.HealthChange(-damage);
             }
@@ -93,16 +93,16 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + 35);
 
-            context.Append("Combat.Minerva.TailWhip.Lead".Localized());
+            context.AppendLog("Combat.Minerva.TailWhip.Lead".Localized());
 
             if (damage <= 0)
             {
-                context.Append("Combat.Minerva.TailWhip.Deflected".Localized());
+                context.AppendLog("Combat.Minerva.TailWhip.Deflected".Localized());
 
                 return;
             }
 
-            context.Append(player.ArmorDefense > 0
+            context.AppendLog(player.ArmorDefense > 0
 
                 ? "Combat.Minerva.TailWhip.HitArmor".Localized()
 
@@ -122,7 +122,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Minerva.HalberdStab.Lead".Localized());
+            context.AppendLog("Combat.Minerva.HalberdStab.Lead".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack) - 20;
 
@@ -132,12 +132,12 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
-                context.Append("Combat.Minerva.HalberdStab.Dodged".Localized());
+                context.AppendLog("Combat.Minerva.HalberdStab.Dodged".Localized());
             else if (damage < 0)
-                context.Append("Combat.Minerva.HalberdStab.Deflected".Localized());
+                context.AppendLog("Combat.Minerva.HalberdStab.Deflected".Localized());
             else
             {
-                context.Append("Combat.Minerva.HalberdStab.Hit".Localized());
+                context.AppendLog("Combat.Minerva.HalberdStab.Hit".Localized());
 
                 player.HealthChange(-damage);
             }
@@ -150,7 +150,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Minerva.HalberdChop.Lead".Localized());
+            context.AppendLog("Combat.Minerva.HalberdChop.Lead".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + 100);
 
@@ -160,12 +160,12 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
-                context.Append("Combat.Minerva.HalberdChop.Dodged".Localized());
+                context.AppendLog("Combat.Minerva.HalberdChop.Dodged".Localized());
             else if (damage < 0)
-                context.Append("Combat.Minerva.HalberdChop.Deflected".Localized());
+                context.AppendLog("Combat.Minerva.HalberdChop.Deflected".Localized());
             else
             {
-                context.Append("Combat.Minerva.HalberdChop.Hit".Localized());
+                context.AppendLog("Combat.Minerva.HalberdChop.Hit".Localized());
 
                 player.HealthChange(-damage);
             }
@@ -178,7 +178,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Minerva.KiteFire.Lead".Localized());
+            context.AppendLog("Combat.Minerva.KiteFire.Lead".Localized());
 
             var damage = (int)(10 + (enemy.Intelligence / 3f + context.Random.Next(Math.Max(1, (int)(enemy.Intelligence / 2)))) * 1.5f);
 
@@ -190,7 +190,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Minerva.BootyShort.Lead".Localized());
+            context.AppendLog("Combat.Minerva.BootyShort.Lead".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 20 + player.Libido / 10 + context.Random.Next(5));
         }
@@ -200,7 +200,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Minerva.LickDatPole.Lead".Localized());
+            context.AppendLog("Combat.Minerva.LickDatPole.Lead".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 20 + player.Libido / 10 + context.Random.Next(5));
         }
@@ -214,20 +214,20 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (!enemy.HasStatusEffect(StatusEffectIds.SirenSong))
             {
-                context.Append("Combat.Minerva.SirensSong.Part1".Localized());
+                context.AppendLog("Combat.Minerva.SirensSong.Part1".Localized());
 
                 enemy.CreateStatusEffect(StatusEffectIds.SirenSong);
 
                 return;
             }
 
-            context.Append("Combat.Minerva.SirensSong.Part2".Localized());
+            context.AppendLog("Combat.Minerva.SirensSong.Part2".Localized());
 
             if (context.PlayerWaited)
-                context.Append("Combat.Minerva.SirensSong.Waited".Localized());
+                context.AppendLog("Combat.Minerva.SirensSong.Waited".Localized());
             else
             {
-                context.Append("Combat.Minerva.SirensSong.Lost".Localized());
+                context.AppendLog("Combat.Minerva.SirensSong.Lost".Localized());
 
                 player.Lust = player.MaxLust;
             }

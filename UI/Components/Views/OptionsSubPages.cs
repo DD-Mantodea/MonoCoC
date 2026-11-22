@@ -7,8 +7,6 @@ using System;
 
 namespace MonoCoC.UI.Components.Views
 {
-    // Options 子页渲染：只按数据里的 kind 渲染，不认识具体页面名字。
-    // 抽成独立类是为了让 OptionsView 只负责标签/面板生命周期。
     internal sealed class OptionsSubPages
     {
         private readonly OptionsView _view;
@@ -74,7 +72,6 @@ namespace MonoCoC.UI.Components.Views
 
                         OptionStore.Instance.Set(option, delta == 0 ? reset : Math.Clamp(current + delta, min, max));
 
-                        // 重开详情页（会重建 Pane），否则行会不断追加。
                         _view.OpenDetail(() => Render(page));
 
                         ReloadViews(UIManager.Instance?.Root);

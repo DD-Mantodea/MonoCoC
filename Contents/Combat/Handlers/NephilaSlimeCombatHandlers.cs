@@ -23,14 +23,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Scenes.Nephilaslimescene.Combo.Sidestep".Localized());
+                context.AppendLog("Scenes.Nephilaslimescene.Combo.Sidestep".Localized());
 
                 player.HealthChange(-(1 + context.Random.Next(10)));
 
                 return;
             }
 
-            context.Append("Scenes.Nephilaslimescene.Combo.Caught".Localized());
+            context.AppendLog("Scenes.Nephilaslimescene.Combo.Caught".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack) + 25;
 
@@ -43,16 +43,16 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Scenes.Nephilaslimescene.Tease.Lead".Localized());
+            context.AppendLog("Scenes.Nephilaslimescene.Tease.Lead".Localized());
 
             if (player.Corruption < 40)
             {
-                context.Append("Scenes.Nephilaslimescene.Tease.Unnerving".Localized());
+                context.AppendLog("Scenes.Nephilaslimescene.Tease.Unnerving".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.Nephilaslimescene.Tease.Aroused".Localized());
+            context.AppendLog("Scenes.Nephilaslimescene.Tease.Aroused".Localized());
 
             player.TakeLustDamage(30 * player.LustPercent / 100f, true);
         }
@@ -64,7 +64,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.Nephilaslimescene.GooBlind.Lead".Localized());
+            context.AppendLog("Scenes.Nephilaslimescene.GooBlind.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -90,12 +90,12 @@ namespace MonoCoC.Contents.Combat.Handlers
                     _ => "Scenes.Nephilaslimescene.GooBlind.Dodged",
                 };
 
-                context.Append(dodgeKey.Localized());
+                context.AppendLog(dodgeKey.Localized());
 
                 return;
             }
 
-            context.Append("Scenes.Nephilaslimescene.GooBlind.Hit".Localized());
+            context.AppendLog("Scenes.Nephilaslimescene.GooBlind.Hit".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.Blind, 1 + context.Random.Next(3), 0, 0, 0);
 

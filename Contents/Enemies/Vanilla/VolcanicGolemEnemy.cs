@@ -25,7 +25,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                     context.Player.HealthChange(-thorns);
 
-                    context.Append("Combat.VolcanicGolem.MagmaSpills".Localized((int)thorns));
+                    context.AppendLog("Combat.VolcanicGolem.MagmaSpills".Localized((int)thorns));
                 }
 
                 return true;
@@ -124,7 +124,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 if (StatusEffectValue(StatusEffectIds.VolcanicWeapRed, 0) < 0)
                 {
-                    context.Write("Combat.VolcanicGolem.WeapRegrown".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.WeapRegrown".Localized());
 
                     WeaponAttack += 40;
 
@@ -145,12 +145,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                     ArmorDefense += 150;
 
-                    context.Write("Combat.VolcanicGolem.ArmorReturnSome".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ArmorReturnSome".Localized());
                 }
 
                 if (StatusEffectValue(StatusEffectIds.VolcanicArmorRed, 0) < 0)
                 {
-                    context.Write("Combat.VolcanicGolem.ArmorReturnAll".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ArmorReturnAll".Localized());
 
                     RemoveStatusEffect(StatusEffectIds.VolcanicArmorRed);
                 }
@@ -164,7 +164,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 {
                     RemoveStatusEffect(StatusEffectIds.VolcanicFrenzy);
 
-                    context.Write("Combat.VolcanicGolem.FrenzyCalm".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.FrenzyCalm".Localized());
 
                     WeaponAttack = 120;
                 }
@@ -187,7 +187,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (HasStatusEffect(StatusEffectIds.Stunned))
             {
-                context.Write("Combat.VolcanicGolem.StunnedWait".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.StunnedWait".Localized());
 
                 ArmorDefense = 0;
 
@@ -195,7 +195,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 {
                     RemoveStatusEffect(StatusEffectIds.Stunned);
 
-                    context.Write("Combat.VolcanicGolem.StunnedEnd".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.StunnedEnd".Localized());
 
                     CreateStatusEffect(StatusEffectIds.VolcanicFrenzy, 3, 0, 0, 0);
 
@@ -215,7 +215,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void Reinforce(CombatContext context)
         {
-            context.Write("Combat.VolcanicGolem.Reinforce".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.Reinforce".Localized());
 
             ArmorDefense = 300;
         }
@@ -226,7 +226,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (!HasStatusEffect(StatusEffectIds.Uber))
             {
-                context.Write("Combat.VolcanicGolem.UberCharge".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.UberCharge".Localized());
 
                 CreateStatusEffect(StatusEffectIds.Uber, 0, 0, 0, 0);
 
@@ -239,10 +239,10 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 AddStatusValue(StatusEffectIds.Uber, 0, 1);
 
-                context.Write("Combat.VolcanicGolem.Uber1".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.Uber1".Localized());
 
                 if (player.Intelligence > 50)
-                    context.Write("Combat.VolcanicGolem.UberHint1".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.UberHint1".Localized());
 
                 return;
             }
@@ -251,19 +251,19 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 AddStatusValue(StatusEffectIds.Uber, 0, 1);
 
-                context.Write("Combat.VolcanicGolem.Uber2".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.Uber2".Localized());
 
                 if (player.Intelligence > 50)
-                    context.Write("Combat.VolcanicGolem.UberHint2".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.UberHint2".Localized());
 
                 return;
             }
 
-            context.Write("Combat.VolcanicGolem.Nuke1".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.Nuke1".Localized());
 
-            context.Write("Combat.VolcanicGolem.Nuke2".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.Nuke2".Localized());
 
-            context.Write("Combat.VolcanicGolem.Nuke3".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.Nuke3".Localized());
 
             player.HealthChange(-9999);
         }
@@ -272,7 +272,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (!HasStatusEffect(StatusEffectIds.VolcanicUberHeal))
             {
-                context.Write("Combat.VolcanicGolem.HealStart".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.HealStart".Localized());
 
                 CreateStatusEffect(StatusEffectIds.VolcanicUberHeal, 2, 0, 0, 0);
 
@@ -285,17 +285,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 AddStatusValue(StatusEffectIds.VolcanicUberHeal, 0, -1);
 
-                context.Write("Combat.VolcanicGolem.HealContinue".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.HealContinue".Localized());
 
                 if (context.Player.Intelligence > 70)
-                    context.Write("Combat.VolcanicGolem.HealHint".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.HealHint".Localized());
 
                 return;
             }
 
             RemoveStatusEffect(StatusEffectIds.VolcanicUberHeal);
 
-            context.Write("Combat.VolcanicGolem.HealDone".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.HealDone".Localized());
 
             HealthChange(2000);
 
@@ -309,7 +309,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var player = context.Player;
 
-            context.Write("Combat.VolcanicGolem.ShatterIntro".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ShatterIntro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -326,14 +326,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.Outcome == AvoidOutcome.Block)
             {
-                context.Write("Combat.VolcanicGolem.ShatterBlock".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ShatterBlock".Localized());
 
                 return;
             }
 
             if (player.Stun(1, 50))
             {
-                context.Write("Combat.VolcanicGolem.ShatterStun".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ShatterStun".Localized());
 
                 return;
             }
@@ -343,7 +343,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (damage < 10)
                 damage = 10;
 
-            context.Write("Combat.VolcanicGolem.ShatterHit".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ShatterHit".Localized());
 
             player.HealthChange(-damage);
         }
@@ -352,7 +352,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (HasStatusEffect(StatusEffectIds.Uber) && damage >= 150)
             {
-                context.Write("Combat.VolcanicGolem.ChargeBreak".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ChargeBreak".Localized());
 
                 ArmorDefense = 0;
 
@@ -365,7 +365,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 if (damage < 100)
                 {
-                    context.Write("Combat.VolcanicGolem.ShieldAbsorb".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ShieldAbsorb".Localized());
 
                     var shield = CoC.Instance.Flags.Get(GameFlagIds.Volcanicgolemshieldhp) - damage * 0.3f;
 
@@ -373,7 +373,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                     if (shield <= 0)
                     {
-                        context.Write("Combat.VolcanicGolem.ShieldBreak".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ShieldBreak".Localized());
 
                         ArmorDefense = 0;
 
@@ -383,7 +383,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     return 1;
                 }
 
-                context.Write("Combat.VolcanicGolem.ShieldShatter".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ShieldShatter".Localized());
 
                 ArmorDefense = 0;
 
@@ -407,9 +407,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 if ((player.Speed < 70 && Random.Shared.Next(4) == 0) || (player.Speed >= 70 && Random.Shared.Next(2) == 0))
                 {
-                    context.Write("Combat.VolcanicGolem.FistStuck".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.FistStuck".Localized());
 
-                    context.Write("Combat.VolcanicGolem.FistStuckHint".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.FistStuckHint".Localized());
 
                     CreateStatusEffect(StatusEffectIds.VolcanicFistProblem, 2, 0, 0, 0);
                 }
@@ -418,7 +418,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             }
             else
             {
-                context.Write("Combat.VolcanicGolem.ChargingRetreat".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ChargingRetreat".Localized());
 
                 if (!HasStatusEffect(StatusEffectIds.VolcanicUberHeal))
                     Nuke(context);
@@ -431,7 +431,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var player = context.Player;
 
-            context.Write("Combat.VolcanicGolem.ThrowRock".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ThrowRock".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -441,17 +441,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             });
 
             if (avoid.AttackFailed)
-                context.Write("Combat.VolcanicGolem.ThrowDodge".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ThrowDodge".Localized());
             else
             {
-                context.Write("Combat.VolcanicGolem.ThrowHit".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ThrowHit".Localized());
 
                 var damage = CombatCalculator.ReduceDamage(context, player, Strength + 200);
 
                 player.HealthChange(-damage);
             }
 
-            context.Write("Combat.VolcanicGolem.ArmorDecreased".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.VolcanicGolem.ArmorDecreased".Localized());
 
             if (HasStatusEffect(StatusEffectIds.VolcanicArmorRed))
             {

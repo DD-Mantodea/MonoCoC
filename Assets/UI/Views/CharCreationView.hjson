@@ -1,9 +1,9 @@
 {
+  require: ["GlobalStyles"]
   id: "CharCreationView"
-  templates: {
+  styles: {
     TabButton: {
       type: "coc:button"
-      layout: "relative"
       width: 200
       height: 60
       horizontalAlign: "center"
@@ -23,7 +23,6 @@
     }
     CharSegment:{
       type: "coc:segmented"
-      layout: "relative"
       width: 500
       height: 40
       borderThickness: 2
@@ -39,7 +38,6 @@
     }
     FieldLabel: {
       type: "coc:label"
-      layout: "relative"
       autoSize: true
       font: { id: "coc:menu", size: 20 }
       textColor: "#5C4A38FF"
@@ -47,7 +45,6 @@
     }
     SectionTitle: {
       type: "coc:label"
-      layout: "relative"
       autoSize: true
       font: { id: "coc:menu", size: 34 }
       textColor: "#35291FFF"
@@ -55,7 +52,6 @@
     }
     CreationPanel: {
       type: "coc:grid"
-      layout: "relative"
       x: 330
       y: 70
       width: 940
@@ -68,7 +64,6 @@
     }
     CreationStepper: {
       type: "coc:numeric_stepper"
-      layout: "relative"
       width: 300
       height: 40
       step: 1
@@ -104,7 +99,6 @@
     }
     CreationWheel: {
       type: "coc:choice_wheel"
-      layout: "relative"
       width: 150
       height: 300
       visibleItems: 5
@@ -140,7 +134,6 @@
     }
     CreationDetail: {
       type: "coc:label"
-      layout: "relative"
       autoSize: true
       width: 400
       wrapWidth: 400
@@ -152,14 +145,12 @@
   }
   root: {
     type: "coc:view"
-    layout: "relative"
     width: 1600
     height: 900
 
     children: [
       {
         type: "coc:panel"
-        layout: "relative"
         part: "charCreation.background"
         material: "coc:paper"
         sizeType: "fill"
@@ -168,7 +159,6 @@
       }
       {
         type: "coc:label"
-        layout: "relative"
         width: 1600
         height: 100
         text: { key: "Views.CharCreation.Title" }
@@ -180,7 +170,6 @@
       }
       {
         type: "coc:panel"
-        layout: "relative"
         x: 280
         y: 70
         width: 1
@@ -191,7 +180,6 @@
       {
         type: "coc:panel"
         part: "page.tabs"
-        layout: "relative"
         x: 0
         y: 100
         width: 300
@@ -199,7 +187,6 @@
       }
       {
         type: "coc:grid"
-        layout: "relative"
         part: "creation.panel.identity"
         x: 330
         y: 70
@@ -211,12 +198,11 @@
         autoIndex: true
         children: [
           {
-            template: "SectionTitle"
+            style: "SectionTitle"
             text: { key: "Views.CharCreation.WhoAreYou" }
           }
           {
             type: "coc:text_box"
-            layout: "relative"
             part: "creation.name"
             borderThickness: [0, 0, 0, 1]
             borderColor: "#B99A6BFF"
@@ -227,40 +213,40 @@
             textColor: "#B99A6BFF"
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.Age" }
           }
           {
-            template: "CharSegment"
+            style: "CharSegment"
             part: "creation.age"
             optionKeys: ["Views.CharCreation.Opt.Child", "Views.CharCreation.Opt.Teenager", "Views.CharCreation.Opt.Adult", "Views.CharCreation.Opt.Elder"]
             value: 2
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.Gender" }
           }
           {
-            template: "CharSegment"
+            style: "CharSegment"
             part: "creation.gender"
             optionKeys: ["Views.CharCreation.Opt.Male", "Views.CharCreation.Opt.Female", "Views.CharCreation.Opt.Herm"]
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.Build" }
           }
           {
-            template: "CharSegment"
+            style: "CharSegment"
             part: "creation.build"
             optionKeys: ["Views.CharCreation.Opt.Lean", "Views.CharCreation.Opt.Average", "Views.CharCreation.Opt.Thick", "Views.CharCreation.Opt.Girly"]
             value: 1
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.SexualOrientation" }
           }
           {
-            template: "CharSegment"
+            style: "CharSegment"
             part: "creation.orientation"
             optionKeys: ["Views.CharCreation.Opt.Males", "Views.CharCreation.Opt.Females", "Views.CharCreation.Opt.Bisexual"]
             value: 2
@@ -269,7 +255,6 @@
       }
       {
         type: "coc:grid"
-        layout: "relative"
         part: "creation.panel.body"
         x: 330
         y: 70
@@ -282,15 +267,15 @@
         visible: false
         children: [
           {
-            template: "SectionTitle"
+            style: "SectionTitle"
             text: { key: "Views.CharCreation.Body" }
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.Height" }
           }
           {
-            template: "CreationStepper"
+            style: "CreationStepper"
             part: "creation.height"
             min: 107
             max: 244
@@ -298,11 +283,11 @@
             unit: "cm"
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.CockLength" }
           }
           {
-            template: "CreationStepper"
+            style: "CreationStepper"
             part: "creation.cock"
             min: 8
             max: 20
@@ -311,12 +296,12 @@
             unit: "cm"
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             part: "creation.breast.label"
             text: { key: "Views.CharCreation.BreastSize" }
           }
           {
-            template: "CharSegment"
+            style: "CharSegment"
             part: "creation.breast"
             width: 600
             height: 40
@@ -326,7 +311,6 @@
       }
       {
         type: "coc:grid"
-        layout: "relative"
         part: "creation.panel.appearance"
         x: 330
         y: 70
@@ -339,37 +323,37 @@
         visible: false
         children: [
           {
-            template: "SectionTitle"
+            style: "SectionTitle"
             text: { key: "Views.CharCreation.Appearance" }
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.Complexion" }
           }
           {
-            template: "CharSegment"
+            style: "CharSegment"
             part: "creation.skin"
             width: 700
             height: 40
             optionKeys: ["Views.CharCreation.Opt.Light", "Views.CharCreation.Opt.Fair", "Views.CharCreation.Opt.Olive", "Views.CharCreation.Opt.Dark", "Views.CharCreation.Opt.Ebony", "Views.CharCreation.Opt.Mahogany", "Views.CharCreation.Opt.Russet"]
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.HairColor" }
           }
           {
-            template: "CharSegment"
+            style: "CharSegment"
             part: "creation.hair"
             width: 700
             height: 40
             optionKeys: ["Views.CharCreation.Opt.Blonde", "Views.CharCreation.Opt.Brown", "Views.CharCreation.Opt.Black", "Views.CharCreation.Opt.Red", "Views.CharCreation.Opt.Gray", "Views.CharCreation.Opt.White", "Views.CharCreation.Opt.Auburn"]
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.HairLength" }
           }
           {
-            template: "CreationStepper"
+            style: "CreationStepper"
             part: "creation.hairLength"
             min: 0
             max: 244
@@ -377,22 +361,22 @@
             unit: "cm"
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             part: "creation.beardStyle.label"
             text: { key: "Views.CharCreation.BeardStyle" }
           }
           {
-            template: "CharSegment"
+            style: "CharSegment"
             part: "creation.beardStyle"
             optionKeys: ["Views.CharCreation.Opt.Normal", "Views.CharCreation.Opt.Goatee", "Views.CharCreation.Opt.CleanCut", "Views.CharCreation.Opt.Mountainman"]
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             part: "creation.beardLength.label"
             text: { key: "Views.CharCreation.BeardLength" }
           }
           {
-            template: "CharSegment"
+            style: "CharSegment"
             part: "creation.beardLength"
             width: 840
             height: 40
@@ -402,7 +386,6 @@
       }
       {
         type: "coc:grid"
-        layout: "relative"
         part: "creation.panel.origin"
         x: 330
         y: 70
@@ -415,46 +398,43 @@
         visible: false
         children: [
           {
-            template: "SectionTitle"
+            style: "SectionTitle"
             text: { key: "Views.CharCreation.Background" }
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.History" }
           }
           {
             type: "coc:grid"
-            layout: "relative"
             autoIndex: true
             autoSize: true
             columns: "auto3"
             children: [
-              { template: "CreationWheel", part: "creation.history.normal", source: "History", showLocked: true }
-              { template: "CreationDivider", part: "creation.history.divider" }
-              { template: "CreationDetail", part: "creation.history.detail" }
+              { style: "CreationWheel", part: "creation.history.normal", source: "History", showLocked: true }
+              { style: "CreationDivider", part: "creation.history.divider" }
+              { style: "CreationDetail", part: "creation.history.detail" }
             ]
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.Virginity" }
           }
           {
             type: "coc:grid"
-            layout: "relative"
             autoIndex: true
             autoSize: true
             columns: "auto3"
             children: [
-              { template: "CreationWheel", part: "creation.virginity", source: "Virginity", showLocked: true }
-              { template: "CreationDivider", part: "creation.virginity.divider" }
-              { template: "CreationDetail", part: "creation.virginity.detail" }
+              { style: "CreationWheel", part: "creation.virginity", source: "Virginity", showLocked: true }
+              { style: "CreationDivider", part: "creation.virginity.divider" }
+              { style: "CreationDetail", part: "creation.virginity.detail" }
             ]
           }
         ]
       }
       {
         type: "coc:grid"
-        layout: "relative"
         part: "creation.panel.experience"
         x: 330
         y: 70
@@ -467,30 +447,28 @@
         visible: false
         children: [
           {
-            template: "SectionTitle"
+            style: "SectionTitle"
             text: { key: "Views.CharCreation.Traits" }
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.Endowment" }
           }
           {
             type: "coc:grid"
-            layout: "relative"
             autoIndex: true
             autoSize: true
             columns: "auto3"
             children: [
-              { template: "CreationWheel", part: "creation.endowment.options", source: "Endowment", showLocked: true }
-              { template: "CreationDivider", part: "creation.endowment.divider" }
-              { template: "CreationDetail", part: "creation.endowment.detail" }
+              { style: "CreationWheel", part: "creation.endowment.options", source: "Endowment", showLocked: true }
+              { style: "CreationDivider", part: "creation.endowment.divider" }
+              { style: "CreationDetail", part: "creation.endowment.detail" }
             ]
           }
         ]
       }
       {
         type: "coc:grid"
-        layout: "relative"
         part: "creation.panel.modes"
         x: 330
         y: 70
@@ -503,26 +481,26 @@
         visible: false
         children: [
           {
-            template: "SectionTitle"
+            style: "SectionTitle"
             text: { key: "Views.CharCreation.GameModes" }
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.Difficulty" }
           }
           {
-            template: "CharSegment"
+            style: "CharSegment"
             part: "creation.difficulty"
             width: 700
             height: 40
             optionKeys: ["Views.CharCreation.Opt.Easy", "Views.CharCreation.Opt.Normal", "Views.CharCreation.Opt.Hard", "Views.CharCreation.Opt.Nightmare", "Views.CharCreation.Opt.Extreme"]
           }
           {
-            template: "FieldLabel"
+            style: "FieldLabel"
             text: { key: "Views.CharCreation.Hardcore" }
           }
           {
-            template: "CharSegment"
+            style: "CharSegment"
             part: "creation.hardcore"
             width: 300
             height: 40
@@ -532,7 +510,6 @@
       }
       {
         type: "coc:grid"
-        layout: "relative"
         part: "creation.panel.summary"
         x: 330
         y: 70
@@ -545,12 +522,11 @@
         visible: false
         children: [
           {
-            template: "SectionTitle"
+            style: "SectionTitle"
             text: { key: "Views.CharCreation.Summary" }
           }
           {
             type: "coc:label"
-            layout: "relative"
               autoSize: true
             part: "creation.summary.text"
             font: "coc:body"
@@ -559,7 +535,6 @@
           }
           {
             type: "coc:label"
-            layout: "relative"
             autoSize: true
             text: { key: "Views.CharCreation.Footer" }
             font: "coc:body"
@@ -570,7 +545,7 @@
       }
       {
         type: "coc:button"
-        template: "TabButton"
+        style: "FooterButton"
         part: "creation.confirm"
         horizontalAlign: "left"
         verticalAlign: "bottom"
@@ -581,7 +556,7 @@
       }
       {
         type: "coc:button"
-        template: "TabButton"
+        style: "FooterButton"
         part: "creation.exit"
         horizontalAlign: "right"
         verticalAlign: "bottom"
@@ -593,7 +568,6 @@
       {
         type: "coc:label"
         part: "creation.error"
-        layout: "relative"
         y: -40
         width: 940
         wrapWidth: 940

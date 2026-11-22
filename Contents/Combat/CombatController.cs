@@ -149,24 +149,24 @@ namespace MonoCoC.Contents.Combat
 
             Context.Log.Clear();
 
-            Context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            Context.ClearButtons();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearButtons();
 
             if (log.Length > 0)
-                Context.Write(string.Join("\n", log) + "\n\n");
+                MonoCoC.UI.Components.Views.GameView.Current.Write(string.Join("\n", log) + "\n\n");
 
-            Context.Write("Combat.Menu.Turn".Localized(State.Round + 1));
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Menu.Turn".Localized(State.Round + 1));
 
-            Context.Write("\n" + "Combat.Menu.Fighting".Localized(Context.Enemy.ShortName));
+            MonoCoC.UI.Components.Views.GameView.Current.Write("\n" + "Combat.Menu.Fighting".Localized(Context.Enemy.ShortName));
 
             CombatScene.RefreshStats(Context);
 
             if (Context.Player.HasStatusEffect(StatusEffectIds.TFSupercharging))
             {
-                Context.ClearButtons();
+                MonoCoC.UI.Components.Views.GameView.Current.ClearButtons();
 
-                Context.AddButton(0, "Combat.Terra.Supernova.GatherButton".Localized(), GatherSupernovaEnergy);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(0, "Combat.Terra.Supernova.GatherButton".Localized(), GatherSupernovaEnergy);
 
                 return;
             }
@@ -175,21 +175,21 @@ namespace MonoCoC.Contents.Combat
             {
                 _stunRecoveryOffered = false;
 
-                Context.Write("Combat.Status.TooStunned".Localized() + "\n");
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Status.TooStunned".Localized() + "\n");
 
-                Context.ClearButtons();
+                MonoCoC.UI.Components.Views.GameView.Current.ClearButtons();
 
-                Context.AddButton(0, "Combat.PowerThrough.Option".Localized(), PowerThroughRecover);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(0, "Combat.PowerThrough.Option".Localized(), PowerThroughRecover);
 
-                Context.AddButton(1, "Combat.PowerThrough.Wait".Localized(), StunWait);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(1, "Combat.PowerThrough.Wait".Localized(), StunWait);
 
                 return;
             }
 
             if (!string.IsNullOrEmpty(Context.IntroDescription))
-                Context.Write("\n" + Context.IntroDescription);
+                MonoCoC.UI.Components.Views.GameView.Current.Write("\n" + Context.IntroDescription);
             else if (!string.IsNullOrEmpty(Context.Enemy.Description))
-                Context.Write("\n" + Context.Enemy.Description);
+                MonoCoC.UI.Components.Views.GameView.Current.Write("\n" + Context.Enemy.Description);
 
             var ratio = Context.Enemy.MaxHealth <= 0 ? 1 : Context.Enemy.Health / Context.Enemy.MaxHealth;
 
@@ -208,86 +208,86 @@ namespace MonoCoC.Contents.Combat
 
             var pronoun = Context.Enemy.Gender == Gender.Female ? "she" : Context.Enemy.Gender == Gender.Male ? "he" : "it";
 
-            Context.Write("\n\n" + "Combat.Menu.Status".Localized(Context.Enemy.ShortName));
+            MonoCoC.UI.Components.Views.GameView.Current.Write("\n\n" + "Combat.Menu.Status".Localized(Context.Enemy.ShortName));
 
-            Context.Write("\n" + "Combat.Menu.See".Localized(pronoun, condition));
+            MonoCoC.UI.Components.Views.GameView.Current.Write("\n" + "Combat.Menu.See".Localized(pronoun, condition));
 
             if (Context.Enemy.Lust >= Context.Enemy.MaxLust)
-                Context.Write("\n" + "Combat.Menu.Overwhelmed".Localized(pronoun));
+                MonoCoC.UI.Components.Views.GameView.Current.Write("\n" + "Combat.Menu.Overwhelmed".Localized(pronoun));
 
             if (endOfRound != null)
             {
-                Context.AddButton(14, "Common.Button.Next".Localized(), endOfRound);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(14, "Common.Button.Next".Localized(), endOfRound);
 
                 return;
             }
 
             if (IsPlayerBound())
             {
-                Context.Write("\n" + "Combat.Menu.Bound".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("\n" + "Combat.Menu.Bound".Localized());
 
-                Context.AddButton(0, "Combat.Button.Struggle".Localized(), Struggle);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(0, "Combat.Button.Struggle".Localized(), Struggle);
 
-                Context.AddButton(1, "Combat.Button.Wait".Localized(), Wait);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(1, "Combat.Button.Wait".Localized(), Wait);
 
                 return;
             }
 
             if (Context.Player.HasStatusEffect(StatusEffectIds.SentinelPhysicalDisabled))
-                Context.AddButtonDisabled(0, "Combat.Button.Attack".Localized(), "Combat.Disabled.PhysicalSealed".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(0, "Combat.Button.Attack".Localized(), "Combat.Disabled.PhysicalSealed".Localized());
             else
-                Context.AddButton(0, "Combat.Button.Attack".Localized(), Attack);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(0, "Combat.Button.Attack".Localized(), Attack);
 
             if (Context.Player.HasStatusEffect(StatusEffectIds.SentinelNoTease))
-                Context.AddButtonDisabled(1, "Combat.Button.Tease".Localized(), "Combat.Disabled.TeaseSealed".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(1, "Combat.Button.Tease".Localized(), "Combat.Disabled.TeaseSealed".Localized());
             else
-                Context.AddButton(1, "Combat.Button.Tease".Localized(), Tease);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(1, "Combat.Button.Tease".Localized(), Tease);
 
             if (Context.Player.HasStatusEffect(StatusEffectIds.SentinelOmniSilence))
-                Context.AddButtonDisabled(2, "Combat.Button.Spells".Localized(), "Combat.Disabled.MagicSealed".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(2, "Combat.Button.Spells".Localized(), "Combat.Disabled.MagicSealed".Localized());
             else if (CountAbilities(SpellSchools) == 0)
-                Context.AddButtonDisabled(2, "Combat.Button.Spells".Localized(), "Combat.Disabled.NoSpells".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(2, "Combat.Button.Spells".Localized(), "Combat.Disabled.NoSpells".Localized());
             else
-                Context.AddButton(2, "Combat.Button.Spells".Localized(), Spells);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(2, "Combat.Button.Spells".Localized(), Spells);
 
             if (Context.Player.HasStatusEffect(StatusEffectIds.SentinelPhysicalDisabled))
-                Context.AddButtonDisabled(5, "Combat.Button.PhysicalSpecials".Localized(), "Combat.Disabled.PhysicalSealed".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(5, "Combat.Button.PhysicalSpecials".Localized(), "Combat.Disabled.PhysicalSealed".Localized());
             else if (AvailableAbilities(CombatAbilityCategory.Physical).Count == 0)
-                Context.AddButtonDisabled(5, "Combat.Button.PhysicalSpecials".Localized(), "Combat.Disabled.NoPhysicalSpecials".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(5, "Combat.Button.PhysicalSpecials".Localized(), "Combat.Disabled.NoPhysicalSpecials".Localized());
             else
-                Context.AddButton(5, "Combat.Button.PhysicalSpecials".Localized(), PhysicalSpecials);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(5, "Combat.Button.PhysicalSpecials".Localized(), PhysicalSpecials);
 
             if (Context.Player.HasStatusEffect(StatusEffectIds.SentinelOmniSilence))
-                Context.AddButtonDisabled(6, "Combat.Button.MagicalSpecials".Localized(), "Combat.Disabled.MagicSealed".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(6, "Combat.Button.MagicalSpecials".Localized(), "Combat.Disabled.MagicSealed".Localized());
             else if (AvailableAbilities(CombatAbilityCategory.Magical).Count == 0)
-                Context.AddButtonDisabled(6, "Combat.Button.MagicalSpecials".Localized(), "Combat.Disabled.NoMagicalSpecials".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(6, "Combat.Button.MagicalSpecials".Localized(), "Combat.Disabled.NoMagicalSpecials".Localized());
             else
-                Context.AddButton(6, "Combat.Button.MagicalSpecials".Localized(), MagicalSpecials);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(6, "Combat.Button.MagicalSpecials".Localized(), MagicalSpecials);
 
-            Context.AddButton(3, "Combat.Button.Items".Localized(), Items);
+            MonoCoC.UI.Components.Views.GameView.Current.AddButton(3, "Combat.Button.Items".Localized(), Items);
 
-            Context.AddButton(8, "Combat.Button.Fantasize".Localized(), Fantasize);
+            MonoCoC.UI.Components.Views.GameView.Current.AddButton(8, "Combat.Button.Fantasize".Localized(), Fantasize);
 
             if (Context.Enemy.Distance == CombatDistance.Distant)
-                Context.AddButtonDisabled(10, "Combat.Button.Distance".Localized(), "Combat.Disabled.DistanceFar".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(10, "Combat.Button.Distance".Localized(), "Combat.Disabled.DistanceFar".Localized());
             else if (!Context.Player.CanMove())
-                Context.AddButtonDisabled(10, "Combat.Button.Distance".Localized(), "Combat.Disabled.CannotMove".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(10, "Combat.Button.Distance".Localized(), "Combat.Disabled.CannotMove".Localized());
             else
-                Context.AddButton(10, "Combat.Button.Distance".Localized(), Distance);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(10, "Combat.Button.Distance".Localized(), Distance);
 
             if (Context.Enemy.Distance == CombatDistance.Melee)
-                Context.AddButtonDisabled(11, "Combat.Button.Approach".Localized(), "Combat.Disabled.ApproachClose".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(11, "Combat.Button.Approach".Localized(), "Combat.Disabled.ApproachClose".Localized());
             else if (!Context.Player.CanMove())
-                Context.AddButtonDisabled(11, "Combat.Button.Approach".Localized(), "Combat.Disabled.CannotMove".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(11, "Combat.Button.Approach".Localized(), "Combat.Disabled.CannotMove".Localized());
             else
-                Context.AddButton(11, "Combat.Button.Approach".Localized(), Approach);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(11, "Combat.Button.Approach".Localized(), Approach);
 
             if (Context.CanFlee)
-                Context.AddButton(4, "Combat.Button.Run".Localized(), Run);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(4, "Combat.Button.Run".Localized(), Run);
             else
-                Context.AddButtonDisabled(4, "Combat.Button.Run".Localized(), "Combat.Disabled.CannotFlee".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(4, "Combat.Button.Run".Localized(), "Combat.Disabled.CannotFlee".Localized());
 
-            Context.AddButton(7, "Combat.Button.Wait".Localized(), Wait);
+            MonoCoC.UI.Components.Views.GameView.Current.AddButton(7, "Combat.Button.Wait".Localized(), Wait);
         }
 
         public virtual void Attack()
@@ -330,13 +330,13 @@ namespace MonoCoC.Contents.Combat
 
         protected virtual void MagicMenu(CombatAbilityCategory? school)
         {
-            Context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            Context.ClearButtons();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearButtons();
 
             if (school == null)
             {
-                Context.Write("Combat.Menu.Spells".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Menu.Spells".Localized());
 
                 var slot = 0;
 
@@ -345,14 +345,14 @@ namespace MonoCoC.Contents.Combat
                     var label = SchoolName(category);
 
                     if (AvailableAbilities(category).Count == 0)
-                        Context.AddButtonDisabled(slot, label, "Combat.Disabled.NoSpellsSchool".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(slot, label, "Combat.Disabled.NoSpellsSchool".Localized());
                     else
-                        Context.AddButton(slot, label, () => MagicMenu(category));
+                        MonoCoC.UI.Components.Views.GameView.Current.AddButton(slot, label, () => MagicMenu(category));
 
                     slot++;
                 }
 
-                Context.AddButton(14, "Combat.Button.Back".Localized(), Menu);
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(14, "Combat.Button.Back".Localized(), Menu);
 
                 return;
             }
@@ -362,13 +362,13 @@ namespace MonoCoC.Contents.Combat
 
         protected virtual void AbilityListMenu(CombatAbilityCategory category, string title, Action back)
         {
-            Context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            Context.ClearButtons();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearButtons();
 
             var abilities = AvailableAbilities(category);
 
-            Context.Write($"<b>{title}</b>\n\n");
+            MonoCoC.UI.Components.Views.GameView.Current.Write($"<b>{title}</b>\n\n");
 
             for (var index = 0; index < abilities.Count && index < 12; index++)
             {
@@ -379,7 +379,7 @@ namespace MonoCoC.Contents.Combat
                 // 原版 CombatAbility.hx:277：只有开启「技能冷却」模式时才检查冷却
             if (Settings.ModeSettings.Instance.Cooldowns && State.IsOnCooldown(ability.Id))
                 {
-                    Context.AddButtonDisabled(index, label,
+                    MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(index, label,
 
                         "Combat.Disabled.OnCooldown".Localized(State.CooldownOf(ability.Id)));
 
@@ -388,7 +388,7 @@ namespace MonoCoC.Contents.Combat
 
                 if (ability.Cost > 0 && !Context.Player.HasFatigue(ability.Cost, ability.Fatigue))
                 {
-                    Context.AddButtonDisabled(index, label, "Combat.Disabled.TooTired".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(index, label, "Combat.Disabled.TooTired".Localized());
 
                     continue;
                 }
@@ -396,19 +396,19 @@ namespace MonoCoC.Contents.Combat
                 if (!string.IsNullOrEmpty(ability.DisabledWhen.Path) &&
                     Context.Player.HasStatusEffect(ability.DisabledWhen))
                 {
-                    Context.AddButtonDisabled(index, label,
+                    MonoCoC.UI.Components.Views.GameView.Current.AddButtonDisabled(index, label,
 
                         ability.DisabledTooltip == "" ? "Combat.Disabled.CannotUse".Localized() : ability.DisabledTooltip.Localized());
 
                     continue;
                 }
 
-                Context.Write($"{ability.NameKey.Localized()}: {ability.DescriptionKey.Localized()}\n");
+                MonoCoC.UI.Components.Views.GameView.Current.Write($"{ability.NameKey.Localized()}: {ability.DescriptionKey.Localized()}\n");
 
-                Context.AddButton(index, label, () => UseAbility(ability));
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(index, label, () => UseAbility(ability));
             }
 
-            Context.AddButton(14, "Combat.Button.Back".Localized(), back);
+            MonoCoC.UI.Components.Views.GameView.Current.AddButton(14, "Combat.Button.Back".Localized(), back);
         }
 
         protected static readonly CombatAbilityCategory[] SpellSchools =
@@ -484,7 +484,7 @@ namespace MonoCoC.Contents.Combat
 
                 handler(Context, ability);
             else
-                Context.Write("Combat.Disabled.NoHandler".Localized(ability.Id.Path));
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Disabled.NoHandler".Localized(ability.Id.Path));
 
             AfterPlayerAction();
         }
@@ -504,7 +504,7 @@ namespace MonoCoC.Contents.Combat
 
                 player.Lust = Math.Min(player.MaxLust, player.Lust + giantLust);
 
-                Context.WriteAction("Combat.Fantasy.LustGain".Localized(giantLust));
+                Context.Log.Add("Combat.Fantasy.LustGain".Localized(giantLust));
 
                 Handlers.FrostGiantCombatHandlers.GiantBoulderFantasize(Context);
 
@@ -526,7 +526,7 @@ namespace MonoCoC.Contents.Combat
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + lust);
 
-            Context.WriteAction("Combat.Fantasy.LustGain".Localized(lust));
+            Context.Log.Add("Combat.Fantasy.LustGain".Localized(lust));
 
             if (player.Lust >= player.MaxLust)
             {
@@ -744,7 +744,7 @@ namespace MonoCoC.Contents.Combat
             {
                 creature.HealthChange(-damage);
 
-                Context.Append("Combat.Bleed.Tick".Localized(damage));
+                Context.AppendLog("Combat.Bleed.Tick".Localized(damage));
             }
 
             creature.ChangeStatusValue(StatusEffectIds.IzmaBleed, 0, -1);
@@ -792,7 +792,7 @@ namespace MonoCoC.Contents.Combat
                 {
                     Context.Player.RemoveStatusEffect(StatusEffectIds.TimeFrozen);
 
-                    Context.Append("Combat.Special.FreezeTime.Fade".Localized());
+                    Context.AppendLog("Combat.Special.FreezeTime.Fade".Localized());
                 }
                 else
                 {
@@ -819,7 +819,7 @@ namespace MonoCoC.Contents.Combat
             if (Context.Player.HasStatusEffect(StatusEffectIds.TFScorch)
                 && Context.Enemy.Health > 0)
             {
-                Context.Append("Combat.Terra.Scorch.Burn".Localized());
+                Context.AppendLog("Combat.Terra.Scorch.Burn".Localized());
 
                 var scorch = Handlers.PlayerTerraFormHandlers.ScorchDamage(Context);
 
@@ -939,9 +939,9 @@ namespace MonoCoC.Contents.Combat
 
         private void PowerThroughRecover()
         {
-            Context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            Context.Write("Combat.PowerThrough.Intro".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.PowerThrough.Intro".Localized());
 
             Context.Player.RemoveStatusEffect(StatusEffectIds.Stunned);
 
@@ -973,7 +973,7 @@ namespace MonoCoC.Contents.Combat
                     return false;
                 }
 
-                Context.Write("Combat.Status.TooStunned".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Status.TooStunned".Localized());
 
                 Context.Player.RemoveStatusEffect(StatusEffectIds.Stunned);
 
@@ -982,7 +982,7 @@ namespace MonoCoC.Contents.Combat
 
             if (Context.Player.HasStatusEffect(StatusEffectIds.Whispered))
             {
-                Context.Write("Combat.Status.TooAddled".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Status.TooAddled".Localized());
 
                 Context.Player.RemoveStatusEffect(StatusEffectIds.Whispered);
 
@@ -991,7 +991,7 @@ namespace MonoCoC.Contents.Combat
 
             if (Context.Player.HasStatusEffect(StatusEffectIds.Confusion))
             {
-                Context.Write("Combat.Status.TooConfused".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Status.TooConfused".Localized());
 
                 Context.Player.RemoveStatusEffect(StatusEffectIds.Confusion);
 
@@ -1058,14 +1058,14 @@ namespace MonoCoC.Contents.Combat
 
             Context.Log.Clear();
 
-            Context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (log.Length > 0)
-                Context.Write(string.Join("\n", log) + "\n\n");
+                MonoCoC.UI.Components.Views.GameView.Current.Write(string.Join("\n", log) + "\n\n");
 
-            Context.ClearButtons();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearButtons();
 
-            UI.Components.Views.GameView.Instance?.HideCombatStats();
+            UI.Components.Views.CombatView.Current?.HideCombatStats();
 
             var hpVictory = State.Outcome is CombatOutcome.HpVictory;
 
@@ -1090,7 +1090,7 @@ namespace MonoCoC.Contents.Combat
                     break;
             }
 
-            Context.Write(State.Outcome switch
+            MonoCoC.UI.Components.Views.GameView.Current.Write(State.Outcome switch
             {
                 CombatOutcome.HpVictory => "You win the fight.",
 
@@ -1108,7 +1108,7 @@ namespace MonoCoC.Contents.Combat
             {
                 var callback = Context.Enemy.OnDefeated;
 
-                Context.AddButton(14, "Combat.Button.Continue".Localized(), () =>
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(14, "Combat.Button.Continue".Localized(), () =>
                 {
                     State.Outcome = null;
 
@@ -1128,7 +1128,7 @@ namespace MonoCoC.Contents.Combat
             {
                 var callback = Context.Enemy.OnWon;
 
-                Context.AddButton(14, "Combat.Button.Continue".Localized(), () =>
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(14, "Combat.Button.Continue".Localized(), () =>
                 {
                     State.Outcome = null;
 
@@ -1154,7 +1154,7 @@ namespace MonoCoC.Contents.Combat
 
             if (!string.IsNullOrEmpty(scenePath(outcomeScene)))
             {
-                Context.AddButton(14, "Combat.Button.Continue".Localized(), () =>
+                MonoCoC.UI.Components.Views.GameView.Current.AddButton(14, "Combat.Button.Continue".Localized(), () =>
                 {
                     State.Outcome = null;
 
@@ -1166,13 +1166,13 @@ namespace MonoCoC.Contents.Combat
                 return;
             }
 
-            Context.AddButton(14, "Combat.Button.Continue".Localized(), () =>
+            MonoCoC.UI.Components.Views.GameView.Current.AddButton(14, "Combat.Button.Continue".Localized(), () =>
             {
                 State.Outcome = null;
 
                 Instance = null;
 
-                Context.ReturnToCamp();
+                MonoCoC.Contents.Combat.CombatScene.ReturnToCampAction?.Invoke();
             });
         }
 
@@ -1191,7 +1191,7 @@ namespace MonoCoC.Contents.Combat
 
             Context.Player.Experience += experience;
 
-            Context.Write("Combat.Reward.Gems".Localized(Context.Enemy.Gems, experience));
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Reward.Gems".Localized(Context.Enemy.Gems, experience));
 
             if (Context.Enemy.Definition?.ChainLoot == true)
             {
@@ -1273,9 +1273,9 @@ namespace MonoCoC.Contents.Combat
             if (!Context.Enemy.HandleAwardItemText(Context, loot.Item))
 
                 if (quantity == 1)
-                    Context.Write("Combat.Reward.LootOne".Localized(item.LongName));
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Reward.LootOne".Localized(item.LongName));
                 else
-                    Context.Write("Combat.Reward.LootMany".Localized(quantity, item.LongName));
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Reward.LootMany".Localized(quantity, item.LongName));
         }
     }
 }

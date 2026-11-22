@@ -1,13 +1,15 @@
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Registry;
+using MonoCoC.UI.Components.Views;
+using MonoCoC.UI.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MonoCoC.Contents.Combat
 {
-    public class CombatContext
+    public class CombatContext : Context<CombatView>
     {
         public Player Player = null!;
 
@@ -134,26 +136,21 @@ namespace MonoCoC.Contents.Combat
         /// </summary>
         public float EnemyDamageTakenMultiplier = 1f;
 
-        public Action<string> Write = _ => { };
-
-        public Action<string> Append = _ => { };
-
-    /// <summary>原版 startCombatMultiple(..., desc) 的一次性战斗介绍文本。</summary>
-    public string IntroDescription = "";
-
-        public Action<string> WriteAction = _ => { };
-
         public List<string> Log = [];
 
-        public Action<int, string, Action> AddButton = (_, _, _) => { };
+        public void AppendLog(string text)
+        {
+            if (Log.Count == 0)
+                Log.Add(text);
+            else
+                Log[^1] += text;
+        }
 
-        public Action<int, string, string> AddButtonDisabled = (_, _, _) => { };
+        public void Append(string text) => AppendLog(text);
 
-        public Action Clear = () => { };
+        public void WriteAction(string text) => Log.Add(text);
 
-        public Action ClearButtons = () => { };
-
-        public Action ReturnToCamp = () => { };
+        public string IntroDescription = "";
 
         public bool CanFlee = true;
 

@@ -1,0 +1,155 @@
+{
+  require: ["GlobalStyles"]
+  id: "StorageView"
+  styles: {
+    ItemSlot: {
+      height: 84
+      iconSize: 36
+      emptyIcon: "Icons/inventory_empty.svg"
+      showName: true
+      showType: true
+      showQuantity: true
+      states: {
+        normal: { backgroundColor: "#F7EFE0CC", textColor: "#35291FFF", borderColor: "#B79A70AA", borderThickness: 1 }
+        hover: { backgroundColor: "#FBF4E6FF", textColor: "#35291FFF", borderColor: "#9F8156FF", borderThickness: 2 }
+        selected: { backgroundColor: "#E0C9AAFF", textColor: "#35291FFF", borderColor: "#9F8156FF", borderThickness: 2 }
+        disabled: { backgroundColor: "#E6DCC8AA", textColor: "#9A8B78AA", borderColor: "#B79A7066", borderThickness: 1 }
+      }
+    }
+    TabButton: {
+      type: "coc:button"
+      width: 110
+      height: 36
+      horizontalAlign: "left"
+      verticalAlign: "top"
+      font: { id: "coc:menu", size: 18 }
+      states: {
+        normal: { textColor: "#7C6B58CC" }
+        hover: { textColor: "#2F241BFF" }
+        selected: { backgroundColor: "#E0C9AAFF", textColor: "#2F241BFF" }
+      }
+    }
+  }
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        part: "storage.background"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#F2E5C7FF"
+        canHit: false
+      }
+      {
+        type: "coc:item_grid"
+        part: "storage.inventory"
+        itemStyle: "ItemSlot"
+        x: 20
+        y: 60
+        width: 628
+        height: 750
+        columns: 2
+        padding: 16
+        spacing: 8
+        backgroundColor: "#F7EFE0AA"
+        borderColor: "#B79A70AA"
+        borderThickness: 1
+      }
+      {
+        type: "coc:grid"
+        x: 656
+        y: 60
+        width: 628
+        height: 750
+        backgroundColor: "#F7EFE0AA"
+        borderColor: "#B79A70AA"
+        borderThickness: 1
+        children: [
+          {
+            type: "coc:item_grid"
+            part: "storage.warehouse"
+            itemStyle: "ItemSlot"
+            width: 628
+            height: 750
+            columns: 2
+            padding: 16
+            spacing: 8
+          }
+        ]
+      }
+      {
+        type: "coc:choice_wheel"
+        part: "storage.tabs"
+        x: 656
+        y: 16
+        width: 628
+        height: 36
+        direction: "horizontal"
+        fontSize: 18
+        centerFontSize: 26
+        fadeMin: 0.45
+        animationSpeed: 0.2
+      }
+      {
+        type: "coc:label"
+        x: 1296
+        y: 20
+        width: 276
+        height: 32
+        text: "Item Details"
+        textHorizontalAlign: "right"
+        font: { id: "coc:menu", size: 24 }
+        textColor: "#35291FFF"
+        canHit: false
+      }
+      {
+        type: "coc:grid"
+        x: 1290
+        y: 60
+        width: 300
+        height: 750
+        backgroundColor: "#F7EFE0AA"
+        borderColor: "#B79A70AA"
+        borderThickness: 1
+        children: [
+          { type: "coc:label", part: "storage.detail.name", x: 16, y: 16, width: 268, height: 32, font: { id: "coc:menu", size: 30 }, textColor: "#35291FFF", canHit: false }
+          { type: "coc:label", part: "storage.detail.type", x: 16, y: 52, width: 268, height: 24, font: { id: "coc:menu", size: 16 }, textColor: "#7C6B58FF", canHit: false }
+          { type: "coc:label", part: "storage.detail.description", x: 16, y: 84, width: 268, wrapWidth: 268, height: 500, font: { id: "coc:body", size: 20 }, textColor: "#35291FFF", canHit: false }
+        ]
+      }
+      {
+        type: "coc:button"
+        style: "FooterButton"
+        x: 20
+        y: 16
+        width: 180
+        height: 40
+        horizontalAlign: "left"
+        verticalAlign: "top"
+        label: { key: "Common.Back" }
+        onClick: "storage.back"
+      }
+      {
+        type: "coc:label"
+        part: "storage.error"
+        y: -40
+        width: 940
+        wrapWidth: 940
+        horizontalAlign: "center"
+        verticalAlign: "bottom"
+        font: { id: "coc:menu", size: 24 }
+        textColor: "#B03030FF"
+        textHorizontalAlign: "center"
+        canHit: false
+      }
+      {
+        style: "ContextMenu"
+        part: "storage.menu"
+        visible: false
+      }
+    ]
+  }
+}

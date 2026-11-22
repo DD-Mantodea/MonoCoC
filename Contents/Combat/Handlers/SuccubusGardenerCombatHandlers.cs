@@ -26,31 +26,31 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (!gardener.HasStatusEffect(StatusEffectIds.Stunned))
             {
-                context.Append("Combat.SuccubusGardener.VineHeal.TippingHerselfBackward".Localized());
+                context.AppendLog("Combat.SuccubusGardener.VineHeal.TippingHerselfBackward".Localized());
 
                 if (gardener.LustVulnerability <= 0.15f)
-                    context.Append("Combat.SuccubusGardener.VineHeal.YouArenT".Localized());
+                    context.AppendLog("Combat.SuccubusGardener.VineHeal.YouArenT".Localized());
                 else if (gardener.LustVulnerability <= 0.45f)
-                    context.Append("Combat.SuccubusGardener.VineHeal.SheSDefinitely".Localized());
+                    context.AppendLog("Combat.SuccubusGardener.VineHeal.SheSDefinitely".Localized());
                 else
-                    context.Append("Combat.SuccubusGardener.VineHeal.ThereSNo".Localized());
+                    context.AppendLog("Combat.SuccubusGardener.VineHeal.ThereSNo".Localized());
 
                 if (gardener.LustVulnerability <= 0.3f)
-                    context.Append("Combat.SuccubusGardener.VineHeal.WhateverIsIn".Localized());
+                    context.AppendLog("Combat.SuccubusGardener.VineHeal.WhateverIsIn".Localized());
             }
             else
             {
-                context.Append("Combat.SuccubusGardener.VineHeal.ActingOnSome".Localized());
+                context.AppendLog("Combat.SuccubusGardener.VineHeal.ActingOnSome".Localized());
 
                 if (gardener.LustVulnerability <= 0.15f)
-                    context.Append("Combat.SuccubusGardener.VineHeal.AreSlightlyGlassy".Localized());
+                    context.AppendLog("Combat.SuccubusGardener.VineHeal.AreSlightlyGlassy".Localized());
                 else if (gardener.LustVulnerability <= 0.45f)
-                    context.Append("Combat.SuccubusGardener.VineHeal.AreEvenGlassier".Localized());
+                    context.AppendLog("Combat.SuccubusGardener.VineHeal.AreEvenGlassier".Localized());
                 else
-                    context.Append("Combat.SuccubusGardener.VineHeal.AreDilatedAnd".Localized());
+                    context.AppendLog("Combat.SuccubusGardener.VineHeal.AreDilatedAnd".Localized());
 
                 if (gardener.LustVulnerability <= 0.3f)
-                    context.Append("Combat.SuccubusGardener.VineHeal.WhateverIsIn".Localized());
+                    context.AppendLog("Combat.SuccubusGardener.VineHeal.WhateverIsIn".Localized());
             }
 
             gardener.Health = gardener.MaxHealth;
@@ -61,7 +61,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (gardener.Fatigue >= 100)
             {
-                context.Append("Combat.SuccubusGardener.VineHeal.ItAppearsThat".Localized());
+                context.AppendLog("Combat.SuccubusGardener.VineHeal.ItAppearsThat".Localized());
 
                 gardener.Fatigue = 100;
             }
@@ -76,7 +76,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             gardener.CreateStatusEffect(SuccubusGardenerEnemy.TentagrappleCooldownId, 10);
 
-            context.Append("Combat.SuccubusGardener.Tentagrapple.AWebOf".Localized());
+            context.AppendLog("Combat.SuccubusGardener.Tentagrapple.AWebOf".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -86,10 +86,10 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.AttackFailed)
-                context.Append("Combat.SuccubusGardener.Tentagrapple.YouSlipAside".Localized());
+                context.AppendLog("Combat.SuccubusGardener.Tentagrapple.YouSlipAside".Localized());
             else
             {
-                context.Append("Combat.SuccubusGardener.Tentagrapple.YouTwistTo".Localized());
+                context.AppendLog("Combat.SuccubusGardener.Tentagrapple.YouTwistTo".Localized());
 
                 player.CreateStatusEffect(SuccubusGardenerEnemy.TentagrappledId);
             }
@@ -100,9 +100,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.SuccubusGardener.SapSpeed.CuppingHerBreasts".Localized());
+            context.AppendLog("Combat.SuccubusGardener.SapSpeed.CuppingHerBreasts".Localized());
 
-            context.Append("Combat.SuccubusGardener.SapSpeed.TheLacticAdhesive".Localized());
+            context.AppendLog("Combat.SuccubusGardener.SapSpeed.TheLacticAdhesive".Localized());
 
             if (!player.HasStatusEffect(SuccubusGardenerEnemy.GardenerSapSpeedId))
             {
@@ -121,7 +121,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.SuccubusGardener.Sicem.JigglingOhSo".Localized());
+            context.AppendLog("Combat.SuccubusGardener.Sicem.JigglingOhSo".Localized());
 
             var damage = 0f;
 
@@ -144,12 +144,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage >= 0)
             {
-                context.Append("Combat.SuccubusGardener.Sicem.TheSinuousPlant".Localized());
+                context.AppendLog("Combat.SuccubusGardener.Sicem.TheSinuousPlant".Localized());
 
                 player.TakeLustDamage(damage, true);
             }
             else
-                context.Append("Combat.SuccubusGardener.Sicem.TheSinuousPlant2".Localized());
+                context.AppendLog("Combat.SuccubusGardener.Sicem.TheSinuousPlant2".Localized());
         }
 
         [Register("coc:succubus_gardener_corruptive_shower")]
@@ -159,7 +159,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.SuccubusGardener.CorruptiveShower.TheSuccubusLifts".Localized());
+            context.AppendLog("Combat.SuccubusGardener.CorruptiveShower.TheSuccubusLifts".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -170,7 +170,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.SuccubusGardener.CorruptiveShower.SomehowYouManage".Localized());
+                context.AppendLog("Combat.SuccubusGardener.CorruptiveShower.SomehowYouManage".Localized());
 
                 return;
             }
@@ -180,7 +180,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             else
                 player.ChangeStatusValue(SuccubusGardenerEnemy.ShowerDotEffectId, 0, 3);
 
-            context.Append("Combat.SuccubusGardener.CorruptiveShower.YouTryYour".Localized());
+            context.AppendLog("Combat.SuccubusGardener.CorruptiveShower.YouTryYour".Localized());
         }
 
         [Register("coc:succubus_gardener_lust_aura")]
@@ -190,11 +190,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var gardener = Gardener(context);
 
-            context.Append("Combat.SuccubusGardener.LustAuraCast.TheDemonessBlinks".Localized());
+            context.AppendLog("Combat.SuccubusGardener.LustAuraCast.TheDemonessBlinks".Localized());
 
             if (gardener.HasStatusEffect(StatusEffectIds.LustAura))
             {
-                context.Append("Combat.SuccubusGardener.LustAuraCast.YourEyesCross".Localized());
+                context.AppendLog("Combat.SuccubusGardener.LustAuraCast.YourEyesCross".Localized());
 
                 player.TakeLustDamage(8 + (int)(player.Libido / 20f + player.Corruption / 25f), true);
             }
@@ -205,7 +205,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:succubus_gardener_taunt")]
         public static void Taunt(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.SuccubusGardener.Taunt.TheGreenThumbed".Localized());
+            context.AppendLog("Combat.SuccubusGardener.Taunt.TheGreenThumbed".Localized());
         }
 
         [Register("coc:succubus_gardener_motorboat")]
@@ -215,16 +215,16 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var gardener = Gardener(context);
 
-            context.Append("Combat.SuccubusGardener.Motorboat.TheDemonessGrowls".Localized());
+            context.AppendLog("Combat.SuccubusGardener.Motorboat.TheDemonessGrowls".Localized());
 
             if (player.Tallness <= gardener.Tallness - 6)
-                context.Append("Combat.SuccubusGardener.Motorboat.SomehowShortEnough".Localized());
+                context.AppendLog("Combat.SuccubusGardener.Motorboat.SomehowShortEnough".Localized());
             else if (player.Tallness >= gardener.Tallness + 6)
-                context.Append("Combat.SuccubusGardener.Motorboat.SomehowTallEnough".Localized());
+                context.AppendLog("Combat.SuccubusGardener.Motorboat.SomehowTallEnough".Localized());
 
-            context.Append("Combat.SuccubusGardener.Motorboat.TheyReSo".Localized());
+            context.AppendLog("Combat.SuccubusGardener.Motorboat.TheyReSo".Localized());
 
-            context.Append("Combat.SuccubusGardener.Motorboat.YourFoeGiggles".Localized());
+            context.AppendLog("Combat.SuccubusGardener.Motorboat.YourFoeGiggles".Localized());
         }
 
         [Register("coc:succubus_gardener_taste_the_ecstasy")]
@@ -234,17 +234,17 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.SuccubusGardener.TasteTheEcstasy.ThreeTentaclesStab".Localized());
+            context.AppendLog("Combat.SuccubusGardener.TasteTheEcstasy.ThreeTentaclesStab".Localized());
 
-            context.Append("Combat.SuccubusGardener.TasteTheEcstasy.OneOfThose".Localized());
+            context.AppendLog("Combat.SuccubusGardener.TasteTheEcstasy.OneOfThose".Localized());
 
             var roll = (int)(context.Random.NextDouble() * (player.Strength - 30)) + 30;
 
             if (roll > enemy.Strength)
             {
-                context.Append("Combat.SuccubusGardener.TasteTheEcstasy.ItHangsThere".Localized());
+                context.AppendLog("Combat.SuccubusGardener.TasteTheEcstasy.ItHangsThere".Localized());
 
-                context.Append("Combat.SuccubusGardener.TasteTheEcstasy.YouBarelyEven".Localized());
+                context.AppendLog("Combat.SuccubusGardener.TasteTheEcstasy.YouBarelyEven".Localized());
 
                 player.TakeLustDamage(8 + (int)(player.Libido / 20f + player.Corruption / 25f), true);
 
@@ -252,9 +252,9 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
             else
             {
-                context.Append("Combat.SuccubusGardener.TasteTheEcstasy.ThatSAll".Localized());
+                context.AppendLog("Combat.SuccubusGardener.TasteTheEcstasy.ThatSAll".Localized());
 
-                context.Append("Combat.SuccubusGardener.TasteTheEcstasy.ShePouts".Localized());
+                context.AppendLog("Combat.SuccubusGardener.TasteTheEcstasy.ShePouts".Localized());
             }
         }
 
@@ -267,21 +267,21 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!player.HasStatusEffect(SuccubusGardenerEnemy.TentagrappledId))
                 return;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             var numRounds = (int)player.StatusEffectValue(SuccubusGardenerEnemy.TentagrappledId, 0);
 
             if ((int)(context.Random.NextDouble() * player.Strength) > gardener.Strength / (1 + numRounds / 2f))
             {
-                context.Append("Combat.SuccubusGardener.Struggle.YouScrabbleDesperately".Localized());
+                context.AppendLog("Combat.SuccubusGardener.Struggle.YouScrabbleDesperately".Localized());
 
                 player.RemoveStatusEffect(SuccubusGardenerEnemy.TentagrappledId);
             }
             else
             {
-                context.Append("Combat.SuccubusGardener.Struggle.YouScrabbleDesperately2".Localized());
+                context.AppendLog("Combat.SuccubusGardener.Struggle.YouScrabbleDesperately2".Localized());
 
-                context.Append(context.Random.Next(2) == 0
+                context.AppendLog(context.Random.Next(2) == 0
 
                     ? "Combat.SuccubusGardener.Struggle.ButTheVines".Localized()
 
@@ -307,9 +307,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var gardener = Gardener(context);
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append(context.Random.Next(2) == 0
+            context.AppendLog(context.Random.Next(2) == 0
 
                 ? "Combat.SuccubusGardener.Squeeze.TheVinesEncircling".Localized()
 
@@ -334,47 +334,47 @@ namespace MonoCoC.Contents.Combat.Handlers
             player.ChangeStatusValue(SuccubusGardenerEnemy.ShowerDotEffectId, 0, -1);
 
             if (player.LustPercent < 50)
-                context.Append("Combat.SuccubusGardener.ShowerDotEffect.TheTentaclesSex".Localized());
+                context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.TheTentaclesSex".Localized());
             else if (player.LustPercent < 60)
             {
-                context.Append("Combat.SuccubusGardener.ShowerDotEffect.YouTryTo".Localized());
+                context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.YouTryTo".Localized());
 
-                context.Append(player.Corruption < 50
+                context.AppendLog(player.Corruption < 50
 
                     ? "Combat.SuccubusGardener.ShowerDotEffect.YouReAshamed".Localized()
 
                     : "Combat.SuccubusGardener.ShowerDotEffect.YouReA".Localized());
 
-                context.Append("Combat.SuccubusGardener.ShowerDotEffect.ThatItS".Localized());
+                context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.ThatItS".Localized());
             }
             else if (player.LustPercent < 70)
-                context.Append("Combat.SuccubusGardener.ShowerDotEffect.YouGroanAt".Localized());
+                context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.YouGroanAt".Localized());
             else if (player.LustPercent < 80)
-                context.Append("Combat.SuccubusGardener.ShowerDotEffect.YouWhimperAs".Localized());
+                context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.YouWhimperAs".Localized());
             else if (player.LustPercent < 90)
-                context.Append("Combat.SuccubusGardener.ShowerDotEffect.YouShudderIn".Localized());
+                context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.YouShudderIn".Localized());
             else if (player.LustPercent < 100)
             {
-                context.Append("Combat.SuccubusGardener.ShowerDotEffect.OhhhhYouRe".Localized());
+                context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.OhhhhYouRe".Localized());
 
                 if (player.HasCock())
-                    context.Append("Combat.SuccubusGardener.ShowerDotEffect.EvenWhileYour"
+                    context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.EvenWhileYour"
                         .Localized(player.Cocks.Count > 1 ? "s are" : " is"));
                 else if (player.HasVagina())
-                    context.Append("Combat.SuccubusGardener.ShowerDotEffect.SoakedTwatThreatens"
+                    context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.SoakedTwatThreatens"
                         .Localized(player.Wetness() == 4 ? "drown" : "further soak"));
                 else
-                    context.Append("Combat.SuccubusGardener.ShowerDotEffect.Text".Localized());
+                    context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.Text".Localized());
             }
             else
-                context.Append("Combat.SuccubusGardener.ShowerDotEffect.OhhhFuckThere".Localized());
+                context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.OhhhFuckThere".Localized());
 
             if (player.StatusEffectValue(SuccubusGardenerEnemy.ShowerDotEffectId, 0) < 0 &&
                 player.LustPercent < 100)
             {
                 player.RemoveStatusEffect(SuccubusGardenerEnemy.ShowerDotEffectId);
 
-                context.Append("Combat.SuccubusGardener.ShowerDotEffect.TheLustInducing".Localized());
+                context.AppendLog("Combat.SuccubusGardener.ShowerDotEffect.TheLustInducing".Localized());
             }
         }
     }

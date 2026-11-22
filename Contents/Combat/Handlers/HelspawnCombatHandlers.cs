@@ -24,7 +24,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var isBow = Weapon(enemy) == "bow";
 
-            context.Append((isBow
+            context.AppendLog((isBow
 
                     ? "Combat.Helspawn.HelspawnTwinStrikes.LeapsBackOut"
 
@@ -41,18 +41,18 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Helspawn.CalledShot.DrawsBackHer".Localized(enemy.ShortName));
+            context.AppendLog("Combat.Helspawn.CalledShot.DrawsBackHer".Localized(enemy.ShortName));
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack);
 
             if (damage <= 0 || (context.Random.Next(2) == 0 && Avoid(context).AttackFailed))
             {
-                context.Append("Combat.Helspawn.CalledShot.YouAvoidThe".Localized());
+                context.AppendLog("Combat.Helspawn.CalledShot.YouAvoidThe".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Helspawn.CalledShot.OneOfHer".Localized());
+            context.AppendLog("Combat.Helspawn.CalledShot.OneOfHer".Localized());
 
             ApplyCalledShot(context);
 
@@ -64,7 +64,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.Append("Combat.Helspawn.HelSpawnBerserk.LetsOutA".Localized(enemy.ShortName));
+            context.AppendLog("Combat.Helspawn.HelSpawnBerserk.LetsOutA".Localized(enemy.ShortName));
 
             enemy.WeaponAttack += 30;
 
@@ -80,21 +80,21 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength);
 
-            context.Append("Combat.Helspawn.HelSpawnShieldBash.LashesOutWith".Localized(enemy.ShortName));
+            context.AppendLog("Combat.Helspawn.HelSpawnShieldBash.LashesOutWith".Localized(enemy.ShortName));
 
             if (damage <= 0 || Avoid(context).AttackFailed)
             {
-                context.Append("Combat.Helspawn.HelSpawnShieldBash.YouEvadeThe".Localized());
+                context.AppendLog("Combat.Helspawn.HelSpawnShieldBash.YouEvadeThe".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Helspawn.HelSpawnShieldBash.HerShieldCatches".Localized());
+            context.AppendLog("Combat.Helspawn.HelSpawnShieldBash.HerShieldCatches".Localized());
 
             player.TakeDamage(damage);
 
             if (player.Stun(0, 33, 100, false))
-                context.Append("Combat.Helspawn.HelSpawnShieldBash.TheHitStuns".Localized());
+                context.AppendLog("Combat.Helspawn.HelSpawnShieldBash.TheHitStuns".Localized());
         }
 
         public static void TailWhip(CombatContext context)
@@ -105,16 +105,16 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var damage = enemy.Strength - context.Random.Next(Math.Max(1, (int)player.Toughness));
 
-            context.Append("Combat.Helspawn.TailWhipShitYo.WhipsAtYou".Localized(enemy.ShortName));
+            context.AppendLog("Combat.Helspawn.TailWhipShitYo.WhipsAtYou".Localized(enemy.ShortName));
 
             if (damage <= 0 || Avoid(context).AttackFailed)
             {
-                context.Append("Combat.Helspawn.TailWhipShitYo.YouEvadeThe".Localized());
+                context.AppendLog("Combat.Helspawn.TailWhipShitYo.YouEvadeThe".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Helspawn.TailWhipShitYo.STailCatches".Localized(enemy.ShortName));
+            context.AppendLog("Combat.Helspawn.TailWhipShitYo.STailCatches".Localized(enemy.ShortName));
 
             player.TakeDamage(damage);
         }
@@ -126,16 +126,16 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Helspawn.SluttyMander.JumpsJustOut".Localized(enemy.ShortName));
+            context.AppendLog("Combat.Helspawn.SluttyMander.JumpsJustOut".Localized(enemy.ShortName));
 
             if (context.Random.Next(2) == 0)
             {
-                context.Append("Combat.Helspawn.SluttyMander.WhatTheFuck".Localized());
+                context.AppendLog("Combat.Helspawn.SluttyMander.WhatTheFuck".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Helspawn.SluttyMander.YouLeanBack".Localized());
+            context.AppendLog("Combat.Helspawn.SluttyMander.YouLeanBack".Localized());
 
             var lustDelta = player.LustVulnerability * (10 + player.Libido / 10f);
 
@@ -147,7 +147,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.Append("Combat.Helspawn.HelSpawnFocus.SeeingAMomentary".Localized(enemy.ShortName));
+            context.AppendLog("Combat.Helspawn.HelSpawnFocus.SeeingAMomentary".Localized(enemy.ShortName));
 
             enemy.Lust = Math.Max(0, enemy.Lust - 50);
 

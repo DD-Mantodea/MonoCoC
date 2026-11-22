@@ -13,7 +13,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:necromancer_raise_dead")]
         public static void RaiseDead(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Necromancer.RaiseDead.TheNecromancerRaises".Localized());
+            context.AppendLog("Combat.Necromancer.RaiseDead.TheNecromancerRaises".Localized());
 
             var horde = NecromancerEnemy.FindSkellyHorde(context, out _);
 
@@ -32,19 +32,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             necromancer?.HasSummonedElite = true;
 
-            context.Append("Combat.Necromancer.RaiseElite.TheNecromancerStabs".Localized());
+            context.AppendLog("Combat.Necromancer.RaiseElite.TheNecromancerStabs".Localized());
 
             switch (context.Random.Next(2))
             {
                 case 0:
-                    context.Append("Combat.Necromancer.RaiseElite.YouHearThe".Localized());
+                    context.AppendLog("Combat.Necromancer.RaiseElite.YouHearThe".Localized());
 
                     context.AddEnemy(EnemyRegistry.Create(new Identifier("coc", "bone_general")));
 
                     break;
 
                 case 1:
-                    context.Append("Combat.Necromancer.RaiseElite.YouHearThe2".Localized());
+                    context.AppendLog("Combat.Necromancer.RaiseElite.YouHearThe2".Localized());
 
                     context.AddEnemy(EnemyRegistry.Create(new Identifier("coc", "bone_jester")));
 
@@ -52,7 +52,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 default:
 
-                    context.Append("Combat.Necromancer.RaiseElite.YouHearMore".Localized());
+                    context.AppendLog("Combat.Necromancer.RaiseElite.YouHearMore".Localized());
 
                     context.AddEnemy(EnemyRegistry.Create(new Identifier("coc", "bone_courtier")));
 

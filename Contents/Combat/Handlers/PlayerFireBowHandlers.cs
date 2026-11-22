@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (player.HasStatusEffect(StatusEffectIds.Blind))
             {
-                context.Append("Combat.Special.FireBow.Blind".Localized());
+                context.AppendLog("Combat.Special.FireBow.Blind".Localized());
 
                 return;
             }
@@ -85,21 +85,21 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (enemy.HasStatusEffect(StatusEffectIds.Sandstorm)
                 && context.Random.Next(100) < (player.HasPerk(PerkIds.EagleEye) ? 50 : 90))
             {
-                context.Append("Combat.Special.FireBow.Sandstorm".Localized());
+                context.AppendLog("Combat.Special.FireBow.Sandstorm".Localized());
 
                 return;
             }
 
             if (context.Random.Next(100) >= hitChance)
             {
-                context.Append("Combat.Special.FireBow.Miss".Localized());
+                context.AppendLog("Combat.Special.FireBow.Miss".Localized());
 
                 player.MasteryXP(BowMastery, fanShot ? 1 + context.Random.Next(3) : 5 + context.Random.Next(11));
 
                 return;
             }
 
-            context.Append("Combat.Special.FireBow.Hit".Localized());
+            context.AppendLog("Combat.Special.FireBow.Hit".Localized());
 
             var damage = FireBowDamage(context);
 
@@ -116,7 +116,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
 
             if (miniCrit)
-                context.Append("Combat.Special.FireBow.MiniCrit".Localized());
+                context.AppendLog("Combat.Special.FireBow.MiniCrit".Localized());
 
             CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Ranged);
 
@@ -130,14 +130,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (player.HasStatusEffect(StatusEffectIds.BowDisabled))
             {
-                context.Append("Combat.Special.FireBow.Disabled".Localized());
+                context.AppendLog("Combat.Special.FireBow.Disabled".Localized());
 
                 return;
             }
 
             var mastery = player.MasteryLevel(BowMastery);
 
-            context.Append((mastery switch
+            context.AppendLog((mastery switch
             {
                 0 => "Combat.Special.FireBow.Prep0",
 

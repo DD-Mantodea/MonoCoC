@@ -9,22 +9,22 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:phoenix_commander_order_grenadier")]
         public static void OrderGrenadier(CombatContext context, CombatAbilityDefinition ability) =>
 
-            context.Append("Combat.Ability.PhoenixCommanderOrderGrenadier.Text".Localized());
+            context.AppendLog("Combat.Ability.PhoenixCommanderOrderGrenadier.Text".Localized());
 
         [Register("coc:phoenix_commander_order_pyro")]
         public static void OrderPyro(CombatContext context, CombatAbilityDefinition ability) =>
 
-            context.Append("Combat.Ability.PhoenixCommanderOrderPyro.Text".Localized());
+            context.AppendLog("Combat.Ability.PhoenixCommanderOrderPyro.Text".Localized());
 
         [Register("coc:phoenix_commander_order_sapper")]
         public static void OrderSapper(CombatContext context, CombatAbilityDefinition ability) =>
 
-            context.Append("Combat.Ability.PhoenixCommanderOrderSapper.Text".Localized());
+            context.AppendLog("Combat.Ability.PhoenixCommanderOrderSapper.Text".Localized());
 
         [Register("coc:phoenix_commander_protect")]
         public static void Protect(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.PhoenixCommanderProtect.Text".Localized());
+            context.AppendLog("Combat.Ability.PhoenixCommanderProtect.Text".Localized());
 
             context.Enemy.ArmorDefense = 70;
 
@@ -34,7 +34,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:phoenix_commander_inspire")]
         public static void Inspire(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.PhoenixCommanderInspire.Text".Localized());
+            context.AppendLog("Combat.Ability.PhoenixCommanderInspire.Text".Localized());
 
             context.Enemy.Fatigue += 15;
 
@@ -58,7 +58,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:phoenix_commander_attack")]
         public static void Attack(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.PhoenixCommanderAttack.Text".Localized());
+            context.AppendLog("Combat.Ability.PhoenixCommanderAttack.Text".Localized());
 
             CombatController.Instance!.Resolver.EnemyBasicAttack();
         }

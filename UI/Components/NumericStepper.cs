@@ -1,4 +1,4 @@
-﻿using FontStashSharp.RichText;
+using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -9,10 +9,16 @@ using MonoCoC.UI.Structures;
 using MonoCoC.UI.Styles;
 using System;
 
+using FontStashSharp;
+using Hjson;
+using MonoCoC.Extensions;
+using MonoCoC.UI.Animations;
+using MonoCoC.UI.Data;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 namespace MonoCoC.UI.Components
 {
-    public class NumericStepper : Component
-    {
+    public class NumericStepper : Component, IFromHjson<NumericStepper> {
         private readonly Button _minus;
         private readonly Button _plus;
         private readonly Button _valueButton;
@@ -82,7 +88,7 @@ namespace MonoCoC.UI.Components
 
             _editor.Cursor.CursorColor = TextColor;
 
-            _editor.Cursor.SelectionColor = UIComponentStyles.NumericStepper.Selection;
+            _editor.Cursor.SelectionColor = UIParseUtils.ColorOf("#B79A7078");
 
             AddChild(_range);
             AddChild(_minus);
@@ -350,5 +356,58 @@ namespace MonoCoC.UI.Components
 
         private static bool IsKeyJustPressed(Keys key) =>
             UserInput.PreviousKeyState.IsKeyUp(key) && UserInput.CurrentKeyState.IsKeyDown(key);
-    }
+    
+        public static string TypeId => "coc:numeric_stepper";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext services)
+        {
+            var stepper = new NumericStepper(
+                node.Str("font", "coc:menu"),
+                node.Int("fontSize", 18))
+            {
+                Min = node.Float("min", 0),
+                Max = node.Float("max", 100),
+                Step = node.Float("step", 1),
+                ShiftMultiplier = node.Float("shiftMultiplier", 10),
+                Unit = node.Str("unit"),
+                ButtonWidth = node.Int("buttonWidth", 44),
+                MinusColor = UIParseUtils.ColorOf(node.Str("minusColor", "#00000000")),
+                PlusColor = UIParseUtils.ColorOf(node.Str("plusColor", "#00000000")),
+                ValueColor = UIParseUtils.ColorOf(node.Str("valueColor", "#00000000")),
+                TextColor = UIParseUtils.ColorOf(node.Str("textColor", "#35291FFF"))
+            };
+
+            if (node.Array("snapValues") is { } snapValues)
+            {
+                var values = new List<float>();
+
+                foreach (var value in snapValues)
+                    values.Add(UIParseUtils.Float(value));
+
+                stepper.SnapValues = [.. values];
+            }
+
+            if (node.TryGetValue("states", out var stateValue) && stateValue is JsonObject states)
+            {
+                var thickness = node.Int("borderThickness", 0);
+
+                stepper.MinusStyle = BuildPartStateStyle(states, "minus", thickness);
+                stepper.PlusStyle = BuildPartStateStyle(states, "plus", thickness);
+                stepper.ValueStyle = BuildPartStateStyle(states, "value", thickness);
+            }
+
+            stepper.ShowRange = node.TryGetValue("min", out _) || node.TryGetValue("max", out _);
+            stepper.RangeColor = UIParseUtils.ColorOf(node.Str("rangeColor", "#5C4A38FF"));
+            stepper.RangeFontSize = node.Int("rangeFontSize", 12);
+
+            stepper.SetValue(node.Float("value", stepper.Min));
+
+            return stepper;
+        }
+
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<NumericStepper>();
+    
+}
 }

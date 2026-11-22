@@ -19,7 +19,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!host.HasStatusEffect(status))
                 return;
 
-            context.Append(key.Localized());
+            context.AppendLog(key.Localized());
 
             host.RemoveStatusEffect(status);
         }
@@ -31,7 +31,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Arian.Talisman.Dispel.Intro".Localized());
+            context.AppendLog("Combat.Arian.Talisman.Dispel.Intro".Localized());
 
             Remove(context, player, StatusEffectIds.ChargeWeapon, "Combat.Arian.Talisman.Dispel.ChargeWeapon");
 
@@ -55,7 +55,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasStatusEffect(StatusEffectIds.ChargeWeapon))
             {
-                context.Append("Combat.Arian.Talisman.Dispel.EnemyChargeWeapon".Localized());
+                context.AppendLog("Combat.Arian.Talisman.Dispel.EnemyChargeWeapon".Localized());
 
                 enemy.RemoveStatusEffect(StatusEffectIds.ChargeWeapon);
             }
@@ -64,7 +64,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasStatusEffect(StatusEffectIds.Fear))
             {
-                context.Append("Combat.Arian.Talisman.Dispel.Fear".Localized());
+                context.AppendLog("Combat.Arian.Talisman.Dispel.Fear".Localized());
 
                 enemy.Speed += enemy.StatusEffectValue(StatusEffectIds.Fear, 0);
 
@@ -73,7 +73,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasStatusEffect(StatusEffectIds.Illusion))
             {
-                context.Append("Combat.Arian.Talisman.Dispel.Illusion".Localized());
+                context.AppendLog("Combat.Arian.Talisman.Dispel.Illusion".Localized());
 
                 enemy.Speed += enemy.StatusEffectValue(StatusEffectIds.Illusion, 0);
 
@@ -84,7 +84,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             Remove(context, enemy, StatusEffectIds.Shell, "Combat.Arian.Talisman.Dispel.Shell");
 
-            context.Append("\n");
+            context.AppendLog("\n");
 
             Scenes.SceneInstance<Scenes.Vanilla.Npcs.ArianScene>.Get().ClearTalisman();
         }

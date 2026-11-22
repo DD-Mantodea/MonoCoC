@@ -44,7 +44,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasStatusEffect(StatusEffectIds.Blind))
             {
-                context.Append("Combat.Amarok.Claw.Blind".Localized());
+                context.AppendLog("Combat.Amarok.Claw.Blind".Localized());
 
                 return;
             }
@@ -56,12 +56,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Amarok.Claw.Miss".Localized());
+                context.AppendLog("Combat.Amarok.Claw.Miss".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Amarok.Claw.Hit".Localized());
+            context.AppendLog("Combat.Amarok.Claw.Hit".Localized());
 
             player.HealthChange(-CombatCalculator.ReduceDamage(context, player, enemy.Strength + 50 + context.Random.Next(100)));
         }
@@ -73,7 +73,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Amarok.Tail.Lead".Localized());
+            context.AppendLog("Combat.Amarok.Tail.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -82,14 +82,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Amarok.Tail.Miss".Localized());
+                context.AppendLog("Combat.Amarok.Tail.Miss".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Amarok.Tail.HitLead".Localized());
+            context.AppendLog("Combat.Amarok.Tail.HitLead".Localized());
 
-            context.Append(player.Stun(0, 33)
+            context.AppendLog(player.Stun(0, 33)
 
                 ? "Combat.Amarok.Tail.Stunned".Localized()
 

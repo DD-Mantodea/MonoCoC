@@ -108,12 +108,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override void OutputAttack(CombatContext context, float damage)
         {
-            context.Append("Combat.JellyFishGirl.OutputAttack.TheJellyGirl".Localized());
+            context.AppendLog("Combat.JellyFishGirl.OutputAttack.TheJellyGirl".Localized());
 
             if (CoC.Instance.Flags.Get(Flags.GameFlagIds.EnemyCritical) > 0)
-                context.Append("Combat.JellyFishGirl.OutputAttack.Text".Localized());
+                context.AppendLog("Combat.JellyFishGirl.OutputAttack.Text".Localized());
 
-            context.Append("Combat.Monster.Attack.Damage".Localized((int)damage));
+            context.AppendLog("Combat.Monster.Attack.Damage".Localized((int)damage));
         }
 
         public override void Configure(EnemyDefinition definition)

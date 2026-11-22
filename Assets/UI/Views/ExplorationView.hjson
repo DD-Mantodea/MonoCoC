@@ -1,0 +1,93 @@
+{
+  require: ["GlobalStyles"]
+  id: "ExplorationView"
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        part: "game.background"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#F2E5C7FF"
+        canHit: false
+      }
+      {
+        type: "coc:simple_stats"
+        view: "Views/SimpleStats.hjson"
+        part: "game.playerStats"
+        width: 300
+        height: 900
+      }
+      {
+        type: "coc:grid"
+        autoSize: true
+        autoIndex: true
+        horizontalAlign: "center"
+        rows: "auto3"
+        spacing: 12
+        padding: [48, 20, 20, 40]
+        backgroundColor: "#FFFFFF66"
+        children: [
+          {
+            type: "coc:text_area"
+            part: "game.output"
+            font: "coc:body"
+            width: 930
+            height: 600
+            backgroundColor: "#FFFFFF66"
+            padding: 16
+            autoScroll: false
+            horizontalAlign: "center"
+            borderThickness: 2
+            borderColor: "#00000022"
+          }
+          {
+            type: "coc:text_box"
+            part: "game.input"
+            font: {
+              id: "coc:input"
+              size: 22
+            }
+            visible: true
+            cursorColor: "#B99A6BFF"
+            textColor: "#B99A6BFF"
+            borderThickness: [0, 0, 0, 1]
+            borderColor: "#B99A6BFF"
+            width: 930
+            height: 40
+            horizontalAlign: "center"
+          }
+          {
+            type: "coc:grid"
+            part: "game.buttons"
+            width: 940
+            height: 150
+            autoIndex: true
+            rows: 3
+            columns: 5
+            children: [
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

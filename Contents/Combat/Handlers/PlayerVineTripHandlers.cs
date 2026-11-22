@@ -26,7 +26,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Special.VineTrip.Intro".Localized());
+            context.AppendLog("Combat.Special.VineTrip.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -39,7 +39,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackHit)
             {
-                context.Append("Combat.Special.VineTrip.Hit".Localized());
+                context.AppendLog("Combat.Special.VineTrip.Hit".Localized());
 
                 if (!enemy.HasStatusEffect(StatusEffectIds.Tripped))
                 {
@@ -52,7 +52,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
             else
             {
-                context.Append("Combat.Special.VineTrip.Miss".Localized());
+                context.AppendLog("Combat.Special.VineTrip.Miss".Localized());
 
                 CombatRangeData.MoveMonsterDistant(enemy);
             }

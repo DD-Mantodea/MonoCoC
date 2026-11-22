@@ -18,13 +18,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.MilkySuccubus.CowCubiMilkSprayAttack.TheSuccubusAsks".Localized());
+            context.AppendLog("Combat.MilkySuccubus.CowCubiMilkSprayAttack.TheSuccubusAsks".Localized());
 
             if (context.Random.Next(20) + 1 + player.Speed / 20f > 17)
             {
-                context.Append("Combat.MilkySuccubus.CowCubiMilkSprayAttack.WithYourTrained".Localized());
+                context.AppendLog("Combat.MilkySuccubus.CowCubiMilkSprayAttack.WithYourTrained".Localized());
 
-                context.Append("Combat.MilkySuccubus.CowCubiMilkSprayAttack.TheSuccubusPouts".Localized());
+                context.AppendLog("Combat.MilkySuccubus.CowCubiMilkSprayAttack.TheSuccubusPouts".Localized());
 
                 player.Lust = Math.Min(player.MaxLust, player.Lust + 6);
 
@@ -33,7 +33,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var skin = player.HasFur() ? "fur" : "skin";
 
-            context.Append("Combat.MilkySuccubus.CowCubiMilkSprayAttack.AllYouManage".Localized(skin));
+            context.AppendLog("Combat.MilkySuccubus.CowCubiMilkSprayAttack.AllYouManage".Localized(skin));
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 15);
 
@@ -46,18 +46,18 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.Append("Combat.MilkySuccubus.DrinkMinoCum.SmilingWrylyAnd".Localized());
+            context.AppendLog("Combat.MilkySuccubus.DrinkMinoCum.SmilingWrylyAnd".Localized());
 
             if (enemy is MilkySuccubusEnemy milky && milky.TryDrinkCum())
             {
-                context.Append("Combat.MilkySuccubus.DrinkMinoCum.SmilingTriumphantlyShe".Localized());
+                context.AppendLog("Combat.MilkySuccubus.DrinkMinoCum.SmilingTriumphantlyShe".Localized());
 
                 enemy.HealthChange(400);
 
                 enemy.Lust = Math.Min(enemy.MaxLust, enemy.Lust + 25);
             }
             else
-                context.Append("Combat.MilkySuccubus.DrinkMinoCum.SheFrownsAnd".Localized());
+                context.AppendLog("Combat.MilkySuccubus.DrinkMinoCum.SheFrownsAnd".Localized());
         }
 
         [Register("coc:milky_succubus_attack")]
@@ -101,13 +101,13 @@ namespace MonoCoC.Contents.Combat.Handlers
             var player = context.Player;
 
             if (context.Random.Next(4) == 0)
-                context.Append("Combat.MilkySuccubus.SuccubusTease.TurningAroundThe".Localized());
+                context.AppendLog("Combat.MilkySuccubus.SuccubusTease.TurningAroundThe".Localized());
             else if (context.Random.Next(3) == 0)
-                context.Append("Combat.MilkySuccubus.SuccubusTease.TheSuccubusSqueezes".Localized());
+                context.AppendLog("Combat.MilkySuccubus.SuccubusTease.TheSuccubusSqueezes".Localized());
             else if (context.Random.Next(2) == 0)
-                context.Append("Combat.MilkySuccubus.SuccubusTease.TheSuccubusTurns".Localized());
+                context.AppendLog("Combat.MilkySuccubus.SuccubusTease.TheSuccubusTurns".Localized());
             else
-                context.Append("Combat.MilkySuccubus.SuccubusTease.TheSuccubusLeans".Localized());
+                context.AppendLog("Combat.MilkySuccubus.SuccubusTease.TheSuccubusLeans".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 20);
         }

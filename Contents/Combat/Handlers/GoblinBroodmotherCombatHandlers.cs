@@ -25,33 +25,33 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             who = char.ToUpperInvariant(who[0]) + who[1..];
 
-            context.Append("Combat.GoblinBroodmother.Drug.Throw".Localized(who, color));
+            context.AppendLog("Combat.GoblinBroodmother.Drug.Throw".Localized(who, color));
 
             if ((player.HasPerk(PerkIds.Evade) && context.Random.Next(10) <= 3) ||
                 context.Random.Next(100) < player.Speed / 5)
             {
-                context.Append("Combat.GoblinBroodmother.Drug.Dodge".Localized());
+                context.AppendLog("Combat.GoblinBroodmother.Drug.Dodge".Localized());
 
                 return;
             }
 
             if (player.Shield?.Is(ItemIds.DragonShield) == true && context.Random.Next(2) == 0)
             {
-                context.Append("Combat.GoblinBroodmother.Drug.Absorbed".Localized());
+                context.AppendLog("Combat.GoblinBroodmother.Drug.Absorbed".Localized());
 
                 return;
             }
 
             if (color == "red")
             {
-                context.Append("Combat.GoblinBroodmother.Drug.Red".Localized());
+                context.AppendLog("Combat.GoblinBroodmother.Drug.Red".Localized());
 
                 if (!player.HasStatusEffect(StatusEffectIds.TemporaryHeat))
                     player.CreateStatusEffect(StatusEffectIds.TemporaryHeat, 0, multiplier, 0, 0);
             }
             else
             {
-                context.Append("Combat.GoblinBroodmother.Drug.Green".Localized());
+                context.AppendLog("Combat.GoblinBroodmother.Drug.Green".Localized());
 
                 if (!player.HasStatusEffect(StatusEffectIds.Poison))
                     player.CreateStatusEffect(StatusEffectIds.Poison, 0, multiplier, 0, 0);
@@ -67,7 +67,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.TakeLustDamage(lust);
 
-            context.Append("Combat.GoblinBroodmother.Tease.Display".Localized());
+            context.AppendLog("Combat.GoblinBroodmother.Tease.Display".Localized());
         }
 
         [Register("coc:goblin_broodmother_attack")]

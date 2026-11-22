@@ -16,7 +16,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Anemone.EAttack.GigglingPlayfullyThe".Localized());
+            context.AppendLog("Combat.Anemone.EAttack.GigglingPlayfullyThe".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -36,27 +36,27 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (avoid.Outcome)
             {
                 case AvoidOutcome.Dodge:
-                    context.WriteAction("Combat.Resolve.EnemyMiss".Localized(enemy.ShortName));
+                    context.Log.Add("Combat.Resolve.EnemyMiss".Localized(enemy.ShortName));
 
                     return;
 
                 case AvoidOutcome.Parry:
-                    context.WriteAction("Combat.Resolve.Parry".Localized(enemy.ShortName));
+                    context.Log.Add("Combat.Resolve.Parry".Localized(enemy.ShortName));
 
                     return;
 
                 case AvoidOutcome.Block:
-                    context.WriteAction("Combat.Resolve.Block".Localized(enemy.ShortName));
+                    context.Log.Add("Combat.Resolve.Block".Localized(enemy.ShortName));
 
                     return;
 
                 case AvoidOutcome.Counter:
-                    context.WriteAction("Combat.Resolve.Counter".Localized(enemy.ShortName));
+                    context.Log.Add("Combat.Resolve.Counter".Localized(enemy.ShortName));
 
                     return;
             }
 
-            context.Append("Combat.Anemone.EAttack.YouJinkAnd".Localized());
+            context.AppendLog("Combat.Anemone.EAttack.YouJinkAnd".Localized());
 
             player.TakeDamage(1);
 

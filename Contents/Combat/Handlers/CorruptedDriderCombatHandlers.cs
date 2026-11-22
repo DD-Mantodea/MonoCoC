@@ -14,7 +14,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.CorruptedDrider.SpiderDisarm.Text".Localized());
+            context.AppendLog("Combat.CorruptedDrider.SpiderDisarm.Text".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -32,7 +32,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.CorruptedDrider.SpiderMorphWebAttack.Text".Localized());
+            context.AppendLog("Combat.CorruptedDrider.SpiderMorphWebAttack.Text".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -74,7 +74,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.Outcome == AvoidOutcome.Dodge || avoid.Outcome == AvoidOutcome.Block)
                 return;
 
-            context.Append("Combat.CorruptedDrider.SpiderSilence.Text".Localized());
+            context.AppendLog("Combat.CorruptedDrider.SpiderSilence.Text".Localized());
 
             WebSilenceHandlers.Apply(player);
         }
@@ -86,11 +86,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.CorruptedDrider.Masturbate.Lead".Localized());
+            context.AppendLog("Combat.CorruptedDrider.Masturbate.Lead".Localized());
 
             enemy.Lust = Math.Max(0, enemy.Lust - 30);
 
-            context.Append("Combat.CorruptedDrider.Masturbate.Tail".Localized());
+            context.AppendLog("Combat.CorruptedDrider.Masturbate.Tail".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 10 + player.Libido / 20);
         }
@@ -157,7 +157,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                     _ => "Scenes.CorruptedDrider.DriderKiss.GlossyLipsPitch"
                 };
 
-                context.Append(taunt.Localized());
+                context.AppendLog(taunt.Localized());
 
                 return;
             }
@@ -166,18 +166,18 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (kiss == null)
             {
-                context.Append("Scenes.CorruptedDrider.DriderKiss.KissApproach".Localized());
+                context.AppendLog("Scenes.CorruptedDrider.DriderKiss.KissApproach".Localized());
 
-                context.Append(player.Tallness < 72
+                context.AppendLog(player.Tallness < 72
 
                     ? "Scenes.CorruptedDrider.DriderKiss.DownWord".Localized()
 
                     : "Scenes.CorruptedDrider.DriderKiss.OverWord".Localized());
 
-                context.Append("Scenes.CorruptedDrider.DriderKiss.LipVenomKiss".Localized());
+                context.AppendLog("Scenes.CorruptedDrider.DriderKiss.LipVenomKiss".Localized());
 
                 if (player.LustPercent <= 99)
-                    context.Append("Scenes.CorruptedDrider.DriderKiss.BurnsWithVenom".Localized());
+                    context.AppendLog("Scenes.CorruptedDrider.DriderKiss.BurnsWithVenom".Localized());
 
                 player.Teased(10);
 
@@ -190,30 +190,30 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (kiss.Values[0] == 1)
             {
-                context.Append("Scenes.CorruptedDrider.DriderKiss.MouthBoundKiss".Localized());
+                context.AppendLog("Scenes.CorruptedDrider.DriderKiss.MouthBoundKiss".Localized());
 
                 if (player.HasCock())
-                    context.Append("Scenes.CorruptedDrider.DriderKiss.ArmorPrecum".Localized(player.SMultiCockDesc()));
+                    context.AppendLog("Scenes.CorruptedDrider.DriderKiss.ArmorPrecum".Localized(player.SMultiCockDesc()));
 
                 if (player.HasVagina())
-                    context.Append("Scenes.CorruptedDrider.DriderKiss.ClitThrobs".Localized());
+                    context.AppendLog("Scenes.CorruptedDrider.DriderKiss.ClitThrobs".Localized());
 
                 player.Teased(15);
 
-                context.Append("Scenes.CorruptedDrider.DriderKiss.BreaksKiss".Localized());
+                context.AppendLog("Scenes.CorruptedDrider.DriderKiss.BreaksKiss".Localized());
 
                 if (player.LustPercent <= 99)
-                    context.Append("Scenes.CorruptedDrider.DriderKiss.RefusesStandGround".Localized());
+                    context.AppendLog("Scenes.CorruptedDrider.DriderKiss.RefusesStandGround".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.CorruptedDrider.DriderKiss.VenomTrance".Localized());
+            context.AppendLog("Scenes.CorruptedDrider.DriderKiss.VenomTrance".Localized());
 
             if (!player.HasCock() && !player.HasVagina())
                 return;
 
-            context.Append("Scenes.CorruptedDrider.DriderKiss.WetStainLead".Localized());
+            context.AppendLog("Scenes.CorruptedDrider.DriderKiss.WetStainLead".Localized());
 
             var size = player.Wetness() < 3 && player.CumQ() < 200
 
@@ -225,12 +225,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                     : "Scenes.CorruptedDrider.DriderKiss.SizeMassive";
 
-            context.Append(size.Localized());
+            context.AppendLog(size.Localized());
 
-            context.Append("Scenes.CorruptedDrider.DriderKiss.WetStainStinks".Localized());
+            context.AppendLog("Scenes.CorruptedDrider.DriderKiss.WetStainStinks".Localized());
 
             if (player.LustPercent <= 99)
-                context.Append("Scenes.CorruptedDrider.DriderKiss.ResistsPullsBack".Localized());
+                context.AppendLog("Scenes.CorruptedDrider.DriderKiss.ResistsPullsBack".Localized());
 
             player.Teased(20);
         }
@@ -240,7 +240,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             context.Enemy.Distance = CombatDistance.Melee;
 
-            context.Append("Combat.CorruptedDrider.Approach".Localized());
+            context.AppendLog("Combat.CorruptedDrider.Approach".Localized());
         }
     }
 }

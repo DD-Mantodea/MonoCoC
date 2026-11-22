@@ -1,14 +1,17 @@
-﻿using Microsoft.Xna.Framework;
+using Hjson;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Assets;
 using MonoCoC.Contents.Items;
 using MonoCoC.Extensions;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace MonoCoC.UI.Components
 {
-    public class EquipmentSlot : Component
+    public class EquipmentSlot : Component, IFromHjson<EquipmentSlot>
     {
         public string Kind = "weapon";
 
@@ -20,15 +23,15 @@ namespace MonoCoC.UI.Components
 
         public string SlotIcon = "";
 
-        public Color SlotColor = UIComponentStyles.Slot.Background;
+        public Color SlotColor = UIParseUtils.ColorOf("#F7EFE0CC");
 
-        public Color BorderColor = UIComponentStyles.Slot.Border;
+        public Color BorderColor = UIParseUtils.ColorOf("#B79A70AA");
 
-        public Color TextColor = UIComponentStyles.Slot.Text;
+        public Color TextColor = UIParseUtils.ColorOf("#35291FFF");
 
-        public Color SelectedBackground = UIComponentStyles.Slot.SelectedBackground;
+        public Color SelectedBackground = UIParseUtils.ColorOf("#E0C9AAFF");
 
-        public Color SelectedBorder = UIComponentStyles.Slot.SelectedBorder;
+        public Color SelectedBorder = UIParseUtils.ColorOf("#9F8156FF");
 
         public ItemSlotStyle? Style;
 
@@ -169,5 +172,27 @@ namespace MonoCoC.UI.Components
             small.DrawText(spriteBatch, category.LabelKey.LocalizedOr(category.Id),
                 new Vector2(textX, Rectangle.Y + 42), TextColor * 0.75f * alpha);
         }
+        public static string TypeId => "coc:equipment_slot";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext context)
+        {
+            var slot = new EquipmentSlot
+            {
+                Kind = node.Str("kind", "weapon"),
+                SlotId = node.Str("slotId"),
+                IsExtra = node.Bool("isExtra", false),
+                LabelKey = node.Str("labelKey"),
+                SlotIcon = node.Str("icon"),
+                IconSize = node.Int("iconSize", 36),
+                Padding = node.Int("padding", 12),
+                Spacing = node.Int("spacing", 10),
+                ShowLabel = node.Bool("showLabel", true)
+            };
+
+            return slot;
+        }
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<EquipmentSlot>();
     }
 }

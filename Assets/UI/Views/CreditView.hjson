@@ -1,4 +1,5 @@
-﻿{
+{
+  require: ["GlobalStyles"]
   id: "CreditView"
   root: {
     type: "coc:view"
@@ -15,7 +16,6 @@
       {
         type: "coc:label"
         part: "credits.heading"
-        layout: "relative"
         x: 320
         y: 40
         width: 930
@@ -27,8 +27,7 @@
       {
         type: "coc:button"
         part: "credits.tab.hgg"
-        template: "ActionButton"
-        layout: "relative"
+        style: "ActionButton"
         horizontalAlign: "left"
         verticalAlign: "top"
         x: 320
@@ -41,8 +40,7 @@
       {
         type: "coc:button"
         part: "credits.tab.revamp"
-        template: "ActionButton"
-        layout: "relative"
+        style: "ActionButton"
         horizontalAlign: "left"
         verticalAlign: "top"
         x: 552
@@ -55,8 +53,7 @@
       {
         type: "coc:button"
         part: "credits.tab.vanilla"
-        template: "ActionButton"
-        layout: "relative"
+        style: "ActionButton"
         horizontalAlign: "left"
         verticalAlign: "top"
         x: 784
@@ -69,7 +66,6 @@
       {
         type: "coc:text_area"
         part: "credits.text"
-        layout: "relative"
         x: 320
         y: 156
         width: 940
@@ -83,8 +79,7 @@
       }
       {
         type: "coc:button"
-        template: "ActionButton"
-        layout: "relative"
+        style: "ActionButton"
         horizontalAlign: "left"
         verticalAlign: "top"
         x: 1080

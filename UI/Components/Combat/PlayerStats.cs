@@ -5,10 +5,13 @@ using MonoCoC.UI.Framework;
 using MonoCoC.UI.Components.Views;
 using Microsoft.Xna.Framework;
 
+using Hjson;
+using MonoCoC.Extensions;
+using System.IO;
+using System.Runtime.CompilerServices;
 namespace MonoCoC.UI.Components.Combat
 {
-    public class PlayerStats : HjsonView
-    {
+    public class PlayerStats : HjsonView, IFromHjson<PlayerStats> {
         public static bool HiddenByMenu;
 
         private static readonly Time FallbackTime = new();
@@ -31,7 +34,7 @@ namespace MonoCoC.UI.Components.Combat
                 LayoutData.Size = new Vector2(Content.Rectangle.Width, Content.Rectangle.Height);
 
             SetDataContext(new PlayerStatsDataContext(
-                new PlayerStatsModel(() => CoC.Instance?.Player, () => GameView.Instance?.Time ?? FallbackTime)));
+                new PlayerStatsModel(() => CoC.Instance?.Player, () => GameView.Current?.Time ?? FallbackTime)));
 
             Content?.ApplyDataContext(DataContext);
         }
@@ -51,9 +54,22 @@ namespace MonoCoC.UI.Components.Combat
             if (Content is not null && !ReferenceEquals(Content.DataContext, DataContext))
                 Content.ApplyDataContext(DataContext);
 
-            Visible = !HiddenByMenu;
-
             base.Update(gameTime);
         }
-    }
+    
+        public static string TypeId => "coc:player_stats";
+        public static Component FromHjson(JsonObject node, UIBuildContext services)
+        {
+            var view = node.Str("view");
+
+            if (view.Length == 0)
+                throw new InvalidDataException("coc:player_stats requires 'view'");
+
+            return new PlayerStats(view);
+        }
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<PlayerStats>();
+    
+}
 }

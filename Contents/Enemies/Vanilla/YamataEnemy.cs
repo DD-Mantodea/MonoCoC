@@ -73,7 +73,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             RemoveStatusEffect(StatusEffectIds.Fear);
 
-            context.WriteAction("Combat.Yamata.HandleFear".Localized());
+            context.Log.Add("Combat.Yamata.HandleFear".Localized());
 
             return true;
         }
@@ -85,7 +85,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             RemoveStatusEffect(StatusEffectIds.Blind);
 
-            context.WriteAction("Combat.Yamata.HandleBlind".Localized());
+            context.Log.Add("Combat.Yamata.HandleBlind".Localized());
 
             return true;
         }
@@ -98,7 +98,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!context.Player.HasStatusEffect(StatusEffectIds.YamataEntwine))
                 return true;
 
-            context.WriteAction("Combat.Yamata.EntwineWait".Localized());
+            context.Log.Add("Combat.Yamata.EntwineWait".Localized());
 
             context.Player.ApplyStats(new DynStat(GameStats.Corruption, 1f));
 
@@ -116,7 +116,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!player.HasStatusEffect(StatusEffectIds.YamataEntwine))
                 return;
 
-            context.WriteAction("Combat.Yamata.Struggle.One".Localized());
+            context.Log.Add("Combat.Yamata.Struggle.One".Localized());
 
             var brokeFree = context.Random.Next((int)Math.Max(1, player.Strength)) > (Strength / 4f) * 3f ||
 
@@ -124,23 +124,23 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (brokeFree)
             {
-                context.WriteAction("Combat.Yamata.Struggle.Escape".Localized());
+                context.Log.Add("Combat.Yamata.Struggle.Escape".Localized());
 
                 player.RemoveStatusEffect(StatusEffectIds.YamataEntwine);
 
-                context.WriteAction("Combat.Yamata.Struggle.EscapeDone".Localized());
+                context.Log.Add("Combat.Yamata.Struggle.EscapeDone".Localized());
             }
             else
             {
-                context.WriteAction("Combat.Yamata.Struggle.Two".Localized());
+                context.Log.Add("Combat.Yamata.Struggle.Two".Localized());
 
-                context.WriteAction(player.Strength < 90
+                context.Log.Add(player.Strength < 90
 
                     ? "Combat.Yamata.Struggle.Immense".Localized()
 
                     : "Combat.Yamata.Struggle.Impressive".Localized());
 
-                context.WriteAction("Combat.Yamata.Struggle.Three".Localized());
+                context.Log.Add("Combat.Yamata.Struggle.Three".Localized());
 
                 var damage = 25 + context.Random.Next(15);
 

@@ -74,16 +74,16 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override void OutputAttack(CombatContext context, float damage)
         {
-            context.Append((IsUnarmed()
+            context.AppendLog((IsUnarmed()
 
                 ? "Combat.SharkMan.OutputAttack.TheSharkMan2"
 
                 : "Combat.SharkMan.OutputAttack.TheSharkMan").Localized());
 
             if (CoC.Instance.Flags.Get(Flags.GameFlagIds.EnemyCritical) > 0)
-                context.Append("Combat.SharkMan.OutputAttack.Text".Localized());
+                context.AppendLog("Combat.SharkMan.OutputAttack.Text".Localized());
 
-            context.Append("Combat.Monster.Attack.Damage".Localized((int)damage));
+            context.AppendLog("Combat.Monster.Attack.Damage".Localized((int)damage));
         }
 
         public override void Configure(EnemyDefinition definition)

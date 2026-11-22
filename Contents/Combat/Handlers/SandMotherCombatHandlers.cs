@@ -11,7 +11,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:sand_mother_earth_shield")]
         public static void EarthShield(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.SandMotherEarthShield.Text".Localized());
+            context.AppendLog("Combat.Ability.SandMotherEarthShield.Text".Localized());
 
             context.Enemy.CreateStatusEffect(StatusEffectIds.Earthshield);
         }
@@ -21,7 +21,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = (SandMotherEnemy)context.Enemy;
 
-            context.Append("Combat.Ability.SandMotherGigaFire.Text".Localized());
+            context.AppendLog("Combat.Ability.SandMotherGigaFire.Text".Localized());
 
             enemy.PreparingGigaFire = true;
 
@@ -35,7 +35,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var interrupted = enemy.Health < enemy.GigaHealth;
 
-            context.Append((interrupted
+            context.AppendLog((interrupted
 
                 ? "Combat.Ability.SandMotherGigaFire2.Interrupted"
 
@@ -58,7 +58,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Ability.SandMotherTelekinesis.Text".Localized());
+            context.AppendLog("Combat.Ability.SandMotherTelekinesis.Text".Localized());
 
             var sizeMod = 100f + player.Tallness * (player.Thickness / 100f + 0.5f);
 
@@ -69,7 +69,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:sand_mother_eat_alightning_bolt")]
         public static void Lightning(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.SandMotherLightning.Text".Localized());
+            context.AppendLog("Combat.Ability.SandMotherLightning.Text".Localized());
 
             context.Player.HealthChange(-(30 + Random.Shared.Next(10)));
         }
@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:sand_mother_get_whispered")]
         public static void Whispered(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.SandMotherWhispered.Text".Localized());
+            context.AppendLog("Combat.Ability.SandMotherWhispered.Text".Localized());
 
             context.Player.CreateStatusEffect(StatusEffectIds.Whispered);
 

@@ -19,7 +19,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var version = context.Random.Next(3);
 
-            context.Append($"Combat.IvorySuccubus.Lash.Lead{version}".Localized());
+            context.AppendLog($"Combat.IvorySuccubus.Lash.Lead{version}".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -39,17 +39,17 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (avoid.Outcome)
             {
                 case AvoidOutcome.Block:
-                    context.Append($"Combat.IvorySuccubus.Lash.Block{version}".Localized());
+                    context.AppendLog($"Combat.IvorySuccubus.Lash.Block{version}".Localized());
 
                     break;
 
                 case AvoidOutcome.Dodge:
-                    context.Append($"Combat.IvorySuccubus.Lash.Avoid{version}".Localized());
+                    context.AppendLog($"Combat.IvorySuccubus.Lash.Avoid{version}".Localized());
 
                     break;
 
                 case AvoidOutcome.Hit:
-                    context.Append($"Combat.IvorySuccubus.Lash.Hit{version}".Localized());
+                    context.AppendLog($"Combat.IvorySuccubus.Lash.Hit{version}".Localized());
 
                     var damage = CombatCalculator.ReduceDamage(context, player,
 
@@ -64,7 +64,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:ivory_succubus_tease")]
         public static void Tease(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append($"Combat.IvorySuccubus.Tease.Text{context.Random.Next(3)}".Localized());
+            context.AppendLog($"Combat.IvorySuccubus.Tease.Text{context.Random.Next(3)}".Localized());
 
             context.Player.TakeLustDamage(12 + context.Random.Next(20));
         }
@@ -72,7 +72,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:ivory_succubus_flight")]
         public static void Flight(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.IvorySuccubus.Flight.HerWingsExtend".Localized());
+            context.AppendLog("Combat.IvorySuccubus.Flight.HerWingsExtend".Localized());
 
             var enemy = (IvorySuccubusEnemy)context.Enemy;
 
@@ -86,16 +86,16 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:ivory_succubus_blind")]
         public static void Blind(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.IvorySuccubus.Blind.ShePresentsHer".Localized());
+            context.AppendLog("Combat.IvorySuccubus.Blind.ShePresentsHer".Localized());
 
             if (context.Random.Next(100) < 33)
             {
-                context.Append("Combat.IvorySuccubus.Blind.FortunatelyYouBlinked".Localized());
+                context.AppendLog("Combat.IvorySuccubus.Blind.FortunatelyYouBlinked".Localized());
 
                 return;
             }
 
-            context.Append("Combat.IvorySuccubus.Blind.YouShutYour".Localized());
+            context.AppendLog("Combat.IvorySuccubus.Blind.YouShutYour".Localized());
 
             context.Player.CreateStatusEffect(StatusEffectIds.Blind,
 
@@ -105,7 +105,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:ivory_succubus_whitefire")]
         public static void Whitefire(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.IvorySuccubus.Whitefire.WispsOfFire".Localized());
+            context.AppendLog("Combat.IvorySuccubus.Whitefire.WispsOfFire".Localized());
 
             var damage = 2.5f * context.Enemy.Intelligence + context.Random.Next(50);
 
@@ -117,7 +117,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:ivory_succubus_charge")]
         public static void Charge(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.IvorySuccubus.Charge.TheDemonTwirls".Localized());
+            context.AppendLog("Combat.IvorySuccubus.Charge.TheDemonTwirls".Localized());
 
             context.Enemy.CreateStatusEffect(StatusEffectIds.ChargeWeapon, 25, 0, 0, 0);
         }
@@ -125,7 +125,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:ivory_succubus_arouse")]
         public static void Arouse(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.IvorySuccubus.Arouse.TheDemonessPerforms".Localized());
+            context.AppendLog("Combat.IvorySuccubus.Arouse.TheDemonessPerforms".Localized());
 
             context.Player.TakeLustDamage(context.Enemy.Intelligence / 4f + context.Random.Next(15));
         }
@@ -133,9 +133,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:ivory_succubus_attract")]
         public static void Attract(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append($"Combat.IvorySuccubus.Attract.Text{context.Random.Next(2)}".Localized());
+            context.AppendLog($"Combat.IvorySuccubus.Attract.Text{context.Random.Next(2)}".Localized());
 
-            context.Append("Combat.IvorySuccubus.Attract.Text".Localized());
+            context.AppendLog("Combat.IvorySuccubus.Attract.Text".Localized());
 
             context.Player.CreateStatusEffect(IvorySuccubusEnemy.Attracted, .75f, 0, 0, 0);
         }
@@ -145,7 +145,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.IvorySuccubus.LockUp.TheDemonessS".Localized());
+            context.AppendLog("Combat.IvorySuccubus.LockUp.TheDemonessS".Localized());
 
             var damage = context.Enemy.Intelligence / 4f + context.Random.Next(10);
 

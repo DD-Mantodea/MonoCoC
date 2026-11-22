@@ -13,20 +13,20 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.HermCentaur.FeminineMusk.TurningAboutThe".Localized());
+            context.AppendLog("Combat.HermCentaur.FeminineMusk.TurningAboutThe".Localized());
 
             if (player.LustPercent <= 50)
-                context.Append("Combat.HermCentaur.FeminineMusk.YourGrowsFeverishly".Localized());
+                context.AppendLog("Combat.HermCentaur.FeminineMusk.YourGrowsFeverishly".Localized());
             else
             {
-                context.Append("Combat.HermCentaur.FeminineMusk.BloodRushesTo".Localized());
+                context.AppendLog("Combat.HermCentaur.FeminineMusk.BloodRushesTo".Localized());
 
                 if (player.HasCock())
-                    context.Append("Combat.HermCentaur.FeminineMusk.WithTheDesire".Localized());
+                    context.AppendLog("Combat.HermCentaur.FeminineMusk.WithTheDesire".Localized());
                 else if (player.HasVagina())
-                    context.Append("Combat.HermCentaur.FeminineMusk.YourWithThe".Localized());
+                    context.AppendLog("Combat.HermCentaur.FeminineMusk.YourWithThe".Localized());
                 else
-                    context.Append("Combat.HermCentaur.FeminineMusk.YourAnusUntil".Localized());
+                    context.AppendLog("Combat.HermCentaur.FeminineMusk.YourAnusUntil".Localized());
             }
 
             player.TakeLustDamage(8 + player.Libido / 10f + player.Sensitivity / 10f, true);
@@ -37,55 +37,55 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.HermCentaur.AphrodisiacSquirt.TheCentaurGrabs".Localized());
+            context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.TheCentaurGrabs".Localized());
 
             player.TakeLustDamage(8 + player.Libido / 10f + player.Sensitivity / 10f, true);
 
             if (player.LustPercent < 30)
-                context.Append("Combat.HermCentaur.AphrodisiacSquirt.YouCloseYour".Localized());
+                context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.YouCloseYour".Localized());
             else if (player.LustPercent < 40)
-                context.Append("Combat.HermCentaur.AphrodisiacSquirt.YourHeartBeats".Localized());
+                context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.YourHeartBeats".Localized());
             else if (player.LustPercent < 50)
-                context.Append("Combat.HermCentaur.AphrodisiacSquirt.YourCheeksColor".Localized());
+                context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.YourCheeksColor".Localized());
             else if (player.LustPercent < 60)
-                context.Append("Combat.HermCentaur.AphrodisiacSquirt.YourBlinkBut".Localized());
+                context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.YourBlinkBut".Localized());
             else if (player.LustPercent < 70)
             {
-                context.Append("Combat.HermCentaur.AphrodisiacSquirt.YouGroanIn".Localized());
+                context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.YouGroanIn".Localized());
 
                 if (player.HasCock())
-                    context.Append("Combat.HermCentaur.AphrodisiacSquirt.AwakensFillingItself".Localized());
+                    context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.AwakensFillingItself".Localized());
                 else if (player.HasVagina())
-                    context.Append("Combat.HermCentaur.AphrodisiacSquirt.AWetHeat".Localized());
+                    context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.AWetHeat".Localized());
                 else
-                    context.Append("Combat.HermCentaur.AphrodisiacSquirt.YourTinglesCraving".Localized());
+                    context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.YourTinglesCraving".Localized());
             }
             else if (player.LustPercent < 80)
             {
-                context.Append("Combat.HermCentaur.AphrodisiacSquirt.YouSighAnd".Localized());
+                context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.YouSighAnd".Localized());
 
                 if (player.HasCock())
-                    context.Append("Combat.HermCentaur.AphrodisiacSquirt.IgnoringTheStiffening".Localized());
+                    context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.IgnoringTheStiffening".Localized());
                 else
-                    context.Append("Combat.HermCentaur.AphrodisiacSquirt.IgnoringTheIncreasing".Localized());
+                    context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.IgnoringTheIncreasing".Localized());
 
-                context.Append("Combat.HermCentaur.AphrodisiacSquirt.ItSGetting".Localized());
+                context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.ItSGetting".Localized());
             }
             else if (player.LustPercent < 90)
             {
-                context.Append("Combat.HermCentaur.AphrodisiacSquirt.PantingFeverishlyYou".Localized());
+                context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.PantingFeverishlyYou".Localized());
 
                 if (player.HasCock())
-                    context.Append("Combat.HermCentaur.AphrodisiacSquirt.PreBeginsTo".Localized());
+                    context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.PreBeginsTo".Localized());
                 else if (player.HasVagina())
-                    context.Append("Combat.HermCentaur.AphrodisiacSquirt.AFloodOf".Localized());
+                    context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.AFloodOf".Localized());
 
-                context.Append("Combat.HermCentaur.AphrodisiacSquirt.YouNeedTo".Localized());
+                context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.YouNeedTo".Localized());
             }
             else if (player.LustPercent < 100)
-                context.Append("Combat.HermCentaur.AphrodisiacSquirt.MoaningOutLoud".Localized());
+                context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.MoaningOutLoud".Localized());
             else
-                context.Append("Combat.HermCentaur.AphrodisiacSquirt.SinkingToYour".Localized());
+                context.AppendLog("Combat.HermCentaur.AphrodisiacSquirt.SinkingToYour".Localized());
         }
 
         [Register("coc:herm_centaur_arouse_spell_charge")]
@@ -95,10 +95,10 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var player = context.Player;
 
-            context.Append("Combat.HermCentaur.ArouseSpellCharge.TheCentauressCloses".Localized());
+            context.AppendLog("Combat.HermCentaur.ArouseSpellCharge.TheCentauressCloses".Localized());
 
             if (player.Intelligence > 80)
-                context.Append("Combat.HermCentaur.ArouseSpellCharge.ATeaseAttack".Localized());
+                context.AppendLog("Combat.HermCentaur.ArouseSpellCharge.ATeaseAttack".Localized());
 
             herm.ChargingArouse = true;
 
@@ -119,10 +119,10 @@ namespace MonoCoC.Contents.Combat.Handlers
             herm.LustAtChargeStart = -1;
 
             if (herm.Lust >= herm.LustAtChargeStart + 10f)
-                context.Append("Combat.HermCentaur.ArouseSpellCast.ShudderingTheDemoness".Localized());
+                context.AppendLog("Combat.HermCentaur.ArouseSpellCast.ShudderingTheDemoness".Localized());
             else
             {
-                context.Append("Combat.HermCentaur.ArouseSpellCast.TheChantingReaches".Localized());
+                context.AppendLog("Combat.HermCentaur.ArouseSpellCast.TheChantingReaches".Localized());
 
                 player.TakeLustDamage(20 + player.Libido / 6f + player.Sensitivity / 6f, true);
             }
@@ -139,21 +139,21 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (herm.HypnoCockUses == 1)
             {
-                context.Append("Combat.HermCentaur.HypnoCock.ThwackYouStart".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.ThwackYouStart".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.YouGlanceLower".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.YouGlanceLower".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.OnlyAfterWatching".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.OnlyAfterWatching".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.WellYouCan".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.WellYouCan".Localized());
             }
             else
             {
-                context.Append("Combat.HermCentaur.HypnoCock.ThwackSheS".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.ThwackSheS".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.SheMusesQuietly".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.SheMusesQuietly".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.YesItS".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.YesItS".Localized());
             }
 
             var resistance = player.Intelligence * (2f / herm.HypnoCockUses);
@@ -169,11 +169,11 @@ namespace MonoCoC.Contents.Combat.Handlers
                 player.TakeLustDamage(2 + (int)(context.Random.NextDouble() * extra), true);
 
                 if (player.LustPercent <= 33)
-                    context.Append("Combat.HermCentaur.HypnoCock.AWarningThought".Localized());
+                    context.AppendLog("Combat.HermCentaur.HypnoCock.AWarningThought".Localized());
                 else if (player.LustPercent <= 66)
-                    context.Append("Combat.HermCentaur.HypnoCock.AQuietVoice".Localized());
+                    context.AppendLog("Combat.HermCentaur.HypnoCock.AQuietVoice".Localized());
                 else
-                    context.Append("Combat.HermCentaur.HypnoCock.ASimperingVoice".Localized());
+                    context.AppendLog("Combat.HermCentaur.HypnoCock.ASimperingVoice".Localized());
             }
             else
             {
@@ -181,29 +181,29 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 player.TakeLustDamage(20 + 2 * herm.HypnoCockUses + 2 + (int)(context.Random.NextDouble() * extra), true);
 
-                context.Append("Combat.HermCentaur.HypnoCock.DownItBobs".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.DownItBobs".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.FuckSheS".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.FuckSheS".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.TheVoiceAsks".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.TheVoiceAsks".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.YouNod".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.YouNod".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.Text".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.Text".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.AgainYouNod".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.AgainYouNod".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.TheVoiceContinues".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.TheVoiceContinues".Localized());
 
-                context.Append("Combat.HermCentaur.HypnoCock.GodsYouWant".Localized());
+                context.AppendLog("Combat.HermCentaur.HypnoCock.GodsYouWant".Localized());
 
                 if (player.Lust >= player.MaxLust)
-                    context.Append("Combat.HermCentaur.HypnoCock.YouWhimperToo".Localized());
+                    context.AppendLog("Combat.HermCentaur.HypnoCock.YouWhimperToo".Localized());
                 else
                 {
-                    context.Append("Combat.HermCentaur.HypnoCock.YouStumbleForward".Localized());
+                    context.AppendLog("Combat.HermCentaur.HypnoCock.YouStumbleForward".Localized());
 
-                    context.Append("Combat.HermCentaur.HypnoCock.TheEquineDemon".Localized());
+                    context.AppendLog("Combat.HermCentaur.HypnoCock.TheEquineDemon".Localized());
                 }
             }
         }
@@ -217,13 +217,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             herm.UsedGottaCum = true;
 
-            context.Append("Combat.HermCentaur.GottaCum.SighingTheDemoness".Localized());
+            context.AppendLog("Combat.HermCentaur.GottaCum.SighingTheDemoness".Localized());
 
-            context.Append("Combat.HermCentaur.GottaCum.TheCorruptionFouled".Localized());
+            context.AppendLog("Combat.HermCentaur.GottaCum.TheCorruptionFouled".Localized());
 
-            context.Append("Combat.HermCentaur.GottaCum.HundredsOfPounds".Localized());
+            context.AppendLog("Combat.HermCentaur.GottaCum.HundredsOfPounds".Localized());
 
-            context.Append("Combat.HermCentaur.GottaCum.FlushingTheDemoness".Localized());
+            context.AppendLog("Combat.HermCentaur.GottaCum.FlushingTheDemoness".Localized());
 
             herm.Lust = 0;
 
@@ -237,7 +237,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             herm.UsedHeal = true;
 
-            context.Append("Combat.HermCentaur.HealUp.WipingADrop".Localized());
+            context.AppendLog("Combat.HermCentaur.HealUp.WipingADrop".Localized());
 
             herm.Health = herm.MaxHealth;
         }

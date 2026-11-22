@@ -31,14 +31,14 @@ namespace MonoCoC.Contents.Combat.Handlers
             // 原版 disabledWhen：剑数 >= 3 时不可再召唤
             if (count >= MaxScimitars)
             {
-                context.WriteAction("Combat.Spell.SummonScimitar.TooMany".Localized());
+                context.Log.Add("Combat.Spell.SummonScimitar.TooMany".Localized());
 
                 return;
             }
 
-            context.WriteAction("Combat.Spell.SummonScimitar.Text".Localized());
+            context.Log.Add("Combat.Spell.SummonScimitar.Text".Localized());
 
-            context.Append("Combat.Spell.SummonScimitar.Alive".Localized());
+            context.AppendLog("Combat.Spell.SummonScimitar.Alive".Localized());
 
             if (existing != null) existing.Values[0] += 1;
             else player.CreateStatusEffect(Scimitar, 1, 0, 0, 0, 0);
@@ -61,7 +61,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 if (context.Random.Next(100) >= chance)
                 {
-                    context.Append("Combat.Spell.SummonScimitar.Misses".Localized(enemy.ShortName));
+                    context.AppendLog("Combat.Spell.SummonScimitar.Misses".Localized(enemy.ShortName));
 
                     continue;
                 }
@@ -72,7 +72,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 enemy.HealthChange(-damage);
 
-                context.Append("Combat.Spell.SummonScimitar.Slash".Localized(enemy.ShortName));
+                context.AppendLog("Combat.Spell.SummonScimitar.Slash".Localized(enemy.ShortName));
             }
         }
     }

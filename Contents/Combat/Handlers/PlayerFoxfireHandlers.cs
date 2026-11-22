@@ -46,14 +46,14 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             if (Silenced(context))
             {
-                context.Append("Combat.Spell.Foxfire.Silence".Localized());
+                context.AppendLog("Combat.Spell.Foxfire.Silence".Localized());
 
                 return;
             }
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Spell.Foxfire.Cast".Localized());
+            context.AppendLog("Combat.Spell.Foxfire.Cast".Localized());
 
             var damage = BaseDamage(context);
 
@@ -80,7 +80,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 var heal = damage * (enemy.Lust / enemy.MaxLust) * 0.6f;
 
-                context.Append("Combat.Spell.Foxfire.Heal".Localized());
+                context.AppendLog("Combat.Spell.Foxfire.Heal".Localized());
 
                 context.Player.HealthChange(heal);
             }
@@ -91,14 +91,14 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             if (Silenced(context))
             {
-                context.Append("Combat.Spell.Foxfire.Silence".Localized());
+                context.AppendLog("Combat.Spell.Foxfire.Silence".Localized());
 
                 return;
             }
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Spell.CorruptedFoxfire.Cast".Localized());
+            context.AppendLog("Combat.Spell.CorruptedFoxfire.Cast".Localized());
 
             var damage = BaseDamage(context);
 

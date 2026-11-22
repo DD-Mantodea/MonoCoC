@@ -1,4 +1,6 @@
-﻿using MonoCoC.Contents.Scenes;
+using MonoCoC.Contents.Combat;
+using MonoCoC.Contents.Dungeons;
+using MonoCoC.Contents.Scenes;
 using MonoCoC.UI.Components.Combat;
 using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
@@ -6,9 +8,11 @@ using static MonoCoC.UI.Layout.LayoutConstants;
 
 namespace MonoCoC.UI.Components.Views
 {
-    public class CampView : GameView
+    public class CampView : GameView<CampView>, ISceneHostView
     {
         public CampView() => Initialize();
+
+        public bool CanHost(Scene scene) => scene is not CombatScene and not DungeonScene;
 
         protected override string ScreenFile => "Views\\CampView.hjson";
 

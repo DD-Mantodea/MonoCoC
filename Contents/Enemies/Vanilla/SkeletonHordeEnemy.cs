@@ -75,7 +75,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             UnitAmount = (int)Math.Ceiling(Health / UnitHp);
 
-            context.Append("\n");
+            context.AppendLog("\n");
 
             for (var i = 0; i < UnitAmount; i++)
             {
@@ -147,7 +147,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleFear(CombatContext context)
         {
-            context.WriteAction("Combat.SkeletonHorde.HandleFear.TheSkeletonsAren".Localized());
+            context.Log.Add("Combat.SkeletonHorde.HandleFear.TheSkeletonsAren".Localized());
 
             RemoveStatusEffect(StatusEffectIds.Fear);
 

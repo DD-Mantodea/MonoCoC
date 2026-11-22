@@ -19,7 +19,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             enemy.Fatigue += 15;
 
-            context.Append("Combat.Ability.PhoenixSapperArmorRend.Text".Localized());
+            context.AppendLog("Combat.Ability.PhoenixSapperArmorRend.Text".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -30,19 +30,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Combat.Ability.PhoenixSapperArmorRend.Dodged".Localized());
+                context.AppendLog("Combat.Ability.PhoenixSapperArmorRend.Dodged".Localized());
 
                 return;
             }
 
             if (avoid.Outcome is AvoidOutcome.Block or AvoidOutcome.Parry)
             {
-                context.Append("Combat.Ability.PhoenixSapperArmorRend.Deflected".Localized());
+                context.AppendLog("Combat.Ability.PhoenixSapperArmorRend.Deflected".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Ability.PhoenixSapperArmorRend.Hit".Localized());
+            context.AppendLog("Combat.Ability.PhoenixSapperArmorRend.Hit".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, Random.Shared.Next(25) + enemy.Strength + enemy.WeaponAttack);
 
@@ -62,18 +62,18 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             enemy.Fatigue += 15;
 
-            context.Append("Combat.Ability.PhoenixSapperFlashBang.Text".Localized());
+            context.AppendLog("Combat.Ability.PhoenixSapperFlashBang.Text".Localized());
 
             if (Random.Shared.Next(3) != 0)
                 context.Player.CreateStatusEffect(StatusEffectIds.Blind, 2 + Random.Shared.Next(3), 0, 0, 0);
             else
-                context.Append("Combat.Ability.PhoenixSapperFlashBang.Covered".Localized());
+                context.AppendLog("Combat.Ability.PhoenixSapperFlashBang.Covered".Localized());
         }
 
         [Register("coc:phoenix_sapper_attack")]
         public static void Attack(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.PhoenixSapperAttack.Text".Localized());
+            context.AppendLog("Combat.Ability.PhoenixSapperAttack.Text".Localized());
 
             CombatController.Instance!.Resolver.EnemyBasicAttack();
         }

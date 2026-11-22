@@ -79,7 +79,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Write("Scenes.GooArmor.GooArmorAttackPhysical.SwordArcEvaded".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.GooArmor.GooArmorAttackPhysical.SwordArcEvaded".Localized());
 
                 return;
             }
@@ -88,21 +88,21 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (damage <= 0) damage = 1;
 
-            context.Write("Common.Text.TheGooArmorRushesForwardAnd".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheGooArmorRushesForwardAnd".Localized());
 
             player.HealthChange(-damage);
         }
 
         public void GooConsume(CombatContext context, Player player)
         {
-            context.Write("Common.Text.SuddenlyTheGooGirlLeaksHalf".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SuddenlyTheGooGirlLeaksHalf".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.GooArmorBind, 0, 0, 0, 0);
         }
 
         public void Silence(CombatContext context, Player player)
         {
-            context.Write("Scenes.GooArmor.GooSilenceAttack.GooMouthSilence".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.GooArmor.GooSilenceAttack.GooMouthSilence".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.GooArmorSilence, 0, 0, 0, 0);
         }

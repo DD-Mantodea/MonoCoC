@@ -16,7 +16,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:sentinel_of_heresy_seal_tease")]
         public static void SealTease(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.SentinelOfHeresySealTease.Text".Localized());
+            context.AppendLog("Combat.Ability.SentinelOfHeresySealTease.Text".Localized());
 
             context.Player.CreateStatusEffect(StatusEffectIds.SentinelNoTease, 3, 0, 0, 0);
 
@@ -26,7 +26,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:sentinel_of_heresy_martyrdom")]
         public static void Martyrdom(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.SentinelOfHeresyMartyrdom.Text".Localized());
+            context.AppendLog("Combat.Ability.SentinelOfHeresyMartyrdom.Text".Localized());
 
             foreach (var ally in context.Enemies)
             {
@@ -37,14 +37,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 ally.Health = Math.Min(ally.MaxHealth, ally.Health + healed);
 
-                context.Append("Combat.Ability.SentinelOfHeresyMartyrdom.Healed".Localized(ally.ShortName, (int)healed));
+                context.AppendLog("Combat.Ability.SentinelOfHeresyMartyrdom.Healed".Localized(ally.ShortName, (int)healed));
             }
 
             var damaged = 40 + Random.Shared.Next(40);
 
             context.Enemy.HealthChange(-damaged);
 
-            context.Append("Combat.Ability.SentinelOfHeresyMartyrdom.SelfDamage".Localized(damaged));
+            context.AppendLog("Combat.Ability.SentinelOfHeresyMartyrdom.SelfDamage".Localized(damaged));
         }
     }
 }

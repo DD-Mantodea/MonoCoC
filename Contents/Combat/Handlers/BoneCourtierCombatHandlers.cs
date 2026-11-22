@@ -15,7 +15,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:bone_courtier_tempting_goblet")]
         public static void TemptingGoblet(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.BoneCourtier.TemptingGoblet.TheBoneSorcerer".Localized());
+            context.AppendLog("Combat.BoneCourtier.TemptingGoblet.TheBoneSorcerer".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -33,7 +33,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
 
-                context.Append(avoid.DodgeReason switch
+                context.AppendLog(avoid.DodgeReason switch
                 {
                     "Evade" => "Combat.BoneCourtier.TemptingGoblet.YouRollAway".Localized(),
 
@@ -47,7 +47,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.BoneCourtier.TemptingGoblet.TheLiquidHits".Localized());
+            context.AppendLog("Combat.BoneCourtier.TemptingGoblet.TheLiquidHits".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, context.Player, 20 + context.Random.Next(50));
 
@@ -59,7 +59,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:bone_courtier_mark")]
         public static void Mark(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.BoneCourtier.Mark.TheBoneSorcerer".Localized());
+            context.AppendLog("Combat.BoneCourtier.Mark.TheBoneSorcerer".Localized());
 
             context.Player.CreateStatusEffect(StatusEffectIds.Marked, 2, 0, 0, 0);
         }
@@ -69,7 +69,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             const float healPercent = 0.25f;
 
-            context.Append("Combat.BoneCourtier.Heal.TheBoneSorcerer".Localized());
+            context.AppendLog("Combat.BoneCourtier.Heal.TheBoneSorcerer".Localized());
 
             if (context.Enemies.Count == 1)
             {
@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 context.Enemy.AddHp(selfHeal);
 
-                context.Append("Combat.BoneCourtier.Heal.TheBoneSorcerer2".Localized("#00ff00", (int)MathF.Round(selfHeal)));
+                context.AppendLog("Combat.BoneCourtier.Heal.TheBoneSorcerer2".Localized("#00ff00", (int)MathF.Round(selfHeal)));
 
                 return;
             }
@@ -90,7 +90,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 necromancer.AddHp(heal);
 
-                context.Append("Combat.BoneCourtier.Heal.OneIs".Localized(
+                context.AppendLog("Combat.BoneCourtier.Heal.OneIs".Localized(
                     Utils.Utils.CapitalizeFirstLetter(necromancer.Article),
 
                     necromancer.ShortName,
@@ -113,7 +113,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             target.AddHp(healAmount);
 
-            context.Append("Combat.BoneCourtier.Heal.OneIs".Localized(
+            context.AppendLog("Combat.BoneCourtier.Heal.OneIs".Localized(
                 Utils.Utils.CapitalizeFirstLetter(target.Article),
 
                 target.ShortName,

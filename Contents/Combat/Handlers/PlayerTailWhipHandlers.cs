@@ -35,16 +35,16 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 if (blindMiss || speedMiss)
                 {
-                    context.Append("Combat.Special.TailWhip.Miss".Localized());
+                    context.AppendLog("Combat.Special.TailWhip.Miss".Localized());
 
-                    context.Append("[pg]");
+                    context.AppendLog("[pg]");
 
                     return;
                 }
 
-                context.Append("Combat.Special.TailWhip.GolemHit".Localized());
+                context.AppendLog("Combat.Special.TailWhip.GolemHit".Localized());
 
-                context.Append("[pg]");
+                context.AppendLog("[pg]");
 
                 enemy.CreateStatusEffect(StatusEffectIds.CoonWhip, 150, 2, 0, 0);
 
@@ -62,14 +62,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.Special.TailWhip.Miss".Localized());
+                context.AppendLog("Combat.Special.TailWhip.Miss".Localized());
 
-                context.Append("[pg]");
+                context.AppendLog("[pg]");
 
                 return;
             }
 
-            context.Append(enemy.Plural
+            context.AppendLog(enemy.Plural
 
                 ? "Combat.Special.TailWhip.HitPlural".Localized()
 
@@ -99,7 +99,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             enemy.AddStatusValue(StatusEffectIds.CoonWhip, 1, duration);
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
         }
     }
 }

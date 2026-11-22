@@ -1,10 +1,13 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hjson;
+using MonoCoC.UI.Data;
+using MonoCoC.UI.Framework;
+using System.Runtime.CompilerServices;
 namespace MonoCoC.UI.Components
 {
-    public class CornerDecoration : DecorationComponent
-    {
+    public class CornerDecoration : DecorationComponent, IFromHjson<CornerDecoration> {
         public int Length = 14;
 
         public int Thickness = 2;
@@ -68,5 +71,30 @@ namespace MonoCoC.UI.Components
 
             Fill(spriteBatch, new Rectangle(verticalX, verticalY, thickness, length), color);
         }
-    }
+    
+        public static string TypeId => "coc:corners";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext services)
+        {
+            var corners = new CornerDecoration();
+
+            if (node.TryGetValue("length", out var length))
+                corners.Length = UIParseUtils.Int(length);
+
+            if (node.TryGetValue("thickness", out var thickness))
+                corners.Thickness = UIParseUtils.Int(thickness);
+
+            if (node.TryGetValue("inset", out var inset))
+                corners.Inset = UIParseUtils.Int(inset);
+
+            if (node.TryGetValue("gap", out var gap))
+                corners.Gap = UIParseUtils.Int(gap);
+
+            return corners;
+        }
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<CornerDecoration>();
+    
+}
 }

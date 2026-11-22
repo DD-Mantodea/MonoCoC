@@ -10,7 +10,7 @@ namespace MonoCoC.Macros.Providers
     {
         public bool TryResolve(string name, out ScriptValue value)
         {
-            var time = GameView.Instance?.Time;
+            var time = GameView.Current?.Time;
 
             var core = Core(name.ToLowerInvariant(), time);
 

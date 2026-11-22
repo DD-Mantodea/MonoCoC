@@ -1,4 +1,4 @@
-﻿using MonoCoC.Assets;
+using MonoCoC.Assets;
 using MonoCoC.Macros;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Dungeons;
@@ -37,7 +37,7 @@ namespace MonoCoC.Contents.Scenes
 
         public static IReadOnlyList<SceneAction> Actions => ActionState.Actions;
 
-        public static GameView View => GameView.Instance!;
+        public static GameView View => GameView.Current!;
 
         public static TextArea Output => View.Output;
 
@@ -196,7 +196,7 @@ namespace MonoCoC.Contents.Scenes
 
             CombatController.Instance = null;
 
-            View.HideCombatStats();
+            UI.Components.Views.CombatView.Current?.HideCombatStats();
 
             AwardAchievement(AchievementIds.GameOver, display: true, newlineBefore: false);
 
@@ -219,7 +219,7 @@ namespace MonoCoC.Contents.Scenes
                 Player.GameOver = true;
             }
 
-            View.ShowGameOver("GAME OVER");
+            UI.Components.Views.GameOverView.Open("GAME OVER");
 
             AddButton(0, "GameOver.Button.Title".Localized(), BackToTitle,
 
@@ -232,14 +232,14 @@ namespace MonoCoC.Contents.Scenes
 
         public static void BackToTitle()
         {
-            View.HideGameOver();
+            UI.Components.Views.GameOverView.Close();
 
             UIManager.Instance.Root.SwitchView(new MainView());
         }
 
         public static void WakeFromBadEnd()
         {
-            View.HideGameOver();
+            UI.Components.Views.GameOverView.Close();
 
             ClearOutput();
 
@@ -491,7 +491,7 @@ namespace MonoCoC.Contents.Scenes
             }
         }
 
-        public static Button? AddButton(int slot, string text, Action? onClick = null, string hint = "", string hintHeader = "")
+        public static Button? AddButton(int slot, string text, Action? onClick = null, string hint = "", string hintHeader = "", SceneActionRole role = SceneActionRole.None)
         {
             var button = ButtonAt(slot);
 
@@ -503,6 +503,7 @@ namespace MonoCoC.Contents.Scenes
                 Visible = true,
                 Hint = hint,
                 HintHeader = hintHeader,
+                Role = role,
             });
 
             if (button == null)
@@ -548,7 +549,8 @@ namespace MonoCoC.Contents.Scenes
             return button;
         }
 
-        public static Button? AddNextButton(string text, Action? onClick = null, string hint = "") => AddButton(FirstFree(0, Buttons.Length - 1), text, onClick, hint);
+        public static Button? AddNextButton(string text, Action? onClick = null, string hint = "") =>
+            AddButton(FirstFree(0, Buttons.Length - 1), text, onClick, hint, role: SceneActionRole.Continue);
 
         public static Button? AddNextButtonDisabled(string text, string hint = "", string hintHeader = "") =>
 
@@ -653,7 +655,7 @@ namespace MonoCoC.Contents.Scenes
 
         public static Button? AddColButton(int column, string text, Action? onClick = null) => AddLimitedButton(ColumnSlots[column], text, onClick);
 
-        public static Button? SetExitButton(string text, Action? onClick = null) => AddButton(Buttons.Length - 1, text, onClick);
+        public static Button? SetExitButton(string text, Action? onClick = null) => AddButton(Buttons.Length - 1, text, onClick, role: SceneActionRole.Exit);
 
         public static void HintButton(int slot, string hint)
         {

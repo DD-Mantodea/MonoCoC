@@ -169,7 +169,7 @@ namespace MonoCoC.Contents.Enemies
 
         public virtual bool HandleStun(CombatContext context)
         {
-            context.WriteAction("Combat.Hook.Stunned".Localized());
+            context.Log.Add("Combat.Hook.Stunned".Localized());
 
             var stunned = StatusEffectByType(StatusEffectIds.Stunned);
 
@@ -188,7 +188,7 @@ namespace MonoCoC.Contents.Enemies
         {
             if (HasPerk(PerkIds.FearImmune))
             {
-                context.WriteAction("Combat.Hook.FearImmune".Localized());
+                context.Log.Add("Combat.Hook.FearImmune".Localized());
 
                 RemoveStatusEffect(StatusEffectIds.Fear);
 
@@ -201,13 +201,13 @@ namespace MonoCoC.Contents.Enemies
             {
                 RemoveStatusEffect(StatusEffectIds.Fear);
 
-                context.WriteAction("Combat.Hook.FearRecovered".Localized());
+                context.Log.Add("Combat.Hook.FearRecovered".Localized());
             }
             else
             {
                 fear.Values[0] -= 1;
 
-                context.WriteAction("Combat.Hook.FearShivering".Localized());
+                context.Log.Add("Combat.Hook.FearShivering".Localized());
             }
 
             return false;
@@ -220,17 +220,17 @@ namespace MonoCoC.Contents.Enemies
             // 原版 ConstrictedDebuff.hx：被束缚的敌人每回合只能挣扎
             if (HasStatusEffect(StatusEffectIds.Constricted))
             {
-                context.Append("Combat.VineGrab.Struggle".Localized());
+                context.AppendLog("Combat.VineGrab.Struggle".Localized());
 
                 if (StatusEffectValue(StatusEffectIds.Constricted, 0) <= 0)
                 {
-                    context.Append("Combat.VineGrab.ReleaseText".Localized());
+                    context.AppendLog("Combat.VineGrab.ReleaseText".Localized());
 
                     RemoveStatusEffect(StatusEffectIds.Constricted);
                 }
                 else
                 {
-                    context.Append("Combat.VineGrab.StruggleFail".Localized());
+                    context.AppendLog("Combat.VineGrab.StruggleFail".Localized());
 
                     AddStatusValue(StatusEffectIds.Constricted, 0, -1);
                 }
@@ -243,26 +243,26 @@ namespace MonoCoC.Contents.Enemies
 
         public virtual int HandleCombatLossText(CombatContext context, bool inDungeon, int gemsLost)
         {
-            context.WriteAction(inDungeon
+            context.Log.Add(inDungeon
 
                 ? "Combat.Loss.Dungeon".Localized()
 
                 : "Combat.Loss.Overworld".Localized());
 
             if (context.Player.Gems > 1)
-                context.Append((inDungeon
+                context.AppendLog((inDungeon
 
                     ? "Combat.Loss.MissingDungeon"
 
                     : "Combat.Loss.Missing").Localized(gemsLost));
             else if (context.Player.Gems == 1)
-                context.Append((inDungeon
+                context.AppendLog((inDungeon
 
                     ? "Combat.Loss.OnlyGemDungeon"
 
                     : "Combat.Loss.OnlyGem").Localized());
             else
-                context.Append("Combat.Loss.None".Localized());
+                context.AppendLog("Combat.Loss.None".Localized());
 
             return 8;
         }
@@ -271,21 +271,21 @@ namespace MonoCoC.Contents.Enemies
         {
             if (Balls > 0 && BallSize >= 10 && context.Random.Next(2) == 0)
             {
-                context.WriteAction("Combat.Fantasy.Balls".Localized());
+                context.Log.Add("Combat.Fantasy.Balls".Localized());
 
-                context.WriteAction("Combat.Fantasy.BallsFuller".Localized());
+                context.Log.Add("Combat.Fantasy.BallsFuller".Localized());
 
                 HoursSinceCum += 50;
             }
             else if (BiggestBreastSize() >= 6 && context.Random.Next(2) == 0)
-                context.WriteAction("Combat.Fantasy.Breasts".Localized());
+                context.Log.Add("Combat.Fantasy.Breasts".Localized());
             else if (BiggestLactation() >= 6 && context.Random.Next(2) == 0)
-                context.WriteAction("Combat.Fantasy.Lactation".Localized());
+                context.Log.Add("Combat.Fantasy.Lactation".Localized());
             else
-                context.WriteAction("Combat.Fantasy.Default".Localized());
+                context.Log.Add("Combat.Fantasy.Default".Localized());
 
             if (lustDamage >= 20)
-                context.WriteAction("Combat.Fantasy.Vivid".Localized());
+                context.Log.Add("Combat.Fantasy.Vivid".Localized());
         }
 
         public virtual AvoidResult PlayerAvoids(CombatContext context) =>
@@ -303,7 +303,7 @@ namespace MonoCoC.Contents.Enemies
                     if (this is Vanilla.VolcanicGolemEnemy && ArmorDefense >= 300)
                         ArmorDefense = 300;
 
-                    context.Append("Combat.Special.TailWhip.WearsOff".Localized());
+                    context.AppendLog("Combat.Special.TailWhip.WearsOff".Localized());
 
                     RemoveStatusEffect(StatusEffectIds.CoonWhip);
                 }
@@ -311,7 +311,7 @@ namespace MonoCoC.Contents.Enemies
                 {
                     AddStatusValue(StatusEffectIds.CoonWhip, 1, -1);
 
-                    context.Append("Combat.Special.TailWhip.StillReduced".Localized());
+                    context.AppendLog("Combat.Special.TailWhip.StillReduced".Localized());
                 }
         }
 
@@ -460,30 +460,30 @@ namespace MonoCoC.Contents.Enemies
             if (damage <= 0)
             {
                 if (player.HasStatusEffect(StatusEffectIds.CounterAB))
-                    context.Append("Combat.Monster.Attack.ParryCounter".Localized());
+                    context.AppendLog("Combat.Monster.Attack.ParryCounter".Localized());
                 else if (context.Random.Next(Math.Max(1, (int)(player.ArmorDefense + player.Toughness))) < player.ArmorDefense)
-                    context.Append("Combat.Monster.Attack.Absorbed".Localized(WeaponVerb, armorName));
+                    context.AppendLog("Combat.Monster.Attack.Absorbed".Localized(WeaponVerb, armorName));
                 else
-                    context.Append("Combat.Monster.Attack.Deflected".Localized());
+                    context.AppendLog("Combat.Monster.Attack.Deflected".Localized());
             }
             else if (damage < 6)
-                context.Append("Combat.Monster.Attack.Glancing".Localized());
+                context.AppendLog("Combat.Monster.Attack.Glancing".Localized());
             else if (damage < 11)
-                context.Append("Combat.Monster.Attack.Wound".Localized());
+                context.AppendLog("Combat.Monster.Attack.Wound".Localized());
             else if (damage < 21)
-                context.Append("Combat.Monster.Attack.Stagger".Localized(Pronoun3, WeaponVerb));
+                context.AppendLog("Combat.Monster.Attack.Stagger".Localized(Pronoun3, WeaponVerb));
             else
-                context.Append("Combat.Monster.Attack.Mutilate".Localized(Pronoun3, WeaponVerb));
+                context.AppendLog("Combat.Monster.Attack.Mutilate".Localized(Pronoun3, WeaponVerb));
 
             if (damage > 0 && CoC.Instance.Flags.Get(GameFlagIds.EnemyCritical) > 0)
-                context.Append("Combat.Monster.Attack.Critical".Localized());
+                context.AppendLog("Combat.Monster.Attack.Critical".Localized());
 
-            context.Append("Combat.Monster.Attack.Damage".Localized((int)damage));
+            context.AppendLog("Combat.Monster.Attack.Damage".Localized((int)damage));
 
             if (HasPerk(PerkIds.BrutalBlows) && Strength > 75)
             {
                 if (player.ArmorDefense > 0)
-                    context.Append("Combat.Monster.Attack.BrutalBlows".Localized());
+                    context.AppendLog("Combat.Monster.Attack.BrutalBlows".Localized());
 
                 var effect = player.StatusEffectByType(StatusEffectIds.BrutalBlows)
 
@@ -499,7 +499,7 @@ namespace MonoCoC.Contents.Enemies
 
             if (HasPerk(PerkIds.SeverTendons) && context.Random.Next(100) <= 25)
             {
-                context.Append("Combat.Monster.Attack.SeverTendons".Localized());
+                context.AppendLog("Combat.Monster.Attack.SeverTendons".Localized());
 
                 var effect = player.StatusEffectByType(StatusEffectIds.SeverTendons)
 
@@ -580,7 +580,7 @@ namespace MonoCoC.Contents.Enemies
 
         public virtual void OnTeased(CombatContext context, float lustDelta) =>
 
-            context.WriteAction("Combat.Resolve.TeaseEnemy".Localized(ShortName, lustDelta));
+            context.Log.Add("Combat.Resolve.TeaseEnemy".Localized(ShortName, lustDelta));
 
         public virtual bool CustomCombatMenu(CombatController controller, CombatContext context) => false;
 

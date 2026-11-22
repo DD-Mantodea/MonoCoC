@@ -20,7 +20,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.MinotaurKing.Backhand.FeintingWithHis".Localized());
+            context.AppendLog("Combat.MinotaurKing.Backhand.FeintingWithHis".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, BaseDamage(enemy));
 
@@ -34,14 +34,14 @@ namespace MonoCoC.Contents.Combat.Handlers
             var reason = avoid.DodgeReason;
 
             if (damage <= 0 || reason is "Speed" or "Flexibility" or "Unhindered")
-                context.Append("Combat.MinotaurKing.Backhand.LuckilyYouDodge".Localized());
+                context.AppendLog("Combat.MinotaurKing.Backhand.LuckilyYouDodge".Localized());
             else if (reason == "Evade")
-                context.Append("Combat.MinotaurKing.Backhand.LuckilyYouEvade".Localized());
+                context.AppendLog("Combat.MinotaurKing.Backhand.LuckilyYouEvade".Localized());
             else if (reason == "Misdirection")
-                context.Append("Combat.MinotaurKing.Backhand.LuckilyYouMisdirect".Localized());
+                context.AppendLog("Combat.MinotaurKing.Backhand.LuckilyYouMisdirect".Localized());
             else
             {
-                context.Append("Combat.MinotaurKing.Backhand.DamnThatHurts".Localized());
+                context.AppendLog("Combat.MinotaurKing.Backhand.DamnThatHurts".Localized());
 
                 context.DealDamageToPlayer(damage);
             }
@@ -54,7 +54,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.MinotaurKing.Headbutt.TheBruteGrowls".Localized());
+            context.AppendLog("Combat.MinotaurKing.Headbutt.TheBruteGrowls".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, BaseDamage(enemy) / 2f);
 
@@ -68,21 +68,21 @@ namespace MonoCoC.Contents.Combat.Handlers
             var reason = avoid.DodgeReason;
 
             if (damage <= 0 || reason is "Speed" or "Flexibility" or "Unhindered" or "Blind")
-                context.Append("Combat.MinotaurKing.Headbutt.LuckilyYouDodge".Localized());
+                context.AppendLog("Combat.MinotaurKing.Headbutt.LuckilyYouDodge".Localized());
             else if (reason == "Evade")
-                context.Append("Combat.MinotaurKing.Headbutt.LuckilyYouEvade".Localized());
+                context.AppendLog("Combat.MinotaurKing.Headbutt.LuckilyYouEvade".Localized());
             else if (reason == "Misdirection")
-                context.Append("Combat.MinotaurKing.Headbutt.LuckilyYouMisdirect".Localized());
+                context.AppendLog("Combat.MinotaurKing.Headbutt.LuckilyYouMisdirect".Localized());
             else
             {
                 ((MinotaurKingEnemy)enemy).LastRoundStun = true;
 
-                context.Append("Combat.MinotaurKing.Headbutt.HeImpactsWith".Localized());
+                context.AppendLog("Combat.MinotaurKing.Headbutt.HeImpactsWith".Localized());
 
                 context.DealDamageToPlayer(damage);
 
                 if (player.Stun(0, 100))
-                    context.Append("Combat.MinotaurKing.Headbutt.YouReLeft".Localized());
+                    context.AppendLog("Combat.MinotaurKing.Headbutt.YouReLeft".Localized());
             }
         }
 
@@ -93,18 +93,18 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var king = (MinotaurKingEnemy)context.Enemy;
 
-            context.Append("Combat.MinotaurKing.Dickslap.BeforeYouCan".Localized());
+            context.AppendLog("Combat.MinotaurKing.Dickslap.BeforeYouCan".Localized());
 
             if (king.Orgasms > 0)
             {
-                context.Append("Combat.MinotaurKing.Dickslap.StrandsOfHis".Localized());
+                context.AppendLog("Combat.MinotaurKing.Dickslap.StrandsOfHis".Localized());
 
                 if (player.HasPerk(PerkIds.MinotaurCumAddict))
-                    context.Append("Combat.MinotaurKing.Dickslap.GodLike".Localized());
+                    context.AppendLog("Combat.MinotaurKing.Dickslap.GodLike".Localized());
 
-                context.Append("Combat.MinotaurKing.Dickslap.SpunkHangFrom".Localized());
+                context.AppendLog("Combat.MinotaurKing.Dickslap.SpunkHangFrom".Localized());
 
-                context.Append(player.HasPerk(PerkIds.MinotaurCumAddict)
+                context.AppendLog(player.HasPerk(PerkIds.MinotaurCumAddict)
 
                     ? "Combat.MinotaurKing.Dickslap.Delicious".Localized()
 
@@ -121,7 +121,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.MinotaurKing.Battleaxe.TheMinotaurKing".Localized());
+            context.AppendLog("Combat.MinotaurKing.Battleaxe.TheMinotaurKing".Localized());
 
             const float armorIgnore = 20f;
 
@@ -141,10 +141,10 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (damage <= 0 || avoid.AttackFailed)
-                context.Append("Combat.MinotaurKing.Battleaxe.InTimeTo".Localized());
+                context.AppendLog("Combat.MinotaurKing.Battleaxe.InTimeTo".Localized());
             else
             {
-                context.Append("Combat.MinotaurKing.Battleaxe.ByTheTime".Localized());
+                context.AppendLog("Combat.MinotaurKing.Battleaxe.ByTheTime".Localized());
 
                 context.DealDamageToPlayer(damage);
             }
@@ -155,36 +155,36 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.MinotaurKing.MinoPheromones.TheMinotaurSmiles".Localized());
+            context.AppendLog("Combat.MinotaurKing.MinoPheromones.TheMinotaurSmiles".Localized());
 
             if (context.Random.Next(3) == 0)
             {
-                context.Append("Combat.MinotaurKing.MinoPheromones.SlappingIntoYour".Localized());
+                context.AppendLog("Combat.MinotaurKing.MinoPheromones.SlappingIntoYour".Localized());
 
                 if (player.LustPercent > 75)
                 {
-                    context.Append("Combat.MinotaurKing.MinoPheromones.SwallowingItInto".Localized());
+                    context.AppendLog("Combat.MinotaurKing.MinoPheromones.SwallowingItInto".Localized());
 
                     player.TakeLustDamage(15 + player.Libido / 10f, true);
                 }
                 else
                 {
-                    context.Append("Combat.MinotaurKing.MinoPheromones.FeelingYourHeart".Localized());
+                    context.AppendLog("Combat.MinotaurKing.MinoPheromones.FeelingYourHeart".Localized());
 
                     player.TakeLustDamage(7.5f + player.Libido / 20f, true);
                 }
             }
             else
-                context.Append("Combat.MinotaurKing.MinoPheromones.RightPastYour".Localized());
+                context.AppendLog("Combat.MinotaurKing.MinoPheromones.RightPastYour".Localized());
 
-            context.Append("Combat.MinotaurKing.MinoPheromones.TheAnimalisticScent".Localized());
+            context.AppendLog("Combat.MinotaurKing.MinoPheromones.TheAnimalisticScent".Localized());
 
             player.TakeLustDamage(15 + player.Libido / 20f, true);
 
             if (player.HasPerk(PerkIds.MinotaurCumAddict) ||
                 CoC.Instance.Flags.Get(GameFlagIds.MinotaurCumAddictionState) >= 2)
             {
-                context.Append(context.Random.Next(2) == 0
+                context.AppendLog(context.Random.Next(2) == 0
 
                     ? "Combat.MinotaurKing.MinoPheromones.YouShiverWith".Localized()
 
@@ -205,20 +205,20 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (sel == 0)
             {
-                context.Append("Combat.MinotaurKing.CowslutTeaseCocks.ExcelliaCrawlsOver".Localized());
+                context.AppendLog("Combat.MinotaurKing.CowslutTeaseCocks.ExcelliaCrawlsOver".Localized());
 
-                context.Append(player.HasTailInsteadOfLegs()
+                context.AppendLog(player.HasTailInsteadOfLegs()
 
                     ? "Combat.MinotaurKing.CowslutTeaseCocks.Text".Localized()
 
                     : "Combat.MinotaurKing.CowslutTeaseCocks.Text".Localized());
 
-                context.Append("Combat.MinotaurKing.CowslutTeaseCocks.AReminderOf".Localized());
+                context.AppendLog("Combat.MinotaurKing.CowslutTeaseCocks.AReminderOf".Localized());
             }
             else if (sel == 1)
-                context.Append("Combat.MinotaurKing.CowslutTeaseCocks.TurningAboutThe".Localized());
+                context.AppendLog("Combat.MinotaurKing.CowslutTeaseCocks.TurningAboutThe".Localized());
             else
-                context.Append("Combat.MinotaurKing.CowslutTeaseCocks.ExcelliaRisesUp".Localized());
+                context.AppendLog("Combat.MinotaurKing.CowslutTeaseCocks.ExcelliaRisesUp".Localized());
 
             player.TakeLustDamage(5, true);
         }

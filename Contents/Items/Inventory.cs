@@ -53,9 +53,30 @@ namespace MonoCoC.Contents.Items
             return -1;
         }
 
+        public virtual bool CanAdd(Item item, int quantity = 1)
+        {
+            if (item == null || item == Item.Nothing || quantity <= 0 || item.MaxStackSize <= 0)
+                return false;
+
+            var capacity = 0L;
+
+            foreach (var slot in Slots)
+            {
+                if (slot.Unlocked && slot.IsEmpty)
+                    capacity += item.MaxStackSize;
+                else if (!slot.IsEmpty && slot.Item.Id == item.Id)
+                    capacity += Math.Max(0, item.MaxStackSize - slot.Quantity);
+            }
+
+            return capacity >= quantity;
+        }
+
         public virtual bool Add(Item item, int quantity = 1)
         {
             if (item == null || item == Item.Nothing || quantity <= 0)
+                return false;
+
+            if (!CanAdd(item, quantity))
                 return false;
 
             var remaining = quantity;
@@ -134,6 +155,19 @@ namespace MonoCoC.Contents.Items
             slot.Damage = source?.Damage ?? 0;
 
             return true;
+        }
+
+        public virtual InventoryTakeResult TakeOrReplace(Item item, int replaceSlot, ItemStack? source = null)
+        {
+            var result = Take(item, source);
+
+            if (result.Success)
+                return result;
+
+            if (!Replace(replaceSlot, item, source))
+                return InventoryTakeResult.Failed;
+
+            return new InventoryTakeResult(InventoryTakeKind.Replaced, replaceSlot, 1);
         }
 
         public string LastEquipError = "";
@@ -216,7 +250,7 @@ namespace MonoCoC.Contents.Items
             if (source.IsEmpty)
                 return false;
 
-            MonoCoC.UI.Components.EquipmentSlotSpec? target = null;
+            UI.Components.EquipmentSlotSpec? target = null;
 
             foreach (var slot in MonoCoC.Contents.Equipment.EquipmentCatalog.Compose(Owner.EquipmentTags))
             {
@@ -358,7 +392,9 @@ namespace MonoCoC.Contents.Items
 
         Stack,
 
-        EmptySlot
+        EmptySlot,
+
+        Replaced
     }
 
     public readonly record struct InventoryTakeResult(InventoryTakeKind Kind, int Slot, int Quantity)

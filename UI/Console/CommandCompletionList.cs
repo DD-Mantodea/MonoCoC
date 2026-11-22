@@ -1,4 +1,4 @@
-﻿using FontStashSharp;
+using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Extensions;
@@ -32,6 +32,8 @@ namespace MonoCoC.UI.Console
 
         private readonly List<Label> _rows = [];
 
+        private readonly List<MonoCoC.Contents.Commands.Suggestion> _suggestions = [];
+
         private readonly SpriteFontBase _font = UIFonts.Get("console");
 
         private int _selected;
@@ -51,13 +53,18 @@ namespace MonoCoC.UI.Console
 
         public bool HasSuggestions => _rows.Count > 0;
 
-        public string? SelectedSuggestion => _rows.Count == 0 ? null : _rows[_selected].RichTextLayout.Text;
+        public MonoCoC.Contents.Commands.Suggestion? SelectedSuggestion =>
+            _suggestions.Count == 0 ? null : _suggestions[_selected];
 
-        public void SetSuggestions(IReadOnlyList<string> suggestions)
+        public void SetSuggestions(IReadOnlyList<MonoCoC.Contents.Commands.Suggestion> suggestions)
         {
             LayoutData.Children.Clear();
 
             _rows.Clear();
+
+            _suggestions.Clear();
+
+            _suggestions.AddRange(suggestions);
 
             _selected = 0;
 
@@ -66,7 +73,7 @@ namespace MonoCoC.UI.Console
             var maxTextWidth = 0;
 
             foreach (var suggestion in suggestions)
-                maxTextWidth = Math.Max(maxTextWidth, (int)_font.MeasureString(suggestion).X);
+                maxTextWidth = Math.Max(maxTextWidth, (int)_font.MeasureString(suggestion.Text).X);
 
             var minWidth = ScreenWidth / 3;
 
@@ -81,7 +88,7 @@ namespace MonoCoC.UI.Console
             for (var index = 0; index < suggestions.Count; index++)
             {
                 var row = new Label(_font)
-                    .Text(suggestions[index])
+                    .Text(suggestions[index].Text)
                     .Position(10, 4 + index * RowHeight + (RowHeight - _font.LineHeight) / 2)
                     .CanHit(false)
                     .LayoutType(LayoutType.Relative)
@@ -100,6 +107,8 @@ namespace MonoCoC.UI.Console
             LayoutData.Children.Clear();
 
             _rows.Clear();
+
+            _suggestions.Clear();
 
             _selected = 0;
 

@@ -112,7 +112,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (Distance == CombatDistance.Distant)
             {
-                context.WriteAction("Combat.Mimic.PerformCombatAction.TheCreatureSits".Localized());
+                context.Log.Add("Combat.Mimic.PerformCombatAction.TheCreatureSits".Localized());
 
                 return true;
             }

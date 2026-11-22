@@ -29,7 +29,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.CreateStatusEffect(StatusEffectIds.DragonBreathCooldown, 0, 0, 0, 0);
 
-            context.Append("Combat.DragonBreath.Roar".Localized());
+            context.AppendLog("Combat.DragonBreath.Roar".Localized());
 
             InfernoModifiers.InfernoDisplay(context);
 
@@ -51,7 +51,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy is LivingStatueEnemy)
             {
-                context.Append("Combat.DragonBreath.LivingStatue".Localized());
+                context.AppendLog("Combat.DragonBreath.LivingStatue".Localized());
 
                 InfernoModifiers.BoostInferno(context);
 
@@ -60,14 +60,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy is VolcanicGolemEnemy)
             {
-                context.Append("Combat.DragonBreath.GolemNoCare".Localized());
+                context.AppendLog("Combat.DragonBreath.GolemNoCare".Localized());
 
                 if (enemy.HasStatusEffect(StatusEffectIds.VolcanicFistProblem))
                     if (!enemy.HasStatusEffect(StatusEffectIds.VolcanicFrenzy))
                     {
-                        context.Append("Combat.DragonBreath.GolemStun1".Localized());
+                        context.AppendLog("Combat.DragonBreath.GolemStun1".Localized());
 
-                        context.Append("Combat.DragonBreath.GolemStun2".Localized());
+                        context.AppendLog("Combat.DragonBreath.GolemStun2".Localized());
 
                         enemy.CreateStatusEffect(StatusEffectIds.Stunned, 1, 0, 0, 0);
 
@@ -75,7 +75,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                     }
                     else
                     {
-                        context.Append("Combat.DragonBreath.GolemFrenzy".Localized());
+                        context.AppendLog("Combat.DragonBreath.GolemFrenzy".Localized());
 
                         if (enemy.HasStatusEffect(StatusEffectIds.VolcanicArmorRed))
                         {
@@ -94,10 +94,10 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.DragonBreath.Intro".Localized());
+            context.AppendLog("Combat.DragonBreath.Intro".Localized());
 
             if (enemy.HasStatusEffect(StatusEffectIds.Sandstorm))
-                context.Append("Combat.DragonBreath.Sandstorm".Localized());
+                context.AppendLog("Combat.DragonBreath.Sandstorm".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -109,17 +109,17 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.AttackFailed)
-                context.Append("Combat.DragonBreath.Miss".Localized());
+                context.AppendLog("Combat.DragonBreath.Miss".Localized());
             else
             {
                 if (enemy.Stun(1, 100))
-                    context.Append("Combat.DragonBreath.Stunned".Localized());
+                    context.AppendLog("Combat.DragonBreath.Stunned".Localized());
                 else
-                    context.Append("Combat.DragonBreath.Resolute".Localized(enemy.Plural ? "are" : "is"));
+                    context.AppendLog("Combat.DragonBreath.Resolute".Localized(enemy.Plural ? "are" : "is"));
 
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Magical);
 
-                context.Append("[pg-]");
+                context.AppendLog("[pg-]");
             }
 
             InfernoModifiers.BoostInferno(context);

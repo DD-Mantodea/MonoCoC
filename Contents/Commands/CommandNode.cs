@@ -1,376 +1,128 @@
-using MonoCoC.Contents.Commands.Arguments;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MonoCoC.Contents.Commands
 {
-    public class CommandExecution
-    {
-        public Dictionary<string, object> Values = [];
-
-        public Dictionary<CommandNode, object> NodeValues = [];
-
-        public object? Last;
-
-        public Action<CommandExecution, CommandContext>? Action;
-
-        public CommandNode? ActionNode;
-
-        public void Record(CommandNode node, object value)
-        {
-            NodeValues[node] = value;
-
-            if (node.Name != "")
-                Values[node.Name] = value;
-
-            if (node.Action == null)
-                return;
-
-            Action = node.Action;
-
-            ActionNode = node;
-        }
-
-        public CommandExecution Clone() => new()
-        {
-            Values = new Dictionary<string, object>(Values),
-
-            NodeValues = new Dictionary<CommandNode, object>(NodeValues),
-
-            Last = Last,
-
-            Action = Action,
-
-            ActionNode = ActionNode
-        };
-
-        public T Get<T>(string name) => Values.TryGetValue(name, out var value) && value is T typed ? typed : default!;
-
-        public bool TryGet<T>(string name, out T value)
-        {
-            if (Values.TryGetValue(name, out var stored) && stored is T typed)
-            {
-                value = typed;
-
-                return true;
-            }
-
-            value = default!;
-
-            return false;
-        }
-    }
-
     public abstract class CommandNode
     {
         public string Name = "";
 
-        public bool IsOptional;
+        public Action<CommandContext, IReadOnlyDictionary<string, object>>? Executor;
 
-        public List<CommandNode> Children = [];
+        public CommandDispatcher? RedirectTarget { get; private set; }
 
-        public Action<CommandExecution, CommandContext>? Action;
+        public bool IsFork { get; private set; }
 
-        public virtual bool AcceptsToken => false;
+        public readonly List<CommandNode> Children = [];
 
-        public virtual string UsageText => "";
+        public abstract string UsageText { get; }
 
-        public virtual bool CanEnd
+        public CommandNode Executes(Action<CommandContext, IReadOnlyDictionary<string, object>> action)
         {
-            get
-            {
-                if (Action == null)
-                    return false;
-
-                if (Children.Count == 0)
-                    return true;
-
-                return Children.Exists(child => child.IsOptional && child.CanEnd);
-            }
-        }
-
-        public virtual bool TryConsume(string token, CommandExecution execution, out string expected)
-        {
-            expected = "";
-
-            return false;
-        }
-
-        public CommandNode Next(CommandNode child)
-        {
-            if (child != null)
-                Children.Add(child);
+            Executor = action;
 
             return this;
         }
 
-        public CommandNode Execute(Action<CommandExecution, CommandContext> action)
+        public CommandNode Then(CommandNode child)
         {
-            Action = action;
+            Children.Add(child);
 
             return this;
         }
 
-        public IEnumerable<CommandNode> Consumers()
+        public CommandNode RedirectsTo(CommandDispatcher dispatcher)
         {
-            foreach (var child in Children)
-            {
-                if (child.AcceptsToken)
-                    yield return child;
+            RedirectTarget = dispatcher;
 
-                if (child.IsOptional || !child.AcceptsToken)
-                    foreach (var nested in child.Consumers())
-                        yield return nested;
-            }
+            return this;
         }
 
-        public virtual IEnumerable<string> GetCompletions() => [];
-
-        public void CollectCompletions(IReadOnlyList<string> tokens, int index, string prefix, List<string> results)
+        public CommandNode Forks()
         {
-            foreach (var child in Children)
-            {
-                if (!child.AcceptsToken)
-                {
-                    child.CollectCompletions(tokens, index, prefix, results);
+            IsFork = true;
 
-                    continue;
-                }
-
-                if (index >= tokens.Count)
-                {
-                    foreach (var value in child.GetCompletions())
-                        if (CommandCompletion.Matches(value, prefix))
-                            results.Add(value);
-
-                    continue;
-                }
-
-                if (child is LiteralNode literal)
-                {
-                    if (string.Equals(literal.Text, tokens[index], StringComparison.OrdinalIgnoreCase))
-                        literal.CollectCompletions(tokens, index + 1, prefix, results);
-
-                    continue;
-                }
-
-                child.CollectCompletions(tokens, index + 1, prefix, results);
-            }
+            return this;
         }
 
-        public string RenderUsage() => Render(node => node.UsageText);
+        public static CommandNode LiteralNode(string text) => new LiteralCommandNode(text);
 
-        public string Render(Func<CommandNode, string> format)
+        public static CommandNode ArgumentNode(string name, ArgumentType type) =>
+            new ArgumentCommandNode(name, type);
+
+        public abstract ParsedArgument? Consume(StringReader reader, CommandContext context,
+            Dictionary<string, object> values);
+
+        public CommandNode? Parse(StringReader reader, CommandContext context,
+            Dictionary<string, object> values, CommandContextBuilder? builder = null)
         {
-            if (!AcceptsToken)
-                return RenderAlternatives(format, false);
+            reader.SkipWhitespace();
 
-            var text = format(this);
+            if (!reader.CanRead)
+            {
+                builder?.Add(this);
 
-            if (Children.Count == 0)
-                return text;
+                return Executor is not null ? this : null;
+            }
+
+            foreach (var child in Children)
+            {
+                var clone = reader.Clone();
+
+                ParsedArgument? parsed;
+
+                try
+                {
+                    parsed = child.Consume(clone, context, values);
+                }
+                catch (CommandSyntaxException)
+                {
+                    continue;
+                }
+
+                var childBuilder = builder is null ? null : new CommandContextBuilder(context);
+
+                var result = child.Parse(clone, context, values, childBuilder);
+
+                if (result is not null)
+                {
+                    reader.Cursor = clone.Cursor;
+
+                    builder?.Add(child, parsed);
+
+                    if (childBuilder is not null)
+                        foreach (var argument in childBuilder.Arguments)
+                            builder!.Arguments.Add(argument);
+
+                    return result;
+                }
+            }
+
+            builder?.Add(this);
+
+            return Executor is not null ? this : null;
+        }
+
+        public string RenderUsage()
+        {
+            var parts = new List<string> { UsageText };
 
             if (Children.Count == 1)
             {
-                var rest = Children[0].Render(format);
+                var child = Children[0].RenderUsage();
 
-                return rest == "" ? text : text + " " + rest;
+                if (Executor is not null)
+                    child = "[" + child + "]";
+
+                parts.Add(child);
             }
-
-            var alternatives = RenderAlternatives(format, true);
-
-            return alternatives == "" ? text : text + " " + alternatives;
-        }
-
-        public string RenderAlternatives(Func<CommandNode, string> format, bool wrap)
-        {
-            var parts = new List<string>();
-
-            foreach (var child in Children)
+            else if (Children.Count > 1)
             {
-                var part = child.Render(format);
-
-                if (part != "")
-                    parts.Add(part);
+                parts.Add("(" + string.Join("|", Children.Select(child => child.RenderUsage())) + ")");
             }
 
-            if (parts.Count == 0)
-                return "";
-
-            if (parts.Count == 1)
-                return parts[0];
-
-            var text = string.Join(" | ", parts);
-
-            return wrap ? "(" + text + ")" : text;
-        }
-
-        public string MissingUsage
-        {
-            get
-            {
-                foreach (var child in Children)
-                    if (!child.IsOptional)
-                        return child.UsageText != "" ? child.UsageText : child.MissingUsage;
-
-                return "";
-            }
-        }
-
-        public static LiteralNode Literal(string text, string name = "") => new(text, name);
-
-        public static ArgumentNode Argument(CommandArgument argument) => new(argument);
-
-        public static ArgumentNode Optional(CommandArgument argument) => new(argument) { IsOptional = true };
-    }
-
-    public class LiteralNode : CommandNode
-    {
-        public readonly string Text;
-
-        public LiteralNode(string text, string name = "")
-        {
-            Text = text;
-
-            Name = name;
-        }
-
-        public override bool AcceptsToken => true;
-
-        public override string UsageText => Text;
-
-        public override IEnumerable<string> GetCompletions() => [Text];
-
-        public override bool TryConsume(string token, CommandExecution execution, out string expected)
-        {
-            expected = UsageText;
-
-            if (!string.Equals(Text, token, StringComparison.OrdinalIgnoreCase))
-                return false;
-
-            execution.Record(this, Text);
-
-            return true;
-        }
-    }
-
-    public class ArgumentNode : CommandNode
-    {
-        public new readonly CommandArgument Argument;
-
-        public ArgumentNode(CommandArgument argument)
-        {
-            Argument = argument;
-
-            Name = argument.Name;
-        }
-
-        public override bool AcceptsToken => true;
-
-        public override string UsageText => IsOptional ? "[" + Argument.UsageText + "]" : Argument.UsageText;
-
-        public override IEnumerable<string> GetCompletions() => Argument.GetCompletions();
-
-        public override bool TryConsume(string token, CommandExecution execution, out string expected)
-        {
-            expected = Argument.UsageText;
-
-            if (!Argument.TryParse(token, out var value))
-                return false;
-
-            execution.Record(this, value);
-
-            execution.Last = value;
-
-            return true;
-        }
-    }
-
-    public static class CommandTree
-    {
-        public static bool TryParse(CommandNode root, IReadOnlyList<string> tokens, out CommandExecution execution, out string expected)
-        {
-            execution = new CommandExecution();
-
-            if (tokens.Count == 0)
-            {
-                if (root.CanEnd)
-                {
-                    execution.Action = root.Action;
-
-                    execution.ActionNode = root;
-                }
-
-                expected = root.CanEnd ? "" : root.MissingUsage;
-
-                return root.CanEnd;
-            }
-
-            return Parse(root, 0, tokens, execution, out expected);
-        }
-
-        public static bool Parse(CommandNode node, int index, IReadOnlyList<string> tokens, CommandExecution execution, out string expected)
-        {
-            if (index == tokens.Count)
-            {
-                if (node.CanEnd)
-                {
-                    execution.Action = node.Action;
-
-                    execution.ActionNode = node;
-
-                    expected = "";
-
-                    return true;
-                }
-
-                if (execution.Action != null)
-                {
-                    expected = "";
-
-                    return true;
-                }
-
-                expected = node.MissingUsage;
-
-                return false;
-            }
-
-            expected = node.MissingUsage;
-
-            foreach (var candidate in node.Consumers())
-            {
-                var clone = execution.Clone();
-
-                if (!candidate.TryConsume(tokens[index], clone, out var failure))
-                {
-                    expected = failure;
-
-                    continue;
-                }
-
-                if (!Parse(candidate, index + 1, tokens, clone, out expected))
-                    continue;
-
-                Copy(clone, execution);
-
-                return true;
-            }
-
-            return false;
-        }
-
-        public static void Copy(CommandExecution source, CommandExecution target)
-        {
-            target.Values = source.Values;
-
-            target.NodeValues = source.NodeValues;
-
-            target.Last = source.Last;
-
-            target.Action = source.Action;
-
-            target.ActionNode = source.ActionNode;
+            return string.Join(" ", parts.Where(part => part.Length > 0));
         }
     }
 }

@@ -47,14 +47,14 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 enemy.CreateStatusEffect(StatusEffectIds.Uber);
 
-                context.Append("Combat.Harpy.Uber.Charge".Localized());
+                context.AppendLog("Combat.Harpy.Uber.Charge".Localized());
 
                 return;
             }
 
             if (!context.PlayerWaited)
             {
-                context.Append("Combat.Harpy.Uber.Hit".Localized());
+                context.AppendLog("Combat.Harpy.Uber.Hit".Localized());
 
                 var damage = 160 + context.Random.Next(20);
 
@@ -65,7 +65,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.Harpy.Uber.Dodged".Localized());
+            context.AppendLog("Combat.Harpy.Uber.Dodged".Localized());
 
             player.HealthChange(-(10 + context.Random.Next(10)));
 
@@ -79,7 +79,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Harpy.Tease.Lead".Localized());
+            context.AppendLog("Combat.Harpy.Tease.Lead".Localized());
 
             var lust = 12 + context.Random.Next(Math.Max(1, (int)(player.Sensitivity / 5)));
 

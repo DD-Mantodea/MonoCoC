@@ -3,10 +3,13 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Extensions;
 using System;
 
+using Hjson;
+using MonoCoC.UI.Data;
+using MonoCoC.UI.Framework;
+using System.Runtime.CompilerServices;
 namespace MonoCoC.UI.Components
 {
-    public class DividerDecoration : DecorationComponent
-    {
+    public class DividerDecoration : DecorationComponent, IFromHjson<DividerDecoration> {
         public bool Vertical;
 
         public bool Double;
@@ -16,6 +19,8 @@ namespace MonoCoC.UI.Components
         public string OrnamentText = "✦";
 
         public string FontRole = "button";
+
+        public int FontSize;
 
         public int Thickness = 1;
 
@@ -30,7 +35,9 @@ namespace MonoCoC.UI.Components
             if (color == Color.Transparent || Thickness <= 0)
                 return;
 
-            var font = UIFonts.Get(FontRole);
+            var font = FontSize > 0
+                ? UIFonts.GetAt(UIFonts.Family(FontRole), FontSize)
+                : UIFonts.Get(FontRole);
             var drawOrnament = Ornament && OrnamentText.Length > 0;
             var bounds = drawOrnament ? font.TextBounds(OrnamentText, Vector2.One) : default;
             var textPosition = drawOrnament
@@ -123,5 +130,40 @@ namespace MonoCoC.UI.Components
 
             Fill(spriteBatch, new Rectangle(x, startY, Thickness, endY - startY), color);
         }
-    }
+    
+        public static string TypeId => "coc:divider";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext services)
+        {
+            var ornamentText = node.TryGetValue("ornamentText", out var ornamentValue)
+                ? ornamentValue.ToString().Trim('"')
+                : "✦";
+
+            if (node.TryGetValue("ornamentTextKey", out var ornamentKey))
+                ornamentText = ornamentKey.ToString().Trim('"').Localized();
+
+            var divider = new DividerDecoration
+            {
+                Vertical = string.Equals(node.Str("orientation"), "vertical", StringComparison.OrdinalIgnoreCase) ||
+                           node.Bool("vertical", false),
+                Double = node.Bool("double", false),
+                Ornament = node.Bool("ornament", true),
+                OrnamentText = ornamentText,
+                FontRole = node.Str("font", "coc:button"),
+                FontSize = node.Int("fontSize", 0)
+            };
+
+            if (node.TryGetValue("thickness", out var thickness))
+                divider.Thickness = UIParseUtils.Int(thickness);
+
+            if (node.TryGetValue("gap", out var gap))
+                divider.Gap = UIParseUtils.Int(gap);
+
+            return divider;
+        }
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<DividerDecoration>();
+    
+}
 }

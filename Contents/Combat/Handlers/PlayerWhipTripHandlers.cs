@@ -24,7 +24,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:effect_tripped_expire")]
         public static void TrippedExpire(CombatContext context, Creature host, StatusEffect status) =>
 
-            context.Append("Combat.Effect.Tripped.Expire".Localized());
+            context.AppendLog("Combat.Effect.Tripped.Expire".Localized());
 
         [Register("coc:special_whip_trip")]
         public static void WhipTrip(CombatContext context, CombatAbilityDefinition ability)
@@ -33,7 +33,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Special.WhipTrip.Intro".Localized());
+            context.AppendLog("Combat.Special.WhipTrip.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -46,7 +46,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackHit)
             {
-                context.Append("Combat.Special.WhipTrip.Hit".Localized());
+                context.AppendLog("Combat.Special.WhipTrip.Hit".Localized());
 
                 if (!enemy.HasStatusEffect(StatusEffectIds.Tripped))
                 {
@@ -57,7 +57,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
             else
             {
-                context.Append("Combat.Special.WhipTrip.Miss".Localized());
+                context.AppendLog("Combat.Special.WhipTrip.Miss".Localized());
 
                 CombatRangeData.MoveMonsterDistant(enemy);
             }

@@ -299,7 +299,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 case Phase2MenuState.Top:
 
                     if (context.Player.HasCock() || context.Player.HasVagina())
-                        context.AddButton(0, "Common.Button.Demonfuck".Localized(), () =>
+                        MonoCoC.UI.Components.Views.GameView.Current.AddButton(0, "Common.Button.Demonfuck".Localized(), () =>
                         {
                             Phase2Menu = Phase2MenuState.None;
 
@@ -307,14 +307,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                         });
 
                     if (context.Player.HasStatusEffect(StatusEffectIds.KnowsHeal))
-                        context.AddButton(1, "Common.Button.Heal".Localized(), () =>
+                        MonoCoC.UI.Components.Views.GameView.Current.AddButton(1, "Common.Button.Heal".Localized(), () =>
                         {
                             Phase2Menu = Phase2MenuState.None;
 
                             LethiceCombatHandlers.P2Heal(context, controller);
                         });
 
-                    context.AddButton(2, "Common.Button.Next".Localized(), () =>
+                    MonoCoC.UI.Components.Views.GameView.Current.AddButton(2, "Common.Button.Next".Localized(), () =>
                     {
                         Phase2Menu = Phase2MenuState.None;
 
@@ -325,7 +325,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 case Phase2MenuState.DemonFuckSub:
 
-                    context.AddButton(0, "Common.Button.Oralfinish".Localized(), () =>
+                    MonoCoC.UI.Components.Views.GameView.Current.AddButton(0, "Common.Button.Oralfinish".Localized(), () =>
                     {
                         Phase2Menu = Phase2MenuState.None;
 
@@ -333,14 +333,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     });
 
                     if (context.Player.HasCock())
-                        context.AddButton(1, "Common.Button.Fuckdemon".Localized(), () =>
+                        MonoCoC.UI.Components.Views.GameView.Current.AddButton(1, "Common.Button.Fuckdemon".Localized(), () =>
                         {
                             Phase2Menu = Phase2MenuState.None;
 
                             LethiceCombatHandlers.FuckDemon(context, controller);
                         });
 
-                    context.AddButton(2, "Common.Button.RideCock".Localized(), () =>
+                    MonoCoC.UI.Components.Views.GameView.Current.AddButton(2, "Common.Button.RideCock".Localized(), () =>
                     {
                         Phase2Menu = Phase2MenuState.None;
 
@@ -351,7 +351,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 case Phase2MenuState.Phase3Next:
 
-                    context.AddButton(0, "Common.Button.Next".Localized(), () =>
+                    MonoCoC.UI.Components.Views.GameView.Current.AddButton(0, "Common.Button.Next".Localized(), () =>
                     {
                         Phase2Menu = Phase2MenuState.None;
 

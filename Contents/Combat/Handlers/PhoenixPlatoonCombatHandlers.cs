@@ -10,7 +10,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:phoenix_platoon_rush")]
         public static void Rush(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.PhoenixPlatoon.PhoenixPlatoonRush.YouFallBack".Localized());
+            context.AppendLog("Combat.PhoenixPlatoon.PhoenixPlatoonRush.YouFallBack".Localized());
 
             var attacks = 2 + context.Random.Next(3);
 
@@ -21,7 +21,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:phoenix_platoon_fire_breath")]
         public static void FireBreath(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.PhoenixPlatoon.PhoenixPlatoonFireBreath.SuddenlyTheShield".Localized());
+            context.AppendLog("Combat.PhoenixPlatoon.PhoenixPlatoonFireBreath.SuddenlyTheShield".Localized());
 
             var damage = 100 + context.Random.Next(50);
 
@@ -31,7 +31,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:phoenix_platoon_lustbang")]
         public static void Lustbang(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.PhoenixPlatoon.PhoenixPlatoonLustbang.OneOfThe".Localized());
+            context.AppendLog("Combat.PhoenixPlatoon.PhoenixPlatoonLustbang.OneOfThe".Localized());
 
             context.Player.TakeLustDamage(40, true);
         }

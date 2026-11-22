@@ -592,6 +592,8 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     continue;
 
                 entry.Describe();
+
+                Scene.OutputText("[pg]");
             }
         }
 

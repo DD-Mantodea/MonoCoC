@@ -42,14 +42,14 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (player.HasStatusEffect(StatusEffectIds.ThroatPunch)
                 || player.HasStatusEffect(StatusEffectIds.WebSilence))
             {
-                context.Append("Combat.Spell.ParalyzingStare.Silence".Localized());
+                context.AppendLog("Combat.Spell.ParalyzingStare.Silence".Localized());
 
                 return;
             }
 
             if (enemy is EncapsulationPodEnemy || enemy.Intelligence == 0)
             {
-                context.Append("Combat.Spell.ParalyzingStare.NoMind".Localized());
+                context.AppendLog("Combat.Spell.ParalyzingStare.NoMind".Localized());
 
                 player.ChangeFatigue(1);
 
@@ -58,7 +58,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy is TentacleBeastEnemy)
             {
-                context.Append("Combat.Spell.ParalyzingStare.NoEyes".Localized());
+                context.AppendLog("Combat.Spell.ParalyzingStare.NoEyes".Localized());
 
                 player.ChangeFatigue(1);
 
@@ -67,19 +67,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasPerk(PerkIds.BasiliskResistance))
             {
-                context.Append("Combat.Spell.ParalyzingStare.Immune".Localized());
+                context.AppendLog("Combat.Spell.ParalyzingStare.Immune".Localized());
 
                 return;
             }
 
             if (enemy.HasStatusEffect(StatusEffectIds.Shell))
             {
-                context.Append("Combat.Spell.ParalyzingStare.Shell".Localized());
+                context.AppendLog("Combat.Spell.ParalyzingStare.Shell".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Spell.ParalyzingStare.Intro".Localized());
+            context.AppendLog("Combat.Spell.ParalyzingStare.Intro".Localized());
 
             var training = Math.Clamp(CoC.Instance.Flags.Get(GameFlagIds.BasiliskResistanceTracker) / 100f, 0f, 1f);
 
@@ -94,7 +94,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 var magnitude = 16 + training * 8;
 
-                context.Append("Combat.Spell.ParalyzingStare.Success".Localized());
+                context.AppendLog("Combat.Spell.ParalyzingStare.Success".Localized());
 
                 CombatCalculator.AddCombatBuff(enemy, GameStats.Speed, -magnitude, "BasiliskSlow", StatusEffectIds.BasiliskSlow);
 
@@ -104,11 +104,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                     CoC.Instance.Flags.Get(GameFlagIds.BasiliskResistanceTracker) + 4);
 
-                context.Append("Combat.Spell.ParalyzingStare.SpeedLoss".Localized((int)Math.Round(magnitude)));
+                context.AppendLog("Combat.Spell.ParalyzingStare.SpeedLoss".Localized((int)Math.Round(magnitude)));
             }
             else
             {
-                context.Append("Combat.Spell.ParalyzingStare.Fail".Localized());
+                context.AppendLog("Combat.Spell.ParalyzingStare.Fail".Localized());
 
                 CoC.Instance.Flags.Set(GameFlagIds.BasiliskResistanceTracker,
 

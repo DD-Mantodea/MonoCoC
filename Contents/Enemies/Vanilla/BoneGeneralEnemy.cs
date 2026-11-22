@@ -27,14 +27,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (guard.Values[0] <= 0)
             {
-                context.Write(Utils.Utils.CapitalizeFirstLetter(self.Article) + self.ShortName + "Common.Text.IsNoLongerGuarded".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write(Utils.Utils.CapitalizeFirstLetter(self.Article) + self.ShortName + "Common.Text.IsNoLongerGuarded".Localized());
 
                 self.RemoveStatusEffect(StatusEffectIds.GuardAB);
 
                 return;
             }
 
-            context.Write(Utils.Utils.CapitalizeFirstLetter(self.Article) + self.ShortName
+            MonoCoC.UI.Components.Views.GameView.Current.Write(Utils.Utils.CapitalizeFirstLetter(self.Article) + self.ShortName
 
                 + "Common.Text.IsCurrentlyBeingGuardedAndIs".Localized());
         }
@@ -138,7 +138,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleFear(CombatContext context)
         {
-            context.WriteAction("Combat.BoneGeneral.HandleFear.TheSkeletonSeems".Localized());
+            context.Log.Add("Combat.BoneGeneral.HandleFear.TheSkeletonSeems".Localized());
 
             RemoveStatusEffect(StatusEffectIds.Fear);
 
@@ -169,17 +169,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             var damageHigh = damage < 100 || damage < maxHealth * 0.33f;
 
             if (damage <= 0)
-                context.WriteAction("Combat.BoneGeneral.ReplacesDescribeAttacked.Your0Bounces".Localized(attackNoun, theMonster));
+                context.Log.Add("Combat.BoneGeneral.ReplacesDescribeAttacked.Your0Bounces".Localized(attackNoun, theMonster));
             else if (damageLow)
-                context.WriteAction("Combat.BoneGeneral.ReplacesDescribeAttacked.YouStrikeA".Localized(theMonster));
+                context.Log.Add("Combat.BoneGeneral.ReplacesDescribeAttacked.YouStrikeA".Localized(theMonster));
             else if (damageMed)
-                context.WriteAction("Combat.BoneGeneral.ReplacesDescribeAttacked.You01".Localized(attackVerb, theMonster, Pronoun2));
+                context.Log.Add("Combat.BoneGeneral.ReplacesDescribeAttacked.You01".Localized(attackVerb, theMonster, Pronoun2));
             else if (damageHigh)
-                context.WriteAction("Combat.BoneGeneral.ReplacesDescribeAttacked.ZeroCracksUnder".Localized(theMonsterCap, attackNoun));
+                context.Log.Add("Combat.BoneGeneral.ReplacesDescribeAttacked.ZeroCracksUnder".Localized(theMonsterCap, attackNoun));
             else
-                context.WriteAction("Combat.BoneGeneral.ReplacesDescribeAttacked.You0With".Localized(theMonster, attackNoun));
+                context.Log.Add("Combat.BoneGeneral.ReplacesDescribeAttacked.You0With".Localized(theMonster, attackNoun));
 
-            context.Append("Combat.BoneGeneral.DescribeAttacked.DamageText".Localized("#ff0000", (int)MathF.Round(damage)));
+            context.AppendLog("Combat.BoneGeneral.DescribeAttacked.DamageText".Localized("#ff0000", (int)MathF.Round(damage)));
 
             return true;
         }

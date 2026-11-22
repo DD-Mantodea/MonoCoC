@@ -18,9 +18,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:holli_heal_holli")]
         public static void HealHolli(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Combat.Holli.HealHolli.TheBarkSplits".Localized());
+            context.AppendLog("Combat.Holli.HealHolli.TheBarkSplits".Localized());
 
             context.Enemy.HealthChange(200);
         }
@@ -32,19 +32,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Holli.HolliConstrictAttack.AForestOf".Localized());
+            context.AppendLog("Combat.Holli.HolliConstrictAttack.AForestOf".Localized());
 
             if (enemy.HasStatusEffect(StatusEffectIds.Blind) && context.Random.Next(6) == 0)
-                context.Append("Combat.Holli.HolliConstrictAttack.LuckilyTheDemon".Localized());
+                context.AppendLog("Combat.Holli.HolliConstrictAttack.LuckilyTheDemon".Localized());
 
             if (Avoid(context).AttackFailed)
             {
-                context.Append("Combat.Holli.HolliConstrictAttack.ItSA".Localized());
+                context.AppendLog("Combat.Holli.HolliConstrictAttack.ItSA".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Holli.HolliConstrictAttack.SheLatchesOnto".Localized());
+            context.AppendLog("Combat.Holli.HolliConstrictAttack.SheLatchesOnto".Localized());
 
             player.TakeDamage(10 + context.Random.Next(5));
 
@@ -60,27 +60,27 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Holli.FuckinJamanjiFlowerDarts.ABlossomOpens".Localized(enemy.ShortName));
+            context.AppendLog("Combat.Holli.FuckinJamanjiFlowerDarts.ABlossomOpens".Localized(enemy.ShortName));
 
             if (enemy.HasStatusEffect(StatusEffectIds.Blind))
-                context.Append("Combat.Holli.FuckinJamanjiFlowerDarts.ThoughTheDemon".Localized());
+                context.AppendLog("Combat.Holli.FuckinJamanjiFlowerDarts.ThoughTheDemon".Localized());
 
             if (Avoid(context).AttackFailed)
             {
-                context.Append("Combat.Holli.FuckinJamanjiFlowerDarts.NimblyYouStep".Localized());
+                context.AppendLog("Combat.Holli.FuckinJamanjiFlowerDarts.NimblyYouStep".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Holli.FuckinJamanjiFlowerDarts.TheDartsFind".Localized());
+            context.AppendLog("Combat.Holli.FuckinJamanjiFlowerDarts.TheDartsFind".Localized());
 
-            context.Append(player.HasCock()
+            context.AppendLog(player.HasCock()
 
                 ? "Combat.Holli.FuckinJamanjiFlowerDarts.ComeInsideMe".Localized()
 
                 : "Combat.Holli.FuckinJamanjiFlowerDarts.HaveMeInside".Localized());
 
-            context.Append("Combat.Holli.FuckinJamanjiFlowerDarts.Forever".Localized());
+            context.AppendLog("Combat.Holli.FuckinJamanjiFlowerDarts.Forever".Localized());
 
             player.TakeDamage(20 + context.Random.Next(10));
 

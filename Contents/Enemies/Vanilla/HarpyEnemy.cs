@@ -42,12 +42,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (damage <= 0)
             {
-                context.Append("Combat.Harpy.Attack.Deflected".Localized());
+                context.AppendLog("Combat.Harpy.Attack.Deflected".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Harpy.Attack.Hit".Localized((int)damage));
+            context.AppendLog("Combat.Harpy.Attack.Hit".Localized((int)damage));
         }
 
         public override bool Defeated(bool hpVictory)

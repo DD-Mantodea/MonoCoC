@@ -63,7 +63,7 @@ namespace MonoCoC.Contents.Enemies
         public static Func<Enemy> CompileFactory(Type factoryType) =>
 
             (Func<Enemy>)typeof(EnemyRegistry)
-                .GetMethod(nameof(NewFactory), System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static)!
+                .GetMethod(nameof(NewFactory), System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static)!
                 .MakeGenericMethod(factoryType)
                 .Invoke(null, null)!;
 

@@ -1,4 +1,4 @@
-﻿using FontStashSharp;
+using FontStashSharp;
 using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,10 +13,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+using Hjson;
+using System.Runtime.CompilerServices;
 namespace MonoCoC.UI.Components
 {
-    public class TextArea : Component, IUIStatefulPart
-    {
+    public class TextArea : Component, IUIStatefulPart, IFromHjson<TextArea> {
         private record State(string Text, int ScrollOffset, bool AutoScroll);
 
         public TextArea(SpriteFontBase font)
@@ -36,6 +37,8 @@ namespace MonoCoC.UI.Components
         public int ScrollOffset;
 
         public int ScrollStep = 60;
+
+        public Color? ScrollThumbColor;
 
         public bool AutoScroll = true;
 
@@ -160,7 +163,7 @@ namespace MonoCoC.UI.Components
             var thumb = ScrollBar.Thumb(Rectangle, _contentHeight, ViewHeight, ScrollOffset);
 
             // 只画滑块，整体 alpha 渐隐渐显（与 Settings 各页一致）。
-            spriteBatch.DrawRectangle(thumb, _scrollFade.Fade(UIComponentStyles.ScrollBar.Thumb));
+            spriteBatch.DrawRectangle(thumb, _scrollFade.Fade(ScrollThumbColor ?? UIParseUtils.ColorOf("#B79A70FF")));
         }
 
         private readonly ScrollBarFade _scrollFade = new();
@@ -295,5 +298,14 @@ namespace MonoCoC.UI.Components
 
             return this;
         }
-    }
+    
+        public static string TypeId => "coc:text_area";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext services) =>
+            new TextArea(UIFonts.Resolve(node, "coc:body"));
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<TextArea>();
+    
+}
 }

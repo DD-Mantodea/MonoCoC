@@ -18,7 +18,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var player = context.Player;
 
-            context.Append("Combat.Ability.ZetazPotion.Throw".Localized());
+            context.AppendLog("Combat.Ability.ZetazPotion.Throw".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -37,12 +37,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Combat.Ability.ZetazPotion.Dodged".Localized());
+                context.AppendLog("Combat.Ability.ZetazPotion.Dodged".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Ability.ZetazPotion.Coated".Localized());
+            context.AppendLog("Combat.Ability.ZetazPotion.Coated".Localized());
 
             if (!player.HasStatusEffect(StatusEffectIds.TemporaryHeat))
                 player.CreateStatusEffect(StatusEffectIds.TemporaryHeat, 0, 1, 0, 0);
@@ -53,7 +53,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Ability.ZetazGust.Text".Localized());
+            context.AppendLog("Combat.Ability.ZetazGust.Text".Localized());
 
             if (player.Toughness <= 60)
                 player.HealthChange(-(1 + Random.Shared.Next(6)));
@@ -66,7 +66,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Ability.ZetazGigaArouse.Text".Localized());
+            context.AppendLog("Combat.Ability.ZetazGigaArouse.Text".Localized());
 
             player.TakeLustDamage(15 + Random.Shared.Next(Math.Max(1, (int)(player.Libido / 10))) + player.Corruption / 10f);
         }
@@ -81,7 +81,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = (ZetazEnemy)context.Enemy;
 
-            context.Append("Combat.Ability.ZetazDrain.Text".Localized());
+            context.AppendLog("Combat.Ability.ZetazDrain.Text".Localized());
 
             enemy.Health += enemy.MaxHealth * 0.25f;
 

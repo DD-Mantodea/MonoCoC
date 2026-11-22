@@ -803,6 +803,53 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             AddButton(14, "Common.Back".Localized(), Exit);
         }
 
+        public static List<StatsDetailScene.StatDetail> BuildCombatDetails()
+        {
+            var attackMultiplier = Player.PhysMod() * Player.Stats.Factor(GameStats.AttackDamage);
+
+            var weaponDamageBonus = Player.Stats.Addition(GameStats.WeaponDamage)
+                * Player.Stats.Multiplier(GameStats.WeaponDamage);
+
+            var weaponAttack = MathF.Round(Player.WeaponAttack
+                + 2f * Player.Weapon.MasteryLevel(Player)
+                + weaponDamageBonus);
+
+            var attackDamage = (int)MathF.Round((weaponAttack + Player.Strength) * attackMultiplier);
+
+            var doubleAttackDamage = (int)MathF.Round((weaponAttack + MathF.Min(Player.Strength, 60)) * attackMultiplier);
+
+            var armorValue = Player.ArmorDefense;
+
+            var armorPerk = Player.Armor?.Perk;
+
+            if (Player.HasPerk(PerkIds.Agility))
+            {
+                var speedBonus = armorPerk is "Light" or "Adornment" || Player.Armor?.Name == "nothing"
+                    ? Player.Speed / 8f
+                    : armorPerk == "Medium" ? Player.Speed / 13f : 0f;
+
+                armorValue += MathF.Min(15f, MathF.Round(speedBonus));
+            }
+
+            if (Player.HasPerk(PerkIds.Juggernaut) && Player.Toughness >= 75 && armorPerk == "Heavy")
+                armorValue += 10;
+
+            var valeriaRegen = Player.Armor?.Id.Path == "goo_armor"
+                ? (CoC.Instance.Flags.Get(GameFlagIds.ValeriaFluids) < 50
+                    ? CoC.Instance.Flags.Get(GameFlagIds.ValeriaFluids) / 25f
+                    : 2f)
+                : 0f;
+
+            var regenPercentCombat = Math.Clamp(Player.Stats.Addition(GameStats.HealthRegenPercent) + valeriaRegen, -5f, 5f);
+
+            var regenPercentNonCombat = Math.Clamp(Player.Stats.Addition(GameStats.HealthRegenPercent) + valeriaRegen * 2f, -10f, 10f);
+
+            var regenFlat = Player.Stats.Addition(GameStats.HealthRegenFlat);
+
+            return BuildDetailRows(attackDamage, doubleAttackDamage, armorValue,
+                regenPercentCombat, regenPercentNonCombat, regenFlat);
+        }
+
         private static List<StatsDetailScene.StatDetail> BuildDetailRows(
             int attackDamage, int doubleAttackDamage, float armorValue,
 

@@ -86,7 +86,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleStun(CombatContext context)
         {
-            context.WriteAction("Combat.LivingStatue.HandleStun.TheStoneGiant".Localized());
+            context.Log.Add("Combat.LivingStatue.HandleStun.TheStoneGiant".Localized());
 
             RemoveStatusEffect(StatusEffectIds.Stunned);
 
@@ -95,7 +95,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleFear(CombatContext context)
         {
-            context.WriteAction("Combat.LivingStatue.HandleFear.TheStoneGiant".Localized());
+            context.Log.Add("Combat.LivingStatue.HandleFear.TheStoneGiant".Localized());
 
             RemoveStatusEffect(StatusEffectIds.Fear);
 
@@ -107,7 +107,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (reaction != CombatReactionContext.Blinded)
                 return true;
 
-            context.Append("Combat.LivingStatue.React.TheGolemDoesn".Localized());
+            context.AppendLog("Combat.LivingStatue.React.TheGolemDoesn".Localized());
 
             return false;
         }
@@ -173,17 +173,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             var damageHigh = damage < 100 || damage < MaxHealth * 0.33f;
 
             if (damage <= 0)
-                context.WriteAction("Combat.LivingStatue.DescribeAttacked.Bounce".Localized(noun, monster));
+                context.Log.Add("Combat.LivingStatue.DescribeAttacked.Bounce".Localized(noun, monster));
             else if (damageLow)
-                context.WriteAction("Combat.LivingStatue.DescribeAttacked.Glancing".Localized(monster));
+                context.Log.Add("Combat.LivingStatue.DescribeAttacked.Glancing".Localized(monster));
             else if (damageMed)
-                context.WriteAction("Combat.LivingStatue.DescribeAttacked.Medium".Localized(verb, monster, Pronoun2));
+                context.Log.Add("Combat.LivingStatue.DescribeAttacked.Medium".Localized(verb, monster, Pronoun2));
             else if (damageHigh)
-                context.WriteAction("Combat.LivingStatue.DescribeAttacked.High".Localized(monster, noun));
+                context.Log.Add("Combat.LivingStatue.DescribeAttacked.High".Localized(monster, noun));
             else
-                context.WriteAction("Combat.LivingStatue.DescribeAttacked.Shatter".Localized(monster, noun));
+                context.Log.Add("Combat.LivingStatue.DescribeAttacked.Shatter".Localized(monster, noun));
 
-            context.Append("Combat.Monster.Attack.Damage".Localized((int)damage));
+            context.AppendLog("Combat.Monster.Attack.Damage".Localized((int)damage));
 
             return true;
         }

@@ -30,10 +30,18 @@ namespace MonoCoC.Saving
 
         public JsonObject Time = [];
 
+        public string Location = "";
+
+        public double Playtime;
+
+        public JsonObject ModData = [];
+
         public JsonObject PlayerOptions = [];
 
         // 场景私有存档（原版每个场景的 saveContent）
         public JsonObject Scenes = [];
+
+        public JsonObject SelfSaving = [];
 
         // 已解锁成就 id 列表
         public JsonArray Achievements = [];
@@ -61,7 +69,7 @@ namespace MonoCoC.Saving
 
             player.Save(data.Player);
 
-            var time = GameView.Instance?.Time;
+            var time = GameView.Current?.Time;
 
             data.Time = new JsonObject
             {
@@ -73,6 +81,12 @@ namespace MonoCoC.Saving
             };
 
             data.PlayerOptions = OptionStore.LocalToJson();
+
+            data.Location = player.Location;
+
+            data.Playtime = GameView.Current?.Time.TotalTime ?? 0;
+
+            data.ModData = ModSaveData.Capture();
 
             data.Scenes = Contents.Scenes.SceneSaveRegistry.Save();
 
@@ -104,9 +118,17 @@ namespace MonoCoC.Saving
 
             ["time"] = Time,
 
+            ["location"] = Location,
+
+            ["playtime"] = Playtime,
+
+            ["moddata"] = ModData,
+
             ["playeroptions"] = PlayerOptions,
 
             ["scenes"] = Scenes,
+
+            ["selfSaving"] = SelfSaving,
 
             ["achievements"] = Achievements
         };
@@ -116,7 +138,7 @@ namespace MonoCoC.Saving
             if (json == null)
                 return null;
 
-            return new SaveData
+            var data = new SaveData
             {
                 Version = json.TryGetValue("version", out var version) ? (string)version : "",
 
@@ -136,12 +158,80 @@ namespace MonoCoC.Saving
 
                 Time = json.TryGetValue("time", out var time) && time is JsonObject timeObject ? timeObject : [],
 
+                Location = json.TryGetValue("location", out var location) ? (string)location : "",
+
+                Playtime = json.TryGetValue("playtime", out var playtime) ? (double)playtime : 0,
+
+                ModData = json.TryGetValue("moddata", out var modData) && modData is JsonObject modObject ? modObject : [],
+
                   PlayerOptions = json.TryGetValue("playeroptions", out var playerOptions) && playerOptions is JsonObject optionsObject ? optionsObject : [],
 
                 Scenes = json.TryGetValue("scenes", out var scenes) && scenes is JsonObject scenesObject ? scenesObject : [],
 
+                SelfSaving = json.TryGetValue("selfSaving", out var selfSaving) && selfSaving is JsonObject selfSavingObject ? selfSavingObject : [],
+
                 Achievements = json.TryGetValue("achievements", out var achievements) && achievements is JsonArray achievementsArray ? achievementsArray : []
             };
+
+            MigrateLegacyInventory(json, data.Player);
+
+            return data;
+        }
+
+        private static void MigrateLegacyInventory(JsonObject root, JsonObject player)
+        {
+            if (player.ContainsKey("itemSlots"))
+                return;
+
+            if (!root.TryGetValue("itemStorage", out var value) || value is not JsonArray slots)
+                return;
+
+            var converted = new JsonArray();
+
+            var unlocked = 0;
+
+            foreach (var entry in slots)
+            {
+                var slot = new JsonObject();
+
+                if (entry is JsonObject saved)
+                {
+                    var item = saved.TryGetValue("id", out var id) ? id.ToString() : "";
+
+                    if (item.Length == 0 && saved.TryGetValue("shortName", out var shortName))
+                        item = shortName.ToString();
+
+                    var isUnlocked = saved.TryGetValue("unlocked", out var unlockedValue) &&
+                                      unlockedValue.ToString().Equals("true", StringComparison.OrdinalIgnoreCase);
+
+                    slot["item"] = item;
+
+                    slot["quantity"] = saved.TryGetValue("quantity", out var quantity) ? (int)quantity : 0;
+
+                    slot["damage"] = saved.TryGetValue("damage", out var damage) ? (int)damage : 0;
+
+                    slot["unlocked"] = isUnlocked;
+
+                    if (isUnlocked)
+                        unlocked++;
+                }
+                else
+                {
+                    slot["item"] = "";
+
+                    slot["quantity"] = 0;
+
+                    slot["damage"] = 0;
+
+                    slot["unlocked"] = false;
+                }
+
+                converted.Add(slot);
+            }
+
+            player["itemSlots"] = converted;
+
+            player["unlockedItemStacks"] = unlocked;
         }
 
         public void Apply(Player player)
@@ -164,25 +254,68 @@ namespace MonoCoC.Saving
 
             player.Load(Player);
 
+            ApplyLegacySelfSaving();
+
             // 原版读档后 lust 也受 minLust 下限约束
             player.ClampLust();
 
-            if (GameView.Instance != null)
+            if (GameView.Current != null)
             {
-                GameView.Instance.Time.Days = Time.TryGetValue("days", out var days) ? (int)days : 1;
+                GameView.Current.Time.Days = Time.TryGetValue("days", out var days) ? (int)days : 1;
 
-                GameView.Instance.Time.Hours = Time.TryGetValue("hours", out var hours) ? (int)hours : 6;
+                GameView.Current.Time.Hours = Time.TryGetValue("hours", out var hours) ? (int)hours : 6;
 
-                GameView.Instance.Time.Minutes = Time.TryGetValue("minutes", out var minutes) ? (int)minutes : 0;
+                GameView.Current.Time.Minutes = Time.TryGetValue("minutes", out var minutes) ? (int)minutes : 0;
             }
 
             OptionStore.ApplyLocal(PlayerOptions);
 
             Contents.Scenes.SceneSaveRegistry.Load(Scenes);
 
+            ModSaveData.Load(ModData);
+
             // 读档：小时派发注册表与已注册场景单例都要重建（NewGame 在 GameView 构造里做同样的事）。
             Contents.World.TimeAwareRegistry.ReloadVanilla();
         }
+
+        private void ApplyLegacySelfSaving()
+        {
+            if (SelfSaving.TryGetValue("sylvia", out var sylviaValue) && sylviaValue is JsonObject sylviaScene &&
+                sylviaScene.TryGetValue("data", out var sylviaDataValue) && sylviaDataValue is JsonObject sylviaData)
+            {
+                MonoCoC.Contents.Scenes.Vanilla.Areas.Bog.SylviaScene.Save.SetInt("sylviaAffection", LegacyInt(sylviaData, "sylviaAffection"));
+                MonoCoC.Contents.Scenes.Vanilla.Areas.Bog.SylviaScene.Save.SetInt("sylviaDominance", LegacyInt(sylviaData, "sylviaDominance"));
+                MonoCoC.Contents.Scenes.Vanilla.Areas.Bog.SylviaScene.Save.SetInt("sylviaProgress", LegacyInt(sylviaData, "sylviaProgress"));
+            }
+
+            if (SelfSaving.TryGetValue("rathazul", out var rathazulValue) && rathazulValue is JsonObject rathazulScene &&
+                rathazulScene.TryGetValue("data", out var rathazulDataValue) && rathazulDataValue is JsonObject rathazulData &&
+                rathazulData.TryGetValue("campFollower", out var follower))
+                MonoCoC.Contents.Scenes.Vanilla.Npcs.RathazulScene.Save.SetBool("campFollower", (bool)follower);
+
+            if (SelfSaving.TryGetValue("camp", out var campValue) && campValue is JsonObject campScene &&
+                campScene.TryGetValue("data", out var campDataValue) && campDataValue is JsonObject campData)
+            {
+                MonoCoC.Contents.Scenes.Vanilla.TrainingDummyCamp.DummyBuilt =
+                    campData.TryGetValue("dummyBuilt", out var built) && (bool)built;
+                MonoCoC.Contents.Scenes.Vanilla.TrainingDummyCamp.DummyName = LegacyString(campData, "dummyName");
+                MonoCoC.Contents.Scenes.Vanilla.TrainingDummyCamp.DummyGender = LegacyInt(campData, "dummyGender");
+            }
+
+            if (CoC.Instance.Player.HasStatusEffect(Contents.Datas.Vanilla.StatusEffectIds.ExploredDeepwoods))
+            {
+                var area = Contents.World.Areas.AreaRegistry.Get(Contents.Datas.Vanilla.AreaIds.Deepwoods);
+
+                if (area is not null)
+                    Contents.World.Areas.AreaRegistry.Discover(area);
+            }
+        }
+
+        private static int LegacyInt(JsonObject json, string key) =>
+            json.TryGetValue(key, out var value) ? (int)value : 0;
+
+        private static string LegacyString(JsonObject json, string key) =>
+            json.TryGetValue(key, out var value) ? value.ToString() : "";
 
         public void Write(string slot)
         {

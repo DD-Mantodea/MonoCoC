@@ -60,21 +60,21 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.Id.Path == "plain_girl" || enemy.HasPerk(PerkIds.Incorporeality))
             {
-                context.Append("Combat.Spell.Possess.Ghost".Localized());
+                context.AppendLog("Combat.Spell.Possess.Ghost".Localized());
 
                 return;
             }
 
             if (enemy is DullahanEnemy || enemy is DullahanHorseEnemy)
             {
-                context.Append("Combat.Spell.Possess.Dullahan".Localized());
+                context.AppendLog("Combat.Spell.Possess.Dullahan".Localized());
 
                 return;
             }
 
             if (enemy is LivingStatueEnemy || enemy is VolcanicGolemEnemy || enemy is TrainingDummyEnemy)
             {
-                context.Append("Combat.Spell.Possess.Nothing".Localized());
+                context.AppendLog("Combat.Spell.Possess.Nothing".Localized());
 
                 return;
             }
@@ -86,7 +86,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 || enemy.Intelligence > 100)
             {
-                context.Append(enemy.Intelligence > 100
+                context.AppendLog(enemy.Intelligence > 100
 
                     ? "Combat.Spell.Possess.TooSmart".Localized()
 
@@ -97,7 +97,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (PossessChance(context) > context.Random.Next(100))
             {
-                context.Append("Combat.Spell.Possess.Success".Localized());
+                context.AppendLog("Combat.Spell.Possess.Success".Localized());
 
                 var damage = (player.Intelligence / 5f + context.Random.Next(Math.Max(1, (int)player.Level)) + player.Level)
 
@@ -106,7 +106,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 enemy.Lust = Math.Min(enemy.MaxLust, enemy.Lust + damage);
             }
             else
-                context.Append("Combat.Spell.Possess.Fail".Localized());
+                context.AppendLog("Combat.Spell.Possess.Fail".Localized());
         }
     }
 }

@@ -34,7 +34,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction("Combat.Akbal.Attack.Miss".Localized());
+                context.Log.Add("Combat.Akbal.Attack.Miss".Localized());
 
                 return;
             }
@@ -47,14 +47,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage <= 0)
             {
-                context.WriteAction(heavy ? "Combat.Akbal.Attack.HeavyBlocked".Localized() : "Combat.Akbal.Attack.Blocked".Localized());
+                context.Log.Add(heavy ? "Combat.Akbal.Attack.HeavyBlocked".Localized() : "Combat.Akbal.Attack.Blocked".Localized());
 
                 return;
             }
 
             player.HealthChange(-damage);
 
-            context.WriteAction(heavy ? "Combat.Akbal.Attack.Heavy".Localized() : "Combat.Akbal.Attack.Normal".Localized());
+            context.Log.Add(heavy ? "Combat.Akbal.Attack.Heavy".Localized() : "Combat.Akbal.Attack.Normal".Localized());
         }
 
         [Register("coc:akbal_special")]
@@ -66,14 +66,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Random.Next(2) == 0 && player.Speed > 20)
             {
-                context.WriteAction("Combat.Akbal.Special.Speed".Localized());
+                context.Log.Add("Combat.Akbal.Special.Speed".Localized());
 
                 player.CreateStatusEffect(StatusEffectIds.AkbalSpeed);
 
                 return;
             }
 
-            context.WriteAction("Combat.Akbal.Special.Fire".Localized());
+            context.Log.Add("Combat.Akbal.Special.Fire".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -90,11 +90,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction("Combat.Akbal.Special.FireDodged".Localized());
+                context.Log.Add("Combat.Akbal.Special.FireDodged".Localized());
 
                 if (fierce)
                 {
-                    context.WriteAction("Combat.Akbal.Special.FlamePenalty".Localized());
+                    context.Log.Add("Combat.Akbal.Special.FlamePenalty".Localized());
 
                     if (player.HasStatusEffect(StatusEffectIds.AkbalFlameDebuff))
                         player.ChangeStatusValue(StatusEffectIds.AkbalFlameDebuff, 0, 1);
@@ -111,7 +111,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.HealthChange(-damage);
 
-            context.Append("Combat.Akbal.Special.FireDamage".Localized(damage));
+            context.AppendLog("Combat.Akbal.Special.FireDamage".Localized(damage));
         }
 
         [Register("coc:akbal_lust_attack")]
@@ -127,7 +127,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (first)
             {
-                context.WriteAction(fierce ? "Combat.Akbal.Lust.FirstFierce".Localized() : "Combat.Akbal.Lust.First".Localized());
+                context.Log.Add(fierce ? "Combat.Akbal.Lust.FirstFierce".Localized() : "Combat.Akbal.Lust.First".Localized());
 
                 var lust = 7f + (100f - player.Intelligence) / 10f;
 
@@ -140,7 +140,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.WriteAction(fierce ? "Combat.Akbal.Lust.RepeatFierce".Localized() : "Combat.Akbal.Lust.Repeat".Localized());
+            context.Log.Add(fierce ? "Combat.Akbal.Lust.RepeatFierce".Localized() : "Combat.Akbal.Lust.Repeat".Localized());
 
             var ongoing = 12f + (100f - player.Intelligence) / 10f;
 
@@ -158,9 +158,9 @@ namespace MonoCoC.Contents.Combat.Handlers
             var enemy = context.Enemy;
 
             if (enemy.HealthRatio() >= 1f)
-                context.WriteAction("Combat.Akbal.Heal.Full".Localized());
+                context.Log.Add("Combat.Akbal.Heal.Full".Localized());
             else
-                context.WriteAction("Combat.Akbal.Heal.Wounded".Localized());
+                context.Log.Add("Combat.Akbal.Heal.Wounded".Localized());
 
             enemy.HealthChange(enemy.MaxHealth * 0.12f);
 

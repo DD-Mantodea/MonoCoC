@@ -64,22 +64,22 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (HasStatusEffect(StatusEffectIds.Blind))
             {
-                context.Write("Common.Text.TheIncubusSuddenlyGrowsHisDick".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheIncubusSuddenlyGrowsHisDick".Localized());
 
                 return;
             }
 
-            context.Write("Common.Text.TheIncubusLungesForwardInA".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheIncubusLungesForwardInA".Localized());
 
             if (player.Speed - 30 > Random.Shared.Next(60))
-                context.Write("Common.Text.YouSpinAsYouFallTwisting".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouSpinAsYouFallTwisting".Localized());
             else
             {
-                context.Write("Common.Text.YouLandHardOnYourAss".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouLandHardOnYourAss".Localized());
 
                 if (player.Lust >= player.MaxLust * 0.8f || player.Corruption >= 80)
                 {
-                    context.Write("Common.Text.MoaningWithDesireYouLickYour".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.MoaningWithDesireYouLickYour".Localized());
 
                     player.TakeLustDamage(13);
 
@@ -87,13 +87,13 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 }
                 else if (player.Lust >= player.MaxLust * 0.5f || player.Corruption >= 50)
                 {
-                    context.Write("Common.Text.BlushingAtTheScentAndFeel".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.BlushingAtTheScentAndFeel".Localized());
 
                     player.TakeLustDamage(8 + player.Corruption / 20);
                 }
                 else
                 {
-                    context.Write("Common.Text.DisgustedYouPullAwayFromThe".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.DisgustedYouPullAwayFromThe".Localized());
 
                     player.TakeLustDamage(5 + player.Corruption / 20);
                 }
@@ -101,7 +101,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 player.HealthChange(-5);
             }
 
-            context.Write("Common.Text.TheIncubusGivesAnOverconfidentSmile".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheIncubusGivesAnOverconfidentSmile".Localized());
         }
 
         public void Spooge(CombatContext context)
@@ -110,26 +110,26 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (HasStatusEffect(StatusEffectIds.Blind))
             {
-                context.Write("Common.Text.TheIncubusPumpsAndThrustsHis".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheIncubusPumpsAndThrustsHis".Localized());
 
                 return;
             }
 
-            context.Write("Common.Text.YourDemonicFoePlacesHisHands".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YourDemonicFoePlacesHisHands".Localized());
 
             if (player.Shield?.Is(ItemIds.DragonShield) == true && Random.Shared.Next(2) == 0)
             {
-                context.Write("Scenes.IncubusMechanic.SpoogeAttack.ShieldAbsorbsCum".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.IncubusMechanic.SpoogeAttack.ShieldAbsorbsCum".Localized());
 
                 return;
             }
 
-            context.Write("Scenes.IncubusMechanic.SpoogeAttack.DodgePartialLead".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.IncubusMechanic.SpoogeAttack.DodgePartialLead".Localized());
 
             switch (Random.Shared.Next(3))
             {
                 case 0:
-                    context.Write("Scenes.IncubusMechanic.SpoogeAttack.SeedOnFace".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.IncubusMechanic.SpoogeAttack.SeedOnFace".Localized());
 
                     player.Lust = Math.Min(player.MaxLust, player.Lust + 3);
 
@@ -145,7 +145,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 case 1:
                     if (player.HasFuckableNipples())
                     {
-                        context.Write(player.AllBreastsDescript() + "Common.Text.TheGooeyDemonSeedOozesAnd".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write(player.AllBreastsDescript() + "Common.Text.TheGooeyDemonSeedOozesAnd".Localized());
 
                         player.Lust = Math.Min(player.MaxLust, player.Lust + 3);
 
@@ -157,14 +157,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                         player.SlimeFeed();
                     }
                     else
-                        context.Write(player.AllBreastsDescript() + "Common.Text.ThankfullyItDoesntSeemToHave".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write(player.AllBreastsDescript() + "Common.Text.ThankfullyItDoesntSeemToHave".Localized());
 
                     break;
 
                 default:
                     if (player.Vaginas.Count > 0)
                     {
-                        context.Write("crotch. The gooey demon-seed oozes and slides over you with a mind of its own, forcing its way past your armor and into your " + player.VaginaDescript(0) + "Common.Text.YouCanFeelItMovingAround".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("crotch. The gooey demon-seed oozes and slides over you with a mind of its own, forcing its way past your armor and into your " + player.VaginaDescript(0) + "Common.Text.YouCanFeelItMovingAround".Localized());
 
                         player.Lust = Math.Min(player.MaxLust, player.Lust + 3);
 
@@ -176,7 +176,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                         player.SlimeFeed();
                     }
                     else
-                        context.Write("Scenes.IncubusMechanic.SpoogeAttack.CrotchNoEffect".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.IncubusMechanic.SpoogeAttack.CrotchNoEffect".Localized());
 
                     break;
             }

@@ -35,7 +35,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Ability.ClawStance.Text".Localized());
+            context.Log.Add("Combat.Ability.ClawStance.Text".Localized());
 
             // 原版 stanceChange(Claw)：先卸掉其它姿态；C# 目前只有爪姿态
             player.RemoveStatusEffect(StatusEffectIds.ClawStance);
@@ -45,7 +45,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             // 原版 canFist(Activation)：爪精通 4 级时额外获得潜伏
             if (player.MasteryLevel(ClawMastery) >= 4)
             {
-                context.Write("Combat.Ability.ClawStance.Activation".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Ability.ClawStance.Activation".Localized());
 
                 player.CreateStatusEffect(StatusEffectIds.Lurk);
             }
@@ -60,7 +60,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (player.Weapon.IsBareClaw() && player.Shield is null)
                 return;
 
-            context.WriteAction("Combat.Effect.ClawStance.Broken".Localized());
+            context.Log.Add("Combat.Effect.ClawStance.Broken".Localized());
 
             player.RemoveStatusEffect(StatusEffectIds.ClawStance);
         }

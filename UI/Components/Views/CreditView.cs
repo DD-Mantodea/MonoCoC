@@ -45,7 +45,7 @@ namespace MonoCoC.UI.Components.Views
         private void ShowVanilla() => ShowPage(2);
 
         [UIEvent("credits.back")]
-        private static void Back() => UIManager.Instance.Root.SwitchView(new MainView());
+        private void Back() => ViewNavigator.Back(this);
 
         private void ShowPage(int page)
         {

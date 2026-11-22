@@ -126,13 +126,7 @@ namespace MonoCoC.Assets.AssetManagers
             Fallback = Languages.FirstOrDefault(candidate => candidate.Code == language)?.Fallback ?? "en-us";
         }
 
-        // 运行时自检：loc 值里有 {n} 占位符，但调用没传够实参时，把 key 记下来。
-        // 目的：不依赖任何离线脚本/人工判断，由程序自己报告哪些 key 真的会显示成 "{0}"。
-        // 规则：占位符 = 单个花括号包住纯数字（{0} {1} ...）；tag 里的字面花括号在抽取时已被
-        // 转义成 {{ }}（双花括号），不会匹配到这里，因此不存在 tag 误判。
-        private static readonly Regex PlaceholderPattern =
-
-            MyRegex();
+        private static readonly Regex PlaceholderPattern = MyRegex();
 
         private static readonly HashSet<string> MissingArgsReported = [];
 

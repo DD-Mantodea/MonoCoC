@@ -51,9 +51,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (reaction == CombatReactionContext.WhenAttacked && !GhoulReveal)
             {
-                context.Append("Scenes.Ghoul.React.IllusionDispelled".Localized());
+                context.AppendLog("Scenes.Ghoul.React.IllusionDispelled".Localized());
 
-                context.Append("Scenes.Ghoul.React.IllusionWoreOff".Localized());
+                context.AppendLog("Scenes.Ghoul.React.IllusionWoreOff".Localized());
 
                 GhoulReveal = true;
             }

@@ -48,9 +48,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!player.HasStatusEffect(StatusEffectIds.NagaBind))
                 return true;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Scenes.Naga.React.GripTightensRelax".Localized());
+            context.AppendLog("Scenes.Naga.React.GripTightensRelax".Localized());
 
             player.TakeLustDamage(player.Sensitivity / 5 + 5, true);
 
@@ -67,17 +67,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!player.HasStatusEffect(StatusEffectIds.NagaBind))
                 return;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (context.Random.Next(3) == 0 || context.Random.Next(80) < player.Strength / 1.5f)
             {
-                context.Append("Scenes.Naga.Struggle.WriggleFreeCoils".Localized());
+                context.AppendLog("Scenes.Naga.Struggle.WriggleFreeCoils".Localized());
 
                 player.RemoveStatusEffect(StatusEffectIds.NagaBind);
             }
             else
             {
-                context.Append("Scenes.Naga.Struggle.GripTightensStruggle".Localized());
+                context.AppendLog("Scenes.Naga.Struggle.GripTightensStruggle".Localized());
 
                 player.TakeLustDamage(player.Sensitivity / 10 + 2, true);
 

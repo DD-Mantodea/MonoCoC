@@ -229,6 +229,13 @@ namespace MonoCoC.Contents.Creatures
             }
         }
 
+        private static Age ParseAge(JsonValue value)
+        {
+            var text = value.ToString().Trim('"');
+
+            return int.TryParse(text, out var number) ? (Age)number : Enum.Parse<Age>(text, true);
+        }
+
         public float FireResistance = 1;
 
         public float LustVulnerability = 1;
@@ -1975,9 +1982,9 @@ namespace MonoCoC.Contents.Creatures
 
             Race = json.TryGetValue("race", out var race) ? (string)race : "";
 
-            Age = json.TryGetValue("age", out var age) ? Enum.Parse<Age>((string)age, true) : Age.Adult;
+            Age = json.TryGetValue("age", out var age) ? ParseAge(age) : Age.Adult;
 
-            StartingAge = json.TryGetValue("startingAge", out var startingAge) ? Enum.Parse<Age>((string)startingAge, true) : Age.Adult;
+            StartingAge = json.TryGetValue("startingAge", out var startingAge) ? ParseAge(startingAge) : Age.Adult;
 
             FireResistance = json.TryGetValue("fireResistance", out var fireResistance) ? (float)fireResistance : 1;
 

@@ -1,4 +1,5 @@
-﻿{
+{
+  require: ["GlobalStyles"]
   id: "InstructionsView"
   root: {
     type: "coc:view"
@@ -15,7 +16,6 @@
       {
         type: "coc:label"
         part: "instructions.title"
-        layout: "relative"
         x: 320
         y: 60
         width: 930
@@ -27,7 +27,6 @@
       {
         type: "coc:text_area"
         part: "instructions.text"
-        layout: "relative"
         x: 320
         y: 120
         width: 940
@@ -41,8 +40,7 @@
       }
       {
         type: "coc:button"
-        template: "ActionButton"
-        layout: "relative"
+        style: "ActionButton"
         horizontalAlign: "left"
         verticalAlign: "top"
         x: 1080

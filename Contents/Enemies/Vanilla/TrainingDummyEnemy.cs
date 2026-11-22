@@ -24,53 +24,53 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override void OnTeased(CombatContext context, float lustDelta)
         {
-            context.Append("Combat.TrainingDummy.OutputDefaultTeaseReaction.Text".Localized());
+            context.AppendLog("Combat.TrainingDummy.OutputDefaultTeaseReaction.Text".Localized());
 
             switch (context.Random.Next(10))
             {
                 case 0:
-                    context.Append("Combat.TrainingDummy.OutputDefaultTeaseReaction.SWoodenVisage".Localized());
+                    context.AppendLog("Combat.TrainingDummy.OutputDefaultTeaseReaction.SWoodenVisage".Localized());
 
                     break;
 
                 case 1:
-                    context.Append("Combat.TrainingDummy.OutputDefaultTeaseReaction.YourCharmsSeem".Localized());
+                    context.AppendLog("Combat.TrainingDummy.OutputDefaultTeaseReaction.YourCharmsSeem".Localized());
 
                     break;
 
                 case 2:
-                    context.Append("Combat.TrainingDummy.OutputDefaultTeaseReaction.YouBeginTo".Localized());
+                    context.AppendLog("Combat.TrainingDummy.OutputDefaultTeaseReaction.YouBeginTo".Localized());
 
                     break;
 
                 case 3:
-                    context.Append("Combat.TrainingDummy.OutputDefaultTeaseReaction.YouWonderIf".Localized());
+                    context.AppendLog("Combat.TrainingDummy.OutputDefaultTeaseReaction.YouWonderIf".Localized());
 
                     break;
 
                 case 4:
-                    context.Append("Combat.TrainingDummy.OutputDefaultTeaseReaction.FailsToReact".Localized());
+                    context.AppendLog("Combat.TrainingDummy.OutputDefaultTeaseReaction.FailsToReact".Localized());
 
                     break;
 
                 case 5:
-                    context.Append("Combat.TrainingDummy.OutputDefaultTeaseReaction.SeemsUnimpressed".Localized());
+                    context.AppendLog("Combat.TrainingDummy.OutputDefaultTeaseReaction.SeemsUnimpressed".Localized());
 
                     break;
 
                 case 6:
-                    context.Append("Combat.TrainingDummy.OutputDefaultTeaseReaction.RemainsStillIt".Localized());
+                    context.AppendLog("Combat.TrainingDummy.OutputDefaultTeaseReaction.RemainsStillIt".Localized());
 
                     break;
 
                 case 7:
-                    context.Append("Combat.TrainingDummy.OutputDefaultTeaseReaction.WhileMayBe".Localized(
+                    context.AppendLog("Combat.TrainingDummy.OutputDefaultTeaseReaction.WhileMayBe".Localized(
                         _dummyGender % 2 == 1 ? " Well, almost, but that doesn't count." : ""));
 
                     break;
 
                 case 8:
-                    context.Append((_dummyGender % 2 == 1
+                    context.AppendLog((_dummyGender % 2 == 1
 
                         ? "Combat.TrainingDummy.OutputDefaultTeaseReaction.StiffReason"
 
@@ -79,7 +79,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     break;
 
                 case 9:
-                    context.Append("Combat.TrainingDummy.OutputDefaultTeaseReaction.YourDummyIsn".Localized());
+                    context.AppendLog("Combat.TrainingDummy.OutputDefaultTeaseReaction.YourDummyIsn".Localized());
 
                     break;
 

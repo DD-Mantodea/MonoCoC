@@ -1,12 +1,21 @@
 using MonoCoC.Contents.Equipment;
+using MonoCoC.Contents.Scenes.Vanilla;
+using MonoCoC.Contents.Storage;
 using MonoCoC.Extensions;
+using MonoCoC.UI.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MonoCoC.Contents.Items
 {
-    // 右键物品时传下去的上下文：背包物品带 Stack，装备槽物品带 EquipmentSlotId。
+    public enum InventoryPage
+    {
+        Backpack,
+        Equipment,
+        Storage
+    }
+
     public sealed class ItemInteractionContext
     {
         public required Item Item;
@@ -14,6 +23,12 @@ namespace MonoCoC.Contents.Items
         public ItemStack? Stack;
 
         public string? EquipmentSlotId;
+
+        public InventoryPage Page = InventoryPage.Backpack;
+
+        public StorageArea? StorageArea;
+
+        public int StorageIndex = -1;
     }
 
     // 一条交互：由物品类型在自己的 RegisterInteractions 里 Add 进来。
@@ -60,6 +75,49 @@ namespace MonoCoC.Contents.Items
             return menu.Ordered();
         }
 
+        public static List<ItemInteraction> BuildStorage(ItemInteractionContext context)
+        {
+            var menu = new ItemInteractionMenu();
+
+            if (context.Stack is not null)
+            {
+                if (context.StorageArea is not null && context.StorageIndex >= 0)
+                    menu.Add("take_out", "Scenes.Storage.TakeOut", TakeOut, order: 0);
+                else
+                    menu.Add("store", "Scenes.Storage.Store", Store, order: 0);
+            }
+
+            return menu.Ordered();
+        }
+
+        public static string? Store(ItemInteractionContext context)
+        {
+            var index = Array.IndexOf(Player.Inventory.Slots, context.Stack);
+
+            if (index < 0)
+                return null;
+
+            if (context.StorageArea is null)
+                return "Scenes.Storage.Error.NoSection".Localized();
+
+            if (!context.StorageArea.AcceptsItem(context.Item))
+                return "Scenes.Storage.Error.TypeRejected".Localized();
+
+            StorageScene.DepositTo(index, context.StorageArea);
+
+            return null;
+        }
+
+        public static string? TakeOut(ItemInteractionContext context)
+        {
+            if (context.StorageArea is null || context.StorageIndex < 0)
+                return null;
+
+            StorageScene.Withdraw(context.StorageArea, context.StorageIndex);
+
+            return null;
+        }
+
         // 可装备类（Weapon/Shield/Armor/Jewelry/Undergarment）在自己的 RegisterInteractions 里调这个。
         public static void RegisterEquip(ItemInteractionMenu menu, ItemInteractionContext context)
         {
@@ -90,6 +148,21 @@ namespace MonoCoC.Contents.Items
             return Player.Inventory.LastEquipError.Length > 0
                 ? Player.Inventory.LastEquipError.Localized()
                 : "Scenes.Inventory.Equipped".Localized(context.Item.LongName);
+        }
+
+        public static string? Delete(ItemInteractionContext context)
+        {
+            var stack = context.Stack;
+
+            if (stack is null)
+                return null;
+
+            ConfirmDialogOverlay.Show(
+                "Scenes.Inventory.Delete".Localized(),
+                "Scenes.Inventory.DeleteConfirm".Localized(stack.InvLabel),
+                () => Player.Inventory.Delete(stack, true));
+
+            return null;
         }
 
         public static string? Drop(ItemInteractionContext context)
@@ -134,6 +207,6 @@ namespace MonoCoC.Contents.Items
             return "Scenes.Inventory.Unequipped".Localized(removed.LongName);
         }
 
-        private static MonoCoC.Contents.Creatures.Player Player => MonoCoC.CoC.Instance.Player;
+        private static Creatures.Player Player => MonoCoC.CoC.Instance.Player;
     }
 }

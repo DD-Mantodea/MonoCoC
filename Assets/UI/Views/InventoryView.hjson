@@ -1,6 +1,7 @@
-{
+﻿{
+  require: ["GlobalStyles"]
   id: "InventoryView"
-  templates: {
+  styles: {
     ItemSlot: {
       height: 84
       iconSize: 36
@@ -13,6 +14,65 @@
         hover: { backgroundColor: "#FBF4E6FF", textColor: "#35291FFF", borderColor: "#9F8156FF", borderThickness: 2 }
         selected: { backgroundColor: "#E0C9AAFF", textColor: "#35291FFF", borderColor: "#9F8156FF", borderThickness: 2 }
         disabled: { backgroundColor: "#E6DCC8AA", textColor: "#9A8B78AA", borderColor: "#B79A7066", borderThickness: 1 }
+      }
+    }
+    EquipmentSlot: {
+      height: 40
+      iconSize: 20
+      emptyIcon: "Icons/inventory_empty.svg"
+      showName: true
+      showType: false
+      showQuantity: false
+      states: {
+        normal: { backgroundColor: "#F7EFE0CC", textColor: "#35291FFF", borderColor: "#B79A70AA", borderThickness: 1 }
+        hover: { backgroundColor: "#FBF4E6FF", textColor: "#35291FFF", borderColor: "#9F8156FF", borderThickness: 2 }
+        selected: { backgroundColor: "#E0C9AAFF", textColor: "#35291FFF", borderColor: "#9F8156FF", borderThickness: 2 }
+        disabled: { backgroundColor: "#E6DCC8AA", textColor: "#9A8B78AA", borderColor: "#B79A7066", borderThickness: 1 }
+      }
+    }
+    CoreStatRow: {
+      height: 32
+      columns: 2
+      columnGap: 36
+      font: "coc:menu"
+      fontSize: 20
+      textVerticalAlign: "center"
+      textOffsetY: 2
+      backgroundColor: "#00000000"
+      labelColor: "#35291FFF"
+      valueColor: "#7C6B58FF"
+      padding: 2
+    }
+    CombatStatRow: {
+      height: 32
+      columns: 2
+      columnGap: 36
+      font: "coc:menu"
+      fontSize: 20
+      textVerticalAlign: "center"
+      textOffsetY: 2
+      padding: 2
+      backgroundColor: "#00000000"
+      hoverBackgroundColor: "#E0C9AA66"
+      selectedBackgroundColor: "#E0C9AAFF"
+      labelColor: "#35291FFF"
+      hoverLabelColor: "#2F241BFF"
+      selectedLabelColor: "#2F241BFF"
+      valueColor: "#7C6B58FF"
+      hoverValueColor: "#5C4A38FF"
+      selectedValueColor: "#5C4A38FF"
+    }
+    TabButton: {
+      type: "coc:button"
+      width: 120
+      height: 40
+      horizontalAlign: "left"
+      verticalAlign: "top"
+      font: { id: "coc:menu", size: 20 }
+      states: {
+        normal: { textColor: "#7C6B58CC" }
+        hover: { textColor: "#2F241BFF" }
+        selected: { backgroundColor: "#E0C9AAFF", textColor: "#2F241BFF" }
       }
     }
   }
@@ -30,121 +90,298 @@
         canHit: false
       }
       {
-        type: "coc:player_stats"
-        view: "Views/PlayerStats.hjson"
-        part: "inventory.playerStats"
-        x: 0
-        y: 0
-        width: 300
-        height: 900
-      }
-      {
-        type: "coc:item_grid" 
-        part: "inventory.grid"
-        itemTemplate: "ItemSlot"
-        layout: "relative"
-        x: 320
-        y: 60
-        width: 930
-        height: 400
-        columns: 3
-        padding: 16
-        backgroundColor: "#F7EFE0AA"
-        borderColor: "#B79A70AA"
-        borderThickness: 1
-      }
-      {
         type: "coc:grid"
-        layout: "relative"
-        x: 1280
+        x: 20
         y: 60
-        width: 300
-        height: 800
-        backgroundColor: "#F7EFE0AA"
-        borderColor: "#B79A70AA"
-        borderThickness: 1
-        children: [
-          { type: "coc:label", part: "inventory.detail.name", layout: "relative", x: 16, y: 16, width: 268, height: 32, font: { id: "coc:menu", size: 30 }, textColor: "#35291FFF", canHit: false }
-          { type: "coc:label", part: "inventory.detail.type", layout: "relative", x: 16, y: 52, width: 268, height: 24, font: { id: "coc:menu", size: 16 }, textColor: "#7C6B58FF", canHit: false }
-          { type: "coc:label", part: "inventory.detail.description", layout: "relative", x: 16, y: 84, width: 268, wrapWidth: 268, height: 500, font: { id: "coc:body", size: 20 }, textColor: "#35291FFF", canHit: false }
-          { type: "coc:label", part: "inventory.detail.stats", layout: "relative", x: 16, y: 600, width: 268, wrapWidth: 268, height: 1, font: { id: "coc:body", size: 18 }, textColor: "#5C4A38FF", canHit: false }
-        ]
-      }
-      {
-        type: "coc:grid"
-        layout: "relative"
-        x: 620
-        y: 480
         width: 628
-        height: 380
+        height: 750
+        scissor: true
         backgroundColor: "#F7EFE0AA"
         borderColor: "#B79A70AA"
         borderThickness: 1
         children: [
           {
             type: "coc:label"
-            layout: "relative"
             x: 16
-            y: 12
-            width: 590
-            height: 30
+            y: 8
+            width: 596
+            height: 34
+            text: { bind: "name" }
+            font: { id: "coc:menuBold", size: 30 }
+            textColor: "#35291FFF"
+            canHit: false
+          }
+          {
+            type: "coc:scroll_panel"
+            x: 16
+            y: 56
+            width: 596
+            height: 284
+            contentHeight: 460
+            children: [
+              {
+                type: "coc:divider"
+                x: 138
+                y: 0
+                width: 320
+                height: 30
+                thickness: 1
+                ornament: true
+                ornamentTextKey: "Views.PlayerStats.CoreStats"
+                font: "coc:menuBold"
+                fontSize: 24
+                states: { normal: { color: "#9F8156FF" } }
+              }
+              {
+                type: "coc:detail_stats"
+                part: "inventory.stats.core"
+                section: "core"
+                rowStyle: "CoreStatRow"
+                x: 0
+                y: 34
+                width: 596
+                height: 128
+              }
+              {
+                type: "coc:divider"
+                x: 138
+                y: 170
+                width: 320
+                height: 30
+                thickness: 1
+                ornament: true
+                ornamentTextKey: "Views.PlayerStats.CombatStats"
+                font: "coc:menuBold"
+                fontSize: 24
+                states: { normal: { color: "#9F8156FF" } }
+              }
+              {
+                type: "coc:detail_stats"
+                part: "inventory.stats.combat"
+                section: "combat"
+                rowStyle: "CombatStatRow"
+                x: 0
+                y: 204
+                width: 596
+                height: 224
+              }
+            ]
+          }
+          {
+            type: "coc:divider"
+            x: 16
+            y: 344
+            width: 596
+            height: 10
+            thickness: 1
+            ornament: false
+            states: { normal: { color: "#9F8156FF" } }
+          }
+          {
+            type: "coc:label"
+            x: 16
+            y: 360
+            width: 596
+            height: 26
             text: { key: "Scenes.Inventory.Equipment" }
             font: { id: "coc:menu", size: 20 }
             textColor: "#5C4A38FF"
             canHit: false
           }
           {
-            type: "coc:equipment_grid"
-            part: "inventory.equipment"
-            itemTemplate: "ItemSlot"
-            layout: "relative"
-            y: 40
+            type: "coc:scroll_panel"
+            x: 0
+            y: 386
             width: 628
-            height: 330
-            columns: 2
-            spacing: 8
-            padding: 16
+            height: 400
+            contentHeight: 760
+            children: [
+              {
+                type: "coc:equipment_grid"
+                part: "inventory.equipment"
+                itemStyle: "ItemSlot"
+                x: 0
+                y: 0
+                width: 628
+                height: 760
+                columns: 2
+                spacing: 8
+                padding: 16
+              }
+            ]
+          }
+        ]
+      }
+      {
+        type: "coc:item_grid"
+        part: "inventory.grid"
+        itemStyle: "ItemSlot"
+        x: 656
+        y: 60
+        width: 628
+        height: 560
+        headerHeight: 50
+        columns: 2
+        padding: 16
+        spacing: 8
+        backgroundColor: "#F7EFE0AA"
+        borderColor: "#B79A70AA"
+        borderThickness: 1
+        children: [
+          {
+            type: "coc:label"
+            x: 16
+            y: 12
+            width: 596
+            height: 30
+            text: { key: "Scenes.Inventory.Title" }
+            font: { id: "coc:menu", size: 20 }
+            textColor: "#5C4A38FF"
+            canHit: false
           }
         ]
       }
       {
         type: "coc:grid"
-        layout: "relative"
-        x: 320
-        y: 480
-        width: 288
-        height: 380
+        x: 656
+        y: 632
+        width: 308
+        height: 178
         backgroundColor: "#F7EFE0AA"
         borderColor: "#B79A70AA"
         borderThickness: 1
+        children: [
+          {
+            type: "coc:label"
+            x: 14
+            y: 10
+            width: 280
+            height: 24
+            text: "KEY ITEMS"
+            font: { id: "coc:body", size: 18 }
+            textColor: "#35291FFF"
+            canHit: false
+          }
+          {
+            type: "coc:divider"
+            x: 14
+            y: 36
+            width: 280
+            height: 1
+            thickness: 1
+            ornament: false
+            states: { normal: { color: "#9F8156FF" } }
+          }
+          {
+            type: "coc:text_area"
+            part: "inventory.keyItems"
+            x: 14
+            y: 46
+            width: 280
+            height: 118
+            font: { id: "coc:body", size: 18 }
+            textColor: "#35291FFF"
+            backgroundColor: "#00000000"
+          }
+        ]
+      }
+      {
+        type: "coc:grid"
+        x: 976
+        y: 632
+        width: 308
+        height: 178
+        backgroundColor: "#F7EFE0AA"
+        borderColor: "#B79A70AA"
+        borderThickness: 1
+        children: [
+          {
+            type: "coc:label"
+            x: 14
+            y: 10
+            width: 280
+            height: 24
+            text: "CARPENTRY SUPPLIES"
+            font: { id: "coc:body", size: 18 }
+            textColor: "#35291FFF"
+            canHit: false
+          }
+          {
+            type: "coc:divider"
+            x: 14
+            y: 36
+            width: 280
+            height: 1
+            thickness: 1
+            ornament: false
+            states: { normal: { color: "#9F8156FF" } }
+          }
+          {
+            type: "coc:text_area"
+            part: "inventory.resources"
+            x: 14
+            y: 46
+            width: 280
+            height: 118
+            font: { id: "coc:body", size: 18 }
+            textColor: "#35291FFF"
+            backgroundColor: "#00000000"
+          }
+        ]
+      }
+      {
+        type: "coc:label"
+        x: 1296
+        y: 20
+        width: 276
+        height: 32
+        text: { key: "Scenes.Inventory.Details" }
+        textHorizontalAlign: "right"
+        font: { id: "coc:menu", size: 24 }
+        textColor: "#35291FFF"
+        canHit: false
+      }
+      {
+        type: "coc:grid"
+        x: 1290
+        y: 60
+        width: 300
+        height: 750
+        backgroundColor: "#F7EFE0AA"
+        borderColor: "#B79A70AA"
+        borderThickness: 1
+        children: [
+          { type: "coc:label", part: "inventory.detail.name", x: 16, y: 16, width: 268, height: 32, font: { id: "coc:menu", size: 30 }, textColor: "#35291FFF", canHit: false }
+          { type: "coc:label", part: "inventory.detail.type", x: 16, y: 52, width: 268, height: 24, font: { id: "coc:menu", size: 16 }, textColor: "#7C6B58FF", canHit: false }
+          { type: "coc:label", part: "inventory.detail.description", x: 16, y: 84, width: 268, wrapWidth: 268, height: 520, font: { id: "coc:body", size: 20 }, textColor: "#35291FFF", canHit: false }
+          { type: "coc:label", part: "inventory.detail.stats", x: 16, y: 620, width: 268, wrapWidth: 268, height: 1, font: { id: "coc:body", size: 18 }, textColor: "#5C4A38FF", canHit: false }
+        ]
+      }
+      {
+        type: "coc:button"
+        style: "FooterButton"
+        x: 20
+        y: 16
+        width: 120
+        height: 40
+        label: { key: "Common.Back" }
+        onClick: "inventory.back"
       }
       {
         type: "coc:label"
         part: "inventory.notice"
-        layout: "relative"
-        x: 1296
-        y: 812
-        width: 268
-        wrapWidth: 268
-        height: 44
+        x: 1290
+        y: 818
+        width: 300
+        wrapWidth: 300
+        height: 40
         font: { id: "coc:body", size: 17 }
         textColor: "#5C4A38FF"
         canHit: false
         visible: false
       }
       {
-        type: "coc:button"
-        template: "ActionButton"
-        layout: "relative"
-        x: 1040
-        y: 820
-        width: 180
-        height: 44
-        label: { key: "Common.Back" }
-        onClick: "inventory.back"
-      }
-      {
-        template: "ContextMenu"
+        style: "ContextMenu"
         part: "inventory.menu"
         visible: false
       }

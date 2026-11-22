@@ -67,14 +67,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.Plural)
             {
-                context.Append("Combat.VineGrab.TooMany".Localized());
+                context.AppendLog("Combat.VineGrab.TooMany".Localized());
 
                 return;
             }
 
             if (enemy.HasStatusEffect(StatusEffectIds.Concentration))
             {
-                context.Append("Combat.VineGrab.Concentration".Localized());
+                context.AppendLog("Combat.VineGrab.Concentration".Localized());
 
                 return;
             }
@@ -83,11 +83,11 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 if (enemy.HasStatusEffect(StatusEffectIds.VolcanicFistProblem))
                 {
-                    context.Append("Combat.VineGrab.GolemWrap".Localized());
+                    context.AppendLog("Combat.VineGrab.GolemWrap".Localized());
 
                     if (player.Strength > 80 && !enemy.HasStatusEffect(StatusEffectIds.VolcanicFrenzy))
                     {
-                        context.Append("Combat.VineGrab.GolemRip".Localized());
+                        context.AppendLog("Combat.VineGrab.GolemRip".Localized());
 
                         enemy.CreateStatusEffect(StatusEffectIds.VolcanicWeapRed, 3, 0, 0, 0);
 
@@ -97,22 +97,22 @@ namespace MonoCoC.Contents.Combat.Handlers
                             enemy.WeaponAttack = 10;
                     }
                     else
-                        context.Append("Combat.VineGrab.GolemTooWeak".Localized());
+                        context.AppendLog("Combat.VineGrab.GolemTooWeak".Localized());
                 }
                 else
-                    context.Append("Combat.VineGrab.GolemSwat".Localized());
+                    context.AppendLog("Combat.VineGrab.GolemSwat".Localized());
 
                 return;
             }
 
             if (context.Random.Next(100) >= GrabChance(context))
             {
-                context.Append("Combat.VineGrab.GrabFail".Localized());
+                context.AppendLog("Combat.VineGrab.GrabFail".Localized());
 
                 return;
             }
 
-            context.Append("Combat.VineGrab.Grab".Localized());
+            context.AppendLog("Combat.VineGrab.Grab".Localized());
 
             enemy.CreateStatusEffect(StatusEffectIds.Constricted, 1, 0, 0, 0);
 
@@ -132,14 +132,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (player.Fatigue + player.PhysicalCost(10) > player.MaxFatigue())
             {
-                context.Append("Combat.VineGrab.ConstrictTired".Localized());
+                context.AppendLog("Combat.VineGrab.ConstrictTired".Localized());
 
                 return;
             }
 
             player.ChangeFatigue(10);
 
-            context.Append("Combat.VineGrab.ConstrictText".Localized());
+            context.AppendLog("Combat.VineGrab.ConstrictText".Localized());
 
             var damage = enemy.MaxHealth * (0.10f + context.Random.Next(15) / 100f);
 
@@ -150,7 +150,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             enemy.Bleed(player, 1, 1.5f);
 
             if (enemy.Health < 1)
-                context.Append("Combat.VineGrab.ConstrictFaint".Localized());
+                context.AppendLog("Combat.VineGrab.ConstrictFaint".Localized());
         }
 
         [Register("coc:vine_release")]
@@ -158,7 +158,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.Append("Combat.VineGrab.LetGo".Localized());
+            context.AppendLog("Combat.VineGrab.LetGo".Localized());
 
             enemy.RemoveStatusEffect(StatusEffectIds.Constricted);
         }

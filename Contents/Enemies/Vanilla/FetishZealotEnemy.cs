@@ -44,7 +44,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 ArmorName = outfit;
 
-                context.Append("Combat.FetishZealot.OutfitShift".Localized());
+                context.AppendLog("Combat.FetishZealot.OutfitShift".Localized());
             }
 
             Lust = Math.Min(MaxLust, Lust + LustVulnerability * 5);

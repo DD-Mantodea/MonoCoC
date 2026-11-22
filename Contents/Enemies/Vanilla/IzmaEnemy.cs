@@ -90,7 +90,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (avoid.AttackFailed)
                 return;
 
-            context.Write("Common.Text.IzmaRushesYouWithImpressiveSpeed".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.IzmaRushesYouWithImpressiveSpeed".Localized());
 
             player.ChangeFatigue(20 + Random.Shared.Next(20));
         }
@@ -117,25 +117,25 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             var damage = Math.Max(0, 130 - Random.Shared.Next((int)(player.Toughness + player.ArmorDefense)));
 
-            context.Write("Scenes.Izma.IzmaSpecials2.ClinchLock".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Izma.IzmaSpecials2.ClinchLock".Localized());
 
             if (player.ArmorDefense <= 10 || damage > 0)
             {
-                context.Write("Scenes.Izma.IzmaSpecials2.BladeDragWrithe".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Izma.IzmaSpecials2.BladeDragWrithe".Localized());
 
                 player.Bleed(this);
             }
             else
-                context.Write("Common.Text.LaughAsHerBladesScrapeUselessly".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.LaughAsHerBladesScrapeUselessly".Localized());
 
-            context.Write("Scenes.Izma.IzmaSpecials2.EmbraceBreakLeap".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Izma.IzmaSpecials2.EmbraceBreakLeap".Localized());
 
             player.HealthChange(-damage);
         }
 
         public void Tease(CombatContext context)
         {
-            context.Write("Scenes.Izma.IzmaSpecials3.SelfFondleTaunt".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Izma.IzmaSpecials3.SelfFondleTaunt".Localized());
 
             context.Player.TakeLustDamage(20 + context.Player.Libido / 5);
         }

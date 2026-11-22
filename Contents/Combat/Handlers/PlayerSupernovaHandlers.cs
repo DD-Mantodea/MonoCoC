@@ -16,7 +16,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:tf_supernova")]
         public static void Supernova(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Terra.Supernova.Start".Localized());
+            context.AppendLog("Combat.Terra.Supernova.Start".Localized());
 
             context.Player.CreateStatusEffect(StatusEffectIds.TFSupercharging, 0, 0, 0, 0, 99);
         }
@@ -37,7 +37,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.Terra.Supernova.Gather".Localized());
+            context.AppendLog("Combat.Terra.Supernova.Gather".Localized());
 
             player.AddStatusValue(StatusEffectIds.TFSupercharging, 0, 1);
         }
@@ -58,9 +58,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.AddStatusValue(StatusEffectIds.TFSupercharging, 1, 1);
 
-            context.Append("Combat.Terra.Supernova.Exec1".Localized());
+            context.AppendLog("Combat.Terra.Supernova.Exec1".Localized());
 
-            context.Append("Combat.Terra.Supernova.Exec2".Localized());
+            context.AppendLog("Combat.Terra.Supernova.Exec2".Localized());
 
             var damage = PlayerTerraFormHandlers.TerraStarDamage(context) * (10 + context.Random.Next(11));
 
@@ -69,7 +69,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Magical);
 
                 if (target.Health > 0)
-                    context.Append("Combat.Terra.Supernova.Hit".Localized());
+                    context.AppendLog("Combat.Terra.Supernova.Hit".Localized());
             });
 
             player.HealthChange(-player.Health);

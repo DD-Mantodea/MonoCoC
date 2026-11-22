@@ -33,7 +33,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.Id.Path == "jojo" && CoC.Instance.Flags.Get(GameFlagIds.JojoStatus) < 2)
             {
-                context.Append("Combat.Spell.CleansingPalm.JojoCancel".Localized());
+                context.AppendLog("Combat.Spell.CleansingPalm.JojoCancel".Localized());
 
                 player.MasteryXP(new Identifier("coc", "Casting"), 2 + context.Random.Next(7));
 
@@ -42,7 +42,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy is LivingStatueEnemy)
             {
-                context.Append("Combat.Spell.CleansingPalm.LivingStatue".Localized());
+                context.AppendLog("Combat.Spell.CleansingPalm.LivingStatue".Localized());
 
                 return;
             }
@@ -91,15 +91,15 @@ namespace MonoCoC.Contents.Combat.Handlers
                         _ => "it",
                     };
 
-                context.Append("Combat.Spell.CleansingPalm.Hit".Localized(pronoun));
+                context.AppendLog("Combat.Spell.CleansingPalm.Hit".Localized(pronoun));
 
                 if (OptionStore.Instance.Get("silly", 0) > 0 && enemy.Corruption >= 85)
-                    context.Append("Combat.Spell.CleansingPalm.SuperEffective".Localized());
+                    context.AppendLog("Combat.Spell.CleansingPalm.SuperEffective".Localized());
 
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Magical);
             }
             else
-                context.Append("Combat.Spell.CleansingPalm.Ignored".Localized());
+                context.AppendLog("Combat.Spell.CleansingPalm.Ignored".Localized());
 
         }
     }

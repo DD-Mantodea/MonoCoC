@@ -458,13 +458,13 @@ namespace MonoCoC.Contents.Combat
 
             var butt = player.Body.Get<BodyParts.Vanilla.ButtPart>().Rating;
 
-            context.Write("Combat.Tease.Case0.YouSlapYour".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case0.YouSlapYour".Localized());
 
             // 原版 :814：屁股评分 ≥10 且体脂 <60 时「颤动得赏心悦目」
             if (butt >= 10 && player.Tone < 60)
-                context.Write("Combat.Tease.Case0.MakingJiggleDelightfully".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case0.MakingJiggleDelightfully".Localized());
             else
-                context.Write("Combat.Tease.Case0.Line813".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case0.Line813".Localized());
 
             flags.Ass = true;
         }
@@ -476,20 +476,20 @@ namespace MonoCoC.Contents.Combat
 
             if (player.BreastRows.Count == 1)
             {
-                context.Write("Combat.Tease.Case1.YourLiftYourTop".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case1.YourLiftYourTop".Localized());
 
                 if (player.LustPercent >= 50)
-                    context.Write("Combat.Tease.Case1.YourSeemDemandMonster".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case1.YourSeemDemandMonster".Localized());
             }
 
             if (player.BreastRows.Count > 1)
             {
-                context.Write("Combat.Tease.Case1.YouLiftYourTop".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case1.YouLiftYourTop".Localized());
 
                 if (player.LustPercent >= 50)
-                    context.Write("Combat.Tease.Case1.YourPainfullyVisible".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case1.YourPainfullyVisible".Localized());
                 else
-                    context.Write("Combat.Tease.Case1.Line825".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case1.Line825".Localized());
 
                 flags.ChanceBonus += 1;
             }
@@ -504,7 +504,7 @@ namespace MonoCoC.Contents.Combat
 
             if (player.IsTaur())
             {
-                context.Write("Combat.Tease.Case2.YouGallopTowardYour".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case2.YouGallopTowardYour".Localized());
 
                 flags.ChanceBonus += 2;
 
@@ -512,7 +512,7 @@ namespace MonoCoC.Contents.Combat
             }
             else
             {
-                context.Write("Combat.Tease.Case2.YouOpenYourRevealing".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case2.YouOpenYourRevealing".Localized());
 
                 if (player.Cocks.Count > 0)
                 {
@@ -520,13 +520,13 @@ namespace MonoCoC.Contents.Combat
 
                     flags.DamageBonus += 1;
 
-                    context.Write(player.Cocks.Count == 1
+                    MonoCoC.UI.Components.Views.GameView.Current.Write(player.Cocks.Count == 1
 
                         ? player.CockDescript(0)
 
                         : player.MultiCockDescriptLight());
 
-                    context.Write("Combat.Tease.Case2.And".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case2.And".Localized());
 
                     if (player.HasPerk(PerkIds.BulgeArmor))
                         flags.DamageBonus += 5;
@@ -534,9 +534,9 @@ namespace MonoCoC.Contents.Combat
                     flags.Penis = true;
                 }
 
-                context.Write(player.VaginaDescript(0));
+                MonoCoC.UI.Components.Views.GameView.Current.Write(player.VaginaDescript(0));
 
-                context.Write("Combat.Tease.Case2.Line849".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case2.Line849".Localized());
             }
 
             flags.Vagina = true;
@@ -549,23 +549,23 @@ namespace MonoCoC.Contents.Combat
 
             if (player.IsTaur() && player.CountCocksOfType("Horse") > 0)
             {
-                context.Write("Combat.Tease.Case3.YouLetOutBestial".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case3.YouLetOutBestial".Localized());
 
                 if (player.HasPerk(PerkIds.BulgeArmor))
                     flags.DamageBonus += 5;
             }
             else
             {
-                context.Write("Combat.Tease.Case3.YouOpenYourRevealing".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case3.YouOpenYourRevealing".Localized());
 
                 if (player.Cocks.Count == 1)
-                    context.Write(player.CockDescript(0));
+                    MonoCoC.UI.Components.Views.GameView.Current.Write(player.CockDescript(0));
 
                 if (player.Cocks.Count > 1)
-                    context.Write(player.MultiCockDescriptLight());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write(player.MultiCockDescriptLight());
 
                 if (player.HasVagina())
-                    context.Write("Combat.Tease.Case3.And".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case3.And".Localized());
 
                 if (player.HasPerk(PerkIds.BulgeArmor))
                 {
@@ -576,12 +576,12 @@ namespace MonoCoC.Contents.Combat
 
                 if (player.Vaginas.Count > 0)
                 {
-                    context.Write(player.VaginaDescript(0));
+                    MonoCoC.UI.Components.Views.GameView.Current.Write(player.VaginaDescript(0));
 
                     flags.Vagina = true;
                 }
 
-                context.Write("Combat.Tease.Case3.Line875".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case3.Line875".Localized());
             }
 
             flags.Penis = true;
@@ -594,17 +594,17 @@ namespace MonoCoC.Contents.Combat
 
             var butt = player.Body.Get<BodyParts.Vanilla.ButtPart>().Rating;
 
-            context.Write("Combat.Tease.Case4.YouTurnAwayAnd".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case4.YouTurnAwayAnd".Localized());
 
             if (butt >= 10)
             {
-                context.Write("Combat.Tease.Case4.MakingJiggleDelightfullyEven".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case4.MakingJiggleDelightfullyEven".Localized());
 
                 flags.ChanceBonus += 3;
             }
             else
             {
-                context.Write("Combat.Tease.Case4.LettingGetGoodLook".Localized(player.VaginaDescript(0)));
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case4.LettingGetGoodLook".Localized(player.VaginaDescript(0)));
 
                 flags.ChanceBonus += 1;
 
@@ -621,10 +621,10 @@ namespace MonoCoC.Contents.Combat
         {
             var player = context.Player;
 
-            context.Write("Combat.Tease.Case5.YouLeanForwardLetting".Localized(
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case5.YouLeanForwardLetting".Localized(
                 Appearance.AllBreastsDescript(player)));
 
-            context.Write("Combat.Tease.Case5.YouCupThemYour".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case5.YouCupThemYour".Localized());
 
             if (player.LustPercent >= 50)
             {
@@ -632,10 +632,10 @@ namespace MonoCoC.Contents.Combat
                 {
                     flags.ChanceBonus += 1;
 
-                    context.Write("Combat.Tease.Case5.ClearSlimeLeaksFrom".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case5.ClearSlimeLeaksFrom".Localized());
                 }
                 else
-                    context.Write("Combat.Tease.Case5.YourHardNipplesSeem".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case5.YourHardNipplesSeem".Localized());
 
                 flags.ChanceBonus += 1;
 
@@ -653,25 +653,25 @@ namespace MonoCoC.Contents.Combat
             var futa = player.HasCock() && player.HasVagina();
 
             if (player.HasPerk(PerkIds.BimboBrains) || player.HasPerk(PerkIds.FutaFaculties))
-                context.Write("Combat.Tease.Case6.YouCoylyOpenYour".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case6.YouCoylyOpenYour".Localized());
             else
             {
-                context.Write("Combat.Tease.Case6.YouCoylyOpenYourAnd".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case6.YouCoylyOpenYourAnd".Localized());
 
                 if (futa)
-                    context.Write("Combat.Tease.Case6.Futanari".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case6.Futanari".Localized());
                 else if (player.HasPerk(PerkIds.BimboBody))
-                    context.Write("Combat.Tease.Case6.Bimbo".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case6.Bimbo".Localized());
                 else
-                    context.Write("Combat.Tease.Case6.Sexy".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case6.Sexy".Localized());
 
-                context.Write("Combat.Tease.Case6.BodyTurnYou".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case6.BodyTurnYou".Localized());
             }
 
-            context.Write("Combat.Tease.Case6.GazesAreRivetedYour".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case6.GazesAreRivetedYour".Localized());
 
             if (player.GetClitLength() > 3)
-                context.Write("Combat.Tease.Case6.GazeRivetedYourGroin".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case6.GazeRivetedYourGroin".Localized());
 
             flags.Vagina = true;
         }
@@ -679,9 +679,9 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :977 case 7 —— 弯腰露臀（婊子专用）。</summary>
         private static void BendOverBimbo(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case7.TheGlintingLightCatches".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case7.TheGlintingLightCatches".Localized());
 
-            context.Write("Combat.Tease.Case7.TheClearWarmFluid".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case7.TheClearWarmFluid".Localized());
 
             flags.Vagina = true;
 
@@ -695,9 +695,9 @@ namespace MonoCoC.Contents.Combat
         {
             var player = context.Player;
 
-            context.Write("Combat.Tease.Case8.YouPlaceYourHands".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case8.YouPlaceYourHands".Localized());
 
-            context.Write(player.HasPerk(PerkIds.BroBrains)
+            MonoCoC.UI.Components.Views.GameView.Current.Write(player.HasPerk(PerkIds.BroBrains)
 
                 ? "Combat.Tease.Case8.DamnHasGotLove".Localized()
 
@@ -715,9 +715,9 @@ namespace MonoCoC.Contents.Combat
         {
             var player = context.Player;
 
-            context.Write("Combat.Tease.Case9.CanResistSuchHeroic".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case9.CanResistSuchHeroic".Localized());
 
-            context.Write(player.HasPerk(PerkIds.BroBrains)
+            MonoCoC.UI.Components.Views.GameView.Current.Write(player.HasPerk(PerkIds.BroBrains)
 
                 ? "Combat.Tease.Case9.LeastThePhysicalChanges".Localized()
 
@@ -735,19 +735,19 @@ namespace MonoCoC.Contents.Combat
         {
             var player = context.Player;
 
-            context.Write("Combat.Tease.Case10.WayCouldMonsterResist".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case10.WayCouldMonsterResist".Localized());
 
-            context.Write(player.HasPerk(PerkIds.BroBrains)
+            MonoCoC.UI.Components.Views.GameView.Current.Write(player.HasPerk(PerkIds.BroBrains)
 
                 ? "Combat.Tease.Case10.ThisCrudeButThe".Localized()
 
                 : "Combat.Tease.Case10.YouLikeThatHumping".Localized());
 
-            context.Write("Combat.Tease.Case10.Line1016".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case10.Line1016".Localized());
 
-            context.Write("Combat.Tease.Case10.BenefitTryingEnticeThem".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case10.BenefitTryingEnticeThem".Localized());
 
-            context.Write("Combat.Tease.Case10.YouStrikeHerculeanPose".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case10.YouStrikeHerculeanPose".Localized());
 
             if (player.HasPerk(PerkIds.BulgeArmor))
                 flags.DamageBonus += 5;
@@ -761,12 +761,12 @@ namespace MonoCoC.Contents.Combat
             var player = context.Player;
 
             if (Settings.ModeSettings.Instance.Silly && Random.Shared.Next(2) == 0)
-                context.Write("Combat.Tease.Case11.BitchesLoveCumLeaking".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case11.BitchesLoveCumLeaking".Localized());
             else
             {
-                context.Write("Combat.Tease.Case11.YouGotAdmitYou".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case11.YouGotAdmitYou".Localized());
 
-                context.Write(player.HasPerk(PerkIds.BroBrains)
+                MonoCoC.UI.Components.Views.GameView.Current.Write(player.HasPerk(PerkIds.BroBrains)
 
                     ? "Combat.Tease.Case11.ReachingDownYouGrab".Localized()
 
@@ -781,7 +781,7 @@ namespace MonoCoC.Contents.Combat
         {
             var player = context.Player;
 
-            context.Write("Combat.Tease.Case12.ReachingDownYouGrab".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case12.ReachingDownYouGrab".Localized());
 
             flags.Vagina = true;
 
@@ -798,11 +798,11 @@ namespace MonoCoC.Contents.Combat
         {
             var player = context.Player;
 
-            context.Write("Combat.Tease.Case13.YouLeanBackFeigning".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case13.YouLeanBackFeigning".Localized());
 
             if (player.BiggestLactation() >= 1)
             {
-                context.Write("Combat.Tease.Case13.YourOtherHandMoves".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case13.YourOtherHandMoves".Localized());
 
                 flags.ChanceBonus += 2;
 
@@ -831,7 +831,7 @@ namespace MonoCoC.Contents.Combat
         {
             var player = context.Player;
 
-            context.Write(Random.Shared.Next(2) == 0
+            MonoCoC.UI.Components.Views.GameView.Current.Write(Random.Shared.Next(2) == 0
 
                 ? "Combat.Tease.Case14.YouTearOpenYour".Localized()
 
@@ -860,11 +860,11 @@ namespace MonoCoC.Contents.Combat
 
             if (bigTits > 1 && player.HasVagina() && Random.Shared.Next(2) == 0)
             {
-                context.Write("Combat.Tease.Case15.ClosingYourEyesYou".Localized(player.ArmorName));
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case15.ClosingYourEyesYou".Localized(player.ArmorName));
 
-                context.Write("Combat.Tease.Case15.DrawingYourLustSlick".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case15.DrawingYourLustSlick".Localized());
 
-                context.Write("Combat.Tease.Case15.DespiteHowQuietYou".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case15.DespiteHowQuietYou".Localized());
 
                 flags.ChanceBonus += 2;
 
@@ -872,14 +872,14 @@ namespace MonoCoC.Contents.Combat
             }
             else if (bigTits > 1 && Random.Shared.Next(2) == 0)
             {
-                context.Write("Combat.Tease.Case15.YouYankOffThe".Localized(player.ChestDesc()));
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case15.YouYankOffThe".Localized(player.ChestDesc()));
 
                 flags.ChanceBonus += 1;
 
                 flags.DamageBonus += 2;
             }
             else
-                context.Write("Combat.Tease.Case15.YouRemoveTheFront".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case15.YouRemoveTheFront".Localized());
 
             flags.Breasts = true;
         }
@@ -887,7 +887,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1112 case 16 —— 扒光转身展示后庭。</summary>
         private static void AnalGape(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case16.YouSwingAroundShedding".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case16.YouSwingAroundShedding".Localized());
 
             flags.Anus = true;
 
@@ -897,7 +897,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1119 case 17 —— 蜂腹式扭臀。</summary>
         private static void BeeAbdomen(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case17.YouSitDownLike".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case17.YouSitDownLike".Localized());
 
             flags.Ass = true;
 
@@ -911,16 +911,16 @@ namespace MonoCoC.Contents.Combat
         {
             var player = context.Player;
 
-            context.Write("Combat.Tease.Case18.YouSitDownLike".Localized(
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case18.YouSitDownLike".Localized(
                 player.WolfScore() > player.DogScore() ? "Combat.Tease.Case18.PartedCuntLips".Localized() : "Combat.Tease.Case18.PuckeredAssholeHangingErect".Localized()));
 
-            context.Write(player.HasVagina()
+            MonoCoC.UI.Components.Views.GameView.Current.Write(player.HasVagina()
 
                 ? "Combat.Tease.Case18.AndYourHandsThe".Localized()
 
                 : "Combat.Tease.Case18.YouMakeSureCapture".Localized());
 
-            context.Write("Combat.Tease.Case18.YourFoeRegardsYou".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case18.YourFoeRegardsYou".Localized());
 
             flags.Vagina = true;
 
@@ -932,7 +932,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1137 case 19 —— 极致女性化。</summary>
         private static void MaxFeminine(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case19.YourFoeRegardsYou".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case19.YourFoeRegardsYou".Localized());
 
             flags.ChanceBonus += 2;
 
@@ -942,7 +942,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1144 case 20 —— 极致男性化。</summary>
         private static void MaxMasculine(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case20.YouReachAndRun".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case20.YouReachAndRun".Localized());
 
             flags.ChanceBonus += 2;
 
@@ -952,7 +952,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1151 case 21 —— 完美中性（伤害反而 -3）。</summary>
         private static void MaxAndrogyny(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case21.ReachingBackYouMilk".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case21.ReachingBackYouMilk".Localized());
 
             flags.DamageBonus -= 3;
         }
@@ -960,7 +960,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1159 case 22 —— 蜘蛛丝。</summary>
         private static void SpiderSilk(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case22.PantingWithYourUnstoppable".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case22.PantingWithYourUnstoppable".Localized());
 
             flags.Ass = true;
         }
@@ -971,12 +971,12 @@ namespace MonoCoC.Contents.Combat
             var player = context.Player;
 
             if (player.CountCocksOfType("Horse") > 0 && LongestHorseCockLength(player) >= 12)
-                context.Write("Combat.Tease.Case23.YouRunYourTongue".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case23.YouRunYourTongue".Localized());
             else
             {
-                context.Write("Combat.Tease.Case23.YouMoveCloseYour".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case23.YouMoveCloseYour".Localized());
 
-                context.Write("Combat.Tease.Case23.SeeingLullTheBattle".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case23.SeeingLullTheBattle".Localized());
             }
 
             flags.Penis = true;
@@ -985,7 +985,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1180 case 24 —— 钢管舞（需要法杖）。</summary>
         private static void PoleDance(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case24.SeeingLullTheBattle".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case24.SeeingLullTheBattle".Localized());
 
             flags.Ass = true;
 
@@ -995,7 +995,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1188 case 25 —— 高个子压制式挑逗。</summary>
         private static void TallTease(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case25.YouTurnTheSide".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case25.YouTurnTheSide".Localized());
 
             flags.Breasts = true;
 
@@ -1007,7 +1007,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1196 case 26 —— 魔法挑逗（需 70+ 智力与魅惑法术）。</summary>
         private static void MagicTease(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case26.YouPlayWithThe".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case26.YouPlayWithThe".Localized());
 
             flags.ChanceBonus += 1;
 
@@ -1017,7 +1017,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1204 case 27 —— 喂食者（泌乳）。</summary>
         private static void FeederTease(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case27.YouSwayYourBody".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case27.YouSwayYourBody".Localized());
 
             flags.Breasts = true;
 
@@ -1029,7 +1029,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1192 case 28 —— 女教师装束。</summary>
         private static void FemaleTeacherCostume(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case28.YouTurnTheSide".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case28.YouTurnTheSide".Localized());
 
             flags.Ass = true;
         }
@@ -1037,7 +1037,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1198 case 29 —— 男教师装束。</summary>
         private static void MaleTeacherCostume(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case29.YouPlayWithThe".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case29.YouPlayWithThe".Localized());
 
             flags.ChanceBonus += 1;
 
@@ -1047,7 +1047,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1205 case 30 —— 娜迦恋物装。</summary>
         private static void NagaFetishClothes(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case30.YouRearBackAnd".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case30.YouRearBackAnd".Localized());
 
             flags.ChanceBonus += 2;
 
@@ -1057,7 +1057,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1212 case 31 —— 半人马挽具。</summary>
         private static void CentaurHarness(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case31.YouTurnYourBack".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case31.YouTurnYourBack".Localized());
 
             flags.ChanceBonus += 2;
 
@@ -1067,7 +1067,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1219 case 32 —— 无性别仆从装。</summary>
         private static void GenderlessServant(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case32.YouSeriesPosesAccentuate".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case32.YouSeriesPosesAccentuate".Localized());
 
             flags.Ass = true;
 
@@ -1079,7 +1079,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1226 case 33 —— 露裆装。</summary>
         private static void CrotchRevealingClothes(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case33.YouGiveRatherExplicit".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case33.YouGiveRatherExplicit".Localized());
 
             flags.ChanceBonus += 2;
 
@@ -1089,7 +1089,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1233 case 34 —— 女仆装。</summary>
         private static void MaidCostume(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case34.YouBrushAsideYour".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case34.YouBrushAsideYour".Localized());
 
             flags.ChanceBonus += 1;
 
@@ -1103,7 +1103,7 @@ namespace MonoCoC.Contents.Combat
         {
             var player = context.Player;
 
-            context.Write("Combat.Tease.Case35.YouPullBackOne".Localized(player.Mf("Master", "Mistress")));
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case35.YouPullBackOne".Localized(player.Mf("Master", "Mistress")));
 
             flags.Penis = true;
 
@@ -1115,7 +1115,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1249 case 36 —— 束缚病患装。</summary>
         private static void BondagePatientClothes(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case36.YouWetYourLips".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case36.YouWetYourLips".Localized());
 
             flags.DamageBonus += 2;
 
@@ -1125,7 +1125,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1247 case 37 —— 狐妖挑逗 A（挑逗性最强的固定加成）。</summary>
         private static void KitsuneTeaseA(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case37.YouPurseYourLips".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case37.YouPurseYourLips".Localized());
 
             flags.ChanceBonus += 6;
 
@@ -1135,7 +1135,7 @@ namespace MonoCoC.Contents.Combat
         /// <summary>原版 :1254 case 38 —— 狐妖挑逗 B。</summary>
         private static void KitsuneTeaseB(CombatContext context, TeaseFlags flags)
         {
-            context.Write("Combat.Tease.Case38.LeaningForwardYouBow".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case38.LeaningForwardYouBow".Localized());
 
             flags.Breasts = true;
 
@@ -1151,15 +1151,15 @@ namespace MonoCoC.Contents.Combat
 
             var tails = player.Body.Get<BodyParts.Vanilla.TailPart>().Venom;
 
-            context.Write("Combat.Tease.Case39.Line1262".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case39.Line1262".Localized());
 
-            context.Write(tails == 1
+            MonoCoC.UI.Components.Views.GameView.Current.Write(tails == 1
 
                 ? "Combat.Tease.Case39.BushyTailCurlsAround".Localized()
 
                 : "Combat.Tease.Case39.TurningAroundYouStare".Localized());
 
-            context.Write("Combat.Tease.Case39.YourTailTwistsAnd".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case39.YourTailTwistsAnd".Localized());
 
             flags.Ass = true;
 
@@ -1175,15 +1175,15 @@ namespace MonoCoC.Contents.Combat
 
             var tails = player.Body.Get<BodyParts.Vanilla.TailPart>().Venom;
 
-            context.Write("Combat.Tease.Case40.YourTailsFanOut".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case40.YourTailsFanOut".Localized());
 
-            context.Write(tails == 1
+            MonoCoC.UI.Components.Views.GameView.Current.Write(tails == 1
 
                 ? "Combat.Tease.Case40.YourComesIntoView".Localized()
 
                 : "Combat.Tease.Case40.SmirkingCoylyYouSway".Localized());
 
-            context.Write(tails > 1
+            MonoCoC.UI.Components.Views.GameView.Current.Write(tails > 1
 
                 ? "Combat.Tease.Case40.And".Localized()
 
@@ -1205,18 +1205,18 @@ namespace MonoCoC.Contents.Combat
 
             var tails = player.Body.Get<BodyParts.Vanilla.TailPart>().Venom;
 
-            context.Write("Combat.Tease.Case41.Your".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case41.Your".Localized());
 
             if (player.CockTotal() > 0)
-                context.Write(player.SMultiCockDesc());
+                MonoCoC.UI.Components.Views.GameView.Current.Write(player.SMultiCockDesc());
 
             if ((int)player.Gender == 3)
-                context.Write("Combat.Tease.Case41.YourBushyTail".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case41.YourBushyTail".Localized());
 
             if ((int)player.Gender >= 2)
-                context.Write("Combat.Tease.Case41.YouLiftYourSkirt".Localized(player.VaginaDescript(0)));
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case41.YouLiftYourSkirt".Localized(player.VaginaDescript(0)));
 
-            context.Write(tails > 1
+            MonoCoC.UI.Components.Views.GameView.Current.Write(tails > 1
 
                 ? "Combat.Tease.Case41.YouTurnPartiallyAround".Localized()
 
@@ -1236,7 +1236,7 @@ namespace MonoCoC.Contents.Combat
         {
             if (Random.Shared.Next(2) == 0)
             {
-                context.Write("Combat.Tease.Case42.YouTuckYourHands".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case42.YouTuckYourHands".Localized());
 
                 flags.Penis = true;
 
@@ -1246,7 +1246,7 @@ namespace MonoCoC.Contents.Combat
             }
             else
             {
-                context.Write("Combat.Tease.Case42.MoaningYouBendForward".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case42.MoaningYouBendForward".Localized());
 
                 flags.Ass = true;
 
@@ -1264,7 +1264,7 @@ namespace MonoCoC.Contents.Combat
             switch (cows)
             {
                 case 0:
-                    context.Write("Combat.Tease.Case43.SexThroughTheAir".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case43.SexThroughTheAir".Localized());
 
                     flags.Breasts = true;
 
@@ -1275,7 +1275,7 @@ namespace MonoCoC.Contents.Combat
                     break;
 
                 case 1:
-                    context.Write("Combat.Tease.Case43.YouHeftYourBreasts".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case43.YouHeftYourBreasts".Localized());
 
                     flags.Breasts = true;
 
@@ -1286,7 +1286,7 @@ namespace MonoCoC.Contents.Combat
                     break;
 
                 case 2:
-                    context.Write(context.Player.Wetness() >= 3
+                    MonoCoC.UI.Components.Views.GameView.Current.Write(context.Player.Wetness() >= 3
 
                         ? "Combat.Tease.Case43.YouLiftMassiveBreast".Localized()
 
@@ -1301,7 +1301,7 @@ namespace MonoCoC.Contents.Combat
                     break;
 
                 case 3:
-                    context.Write("Combat.Tease.Case43.YouLiftBreastYour".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case43.YouLiftBreastYour".Localized());
 
                     flags.Breasts = true;
 
@@ -1312,7 +1312,7 @@ namespace MonoCoC.Contents.Combat
                     break;
 
                 case 4:
-                    context.Write("Combat.Tease.Case43.ConfidentlySaunteringForwardYou".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case43.ConfidentlySaunteringForwardYou".Localized());
 
                     flags.Breasts = true;
 
@@ -1323,7 +1323,7 @@ namespace MonoCoC.Contents.Combat
                     break;
 
                 case 5:
-                    context.Write("Combat.Tease.Case43.YouSkipAndSpin".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case43.YouSkipAndSpin".Localized());
 
                     flags.Vagina = true;
 
@@ -1334,7 +1334,7 @@ namespace MonoCoC.Contents.Combat
                     break;
 
                 default:
-                    context.Write("Combat.Tease.Case43.YouFlipTheBarely".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case43.YouFlipTheBarely".Localized());
 
                     flags.Vagina = true;
 
@@ -1368,14 +1368,14 @@ namespace MonoCoC.Contents.Combat
             switch (maiden)
             {
                 case 0:
-                    context.Write("Combat.Tease.Case44.YouSeductivelyWiggleYour".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case44.YouSeductivelyWiggleYour".Localized());
 
                     flags.Breasts = true;
 
                     break;
 
                 case 1:
-                    context.Write("Combat.Tease.Case44.BendingOverYouLift".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case44.BendingOverYouLift".Localized());
 
                     flags.Ass = true;
 
@@ -1384,15 +1384,15 @@ namespace MonoCoC.Contents.Combat
                     break;
 
                 case 2:
-                    context.Write("Combat.Tease.Case44.YouPlaceYourHand".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case44.YouPlaceYourHand".Localized());
 
-                    context.Write(player.Vaginas.Count > 0 && player.Vaginas[0].Virgin
+                    MonoCoC.UI.Components.Views.GameView.Current.Write(player.Vaginas.Count > 0 && player.Vaginas[0].Virgin
 
                         ? "Combat.Tease.Case44.YouMoveYourHand".Localized()
 
                         : "Combat.Tease.Case44.YouMoveYourHandTowards".Localized());
 
-                    context.Write("Combat.Tease.Case44.YouMoveYourHandTowardsYour".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case44.YouMoveYourHandTowardsYour".Localized());
 
                     flags.Vagina = true;
 
@@ -1401,14 +1401,14 @@ namespace MonoCoC.Contents.Combat
                     break;
 
                 case 3:
-                    context.Write("Combat.Tease.Case44.WhoopsSomethingDerpedPlease".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case44.WhoopsSomethingDerpedPlease".Localized());
 
                     flags.Vagina = true;
 
                     break;
 
                 default:
-                    context.Write("Combat.Tease.Case44.YouLeanBackFeigning".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case44.YouLeanBackFeigning".Localized());
 
                     flags.Ass = true;
 
@@ -1438,7 +1438,7 @@ namespace MonoCoC.Contents.Combat
             switch (parts[Random.Shared.Next(parts.Count)])
             {
                 case 0:
-                    context.Write("Combat.Tease.Case45.YouPlaceYourHand".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case45.YouPlaceYourHand".Localized());
 
                     flags.Breasts = true;
 
@@ -1449,7 +1449,7 @@ namespace MonoCoC.Contents.Combat
                     break;
 
                 case 1:
-                    context.Write("Combat.Tease.Case45.YouMoveYourHand".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case45.YouMoveYourHand".Localized());
 
                     flags.Penis = true;
 
@@ -1460,7 +1460,7 @@ namespace MonoCoC.Contents.Combat
                     break;
 
                 case 2:
-                    context.Write("Combat.Tease.Case45.YouMoveYourHandTowards".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case45.YouMoveYourHandTowards".Localized());
 
                     flags.Vagina = true;
 
@@ -1471,7 +1471,7 @@ namespace MonoCoC.Contents.Combat
                     break;
 
                 case 3:
-                    context.Write("Combat.Tease.Case45.YouMoveYourHandTowardsYour".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case45.YouMoveYourHandTowardsYour".Localized());
 
                     flags.Penis = true;
 
@@ -1490,11 +1490,11 @@ namespace MonoCoC.Contents.Combat
         {
             var player = context.Player;
 
-            context.Write("Combat.Tease.Case46.YouLeanBackFeigning".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case46.YouLeanBackFeigning".Localized());
 
             if (player.BiggestLactation() >= 1)
             {
-                context.Write("Combat.Tease.Case46.YourOtherHandMoves".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case46.YourOtherHandMoves".Localized());
 
                 flags.ChanceBonus += 2;
 
@@ -1529,13 +1529,13 @@ namespace MonoCoC.Contents.Combat
 
             if (queen)
             {
-                context.Write("Combat.Tease.Case47.YouShimmyAndShake".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case47.YouShimmyAndShake".Localized());
 
-                context.Write("Combat.Tease.Case47.NflauntingYourBodySuch".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case47.NflauntingYourBodySuch".Localized());
 
                 if (player.BiggestLactation() >= 1)
                 {
-                    context.Write("Combat.Tease.Case47.NifYouKeepExposing".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case47.NifYouKeepExposing".Localized());
 
                     flags.ChanceBonus += 2;
 
@@ -1545,7 +1545,7 @@ namespace MonoCoC.Contents.Combat
 
             if (queen && eels < 20)
             {
-                context.Write("Combat.Tease.Case47.SeemsUnimpressed".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case47.SeemsUnimpressed".Localized());
 
                 flags.ChanceBonus += 1;
 
@@ -1554,7 +1554,7 @@ namespace MonoCoC.Contents.Combat
 
             if (eels > 19)
             {
-                context.Write("Combat.Tease.Case47.Line1485".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Tease.Case47.Line1485".Localized());
 
                 flags.ChanceBonus += 1;
 

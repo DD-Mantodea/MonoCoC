@@ -23,12 +23,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (player.HasStatusEffect(StatusEffectIds.Blind))
             {
-                context.Append("Combat.Special.Kiss.Blind".Localized());
+                context.AppendLog("Combat.Special.Kiss.Blind".Localized());
 
                 return;
             }
 
-            context.Append(("Combat.Special.Kiss.Intro" + (context.Random.Next(6) + 1)).Localized());
+            context.AppendLog(("Combat.Special.Kiss.Intro" + (context.Random.Next(6) + 1)).Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -42,15 +42,15 @@ namespace MonoCoC.Contents.Combat.Handlers
                 var dodge = context.Random.Next(3);
 
                 if (dodge == 0)
-                    context.Append("Combat.Special.Kiss.Dodge1".Localized());
+                    context.AppendLog("Combat.Special.Kiss.Dodge1".Localized());
                 else if (dodge == 1)
-                    context.Append((enemy.Plural
+                    context.AppendLog((enemy.Plural
 
                         ? "Combat.Special.Kiss.Dodge2Plural"
 
                         : "Combat.Special.Kiss.Dodge2").Localized());
                 else
-                    context.Append((enemy.Plural
+                    context.AppendLog((enemy.Plural
 
                         ? "Combat.Special.Kiss.Dodge3Plural"
 
@@ -61,7 +61,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.LustVulnerability <= 0 || !enemy.HasCock())
             {
-                context.Append((enemy.Plural
+                context.AppendLog((enemy.Plural
 
                     ? "Combat.Special.Kiss.NoEffectPlural"
 
@@ -83,7 +83,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 _ => 12f,
             };
 
-            context.Append((roll switch
+            context.AppendLog((roll switch
             {
                 1 => enemy.Plural ? "Combat.Special.Kiss.Success1Plural" : "Combat.Special.Kiss.Success1",
 
@@ -101,7 +101,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             enemy.Lust = Math.Min(enemy.MaxLust, enemy.Lust + enemy.LustVulnerability * damage);
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
         }
     }
 }

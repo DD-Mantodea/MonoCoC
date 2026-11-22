@@ -14,29 +14,29 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Minotaur.Pheromones.Lead".Localized());
+            context.AppendLog("Combat.Minotaur.Pheromones.Lead".Localized());
 
             if (context.Random.Next(3) == 0)
             {
-                context.Append("Combat.Minotaur.Pheromones.Face".Localized());
+                context.AppendLog("Combat.Minotaur.Pheromones.Face".Localized());
 
                 if (player.Lust >= player.MaxLust * 0.75f)
                 {
-                    context.Append("Combat.Minotaur.Pheromones.Swallow".Localized());
+                    context.AppendLog("Combat.Minotaur.Pheromones.Swallow".Localized());
 
                     player.Lust = Math.Min(player.MaxLust, player.Lust + 10 + player.Libido / 10);
                 }
                 else
                 {
-                    context.Append("Combat.Minotaur.Pheromones.Lick".Localized());
+                    context.AppendLog("Combat.Minotaur.Pheromones.Lick".Localized());
 
                     player.Lust = Math.Min(player.MaxLust, player.Lust + 5 + player.Libido / 20);
                 }
             }
             else
-                context.Append("Combat.Minotaur.Pheromones.Miss".Localized());
+                context.AppendLog("Combat.Minotaur.Pheromones.Miss".Localized());
 
-            context.Append("Combat.Minotaur.Pheromones.Scent".Localized());
+            context.AppendLog("Combat.Minotaur.Pheromones.Scent".Localized());
         }
 
         [Register("coc:minotaur_attack")]

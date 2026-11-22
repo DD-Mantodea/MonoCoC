@@ -22,7 +22,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             if (status.Values[0] >= 2 || context.Random.Next(20) + 1 + host.Strength / 10 >= 15)
             {
-                context.Write("Combat.Effect.WebSilence.BreakFree".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Effect.WebSilence.BreakFree".Localized());
 
                 host.RemoveStatusEffect(status.Id);
 
@@ -31,7 +31,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Write("Combat.Effect.WebSilence.Struggle".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Effect.WebSilence.Struggle".Localized());
 
             status.Values[0] += 1;
         }

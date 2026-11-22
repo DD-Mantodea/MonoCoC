@@ -14,9 +14,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:rhino_bouncer_charge_start")]
         public static void ChargeStart(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.RhinoBouncer.ChargeStart.TheRhinoMorph".Localized());
+            context.AppendLog("Combat.RhinoBouncer.ChargeStart.TheRhinoMorph".Localized());
 
-            context.Append("Combat.RhinoBouncer.ChargeStart.HeCurlsHis".Localized());
+            context.AppendLog("Combat.RhinoBouncer.ChargeStart.HeCurlsHis".Localized());
 
             if (context.Enemy is RhinoBouncerEnemy rhino)
                 rhino.Charging = true;
@@ -29,7 +29,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.RhinoBouncer.ChargeGrab.TheRhinoMorph".Localized());
+            context.AppendLog("Combat.RhinoBouncer.ChargeGrab.TheRhinoMorph".Localized());
 
             var weightRatio = player.WeightRating();
 
@@ -53,9 +53,9 @@ namespace MonoCoC.Contents.Combat.Handlers
                 }
             else
             {
-                context.Append("Combat.RhinoBouncer.ChargeGrab.TheMassiveBeast".Localized());
+                context.AppendLog("Combat.RhinoBouncer.ChargeGrab.TheMassiveBeast".Localized());
 
-                context.Append("Combat.RhinoBouncer.ChargeGrab.HeSaysPanting".Localized());
+                context.AppendLog("Combat.RhinoBouncer.ChargeGrab.HeSaysPanting".Localized());
             }
 
             CombatRangeData.CloseDistance(enemy);
@@ -67,18 +67,18 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.RhinoBouncer.Headbutt.TheMassiveBeast".Localized());
+            context.AppendLog("Combat.RhinoBouncer.Headbutt.TheMassiveBeast".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength * 2);
 
             player.TakeDamage(damage);
 
-            context.Append("Combat.RhinoBouncer.Headbutt.HeReleasesYou".Localized());
+            context.AppendLog("Combat.RhinoBouncer.Headbutt.HeReleasesYou".Localized());
 
             if (player.Stun(2, 75))
-                context.Append("Combat.RhinoBouncer.Headbutt.YouTryTo".Localized());
+                context.AppendLog("Combat.RhinoBouncer.Headbutt.YouTryTo".Localized());
             else
-                context.Append("Combat.RhinoBouncer.Headbutt.ToHisSurprise".Localized());
+                context.AppendLog("Combat.RhinoBouncer.Headbutt.ToHisSurprise".Localized());
         }
 
         public static void Backbreaker(CombatContext context)
@@ -87,13 +87,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.RhinoBouncer.Backbreaker.TheMassiveBeast".Localized());
+            context.AppendLog("Combat.RhinoBouncer.Backbreaker.TheMassiveBeast".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength * 1.5f);
 
             player.TakeDamage(damage);
 
-            context.Append("Combat.RhinoBouncer.Backbreaker.HePushesYou".Localized());
+            context.AppendLog("Combat.RhinoBouncer.Backbreaker.HePushesYou".Localized());
 
             var status = player.StatusEffectByType(RhinoBouncerEnemy.BackbrokenStatus);
 
@@ -109,7 +109,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 status.Values[0] = 3;
 
-            context.Append("Combat.RhinoBouncer.Backbreaker.YourFeelNumb".Localized());
+            context.AppendLog("Combat.RhinoBouncer.Backbreaker.YourFeelNumb".Localized());
         }
 
         public static void Piledriver(CombatContext context)
@@ -118,16 +118,16 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.RhinoBouncer.Piledriver.TheMassiveBeast".Localized());
+            context.AppendLog("Combat.RhinoBouncer.Piledriver.TheMassiveBeast".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength * 2.5f);
 
-            context.Append("Combat.RhinoBouncer.Piledriver.YourHeadCrashes".Localized());
+            context.AppendLog("Combat.RhinoBouncer.Piledriver.YourHeadCrashes".Localized());
 
             player.TakeDamage(damage);
 
             if (player.Health <= 0)
-                context.Append("Combat.RhinoBouncer.Piledriver.UnfortunatelyYouCannot".Localized());
+                context.AppendLog("Combat.RhinoBouncer.Piledriver.UnfortunatelyYouCannot".Localized());
         }
 
         [Register("coc:rhino_bouncer_drop_kick")]
@@ -137,7 +137,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.RhinoBouncer.DropKick.TakesADeep".Localized());
+            context.AppendLog("Combat.RhinoBouncer.DropKick.TakesADeep".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -157,17 +157,17 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (avoid.Outcome)
             {
                 case AvoidOutcome.Dodge:
-                    context.Append("Combat.RhinoBouncer.DropKick.Dodged".Localized());
+                    context.AppendLog("Combat.RhinoBouncer.DropKick.Dodged".Localized());
 
                     break;
 
                 case AvoidOutcome.Block:
-                    context.Append("Combat.RhinoBouncer.DropKick.Blocked".Localized());
+                    context.AppendLog("Combat.RhinoBouncer.DropKick.Blocked".Localized());
 
                     break;
 
                 case AvoidOutcome.Hit:
-                    context.Append("Combat.RhinoBouncer.DropKick.TheMountainOf".Localized());
+                    context.AppendLog("Combat.RhinoBouncer.DropKick.TheMountainOf".Localized());
 
                     var damage = CombatCalculator.ReduceDamage(context, player,
 
@@ -180,7 +180,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                     break;
             }
 
-            context.Append("Combat.RhinoBouncer.DropKick.TooHeavyAnd".Localized());
+            context.AppendLog("Combat.RhinoBouncer.DropKick.TooHeavyAnd".Localized());
 
             enemy.Stun(1, 100, 100, false);
         }

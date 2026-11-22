@@ -31,7 +31,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             enemy.Ammo = false;
 
-            context.Append("Scenes.Goblinsharpshooter.PushBack.LoadsRedCartridge".Localized());
+            context.AppendLog("Scenes.Goblinsharpshooter.PushBack.LoadsRedCartridge".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -51,9 +51,9 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.Outcome == AvoidOutcome.Dodge)
                 return;
 
-            context.Append("Scenes.Goblinsharpshooter.PushBack.MuzzleChestShot".Localized());
+            context.AppendLog("Scenes.Goblinsharpshooter.PushBack.MuzzleChestShot".Localized());
 
-            context.Append("Scenes.Goblinsharpshooter.PushBack.LaunchedBackwards".Localized());
+            context.AppendLog("Scenes.Goblinsharpshooter.PushBack.LaunchedBackwards".Localized());
 
             CombatRangeData.MoveDistantSafe(enemy);
 
@@ -71,18 +71,18 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             enemy.Ammo = false;
 
-            context.Append("Scenes.Goblinsharpshooter.SkeetShot.ThrowsPinkFlask".Localized());
+            context.AppendLog("Scenes.Goblinsharpshooter.SkeetShot.ThrowsPinkFlask".Localized());
 
             if (enemy.ChanceToHit(player) - 30 > context.Random.Next(100))
             {
-                context.Append("Scenes.Goblinsharpshooter.SkeetShot.FlaskDetonatesMidair".Localized());
+                context.AppendLog("Scenes.Goblinsharpshooter.SkeetShot.FlaskDetonatesMidair".Localized());
 
                 player.Teased(30);
 
                 return;
             }
 
-            context.Append("Scenes.Goblinsharpshooter.SkeetShot.ShotGoesWide".Localized());
+            context.AppendLog("Scenes.Goblinsharpshooter.SkeetShot.ShotGoesWide".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -102,7 +102,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.Outcome == AvoidOutcome.Dodge)
                 return;
 
-            context.Append("Scenes.Goblinsharpshooter.SkeetShot.GrenadeDetonatesEarly".Localized());
+            context.AppendLog("Scenes.Goblinsharpshooter.SkeetShot.GrenadeDetonatesEarly".Localized());
 
             player.Teased(20);
         }
@@ -114,13 +114,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             enemy.Ammo = true;
 
-            context.Append("Scenes.Goblinsharpshooter.Reload.ReloadsBlunderbuss".Localized());
+            context.AppendLog("Scenes.Goblinsharpshooter.Reload.ReloadsBlunderbuss".Localized());
         }
 
         [Register("coc:goblin_sharpshooter_take_aim")]
         public static void TakeAim(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Scenes.Goblinsharpshooter.TakeAim.TakesAimBlunderbuss".Localized());
+            context.AppendLog("Scenes.Goblinsharpshooter.TakeAim.TakesAimBlunderbuss".Localized());
 
             context.Enemy.CreateStatusEffect(StatusEffectIds.TargetMarked, duration: 6);
         }
@@ -134,19 +134,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             enemy.ItsADraw = true;
 
-            context.Append("Scenes.Goblinsharpshooter.BuggerOut.StaggersCrikey".Localized());
+            context.AppendLog("Scenes.Goblinsharpshooter.BuggerOut.StaggersCrikey".Localized());
 
             if (!scene.SawSmokeGrenade)
             {
-                context.Append("Scenes.Goblinsharpshooter.BuggerOut.GrabsSmokeGrenade".Localized());
+                context.AppendLog("Scenes.Goblinsharpshooter.BuggerOut.GrabsSmokeGrenade".Localized());
 
-                context.Append("Scenes.Goblinsharpshooter.BuggerOut.SmokeFlashBlind".Localized());
+                context.AppendLog("Scenes.Goblinsharpshooter.BuggerOut.SmokeFlashBlind".Localized());
 
                 context.EndOfRoundOverride = () => scene.GoblinEscapes();
             }
             else
             {
-                context.Append("Scenes.Goblinsharpshooter.BuggerOut.PreparedSmoke".Localized());
+                context.AppendLog("Scenes.Goblinsharpshooter.BuggerOut.PreparedSmoke".Localized());
 
                 context.EndOfRoundOverride = () => enemy.TryToGrabGobbo(scene);
             }

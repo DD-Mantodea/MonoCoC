@@ -31,14 +31,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (tail.Venom < 33)
             {
-                context.Append("Combat.Special.Sting.NoVenom".Localized());
+                context.AppendLog("Combat.Special.Sting.NoVenom".Localized());
 
                 return;
             }
 
             if (enemy.Id.Path == "worms")
             {
-                context.Append("Combat.Special.Sting.Worms".Localized());
+                context.AppendLog("Combat.Special.Sting.Worms".Localized());
 
                 return;
             }
@@ -53,27 +53,27 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.AttackFailed)
             {
                 if (avoid.Outcome == AvoidOutcome.Dodge)
-                    context.Append(context.Random.Next(2) == 0
+                    context.AppendLog(context.Random.Next(2) == 0
 
                         ? "Combat.Special.Sting.DodgeNarrow".Localized()
 
                         : "Combat.Special.Sting.DodgeFast".Localized());
                 else if (avoid.Outcome == AvoidOutcome.Block)
-                    context.Append("Combat.Special.Sting.Block".Localized());
+                    context.AppendLog("Combat.Special.Sting.Block".Localized());
 
                 return;
             }
 
             if (enemy.ArmorDefense - player.Level >= 10 && context.Random.Next(4) > 0)
             {
-                context.Append("Combat.Special.Sting.Armor".Localized());
+                context.AppendLog("Combat.Special.Sting.Armor".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Special.Sting.Hit".Localized());
+            context.AppendLog("Combat.Special.Sting.Hit".Localized());
 
-            context.Append(enemy.Plural
+            context.AppendLog(enemy.Plural
 
                 ? "Combat.Special.Sting.HitPlural".Localized()
 
@@ -99,7 +99,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!enemy.HasStatusEffect(StatusEffectIds.LustVenom))
                 enemy.CreateStatusEffect(StatusEffectIds.LustVenom, 0, 0, 0, 0);
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
 
             tail.Venom -= 25;
         }

@@ -85,7 +85,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleFear(CombatContext context)
         {
-            context.WriteAction("Combat.BoneJester.HandleFear.TheSkeletonSeems".Localized());
+            context.Log.Add("Combat.BoneJester.HandleFear.TheSkeletonSeems".Localized());
 
             RemoveStatusEffect(StatusEffectIds.Fear);
 
@@ -116,17 +116,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             var damageHigh = damage < 100 || damage < maxHealth * 0.33f;
 
             if (damage <= 0)
-                context.WriteAction("Combat.BoneJester.ReplacesDescribeAttacked.Your0Bounces".Localized(attackNoun, theMonster));
+                context.Log.Add("Combat.BoneJester.ReplacesDescribeAttacked.Your0Bounces".Localized(attackNoun, theMonster));
             else if (damageLow)
-                context.WriteAction("Combat.BoneJester.ReplacesDescribeAttacked.YouStrikeA".Localized(theMonster));
+                context.Log.Add("Combat.BoneJester.ReplacesDescribeAttacked.YouStrikeA".Localized(theMonster));
             else if (damageMed)
-                context.WriteAction("Combat.BoneJester.ReplacesDescribeAttacked.You01".Localized(attackVerb, theMonster, Pronoun2));
+                context.Log.Add("Combat.BoneJester.ReplacesDescribeAttacked.You01".Localized(attackVerb, theMonster, Pronoun2));
             else if (damageHigh)
-                context.WriteAction("Combat.BoneJester.ReplacesDescribeAttacked.ZeroCracksUnder".Localized(theMonsterCap, attackNoun));
+                context.Log.Add("Combat.BoneJester.ReplacesDescribeAttacked.ZeroCracksUnder".Localized(theMonsterCap, attackNoun));
             else
-                context.WriteAction("Combat.BoneJester.ReplacesDescribeAttacked.You0With".Localized(theMonster, attackNoun));
+                context.Log.Add("Combat.BoneJester.ReplacesDescribeAttacked.You0With".Localized(theMonster, attackNoun));
 
-            context.Append("Combat.BoneJester.DescribeAttacked.DamageText".Localized("#ff0000", (int)MathF.Round(damage)));
+            context.AppendLog("Combat.BoneJester.DescribeAttacked.DamageText".Localized("#ff0000", (int)MathF.Round(damage)));
 
             return true;
         }

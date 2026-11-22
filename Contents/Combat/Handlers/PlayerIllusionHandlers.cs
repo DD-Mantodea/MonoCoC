@@ -40,21 +40,21 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (player.HasStatusEffect(StatusEffectIds.ThroatPunch)
                 || player.HasStatusEffect(StatusEffectIds.WebSilence))
             {
-                context.Append("Combat.Spell.Illusion.Silence".Localized());
+                context.AppendLog("Combat.Spell.Illusion.Silence".Localized());
 
                 return;
             }
 
             if (enemy.Id.Path == "pod" || enemy.Intelligence == 0)
             {
-                context.Append("Combat.Spell.Illusion.NoMind".Localized());
+                context.AppendLog("Combat.Spell.Illusion.NoMind".Localized());
 
                 player.ChangeFatigue(1);
 
                 return;
             }
 
-            context.Append("Combat.Spell.Illusion.Intro".Localized());
+            context.AppendLog("Combat.Spell.Illusion.Intro".Localized());
 
             var chance = StandardStatComparison(
                 player.Intelligence,
@@ -65,7 +65,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (chance > context.Random.Next(100))
             {
-                context.Append("Combat.Spell.Illusion.Success".Localized());
+                context.AppendLog("Combat.Spell.Illusion.Success".Localized());
 
                 if (enemy.StatusEffectValue(StatusEffectIds.Illusion, 0) > 0)
                     enemy.AddStatusValue(StatusEffectIds.Illusion, 0, 1);
@@ -84,7 +84,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                     enemy.Speed = 1;
             }
             else
-                context.Append("Combat.Spell.Illusion.Fail".Localized());
+                context.AppendLog("Combat.Spell.Illusion.Fail".Localized());
         }
     }
 }

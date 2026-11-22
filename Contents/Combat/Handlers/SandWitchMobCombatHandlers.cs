@@ -12,7 +12,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:sand_witch_mob_sand_storm_attack")]
         public static void SandStormAttack(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.SandWitchMobSandStorm.Text".Localized());
+            context.AppendLog("Combat.Ability.SandWitchMobSandStorm.Text".Localized());
 
             context.Enemy.CreateStatusEffect(StatusEffectIds.Sandstorm);
 
@@ -22,7 +22,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:sand_witch_mob_drank_some_mialk")]
         public static void DrankSomeMialk(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.SandWitchMobDrankMilk.Text".Localized());
+            context.AppendLog("Combat.Ability.SandWitchMobDrankMilk.Text".Localized());
 
             context.Enemy.Health += 30;
 
@@ -36,7 +36,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var player = context.Player;
 
-            context.Append("Combat.Ability.SandWitchMobSandstones.Text".Localized());
+            context.AppendLog("Combat.Ability.SandWitchMobSandstones.Text".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -47,7 +47,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Combat.Ability.SandWitchMobSandstones.Missed".Localized());
+                context.AppendLog("Combat.Ability.SandWitchMobSandstones.Missed".Localized());
 
                 enemy.RemoveStatusEffect(StatusEffectIds.Sandstorm);
 
@@ -81,7 +81,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var player = context.Player;
 
-            context.Append("Combat.Ability.SandWitchMobGangrush.Text".Localized());
+            context.AppendLog("Combat.Ability.SandWitchMobGangrush.Text".Localized());
 
             var hits = 2 + Random.Shared.Next(3);
 

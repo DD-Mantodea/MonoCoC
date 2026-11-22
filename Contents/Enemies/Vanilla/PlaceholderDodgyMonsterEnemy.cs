@@ -176,7 +176,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void DodgePrepare(CombatContext context)
         {
-            context.Append("Combat.PlaceholderDodgyMonster.DodgePrepare.LowersHisWeapons".Localized());
+            context.AppendLog("Combat.PlaceholderDodgyMonster.DodgePrepare.LowersHisWeapons".Localized());
 
             DodgeStance = true;
         }

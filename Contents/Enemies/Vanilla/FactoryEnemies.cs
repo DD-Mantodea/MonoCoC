@@ -67,7 +67,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void Kiss(CombatContext context, Creatures.Player player)
         {
-            context.Write("Common.Text.TheSuccubusDancesForwardsCockingHer".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheSuccubusDancesForwardsCockingHer".Localized());
 
             var avoided = (player.Speed > Speed && Random.Shared.Next(4) == 0)
 
@@ -77,15 +77,15 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoided)
             {
-                context.Write("Common.Text.YouStartToSidestepAndRealize".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouStartToSidestepAndRealize".Localized());
 
                 if (player.Lust >= player.MaxLust * 0.7f)
-                    context.Write("Common.Text.MaybeYouShouldntHaveBotheredTo".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.MaybeYouShouldntHaveBotheredTo".Localized());
 
                 return;
             }
 
-            context.Write("Common.Text.YouStartToDodgeToThe".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouStartToDodgeToThe".Localized());
 
             if (!player.HasStatusEffect(StatusEffectIds.KissOfDeath))
                 player.CreateStatusEffect(StatusEffectIds.KissOfDeath, 0, 0, 0, 0);
@@ -99,33 +99,33 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 case 0:
                 {
-                    context.Write("Common.Text.TheSuccubusSlapsHer".Localized() + ButtDescription(this));
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheSuccubusSlapsHer".Localized() + ButtDescription(this));
 
                     var rating = (int)Body.Get<ButtPart>().Rating;
 
                     if (rating >= 10)
                     {
-                        context.Write("Common.Text.MakingItJiggleDelightfully".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.MakingItJiggleDelightfully".Localized());
 
                         if (Random.Shared.Next(100) <= 95)
                         {
                             lustDamage = Random.Shared.Next(rating) + 10;
 
-                            context.Write("Common.Text.NtheDisplayIsQuiteArousing".Localized());
+                            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.NtheDisplayIsQuiteArousing".Localized());
                         }
-                        else context.Write("Common.Text.NyoureUnimpressed".Localized());
+                        else MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.NyoureUnimpressed".Localized());
                     }
                     else
                     {
-                        context.Write(".");
+                        MonoCoC.UI.Components.Views.GameView.Current.Write(".");
 
                         if (Random.Shared.Next(100) <= 70 + rating * 2)
                         {
                             lustDamage = Random.Shared.Next(rating) + 9;
 
-                            context.Write("Common.Text.NtheDisplayIsQuiteArousing".Localized());
+                            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.NtheDisplayIsQuiteArousing".Localized());
                         }
-                        else context.Write("Common.Text.NyoureUnimpressed".Localized());
+                        else MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.NyoureUnimpressed".Localized());
                     }
 
                     break;
@@ -138,34 +138,34 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                     if (player.BreastRows.Count == 1)
                     {
-                        context.Write("Common.Text.TheSuccubusCaressesSomeOfHer".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheSuccubusCaressesSomeOfHer".Localized());
 
                         if (player.Lust >= player.MaxLust * 0.5f)
-                            context.Write("Common.Text.HerHardNipplesSeemToDemand".Localized());
+                            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.HerHardNipplesSeemToDemand".Localized());
 
                         if (Random.Shared.Next(100) <= 65 + player.BiggestBreastSize())
                         {
-                            context.Write("Common.Text.NtheDisplayIsQuiteArousing".Localized());
+                            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.NtheDisplayIsQuiteArousing".Localized());
 
                             lustDamage = Random.Shared.Next((int)player.BreastRows[0].BreastRating) + player.BreastRows.Count + 10;
                         }
-                        else context.Write("Common.Text.NyoureUnimpressed".Localized());
+                        else MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.NyoureUnimpressed".Localized());
                     }
                     else
                     {
-                        context.Write("Common.Text.TheSuccubusCaressesSomeOfHer2".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheSuccubusCaressesSomeOfHer2".Localized());
 
                         if (player.Lust >= player.MaxLust * 0.5f)
-                            context.Write("Common.Text.YourNipplesPainfullyVisible".Localized());
-                        else context.Write(".");
+                            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YourNipplesPainfullyVisible".Localized());
+                        else MonoCoC.UI.Components.Views.GameView.Current.Write(".");
 
                         if (Random.Shared.Next(100) <= 54 + (player.BreastRows.Count - 1) * 15 + player.BreastRows[0].BreastRating)
                         {
-                            context.Write("Common.Text.NtheDisplayIsQuiteArousing".Localized());
+                            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.NtheDisplayIsQuiteArousing".Localized());
 
                             lustDamage = Random.Shared.Next((int)player.BreastRows[0].BreastRating) + player.BreastRows.Count * player.BreastRows[0].Breasts + 5;
                         }
-                        else context.Write("Common.Text.NyoureUnimpressed".Localized());
+                        else MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.NyoureUnimpressed".Localized());
                     }
 
                     break;
@@ -173,15 +173,15 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 case 2:
                 {
-                    context.Write("Common.Text.TheSuccubusReachesDownAndStrokes".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheSuccubusReachesDownAndStrokes".Localized());
 
                     if (Random.Shared.Next(101) <= 65 + player.Vaginas.Count * 10 + player.Cocks.Count * 10)
                     {
-                        context.Write("Common.Text.NtheDisplayIsQuiteArousing".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.NtheDisplayIsQuiteArousing".Localized());
 
                         lustDamage = Random.Shared.Next(player.Vaginas.Count * 2 + player.Cocks.Count * 2) + 13;
                     }
-                    else context.Write("Common.Text.NyoureUnimpressed".Localized());
+                    else MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.NyoureUnimpressed".Localized());
 
                     break;
                 }
@@ -195,7 +195,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (!_whipReady)
             {
-                context.Write("Common.Text.TheSuccubusFlicksHerWristAllowing".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheSuccubusFlicksHerWristAllowing".Localized());
 
                 _whipReady = true;
 
@@ -210,12 +210,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (HasStatusEffect(StatusEffectIds.Blind))
             {
-                context.Write("Common.Text.TheSuccubusSwingsHerWhipAt".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheSuccubusSwingsHerWhipAt".Localized());
 
                 return;
             }
 
-            context.Write("Common.Text.GrinningDeviouslyTheSuccubusCracksHer".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.GrinningDeviouslyTheSuccubusCracksHer".Localized());
 
             var damage = 0f;
 
@@ -224,7 +224,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             switch (Random.Shared.Next(6))
             {
                 case 0:
-                    context.Write("Common.Text.Ass".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.Ass".Localized());
 
                     damage = 4;
 
@@ -233,11 +233,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     break;
 
                 case 1:
-                    context.Write(player.BiggestBreastSize() >= 1 ? player.AllBreastsDescript() : "Common.Text.Chest".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write(player.BiggestBreastSize() >= 1 ? player.AllBreastsDescript() : "Common.Text.Chest".Localized());
 
                     damage = Math.Max(0, 9 - (player.Armor?.DefenseFor(player) ?? 0));
 
-                    if (damage <= 0) context.Write("Common.Text.ButYouFeelNoPainThanks".Localized());
+                    if (damage <= 0) MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.ButYouFeelNoPainThanks".Localized());
                     lustDamage = 4 + player.Sensitivity / 15;
 
                     break;
@@ -268,25 +268,25 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                     if (groinProtection >= 3)
                     {
-                        context.Write("Common.Text.GroinButLuckilyYoureWearingGroin".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.GroinButLuckilyYoureWearingGroin".Localized());
 
                         damage = 0;
                     }
                     else if (!player.HasCock() && !player.HasVagina())
                     {
-                        context.Write("Common.Text.Groin".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.Groin".Localized());
 
                         damage = 5f / (groinProtection + 1);
                     }
                     else if (player.HasCock() && !player.HasVagina())
                     {
-                        context.Write("Common.Text.GroinDealingPainfulDamageToYour".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.GroinDealingPainfulDamageToYour".Localized());
 
                         damage = player.MaxHealth / 4f;
 
                         if (groinProtection > 0)
                         {
-                            context.Write("Common.Text.OfCourseItWouldHaveBeen".Localized());
+                            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.OfCourseItWouldHaveBeen".Localized());
 
                             damage /= groinProtection + 1;
                         }
@@ -298,7 +298,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     }
                     else if (!player.HasCock() && player.HasVagina())
                     {
-                        context.Write("Common.Text.GroinMakingYourVaginaStingWith".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.GroinMakingYourVaginaStingWith".Localized());
 
                         damage = 10;
 
@@ -306,13 +306,13 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     }
                     else
                     {
-                        context.Write("Common.Text.GroinDealingPainfulDamageToYour2".Localized());
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.GroinDealingPainfulDamageToYour2".Localized());
 
                         damage = player.MaxHealth / 3f;
 
                         if (groinProtection > 0)
                         {
-                            context.Write("Common.Text.OfCourseItWouldHaveBeen".Localized());
+                            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.OfCourseItWouldHaveBeen".Localized());
 
                             damage /= groinProtection + 1;
                         }
@@ -327,28 +327,28 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 }
 
                 case 3:
-                    context.Write("Common.Text.Legs".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.Legs".Localized());
 
                     damage = 7;
 
                     break;
 
                 case 4:
-                    context.Write("Common.Text.Arms".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.Arms".Localized());
 
                     damage = 8;
 
                     break;
 
                 default:
-                    context.Write("Common.Text.Neck".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.Neck".Localized());
 
                     damage = 24;
 
                     break;
             }
 
-            context.Write("!");
+            MonoCoC.UI.Components.Views.GameView.Current.Write("!");
 
             player.HealthChange(-damage);
 
@@ -425,11 +425,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void LustAura(CombatContext context, Creatures.Player player)
         {
-            context.Write("Common.Text.TheDemonessBlinksHerEyesClosed".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheDemonessBlinksHerEyesClosed".Localized());
 
             if (HasStatusEffect(StatusEffectIds.LustAura))
             {
-                context.Write("Common.Text.YourEyesCrossWithUnexpectedFeelings".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YourEyesCrossWithUnexpectedFeelings".Localized());
 
                 player.TakeLustDamage(8 + player.Libido / 20 + player.Corruption / 25);
             }
@@ -439,7 +439,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void MilkAttack(CombatContext context, Creatures.Player player)
         {
-            context.Write(Random.Shared.Next(2) == 0
+            MonoCoC.UI.Components.Views.GameView.Current.Write(Random.Shared.Next(2) == 0
 
                 ? "The demoness grips her sizable breasts and squeezes, spraying milk at you.\n"
 
@@ -453,27 +453,27 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoided)
             {
-                context.Write("Scenes.OmnibusOverseer.MilkAttack.MilkDodged".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.OmnibusOverseer.MilkAttack.MilkDodged".Localized());
 
                 return;
             }
 
             if (Random.Shared.Next(2) == 0)
-                context.Write("Scenes.OmnibusOverseer.MilkAttack.MilkOnFace".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.OmnibusOverseer.MilkAttack.MilkOnFace".Localized());
             else
             {
-                context.Write("Common.Text.TheMilkSplashesIntoYourArmor".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheMilkSplashesIntoYourArmor".Localized());
 
                 if (player.Cocks.Count > 0)
                 {
-                    context.Write("Common.Text.YourCockGetsHardAsThe".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YourCockGetsHardAsThe".Localized());
 
                     player.Lust = Math.Min(player.MaxLust, player.Lust + 5);
                 }
 
                 if (player.Vaginas.Count > 0)
                 {
-                    context.Write("Scenes.OmnibusOverseer.MilkAttack.MilkArousesPussy".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.OmnibusOverseer.MilkAttack.MilkArousesPussy".Localized());
 
                     player.Lust = Math.Min(player.MaxLust, player.Lust + 5);
                 }
@@ -482,7 +482,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             player.TakeLustDamage(7 + player.Sensitivity / 20);
 
             if (player.BiggestLactation() > 1)
-                context.Write("Common.Text.MilkDribblesFromYourBreastsIn".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.MilkDribblesFromYourBreastsIn".Localized());
         }
 
         public override bool Defeated(bool hpVictory)

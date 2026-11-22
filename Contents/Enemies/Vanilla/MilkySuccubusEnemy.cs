@@ -43,7 +43,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (article.Length > 0)
                 article = char.ToUpperInvariant(article[0]) + article[1..];
 
-            context.Append("Combat.MilkySuccubus.Teased.OneSmiles".Localized(article, ShortName));
+            context.AppendLog("Combat.MilkySuccubus.Teased.OneSmiles".Localized(article, ShortName));
 
             Stats.AddBase(GameStats.Strength, 5);
 
@@ -97,9 +97,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             var player = context.Player;
 
-            context.Append("Scenes.UrtaQuest.MilkyUrtaTic.MilkHeatRising".Localized());
+            context.AppendLog("Scenes.UrtaQuest.MilkyUrtaTic.MilkHeatRising".Localized());
 
-            context.Append((player.Lust < 50
+            context.AppendLog((player.Lust < 50
 
                 ? "Scenes.UrtaQuest.MilkyUrtaTic.MildDistraction"
 
@@ -109,7 +109,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                     : "Scenes.UrtaQuest.MilkyUrtaTic.TemptingOrbs").Localized());
 
-            context.Append("Scenes.UrtaQuest.MilkyUrtaTic.ParagraphBreak".Localized());
+            context.AppendLog("Scenes.UrtaQuest.MilkyUrtaTic.ParagraphBreak".Localized());
 
             milky.Values[0] -= 1;
 

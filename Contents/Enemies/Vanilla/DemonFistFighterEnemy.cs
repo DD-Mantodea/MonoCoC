@@ -97,7 +97,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (Fatigue >= MaxFatigue() && !AngryDemonfist)
             {
-                context.Append("Combat.DemonFistFighter.Faint.TheDemonS".Localized());
+                context.AppendLog("Combat.DemonFistFighter.Faint.TheDemonS".Localized());
 
                 Health = 0;
 
@@ -109,7 +109,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (last != null && !AngryDemonfist &&
                 CombatAbilityRegistry.Get(last.Value)?.Type == CombatAbilityType.Magical)
             {
-                context.Append("Combat.DemonFistFighter.GetAngry.TheDemonScowls".Localized());
+                context.AppendLog("Combat.DemonFistFighter.GetAngry.TheDemonScowls".Localized());
 
                 if (!HasStatusEffect(AngeredPugilist))
                     CreateStatusEffect(AngeredPugilist, 99);
@@ -160,15 +160,15 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (reaction != CombatReactionContext.PlayerWaited)
                 return true;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Combat.DemonFistFighter.React.YouDecideTo".Localized());
+            context.AppendLog("Combat.DemonFistFighter.React.YouDecideTo".Localized());
 
             var silly = Configuration.OptionStore.Instance.Get("silly", 0) > 0;
 
             var taunt = context.Random.Next(silly ? 4 : 3);
 
-            context.Append(("Combat.DemonFistFighter.React.Taunt" + taunt).Localized());
+            context.AppendLog(("Combat.DemonFistFighter.React.Taunt" + taunt).Localized());
 
             ChangeFatigue(-5);
 

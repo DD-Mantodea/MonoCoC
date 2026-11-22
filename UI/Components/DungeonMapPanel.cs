@@ -1,7 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Contents.Dungeons;
 using MonoCoC.Extensions;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
 using System;
@@ -10,8 +11,15 @@ namespace MonoCoC.UI.Components
 {
     // 大地图：可缩放平移的瓦片地图（原版 DungeonMap 的 alternative 模式）。
     // 瓦片/连接线绘制在 DungeonMapDrawing 里，和小地图共用。
-    public class DungeonMapPanel : Container
+    public class DungeonMapPanel : Container, IFromHjson<DungeonMapPanel>
     {
+        public static string TypeId => "coc:dungeon_map";
+
+        public static Component FromHjson(Hjson.JsonObject node, UIBuildContext services) => new DungeonMapPanel();
+
+        [System.Runtime.CompilerServices.ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<DungeonMapPanel>();
+
         private const int TileSize = 40;
 
         private const float MinZoom = 0.2f;
@@ -30,7 +38,7 @@ namespace MonoCoC.UI.Components
 
         public DungeonMapPanel()
         {
-            BackgroundColor = UIComponentStyles.DungeonMap.Background;
+            BackgroundColor = UIParseUtils.ColorOf("#000000BE");
 
             Visible = false;
 

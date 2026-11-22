@@ -1,11 +1,11 @@
-﻿using MonoCoC.Contents.Scenes;
+using MonoCoC.Contents.Scenes;
 using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using static MonoCoC.UI.Layout.LayoutConstants;
 
 namespace MonoCoC.UI.Components.Views
 {
-    public class MenuPageView : GameView
+    public class MenuPageView : GameView<MenuPageView>
     {
         public MenuPageView() => Initialize();
 
@@ -30,13 +30,5 @@ namespace MonoCoC.UI.Components.Views
 
         [UIRequired("page.buttons")]
         private void BindButtons(Grid part) => ButtonGrid = part;
-    }
-
-    public class SaveLoadView : MenuPageView
-    {
-    }
-
-    public class AchievementsView : MenuPageView
-    {
     }
 }

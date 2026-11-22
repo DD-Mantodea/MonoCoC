@@ -1,3 +1,4 @@
+using MonoCoC.Contents.Dungeons;
 using MonoCoC.Contents.Scenes;
 using MonoCoC.Contents.Scenes.Vanilla;
 using MonoCoC.Saving;
@@ -21,7 +22,7 @@ namespace MonoCoC.UI.Components.Views
         {
             var view = new OptionsView
             {
-                OnBack = () => UIManager.Instance.Root.SwitchView(new MainView())
+                BackHandler = () => UIManager.Instance.Root.SwitchView(new MainView())
             };
 
             UIManager.Instance.Root.SwitchView(view);
@@ -47,9 +48,23 @@ namespace MonoCoC.UI.Components.Views
         [UIEvent("main.continue")]
         private static void ContinueGame()
         {
-            if (CoC.Instance.Player.Loaded && GameView.Instance != null)
+            if (CoC.Instance.Player.Loaded)
             {
-                UIManager.Instance.Root.SwitchView(GameView.Instance);
+                if (GameView.Current is InventoryScreen)
+                {
+                    SwitchToSceneView();
+
+                    return;
+                }
+
+                if (GameView.Current is not null)
+                {
+                    UIManager.Instance.Root.SwitchView(GameView.Current);
+
+                    return;
+                }
+
+                SwitchToSceneView();
 
                 return;
             }
@@ -59,31 +74,44 @@ namespace MonoCoC.UI.Components.Views
             if (save is null)
                 return;
 
-            var gameView = new CampView();
-
             save.Apply(CoC.Instance.Player);
 
-            Scene.Go(SceneInstance<CampScene>.Get());
+            GameView.SwitchTo<CampView>();
 
-            UIManager.Instance.Root.SwitchView(gameView);
+            Scene.Go(SceneInstance<CampScene>.Get());
+        }
+
+        private static void SwitchToSceneView()
+        {
+            var scene = Scene.Current;
+
+            if (scene is DungeonScene)
+                GameView.SwitchTo<DungeonView>();
+            else if (scene is ExplorationScene)
+                GameView.SwitchTo<ExplorationView>();
+            else
+                GameView.SwitchTo<CampView>();
+
+            if (scene is not null)
+            {
+                Scene.Go(scene);
+
+                return;
+            }
+
+            Scene.Go(SceneInstance<CampScene>.Get());
         }
 
         [UIEvent("main.load_game")]
         private static void OpenData()
         {
-            SaveLoad.FromMainMenu = true;
-
-            UIManager.Instance.Root.SwitchView(new SaveLoadView());
-
-            Scene.Go(SceneInstance<SaveLoad>.Instance);
+            UIManager.Instance.Root.SwitchView(new SaveLoadView(true));
         }
 
         [UIEvent("main.achievements")]
         private static void OpenAchievements()
         {
             UIManager.Instance.Root.SwitchView(new AchievementsView());
-
-            Scene.Go(SceneInstance<AchievementsScene>.Instance);
         }
 
         [UIEvent("main.instructions")]

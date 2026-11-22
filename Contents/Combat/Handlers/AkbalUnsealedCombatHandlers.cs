@@ -25,7 +25,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var me = Me(context);
 
-            context.WriteAction("Combat.AkbalUnsealed.Punch.Intro".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.Punch.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -49,7 +49,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.WriteAction("Combat.AkbalUnsealed.Punch.Hit".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.Punch.Hit".Localized());
 
             me.AttemptStunned += 0.2f;
 
@@ -68,7 +68,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var me = Me(context);
 
-            context.WriteAction("Combat.AkbalUnsealed.Claw.Intro".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.Claw.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -92,7 +92,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.WriteAction("Combat.AkbalUnsealed.Claw.Hit".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.Claw.Hit".Localized());
 
             var damage = (context.Enemy.Strength + context.Enemy.WeaponAttack) * me.RageMod;
 
@@ -118,7 +118,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 damage *= 1.5f;
 
-                context.WriteAction("Combat.AkbalUnsealed.TerraFire.First".Localized());
+                context.Log.Add("Combat.AkbalUnsealed.TerraFire.First".Localized());
 
                 if (player.CanFly())
                 {
@@ -126,14 +126,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                     doStun = false;
 
-                    context.WriteAction("Combat.AkbalUnsealed.TerraFire.FirstFly".Localized());
+                    context.Log.Add("Combat.AkbalUnsealed.TerraFire.FirstFly".Localized());
                 }
                 else
-                    context.WriteAction("Combat.AkbalUnsealed.TerraFire.FirstHit".Localized());
+                    context.Log.Add("Combat.AkbalUnsealed.TerraFire.FirstHit".Localized());
             }
             else
             {
-                context.WriteAction("Combat.AkbalUnsealed.TerraFire.Again".Localized());
+                context.Log.Add("Combat.AkbalUnsealed.TerraFire.Again".Localized());
 
                 var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
                 {
@@ -154,12 +154,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                     doStun = false;
 
-                    context.WriteAction("Combat.AkbalUnsealed.TerraFire.AgainDodge".Localized());
+                    context.Log.Add("Combat.AkbalUnsealed.TerraFire.AgainDodge".Localized());
 
                     me.Dodges++;
                 }
                 else
-                    context.WriteAction("Combat.AkbalUnsealed.TerraFire.AgainHit".Localized());
+                    context.Log.Add("Combat.AkbalUnsealed.TerraFire.AgainHit".Localized());
             }
 
             player.HealthChange(-CombatCalculator.ReduceDamage(context, player, damage));
@@ -182,7 +182,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var damage = (context.Enemy.Intelligence + context.Random.Next((int)context.Enemy.Intelligence / 2)) * me.RageMod;
 
-            context.WriteAction("Combat.AkbalUnsealed.FireBreath.Roar".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.FireBreath.Roar".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -199,18 +199,18 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction(DodgeText(context));
+                context.Log.Add(DodgeText(context));
 
                 me.Dodges++;
             }
             else
             {
-                context.WriteAction("Combat.AkbalUnsealed.FireBreath.Hit".Localized());
+                context.Log.Add("Combat.AkbalUnsealed.FireBreath.Hit".Localized());
 
                 player.HealthChange(-CombatCalculator.ReduceDamage(context, player, damage));
             }
 
-            context.WriteAction("Combat.AkbalUnsealed.FireBreath.Ground".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.FireBreath.Ground".Localized());
 
             if (player.HasStatusEffect(StatusEffectIds.AkbalFlameDebuff))
                 player.ChangeStatusValue(StatusEffectIds.AkbalFlameDebuff, 1, 1);
@@ -255,11 +255,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             me.PsiAssaultCooldown = 3;
 
-            context.WriteAction("Combat.AkbalUnsealed.PsiAssault.One".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.PsiAssault.One".Localized());
 
-            context.WriteAction("Combat.AkbalUnsealed.PsiAssault.Two".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.PsiAssault.Two".Localized());
 
-            context.WriteAction("Combat.AkbalUnsealed.PsiAssault.Three".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.PsiAssault.Three".Localized());
 
             if (player.HasStatusEffect(StatusEffectIds.TrueWhispered))
                 player.CreateStatusEffect(StatusEffectIds.Whispered);
@@ -274,11 +274,11 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var me = Me(context);
 
-            context.WriteAction("Combat.AkbalUnsealed.SuperHeal.One".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.SuperHeal.One".Localized());
 
-            context.WriteAction("Combat.AkbalUnsealed.SuperHeal.Two".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.SuperHeal.Two".Localized());
 
-            context.WriteAction("Combat.AkbalUnsealed.SuperHeal.Three".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.SuperHeal.Three".Localized());
 
             context.Enemy.Health = context.Enemy.MaxHealth;
 
@@ -296,9 +296,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var me = Me(context);
 
-            context.WriteAction("Combat.AkbalUnsealed.FlyUp.One".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.FlyUp.One".Localized());
 
-            context.WriteAction("Combat.AkbalUnsealed.FlyUp.Two".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.FlyUp.Two".Localized());
 
             me.RageBonus += 0.3f;
 
@@ -314,11 +314,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             me.SwoopCooldown = 2;
 
-            context.WriteAction("Combat.AkbalUnsealed.Swoop.One".Localized());
+            context.Log.Add("Combat.AkbalUnsealed.Swoop.One".Localized());
 
             if (player.HasStatusEffect(StatusEffectIds.TrueWhispered))
             {
-                context.WriteAction("Combat.AkbalUnsealed.Swoop.Whispered".Localized());
+                context.Log.Add("Combat.AkbalUnsealed.Swoop.Whispered".Localized());
 
                 if (context.Random.Next(2) == 0)
                     PlayerSilly(context);
@@ -340,14 +340,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 if (avoid.Outcome != AvoidOutcome.Hit)
                 {
-                    context.WriteAction("Combat.AkbalUnsealed.Swoop.Dodge".Localized());
+                    context.Log.Add("Combat.AkbalUnsealed.Swoop.Dodge".Localized());
 
                     me.Dodges++;
 
                     return;
                 }
 
-                context.WriteAction("Combat.AkbalUnsealed.Swoop.Hit".Localized());
+                context.Log.Add("Combat.AkbalUnsealed.Swoop.Hit".Localized());
             }
 
             me.AttemptStunned += 0.5f;
@@ -363,7 +363,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         public static void PlayerSilly(CombatContext context)
         {
             if (Configuration.OptionStore.Instance.Get("silly", 0) > 0)
-                context.WriteAction("Combat.AkbalUnsealed.Swoop.Silly".Localized());
+                context.Log.Add("Combat.AkbalUnsealed.Swoop.Silly".Localized());
         }
 
             [Register("coc:akbal_unsealed_can_heal")]

@@ -1,0 +1,118 @@
+{
+  require: ["GlobalStyles"]
+  id: "CombatView"
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        part: "game.background"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#F2E5C7FF"
+        canHit: false
+      }
+      {
+        type: "coc:combat_player_stats"
+        part: "game.playerStats"
+        width: 300
+        height: 900
+      }
+      {
+        type: "coc:grid"
+        autoSize: true
+        autoIndex: true
+        x: 320
+        y: 50
+        rows: "auto3"
+        spacing: 12
+        padding: [20, 20, 20, 40]
+        backgroundColor: "#FFFFFF66"
+        children: [
+          {
+            type: "coc:text_area"
+            part: "game.output"
+            font: "coc:body"
+            width: 880
+            height: 600
+            backgroundColor: "#FFFFFF66"
+            padding: 16
+            autoScroll: false
+            borderThickness: 2
+            borderColor: "#00000022"
+          }
+          {
+            type: "coc:text_box"
+            part: "game.input"
+            font: {
+              id: "coc:input"
+              size: 22
+            }
+            visible: true
+            cursorColor: "#B99A6BFF"
+            textColor: "#B99A6BFF"
+            borderThickness: [0, 0, 0, 1]
+            borderColor: "#B99A6BFF"
+            width: 880
+            height: 40
+          }
+          {
+            type: "coc:grid"
+            part: "game.buttons"
+            width: 880
+            height: 150
+            autoIndex: true
+            rows: 3
+            columns: 5
+            children: [
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+              {type:"coc:button", style: "ActionButton"}
+            ]
+          }
+        ]
+      }
+      {
+        type: "coc:enemy_stats"
+        part: "game.enemyStats"
+        x: 1260
+        y: 20
+        width: 320
+        height: 200
+        view: "Views/EnemyStats.hjson"
+      }
+      {
+        type: "coc:panel"
+        part: "game.enemies"
+        canHit: true
+        x: 1220
+        y: 70
+        width: 300
+        height: 600
+      }
+      {
+        type: "coc:image"
+        texture: "selection"
+        part: "game.targetPointer"
+        x: 1220
+        y: 52
+        width: 40
+        height: 24
+      }
+    ]
+  }
+}

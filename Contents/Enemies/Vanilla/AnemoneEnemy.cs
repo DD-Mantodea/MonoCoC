@@ -98,7 +98,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 if (context.Player.Weapon.IsRanged())
                     return true;
 
-                context.Append("Combat.Anemone.React.ThoughYouManaged".Localized());
+                context.AppendLog("Combat.Anemone.React.ThoughYouManaged".Localized());
 
                 ApplyVenom(context, 1 + context.Random.Next(2));
 
@@ -117,16 +117,16 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (context.Random.Next(10) > 2)
                 return true;
 
-            context.Append("Combat.Anemone.React.SeeingYourRaised".Localized());
+            context.AppendLog("Combat.Anemone.React.SeeingYourRaised".Localized());
 
             if (context.Player.Corruption < 75)
             {
-                context.Append("Combat.Anemone.React.YouStareInto".Localized());
+                context.AppendLog("Combat.Anemone.React.YouStareInto".Localized());
 
                 return false;
             }
 
-            context.Append("Combat.Anemone.React.ThoughYouLose".Localized());
+            context.AppendLog("Combat.Anemone.React.ThoughYouLose".Localized());
 
             return true;
         }
@@ -138,7 +138,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         public override void RunFail(CombatContext context)
         {
 
-            context.Append("Combat.Anemone.RunFail.Land".Localized());
+            context.AppendLog("Combat.Anemone.RunFail.Land".Localized());
 
             ApplyVenom(context, 4 + context.Player.Sensitivity / 20f);
         }
@@ -146,7 +146,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         public override void RunSuccess(CombatContext context)
         {
 
-            context.Append("Combat.Anemone.RunSuccess.Land".Localized());
+            context.AppendLog("Combat.Anemone.RunSuccess.Land".Localized());
         }
 
         public static void ApplyVenom(CombatContext context, float amount)

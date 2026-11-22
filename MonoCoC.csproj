@@ -32,11 +32,16 @@
 		<None Update="Assets\Shaders\**\*.*" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 	<ItemGroup>
+		<ProjectReference Include="..\LibRimeSharp\LibRimeSharp.csproj" />
+	</ItemGroup>
+	<ItemGroup>
 	  <Folder Include="Graphics\Materials\" />
 	</ItemGroup>
 	<ItemGroup>
 		<!-- 独立 dump 分析工具，不属于游戏工程 -->
 		<Compile Remove="Tools\DumpAnalyze\**\*.cs" />
 		<None Remove="Tools\DumpAnalyze\**\*.*" />
+		<Compile Remove="Backups\**\*.cs" />
+		<None Remove="Backups\**\*.*" />
 	</ItemGroup>
 </Project>

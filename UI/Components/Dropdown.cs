@@ -1,15 +1,19 @@
-﻿using Microsoft.Xna.Framework;
+using Hjson;
+using Microsoft.Xna.Framework;
 using MonoCoC.Assets;
+using MonoCoC.Extensions;
 using MonoCoC.UI.Common;
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
 using MonoCoC.UI.Styles;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace MonoCoC.UI.Components
 {
-    public class Dropdown : Component
+    public class Dropdown : Component, IFromHjson<Dropdown>
     {
         private readonly Button _header;
 
@@ -28,8 +32,8 @@ namespace MonoCoC.UI.Components
             _header = new Button("", "", "coc:menu")
             {
                 LayoutData = { LayoutType = LayoutType.Relative },
-                TextColor = UIComponentStyles.Dropdown.HeaderText,
-                StateStyle = UIComponentStyles.Dropdown.Header
+                TextColor = UIParseUtils.ColorOf("#35291FFF"),
+                StateStyle = HeaderStyle()
             };
 
             _header.Click(Toggle);
@@ -39,7 +43,7 @@ namespace MonoCoC.UI.Components
             _list = new Component
             {
                 CanHit = true,
-                BackgroundColor = UIComponentStyles.Dropdown.ListBackground,
+                BackgroundColor = UIParseUtils.ColorOf("#F7EFE0FF"),
                 Visible = false,
                 LayoutData = { LayoutType = LayoutType.Relative }
             };
@@ -67,7 +71,7 @@ namespace MonoCoC.UI.Components
                 var item = new Button("", options[index], "coc:menu")
                 {
                     LayoutData = { LayoutType = LayoutType.Relative },
-                    TextColor = UIComponentStyles.Dropdown.ItemText
+                    TextColor = UIParseUtils.ColorOf("#35291FFF")
                 };
 
                 item.Click(() => Select(optionIndex));
@@ -177,5 +181,39 @@ namespace MonoCoC.UI.Components
 
             base.Update(gameTime);
         }
+        private static UIStateStyle HeaderStyle() => new()
+        {
+            NormalBackground = UIParseUtils.ColorOf("#F7EFE0FF"),
+            NormalBorder = UIParseUtils.ColorOf("#B79A70FF"),
+            NormalBorderThickness = 1,
+            HoverBackground = UIParseUtils.ColorOf("#EFE3CCFF"),
+            HoverBorder = UIParseUtils.ColorOf("#9F8156FF"),
+            HoverBorderThickness = 1,
+            PressedBackground = UIParseUtils.ColorOf("#E0C9AAFF"),
+            PressedBorder = UIParseUtils.ColorOf("#9F8156FF"),
+            PressedBorderThickness = 1
+        };
+
+        public static string TypeId => "coc:dropdown";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext context)
+        {
+            var dropdown = new Dropdown();
+
+            if (node.TryGetValue("options", out var options) && options is JsonArray array)
+            {
+                var values = new List<string>();
+
+                foreach (var entry in array)
+                    values.Add(entry.ToString().Trim('"'));
+
+                dropdown.SetOptions(values, node.Int("selected", 0));
+            }
+
+            return dropdown;
+        }
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<Dropdown>();
     }
 }

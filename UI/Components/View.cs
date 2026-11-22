@@ -1,3 +1,4 @@
+using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 
 namespace MonoCoC.UI.Components

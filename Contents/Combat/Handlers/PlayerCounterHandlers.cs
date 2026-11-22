@@ -34,7 +34,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Melee);
             }
             else
-                context.Append("Combat.Special.Counter.Text".Localized());
+                context.AppendLog("Combat.Special.Counter.Text".Localized());
         }
     }
 }

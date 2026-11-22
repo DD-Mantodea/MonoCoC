@@ -55,7 +55,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.DemonFistFighter.TwoFer.WeavesAndFeints".Localized());
+            context.AppendLog("Combat.DemonFistFighter.TwoFer.WeavesAndFeints".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -72,7 +72,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Block)
             {
-                context.Append("Combat.DemonFistFighter.TwoFer.Block".Localized());
+                context.AppendLog("Combat.DemonFistFighter.TwoFer.Block".Localized());
 
                 return;
             }
@@ -80,7 +80,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.Outcome != AvoidOutcome.Hit)
                 return;
 
-            context.Append("Combat.DemonFistFighter.TwoFer.YouAttemptTo".Localized());
+            context.AppendLog("Combat.DemonFistFighter.TwoFer.YouAttemptTo".Localized());
 
             var damage = CalcDamage(context, player, enemy) * 0.75f;
 
@@ -96,7 +96,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.DemonFistFighter.QuickJab.WeavesForwardAnd".Localized());
+            context.AppendLog("Combat.DemonFistFighter.QuickJab.WeavesForwardAnd".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -115,13 +115,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Hit)
             {
-                context.Append("Combat.DemonFistFighter.QuickJab.TheJabClocks".Localized());
+                context.AppendLog("Combat.DemonFistFighter.QuickJab.TheJabClocks".Localized());
 
                 player.HealthChange(-(CalcDamage(context, player, enemy) / 3f));
             }
             else if (avoid.Outcome == AvoidOutcome.Counter)
             {
-                context.Append("Combat.DemonFistFighter.QuickJab.Counter".Localized());
+                context.AppendLog("Combat.DemonFistFighter.QuickJab.Counter".Localized());
 
                 var damage = CombatCalculator.ReduceDamage(context, enemy,
 
@@ -138,7 +138,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.DemonFistFighter.Roundhouse.RapidlyTwistsHis".Localized());
+            context.AppendLog("Combat.DemonFistFighter.Roundhouse.RapidlyTwistsHis".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -155,9 +155,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Hit)
             {
-                context.Append("Combat.DemonFistFighter.Roundhouse.TheViciousKick".Localized());
+                context.AppendLog("Combat.DemonFistFighter.Roundhouse.TheViciousKick".Localized());
 
-                context.Append("Combat.DemonFistFighter.Roundhouse.ItStillDoes".Localized());
+                context.AppendLog("Combat.DemonFistFighter.Roundhouse.ItStillDoes".Localized());
 
                 player.HealthChange(-(CalcDamage(context, player, enemy) * 1.25f));
 
@@ -167,7 +167,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.Outcome != AvoidOutcome.Block)
                 return;
 
-            context.Append("Combat.DemonFistFighter.Roundhouse.Block".Localized());
+            context.AppendLog("Combat.DemonFistFighter.Roundhouse.Block".Localized());
 
             enemy.ChangeFatigue(10);
 
@@ -186,22 +186,22 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (reverse.Outcome == AvoidOutcome.Hit)
             {
-                context.Append("Combat.DemonFistFighter.Roundhouse.HeelLandsOn".Localized());
+                context.AppendLog("Combat.DemonFistFighter.Roundhouse.HeelLandsOn".Localized());
 
-                context.Append("Combat.DemonFistFighter.Roundhouse.TheDemonSays".Localized());
+                context.AppendLog("Combat.DemonFistFighter.Roundhouse.TheDemonSays".Localized());
 
                 player.HealthChange(-(CalcDamage(context, player, enemy) * 1.75f));
 
                 DemonFistFighterEnemy.ApplyDazed(player, 2, -20f, 0.7f);
 
-                context.Append((player.Health > 0
+                context.AppendLog((player.Health > 0
 
                     ? "Combat.DemonFistFighter.Roundhouse.ItTakesHerculean"
 
                     : "Combat.DemonFistFighter.Roundhouse.YouTryYour").Localized());
             }
             else
-                context.Append("Combat.DemonFistFighter.Roundhouse.ReverseDodge".Localized());
+                context.AppendLog("Combat.DemonFistFighter.Roundhouse.ReverseDodge".Localized());
         }
 
         [Register("coc:demon_fist_fighter_cross_punch")]
@@ -213,7 +213,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var fighter = enemy as DemonFistFighterEnemy;
 
-            context.Append("Combat.DemonFistFighter.CrossPunch.LungesForwardPowerfully".Localized());
+            context.AppendLog("Combat.DemonFistFighter.CrossPunch.LungesForwardPowerfully".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -230,9 +230,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Hit)
             {
-                context.Append("Combat.DemonFistFighter.CrossPunch.YouFailTo".Localized());
+                context.AppendLog("Combat.DemonFistFighter.CrossPunch.YouFailTo".Localized());
 
-                context.Append("Combat.DemonFistFighter.CrossPunch.YouRecoverYour".Localized());
+                context.AppendLog("Combat.DemonFistFighter.CrossPunch.YouRecoverYour".Localized());
 
                 player.HealthChange(-(CalcDamage(context, player, enemy) * 1.25f));
 
@@ -249,7 +249,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!shouldParryCounter)
                 return;
 
-            context.Append("Combat.DemonFistFighter.CrossPunch.Parry".Localized());
+            context.AppendLog("Combat.DemonFistFighter.CrossPunch.Parry".Localized());
 
             enemy.ChangeFatigue(10);
 
@@ -258,11 +258,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 return;
 
-            context.Append("Combat.DemonFistFighter.CrossPunch.DespiteYourStruggle".Localized());
+            context.AppendLog("Combat.DemonFistFighter.CrossPunch.DespiteYourStruggle".Localized());
 
             if (player.Weapon.IsHolySword())
             {
-                context.Append("Combat.DemonFistFighter.CrossPunch.TheDemonAttempts".Localized());
+                context.AppendLog("Combat.DemonFistFighter.CrossPunch.TheDemonAttempts".Localized());
 
                 CombatCalculator.DamageEnemy(context,
 
@@ -273,22 +273,22 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.DemonFistFighter.CrossPunch.HeInspectsThe".Localized());
+            context.AppendLog("Combat.DemonFistFighter.CrossPunch.HeInspectsThe".Localized());
 
             AttackWithPlayerWeapon(context);
 
             if (player.Weapon.IsScythe())
             {
-                context.Append("Combat.DemonFistFighter.CrossPunch.TheDemonGroans".Localized());
+                context.AppendLog("Combat.DemonFistFighter.CrossPunch.TheDemonGroans".Localized());
 
                 CombatCalculator.DamageEnemy(context,
 
                     50 + context.Random.Next(15), CombatDamageKind.Melee);
 
-                context.Append("Combat.DemonFistFighter.CrossPunch.TheDemonShakes".Localized());
+                context.AppendLog("Combat.DemonFistFighter.CrossPunch.TheDemonShakes".Localized());
             }
             else
-                context.Append("Combat.DemonFistFighter.CrossPunch.TheDemonSmiles".Localized());
+                context.AppendLog("Combat.DemonFistFighter.CrossPunch.TheDemonSmiles".Localized());
         }
 
         public static void AttackWithPlayerWeapon(CombatContext context)

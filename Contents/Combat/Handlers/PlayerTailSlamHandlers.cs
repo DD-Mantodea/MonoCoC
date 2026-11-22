@@ -31,12 +31,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.Special.TailSlam.Miss".Localized());
+                context.AppendLog("Combat.Special.TailSlam.Miss".Localized());
 
                 return;
             }
 
-            context.Append(enemy.Plural
+            context.AppendLog(enemy.Plural
 
                 ? "Combat.Special.TailSlam.HitPlural".Localized()
 
@@ -62,7 +62,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.Stun(1, chance))
             {
-                context.Append("Combat.Special.TailSlam.Stun".Localized());
+                context.AppendLog("Combat.Special.TailSlam.Stun".Localized());
 
                 if (!enemy.HasStatusEffect(StatusEffectIds.TimesBashed))
                     enemy.CreateStatusEffect(StatusEffectIds.TimesBashed, 1, 0, 0, 0);
@@ -71,15 +71,15 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
 
             if (enemy.Bleed(player))
-                context.Append(enemy.Plural
+                context.AppendLog(enemy.Plural
 
                     ? "Combat.Special.TailSlam.BleedPlural".Localized()
 
                     : "Combat.Special.TailSlam.Bleed".Localized());
             else if (enemy is LivingStatueEnemy)
-                context.Append("Combat.Special.TailSlam.NoBleedStatue".Localized());
+                context.AppendLog("Combat.Special.TailSlam.NoBleedStatue".Localized());
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
         }
     }
 }

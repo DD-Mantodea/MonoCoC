@@ -24,7 +24,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             // 原版 :13：失明时有 1/3 概率完全打空
             if (HasStatusEffect(StatusEffectIds.Blind) && Random.Shared.Next(3) < 1)
             {
-                context.WriteAction("Combat.Phouka.AttackBlindMiss".Localized());
+                context.Log.Add("Combat.Phouka.AttackBlindMiss".Localized());
 
                 return;
             }
@@ -75,7 +75,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     break;
             }
 
-            context.WriteAction(intro);
+            context.Log.Add(intro);
 
             var damage = CombatCalculator.ReduceDamage(context, player, raw);
 
@@ -90,12 +90,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed || damage <= 0)
             {
-                context.Append(avoid.AttackFailed ? dodged : blocked);
+                context.AppendLog(avoid.AttackFailed ? dodged : blocked);
 
                 return;
             }
 
-            context.Append(hit);
+            context.AppendLog(hit);
 
             player.HealthChange(-damage);
         }
@@ -106,7 +106,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var player = context.Player;
 
-            context.WriteAction(PhoukaScene.phoukaForm switch
+            context.Log.Add(PhoukaScene.phoukaForm switch
             {
                 PhoukaScene.PHOUKA_FORM_FAERIE => "Combat.Phouka.LustFaerie".Localized(),
 
@@ -126,7 +126,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Append(PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_BUNNY
+                context.AppendLog(PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_BUNNY
 
                     ? "Combat.Phouka.LustBunnyDodged".Localized()
 
@@ -135,7 +135,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 return;
             }
 
-            context.Append(PhoukaScene.phoukaForm switch
+            context.AppendLog(PhoukaScene.phoukaForm switch
             {
                 PhoukaScene.PHOUKA_FORM_FAERIE => "Combat.Phouka.LustFaerieHit".Localized(),
 
@@ -156,12 +156,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Phouka.SilenceIntro".Localized());
+            context.Log.Add("Combat.Phouka.SilenceIntro".Localized());
 
             // 原版 :87：失明时有 2/3 概率打偏
             if (HasStatusEffect(StatusEffectIds.Blind) && Random.Shared.Next(3) < 2)
             {
-                context.Append("Combat.Phouka.SilenceBlindMiss".Localized());
+                context.AppendLog("Combat.Phouka.SilenceBlindMiss".Localized());
 
                 return;
             }
@@ -177,7 +177,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Append(avoid.DodgeReason switch
+                context.AppendLog(avoid.DodgeReason switch
                 {
                     "Evade" => "Combat.Phouka.SilenceEvaded".Localized(),
 
@@ -191,7 +191,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 return;
             }
 
-            context.Append("Combat.Phouka.SilenceHit".Localized());
+            context.AppendLog("Combat.Phouka.SilenceHit".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.WebSilence, 0, 0, 0, 0);
         }
@@ -203,7 +203,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_BUNNY)
                 return;
 
-            context.WriteAction(PhoukaScene.phoukaForm switch
+            context.Log.Add(PhoukaScene.phoukaForm switch
             {
                 PhoukaScene.PHOUKA_FORM_FAERIE => "Combat.Phouka.ToBunnyFromFaerie".Localized(),
 
@@ -220,7 +220,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_GOAT)
                 return;
 
-            context.WriteAction(PhoukaScene.phoukaForm switch
+            context.Log.Add(PhoukaScene.phoukaForm switch
             {
                 PhoukaScene.PHOUKA_FORM_FAERIE => "Combat.Phouka.ToGoatFromFaerie".Localized(),
 
@@ -237,7 +237,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_HORSE)
                 return;
 
-            context.WriteAction(PhoukaScene.phoukaForm switch
+            context.Log.Add(PhoukaScene.phoukaForm switch
             {
                 PhoukaScene.PHOUKA_FORM_FAERIE => "Combat.Phouka.ToHorseFromFaerie".Localized(),
 
@@ -254,7 +254,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (PhoukaScene.phoukaForm == PhoukaScene.PHOUKA_FORM_FAERIE)
                 return;
 
-            context.WriteAction(PhoukaScene.phoukaForm switch
+            context.Log.Add(PhoukaScene.phoukaForm switch
             {
                 PhoukaScene.PHOUKA_FORM_BUNNY => "Combat.Phouka.ToFaerieFromBunny".Localized(),
 
@@ -347,11 +347,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         public override void OnTeased(CombatContext context, float lustDelta)
         {
             if (lustDelta >= 10)
-                context.Append("Combat.Phouka.Teased10".Localized());
+                context.AppendLog("Combat.Phouka.Teased10".Localized());
             else if (lustDelta >= 5)
-                context.Append("Combat.Phouka.Teased5".Localized());
+                context.AppendLog("Combat.Phouka.Teased5".Localized());
             else if (lustDelta > 0)
-                context.Append("Combat.Phouka.Teased1".Localized());
+                context.AppendLog("Combat.Phouka.Teased1".Localized());
 
             base.OnTeased(context, lustDelta);
         }

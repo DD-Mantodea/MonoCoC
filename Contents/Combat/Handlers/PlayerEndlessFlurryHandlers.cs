@@ -44,7 +44,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Special.EndlessFlurry.Intro".Localized());
+            context.AppendLog("Combat.Special.EndlessFlurry.Intro".Localized());
 
             var state = CombatController.Instance!.State;
 
@@ -67,7 +67,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 if (avoid.AttackFailed)
                 {
-                    context.Append("Combat.Special.EndlessFlurry.Miss".Localized());
+                    context.AppendLog("Combat.Special.EndlessFlurry.Miss".Localized());
 
                     continue;
                 }
@@ -76,7 +76,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Melee);
 
-                context.Append("Combat.Special.EndlessFlurry.Hit".Localized((int)damage));
+                context.AppendLog("Combat.Special.EndlessFlurry.Hit".Localized((int)damage));
             }
 
             if (state.FlurryAmount < 5)

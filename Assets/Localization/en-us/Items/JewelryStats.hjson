@@ -1,0 +1,11 @@
+{
+  "Items.Stats.MinLibido": "Min Libido"
+  "Items.Stats.Fertility": "Fertility"
+  "Items.Stats.CriticalChance": "Critical Chance"
+  "Items.Stats.HealthRegen": "Health Regen"
+  "Items.Stats.MaxHealth": "Max Health"
+  "Items.Stats.PhysicalDamage": "Physical Damage"
+  "Items.Stats.SpellPower": "Spell Power"
+  "Items.Stats.Accuracy": "Accuracy"
+  "Items.Stats.Dodge": "Dodge"
+}

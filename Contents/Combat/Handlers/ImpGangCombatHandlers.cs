@@ -12,7 +12,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var units = context.EnemyAs<ImpGangEnemy>()?.RecalculateUnits() ?? 1;
 
-            context.Append("\n");
+            context.AppendLog("\n");
 
             for (var i = 0; i < units; i++)
                 CombatController.Instance!.Resolver.EnemyBasicAttack();

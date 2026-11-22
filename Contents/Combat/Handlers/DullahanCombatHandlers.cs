@@ -21,7 +21,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:dullahan_flurry_attack")]
         public static void Flurry(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Dullahan.Flurry.Intro".Localized());
+            context.Log.Add("Combat.Dullahan.Flurry.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -40,12 +40,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append(ReactionText(avoid));
+                context.AppendLog(ReactionText(avoid));
 
                 return;
             }
 
-            context.Append("Combat.Dullahan.Flurry.Feint".Localized());
+            context.AppendLog("Combat.Dullahan.Flurry.Feint".Localized());
 
             var attacks = 2 + context.Random.Next(2);
 
@@ -65,7 +65,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             context.Player.HealthChange(-damage);
 
-            context.Append("Combat.Dullahan.Flurry.Damage".Localized(damage));
+            context.AppendLog("Combat.Dullahan.Flurry.Damage".Localized(damage));
         }
 
         public static string ReactionText(AvoidResult avoid)
@@ -95,9 +95,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:dullahan_horror")]
         public static void Horror(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Dullahan.Horror.Intro".Localized());
+            context.Log.Add("Combat.Dullahan.Horror.Intro".Localized());
 
-            context.WriteAction(IsRude
+            context.Log.Add(IsRude
 
                 ? "Combat.Dullahan.Horror.LineRude".Localized()
 
@@ -105,12 +105,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Random.Next((int)Math.Max(1, context.Player.Intelligence)) > 50)
             {
-                context.WriteAction("Combat.Dullahan.Horror.Resisted".Localized());
+                context.Log.Add("Combat.Dullahan.Horror.Resisted".Localized());
 
                 return;
             }
 
-            context.WriteAction("Combat.Dullahan.Horror.Failed".Localized());
+            context.Log.Add("Combat.Dullahan.Horror.Failed".Localized());
 
             context.Player.CreateStatusEffect(StatusEffectIds.Whispered);
         }
@@ -118,7 +118,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:dullahan_pommel_bash")]
         public static void PommelBash(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Dullahan.Pommel.Intro".Localized());
+            context.Log.Add("Combat.Dullahan.Pommel.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -133,34 +133,34 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.WriteAction("Combat.Dullahan.Pommel.Dodged".Localized());
+                context.Log.Add("Combat.Dullahan.Pommel.Dodged".Localized());
 
                 return;
             }
 
-            context.WriteAction("Combat.Dullahan.Pommel.Hit".Localized());
+            context.Log.Add("Combat.Dullahan.Pommel.Hit".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, context.Player, context.Enemy.Strength);
 
             context.Player.HealthChange(-damage);
 
             if (context.Player.Stun(1, 100))
-                context.Append("Combat.Dullahan.Pommel.Stunned".Localized());
+                context.AppendLog("Combat.Dullahan.Pommel.Stunned".Localized());
         }
 
         [Register("coc:dullahan_disarm")]
         public static void Disarm(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Dullahan.Disarm.Intro".Localized());
+            context.Log.Add("Combat.Dullahan.Disarm.Intro".Localized());
 
             var player = context.Player;
 
             if (context.Random.Next((int)Math.Max(1, player.Strength)) <
                 context.Random.Next((int)context.Enemy.Strength + 30))
             {
-                context.WriteAction("Combat.Dullahan.Disarm.Success".Localized());
+                context.Log.Add("Combat.Dullahan.Disarm.Success".Localized());
 
-                context.WriteAction("Combat.Dullahan.Disarm.Taunt".Localized());
+                context.Log.Add("Combat.Dullahan.Disarm.Taunt".Localized());
 
                 player.Disarm(player.Weapon);
 
@@ -175,7 +175,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.WriteAction("Combat.Dullahan.Disarm.Failed".Localized());
+            context.Log.Add("Combat.Dullahan.Disarm.Failed".Localized());
         }
 
             [Register("coc:player_disarmed")]

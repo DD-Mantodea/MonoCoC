@@ -25,7 +25,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Special.FreezeTime.Text".Localized());
+            context.AppendLog("Combat.Special.FreezeTime.Text".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.TimeFrozen, 0, 0, 0, 0, 3);
 

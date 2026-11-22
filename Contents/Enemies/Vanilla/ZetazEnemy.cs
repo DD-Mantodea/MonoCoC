@@ -83,14 +83,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             CoC.Instance.Flags.Set(GameFlagIds.ZetazDoorUnlocked, 1);
 
-            CombatController.Instance?.Context.Append("Dungeons.Zetaz.Victory".Localized());
+            CombatController.Instance?.Context.AppendLog("Dungeons.Zetaz.Victory".Localized());
 
             return false;
         }
 
         public override bool Won(bool hpVictory)
         {
-            CombatController.Instance?.Context.Append("Dungeons.Zetaz.Defeat".Localized());
+            CombatController.Instance?.Context.AppendLog("Dungeons.Zetaz.Defeat".Localized());
 
             return false;
         }

@@ -23,7 +23,7 @@ namespace MonoCoC.Macros.Providers
 
             var player = CoC.Instance?.Player;
 
-            var time = GameView.Instance?.Time;
+            var time = GameView.Current?.Time;
 
             if (player == null)
                 return false;

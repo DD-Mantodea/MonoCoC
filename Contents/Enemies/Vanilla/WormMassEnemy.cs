@@ -33,7 +33,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     if (temp == 0)
                         temp = 1;
 
-                    context.Append("Combat.WormMass.React.YouStrikeAt".Localized("#ff0000", temp));
+                    context.AppendLog("Combat.WormMass.React.YouStrikeAt".Localized("#ff0000", temp));
 
                     HealthChange(-temp);
 
@@ -41,14 +41,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                         return false;
                 }
                 else
-                    context.Append("Combat.WormMass.React.YouAttemptTo".Localized());
+                    context.AppendLog("Combat.WormMass.React.YouAttemptTo".Localized());
 
                 return false;
             }
 
             if (reaction == CombatReactionContext.BowHit)
             {
-                context.Append("Combat.WormMass.React.TheArrowSlips".Localized());
+                context.AppendLog("Combat.WormMass.React.TheArrowSlips".Localized());
 
                 return false;
             }
@@ -66,7 +66,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool Won(bool hpVictory)
         {
-            CombatController.Instance?.Context.Append(
+            CombatController.Instance?.Context.AppendLog(
                 "Combat.WormMass.Won.OvercomeByYour".Localized(hpVictory ? "wounds" : "lust"));
 
             return false;

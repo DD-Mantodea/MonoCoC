@@ -103,14 +103,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 MissFirstRound = false;
 
-                context.Append("Combat.SpiderMorphMob.SpiderStandardAttack.ANumberOf".Localized());
+                context.AppendLog("Combat.SpiderMorphMob.SpiderStandardAttack.ANumberOf".Localized());
 
                 KihaSpidahai(context);
 
                 return;
             }
 
-            context.Append("Combat.SpiderMorphMob.SpiderStandardAttack.ANumberOf2".Localized());
+            context.AppendLog("Combat.SpiderMorphMob.SpiderStandardAttack.ANumberOf2".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, Strength + WeaponAttack) + 20;
 
@@ -123,22 +123,22 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 if (context.Random.Next(Math.Max(1, (int)(player.ArmorDefense + player.Toughness)))
                     < player.ArmorDefense)
 
-                    context.Append("Combat.SpiderMorphMob.SpiderStandardAttack.YouAbsorbAnd".Localized(WeaponVerb));
+                    context.AppendLog("Combat.SpiderMorphMob.SpiderStandardAttack.YouAbsorbAnd".Localized(WeaponVerb));
                 else
-                    context.Append("Combat.SpiderMorphMob.SpiderStandardAttack.YouDeflectAnd".Localized(
+                    context.AppendLog("Combat.SpiderMorphMob.SpiderStandardAttack.YouDeflectAnd".Localized(
                         WeaponVerb, Article, ShortName));
             }
             else if (damage < 6)
-                context.Append("Combat.SpiderMorphMob.SpiderStandardAttack.YouAreStruck".Localized(
+                context.AppendLog("Combat.SpiderMorphMob.SpiderStandardAttack.YouAreStruck".Localized(
                     Article, ShortName));
             else if (damage < 11)
-                context.Append("Combat.SpiderMorphMob.SpiderStandardAttack.OneWounds".Localized(
+                context.AppendLog("Combat.SpiderMorphMob.SpiderStandardAttack.OneWounds".Localized(
                     capitalA, ShortName));
             else if (damage < 21)
-                context.Append("Combat.SpiderMorphMob.SpiderStandardAttack.OneStaggers".Localized(
+                context.AppendLog("Combat.SpiderMorphMob.SpiderStandardAttack.OneStaggers".Localized(
                     capitalA, ShortName, Pronoun3, WeaponVerb));
             else
-                context.Append("Combat.SpiderMorphMob.SpiderStandardAttack.OneMutilate".Localized(
+                context.AppendLog("Combat.SpiderMorphMob.SpiderStandardAttack.OneMutilate".Localized(
                     capitalA, ShortName, Pronoun3, WeaponVerb));
 
             if (damage > 0)
@@ -147,7 +147,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 if (LustVulnerability > 0 && player.Armor?.Id.Path == "bondage_straps")
                 {
-                    context.Append((Plural
+                    context.AppendLog((Plural
 
                         ? "Combat.SpiderMorphMob.SpiderStandardAttack.OneBrush"
 
@@ -163,9 +163,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void KihaSpidahai(CombatContext context)
         {
-            context.Append("Combat.SpiderMorphMob.KihaSPOIDAHAI.Text".Localized());
+            context.AppendLog("Combat.SpiderMorphMob.KihaSPOIDAHAI.Text".Localized());
 
-            context.Append("Combat.SpiderMorphMob.KihaSPOIDAHAI.WhileTheyRe".Localized());
+            context.AppendLog("Combat.SpiderMorphMob.KihaSPOIDAHAI.WhileTheyRe".Localized());
 
             HealthChange(-50);
         }
@@ -191,12 +191,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 MissFirstRound = false;
 
-                context.Append("Combat.SpiderMorphMob.SpoidahHordeWebLaunchahs.OneOfThe".Localized());
+                context.AppendLog("Combat.SpiderMorphMob.SpoidahHordeWebLaunchahs.OneOfThe".Localized());
 
                 return;
             }
 
-            context.Append("Combat.SpiderMorphMob.SpoidahHordeWebLaunchahs.SomeOfThe".Localized());
+            context.AppendLog("Combat.SpiderMorphMob.SpoidahHordeWebLaunchahs.SomeOfThe".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.UberWeb, 0, 0, 0, 0);
 
@@ -208,9 +208,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!context.Player.HasStatusEffect(StatusEffectIds.UberWeb))
                 return;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Combat.SpiderMorphMob.Struggle.YouClawYour".Localized());
+            context.AppendLog("Combat.SpiderMorphMob.Struggle.YouClawYour".Localized());
 
             context.Player.RemoveStatusEffect(StatusEffectIds.UberWeb);
         }

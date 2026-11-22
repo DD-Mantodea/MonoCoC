@@ -43,9 +43,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!player.HasStatusEffect(Datas.Vanilla.StatusEffectIds.HarpyBind))
                 return true;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Combat.HarpyMob.Wait.Hammered".Localized());
+            context.AppendLog("Combat.HarpyMob.Wait.Hammered".Localized());
 
             player.HealthChange(-(80 + context.Random.Next(40)));
 
@@ -67,14 +67,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             CoC.Instance.Flags.Set(Flags.GameFlagIds.HelHarpiesDefeated, 1);
 
-            CombatController.Instance?.Context.Append("Combat.Hel.HarpyMobVictory".Localized());
+            CombatController.Instance?.Context.AppendLog("Combat.Hel.HarpyMobVictory".Localized());
 
             return false;
         }
 
         public override bool Won(bool hpVictory)
         {
-            CombatController.Instance?.Context.Append("Combat.Hel.HarpyMobDefeat".Localized());
+            CombatController.Instance?.Context.AppendLog("Combat.Hel.HarpyMobDefeat".Localized());
 
             return false;
         }

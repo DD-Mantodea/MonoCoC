@@ -159,7 +159,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (kind == CombatDamageKind.Magical && context.Player.Intelligence >= 90)
             {
-                context.Append("Combat.NamelessHorror.HandleDamaged.YouManageTo".Localized());
+                context.AppendLog("Combat.NamelessHorror.HandleDamaged.YouManageTo".Localized());
 
                 return damage * 0.4f;
             }
@@ -171,7 +171,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (context.Random.Next(3) == 0)
             {
-                context.WriteAction("Combat.NamelessHorror.HandleStun.TheCyclopeanCreature".Localized());
+                context.Log.Add("Combat.NamelessHorror.HandleStun.TheCyclopeanCreature".Localized());
 
                 RemoveStatusEffect(StatusEffectIds.Stunned);
 
@@ -183,7 +183,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleFear(CombatContext context)
         {
-            context.WriteAction("Combat.NamelessHorror.HandleFear.TheCreatureShrieks".Localized());
+            context.Log.Add("Combat.NamelessHorror.HandleFear.TheCreatureShrieks".Localized());
 
             RemoveStatusEffect(StatusEffectIds.Fear);
 

@@ -14,7 +14,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.GreenSlime.LustAttack.Lead".Localized());
+            context.AppendLog("Combat.GreenSlime.LustAttack.Lead".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + player.Libido / 10 + 8);
         }
@@ -24,7 +24,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.Append("Combat.GreenSlime.LustReduction.Lead".Localized());
+            context.AppendLog("Combat.GreenSlime.LustReduction.Lead".Localized());
 
             enemy.Lust = Math.Max(0, enemy.Lust - 13);
         }

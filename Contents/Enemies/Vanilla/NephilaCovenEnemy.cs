@@ -85,13 +85,13 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (!HasStatusEffect(StatusEffectIds.Uber))
             {
-                context.Write(Random.Shared.Next(2) == 0
+                MonoCoC.UI.Components.Views.GameView.Current.Write(Random.Shared.Next(2) == 0
 
                     ? "The nephila coven sister caresses your fecundity with her tentacles. \"So beautiful,\" she says. \"You're so much bigger than I imagined.\""
 
                     : "The nephila coven sister rubs her bloated, gelatinous belly. \"This is your doing, Mother,\" she says. \"You've packed us so full with your children and we're all so very, very excited to finally get to meet you.\"");
 
-                context.Write("Common.Text.SheRollsOntoHerBellySpreading".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SheRollsOntoHerBellySpreading".Localized());
 
                 CreateStatusEffect(StatusEffectIds.Uber, 0, 0, 0, 0);
 
@@ -102,7 +102,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 ChangeStatusValue(StatusEffectIds.Uber, 0, 1);
 
-                context.Write("Common.Text.TheSlimeGroansAndFallsTo".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheSlimeGroansAndFallsTo".Localized());
 
                 return;
             }
@@ -111,12 +111,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (CoC.Instance.Flags.Get(GameFlagIds.InCombatUsePlayerWaitedFlag) == 1)
             {
-                context.Write("Common.Text.HerCreakingGooeyBellyFinallyGives".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.HerCreakingGooeyBellyFinallyGives".Localized());
 
                 return;
             }
 
-            context.Write("Common.Text.IgnoringTheVoiceOfWorryIn".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.IgnoringTheVoiceOfWorryIn".Localized());
 
             player.Lust = player.MaxLust;
         }
@@ -125,7 +125,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (!player.HasStatusEffect(StatusEffectIds.Bound))
             {
-                context.Write("Scenes.NephilaCoven.NephilaCovenSpecial2.SnapsTentacles".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.NephilaCoven.NephilaCovenSpecial2.SnapsTentacles".Localized());
 
                 player.CreateStatusEffect(StatusEffectIds.Bound, 2 + Random.Shared.Next(5), 0, 0, 0);
 
@@ -134,14 +134,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (Random.Shared.Next(2) == 0)
             {
-                context.Write("Common.Text.TheNephilaCovenSisterCuddlesUp".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheNephilaCovenSisterCuddlesUp".Localized());
 
                 player.TakeLustDamage(9 + player.Sensitivity / 10);
 
                 return;
             }
 
-            context.Write("Common.Text.TheNephilaCovenSisterBlowsHot".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheNephilaCovenSisterBlowsHot".Localized());
 
             player.TakeLustDamage(5 + player.Corruption / 10 + player.Libido / 20);
         }
@@ -150,7 +150,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (Lust >= MaxLust * 0.75f)
             {
-                context.Write("Common.Text.TheNephilaCovenSisterSpreadsHer".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheNephilaCovenSisterSpreadsHer".Localized());
 
                 Level += 1;
 
@@ -167,7 +167,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 return;
             }
 
-            context.Write("Common.Text.TheGooGirlHeavesHerBody".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheGooGirlHeavesHerBody".Localized());
 
             CombatController.Instance!.Resolver.EnemyBasicAttack();
 

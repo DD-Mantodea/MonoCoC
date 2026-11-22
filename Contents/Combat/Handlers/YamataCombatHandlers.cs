@@ -37,7 +37,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
 
-                context.WriteAction("Combat.Yamata.Miss".Localized());
+                context.Log.Add("Combat.Yamata.Miss".Localized());
 
                 return;
             }
@@ -63,21 +63,21 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (roll)
             {
                 case 0:
-                    context.WriteAction("Combat.Yamata.Basic.One".Localized());
+                    context.Log.Add("Combat.Yamata.Basic.One".Localized());
 
                     damage = enemy.Strength / 2f + context.Random.Next(15);
 
                     break;
 
                 case 1:
-                    context.WriteAction("Combat.Yamata.Basic.Two".Localized());
+                    context.Log.Add("Combat.Yamata.Basic.Two".Localized());
 
                     damage = enemy.Strength / 2f + context.Random.Next(35);
 
                     break;
 
                 case 2:
-                    context.WriteAction("Combat.Yamata.Basic.Three".Localized());
+                    context.Log.Add("Combat.Yamata.Basic.Three".Localized());
 
                     damage = enemy.Strength - context.Random.Next(25);
 
@@ -88,7 +88,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                     break;
 
                 default:
-                    context.WriteAction("Combat.Yamata.Basic.Four".Localized());
+                    context.Log.Add("Combat.Yamata.Basic.Four".Localized());
 
                     damage = enemy.Strength / 2f + context.Random.Next(50);
 
@@ -113,7 +113,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Yamata.DarkFoxfire".Localized());
+            context.Log.Add("Combat.Yamata.DarkFoxfire".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player,
 
@@ -135,7 +135,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Yamata.Nightmare.One".Localized());
+            context.Log.Add("Combat.Yamata.Nightmare.One".Localized());
 
             var resist = player.Intelligence < 80
 
@@ -146,21 +146,21 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (player.HasPerk(PerkIds.Whispered))
                 resist += 30;
             else
-                context.WriteAction("Combat.Yamata.Nightmare.Two".Localized());
+                context.Log.Add("Combat.Yamata.Nightmare.Two".Localized());
 
             if (player.IsReligious() && player.IsPureEnough(20))
                 resist += (int)(15 - player.CorAdjustedDown());
 
             if (context.Random.Next(100) < resist)
             {
-                context.WriteAction("Combat.Yamata.Nightmare.Resisted".Localized());
+                context.Log.Add("Combat.Yamata.Nightmare.Resisted".Localized());
 
                 player.RemoveStatusEffect(StatusEffectIds.Fear);
 
                 return;
             }
 
-            context.WriteAction("Combat.Yamata.Nightmare.Failed".Localized());
+            context.Log.Add("Combat.Yamata.Nightmare.Failed".Localized());
 
             if (player.HasStatusEffect(StatusEffectIds.Fear))
                 CombatCalculator.AddCombatBuff(player, GameStats.Speed, -12, "Yamata");
@@ -179,7 +179,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var lustDamage = 10f + player.Sensitivity / 5f;
 
-            context.WriteAction("Combat.Yamata.IllusionLust.One".Localized());
+            context.Log.Add("Combat.Yamata.IllusionLust.One".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player,
 
@@ -191,7 +191,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 switch (context.Random.Next(3))
                 {
                     case 0:
-                        context.WriteAction("Combat.Yamata.IllusionLust.Fear.Zero".Localized());
+                        context.Log.Add("Combat.Yamata.IllusionLust.Fear.Zero".Localized());
 
                         lustDamage += 4;
 
@@ -202,38 +202,38 @@ namespace MonoCoC.Contents.Combat.Handlers
                         break;
 
                     case 1:
-                        context.WriteAction("Combat.Yamata.IllusionLust.Fear.One".Localized());
+                        context.Log.Add("Combat.Yamata.IllusionLust.Fear.One".Localized());
 
                         player.Teased(lustDamage);
 
                         break;
 
                     default:
-                        context.WriteAction("Combat.Yamata.IllusionLust.Fear.Twoa".Localized());
+                        context.Log.Add("Combat.Yamata.IllusionLust.Fear.Twoa".Localized());
 
-                        context.WriteAction("Combat.Yamata.IllusionLust.Fear.Twob".Localized());
+                        context.Log.Add("Combat.Yamata.IllusionLust.Fear.Twob".Localized());
 
                         player.Teased(lustDamage * 2f);
 
                         break;
                 }
 
-            context.WriteAction("Combat.Yamata.IllusionLust.Taunt.One".Localized());
+            context.Log.Add("Combat.Yamata.IllusionLust.Taunt.One".Localized());
 
-            context.WriteAction("Combat.Yamata.IllusionLust.Taunt.Two".Localized());
+            context.Log.Add("Combat.Yamata.IllusionLust.Taunt.Two".Localized());
 
             var masochist = CoC.Instance.Flags.Get(GameFlagIds.YamataMasochist);
 
             if (masochist > 60)
             {
-                context.WriteAction("Combat.Yamata.IllusionLust.Masochism.AtLustSixty".Localized());
+                context.Log.Add("Combat.Yamata.IllusionLust.Masochism.AtLustSixty".Localized());
 
                 lustDamage += 5;
             }
 
             if (masochist > 80)
             {
-                context.WriteAction("Combat.Yamata.IllusionLust.Masochism.AtLustEighty".Localized());
+                context.Log.Add("Combat.Yamata.IllusionLust.Masochism.AtLustEighty".Localized());
 
                 lustDamage += 3;
 
@@ -248,7 +248,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Yamata.LustAttack.One".Localized());
+            context.Log.Add("Combat.Yamata.LustAttack.One".Localized());
 
             var key = player.HasCock()
 
@@ -260,9 +260,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 : "Combat.Yamata.LustAttack.TwoFemale";
 
-            context.WriteAction(key.Localized());
+            context.Log.Add(key.Localized());
 
-            context.WriteAction("Combat.Yamata.LustAttack.Three".Localized());
+            context.Log.Add("Combat.Yamata.LustAttack.Three".Localized());
 
             var lustDamage = 15f + player.Sensitivity / 3f + player.Libido / 5f;
 
@@ -288,11 +288,11 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Yamata.Entwine.One".Localized());
+            context.Log.Add("Combat.Yamata.Entwine.One".Localized());
 
-            context.WriteAction("Combat.Yamata.Entwine.Two".Localized());
+            context.Log.Add("Combat.Yamata.Entwine.Two".Localized());
 
-            context.WriteAction("Combat.Yamata.Entwine.Three".Localized());
+            context.Log.Add("Combat.Yamata.Entwine.Three".Localized());
 
             player.ApplyStats(new DynStat(GameStats.Corruption, 2f));
 
@@ -314,7 +314,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:yamata_foxfire_cannon_one")]
         public static void CannonCharge(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Yamata.Cannon.One".Localized());
+            context.Log.Add("Combat.Yamata.Cannon.One".Localized());
 
             context.Enemy.CreateStatusEffect(StatusEffectIds.YamataCannon, 1);
         }
@@ -328,25 +328,25 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (player.HasWaited())
             {
-                context.WriteAction("Combat.Yamata.Cannon.TwoPrepared".Localized());
+                context.Log.Add("Combat.Yamata.Cannon.TwoPrepared".Localized());
 
                 return;
             }
 
             var hits = context.Random.Next(9);
 
-            context.WriteAction("Combat.Yamata.Cannon.TwoIntro".Localized());
+            context.Log.Add("Combat.Yamata.Cannon.TwoIntro".Localized());
 
             if (hits == 0)
             {
-                context.WriteAction("Combat.Yamata.Cannon.TwoMissed".Localized());
+                context.Log.Add("Combat.Yamata.Cannon.TwoMissed".Localized());
 
                 player.ChangeFatigue(10);
 
                 return;
             }
 
-            context.WriteAction((hits > 1
+            context.Log.Add((hits > 1
 
                 ? "Combat.Yamata.Cannon.TwoHitMany"
 
@@ -382,7 +382,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.WriteAction("Combat.Yamata.Sadomasochist".Localized());
+            context.Log.Add("Combat.Yamata.Sadomasochist".Localized());
 
             enemy.Lust = Math.Min(enemy.MaxLust, enemy.Lust + (int)(damage / 2f));
 

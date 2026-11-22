@@ -79,7 +79,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (!_charging)
             {
-                context.WriteAction("Combat.DullahanHorse.Charge.Begin".Localized());
+                context.Log.Add("Combat.DullahanHorse.Charge.Begin".Localized());
 
                 _couchedLanceSpeedBonus += 1;
 
@@ -91,7 +91,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             switch (ExtraDistance)
             {
                 case 2:
-                    context.WriteAction("Combat.DullahanHorse.Charge.Step2".Localized());
+                    context.Log.Add("Combat.DullahanHorse.Charge.Step2".Localized());
 
                     _couchedLanceSpeedBonus += 1;
 
@@ -100,14 +100,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     return;
 
                 case 1:
-                    context.WriteAction("Combat.DullahanHorse.Charge.Step1".Localized());
+                    context.Log.Add("Combat.DullahanHorse.Charge.Step1".Localized());
 
                     _couchedLanceSpeedBonus += 1;
 
                     CombatRangeData.CloseDistance(this);
 
                     if (context.Player.Intelligence > 50)
-                        context.WriteAction("Combat.DullahanHorse.Charge.Warn".Localized());
+                        context.Log.Add("Combat.DullahanHorse.Charge.Warn".Localized());
 
                     return;
 
@@ -126,7 +126,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (waited)
             {
-                context.WriteAction("Combat.DullahanHorse.Charge.Waited".Localized());
+                context.Log.Add("Combat.DullahanHorse.Charge.Waited".Localized());
 
                 player.HealthChange(-(10 + context.Random.Next(10) * _couchedLanceSpeedBonus));
 
@@ -137,7 +137,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 return;
             }
 
-            context.WriteAction("Combat.DullahanHorse.Charge.Swing".Localized());
+            context.Log.Add("Combat.DullahanHorse.Charge.Swing".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -152,14 +152,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Append(ReactionText(avoid));
+                context.AppendLog(ReactionText(avoid));
 
                 MoveDistant(context, 2);
 
                 return;
             }
 
-            context.Append("Combat.DullahanHorse.Charge.Hit".Localized());
+            context.AppendLog("Combat.DullahanHorse.Charge.Hit".Localized());
 
             var damage = Strength * 3 + context.Random.Next(50) + _couchedLanceSpeedBonus * 30;
 
@@ -203,7 +203,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             RemoveStatusEffect(StatusEffectIds.Uber);
 
-            context.WriteAction("Combat.DullahanHorse.Stun".Localized());
+            context.Log.Add("Combat.DullahanHorse.Stun".Localized());
 
             MoveDistant(context, 2 - ExtraDistance);
 

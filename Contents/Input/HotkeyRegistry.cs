@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Input;
 using MonoCoC.Registry;
 using MonoCoC.UI.Components;
 using MonoCoC.UI.Framework;
@@ -14,7 +14,7 @@ namespace MonoCoC.Contents.Input
     // 可注册的快捷键定义。mod 通过 HotkeyRegistry.Register 添加自己的快捷键。
     public class HotkeyDefinition(Identifier id, string name, string description,
 
-        Keys defaultPrimary, Keys defaultSecondary, Action? action)
+        Keys defaultPrimary, Keys defaultSecondary, Action? action, Func<bool>? canExecute = null)
     {
         public readonly Identifier Id = id;
 
@@ -27,6 +27,8 @@ namespace MonoCoC.Contents.Input
         public readonly Keys DefaultSecondary = defaultSecondary;
 
         public readonly Action? Action = action;
+
+        public readonly Func<bool>? CanExecute = canExecute;
 
         public Keys Primary = defaultPrimary;
 
@@ -45,12 +47,15 @@ namespace MonoCoC.Contents.Input
 
         public static HotkeyDefinition Register(Identifier id, string name, string description,
 
-            Keys defaultPrimary, Keys defaultSecondary = Keys.None, Action? action = null)
+            Keys defaultPrimary, Keys defaultSecondary = Keys.None, Action? action = null,
+            Func<bool>? canExecute = null)
         {
             if (_byId.TryGetValue(id, out var existing))
                 return existing;
 
-            var definition = new HotkeyDefinition(id, name, description, defaultPrimary, defaultSecondary, action);
+            var definition = new HotkeyDefinition(id, name, description, defaultPrimary, defaultSecondary, action, canExecute);
+
+            RemoveConflicts(definition);
 
             _all.Add(definition);
 
@@ -61,9 +66,10 @@ namespace MonoCoC.Contents.Input
 
         public static HotkeyDefinition Register(string id, string name, string description,
 
-            Keys defaultPrimary, Keys defaultSecondary = Keys.None, Action? action = null) =>
+            Keys defaultPrimary, Keys defaultSecondary = Keys.None, Action? action = null,
+            Func<bool>? canExecute = null) =>
 
-            Register(Identifier.Parse(id), name, description, defaultPrimary, defaultSecondary, action);
+            Register(Identifier.Parse(id), name, description, defaultPrimary, defaultSecondary, action, canExecute);
 
         public static bool TryGet(Identifier id, out HotkeyDefinition definition) =>
 
@@ -94,6 +100,8 @@ namespace MonoCoC.Contents.Input
                     if (entry.TryGetValue("secondary", out var secondary) && Enum.TryParse<Keys>((string)secondary, out var secondaryKey))
                         definition.Secondary = secondaryKey;
                 }
+
+                NormalizeConflicts();
             }
             catch
             {
@@ -178,6 +186,12 @@ namespace MonoCoC.Contents.Input
 
         public static void Update()
         {
+            if (!UserInput.HasFocus)
+                return;
+
+            if (UIManager.Instance?.InputBlock is not null)
+                return;
+
             if (UIManager.Instance?.FocusedComponent is TextBox)
                 return;
 
@@ -217,13 +231,57 @@ namespace MonoCoC.Contents.Input
                 return;
 
             foreach (var definition in _all)
-                if (definition.Primary != Keys.None && UserInput.IsJustPress(definition.Primary)
-                    || definition.Secondary != Keys.None && UserInput.IsJustPress(definition.Secondary))
+                if ((definition.CanExecute?.Invoke() ?? true) &&
+                    (definition.Primary != Keys.None && UserInput.IsJustPress(definition.Primary)
+                     || definition.Secondary != Keys.None && UserInput.IsJustPress(definition.Secondary)))
                 {
                     definition.Action?.Invoke();
 
                     return;
                 }
+        }
+
+        private static void RemoveConflicts(HotkeyDefinition definition)
+        {
+            foreach (var other in _all)
+            {
+                if (definition.Primary != Keys.None && other.Primary == definition.Primary)
+                    other.Primary = Keys.None;
+
+                if (definition.Primary != Keys.None && other.Secondary == definition.Primary)
+                    other.Secondary = Keys.None;
+
+                if (definition.Secondary != Keys.None && other.Primary == definition.Secondary)
+                    other.Primary = Keys.None;
+
+                if (definition.Secondary != Keys.None && other.Secondary == definition.Secondary)
+                    other.Secondary = Keys.None;
+            }
+        }
+
+        private static void NormalizeConflicts()
+        {
+            for (var index = _all.Count - 1; index >= 0; index--)
+            {
+                var definition = _all[index];
+
+                for (var previous = 0; previous < index; previous++)
+                {
+                    var other = _all[previous];
+
+                    if (definition.Primary != Keys.None && other.Primary == definition.Primary)
+                        other.Primary = Keys.None;
+
+                    if (definition.Primary != Keys.None && other.Secondary == definition.Primary)
+                        other.Secondary = Keys.None;
+
+                    if (definition.Secondary != Keys.None && other.Primary == definition.Secondary)
+                        other.Primary = Keys.None;
+
+                    if (definition.Secondary != Keys.None && other.Secondary == definition.Secondary)
+                        other.Secondary = Keys.None;
+                }
+            }
         }
 
         private static void Assign(HotkeyDefinition target, bool primary, Keys key)

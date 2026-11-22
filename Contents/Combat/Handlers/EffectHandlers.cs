@@ -17,7 +17,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (host is not Player player)
                 return;
 
-            context.Append(player.IsGoo()
+            context.AppendLog(player.IsGoo()
 
                 ? "Combat.Effect.LustStones.GooRound".Localized()
 
@@ -31,7 +31,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             host.HealthChange(-3);
 
-            context.Write("Combat.Effect.Sandstorm.Round".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Effect.Sandstorm.Round".Localized());
 
             if (Random.Shared.Next(3) == 0)
                 host.CreateStatusEffect(StatusEffectIds.Blind, 1, 0, 0, 0);
@@ -42,7 +42,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             host.HealthChange(-(3 + status.Values[1]));
 
-            context.Write("Combat.Effect.Poison.Round".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Effect.Poison.Round".Localized());
         }
 
         [Register("coc:effect_acid_slap_round")]
@@ -52,7 +52,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             host.HealthChange(-damage);
 
-            context.Write("Combat.Effect.AcidSlap.Round".Localized((int)damage));
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Effect.AcidSlap.Round".Localized((int)damage));
         }
 
         [Register("coc:effect_temporary_heat_round")]
@@ -67,13 +67,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             host.HealthChange(-bleed);
 
-            context.Write("Combat.Bleed.Player".Localized(bleed));
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Bleed.Player".Localized(bleed));
         }
 
         [Register("coc:effect_bleed_expire")]
         public static void BleedExpire(CombatContext context, Creature host, StatusEffect status) =>
 
-            context.Write("Combat.Bleed.PlayerStopped".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Bleed.PlayerStopped".Localized());
 
         [Register("coc:effect_scorpion_venom_round")]
         public static void ScorpionVenomRound(CombatContext context, Creature host, StatusEffect status)
@@ -81,7 +81,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!host.HasPerk(PerkIds.Medicine) || context.Random.Next(100) >= 15)
                 return;
 
-            context.Write("Combat.Scorpion.Venom.Cleansed".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Scorpion.Venom.Cleansed".Localized());
 
             host.RemoveStatusEffect(status.Id);
         }

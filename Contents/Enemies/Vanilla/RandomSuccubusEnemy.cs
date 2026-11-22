@@ -433,7 +433,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!player.HasStatusEffect(StatusEffectIds.Grappled))
                 return;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             var totalStrength = 0f;
 
@@ -451,7 +451,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (escape)
             {
-                context.Append(Special == "LiddelliumHL"
+                context.AppendLog(Special == "LiddelliumHL"
 
                     ? "Combat.RandomSuccubus.Struggle.YouOvercomeThe".Localized()
 
@@ -463,7 +463,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     grappler.RemoveStatusEffect(Grappling);
             }
             else
-                context.Append(Special == "LiddelliumHL"
+                context.AppendLog(Special == "LiddelliumHL"
 
                     ? "Combat.RandomSuccubus.Struggle.YouStruggleTo".Localized()
 
@@ -476,7 +476,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (player.HasStatusEffect(StatusEffectIds.Grappled))
             {
-                context.Append("Combat.RandomSuccubus.Grapple.The0Joins".Localized(ShortName));
+                context.AppendLog("Combat.RandomSuccubus.Grapple.The0Joins".Localized(ShortName));
 
                 player.CreateOrFindStatusEffect(StatusEffectIds.Grappled).Values[1] += 1;
 
@@ -485,25 +485,25 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 return;
             }
 
-            context.Append("Combat.RandomSuccubus.Grapple.The0Charges".Localized(ShortName, IsMale() ? "Common.Text.His".Localized() : "Common.Text.Her".Localized()));
+            context.AppendLog("Combat.RandomSuccubus.Grapple.The0Charges".Localized(ShortName, IsMale() ? "Common.Text.His".Localized() : "Common.Text.Her".Localized()));
 
             if (player.Speed + context.Random.Next(100) < Speed + context.Random.Next(100))
             {
-                context.Append("Combat.RandomSuccubus.Grapple.ZeroTacklesYou".Localized(IsMale() ? "Common.Text.He".Localized() : "Common.Text.She".Localized(), IsMale() ? "Common.Text.His".Localized() : "Common.Text.Her".Localized()));
+                context.AppendLog("Combat.RandomSuccubus.Grapple.ZeroTacklesYou".Localized(IsMale() ? "Common.Text.He".Localized() : "Common.Text.She".Localized(), IsMale() ? "Common.Text.His".Localized() : "Common.Text.Her".Localized()));
 
                 if (player.Strength + context.Random.Next(100) < Strength + context.Random.Next(100))
                 {
-                    context.Append("Combat.RandomSuccubus.Grapple.ZeroHasYou".Localized(IsMale() ? "Common.Text.He".Localized() : "Common.Text.She".Localized(), IsMale() ? "Common.Text.His".Localized() : "Common.Text.Her".Localized()));
+                    context.AppendLog("Combat.RandomSuccubus.Grapple.ZeroHasYou".Localized(IsMale() ? "Common.Text.He".Localized() : "Common.Text.She".Localized(), IsMale() ? "Common.Text.His".Localized() : "Common.Text.Her".Localized()));
 
                     player.CreateOrFindStatusEffect(StatusEffectIds.Grappled).Values[1] += 1;
 
                     CreateStatusEffect(Grappling, 0, 0, 0, 0);
                 }
                 else
-                    context.Append("Combat.RandomSuccubus.Grapple.ThankfullyYouManage".Localized(IsMale() ? "Common.Text.Him".Localized() : "Common.Text.Her".Localized()));
+                    context.AppendLog("Combat.RandomSuccubus.Grapple.ThankfullyYouManage".Localized(IsMale() ? "Common.Text.Him".Localized() : "Common.Text.Her".Localized()));
             }
             else
-                context.Append("Combat.RandomSuccubus.Grapple.HoweverYourSpeed".Localized(IsMale() ? "Common.Text.He".Localized() : "Common.Text.She".Localized()));
+                context.AppendLog("Combat.RandomSuccubus.Grapple.HoweverYourSpeed".Localized(IsMale() ? "Common.Text.He".Localized() : "Common.Text.She".Localized()));
         }
 
         public void GrappleTease(CombatContext context)
@@ -511,21 +511,21 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             var player = context.Player;
 
             if (!IsMale() && Body.Get<TailPart>().Id != BodyPartTypes.None)
-                context.Append("Combat.RandomSuccubus.GrappleTease.HerTailWriggles".Localized());
+                context.AppendLog("Combat.RandomSuccubus.GrappleTease.HerTailWriggles".Localized());
 
             var lust = (int)((5 + context.Random.Next(6))
 
                 * ((player.Sensitivity + player.Corruption + player.Libido) / 100));
 
             if (lust > 10)
-                context.Append("Combat.RandomSuccubus.GrappleTease.ThisLewdEmbrace".Localized());
+                context.AppendLog("Combat.RandomSuccubus.GrappleTease.ThisLewdEmbrace".Localized());
 
             player.TakeLustDamage(lust, true);
         }
 
         public void HlGrapple(CombatContext context)
         {
-            context.Append("Combat.RandomSuccubus.HlGrapple.TheSuccubusDashes".Localized());
+            context.AppendLog("Combat.RandomSuccubus.HlGrapple.TheSuccubusDashes".Localized());
 
             CreateStatusEffect(Grappling, 0, 0, 0, 0);
 
@@ -550,7 +550,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     return;
 
                 case 2:
-                    context.Append("Combat.RandomSuccubus.HlGrappleTease.StillFirmlyGrabbed".Localized());
+                    context.AppendLog("Combat.RandomSuccubus.HlGrappleTease.StillFirmlyGrabbed".Localized());
 
                     player.TakeLustDamage(lust, true);
 
@@ -560,7 +560,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     return;
 
                 case 4:
-                    context.Append("Combat.RandomSuccubus.HlGrappleTease.TheSuccubusLays".Localized());
+                    context.AppendLog("Combat.RandomSuccubus.HlGrappleTease.TheSuccubusLays".Localized());
 
                     player.TakeLustDamage(lust + 5, true);
 
@@ -570,7 +570,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                     return;
 
                 case 6:
-                    context.Append("Combat.RandomSuccubus.HlGrappleTease.LargeBatLike".Localized());
+                    context.AppendLog("Combat.RandomSuccubus.HlGrappleTease.LargeBatLike".Localized());
 
                     player.TakeLustDamage(lust + 10, true);
 

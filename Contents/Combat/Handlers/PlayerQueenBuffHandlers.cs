@@ -55,11 +55,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             CombatCalculator.AddCombatBuff(player, GameStats.Speed, parasites, "ParasiteQueen", StatusEffectIds.ParasiteQueen);
 
-            context.Append("Combat.Special.ParasiteQueen.Text1".Localized());
+            context.AppendLog("Combat.Special.ParasiteQueen.Text1".Localized());
 
-            context.Append("Combat.Special.ParasiteQueen.Text2".Localized());
+            context.AppendLog("Combat.Special.ParasiteQueen.Text2".Localized());
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
 
             player.AddStatusValue(StatusEffectIds.ParasiteEel, 0, -1);
         }
@@ -75,9 +75,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             CombatCalculator.AddCombatBuff(player, GameStats.Intelligence, parasites, "NephilaQueen", StatusEffectIds.NephilaQueen);
 
-            context.Append("Combat.Special.ParasiteQueen.Text1".Localized());
+            context.AppendLog("Combat.Special.ParasiteQueen.Text1".Localized());
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
 
             // 原版这里误扣 ParasiteEel；C# 修正为扣减 Nephila 寄生虫层数
             player.AddStatusValue(StatusEffectIds.ParasiteNephila, 0, -1);

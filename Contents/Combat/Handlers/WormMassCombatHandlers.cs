@@ -34,12 +34,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.WormMass.WormAttack.TheWormColony".Localized());
+                context.AppendLog("Combat.WormMass.WormAttack.TheWormColony".Localized());
 
                 return;
             }
 
-            context.Append("Combat.WormMass.WormAttack.TheWormColony2".Localized());
+            context.AppendLog("Combat.WormMass.WormAttack.TheWormColony2".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack);
 
@@ -56,7 +56,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Random.Next(2) == 0)
             {
-                context.Append((player.LustPercent < 50
+                context.AppendLog((player.LustPercent < 50
 
                     ? "Combat.WormMass.WormsEntice.TheWormColony"
 
@@ -67,25 +67,25 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (player.LustPercent < 50)
             {
-                context.Append("Combat.WormMass.WormsEntice.TheWormColony3".Localized());
+                context.AppendLog("Combat.WormMass.WormsEntice.TheWormColony3".Localized());
 
                 player.TakeLustDamage(10 + player.Libido / 20f + player.Corruption / 20f);
 
                 return;
             }
 
-            context.Append("Combat.WormMass.WormsEntice.TheWormColony4".Localized());
+            context.AppendLog("Combat.WormMass.WormsEntice.TheWormColony4".Localized());
 
             if (player.HasStatusEffect(InfestAttempted))
             {
-                context.Append("Combat.WormMass.WormsEntice.StruggleAsYou".Localized());
+                context.AppendLog("Combat.WormMass.WormsEntice.StruggleAsYou".Localized());
 
                 SceneInstance<WormsScene>.Get().Infest1();
 
                 return;
             }
 
-            context.Append("Combat.WormMass.WormsEntice.YouStruggleWildly".Localized());
+            context.AppendLog("Combat.WormMass.WormsEntice.YouStruggleWildly".Localized());
 
             player.CreateStatusEffect(InfestAttempted);
         }

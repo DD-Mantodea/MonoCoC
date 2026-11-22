@@ -29,7 +29,11 @@ namespace MonoCoC.Assets.ContentManagers
 
                 Format = ParseFormat((string)root["format"]),
 
-                Visible = (bool)root["visible"]
+                Visible = (bool)root["visible"],
+
+                Group = root.TryGetValue("group", out var group) ? group.ToString().Trim('"') : "",
+
+                Order = root.TryGetValue("order", out var order) ? (int)order : 0
             };
 
             entries[id.ToString()] = definition;

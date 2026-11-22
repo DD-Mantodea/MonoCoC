@@ -103,14 +103,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 CoC.Instance.Flags.Get(GameFlagIds.TimesPcDefeatedVala) + 1);
 
-            CombatController.Instance?.Context.Append("Dungeons.Vala.Victory".Localized());
+            CombatController.Instance?.Context.AppendLog("Dungeons.Vala.Victory".Localized());
 
             return false;
         }
 
         public override bool Won(bool hpVictory)
         {
-            CombatController.Instance?.Context.Append("Dungeons.Vala.Defeat".Localized());
+            CombatController.Instance?.Context.AppendLog("Dungeons.Vala.Defeat".Localized());
 
             return false;
         }
@@ -120,7 +120,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (!HasStatusEffect(StatusEffectIds.Vala))
             {
-                context.Append("Scenes.Vala.ValaCombatDialogue.SlutsServeMasters".Localized());
+                context.AppendLog("Scenes.Vala.ValaCombatDialogue.SlutsServeMasters".Localized());
 
                 CreateStatusEffect(StatusEffectIds.Vala, 0, 0, 0, 0);
 
@@ -131,7 +131,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             var stage = (int)StatusEffectValue(StatusEffectIds.Vala, 0);
 
-            context.Append((stage switch
+            context.AppendLog((stage switch
             {
                 1 => "Scenes.Vala.ValaCombatDialogue.NotAMaster",
 

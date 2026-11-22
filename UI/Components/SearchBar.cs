@@ -1,13 +1,17 @@
-﻿using Microsoft.Xna.Framework;
+using Hjson;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Extensions;
 using MonoCoC.UI.Common;
+using MonoCoC.UI.Data;
+using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace MonoCoC.UI.Components
 {
-    public class SearchBar : Container
+    public class SearchBar : Container, IFromHjson<SearchBar>
     {
         private readonly Label _hint;
 
@@ -15,7 +19,7 @@ namespace MonoCoC.UI.Components
 
         public SearchBar(Action<string> onChanged, string hint)
         {
-            BackgroundColor = UIComponentStyles.SearchBar.Background;
+            BackgroundColor = UIParseUtils.ColorOf("#EEE4CDFF");
 
             CanHit = true;
 
@@ -31,11 +35,11 @@ namespace MonoCoC.UI.Components
                 .LayoutType(LayoutType.Relative)
                 .Of(this);
 
-            _box.TextColor = UIComponentStyles.SearchBar.Text;
+            _box.TextColor = UIParseUtils.ColorOf("#281E14FF");
 
             _box.ShowBorder = false;
 
-            _box.Cursor = new Cursor(UIComponentStyles.SearchBar.Text, UIComponentStyles.TextBox.Selection)
+            _box.Cursor = new Cursor(UIParseUtils.ColorOf("#281E14FF"), UIParseUtils.ColorOf("#31405172"))
             {
                 TextBox = _box
             };
@@ -50,7 +54,7 @@ namespace MonoCoC.UI.Components
                 .LayoutType(LayoutType.Relative)
                 .Of(this);
 
-            _hint.TextColor = UIComponentStyles.SearchBar.Hint;
+            _hint.TextColor = UIParseUtils.ColorOf("#7D694EFF");
 
             _box.OnTextChanged = text =>
             {
@@ -71,7 +75,14 @@ namespace MonoCoC.UI.Components
         {
             base.DrawSelf(spriteBatch, gameTime);
 
-            spriteBatch.DrawBorder(Rectangle, UIComponentStyles.SearchBar.BorderThickness, UIComponentStyles.SearchBar.Border);
+            spriteBatch.DrawBorder(Rectangle, 1, UIParseUtils.ColorOf("#5C4126FF"));
         }
+        public static string TypeId => "coc:search_bar";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext context) =>
+            new SearchBar(_ => { }, node.Str("hint"));
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<SearchBar>();
     }
 }

@@ -64,7 +64,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 return;
             }
 
-            context.Append("Combat.Sirius.OutputAttack.YouMisjudgeHis".Localized("#ff0000", (int)damage));
+            context.AppendLog("Combat.Sirius.OutputAttack.YouMisjudgeHis".Localized("#ff0000", (int)damage));
         }
 
         public override void Configure(EnemyDefinition definition)

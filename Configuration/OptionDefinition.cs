@@ -33,7 +33,6 @@ namespace MonoCoC.Configuration
 
         public string Source = "";
 
-        // 控件覆盖（例如 language 用 dropdown 而不是 switcher）。
         public string Control = "";
 
         public bool OverridesLabel;
@@ -42,7 +41,6 @@ namespace MonoCoC.Configuration
 
         public List<OptionValueDefinition> Values = [];
 
-        // 选项的子页定义（数据驱动）：kind/title/message/rows 等，见 OptionsView.RenderSubPage。
         public JsonObject? SubPage;
     }
 
@@ -58,10 +56,8 @@ namespace MonoCoC.Configuration
 
         public bool Global;
 
-        // 面板类型（空 = 普通设置页；controls = 键位绑定页，无 settings）。
         public string Kind = "";
 
-        // 标签顺序；未声明时按文件加载顺序 × 10。
         public int Order;
 
         public List<OptionDefinition> Settings = [];

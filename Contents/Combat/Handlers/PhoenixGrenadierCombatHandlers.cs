@@ -8,7 +8,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:phoenix_grenadier_phoenix_platoon_lustbang_two")]
         public static void Lustbang(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.PhoenixGrenadierLustbang.Text".Localized());
+            context.AppendLog("Combat.Ability.PhoenixGrenadierLustbang.Text".Localized());
 
             context.Player.TakeLustDamage(23);
         }
@@ -16,7 +16,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:phoenix_grenadier_attack")]
         public static void Attack(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Ability.PhoenixGrenadierAttack.Text".Localized());
+            context.AppendLog("Combat.Ability.PhoenixGrenadierAttack.Text".Localized());
 
             CombatController.Instance!.Resolver.EnemyBasicAttack();
         }

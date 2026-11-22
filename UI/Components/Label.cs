@@ -1,4 +1,4 @@
-﻿using FontStashSharp;
+using FontStashSharp;
 using FontStashSharp.RichText;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -7,6 +7,9 @@ using MonoCoC.UI.Framework;
 using System;
 using System.Linq;
 
+using Hjson;
+using MonoCoC.Extensions;
+using System.Runtime.CompilerServices;
 namespace MonoCoC.UI.Components
 {
     public enum TextVerticalAlignment
@@ -18,8 +21,7 @@ namespace MonoCoC.UI.Components
         Bottom
     }
 
-    public class Label : Component
-    {
+    public class Label : Component, IFromHjson<Label> {
         public RichTextLayout RichTextLayout;
 
         public TextHorizontalAlignment HorizontalAlignment = TextHorizontalAlignment.Left;
@@ -209,5 +211,57 @@ namespace MonoCoC.UI.Components
 
             return this;
         }
-    }
+    
+        public static string TypeId => "coc:label";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext services)
+        {
+            var label = new Label(UIFonts.Resolve(node, "coc:menu"));
+
+            var labelBinding = UIParseUtils.ReadBinding(node, "text");
+
+            if (labelBinding is not null)
+                label.BindText(labelBinding);
+            else
+                label.Text(UILocalizedText.Resolve(node, "text"));
+
+            label.TextColor = UIParseUtils.ColorOf(node.Str("textColor", "#000000"));
+
+            if (node.TryGetValue("wrapWidth", out var wrap))
+                label.WrapWidth(UIParseUtils.Int(wrap));
+            else if (node.TryGetValue("width", out var labelWidth))
+                label.WrapWidth(UIParseUtils.Int(labelWidth));
+
+            if (node.TryGetValue("lineSpacing", out var spacing))
+                label.LineSpacing(UIParseUtils.Int(spacing));
+
+            var textAlign = node.Str("textHorizontalAlign", node.Str("textHAlign", node.Str("textAlign")));
+
+            label.Alignment(textAlign.Trim().ToLowerInvariant() switch
+            {
+                "center" => TextHorizontalAlignment.Center,
+                "right" => TextHorizontalAlignment.Right,
+                "left" or "" => TextHorizontalAlignment.Left,
+                _ => UIParseUtils.ReportInvalidTextHorizontal(textAlign)
+            });
+
+            var textVertical = node.Str("textVerticalAlign", node.Str("textVAlign"));
+
+            label.VerticalAlign(textVertical.Trim().ToLowerInvariant() switch
+            {
+                "center" => TextVerticalAlignment.Center,
+                "bottom" => TextVerticalAlignment.Bottom,
+                "top" or "" => TextVerticalAlignment.Top,
+                _ => UIParseUtils.ReportInvalidTextVertical(textVertical)
+            });
+
+            label.AutoSize = node.Bool("autoSize", false);
+
+            return label;
+        }
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<Label>();
+    
+}
 }

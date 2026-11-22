@@ -278,7 +278,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla.Cabin
 
             AddButton(3, "Common.Button.Storage".Localized(),
 
-                () => StorageScene.StorageMenu(), "Scenes.Cabin.Hint.Storage".Localized());
+                () => Go<StorageScene>(), "Scenes.Cabin.Hint.Storage".Localized());
 
             AddButton(4, "Common.Button.Furniture".Localized(), () => Go<CabinProgressScene>(),
 

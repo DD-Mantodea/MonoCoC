@@ -1,0 +1,112 @@
+{
+  require: ["GlobalStyles"]
+  id: "MenuBarView"
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        sizeType: "fill"
+        backgroundColor: "#00000088"
+        canHit: true
+      }
+      {
+        type: "coc:panel"
+        x: 500
+        y: 235
+        width: 600
+        height: 430
+        backgroundColor: "#F2E5C7FF"
+        borderColor: "#6E5638FF"
+        borderThickness: 2
+      }
+      {
+        type: "coc:label"
+        x: 512
+        y: 265
+        width: 576
+        height: 40
+        text: "Menu"
+        font: { id: "coc:menu", size: 32 }
+        textColor: "#35291FFF"
+        textHorizontalAlign: "center"
+        canHit: false
+      }
+      {
+        type: "coc:panel"
+        x: 662
+        y: 307
+        width: 276
+        height: 1
+        backgroundColor: "#C9B99AFF"
+        canHit: false
+      }
+      {
+        type: "coc:button"
+        style: "MenuRowButton"
+        x: 612
+        y: 329
+        width: 376
+        height: 48
+        icon: "Icons/menu_save.svg"
+        label: { key: "MenuBar.SaveLoad" }
+        onClick: "menu.save_load"
+      }
+      {
+        type: "coc:button"
+        style: "MenuRowButton"
+        x: 612
+        y: 383
+        width: 376
+        height: 48
+        icon: "Icons/menu_options.svg"
+        label: { key: "MenuBar.Options" }
+        onClick: "menu.options"
+      }
+      {
+        type: "coc:button"
+        style: "MenuRowButton"
+        x: 612
+        y: 437
+        width: 376
+        height: 48
+        icon: "Icons/menu_guide.svg"
+        label: { key: "MenuBar.Guide" }
+        onClick: "menu.guide"
+      }
+      {
+        type: "coc:button"
+        style: "MenuRowButton"
+        x: 612
+        y: 491
+        width: 376
+        height: 48
+        icon: "Icons/menu_credits.svg"
+        label: { key: "MenuBar.Credits" }
+        onClick: "menu.credits"
+      }
+      {
+        type: "coc:panel"
+        x: 662
+        y: 547
+        width: 276
+        height: 1
+        backgroundColor: "#C9B99AFF"
+        canHit: false
+      }
+      {
+        type: "coc:button"
+        style: "MenuRowButton"
+        x: 612
+        y: 563
+        width: 376
+        height: 48
+        icon: "Icons/menu_main.svg"
+        label: { key: "MenuBar.MainMenu" }
+        onClick: "menu.main_menu"
+      }
+    ]
+  }
+}

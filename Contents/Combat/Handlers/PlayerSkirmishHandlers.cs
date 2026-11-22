@@ -19,7 +19,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Special.Skirmish.Intro".Localized());
+            context.AppendLog("Combat.Special.Skirmish.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -36,19 +36,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Ranged);
 
-                context.Append("Combat.Special.Skirmish.Damage".Localized((int)damage));
+                context.AppendLog("Combat.Special.Skirmish.Damage".Localized((int)damage));
             }
 
             if (enemy.Distance != CombatDistance.Distant)
                 if (context.Random.NextDouble() * 100 < player.MovementChance(enemy)
                     || !enemy.ShouldMove(CombatDistance.Melee, true))
                 {
-                    context.Append("Combat.Special.Skirmish.Distance".Localized());
+                    context.AppendLog("Combat.Special.Skirmish.Distance".Localized());
 
                     CombatRangeData.MovePlayerDistant(enemy);
                 }
                 else
-                    context.Append("Combat.Special.Skirmish.CloseIn".Localized());
+                    context.AppendLog("Combat.Special.Skirmish.CloseIn".Localized());
         }
     }
 }

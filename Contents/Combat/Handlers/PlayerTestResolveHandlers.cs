@@ -20,9 +20,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:special_test_resolve")]
         public static void TestResolve(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Special.TestResolve.Intro".Localized());
+            context.AppendLog("Combat.Special.TestResolve.Intro".Localized());
 
-            context.Append("Combat.Special.TestResolve.Testing".Localized());
+            context.AppendLog("Combat.Special.TestResolve.Testing".Localized());
 
             Scenes.SceneInstance<Dungeons.ManorScene>.Get().TestResolve(false);
         }

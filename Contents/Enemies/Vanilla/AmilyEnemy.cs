@@ -106,7 +106,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 _teasedWhileConcentrated = false;
 
-                context.WriteAction("Combat.Amily.Teased.AmilyFlushesHotly".Localized());
+                context.Log.Add("Combat.Amily.Teased.AmilyFlushesHotly".Localized());
 
                 return;
             }
@@ -123,7 +123,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 && context.Player.StatusEffectValue(StatusEffectIds.CounterAB, 0) != 1)
             {
-                context.Append("Combat.Amily.BeforeAttacked.AmilyEasilyGlides".Localized());
+                context.AppendLog("Combat.Amily.BeforeAttacked.AmilyEasilyGlides".Localized());
 
                 return false;
             }

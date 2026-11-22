@@ -40,7 +40,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             CombatRangeData.CloseDistance(enemy);
 
-            context.Append(textKey.Localized());
+            context.AppendLog(textKey.Localized());
 
             var originalArmor = player.ArmorDefense;
 

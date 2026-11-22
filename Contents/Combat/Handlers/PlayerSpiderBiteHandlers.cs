@@ -41,14 +41,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasPerk(PerkIds.PoisonImmune))
             {
-                context.Append("Combat.Special.SpiderBite.PoisonImmune".Localized());
+                context.AppendLog("Combat.Special.SpiderBite.PoisonImmune".Localized());
 
                 return;
             }
 
             if (enemy.HasPerk(PerkIds.BiteImmune))
             {
-                context.Append("Combat.Special.SpiderBite.BiteImmune".Localized());
+                context.AppendLog("Combat.Special.SpiderBite.BiteImmune".Localized());
 
                 player.HealthChange(-5);
 
@@ -63,25 +63,25 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (chance <= context.Random.Next(100))
             {
-                context.Append("Combat.Special.SpiderBite.Fail".Localized());
+                context.AppendLog("Combat.Special.SpiderBite.Fail".Localized());
 
                 return;
             }
 
-            context.Append(enemy.Plural
+            context.AppendLog(enemy.Plural
 
                 ? "Combat.Special.SpiderBite.HitPlural".Localized()
 
                 : "Combat.Special.SpiderBite.Hit".Localized());
 
             if (enemy.LustVulnerability == 0)
-                context.Append("Combat.Special.SpiderBite.NoEffect".Localized());
+                context.AppendLog("Combat.Special.SpiderBite.NoEffect".Localized());
             else
             {
                 if (enemy.Plural)
-                    context.Append("Combat.Special.SpiderBite.FlushPlural".Localized());
+                    context.AppendLog("Combat.Special.SpiderBite.FlushPlural".Localized());
                 else
-                    context.Append((enemy.Gender == Gender.Female
+                    context.AppendLog((enemy.Gender == Gender.Female
 
                         ? "Combat.Special.SpiderBite.FlushFemale"
 
@@ -95,7 +95,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 enemy.Lust = Math.Min(enemy.MaxLust, enemy.Lust + lustDamage);
             }
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
         }
     }
 }

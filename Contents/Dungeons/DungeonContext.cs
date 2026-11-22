@@ -3,11 +3,13 @@ using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.Scenes;
 using MonoCoC.Contents.Scenes.Vanilla;
 using MonoCoC.Extensions;
+using MonoCoC.UI.Components.Views;
+using MonoCoC.UI.Data;
 
 namespace MonoCoC.Contents.Dungeons
 {
 
-    public class DungeonContext
+    public class DungeonContext : Context<DungeonView>
     {
         public DungeonDefinition Definition = null!;
 
@@ -101,9 +103,12 @@ namespace MonoCoC.Contents.Dungeons
         {
             DungeonSession.End();
 
-            UI.Components.Views.GameView.Instance?.DungeonMap?.Hide();
+            if (UI.Components.Views.GameView.Current is UI.Components.Views.DungeonView view)
+            {
+                view.DungeonMap?.Hide();
 
-            UI.Components.Views.GameView.Instance?.DungeonMiniMap?.Hide();
+                view.DungeonMiniMap?.Hide();
+            }
 
             Scene.Go<CampScene>();
         }

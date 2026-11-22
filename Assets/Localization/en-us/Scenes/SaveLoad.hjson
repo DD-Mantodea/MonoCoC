@@ -1,5 +1,6 @@
 {
   "Scenes.SaveLoad.Delete": "Delete"
+  "Scenes.SaveLoad.NotesLabel": "Save Note"
   "Scenes.SaveLoad.Empty": "No saves yet."
   "Scenes.SaveLoad.Load": "Load"
   "Scenes.SaveLoad.LoadFailed": "This save could not be loaded."
@@ -22,6 +23,8 @@
   "Scenes.SaveLoad.Button.LoadFile": "Load File",
   "Scenes.SaveLoad.NotesHint": "Leave the notes box at the bottom blank if you don't wish to change notes.",
   "Scenes.SaveLoad.Button.Import": "Legacy",
+"Scenes.SaveLoad.Button.ImportFile": "Import",
+"Scenes.SaveLoad.Button.ExportFile": "Export",
   "Scenes.SaveLoad.ImportFailed": "This original save could not be imported.",
   "Scenes.SaveLoad.NoLegacySaves": "No legacy saves found. Put .sol/.coc files into: [b:{0}]",
   "Scenes.SaveLoad.QuickSaveConfirm": "You are about to quicksave the current game to [b:{0}][pg]Are you sure?",

@@ -26,7 +26,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Special.Backstab.Start".Localized());
+            context.AppendLog("Combat.Special.Backstab.Start".Localized());
 
             // Values[1] 记录施放时的 HP，用于判断本回合是否被命中（近似原版 BackstabBuff 的 value1 标记）
             player.CreateStatusEffect(StatusEffectIds.Backstab, 0, player.Health, 0, 0, 1);
@@ -41,12 +41,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (status.Values[1] < player.Health)
             {
-                context.Append("Combat.Special.Backstab.Fail".Localized());
+                context.AppendLog("Combat.Special.Backstab.Fail".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Special.Backstab.Success".Localized());
+            context.AppendLog("Combat.Special.Backstab.Success".Localized());
 
             var damage = CombatCalculator.PhysicalDamage(context, player, enemy) * 1.5f;
 

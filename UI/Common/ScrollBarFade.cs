@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using MonoCoC.UI.Common;
 using MonoCoC.UI.Framework;
 using System;
@@ -33,8 +33,8 @@ namespace MonoCoC.UI.Common
             var reveal = needed && (Pinned || _flashRemaining > 0 || NearRightEdge(area));
 
             var speed = reveal
-                ? UIComponentStyles.ScrollBar.FadeInSpeed
-                : UIComponentStyles.ScrollBar.FadeOutSpeed;
+                ? 8f
+                : 4f;
 
             _alpha = reveal
                 ? Math.Min(1f, _alpha + speed * delta)
@@ -50,7 +50,7 @@ namespace MonoCoC.UI.Common
         {
             var mouse = UserInput.GetMousePos();
 
-            var distance = Math.Max(8, UIComponentStyles.ScrollBar.RevealDistance);
+            var distance = Math.Max(8, 28);
 
             return mouse.Y >= area.Y && mouse.Y <= area.Bottom &&
                    mouse.X >= area.Right - distance && mouse.X <= area.Right + distance;

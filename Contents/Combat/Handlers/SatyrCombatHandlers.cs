@@ -17,11 +17,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Satyr.Attack.Lead".Localized());
+            context.AppendLog("Combat.Satyr.Attack.Lead".Localized());
 
             if (enemy.HasStatusEffect(StatusEffectIds.Blind) && context.Random.Next(3) < 1)
             {
-                context.Append("Combat.Satyr.Attack.Blind".Localized());
+                context.AppendLog("Combat.Satyr.Attack.Blind".Localized());
 
                 return;
             }
@@ -33,7 +33,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Satyr.Attack.Miss".Localized());
+                context.AppendLog("Combat.Satyr.Attack.Miss".Localized());
 
                 return;
             }
@@ -42,12 +42,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage > 0)
             {
-                context.Append("Combat.Satyr.Attack.Hit".Localized());
+                context.AppendLog("Combat.Satyr.Attack.Hit".Localized());
 
                 player.HealthChange(-damage);
             }
             else
-                context.Append("Combat.Satyr.Attack.Blocked".Localized());
+                context.AppendLog("Combat.Satyr.Attack.Blocked".Localized());
         }
 
         [Register("coc:satyr_bate")]
@@ -57,7 +57,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Satyr.Bate.Lead".Localized());
+            context.AppendLog("Combat.Satyr.Bate.Lead".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + player.Libido / 5 + 4);
 
@@ -71,11 +71,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Satyr.Charge.Lead".Localized());
+            context.AppendLog("Combat.Satyr.Charge.Lead".Localized());
 
             if (enemy.HasStatusEffect(StatusEffectIds.Blind) && context.Random.Next(3) < 1)
             {
-                context.Append("Combat.Satyr.Charge.Blind".Localized());
+                context.AppendLog("Combat.Satyr.Charge.Blind".Localized());
 
                 return;
             }
@@ -100,7 +100,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (dodgeKey != null)
             {
-                context.Append(dodgeKey.Localized());
+                context.AppendLog(dodgeKey.Localized());
 
                 enemy.HealthChange(-5);
 
@@ -111,15 +111,15 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage > 0)
             {
-                context.Append("Combat.Satyr.Charge.Hit".Localized());
+                context.AppendLog("Combat.Satyr.Charge.Hit".Localized());
 
                 if (player.Stun(0, 33))
-                    context.Append("Combat.Satyr.Charge.Stunned".Localized());
+                    context.AppendLog("Combat.Satyr.Charge.Stunned".Localized());
 
                 player.HealthChange(-damage);
             }
             else
-                context.Append("Combat.Satyr.Charge.Deflected".Localized());
+                context.AppendLog("Combat.Satyr.Charge.Deflected".Localized());
         }
 
         [Register("coc:satyr_bottle_chug")]
@@ -129,7 +129,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Satyr.BottleChug.Lead".Localized());
+            context.AppendLog("Combat.Satyr.BottleChug.Lead".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + player.Libido / 5);
 
@@ -143,11 +143,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Satyr.HighLust.Lead".Localized());
+            context.AppendLog("Combat.Satyr.HighLust.Lead".Localized());
 
             if (enemy.HasStatusEffect(StatusEffectIds.Blind) && context.Random.Next(3) < 1)
             {
-                context.Append("Combat.Satyr.HighLust.Blind".Localized());
+                context.AppendLog("Combat.Satyr.HighLust.Blind".Localized());
 
                 return;
             }
@@ -159,12 +159,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Satyr.HighLust.Dodged".Localized());
+                context.AppendLog("Combat.Satyr.HighLust.Dodged".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Satyr.HighLust.Hit".Localized());
+            context.AppendLog("Combat.Satyr.HighLust.Hit".Localized());
 
             enemy.Lust = Math.Max(0, enemy.Lust - 50);
 

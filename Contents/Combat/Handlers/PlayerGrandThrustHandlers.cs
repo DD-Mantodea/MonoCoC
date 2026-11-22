@@ -31,7 +31,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Special.GrandThrust.Intro".Localized());
+            context.AppendLog("Combat.Special.GrandThrust.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -43,10 +43,10 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.AttackFailed)
-                context.Append("Combat.Special.GrandThrust.Miss".Localized());
+                context.AppendLog("Combat.Special.GrandThrust.Miss".Localized());
             else
             {
-                context.Append("Combat.Special.GrandThrust.Hit".Localized());
+                context.AppendLog("Combat.Special.GrandThrust.Hit".Localized());
 
                 // 完全无视护甲：直接按力量+武器伤害计算，不再走 DamagePercent
                 var raw = (player.Strength + player.WeaponAttack

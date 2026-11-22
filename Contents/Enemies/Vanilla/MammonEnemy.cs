@@ -56,16 +56,16 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             var capitalA = Utils.Utils.CapitalizeFirstLetter(Article);
 
             if (lustDelta == 0)
-                context.WriteAction("Combat.Mammon.OutputDefaultTeaseReaction.OneDoesn".Localized(
+                context.Log.Add("Combat.Mammon.OutputDefaultTeaseReaction.OneDoesn".Localized(
                     capitalA, ShortName));
 
-            context.WriteAction("Combat.Mammon.OutputDefaultTeaseReaction.OneShows".Localized(
+            context.Log.Add("Combat.Mammon.OutputDefaultTeaseReaction.OneShows".Localized(
                 capitalA, ShortName));
         }
 
         public override bool HandleFear(CombatContext context)
         {
-            context.WriteAction("Combat.Mammon.HandleFear.Text".Localized());
+            context.Log.Add("Combat.Mammon.HandleFear.Text".Localized());
 
             RemoveStatusEffect(StatusEffectIds.Fear);
 
@@ -104,16 +104,16 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void Rewind(CombatContext context)
         {
-            context.Append("Combat.Mammon.Rewind.MammonBreathesDeeply".Localized());
+            context.AppendLog("Combat.Mammon.Rewind.MammonBreathesDeeply".Localized());
 
-            context.Append("Combat.Mammon.Rewind.ThenYouAlso".Localized());
+            context.AppendLog("Combat.Mammon.Rewind.ThenYouAlso".Localized());
 
             context.EndOfRoundOverride = () => Rewind2(context);
         }
 
         public void Rewind2(CombatContext context)
         {
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             var controller = CombatController.Instance!;
 

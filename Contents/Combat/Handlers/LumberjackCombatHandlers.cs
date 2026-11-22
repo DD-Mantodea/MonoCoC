@@ -13,7 +13,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var variant = context.Random.Next(2);
 
-            context.WriteAction((variant == 0
+            context.Log.Add((variant == 0
 
                 ? "Combat.Lumberjack.Chop1"
 
@@ -34,7 +34,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (result.Outcome == AvoidOutcome.Dodge)
             {
-                context.WriteAction((variant == 0
+                context.Log.Add((variant == 0
 
                     ? "Combat.Lumberjack.Chop1Miss"
 
@@ -45,7 +45,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (result.Outcome == AvoidOutcome.Block)
             {
-                context.WriteAction((variant == 0
+                context.Log.Add((variant == 0
 
                     ? "Combat.Lumberjack.Chop1Block"
 
@@ -58,7 +58,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             context.Player.HealthChange(-damage);
 
-            context.WriteAction((variant == 0
+            context.Log.Add((variant == 0
 
                 ? "Combat.Lumberjack.Chop1Hit"
 
@@ -68,13 +68,13 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:lumberjack_arouse")]
         public static void Arouse(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.WriteAction("Combat.Lumberjack.Arouse".Localized());
+            context.Log.Add("Combat.Lumberjack.Arouse".Localized());
 
             var lust = 10 + context.Random.Next(6);
 
             context.Player.Lust = Math.Min(context.Player.MaxLust, context.Player.Lust + lust);
 
-            context.WriteAction("Combat.Lumberjack.ArouseLust".Localized(lust));
+            context.Log.Add("Combat.Lumberjack.ArouseLust".Localized(lust));
         }
     }
 }

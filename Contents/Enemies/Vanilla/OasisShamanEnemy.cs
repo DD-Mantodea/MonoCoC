@@ -57,23 +57,23 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             // 速度被压到 1 以下：直接发呆，不行动
             if (Speed <= 1)
             {
-                context.Append("Scenes.Oasisshaman.PerformCombatAction.DazedFloatingDemon".Localized());
+                context.AppendLog("Scenes.Oasisshaman.PerformCombatAction.DazedFloatingDemon".Localized());
 
                 return true;
             }
 
             if (!HeardChant)
             {
-                context.Append("Scenes.Oasisshaman.PerformCombatAction.ChantSurpriseSquirm".Localized());
+                context.AppendLog("Scenes.Oasisshaman.PerformCombatAction.ChantSurpriseSquirm".Localized());
 
-                context.Append("Scenes.Oasisshaman.PerformCombatAction.VoiceHowDoingThat".Localized());
+                context.AppendLog("Scenes.Oasisshaman.PerformCombatAction.VoiceHowDoingThat".Localized());
 
                 HeardChant = true;
 
                 return true;
             }
 
-            context.Append("Scenes.Oasisshaman.PerformCombatAction.BeautyCloseYetFar".Localized());
+            context.AppendLog("Scenes.Oasisshaman.PerformCombatAction.BeautyCloseYetFar".Localized());
 
             return false;
         }

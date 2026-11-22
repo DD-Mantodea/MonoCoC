@@ -1,0 +1,196 @@
+{
+  require: ["GlobalStyles"]
+  id: "ImeCandidateBar"
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        part: "ime.panel"
+        x: 0
+        y: 0
+        width: 120
+        height: 54
+        canHit: false
+        backgroundColor: "#1C1C1CDD"
+        borderColor: "#555555FF"
+        borderThickness: 1
+        children: [
+          {
+            type: "coc:button"
+            part: "ime.candidate.0"
+            x: 8
+            y: 8
+            width: 60
+            height: 36
+            canHit: false
+            borderThickness: 0
+            backgroundColor: "#00000000"
+            font: { id: "coc:menu", size: 26 }
+            labelPadding: 0
+            fitLabel: false
+            textAlign: "left"
+            states: {
+              normal: { textColor: "#CFCFCFFF" }
+              selected: { backgroundColor: "#3C3C3CFF", textColor: "#FFFFFFFF" }
+            }
+          }
+          {
+            type: "coc:button"
+            part: "ime.candidate.1"
+            x: 8
+            y: 8
+            width: 60
+            height: 36
+            canHit: false
+            borderThickness: 0
+            backgroundColor: "#00000000"
+            font: { id: "coc:menu", size: 26 }
+            labelPadding: 0
+            fitLabel: false
+            textAlign: "left"
+            states: {
+              normal: { textColor: "#CFCFCFFF" }
+              selected: { backgroundColor: "#3C3C3CFF", textColor: "#FFFFFFFF" }
+            }
+          }
+          {
+            type: "coc:button"
+            part: "ime.candidate.2"
+            x: 8
+            y: 8
+            width: 60
+            height: 36
+            canHit: false
+            borderThickness: 0
+            backgroundColor: "#00000000"
+            font: { id: "coc:menu", size: 26 }
+            labelPadding: 0
+            fitLabel: false
+            textAlign: "left"
+            states: {
+              normal: { textColor: "#CFCFCFFF" }
+              selected: { backgroundColor: "#3C3C3CFF", textColor: "#FFFFFFFF" }
+            }
+          }
+          {
+            type: "coc:button"
+            part: "ime.candidate.3"
+            x: 8
+            y: 8
+            width: 60
+            height: 36
+            canHit: false
+            borderThickness: 0
+            backgroundColor: "#00000000"
+            font: { id: "coc:menu", size: 26 }
+            labelPadding: 0
+            fitLabel: false
+            textAlign: "left"
+            states: {
+              normal: { textColor: "#CFCFCFFF" }
+              selected: { backgroundColor: "#3C3C3CFF", textColor: "#FFFFFFFF" }
+            }
+          }
+          {
+            type: "coc:button"
+            part: "ime.candidate.4"
+            x: 8
+            y: 8
+            width: 60
+            height: 36
+            canHit: false
+            borderThickness: 0
+            backgroundColor: "#00000000"
+            font: { id: "coc:menu", size: 26 }
+            labelPadding: 0
+            fitLabel: false
+            textAlign: "left"
+            states: {
+              normal: { textColor: "#CFCFCFFF" }
+              selected: { backgroundColor: "#3C3C3CFF", textColor: "#FFFFFFFF" }
+            }
+          }
+          {
+            type: "coc:button"
+            part: "ime.candidate.5"
+            x: 8
+            y: 8
+            width: 60
+            height: 36
+            canHit: false
+            borderThickness: 0
+            backgroundColor: "#00000000"
+            font: { id: "coc:menu", size: 26 }
+            labelPadding: 0
+            fitLabel: false
+            textAlign: "left"
+            states: {
+              normal: { textColor: "#CFCFCFFF" }
+              selected: { backgroundColor: "#3C3C3CFF", textColor: "#FFFFFFFF" }
+            }
+          }
+          {
+            type: "coc:button"
+            part: "ime.candidate.6"
+            x: 8
+            y: 8
+            width: 60
+            height: 36
+            canHit: false
+            borderThickness: 0
+            backgroundColor: "#00000000"
+            font: { id: "coc:menu", size: 26 }
+            labelPadding: 0
+            fitLabel: false
+            textAlign: "left"
+            states: {
+              normal: { textColor: "#CFCFCFFF" }
+              selected: { backgroundColor: "#3C3C3CFF", textColor: "#FFFFFFFF" }
+            }
+          }
+          {
+            type: "coc:button"
+            part: "ime.candidate.7"
+            x: 8
+            y: 8
+            width: 60
+            height: 36
+            canHit: false
+            borderThickness: 0
+            backgroundColor: "#00000000"
+            font: { id: "coc:menu", size: 26 }
+            labelPadding: 0
+            fitLabel: false
+            textAlign: "left"
+            states: {
+              normal: { textColor: "#CFCFCFFF" }
+              selected: { backgroundColor: "#3C3C3CFF", textColor: "#FFFFFFFF" }
+            }
+          }
+          {
+            type: "coc:button"
+            part: "ime.candidate.8"
+            x: 8
+            y: 8
+            width: 60
+            height: 36
+            canHit: false
+            borderThickness: 0
+            backgroundColor: "#00000000"
+            font: { id: "coc:menu", size: 26 }
+            labelPadding: 0
+            fitLabel: false
+            textAlign: "left"
+            states: {
+              normal: { textColor: "#CFCFCFFF" }
+              selected: { backgroundColor: "#3C3C3CFF", textColor: "#FFFFFFFF" }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

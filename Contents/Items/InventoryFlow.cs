@@ -13,11 +13,18 @@ namespace MonoCoC.Contents.Items
 
         public static Action? _itemUsed;
 
+        private static MonoCoC.UI.Components.View? _returnView;
+
         public static void Open(Action? returnTo = null, Action? itemUsed = null)
         {
             MonoCoC.UI.Components.Combat.PlayerStats.HiddenByMenu = false;
 
-            MonoCoC.UI.Framework.UIManager.Instance?.Root.SwitchView(new MonoCoC.UI.Components.Views.InventoryView());
+            var root = MonoCoC.UI.Framework.UIManager.Instance?.Root;
+
+            if (root is not null && root.View is not MonoCoC.UI.Components.Views.InventoryScreen)
+                _returnView = root.View;
+
+            root?.SwitchView(new InventoryScreen());
 
             InventoryMenu(returnTo, itemUsed);
         }
@@ -235,7 +242,20 @@ namespace MonoCoC.Contents.Items
                 return;
             }
 
-            MonoCoC.UI.Framework.UIManager.Instance?.Root.SwitchView(new MonoCoC.UI.Components.Views.CampView());
+            var root = MonoCoC.UI.Framework.UIManager.Instance?.Root;
+
+            var returnView = _returnView;
+
+            _returnView = null;
+
+            if (returnView is not null && root is not null)
+            {
+                root.SwitchView(returnView);
+
+                return;
+            }
+
+            MonoCoC.UI.Components.Views.GameView.SwitchTo<CampView>();
         }
     }
 }

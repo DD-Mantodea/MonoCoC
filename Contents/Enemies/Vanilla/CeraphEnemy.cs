@@ -111,13 +111,13 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (!HasStatusEffect(StatusEffectIds.Uber))
             {
-                context.WriteAction(Random.Shared.Next(2) == 0
+                context.Log.Add(Random.Shared.Next(2) == 0
 
                     ? "Combat.Ceraph.UberStartA".Localized()
 
                     : "Combat.Ceraph.UberStartB".Localized());
 
-                context.Append("Combat.Ceraph.BuildingUp".Localized());
+                context.AppendLog("Combat.Ceraph.BuildingUp".Localized());
 
                 CreateStatusEffect(StatusEffectIds.Uber, 0, 0, 0, 0);
 
@@ -129,16 +129,16 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 AddStatusValue(StatusEffectIds.Uber, 1, 1);
 
-                context.WriteAction(Random.Shared.Next(2) == 0
+                context.Log.Add(Random.Shared.Next(2) == 0
 
                     ? "Combat.Ceraph.UberChargeA".Localized()
 
                     : "Combat.Ceraph.UberChargeB".Localized());
 
-                context.Append("Combat.Ceraph.AboutToUnleash".Localized());
+                context.AppendLog("Combat.Ceraph.AboutToUnleash".Localized());
 
                 if (context.Player.Intelligence > 50)
-                    context.Append("Combat.Ceraph.ShouldWait".Localized());
+                    context.AppendLog("Combat.Ceraph.ShouldWait".Localized());
 
                 return;
             }
@@ -148,12 +148,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (context.PlayerWaited)
             {
-                context.WriteAction("Combat.Ceraph.UberDodged".Localized());
+                context.Log.Add("Combat.Ceraph.UberDodged".Localized());
 
                 return;
             }
 
-            context.WriteAction("Combat.Ceraph.UberHit".Localized());
+            context.Log.Add("Combat.Ceraph.UberHit".Localized());
 
             // 原版 :44：未躲避直接满淫欲
             context.Player.Lust = context.Player.MaxLust;
@@ -166,11 +166,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (!player.HasStatusEffect(StatusEffectIds.Bound))
             {
-                context.WriteAction("Combat.Ceraph.WhipBind".Localized());
+                context.Log.Add("Combat.Ceraph.WhipBind".Localized());
 
                 if (SceneInstance<CeraphScene>.Get().HasBondage())
                 {
-                    context.Append("Combat.Ceraph.BondageTurnsYouOn".Localized());
+                    context.AppendLog("Combat.Ceraph.BondageTurnsYouOn".Localized());
 
                     player.Lust = Math.Min(player.MaxLust, player.Lust + 5);
                 }
@@ -182,15 +182,15 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (Random.Shared.Next(2) == 0)
             {
-                context.WriteAction("Combat.Ceraph.Cuddle".Localized());
+                context.Log.Add("Combat.Ceraph.Cuddle".Localized());
 
                 player.Lust = Math.Min(player.MaxLust, player.Lust + (int)(9 + player.Sensitivity / 10f));
             }
             else
             {
-                context.WriteAction("Combat.Ceraph.HotKisses".Localized());
+                context.Log.Add("Combat.Ceraph.HotKisses".Localized());
 
-                context.Append(player.Lust switch
+                context.AppendLog(player.Lust switch
                 {
                     < 33 => "Combat.Ceraph.KissLow".Localized(),
 
@@ -213,9 +213,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             // 原版 :138：淫欲 ≥ 75% 时用小高潮代替双击
             if (LustPercent >= 75)
             {
-                context.WriteAction("Combat.Ceraph.MiniCum".Localized());
+                context.Log.Add("Combat.Ceraph.MiniCum".Localized());
 
-                context.Append("Combat.Ceraph.MiniCumAfter".Localized());
+                context.AppendLog("Combat.Ceraph.MiniCumAfter".Localized());
 
                 // 原版 :145：+10 力量/韧性、+1 等级、+20 HP、淫欲归 33、XP +10
                 Level += 1;
@@ -241,7 +241,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 return;
             }
 
-            context.WriteAction("Combat.Ceraph.WhipDouble".Localized());
+            context.Log.Add("Combat.Ceraph.WhipDouble".Localized());
 
             CreateStatusEffect(StatusEffectIds.Attacks, 2, 0, 0, 0);
         }
@@ -254,31 +254,31 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!player.HasStatusEffect(StatusEffectIds.Bound))
                 return;
 
-            context.WriteAction("Combat.Ceraph.StruggleStart".Localized());
+            context.Log.Add("Combat.Ceraph.StruggleStart".Localized());
 
             if ((int)StatusEffectValue(StatusEffectIds.Bound, 1) - 1 <= 0)
             {
-                context.Append("Combat.Ceraph.StruggleFree".Localized());
+                context.AppendLog("Combat.Ceraph.StruggleFree".Localized());
 
                 if (SceneInstance<CeraphScene>.Get().HasBondage())
-                    context.Append("Combat.Ceraph.StruggleFreeBondage".Localized());
+                    context.AppendLog("Combat.Ceraph.StruggleFreeBondage".Localized());
 
                 player.RemoveStatusEffect(StatusEffectIds.Bound);
 
                 return;
             }
 
-            context.Append("Combat.Ceraph.StruggleFail".Localized());
+            context.AppendLog("Combat.Ceraph.StruggleFail".Localized());
 
             if (SceneInstance<CeraphScene>.Get().HasBondage())
-                context.Append("Combat.Ceraph.StruggleFailBondage".Localized());
+                context.AppendLog("Combat.Ceraph.StruggleFailBondage".Localized());
 
             player.AddStatusValue(StatusEffectIds.Bound, 1, -1);
 
             // 原版 :127：力量高的人挣脱更快
             if (player.Strength > 65 && Random.Shared.Next((int)player.Strength) > 45)
             {
-                context.Append("Combat.Ceraph.StruggleLoosen".Localized());
+                context.AppendLog("Combat.Ceraph.StruggleLoosen".Localized());
 
                 player.AddStatusValue(StatusEffectIds.Bound, 1, -1);
             }
@@ -295,11 +295,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!player.HasStatusEffect(StatusEffectIds.Bound))
                 return true;
 
-            context.WriteAction("Combat.Ceraph.WaitWhileBound".Localized());
+            context.Log.Add("Combat.Ceraph.WaitWhileBound".Localized());
 
             if (SceneInstance<CeraphScene>.Get().HasBondage())
             {
-                context.Append("Combat.Ceraph.WaitWhileBoundBondage".Localized());
+                context.AppendLog("Combat.Ceraph.WaitWhileBoundBondage".Localized());
 
                 player.Lust = Math.Min(player.MaxLust, player.Lust + 5);
             }

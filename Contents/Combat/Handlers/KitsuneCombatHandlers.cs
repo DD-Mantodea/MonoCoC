@@ -16,9 +16,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Kitsune.FoxFire.One".Localized());
+            context.Log.Add("Combat.Kitsune.FoxFire.One".Localized());
 
-            context.WriteAction("Combat.Kitsune.FoxFire.Two".Localized());
+            context.Log.Add("Combat.Kitsune.FoxFire.Two".Localized());
 
             player.HealthChange(-CombatCalculator.ReduceDamage(context, player, 5f + context.Random.Next(20)));
 
@@ -32,7 +32,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var select = context.Random.Next(3);
 
-            context.WriteAction(($"Combat.Kitsune.Tease.{select + 1}").Localized());
+            context.Log.Add(($"Combat.Kitsune.Tease.{select + 1}").Localized());
 
             AddLust(context, 5f + player.Sensitivity / 7f);
         }
@@ -47,9 +47,9 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Kitsune.Entwine.One".Localized());
+            context.Log.Add("Combat.Kitsune.Entwine.One".Localized());
 
-            context.WriteAction("Combat.Kitsune.Entwine.Two".Localized());
+            context.Log.Add("Combat.Kitsune.Entwine.Two".Localized());
 
             player.CreateOrFindStatusEffect(StatusEffectIds.PCTailTangle);
 
@@ -61,13 +61,13 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.Kitsune.Illusion.One".Localized());
+            context.Log.Add("Combat.Kitsune.Illusion.One".Localized());
 
             var resist = KitsuneSeals.CalculateAttackResist(player);
 
             if (context.Random.Next(100) < resist)
             {
-                context.WriteAction("Combat.Kitsune.Illusion.Resisted".Localized());
+                context.Log.Add("Combat.Kitsune.Illusion.Resisted".Localized());
 
                 player.HealthChange(-CombatCalculator.ReduceDamage(context, player, 5f));
 

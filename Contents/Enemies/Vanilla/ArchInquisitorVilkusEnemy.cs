@@ -45,7 +45,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 SecondPhase = true;
 
-                CombatController.Instance?.Context.Append("Combat.Hel.VilkusFirstPhase".Localized());
+                CombatController.Instance?.Context.AppendLog("Combat.Hel.VilkusFirstPhase".Localized());
 
                 Stats.AddModifier(GameStats.MaxHealth, Contents.Stats.ModifierOperation.Addition,
 
@@ -124,7 +124,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleFear(CombatContext context)
         {
-            context.Append("Combat.Hel.VilkusFear".Localized());
+            context.AppendLog("Combat.Hel.VilkusFear".Localized());
 
             CombatController.Instance!.Resolver.EnemyBasicAttack();
 
@@ -137,7 +137,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (reaction == CombatReactionContext.Blinded && Random.Shared.Next(Math.Max(1, (int)context.Player.Intelligence)) > Random.Shared.Next(Math.Max(1, (int)Intelligence)))
             {
-                context.Append("Combat.Hel.VilkusReflectBlind".Localized());
+                context.AppendLog("Combat.Hel.VilkusReflectBlind".Localized());
 
                 CreateStatusEffect(StatusEffectIds.Blind, 5 * (int)context.Player.SpellMod() + 2, 0, 0, 0);
 

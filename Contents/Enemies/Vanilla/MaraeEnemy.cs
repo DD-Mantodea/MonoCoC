@@ -74,7 +74,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool HandleFear(CombatContext context)
         {
-            context.Append("Combat.Marae.HandleFear.MaraeSnarls".Localized());
+            context.AppendLog("Combat.Marae.HandleFear.MaraeSnarls".Localized());
 
             RemoveStatusEffect(StatusEffectIds.Fear);
 
@@ -83,15 +83,15 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public override bool OnPlayerRunAttempt(CombatContext context)
         {
-            context.Append("Combat.Marae.RunCheck.YourBoatIs".Localized());
+            context.AppendLog("Combat.Marae.RunCheck.YourBoatIs".Localized());
 
-            context.Append((context.Player.CanFly()
+            context.AppendLog((context.Player.CanFly()
 
                 ? "Combat.Marae.RunCheck.YouGritYour"
 
                 : "Combat.Marae.RunCheck.YouMayNot").Localized());
 
-            context.Append("Combat.Marae.RunCheck.ItLooksLike".Localized());
+            context.AppendLog("Combat.Marae.RunCheck.ItLooksLike".Localized());
 
             return true;
         }

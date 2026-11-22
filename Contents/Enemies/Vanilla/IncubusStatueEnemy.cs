@@ -28,7 +28,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (master == null || master.Health <= 0)
             {
-                context.Append("Combat.Hel.IncubusInert".Localized());
+                context.AppendLog("Combat.Hel.IncubusInert".Localized());
 
                 Health = 0;
 
@@ -37,7 +37,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (Lust >= MaxLust)
             {
-                context.Append("Combat.Hel.StatueLustBreak".Localized());
+                context.AppendLog("Combat.Hel.StatueLustBreak".Localized());
 
                 Health = MaxHealth / 2;
 
@@ -48,19 +48,19 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (Health >= MaxHealth)
             {
-                context.Append("Combat.Hel.IncubusOmnislash".Localized());
+                context.AppendLog("Combat.Hel.IncubusOmnislash".Localized());
 
                 for (var i = 0; i < 6; i++)
                     CombatController.Instance!.Resolver.EnemyBasicAttack();
 
-                context.Append("Combat.Hel.IncubusAfter".Localized());
+                context.AppendLog("Combat.Hel.IncubusAfter".Localized());
 
                 Health = MaxHealth / 2;
 
                 return true;
             }
 
-            context.Append("Combat.Hel.IncubusRebuild".Localized());
+            context.AppendLog("Combat.Hel.IncubusRebuild".Localized());
 
             return true;
         }

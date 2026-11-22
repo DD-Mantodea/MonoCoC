@@ -40,21 +40,21 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (player.HasStatusEffect(StatusEffectIds.ThroatPunch)
                 || player.HasStatusEffect(StatusEffectIds.WebSilence))
             {
-                context.Append("Combat.Spell.Terror.Silence".Localized());
+                context.AppendLog("Combat.Spell.Terror.Silence".Localized());
 
                 return;
             }
 
             if (enemy.Id.Path == "pod" || enemy.Intelligence == 0)
             {
-                context.Append("Combat.Spell.Terror.NoMind".Localized());
+                context.AppendLog("Combat.Spell.Terror.NoMind".Localized());
 
                 player.ChangeFatigue(1);
 
                 return;
             }
 
-            context.Append("Combat.Spell.Terror.Intro".Localized());
+            context.AppendLog("Combat.Spell.Terror.Intro".Localized());
 
             var chance = StandardStatComparison(
                 player.Intelligence,
@@ -65,7 +65,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (chance > context.Random.Next(100))
             {
-                context.Append("Combat.Spell.Terror.Success".Localized());
+                context.AppendLog("Combat.Spell.Terror.Success".Localized());
 
                 if (enemy.StatusEffectValue(StatusEffectIds.Fear, 1) > 0)
                     enemy.AddStatusValue(StatusEffectIds.Fear, 1, 1);
@@ -78,12 +78,12 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
             else
             {
-                context.Append("Combat.Spell.Terror.Fail".Localized());
+                context.AppendLog("Combat.Spell.Terror.Fail".Localized());
 
                 if (enemy.StatusEffectValue(StatusEffectIds.Fear, 1) >= 4)
-                    context.Append("Combat.Spell.Terror.Resistant".Localized());
+                    context.AppendLog("Combat.Spell.Terror.Resistant".Localized());
 
-                context.Append("[pg]");
+                context.AppendLog("[pg]");
             }
         }
     }

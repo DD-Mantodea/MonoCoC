@@ -13,7 +13,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:arch_inquisitor_vilkus_whitefire")]
         public static void Whitefire(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Hel.VilkusWhitefire".Localized());
+            context.AppendLog("Combat.Hel.VilkusWhitefire".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -23,44 +23,44 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
-                context.Append("Combat.Hel.VilkusDodged".Localized());
+                context.AppendLog("Combat.Hel.VilkusDodged".Localized());
             else if (context.Player.Shield != null && context.Player.Shield.Is(ItemIds.DragonShield) && Random.Shared.Next(2) == 0)
-                context.Append("Combat.Hel.VilkusShieldAbsorb".Localized());
+                context.AppendLog("Combat.Hel.VilkusShieldAbsorb".Localized());
             else
             {
-                context.Append("Combat.Hel.VilkusWhitefireHit".Localized());
+                context.AppendLog("Combat.Hel.VilkusWhitefireHit".Localized());
 
                 context.DealDamageToPlayer((100 + Random.Shared.Next(50)) * (1 + context.Player.Corruption * 0.01f));
             }
 
             context.Enemy.HealthChange(-75);
 
-            context.Append("Combat.Hel.VilkusSelfDamage".Localized(75));
+            context.AppendLog("Combat.Hel.VilkusSelfDamage".Localized(75));
         }
 
         [Register("coc:arch_inquisitor_vilkus_blind")]
         public static void Blind(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Hel.VilkusBlind".Localized());
+            context.AppendLog("Combat.Hel.VilkusBlind".Localized());
 
             if (Random.Shared.Next(Math.Max(1, (int)context.Player.Intelligence / 6)) <= 4)
             {
                 context.Player.CreateStatusEffect(StatusEffectIds.Blind, 1 + Random.Shared.Next(3), 0, 0, 0);
 
-                context.Append("Combat.Hel.VilkusBlinded".Localized());
+                context.AppendLog("Combat.Hel.VilkusBlinded".Localized());
             }
             else
-                context.Append("Combat.Hel.VilkusBlindAvoided".Localized());
+                context.AppendLog("Combat.Hel.VilkusBlindAvoided".Localized());
 
             context.Enemy.HealthChange(-25);
 
-            context.Append("Combat.Hel.VilkusSelfDamage".Localized(25));
+            context.AppendLog("Combat.Hel.VilkusSelfDamage".Localized(25));
         }
 
         [Register("coc:arch_inquisitor_vilkus_arouse")]
         public static void Arouse(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Hel.VilkusArouse".Localized());
+            context.AppendLog("Combat.Hel.VilkusArouse".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -70,34 +70,34 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
-                context.Append("Combat.Hel.VilkusDodged".Localized());
+                context.AppendLog("Combat.Hel.VilkusDodged".Localized());
             else if (context.Player.Shield != null && context.Player.Shield.Is(ItemIds.DragonShield) && Random.Shared.Next(2) == 0)
-                context.Append("Combat.Hel.VilkusShieldAbsorb".Localized());
+                context.AppendLog("Combat.Hel.VilkusShieldAbsorb".Localized());
             else
             {
-                context.Append("Combat.Hel.VilkusArouseHit".Localized());
+                context.AppendLog("Combat.Hel.VilkusArouseHit".Localized());
 
                 if (CoC.Instance.Flags.Get(GameFlagIds.TimesOrgasmed) > 0)
                     context.Player.TakeLustDamage(35 + context.Player.Libido / 5f + Random.Shared.Next(Math.Max(1, (int)context.Player.Corruption / 5)));
                 else
-                    context.Append("Combat.Hel.VilkusArouseNoMemories".Localized());
+                    context.AppendLog("Combat.Hel.VilkusArouseNoMemories".Localized());
             }
 
             context.Enemy.HealthChange(-50);
 
-            context.Append("Combat.Hel.VilkusSelfDamage".Localized(50));
+            context.AppendLog("Combat.Hel.VilkusSelfDamage".Localized(50));
         }
 
         [Register("coc:arch_inquisitor_vilkus_heal")]
         public static void Heal(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Hel.VilkusHeal".Localized());
+            context.AppendLog("Combat.Hel.VilkusHeal".Localized());
 
             var healed = context.Enemy.MaxHealth * (1 + Random.Shared.Next(2)) * 0.1f;
 
             context.Enemy.Health = Math.Min(context.Enemy.MaxHealth, context.Enemy.Health + healed);
 
-            context.Append("Combat.Hel.VilkusHealed".Localized((int)healed));
+            context.AppendLog("Combat.Hel.VilkusHealed".Localized((int)healed));
         }
 
         [Register("coc:arch_inquisitor_vilkus_heal_two")]
@@ -109,19 +109,19 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:arch_inquisitor_vilkus_charge_weapon")]
         public static void ChargeWeapon(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Hel.VilkusChargeWeapon".Localized());
+            context.AppendLog("Combat.Hel.VilkusChargeWeapon".Localized());
 
             context.Enemy.CreateStatusEffect(StatusEffectIds.ChargeWeapon, 25, 0, 0, 0);
 
             context.Enemy.HealthChange(-50);
 
-            context.Append("Combat.Hel.VilkusSelfDamage".Localized(50));
+            context.AppendLog("Combat.Hel.VilkusSelfDamage".Localized(50));
         }
 
         [Register("coc:arch_inquisitor_vilkus_energy_wave")]
         public static void EnergyWave(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Hel.VilkusEnergyWave".Localized());
+            context.AppendLog("Combat.Hel.VilkusEnergyWave".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -131,12 +131,12 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
-                context.Append("Combat.Hel.VilkusDodged".Localized());
+                context.AppendLog("Combat.Hel.VilkusDodged".Localized());
             else if (context.Player.Shield != null && context.Player.Shield.Is(ItemIds.DragonShield) && Random.Shared.Next(2) == 0)
-                context.Append("Combat.Hel.VilkusShieldAbsorb".Localized());
+                context.AppendLog("Combat.Hel.VilkusShieldAbsorb".Localized());
             else
             {
-                context.Append("Combat.Hel.VilkusEnergyWaveHit".Localized());
+                context.AppendLog("Combat.Hel.VilkusEnergyWaveHit".Localized());
 
                 context.Player.Corruption = Math.Max(0, context.Player.Corruption - 5);
 
@@ -145,13 +145,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             context.Enemy.HealthChange(-100);
 
-            context.Append("Combat.Hel.VilkusSelfDamage".Localized(100));
+            context.AppendLog("Combat.Hel.VilkusSelfDamage".Localized(100));
         }
 
         [Register("coc:arch_inquisitor_vilkus_sacrifice")]
         public static void Sacrifice(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Combat.Hel.VilkusSacrifice".Localized());
+            context.AppendLog("Combat.Hel.VilkusSacrifice".Localized());
 
             context.Enemy.Lust = 0;
 
@@ -159,7 +159,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             context.Enemy.HealthChange(-damage);
 
-            context.Append("Combat.Hel.VilkusSelfDamage".Localized(damage));
+            context.AppendLog("Combat.Hel.VilkusSelfDamage".Localized(damage));
         }
 
         [Register("coc:arch_inquisitor_vilkus_attack")]
@@ -167,7 +167,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             if (context.Enemy is ArchInquisitorVilkusEnemy { SecondPhase: true })
             {
-                context.Append(("Combat.Hel.VilkusPhaseAttack" + (Random.Shared.Next(3) + 1)).Localized());
+                context.AppendLog(("Combat.Hel.VilkusPhaseAttack" + (Random.Shared.Next(3) + 1)).Localized());
 
                 var extra = (int)context.Enemy.StatusEffectValue(StatusEffectIds.Attacks, 0);
 

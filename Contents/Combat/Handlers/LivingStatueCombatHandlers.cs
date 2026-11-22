@@ -17,12 +17,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.LivingStatue.ConcussiveBlow.TheGiantRaises".Localized());
+            context.AppendLog("Combat.LivingStatue.ConcussiveBlow.TheGiantRaises".Localized());
 
             if (player.Stun(2, 33, 100, false))
-                context.Append("Combat.LivingStatue.ConcussiveBlow.TheVibrationsLeave".Localized());
+                context.AppendLog("Combat.LivingStatue.ConcussiveBlow.TheVibrationsLeave".Localized());
             else
-                context.Append("Combat.LivingStatue.ConcussiveBlow.YouShakeOff".Localized());
+                context.AppendLog("Combat.LivingStatue.ConcussiveBlow.YouShakeOff".Localized());
 
             var damage = 100f * (enemy.Intelligence / Math.Max(1f, player.Intelligence) / 4f);
 
@@ -34,16 +34,16 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.LivingStatue.DirtKick.TheAnimatedSculpture".Localized());
+            context.AppendLog("Combat.LivingStatue.DirtKick.TheAnimatedSculpture".Localized());
 
             if (context.Random.Next(2) == 0 && !player.HasStatusEffect(StatusEffectIds.Blind))
             {
                 player.CreateStatusEffect(StatusEffectIds.Blind, 2, 0, 0, 0);
 
-                context.Append("Combat.LivingStatue.DirtKick.YouAreBlinded".Localized());
+                context.AppendLog("Combat.LivingStatue.DirtKick.YouAreBlinded".Localized());
             }
             else
-                context.Append("Combat.LivingStatue.DirtKick.YouCloseYour".Localized());
+                context.AppendLog("Combat.LivingStatue.DirtKick.YouCloseYour".Localized());
         }
 
         [Register("coc:living_statue_backhand")]
@@ -53,13 +53,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.LivingStatue.Backhand.TheMarbleGolem".Localized());
+            context.AppendLog("Combat.LivingStatue.Backhand.TheMarbleGolem".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack);
 
             if (damage <= 0)
             {
-                context.Append("Combat.LivingStatue.Backhand.YouSlideUnderneath".Localized());
+                context.AppendLog("Combat.LivingStatue.Backhand.YouSlideUnderneath".Localized());
 
                 return;
             }
@@ -73,12 +73,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.LivingStatue.Backhand.YouSlideUnderneath".Localized());
+                context.AppendLog("Combat.LivingStatue.Backhand.YouSlideUnderneath".Localized());
 
                 return;
             }
 
-            context.Append("Combat.LivingStatue.Backhand.ItChitsYou".Localized());
+            context.AppendLog("Combat.LivingStatue.Backhand.ItChitsYou".Localized());
 
             enemy.Distance = CombatDistance.Distant;
 
@@ -92,13 +92,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.LivingStatue.OverhandSmash.RaisingItsHammer".Localized());
+            context.AppendLog("Combat.LivingStatue.OverhandSmash.RaisingItsHammer".Localized());
 
             var damage = 175f + CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack);
 
             if (damage <= 0 || context.Random.Next(100) < 25)
             {
-                context.Append("Combat.LivingStatue.OverhandSmash.YouReAble".Localized());
+                context.AppendLog("Combat.LivingStatue.OverhandSmash.YouReAble".Localized());
 
                 return;
             }
@@ -112,12 +112,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.LivingStatue.OverhandSmash.YouReAble".Localized());
+                context.AppendLog("Combat.LivingStatue.OverhandSmash.YouReAble".Localized());
 
                 return;
             }
 
-            context.Append("Combat.LivingStatue.OverhandSmash.TheConcussiveStrike".Localized());
+            context.AppendLog("Combat.LivingStatue.OverhandSmash.TheConcussiveStrike".Localized());
 
             context.DealDamageToPlayer(damage);
         }
@@ -129,7 +129,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.LivingStatue.Disarm.TheAnimatedStatue".Localized());
+            context.AppendLog("Combat.LivingStatue.Disarm.TheAnimatedStatue".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -142,12 +142,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.LivingStatue.Disarm.YouManageTo".Localized());
+                context.AppendLog("Combat.LivingStatue.Disarm.YouManageTo".Localized());
 
                 return;
             }
 
-            context.Append("Combat.LivingStatue.Disarm.YourEquipmentFlies".Localized());
+            context.AppendLog("Combat.LivingStatue.Disarm.YourEquipmentFlies".Localized());
 
             player.Disarm(player.Weapon);
 
@@ -161,7 +161,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.LivingStatue.CycloneStrike.TwistingBackThe".Localized());
+            context.AppendLog("Combat.LivingStatue.CycloneStrike.TwistingBackThe".Localized());
 
             var damage = (175f + CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack)) /
 
@@ -169,7 +169,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage <= 0)
             {
-                context.Append("Combat.LivingStatue.CycloneStrike.ByTheGrace".Localized());
+                context.AppendLog("Combat.LivingStatue.CycloneStrike.ByTheGrace".Localized());
 
                 return;
             }
@@ -183,12 +183,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.LivingStatue.CycloneStrike.ByTheGrace".Localized());
+                context.AppendLog("Combat.LivingStatue.CycloneStrike.ByTheGrace".Localized());
 
                 return;
             }
 
-            context.Append("Combat.LivingStatue.CycloneStrike.YouReSquarely".Localized());
+            context.AppendLog("Combat.LivingStatue.CycloneStrike.YouReSquarely".Localized());
 
             context.DealDamageToPlayer(damage);
         }

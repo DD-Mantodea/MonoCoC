@@ -37,10 +37,10 @@ namespace MonoCoC.Contents.Combat.Handlers
                     _ => "Combat.FetishCultist.Raise.Generic"
                 };
 
-                context.Append(key.Localized());
+                context.AppendLog(key.Localized());
             }
             else
-                context.Append("Combat.FetishCultist.Raise.Breasts".Localized());
+                context.AppendLog("Combat.FetishCultist.Raise.Breasts".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + player.Libido / 10 + player.Corruption / 20 + 4);
         }
@@ -54,41 +54,41 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.Lust <= 30 || context.Random.Next(2) == 0)
             {
-                context.Append("Combat.FetishCultist.Transfer.Build".Localized());
+                context.AppendLog("Combat.FetishCultist.Transfer.Build".Localized());
 
-                context.Append(player.Corruption < 40
+                context.AppendLog(player.Corruption < 40
 
                     ? "Combat.FetishCultist.Transfer.Afraid".Localized()
 
                     : "Combat.FetishCultist.Transfer.Wish".Localized());
 
-                context.Append("Combat.FetishCultist.Transfer.BuildTail".Localized());
+                context.AppendLog("Combat.FetishCultist.Transfer.BuildTail".Localized());
 
                 enemy.Lust = Math.Min(enemy.MaxLust, enemy.Lust + 10);
 
                 return;
             }
 
-            context.Append("Combat.FetishCultist.Transfer.Overwhelm".Localized());
+            context.AppendLog("Combat.FetishCultist.Transfer.Overwhelm".Localized());
 
             if (player.HasVagina())
             {
-                context.Append("Combat.FetishCultist.Transfer.Vagina".Localized(player.VaginaDescript(0)));
+                context.AppendLog("Combat.FetishCultist.Transfer.Vagina".Localized(player.VaginaDescript(0)));
 
                 if (player.HasCock())
-                    context.Append("Combat.FetishCultist.Transfer.VaginaCock".Localized());
+                    context.AppendLog("Combat.FetishCultist.Transfer.VaginaCock".Localized());
 
-                context.Append(".");
+                context.AppendLog(".");
             }
             else if (player.HasCock())
-                context.Append("Combat.FetishCultist.Transfer.Cock".Localized());
+                context.AppendLog("Combat.FetishCultist.Transfer.Cock".Localized());
 
             if (player.Gender == Gender.Genderless)
-                context.Append("Combat.FetishCultist.Transfer.Genderless".Localized());
+                context.AppendLog("Combat.FetishCultist.Transfer.Genderless".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + enemy.Lust / 3 * (1 + player.Corruption / 300));
 
-            context.Append("Combat.FetishCultist.Transfer.Calmed".Localized());
+            context.AppendLog("Combat.FetishCultist.Transfer.Calmed".Localized());
 
             enemy.Lust -= 50;
 

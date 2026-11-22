@@ -35,7 +35,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 SpearStrike(context);
 
-                context.Append("Combat.DriderIncubus.PerformCombatAction.Text".Localized());
+                context.AppendLog("Combat.DriderIncubus.PerformCombatAction.Text".Localized());
 
                 PerformPhysicalAttack(context);
             }
@@ -44,7 +44,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (drider.GoblinFree)
             {
-                context.Append("Combat.DriderIncubus.PerformCombatAction.Text".Localized());
+                context.AppendLog("Combat.DriderIncubus.PerformCombatAction.Text".Localized());
 
                 GoblinAI(context);
             }
@@ -58,7 +58,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             drider.Lust += 8;
 
-            context.Append(drider.HpGains switch
+            context.AppendLog(drider.HpGains switch
             {
                 0 => "Combat.DriderIncubus.GainHpAndLust.Text".Localized(),
 
@@ -71,20 +71,20 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             drider.HpGains += 1;
 
-            context.Append("Combat.DriderIncubus.GainHpAndLust.TheDemonGestures".Localized());
+            context.AppendLog("Combat.DriderIncubus.GainHpAndLust.TheDemonGestures".Localized());
 
             if (drider.LustPercent > 65)
             {
-                context.Append(drider.GoblinFree
+                context.AppendLog(drider.GoblinFree
 
                     ? "Combat.DriderIncubus.GainHpAndLust.HisDickIs".Localized()
 
                     : "Combat.DriderIncubus.GainHpAndLust.HisBallsAre".Localized());
 
-                context.Append("Combat.DriderIncubus.GainHpAndLust.YouDoubtHe".Localized());
+                context.AppendLog("Combat.DriderIncubus.GainHpAndLust.YouDoubtHe".Localized());
             }
 
-            context.Append("Combat.DriderIncubus.GainHpAndLust.ParagraphBreak".Localized());
+            context.AppendLog("Combat.DriderIncubus.GainHpAndLust.ParagraphBreak".Localized());
         }
 
         public static void DropHpAndLust(CombatContext context)
@@ -95,7 +95,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             drider.Lust -= 10;
 
-            context.Append("Combat.DriderIncubus.DropHpAndLust.TheDemonSnarls".Localized());
+            context.AppendLog("Combat.DriderIncubus.DropHpAndLust.TheDemonSnarls".Localized());
         }
 
         public static void SpearStrike(CombatContext context)
@@ -104,7 +104,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var drider = Drider(context);
 
-            context.Append("Combat.DriderIncubus.SpearStrike.TheDriderRears".Localized());
+            context.AppendLog("Combat.DriderIncubus.SpearStrike.TheDriderRears".Localized());
 
             var damage = (drider.Strength + drider.WeaponAttack) * 0.4f * Ngp(player);
 
@@ -118,16 +118,16 @@ namespace MonoCoC.Contents.Combat.Handlers
             var reason = avoid.DodgeReason;
 
             if (damage <= 0 || reason is "Speed" or "Flexibility" or "Unhindered")
-                context.Append("Combat.DriderIncubus.SpearStrike.YouBarelySlide".Localized());
+                context.AppendLog("Combat.DriderIncubus.SpearStrike.YouBarelySlide".Localized());
             else if (reason == "Evade")
-                context.Append("Combat.DriderIncubus.SpearStrike.YouEvadeThe".Localized());
+                context.AppendLog("Combat.DriderIncubus.SpearStrike.YouEvadeThe".Localized());
             else if (reason == "Misdirection")
-                context.Append("Combat.DriderIncubus.SpearStrike.UsingYourSkills".Localized());
+                context.AppendLog("Combat.DriderIncubus.SpearStrike.UsingYourSkills".Localized());
             else if (avoid.Outcome == AvoidOutcome.Parry)
-                context.Append("Combat.DriderIncubus.SpearStrike.YouDeftlyParry".Localized());
+                context.AppendLog("Combat.DriderIncubus.SpearStrike.YouDeftlyParry".Localized());
             else
             {
-                context.Append("Combat.DriderIncubus.SpearStrike.TheWeaponBites".Localized());
+                context.AppendLog("Combat.DriderIncubus.SpearStrike.TheWeaponBites".Localized());
 
                 context.DealDamageToPlayer(damage);
             }
@@ -226,16 +226,16 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 ApplyVenom(context);
 
-                context.Append("Combat.DriderIncubus.Bite.TakingHisTime".Localized());
+                context.AppendLog("Combat.DriderIncubus.Bite.TakingHisTime".Localized());
 
                 if (player.Strength <= 25)
-                    context.Append("Combat.DriderIncubus.Bite.ItSGetting".Localized());
+                    context.AppendLog("Combat.DriderIncubus.Bite.ItSGetting".Localized());
                 else if (player.Strength <= 1)
-                    context.Append("Combat.DriderIncubus.Bite.YouDonT".Localized());
+                    context.AppendLog("Combat.DriderIncubus.Bite.YouDonT".Localized());
 
-                context.Append("Combat.DriderIncubus.Bite.WhenHePulls".Localized());
+                context.AppendLog("Combat.DriderIncubus.Bite.WhenHePulls".Localized());
 
-                context.Append(player.Strength > 25
+                context.AppendLog(player.Strength > 25
 
                     ? "Combat.DriderIncubus.Bite.Text".Localized()
 
@@ -244,7 +244,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.DriderIncubus.Bite.TwistingOverThe".Localized());
+            context.AppendLog("Combat.DriderIncubus.Bite.TwistingOverThe".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -256,16 +256,16 @@ namespace MonoCoC.Contents.Combat.Handlers
             var reason = avoid.DodgeReason;
 
             if (reason == "Misdirection")
-                context.Append("Combat.DriderIncubus.Bite.YouMisdirectHis".Localized());
+                context.AppendLog("Combat.DriderIncubus.Bite.YouMisdirectHis".Localized());
             else if (reason == "Evade")
-                context.Append("Combat.DriderIncubus.Bite.YouEvadeHis".Localized());
+                context.AppendLog("Combat.DriderIncubus.Bite.YouEvadeHis".Localized());
             else if (reason is "Speed" or "Flexibility" or "Unhindered")
-                context.Append("Combat.DriderIncubus.Bite.YouAvoidHis".Localized());
+                context.AppendLog("Combat.DriderIncubus.Bite.YouAvoidHis".Localized());
             else
             {
-                context.Append("Combat.DriderIncubus.Bite.ThoseNeedleLike".Localized());
+                context.AppendLog("Combat.DriderIncubus.Bite.ThoseNeedleLike".Localized());
 
-                context.Append("Combat.DriderIncubus.Bite.HeFlashesA".Localized());
+                context.AppendLog("Combat.DriderIncubus.Bite.HeFlashesA".Localized());
 
                 ApplyVenom(context);
             }
@@ -293,7 +293,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var drider = Drider(context);
 
-            context.Append("Combat.DriderIncubus.Kick.WhileYouRe".Localized());
+            context.AppendLog("Combat.DriderIncubus.Kick.WhileYouRe".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -304,14 +304,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.DodgeReason == "Misdirection")
             {
-                context.Append("Combat.DriderIncubus.Kick.YouTwistOut".Localized());
+                context.AppendLog("Combat.DriderIncubus.Kick.YouTwistOut".Localized());
 
                 return;
             }
 
             if (avoid.DodgeReason != null)
             {
-                context.Append("Combat.DriderIncubus.Kick.YouTwistOut2".Localized());
+                context.AppendLog("Combat.DriderIncubus.Kick.YouTwistOut2".Localized());
 
                 return;
             }
@@ -320,12 +320,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage > 0)
             {
-                context.Append("Combat.DriderIncubus.Kick.YouGoFlying".Localized());
+                context.AppendLog("Combat.DriderIncubus.Kick.YouGoFlying".Localized());
 
                 context.DealDamageToPlayer(damage);
             }
             else
-                context.Append("Combat.DriderIncubus.Kick.YouSuccessfullyManage".Localized());
+                context.AppendLog("Combat.DriderIncubus.Kick.YouSuccessfullyManage".Localized());
         }
 
         public static void StunningSpear(CombatContext context)
@@ -334,7 +334,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var drider = Drider(context);
 
-            context.Append("Combat.DriderIncubus.StunningSpear.TwirlingHisWeapon".Localized());
+            context.AppendLog("Combat.DriderIncubus.StunningSpear.TwirlingHisWeapon".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -346,34 +346,34 @@ namespace MonoCoC.Contents.Combat.Handlers
             var reason = avoid.DodgeReason;
 
             if (reason is "Speed" or "Flexibility" or "Unhindered")
-                context.Append("Combat.DriderIncubus.StunningSpear.YouDuckIn".Localized());
+                context.AppendLog("Combat.DriderIncubus.StunningSpear.YouDuckIn".Localized());
             else if (reason == "Misdirection")
-                context.Append("Combat.DriderIncubus.StunningSpear.YouWereAlready".Localized());
+                context.AppendLog("Combat.DriderIncubus.StunningSpear.YouWereAlready".Localized());
             else if (reason == "Evade")
-                context.Append("Combat.DriderIncubus.StunningSpear.YouLeanIn".Localized());
+                context.AppendLog("Combat.DriderIncubus.StunningSpear.YouLeanIn".Localized());
             else
             {
                 var damage = (drider.Strength + drider.WeaponAttack - 25 - Rand(context, player.Toughness)) * Ngp(player);
 
                 if (damage > 0)
                 {
-                    context.Append("Combat.DriderIncubus.StunningSpear.YouDonT".Localized());
+                    context.AppendLog("Combat.DriderIncubus.StunningSpear.YouDonT".Localized());
 
-                    context.Append("Combat.DriderIncubus.StunningSpear.Bone".Localized());
+                    context.AppendLog("Combat.DriderIncubus.StunningSpear.Bone".Localized());
 
-                    context.Append("Combat.DriderIncubus.StunningSpear.Text".Localized());
+                    context.AppendLog("Combat.DriderIncubus.StunningSpear.Text".Localized());
 
                     if (player.Stun(0, 100))
-                        context.Append("Combat.DriderIncubus.StunningSpear.YouReLeft".Localized());
+                        context.AppendLog("Combat.DriderIncubus.StunningSpear.YouReLeft".Localized());
 
                     context.DealDamageToPlayer(damage);
                 }
 
-                context.Append("Combat.DriderIncubus.StunningSpear.YouHearThe".Localized());
+                context.AppendLog("Combat.DriderIncubus.StunningSpear.YouHearThe".Localized());
 
-                context.Append("Combat.DriderIncubus.StunningSpear.Bone".Localized());
+                context.AppendLog("Combat.DriderIncubus.StunningSpear.Bone".Localized());
 
-                context.Append("Combat.DriderIncubus.StunningSpear.ButYouManage".Localized());
+                context.AppendLog("Combat.DriderIncubus.StunningSpear.ButYouManage".Localized());
             }
         }
 
@@ -383,7 +383,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var drider = Drider(context);
 
-            context.Append("Combat.DriderIncubus.DoubleStrike.HeSkittersForward".Localized());
+            context.AppendLog("Combat.DriderIncubus.DoubleStrike.HeSkittersForward".Localized());
 
             var damage = drider.Strength + drider.WeaponAttack + 10 - Rand(context, player.Toughness);
 
@@ -397,16 +397,16 @@ namespace MonoCoC.Contents.Combat.Handlers
             var reason = avoid.DodgeReason;
 
             if (damage <= 0 || reason is "Speed" or "Flexibility" or "Unhindered")
-                context.Append("Combat.DriderIncubus.DoubleStrike.YouBarelySlide".Localized());
+                context.AppendLog("Combat.DriderIncubus.DoubleStrike.YouBarelySlide".Localized());
             else if (reason == "Evade")
-                context.Append("Combat.DriderIncubus.DoubleStrike.YouEvadeThe".Localized());
+                context.AppendLog("Combat.DriderIncubus.DoubleStrike.YouEvadeThe".Localized());
             else if (reason == "Misdirection")
-                context.Append("Combat.DriderIncubus.DoubleStrike.UsingYourSkills".Localized());
+                context.AppendLog("Combat.DriderIncubus.DoubleStrike.UsingYourSkills".Localized());
             else if (avoid.Outcome == AvoidOutcome.Parry)
-                context.Append("Combat.DriderIncubus.DoubleStrike.YouParryThe".Localized());
+                context.AppendLog("Combat.DriderIncubus.DoubleStrike.YouParryThe".Localized());
             else
             {
-                context.Append("Combat.DriderIncubus.DoubleStrike.TheWeaponBites".Localized());
+                context.AppendLog("Combat.DriderIncubus.DoubleStrike.TheWeaponBites".Localized());
 
                 context.DealDamageToPlayer(damage);
             }
@@ -418,7 +418,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var drider = Drider(context);
 
-            context.Append("Combat.DriderIncubus.SpiderMorphWebAttack.Text".Localized());
+            context.AppendLog("Combat.DriderIncubus.SpiderMorphWebAttack.Text".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -432,13 +432,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (!player.HasStatusEffect(StatusEffectIds.Web))
             {
-                context.Append("Combat.DriderIncubus.SpiderMorphWebAttack.HitFirst".Localized());
+                context.AppendLog("Combat.DriderIncubus.SpiderMorphWebAttack.HitFirst".Localized());
 
                 player.CreateStatusEffect(StatusEffectIds.Web, 3);
             }
             else
             {
-                context.Append("Combat.DriderIncubus.SpiderMorphWebAttack.HitMore".Localized());
+                context.AppendLog("Combat.DriderIncubus.SpiderMorphWebAttack.HitMore".Localized());
 
                 player.ChangeStatusValue(StatusEffectIds.Web, 0, 1);
             }
@@ -450,30 +450,30 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.DriderIncubus.ArouseSpell.TheDemonicDrider".Localized());
+            context.AppendLog("Combat.DriderIncubus.ArouseSpell.TheDemonicDrider".Localized());
 
-            context.Append("Combat.DriderIncubus.ArouseSpell.AnInvisibleForce".Localized());
+            context.AppendLog("Combat.DriderIncubus.ArouseSpell.AnInvisibleForce".Localized());
 
             if (player.Cocks.Count > 0 || player.Vaginas.Count > 0)
             {
-                context.Append("Combat.DriderIncubus.ArouseSpell.MakingYour".Localized());
+                context.AppendLog("Combat.DriderIncubus.ArouseSpell.MakingYour".Localized());
 
-                context.Append(player.Cocks.Count > 0
+                context.AppendLog(player.Cocks.Count > 0
 
                     ? "Combat.DriderIncubus.ArouseSpell.Text".Localized()
 
                     : "Combat.DriderIncubus.ArouseSpell.Text".Localized());
 
-                context.Append("Combat.DriderIncubus.ArouseSpell.AcheToBe".Localized());
+                context.AppendLog("Combat.DriderIncubus.ArouseSpell.AcheToBe".Localized());
             }
 
-            context.Append("Combat.DriderIncubus.ArouseSpell.Dot".Localized());
+            context.AppendLog("Combat.DriderIncubus.ArouseSpell.Dot".Localized());
 
             player.TakeLustDamage(player.Libido / 10f + player.Corruption / 10f + 15, true);
 
-            context.Append("Combat.DriderIncubus.ArouseSpell.YourBodyRebels".Localized());
+            context.AppendLog("Combat.DriderIncubus.ArouseSpell.YourBodyRebels".Localized());
 
-            context.Append(player.LustPercent < 100
+            context.AppendLog(player.LustPercent < 100
 
                 ? "Combat.DriderIncubus.ArouseSpell.ButTheEffect".Localized()
 
@@ -484,17 +484,17 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.DriderIncubus.TaintedMind.HeClapsHis".Localized());
+            context.AppendLog("Combat.DriderIncubus.TaintedMind.HeClapsHis".Localized());
 
             if (player.Corruption <= 33)
-                context.Append("Combat.DriderIncubus.TaintedMind.WhatDidHe".Localized());
+                context.AppendLog("Combat.DriderIncubus.TaintedMind.WhatDidHe".Localized());
 
             player.CreateStatusEffect(DriderIncubusEnemy.TaintedMindId, 4);
         }
 
         public static void TaintedMindAttackAttempt(CombatContext context)
         {
-            context.Append("Combat.DriderIncubus.TaintedMindAttackAttempt.YouReadyAn".Localized());
+            context.AppendLog("Combat.DriderIncubus.TaintedMindAttackAttempt.YouReadyAn".Localized());
 
             context.Player.TakeLustDamage(15, true);
         }
@@ -505,19 +505,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var drider = Drider(context);
 
-            context.Append("Combat.DriderIncubus.ConstrictingThoughts.TheCorruptedArachnid".Localized());
+            context.AppendLog("Combat.DriderIncubus.ConstrictingThoughts.TheCorruptedArachnid".Localized());
 
-            context.Append("Combat.DriderIncubus.ConstrictingThoughts.DisjointedEroticThoughts".Localized());
+            context.AppendLog("Combat.DriderIncubus.ConstrictingThoughts.DisjointedEroticThoughts".Localized());
 
             if (!player.Stun(0, 100))
             {
                 drider.SeenResolute = true;
 
-                context.Append("Combat.DriderIncubus.ConstrictingThoughts.YouMarshalYour".Localized());
+                context.AppendLog("Combat.DriderIncubus.ConstrictingThoughts.YouMarshalYour".Localized());
             }
             else
             {
-                context.Append("Combat.DriderIncubus.ConstrictingThoughts.TheIntensityOverwhelms".Localized());
+                context.AppendLog("Combat.DriderIncubus.ConstrictingThoughts.TheIntensityOverwhelms".Localized());
 
                 player.TakeLustDamage(player.Libido / 15f + player.Corruption / 15f + 15, true);
             }
@@ -527,19 +527,19 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.DriderIncubus.PurpleHaze.TheDriderGestures".Localized());
+            context.AppendLog("Combat.DriderIncubus.PurpleHaze.TheDriderGestures".Localized());
 
             if (player.HasPerk(PerkIds.Resolute) || context.Random.NextDouble() * 100 < 66)
             {
                 if (player.HasPerk(PerkIds.Resolute))
                     Drider(context).SeenResolute = true;
 
-                context.Append("Combat.DriderIncubus.PurpleHaze.YouFlexYour".Localized());
+                context.AppendLog("Combat.DriderIncubus.PurpleHaze.YouFlexYour".Localized());
 
                 return;
             }
 
-            context.Append("Combat.DriderIncubus.PurpleHaze.YouConcentrateTo".Localized());
+            context.AppendLog("Combat.DriderIncubus.PurpleHaze.YouConcentrateTo".Localized());
 
             player.TakeLustDamage(25, true);
 
@@ -552,28 +552,28 @@ namespace MonoCoC.Contents.Combat.Handlers
 
         public static void GoblinHandjob(CombatContext context)
         {
-            context.Append("Combat.DriderIncubus.GoblinHandjob.SomehowTheGoblin".Localized());
+            context.AppendLog("Combat.DriderIncubus.GoblinHandjob.SomehowTheGoblin".Localized());
 
-            context.Append("Combat.DriderIncubus.GoblinHandjob.UnfortunatelyForHer".Localized());
+            context.AppendLog("Combat.DriderIncubus.GoblinHandjob.UnfortunatelyForHer".Localized());
         }
 
         public static void GoblinTongueGrapple(CombatContext context)
         {
             var drider = Drider(context);
 
-            context.Append("Combat.DriderIncubus.GoblinTongueGrapple.TheDeterminedGoblin".Localized());
+            context.AppendLog("Combat.DriderIncubus.GoblinTongueGrapple.TheDeterminedGoblin".Localized());
 
             drider.Lust += 5;
 
             if (drider.LustPercent <= 100)
-                context.Append("Combat.DriderIncubus.GoblinTongueGrapple.TheDriderSkitters".Localized());
+                context.AppendLog("Combat.DriderIncubus.GoblinTongueGrapple.TheDriderSkitters".Localized());
             else
-                context.Append("Combat.DriderIncubus.GoblinTongueGrapple.TheDriderAttempts".Localized());
+                context.AppendLog("Combat.DriderIncubus.GoblinTongueGrapple.TheDriderAttempts".Localized());
         }
 
         public static void BootyTwerking(CombatContext context)
         {
-            context.Append("Combat.DriderIncubus.BootyTwerking.TheGoblinGives".Localized());
+            context.AppendLog("Combat.DriderIncubus.BootyTwerking.TheGoblinGives".Localized());
 
             Drider(context).Lust += 5;
         }
@@ -582,16 +582,16 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var drider = Drider(context);
 
-            context.Append("Combat.DriderIncubus.WebNipplechain.EveryTimeShe".Localized());
+            context.AppendLog("Combat.DriderIncubus.WebNipplechain.EveryTimeShe".Localized());
 
             if (!drider.GoblinWebChain)
             {
-                context.Append("Combat.DriderIncubus.WebNipplechain.SheComesAway".Localized());
+                context.AppendLog("Combat.DriderIncubus.WebNipplechain.SheComesAway".Localized());
 
                 drider.GoblinWebChain = true;
             }
             else
-                context.Append("Combat.DriderIncubus.WebNipplechain.TheGoblinSlave".Localized());
+                context.AppendLog("Combat.DriderIncubus.WebNipplechain.TheGoblinSlave".Localized());
 
             drider.Lust += 5;
         }
@@ -602,9 +602,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var drider = Drider(context);
 
-            context.Append("Combat.DriderIncubus.BabyOilMeUp.DartingIntoThe".Localized());
+            context.AppendLog("Combat.DriderIncubus.BabyOilMeUp.DartingIntoThe".Localized());
 
-            context.Append("Combat.DriderIncubus.BabyOilMeUp.SheDancesAnd".Localized());
+            context.AppendLog("Combat.DriderIncubus.BabyOilMeUp.SheDancesAnd".Localized());
 
             drider.Lust += 7;
 
@@ -615,17 +615,17 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var drider = Drider(context);
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             drider.GoblinFree = true;
 
-            context.Append("Combat.DriderIncubus.FreeGoblin.YouLungeIn".Localized());
+            context.AppendLog("Combat.DriderIncubus.FreeGoblin.YouLungeIn".Localized());
 
-            context.Append("Combat.DriderIncubus.FreeGoblin.YouReForced".Localized());
+            context.AppendLog("Combat.DriderIncubus.FreeGoblin.YouReForced".Localized());
 
-            context.Append("Combat.DriderIncubus.FreeGoblin.TheGreenSlut".Localized());
+            context.AppendLog("Combat.DriderIncubus.FreeGoblin.TheGreenSlut".Localized());
 
-            context.Append("Combat.DriderIncubus.FreeGoblin.WellMaybeShe".Localized());
+            context.AppendLog("Combat.DriderIncubus.FreeGoblin.WellMaybeShe".Localized());
         }
     }
 }

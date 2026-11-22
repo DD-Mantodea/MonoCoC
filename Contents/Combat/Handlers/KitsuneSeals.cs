@@ -52,49 +52,49 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (selected)
             {
                 case KitsuneSealType.Attack:
-                    context.WriteAction("Combat.Kitsune.Seal.Attack.One".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Attack.One".Localized());
 
-                    context.WriteAction("Combat.Kitsune.Seal.Attack.Two".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Attack.Two".Localized());
 
-                    context.WriteAction("Combat.Kitsune.Seal.Attack.Three".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Attack.Three".Localized());
 
                     break;
 
                 case KitsuneSealType.Tease:
-                    context.WriteAction("Combat.Kitsune.Seal.Tease".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Tease".Localized());
 
                     break;
 
                 case KitsuneSealType.Spells:
-                    context.WriteAction("Combat.Kitsune.Seal.Spells".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Spells".Localized());
 
                     break;
 
                 case KitsuneSealType.Items:
-                    context.WriteAction("Combat.Kitsune.Seal.Items".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Items".Localized());
 
                     break;
 
                 case KitsuneSealType.Movement:
-                    context.WriteAction("Combat.Kitsune.Seal.Movement".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Movement".Localized());
 
                     break;
 
                 case KitsuneSealType.Physical:
-                    context.WriteAction("Combat.Kitsune.Seal.Physical.One".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Physical.One".Localized());
 
-                    context.WriteAction("Combat.Kitsune.Seal.Physical.Two".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Physical.Two".Localized());
 
-                    context.WriteAction("Combat.Kitsune.Seal.Physical.Three".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Physical.Three".Localized());
 
                     break;
 
                 case KitsuneSealType.Magical:
-                    context.WriteAction("Combat.Kitsune.Seal.Magical.One".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Magical.One".Localized());
 
-                    context.WriteAction("Combat.Kitsune.Seal.Magical.Two".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Magical.Two".Localized());
 
-                    context.WriteAction("Combat.Kitsune.Seal.Magical.Three".Localized());
+                    context.Log.Add("Combat.Kitsune.Seal.Magical.Three".Localized());
 
                     break;
             }
@@ -105,7 +105,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (resist >= context.Random.Next(100))
             {
-                context.WriteAction("Combat.Kitsune.Seal.Resisted".Localized());
+                context.Log.Add("Combat.Kitsune.Seal.Resisted".Localized());
 
                 player.RemoveStatusEffect(StatusEffectIds.Sealed);
             }

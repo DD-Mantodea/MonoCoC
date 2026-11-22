@@ -26,7 +26,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Special.Rend.Intro".Localized());
+            context.AppendLog("Combat.Special.Rend.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -39,24 +39,24 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Combat.Special.Rend.Dodge".Localized());
+                context.AppendLog("Combat.Special.Rend.Dodge".Localized());
 
                 return;
             }
 
             if (avoid.Outcome is AvoidOutcome.Parry or AvoidOutcome.Block)
             {
-                context.Append("Combat.Special.Rend.Block".Localized());
+                context.AppendLog("Combat.Special.Rend.Block".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Special.Rend.Hit".Localized());
+            context.AppendLog("Combat.Special.Rend.Hit".Localized());
 
             if (enemy.Bleed(player, 3, 0.5f))
-                context.Append("Combat.Special.Rend.Bleed".Localized());
+                context.AppendLog("Combat.Special.Rend.Bleed".Localized());
 
-            context.Append("Combat.Special.Rend.Armor".Localized());
+            context.AppendLog("Combat.Special.Rend.Armor".Localized());
 
             var damage = CombatCalculator.PhysicalDamage(context, player, enemy) * 1.5f;
 

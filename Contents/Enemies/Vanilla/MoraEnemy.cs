@@ -51,16 +51,16 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (inDungeon)
                 return base.HandleCombatLossText(context, inDungeon, gemsLost);
 
-            context.Append("Combat.Mora.Loss.Lead".Localized());
+            context.AppendLog("Combat.Mora.Loss.Lead".Localized());
 
             var gems = context.Player.Gems;
 
             if (gems > 1)
-                context.Append("Combat.Mora.Loss.Gems".Localized(gemsLost));
+                context.AppendLog("Combat.Mora.Loss.Gems".Localized(gemsLost));
             else if (gems == 1)
-                context.Append("Combat.Mora.Loss.LastGem".Localized());
+                context.AppendLog("Combat.Mora.Loss.LastGem".Localized());
             else
-                context.Append("Combat.Mora.Loss.NoGems".Localized());
+                context.AppendLog("Combat.Mora.Loss.NoGems".Localized());
 
             return 8;
         }
@@ -79,7 +79,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (Shrouded != 0 && context.Random.Next(100) < 60)
             {
-                context.Append("Combat.Mora.Shroud.Miss".Localized());
+                context.AppendLog("Combat.Mora.Shroud.Miss".Localized());
 
                 return false;
             }

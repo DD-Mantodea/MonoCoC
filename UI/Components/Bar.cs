@@ -6,9 +6,11 @@ using MonoCoC.UI.Data;
 using MonoCoC.UI.Framework;
 using System;
 
+using Hjson;
+using System.Runtime.CompilerServices;
 namespace MonoCoC.UI.Components
 {
-    public class Bar : Component
+    public class Bar : Component, IFromHjson<Bar>
     {
         public Bar(SpriteFontBase font)
         {
@@ -164,5 +166,66 @@ namespace MonoCoC.UI.Components
                 return $"{Value:0} / {Max:0}";
             }
         }
+
+        public static string TypeId => "coc:bar";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext services)
+        {
+            var bar = new Bar(UIFonts.Resolve(node, "coc:body"))
+            {
+                ValueBinding = UIParseUtils.ReadBinding(node, "value"),
+                MaxBinding = UIParseUtils.ReadBinding(node, "max"),
+                MinBinding = UIParseUtils.ReadBinding(node, "min"),
+                MarkerBinding = UIParseUtils.ReadBinding(node, "marker")
+            };
+
+            if (bar.ValueBinding is null && node.TryGetValue("value", out var value))
+                bar.Value = UIParseUtils.Float(value);
+
+            if (node.TryGetValue("current", out var current))
+                bar.Value = UIParseUtils.Float(current);
+
+            if (bar.MaxBinding is null && node.TryGetValue("max", out var max))
+                bar.Max = UIParseUtils.Float(max);
+
+            if (bar.MinBinding is null && node.TryGetValue("min", out var min))
+                bar.Min = UIParseUtils.Float(min);
+
+            if (bar.MarkerBinding is null && node.TryGetValue("marker", out var marker))
+                bar.Marker = UIParseUtils.Float(marker);
+
+            if (node.TryGetValue("fillColor", out _))
+                bar.FillColor = UIParseUtils.ColorOf(node.Str("fillColor"));
+
+            if (node.TryGetValue("trackColor", out _))
+                bar.TrackColor = UIParseUtils.ColorOf(node.Str("trackColor"));
+
+            if (node.TryGetValue("borderColor", out _))
+                bar.BorderColor = UIParseUtils.ColorOf(node.Str("borderColor"));
+
+            if (node.TryGetValue("textColor", out _))
+                bar.TextColor = UIParseUtils.ColorOf(node.Str("textColor"));
+
+            if (node.TryGetValue("markerColor", out _))
+                bar.MarkerColor = UIParseUtils.ColorOf(node.Str("markerColor"));
+
+            if (node.TryGetValue("borderThickness", out var borderThickness))
+                bar.BorderThickness = UIParseUtils.Int(borderThickness);
+
+            if (node.TryGetValue("textPadding", out var textPadding))
+                bar.TextPadding = UIParseUtils.Int(textPadding);
+
+            bar.Label = UILocalizedText.Resolve(node, "label");
+            bar.TextFormat = node.Str("textFormat", bar.TextFormat);
+
+            if (node.TryGetValue("showText", out _))
+                bar.ShowText = node.Bool("showText", bar.ShowText);
+
+            return bar;
+        }
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<Bar>();
+
     }
 }

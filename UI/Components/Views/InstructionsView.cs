@@ -35,6 +35,6 @@ namespace MonoCoC.UI.Components.Views
         private void BindText(TextArea part) => Body = part;
 
         [UIEvent("instructions.back")]
-        private static void Back() => UIManager.Instance.Root.SwitchView(new MainView());
+        private void Back() => ViewNavigator.Back(this);
     }
 }

@@ -90,7 +90,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void Illusion(CombatContext context, Player player)
         {
-            context.Write("Common.Text.TheAliceAttemptsToMaintainA".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheAliceAttemptsToMaintainA".Localized());
 
             var resist = player.Intelligence < 30 ? (int)Math.Round(player.Intelligence) : 30;
 
@@ -99,20 +99,20 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (Random.Shared.Next(100) <= resist)
             {
-                context.Write("Scenes.Alice.AliceIllusion.JellySlowResisted".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Alice.AliceIllusion.JellySlowResisted".Localized());
 
                 return;
             }
 
             if (!player.HasStatusEffect(StatusEffectIds.Web))
             {
-                context.Write("Common.Text.YouChargeForwardToCatchHer".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouChargeForwardToCatchHer".Localized());
 
                 player.CreateStatusEffect(StatusEffectIds.Web, 3, 0, 0, 0);
             }
             else
             {
-                context.Write("Scenes.Alice.AliceIllusion.IllusionSpeedMore".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Alice.AliceIllusion.IllusionSpeedMore".Localized());
 
                 player.ChangeStatusValue(StatusEffectIds.Web, 0, 1);
             }
@@ -125,17 +125,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             switch (Random.Shared.Next(3))
             {
                 case 0:
-                    context.Write("Scenes.Alice.AliceTeases.SkirtLiftTease".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Alice.AliceTeases.SkirtLiftTease".Localized());
 
                     break;
 
                 case 1:
-                    context.Write("Common.Text.TheAliceTossesHerHandsUp".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheAliceTossesHerHandsUp".Localized());
 
                     break;
 
                 default:
-                    context.Write("Scenes.Alice.AliceTeases.TailFlickPanties".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Alice.AliceTeases.TailFlickPanties".Localized());
 
                     break;
             }
@@ -145,7 +145,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void Arouse(CombatContext context, Player player)
         {
-            context.Write("Scenes.Alice.AliceArouse.ArcaneArousalWarmth".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Alice.AliceArouse.ArcaneArousalWarmth".Localized());
 
             player.TakeLustDamage(15 + player.Sensitivity / 10);
 

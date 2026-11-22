@@ -17,7 +17,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Kelt.KeltTramplesJoo.BeforeYouKnow".Localized());
+            context.AppendLog("Combat.Kelt.KeltTramplesJoo.BeforeYouKnow".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -34,7 +34,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Kelt.KeltTramplesJoo.YouRollOut".Localized());
+                context.AppendLog("Combat.Kelt.KeltTramplesJoo.YouRollOut".Localized());
 
                 return;
             }
@@ -43,13 +43,13 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage <= 0)
             {
-                context.Append("Combat.Kelt.KeltTramplesJoo.IncrediblyYouBrace".Localized());
+                context.AppendLog("Combat.Kelt.KeltTramplesJoo.IncrediblyYouBrace".Localized());
 
                 enemy.Lust = Math.Min(enemy.MaxLust, enemy.Lust + 5);
             }
             else
             {
-                context.Append("Combat.Kelt.KeltTramplesJoo.YouCanT".Localized());
+                context.AppendLog("Combat.Kelt.KeltTramplesJoo.YouCanT".Localized());
 
                 player.HealthChange(-damage);
             }
@@ -65,7 +65,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (enemy is KeltEnemy kelt)
                 kelt.SetBowCooldown(3);
 
-            context.Append("Combat.Kelt.KeltShootBow.KeltKnocksAnd".Localized());
+            context.AppendLog("Combat.Kelt.KeltShootBow.KeltKnocksAnd".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -82,7 +82,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Kelt.KeltShootBow.YouManageTo".Localized());
+                context.AppendLog("Combat.Kelt.KeltShootBow.YouManageTo".Localized());
 
                 return;
             }
@@ -96,12 +96,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage == 0)
             {
-                context.Append("Combat.Kelt.KeltShootBow.YouDeflectThe".Localized());
+                context.AppendLog("Combat.Kelt.KeltShootBow.YouDeflectThe".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Kelt.KeltShootBow.TheArrowBites".Localized());
+            context.AppendLog("Combat.Kelt.KeltShootBow.TheArrowBites".Localized());
 
             player.HealthChange(-damage);
         }
@@ -111,7 +111,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.Append((context.Random.Next(2) == 0
+            context.AppendLog((context.Random.Next(2) == 0
 
                 ? "Combat.Kelt.DayDreamKelly.KeltPausesMid"
 
@@ -162,19 +162,19 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (context.Random.Next(3))
             {
                 case 0:
-                    context.Append("Combat.Kelt.KellyuraAttack.KeltFlashesHis".Localized());
+                    context.AppendLog("Combat.Kelt.KellyuraAttack.KeltFlashesHis".Localized());
 
                     break;
 
                 case 2:
-                    context.Append("Combat.Kelt.KellyuraAttack.GrinningKeltRuns".Localized());
+                    context.AppendLog("Combat.Kelt.KellyuraAttack.GrinningKeltRuns".Localized());
 
                     break;
 
                 default:
-                    context.Append("Combat.Kelt.KellyuraAttack.KeltSnarls".Localized());
+                    context.AppendLog("Combat.Kelt.KellyuraAttack.KeltSnarls".Localized());
 
-                    context.Append((player.LustPercent >= 80
+                    context.AppendLog((player.LustPercent >= 80
 
                         ? "Combat.Kelt.KellyuraAttack.YourHandMoves"
 

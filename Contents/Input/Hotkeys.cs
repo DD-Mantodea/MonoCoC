@@ -9,7 +9,6 @@ using System;
 
 namespace MonoCoC.Contents.Input
 {
-    // 原版 ControlBindings.hx 的默认键位。mod 不应调用这个类，直接用自己的 Id 调 HotkeyRegistry.Register。
     public static class Hotkeys
     {
         private static bool _registered;
@@ -21,47 +20,27 @@ namespace MonoCoC.Contents.Input
 
             _registered = true;
 
-            Register("show_stats", "Show Stats", "Show the stats pane when available", Keys.S, action: ToggleStats);
+            Register("show_stats", "Show Stats", "Show the stats pane when available", Keys.S, action: ToggleStats, canExecute: CanUseGameMenu);
 
-            Register("level_up", "Level Up", "Show the level up page when available", Keys.L, action: () => Scene.Go(SceneInstance<LevelUpScene>.Instance));
+            Register("level_up", "Level Up", "Show the level up page when available", Keys.L, action: () => Scene.Go(SceneInstance<LevelUpScene>.Instance), canExecute: CanUseGameMenu);
 
-            Register("quicksave_1", "Quicksave 1", "Quicksave the current game to slot 1", Keys.F1, action: () => QuickSave(1));
+            Register("show_menu", "Show Menu", "Show the main menu", Keys.Back, action: ShowMainMenu, canExecute: CanUseGameMenu);
 
-            Register("quicksave_2", "Quicksave 2", "Quicksave the current game to slot 2", Keys.F2, action: () => QuickSave(2));
+            Register("options", "Options", "Open the options menu", Keys.O, action: OpenOptions, canExecute: CanUseGameMenu);
 
-            Register("quicksave_3", "Quicksave 3", "Quicksave the current game to slot 3", Keys.F3, action: () => QuickSave(3));
+            Register("data_menu", "Data Menu", "Show the save/load menu", Keys.D, action: OpenData, canExecute: CanUseGameMenu);
 
-            Register("quicksave_4", "Quicksave 4", "Quicksave the current game to slot 4", Keys.F4, action: () => QuickSave(4));
+            Register("appearance_page", "Appearance Page", "Open the appearance page", Keys.A, action: () => Scene.Go(SceneInstance<PlayerAppearance>.Instance), canExecute: CanUseGameMenu);
 
-            Register("quicksave_5", "Quicksave 5", "Quicksave the current game to slot 5", Keys.F5, action: () => QuickSave(5));
+            Register("no", "No", "Press the No button", Keys.N, action: () => PressYesNo(false), canExecute: CanUseGameMenu);
 
-            Register("quickload_1", "Quickload 1", "Quickload the current game from slot 1", Keys.F6, action: () => QuickLoad(1));
+            Register("yes", "Yes", "Press the Yes button", Keys.Y, action: () => PressYesNo(true), canExecute: CanUseGameMenu);
 
-            Register("quickload_2", "Quickload 2", "Quickload the current game from slot 2", Keys.F7, action: () => QuickLoad(2));
+            Register("show_perks", "Show Perks", "Show the perks page", Keys.P, action: () => Scene.Go(SceneInstance<PerksScene>.Instance), canExecute: CanUseGameMenu);
 
-            Register("quickload_3", "Quickload 3", "Quickload the current game from slot 3", Keys.F8, action: () => QuickLoad(3));
+            Register("continue", "Continue", "Press the Continue button", Keys.Enter, Keys.Space, PressContinue, CanUseGameMenu);
 
-            Register("quickload_4", "Quickload 4", "Quickload the current game from slot 4", Keys.F9, action: () => QuickLoad(4));
-
-            Register("quickload_5", "Quickload 5", "Quickload the current game from slot 5", Keys.F10, action: () => QuickLoad(5));
-
-            Register("show_menu", "Show Menu", "Show the main menu", Keys.Back, action: ShowMainMenu);
-
-            Register("options", "Options", "Open the options menu", Keys.O, action: OpenOptions);
-
-            Register("data_menu", "Data Menu", "Show the save/load menu", Keys.D, action: OpenData);
-
-            Register("appearance_page", "Appearance Page", "Open the appearance page", Keys.A, action: () => Scene.Go(SceneInstance<PlayerAppearance>.Instance));
-
-            Register("no", "No", "Press the No button", Keys.N, action: () => PressYesNo(false));
-
-            Register("yes", "Yes", "Press the Yes button", Keys.Y, action: () => PressYesNo(true));
-
-            Register("show_perks", "Show Perks", "Show the perks page", Keys.P, action: () => Scene.Go(SceneInstance<PerksScene>.Instance));
-
-            Register("continue", "Continue", "Press the Continue button", Keys.Enter, Keys.Space, PressContinue);
-
-            Register("cycle_background", "Cycle Background", "Cycle the background image", Keys.Home, action: CycleBackground);
+            Register("cycle_background", "Cycle Background", "Cycle the background image", Keys.Home, action: CycleBackground, canExecute: CanUseGameMenu);
 
             Register("button_1", "Button 1", "Press button 1", Keys.D1, action: () => PressButton(0));
 
@@ -98,9 +77,9 @@ namespace MonoCoC.Contents.Input
 
         private static void Register(string id, string name, string description, Keys primary,
 
-            Keys secondary = Keys.None, Action? action = null) =>
+            Keys secondary = Keys.None, Action? action = null, Func<bool>? canExecute = null) =>
 
-            HotkeyRegistry.Register("coc:" + id, name, description, primary, secondary, action);
+            HotkeyRegistry.Register("coc:" + id, name, description, primary, secondary, action, canExecute);
 
         private static void ToggleStats()
         {
@@ -115,7 +94,7 @@ namespace MonoCoC.Contents.Input
 
         private static void CycleBackground()
         {
-            var view = UI.Components.Views.GameView.Instance;
+            var view = UI.Components.Views.GameView.Current;
 
             if (view == null)
                 return;
@@ -126,40 +105,52 @@ namespace MonoCoC.Contents.Input
                 image.Texture = Assets.ManagerInstance<Assets.AssetManagers.TextureManager>.Instance["background" + _backgroundIndex];
         }
 
-        private static void ShowMainMenu()
-        {
-            UI.Framework.UIManager.Instance.Root.SwitchView(
-                new MainView());
-        }
+        private static bool CanUseGameMenu() =>
+            CoC.Instance?.Player is { Loaded: true } && Scene.Current is not null;
+
+        private static void ShowMainMenu() => MenuBarView.Toggle();
 
         private static void OpenOptions()
         {
-            MonoCoC.UI.Framework.UIManager.Instance.Root.SwitchView(
-                new MonoCoC.UI.Components.Views.OptionsView());
+            var options = new OptionsView();
 
-            MonoCoC.UI.Components.Views.OptionsView.Open();
+            ViewNavigator.Open(options);
+
+            OptionsView.Open();
         }
 
         private static void OpenData()
         {
-            // 启动阶段 UI Root/Scene 尚未初始化时触发热键会 NRE
             if (UI.Framework.UIManager.Instance.Root == null || Scene.Current == null)
                 return;
 
-            Scene.Go(SceneInstance<SaveLoad>.Instance);
+            ViewNavigator.Open(new SaveLoadView());
         }
 
         private static void PressContinue()
         {
-            var button = Scene.ButtonAt(14);
+            foreach (var role in new[] { SceneActionRole.Continue, SceneActionRole.Exit })
+            {
+                foreach (var action in Scene.Actions)
+                {
+                    if (action.Role != role || !action.Visible || !action.Enabled || action.OnClick is null)
+                        continue;
 
-            if (button is { Visible: true, Enabled: true })
-                button.OnClick?.Invoke();
+                    action.OnClick();
+
+                    return;
+                }
+            }
+
+            var fallback = Scene.ButtonAt(14);
+
+            if (fallback is { Visible: true, Enabled: true })
+                fallback.OnClick?.Invoke();
         }
 
         private static void PressYesNo(bool yes)
         {
-            var button = Scene.ButtonAt(yes ? 1 : 0);
+            var button = Scene.ButtonAt(yes ? 0 : 1);
 
             if (button is { Visible: true, Enabled: true })
                 button.OnClick?.Invoke();

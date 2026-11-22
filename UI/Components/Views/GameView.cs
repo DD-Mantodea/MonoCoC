@@ -1,4 +1,4 @@
-﻿using MonoCoC.Assets;
+using MonoCoC.Assets;
 using MonoCoC.Contents.Enemies;
 using MonoCoC.Contents.World;
 using MonoCoC.Assets.AssetManagers;
@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using static MonoCoC.UI.Layout.LayoutConstants;
 using MonoCoC.UI.Components.Combat;
+using MonoCoC.UI.Components;
 using MonoCoC.UI.Framework;
 using MonoCoC.Contents.Scenes;
 using MonoCoC.UI.Data;
@@ -17,20 +18,41 @@ namespace MonoCoC.UI.Components.Views
 {
     public abstract class GameView : HjsonView
     {
-        protected readonly List<Button> _topMenuButtons = [];
+        public static GameView? Current { get; private set; }
 
-        protected Component? _navigation;
+        public static void SwitchTo<T>() where T : View, new()
+        {
+            var view = ViewInstance<T>.Get();
 
-        protected Button? _menuButton;
+            UIManager.Instance.Root.SwitchView(view);
 
-        protected string _gameOverTitle = "";
+            Current = view as GameView;
+        }
+
+        public static void SwitchTo(GameView view)
+        {
+            UIManager.Instance.Root.SwitchView(view);
+
+            Current = view;
+        }
+
+        public static void SwitchTo<T>(Context<T> context) where T : GameView<T>, new()
+        {
+            var view = ViewInstance<T>.Get();
+
+            UIManager.Instance.Root.SwitchView(view);
+
+            Current = view;
+
+            view.ApplyContext(context);
+        }
 
         public bool DataMenuVisible { get; private set; }
 
-        public static bool CanQuickSave => Instance?.DataMenuVisible == true;
+        public static bool CanQuickSave => Current?.DataMenuVisible == true;
 
         public static bool CanQuickLoad =>
-            Instance?.DataMenuVisible == true || Configuration.OptionStore.Instance.Get("quickloadAnywhere", 0) > 0;
+            Current?.DataMenuVisible == true || Configuration.OptionStore.Instance.Get("quickloadAnywhere", 0) > 0;
 
         protected abstract override string ScreenFile { get; }
 
@@ -40,156 +62,47 @@ namespace MonoCoC.UI.Components.Views
 
             Scene.ReapplyActionsIfNeeded();
 
-            if (UserInput.IsJustPress(Keys.Escape))
+            if (UserInput.HasFocus && UserInput.IsJustPress(Keys.Escape))
                 ToggleMenu();
-
-            var scene = Scene.Current;
-
-            var hide = scene is Contents.Scenes.Vanilla.SaveLoad
-
-                or Contents.Scenes.Vanilla.AchievementsScene
-
-                or Contents.Scenes.Vanilla.CreditsScene
-
-                or Contents.Scenes.Vanilla.InstructionsScene
-
-                or Contents.Scenes.Vanilla.Places.PlacesScene
-
-                or Contents.Scenes.Vanilla.CharCreation;
-
-            if (hide && _navigation is not null)
-                _navigation.Visible = false;
-
-            _menuButton?.Visible = !hide;
 
             var player = CoC.Instance.Player;
 
-            DataMenuVisible = !hide && player is { Loaded: true } &&
+            DataMenuVisible = player is { Loaded: true } &&
                               !Contents.Combat.CombatController.InCombat &&
                               !Contents.Dungeons.DungeonSession.InDungeon;
-
-            for (var index = 0; index < _topMenuButtons.Count; index++)
-            {
-                var button = _topMenuButtons[index];
-
-                button.Visible = !hide;
-
-                if (index == 3)
-                    button.Visible = !hide && player != null
-
-                        && (player.CanLevelUp() || player.CanBuyStats() || player.CanBuyPerks());
-            }
         }
 
         public GameView()
         {
-            Instance = this;
+            Current = this;
 
             Time.HourPassed += OnHourPassed;
 
             TimeAwareRegistry.ReloadVanilla();
         }
 
-        [UIComponent("game:sprite")]
-        private static Component CreateSprite() => new UIImage(null);
-
-        [UIComponent("game:image")]
-        private static Component CreateImage() => new UIImage(null);
-
-        [UIComponent("game:dungeon_map")]
-        private static Component CreateDungeonMap() => new DungeonMapPanel();
-
-        [UIComponent("game:mini_map")]
-        private static Component CreateMiniMap() => new DungeonMiniMapPanel();
-
-        [UIComponent("game:multi_combat_stats")]
-        private static Component CreateMultiCombatStats() => new MultiCombatStats();
-
-        [UIComponent("game:target_pointer")]
-        private static Component CreateTargetPointer() =>
-            new UIImage(ManagerInstance<TextureManager>.Instance["selection"]);
-
-        public void ToggleMenu()
+        public void Write(string text)
         {
-            _navigation?.Visible = !_navigation.Visible;
+            Output?.Append(Scene.Parser.Parse(text));
         }
 
-        public MultiCombatStats? MultiCombatStats = null!;
-
-        protected UIImage? _targetPointer = null!;
-
-        public void ShowCombatStats(Enemy enemy)
+        public void ClearOutput()
         {
-            _targetPointer?.Visible = false;
-
-            CombatStats?.Show(enemy);
-
-            Output.Size(CombatTextZoneWidth, TextZoneHeight);
+            Output?.Clear();
         }
 
-        public void ShowCombatStats(IReadOnlyList<Enemy> enemies, int selected, Action<int> select)
+        public void ClearButtons() => Scene.ClearButtons();
+
+        public Button? AddButton(int slot, string text, Action? onClick = null, string hint = "", string hintHeader = "") =>
+            Scene.AddButton(slot, text, onClick, hint, hintHeader);
+
+        public Button? AddButtonDisabled(int slot, string text, string hint = "", string hintHeader = "") =>
+            Scene.AddButtonDisabled(slot, text, hint, hintHeader);
+
+        public virtual void ToggleMenu()
         {
-            CombatStats?.Hide();
-
-            MultiCombatStats?.Refresh(enemies, selected, select);
-
-            var panelTop = CombatStatsY + selected * (EnemyStatsPanel.PanelHeight + MultiCombatStats.Gap);
-
-            if (_targetPointer is not null)
-            {
-                _targetPointer.LayoutData.Position.X = CombatStatsX + (EnemyStatsPanel.PanelWidth - 20) / 2;
-
-                _targetPointer.LayoutData.Position.Y = panelTop - 4;
-
-                _targetPointer.Visible = enemies.Count > 1 && selected >= 0 && selected < enemies.Count;
-            }
-
-            Output.Size(CombatTextZoneWidth, TextZoneHeight);
+            MenuBarView.Toggle();
         }
-
-        public void HideCombatStats()
-        {
-            CombatStats?.Hide();
-
-            Output.Size(TextZoneWidth, TextZoneHeight);
-        }
-
-        public bool GameOverActive { get; private set; }
-
-        public Label? GameOverLabel;
-
-        public void ShowGameOver(string title)
-        {
-            GameOverActive = true;
-
-            _gameOverTitle = title;
-
-            CombatStats?.Hide();
-
-            StatsVisible = false;
-
-            if (GameOverLabel != null)
-            {
-                GameOverLabel.Text(title);
-
-                GameOverLabel.Visible = true;
-            }
-
-            Output.Size(TextZoneWidth, TextZoneHeight);
-        }
-
-        public void HideGameOver()
-        {
-            GameOverActive = false;
-
-            _gameOverTitle = "";
-
-            StatsVisible = true;
-
-            GameOverLabel?.Visible = false;
-        }
-
-        public static GameView? Instance;
 
         private static readonly Time SharedTime = new();
 
@@ -213,12 +126,12 @@ namespace MonoCoC.UI.Components.Views
             _ = TimeAwareRegistry.DispatchHour(hour);
         }
 
-        public static bool Ready => Instance != null;
+        public static bool Ready => Current != null;
 
         public static void SetPlayerStatsVisible(bool visible)
         {
-            if (Instance?.PlayerStats is not null)
-                Instance.PlayerStats.Visible = visible;
+            if (Current?.PlayerStats is not null)
+                Current.PlayerStats.Visible = visible;
         }
 
         public Component Background;
@@ -233,15 +146,9 @@ namespace MonoCoC.UI.Components.Views
 
         public UIImage? Image;
 
-        public DungeonMapPanel? DungeonMap;
-
-        public DungeonMiniMapPanel? DungeonMiniMap;
-
         public TextBox Input;
 
         public PlayerStats PlayerStats;
-
-        public CombatStats? CombatStats;
 
         public bool StatsVisible = true;
 
@@ -250,6 +157,11 @@ namespace MonoCoC.UI.Components.Views
         public bool SpriteVisible = true;
 
         public bool ImageVisible = true;
+    }
+
+    public abstract class GameView<T> : GameView where T : GameView<T>
+    {
+        public virtual void ApplyContext(Context<T> context) { }
     }
 }
 

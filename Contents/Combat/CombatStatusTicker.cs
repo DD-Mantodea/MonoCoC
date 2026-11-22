@@ -36,7 +36,7 @@ namespace MonoCoC.Contents.Combat
                 {
                     context.Player.TakeLustDamage(5 + context.Random.Next(10));
 
-                    context.Write("Common.Text.YourFaceFlushesAsAWave".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YourFaceFlushesAsAWave".Localized());
                 }
 
                 status.Duration -= 1;
@@ -75,7 +75,7 @@ namespace MonoCoC.Contents.Combat
 
                     context.Enemy.HealthChange(-bleed);
 
-                    context.Write("Combat.Bleed.Enemy".Localized(context.Enemy.ShortName, bleed));
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Bleed.Enemy".Localized(context.Enemy.ShortName, bleed));
                 }
 
                 status.Duration -= 1;
@@ -83,7 +83,7 @@ namespace MonoCoC.Contents.Combat
                 if (status.Duration <= 0)
                 {
                     if (status.Id.Path == "izma_bleed")
-                        context.Write("Combat.Bleed.EnemyStopped".Localized(context.Enemy.ShortName));
+                        MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Bleed.EnemyStopped".Localized(context.Enemy.ShortName));
 
                     CombatStatusExpiryRegistry.Invoke(status.Id, context, context.Enemy);
 
@@ -134,7 +134,7 @@ namespace MonoCoC.Contents.Combat
 
                     : "Combat.Effect.BlocksMagic".Localized();
 
-                context.WriteAction(text);
+                context.Log.Add(text);
 
                 return false;
             }
@@ -145,7 +145,7 @@ namespace MonoCoC.Contents.Combat
 
                 if (ability.Type != CombatAbilityType.Support && context.Random.Next(100) < 50)
                 {
-                    context.WriteAction("Combat.Scorpion.Blind.Wasted".Localized());
+                    context.Log.Add("Combat.Scorpion.Blind.Wasted".Localized());
 
                     return false;
                 }
@@ -156,7 +156,7 @@ namespace MonoCoC.Contents.Combat
 
                 && context.Random.Next(100) < 90)
             {
-                context.WriteAction("Combat.Scorpion.Venom.SpellFails".Localized());
+                context.Log.Add("Combat.Scorpion.Venom.SpellFails".Localized());
 
                 return false;
             }

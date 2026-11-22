@@ -17,7 +17,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.FrogGirlPink.Drug.Lead".Localized());
+            context.AppendLog("Combat.FrogGirlPink.Drug.Lead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -26,12 +26,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.FrogGirlPink.Drug.Miss".Localized());
+                context.AppendLog("Combat.FrogGirlPink.Drug.Miss".Localized());
 
                 return;
             }
 
-            context.Append("Combat.FrogGirlPink.Drug.Hit".Localized());
+            context.AppendLog("Combat.FrogGirlPink.Drug.Hit".Localized());
 
             player.HealthChange(-CombatCalculator.ReduceDamage(context, player, enemy.Strength / 2 + enemy.WeaponAttack + context.Random.Next(5)));
 
@@ -43,7 +43,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.FrogGirlPink.Tease.Lead".Localized());
+            context.AppendLog("Combat.FrogGirlPink.Tease.Lead".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 10 + context.Random.Next(8));
         }

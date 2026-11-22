@@ -37,7 +37,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (IsCrippled)
             {
-                context.Append("Scenes.EncapsulationPod.PerformCombatAction.HomeCozy".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.PerformCombatAction.HomeCozy".Localized());
 
                 return true;
             }
@@ -48,61 +48,61 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (round == 0)
             {
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.WarmWetShiver".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.WarmWetShiver".Localized());
 
                 if (player.Balls > 0)
                 {
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.BallsWord".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.BallsWord".Localized());
 
                     if (player.HasVagina())
-                        context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.AndWord".Localized());
+                        context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.AndWord".Localized());
                 }
 
                 if (player.HasVagina())
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.VaginaWord".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.VaginaWord".Localized());
                 else if (player.Balls == 0)
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.TaintWord".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.TaintWord".Localized());
 
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.ClimbFurther".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.ClimbFurther".Localized());
 
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.BlankLine".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.BlankLine".Localized());
             }
             else if (round == 2)
             {
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.TentaclesSquirm".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.TentaclesSquirm".Localized());
 
                 if (player.Balls > 0)
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.WrapsTop".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.WrapsTop".Localized());
                 else
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.OneLead".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.OneLead".Localized());
 
                 if (player.CockTotal() > 0)
                 {
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.ProdsCock".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.ProdsCock".Localized());
 
-                    context.Append(player.Cocks.Exists(c => c.SheathOn)
+                    context.AppendLog(player.Cocks.Exists(c => c.SheathOn)
 
                         ? "Scenes.EncapsulationPod.EncapsulationPodAI.SheathWord".Localized()
 
                         : "Scenes.EncapsulationPod.EncapsulationPodAI.BaseWord".Localized());
 
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.SqueezeRelax".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.SqueezeRelax".Localized());
                 }
                 else if (player.HasVagina())
                 {
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.ProdsGroin".Localized(player.VaginaDescript(0)));
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.ProdsGroin".Localized(player.VaginaDescript(0)));
 
                     if (player.GetClitLength() > 4)
-                        context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.BrushesClit".Localized());
+                        context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.BrushesClit".Localized());
                 }
                 else
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.ProdsBeforeCurl".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.ProdsBeforeCurl".Localized());
 
                 if (player.CockTotal() > 1)
                 {
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.OtherLead".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.OtherLead".Localized());
 
-                    context.Append(player.CockTotal() == 2
+                    context.AppendLog(player.CockTotal() == 2
 
                         ? "Scenes.EncapsulationPod.EncapsulationPodAI.SameTreatment".Localized(player.CockDescript(1))
 
@@ -111,55 +111,55 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 if (player.HasVagina())
                 {
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.ViolationSwift".Localized(player.VaginaDescript()));
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.ViolationSwift".Localized(player.VaginaDescript()));
 
-                    context.Append(player.GetClitLength() > 3
+                    context.AppendLog(player.GetClitLength() > 3
 
                         ? "Scenes.EncapsulationPod.EncapsulationPodAI.DiscoversSize".Localized()
 
                         : "Scenes.EncapsulationPod.EncapsulationPodAI.EasyTime".Localized());
                 }
 
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.LuckyStalk".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.LuckyStalk".Localized());
 
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.MassContinues".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.MassContinues".Localized());
 
                 if (player.Pregnancy.Incubation > 0 && player.Pregnancy.Incubation < 120)
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.PregnantWord".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.PregnantWord".Localized());
 
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.BellyCloser".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.BellyCloser".Localized());
 
                 if (player.BiggestBreastSize() < 1)
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.YourChest".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.YourChest".Localized());
                 else
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.UndersideWord".Localized(player.AllBreastsDescript()));
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.UndersideWord".Localized(player.AllBreastsDescript()));
 
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.GodsAbove".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.GodsAbove".Localized());
 
                 if (player.Lust < 65)
                     player.ApplyStats(new DynStat(GameStats.Lust, 65 - player.Lust));
 
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.BlankLineTwo".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.BlankLineTwo".Localized());
             }
             else if (round == 3)
             {
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.WetWarmPressure".Localized(player.NippleDescript(0)));
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.WetWarmPressure".Localized(player.NippleDescript(0)));
 
                 if (player.HasFuckableNipples())
-                    context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.ArousalLeaks".Localized());
+                    context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.ArousalLeaks".Localized());
 
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.MoansEscape".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.MoansEscape".Localized());
 
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.TentaclesBusy".Localized(player.AllBreastsDescript()));
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.TentaclesBusy".Localized(player.AllBreastsDescript()));
 
                 if (player.Lust < 85)
                     player.ApplyStats(new DynStat(GameStats.Lust, 85 - player.Lust));
 
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.BlankLineThree".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.BlankLineThree".Localized());
             }
             else
             {
-                context.Append("Scenes.EncapsulationPod.EncapsulationPodAI.EyesCloudOver".Localized());
+                context.AppendLog("Scenes.EncapsulationPod.EncapsulationPodAI.EyesCloudOver".Localized());
 
                 player.ApplyStats(new DynStat(GameStats.Lust, 1f));
 

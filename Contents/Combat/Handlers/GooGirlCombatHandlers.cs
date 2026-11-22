@@ -15,7 +15,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.GooGirl.Play.Lead".Localized());
+            context.AppendLog("Combat.GooGirl.Play.Lead".Localized());
 
             player.Lust = Math.Min(player.MaxLust, player.Lust + 3 + context.Random.Next(3) + player.Sensitivity / 10);
         }
@@ -24,7 +24,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.GooGirl.GooThrow.Text".Localized());
+            context.AppendLog("Combat.GooGirl.GooThrow.Text".Localized());
 
             player.HealthChange(-1);
 
@@ -36,7 +36,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.GooGirl.Engulf.Lead".Localized());
+            context.AppendLog("Combat.GooGirl.Engulf.Lead".Localized());
 
             if (!player.HasStatusEffect(StatusEffectIds.GooBind))
                 player.CreateStatusEffect(StatusEffectIds.GooBind);
@@ -66,7 +66,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 DoFatigue = true
             });
 
-            context.Append((acid
+            context.AppendLog((acid
 
                 ? "Combat.GooGirl.GooGalAttack.AcidLead"
 
@@ -107,7 +107,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoidKey != null)
             {
-                context.Append(avoidKey.Localized());
+                context.AppendLog(avoidKey.Localized());
 
                 return;
             }
@@ -120,7 +120,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                 var absorbed = context.Random.Next(Math.Max(1, (int)(player.ArmorDefense + player.Toughness))) < player.ArmorDefense;
 
-                context.Append((acid
+                context.AppendLog((acid
 
                     ? absorbed
 
@@ -136,13 +136,13 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
             else if (acid)
             {
-                context.Append("Combat.GooGirl.GooGalAttack.AcidHit".Localized());
+                context.AppendLog("Combat.GooGirl.GooGalAttack.AcidHit".Localized());
 
                 if (!player.HasStatusEffect(StatusEffectIds.AcidSlap))
                     player.CreateStatusEffect(StatusEffectIds.AcidSlap);
             }
             else
-                context.Append("Combat.GooGirl.GooGalAttack.Hit".Localized());
+                context.AppendLog("Combat.GooGirl.GooGalAttack.Hit".Localized());
 
             if (damage > 0)
             {
@@ -153,7 +153,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
                     who = char.ToUpperInvariant(who[0]) + who[1..];
 
-                    context.Append((enemy.Plural
+                    context.AppendLog((enemy.Plural
 
                         ? "Combat.GooGirl.GooGalAttack.BondageLustPlural"
 
@@ -173,18 +173,18 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!player.HasStatusEffect(StatusEffectIds.GooBind))
                 return;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (context.Random.Next(3) == 0 || context.Random.Next(80) < player.Strength)
             {
-                context.Append("Combat.GooGirl.Struggle.Success".Localized());
+                context.AppendLog("Combat.GooGirl.Struggle.Success".Localized());
 
                 player.RemoveStatusEffect(StatusEffectIds.GooBind);
 
                 return;
             }
 
-            context.Append("Combat.GooGirl.Struggle.Fail".Localized());
+            context.AppendLog("Combat.GooGirl.Struggle.Fail".Localized());
 
             player.HealthChange(-Math.Min(0.15f * player.MaxHealth, 100f));
         }
@@ -194,9 +194,9 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!context.Player.HasStatusEffect(StatusEffectIds.GooBind))
                 return true;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
-            context.Append("Combat.GooGirl.Struggle.Fail".Localized());
+            context.AppendLog("Combat.GooGirl.Struggle.Fail".Localized());
 
             context.Player.HealthChange(-(0.35f * context.Player.MaxHealth));
 
@@ -205,7 +205,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
         public static void OnBurned(CombatContext context)
         {
-            context.Append("Combat.GooGirl.Burned".Localized());
+            context.AppendLog("Combat.GooGirl.Burned".Localized());
 
             if (!context.Enemy.HasPerk(PerkIds.Acid))
                 context.Enemy.CreatePerk(PerkIds.Acid);

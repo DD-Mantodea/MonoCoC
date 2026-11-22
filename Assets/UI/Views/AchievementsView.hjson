@@ -1,0 +1,68 @@
+{
+  require: ["GlobalStyles"]
+  id: "AchievementsView"
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        material: "coc:paper"
+        sizeType: "fill"
+        backgroundColor: "#F2E5C7FF"
+        canHit: false
+      }
+      {
+        type: "coc:label"
+        x: 320
+        y: 60
+        width: 930
+        height: 44
+        font: { id: "coc:menu", size: 32 }
+        textColor: "#35291FFF"
+        canHit: false
+        text: "Achievements"
+      }
+      {
+        type: "coc:text_area"
+        part: "achievements.text"
+        x: 320
+        y: 120
+        width: 940
+        height: 680
+        font: "coc:body"
+        backgroundColor: "#FFFFFF66"
+        padding: 16
+        autoScroll: true
+        borderThickness: 2
+        borderColor: "#00000022"
+      }
+      {
+        type: "coc:label"
+        part: "achievements.earned"
+        horizontalAlign: "left"
+        verticalAlign: "bottom"
+        x: 40
+        y: -40
+        width: 360
+        height: 48
+        font: "coc:menu"
+        textColor: "#7C6B58FF"
+        canHit: false
+      }
+      {
+        type: "coc:button"
+        style: "FooterButton"
+        horizontalAlign: "right"
+        verticalAlign: "bottom"
+        x: -60
+        y: -40
+        width: 200
+        height: 60
+        label: { key: "Common.Back" }
+        onClick: "achievements.back"
+      }
+    ]
+  }
+}

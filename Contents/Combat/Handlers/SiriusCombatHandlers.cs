@@ -17,7 +17,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Sirius.EAttack.SiriusReadiesHis".Localized());
+            context.AppendLog("Combat.Sirius.EAttack.SiriusReadiesHis".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -34,7 +34,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Sirius.OutputPlayerDodged.WithYourTrained".Localized());
+                context.AppendLog("Combat.Sirius.OutputPlayerDodged.WithYourTrained".Localized());
 
                 return;
             }
@@ -53,22 +53,22 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Sirius.ManNagaTease.TheSnakeMan".Localized());
+            context.AppendLog("Combat.Sirius.ManNagaTease.TheSnakeMan".Localized());
 
             if (context.Random.Next(10) == 0)
-                context.Append("Combat.Sirius.ManNagaTease.YouBlinkAnd".Localized());
+                context.AppendLog("Combat.Sirius.ManNagaTease.YouBlinkAnd".Localized());
 
             float lust;
 
             if (enemy.HasStatusEffect(StatusEffectIds.Blind))
             {
-                context.Append("Combat.Sirius.ManNagaTease.ThoughYourVision".Localized());
+                context.AppendLog("Combat.Sirius.ManNagaTease.ThoughYourVision".Localized());
 
                 lust = 5 + player.Libido / 10f - player.Intelligence / 20f;
             }
             else
             {
-                context.Append("Combat.Sirius.ManNagaTease.ThosePoolsOf".Localized());
+                context.AppendLog("Combat.Sirius.ManNagaTease.ThosePoolsOf".Localized());
 
                 lust = 10 + player.Libido / 7f - player.Intelligence / 20f;
             }
@@ -83,17 +83,17 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Sirius.NagaSpitAttack.HissingLoudlySirius".Localized());
+            context.AppendLog("Combat.Sirius.NagaSpitAttack.HissingLoudlySirius".Localized());
 
             if (enemy.Speed / 20f + context.Random.Next(20) + 1 > player.Speed / 20f + 10)
             {
-                context.Append("Combat.Sirius.NagaSpitAttack.TheVileSpray".Localized());
+                context.AppendLog("Combat.Sirius.NagaSpitAttack.TheVileSpray".Localized());
 
                 if (!player.HasStatusEffect(StatusEffectIds.Blind))
                     player.CreateStatusEffect(StatusEffectIds.Blind, 3, 0, 0, 0);
             }
             else
-                context.Append("Combat.Sirius.NagaSpitAttack.YouQuicklyLean".Localized());
+                context.AppendLog("Combat.Sirius.NagaSpitAttack.YouQuicklyLean".Localized());
         }
 
         [Register("coc:sirius_poison_bite")]
@@ -103,7 +103,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Sirius.PoisonBite.WithALoud".Localized());
+            context.AppendLog("Combat.Sirius.PoisonBite.WithALoud".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -119,9 +119,9 @@ namespace MonoCoC.Contents.Combat.Handlers
             });
 
             if (avoid.Outcome != AvoidOutcome.Hit)
-                context.Append("Combat.Sirius.PoisonBite.YouDodgeJust".Localized());
+                context.AppendLog("Combat.Sirius.PoisonBite.YouDodgeJust".Localized());
 
-            context.Append("Combat.Sirius.PoisonBite.TheSnakeMan".Localized());
+            context.AppendLog("Combat.Sirius.PoisonBite.TheSnakeMan".Localized());
 
             player.HealthChange(-(40 + context.Random.Next(20)));
         }

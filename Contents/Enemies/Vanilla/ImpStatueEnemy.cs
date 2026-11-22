@@ -30,7 +30,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (master == null || master.Health <= 0)
             {
-                context.Append("Combat.Hel.ImpInert".Localized());
+                context.AppendLog("Combat.Hel.ImpInert".Localized());
 
                 Health = 0;
 
@@ -39,7 +39,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (Lust >= MaxLust)
             {
-                context.Append("Combat.Hel.StatueLustBreak".Localized());
+                context.AppendLog("Combat.Hel.StatueLustBreak".Localized());
 
                 Health = MaxHealth / 2;
 
@@ -50,7 +50,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (Health >= MaxHealth)
             {
-                context.Append("Combat.Hel.ImpDebilitate".Localized());
+                context.AppendLog("Combat.Hel.ImpDebilitate".Localized());
 
                 var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
                 {
@@ -61,37 +61,37 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 if (avoid.Outcome == AvoidOutcome.Hit)
                     if (context.Player.Shield != null && context.Player.Shield.Is(ItemIds.DragonShield) && Random.Shared.Next(3) == 0)
-                        context.Append("Combat.Hel.StatueShield".Localized());
+                        context.AppendLog("Combat.Hel.StatueShield".Localized());
                     else
                     {
-                        context.Append("Combat.Hel.ImpDebilitateHit".Localized());
+                        context.AppendLog("Combat.Hel.ImpDebilitateHit".Localized());
 
                         if (context.Player.Stun(1, 33))
-                            context.Append("Combat.Hel.ImpStun".Localized());
+                            context.AppendLog("Combat.Hel.ImpStun".Localized());
 
                         if (Random.Shared.Next(3) != 0 && !context.Player.HasStatusEffect(StatusEffectIds.Blind))
                         {
                             context.Player.CreateStatusEffect(StatusEffectIds.Blind, 3, 0, 0, 0);
 
-                            context.Append("Combat.Hel.ImpBlind".Localized());
+                            context.AppendLog("Combat.Hel.ImpBlind".Localized());
                         }
 
                         if (!context.Player.HasStatusEffect(StatusEffectIds.Marked))
                         {
                             context.Player.CreateStatusEffect(StatusEffectIds.Marked, 2, 0, 0, 0);
 
-                            context.Append("Combat.Hel.ImpHex".Localized());
+                            context.AppendLog("Combat.Hel.ImpHex".Localized());
                         }
                     }
 
-                context.Append("Combat.Hel.ImpAfter".Localized());
+                context.AppendLog("Combat.Hel.ImpAfter".Localized());
 
                 Health = MaxHealth / 2;
 
                 return true;
             }
 
-            context.Append("Combat.Hel.ImpRebuild".Localized());
+            context.AppendLog("Combat.Hel.ImpRebuild".Localized());
 
             return true;
         }

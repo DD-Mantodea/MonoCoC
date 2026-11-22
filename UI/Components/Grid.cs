@@ -1,9 +1,18 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using MonoCoC.UI.Framework;
 using MonoCoC.UI.Layout;
 
+using FontStashSharp;
+using FontStashSharp.RichText;
+using Hjson;
+using MonoCoC.Extensions;
+using MonoCoC.UI.Data;
+using MonoCoC.UI.Structures;
+using MonoCoC.UI.Styles;
+using System.Globalization;
+using System.Runtime.CompilerServices;
 namespace MonoCoC.UI.Components
 {
     public enum GridTrackKind
@@ -28,8 +37,7 @@ namespace MonoCoC.UI.Components
         public static GridTrack Pixels(float value) => new(GridTrackKind.Pixel, Math.Max(0, value));
     }
 
-    public class Grid(int rows, int columns) : Container
-    {
+    public class Grid(int rows, int columns) : Container, IFromHjson<Grid> {
         public int Rows = rows;
 
         public int Columns = columns;
@@ -292,7 +300,115 @@ namespace MonoCoC.UI.Components
 
             return offsets;
         }
-    }
+    
+        public static string TypeId => "coc:grid";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext services)
+        {
+            var rowDefinitions = ReadGridTracks(node, "rows", "rowDefinitions");
+
+            var columnDefinitions = ReadGridTracks(node, "columns", "columnDefinitions");
+
+            var grid = new Grid(
+                rowDefinitions.Count > 0 ? rowDefinitions.Count : Math.Max(1, node.Int("rows", 1)),
+                columnDefinitions.Count > 0 ? columnDefinitions.Count : Math.Max(1, node.Int("columns", 1)));
+
+            if (rowDefinitions.Count > 0)
+                grid.RowDefinitions = rowDefinitions;
+
+            if (columnDefinitions.Count > 0)
+                grid.ColumnDefinitions = columnDefinitions;
+
+            grid.AutoSize = node.Bool("autoSize", false);
+
+            grid.AutoIndex = node.Bool("autoIndex", false);
+
+            if (node.TryGetValue("spacing", out var spacing))
+                grid.Spacing = UIParseUtils.Int(spacing);
+
+            return grid;
+        }
+
+
+        private static List<GridTrack> ReadGridTracks(JsonObject node, string countKey, string definitionsKey)
+        {
+            var result = new List<GridTrack>();
+
+            var value = node.TryGetValue(definitionsKey, out var definitions)
+                ? definitions
+                : node.TryGetValue(countKey, out var count) ? count : null;
+
+            if (value is not JsonArray array)
+            {
+                if (value is not null)
+                {
+                    var text = value.ToString().Trim('"').Trim();
+
+                    if (text.StartsWith("auto", StringComparison.OrdinalIgnoreCase))
+                    {
+                        var repeat = text.Length == 4
+                            ? 1
+                            : int.TryParse(text[4..], NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsed)
+                                ? Math.Max(0, parsed)
+                                : 0;
+
+                        for (var i = 0; i < repeat; i++)
+                            result.Add(GridTrack.Auto);
+                    }
+                }
+
+                return result;
+            }
+
+            foreach (var entry in array)
+                result.Add(ParseGridTrack(entry));
+
+            return result;
+        }
+
+
+        private static GridTrack ParseGridTrack(JsonValue? value)
+        {
+            if (value is null)
+                return GridTrack.Star();
+
+            if (value is JsonObject obj)
+            {
+                var size = obj.Str("size", obj.Str("value", obj.Str("height", obj.Str("width", "1*"))));
+
+                return ParseGridTrackString(size);
+            }
+
+            return ParseGridTrackString(value.ToString().Trim('"'));
+        }
+
+
+        private static GridTrack ParseGridTrackString(string value)
+        {
+            value = value.Trim();
+
+            if (value.Equals("auto", StringComparison.OrdinalIgnoreCase))
+                return GridTrack.Auto;
+
+            if (value.EndsWith('*'))
+            {
+                var weight = value[..^1];
+
+                return float.TryParse(weight, NumberStyles.Float, CultureInfo.InvariantCulture, out var parsed)
+                    ? GridTrack.Star(parsed)
+                    : GridTrack.Star();
+            }
+
+            return float.TryParse(value, NumberStyles.Float, CultureInfo.InvariantCulture, out var pixels)
+                ? GridTrack.Pixels(pixels)
+                : GridTrack.Star();
+        }
+
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<Grid>();
+    
+}
 
     internal static class GridArrayExtensions
     {

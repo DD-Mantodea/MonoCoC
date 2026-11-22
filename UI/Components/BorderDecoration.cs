@@ -1,10 +1,13 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Hjson;
+using MonoCoC.UI.Data;
+using MonoCoC.UI.Framework;
+using System.Runtime.CompilerServices;
 namespace MonoCoC.UI.Components
 {
-    public class BorderDecoration : DecorationComponent
-    {
+    public class BorderDecoration : DecorationComponent, IFromHjson<BorderDecoration> {
         public int Thickness = 1;
 
         public int Inset;
@@ -30,5 +33,24 @@ namespace MonoCoC.UI.Components
             Fill(spriteBatch, new Rectangle(bounds.X, bounds.Y, thickness, bounds.Height), color);
             Fill(spriteBatch, new Rectangle(bounds.Right - thickness, bounds.Y, thickness, bounds.Height), color);
         }
-    }
+    
+        public static string TypeId => "coc:border";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext services)
+        {
+            var border = new BorderDecoration();
+
+            if (node.TryGetValue("thickness", out var thickness))
+                border.Thickness = UIParseUtils.Int(thickness);
+
+            if (node.TryGetValue("inset", out var inset))
+                border.Inset = UIParseUtils.Int(inset);
+
+            return border;
+        }
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<BorderDecoration>();
+    
+}
 }

@@ -45,7 +45,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var mastery = Mastery(player);
 
-            context.Append("Combat.Ability.MonkStance.Text".Localized());
+            context.AppendLog("Combat.Ability.MonkStance.Text".Localized());
 
             StanceChange(player, StatusEffectIds.MonkStance);
 
@@ -60,7 +60,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (mastery >= 5)
             {
-                context.Append("Combat.Ability.MonkStance.Activation".Localized());
+                context.AppendLog("Combat.Ability.MonkStance.Activation".Localized());
 
                 player.CreateStatusEffect(StatusEffectIds.TrueParry, 0, 0, 0, 0, 1);
 
@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var mastery = Mastery(player);
 
-            context.Append("Combat.Ability.BrawlerStance.Text".Localized());
+            context.AppendLog("Combat.Ability.BrawlerStance.Text".Localized());
 
             StanceChange(player, StatusEffectIds.BrawlerStance);
 
@@ -85,7 +85,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (mastery >= 5)
             {
-                context.Append("Combat.Ability.BrawlerStance.Activation".Localized());
+                context.AppendLog("Combat.Ability.BrawlerStance.Activation".Localized());
 
                 CombatRangeData.CloseDistance(enemy);
 
@@ -110,7 +110,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (player.Weapon.IsBareFist() && player.Shield is null)
                 return;
 
-            context.Append("Combat.Ability.Stance.Broken".Localized());
+            context.AppendLog("Combat.Ability.Stance.Broken".Localized());
 
             player.RemoveStatusEffect(stance);
         }

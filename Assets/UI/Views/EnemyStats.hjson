@@ -1,0 +1,20 @@
+{
+  require: ["GlobalStyles"]
+  id: "EnemyStats"
+
+  root: {
+    type: "coc:view"
+    sizeType: "fill"
+    children: [
+      { type: "coc:panel", sizeType: "fill", backgroundColor: "#F7EFE0F2", canHit: false }
+      { type: "coc:label", x: 14, y: 12, width: 272, height: 20, font: { id: "coc:menu", size: 15 }, textColor: "#7C6B58FF", text: "ENEMY", canHit: false }
+      { type: "coc:label", part: "enemy.name", x: 14, y: 34, width: 272, height: 30, font: { id: "coc:menuBold", size: 26 }, textColor: "#35291FFF", canHit: false }
+      { type: "coc:divider", x: 14, y: 68, width: 272, height: 1, thickness: 1, canHit: false }
+      { type: "coc:label", x: 14, y: 78, width: 80, height: 20, font: { id: "coc:menu", size: 15 }, textColor: "#7C6B58FF", text: "LEVEL", canHit: false }
+      { type: "coc:label", part: "enemy.level", x: 124, y: 76, width: 172, height: 22, font: { id: "coc:menu", size: 20 }, textColor: "#35291FFF", textHorizontalAlign: "right", canHit: false }
+      { type: "coc:bar", part: "enemy.hpBar", x: 14, y: 102, width: 290, height: 20, fillColor: "#B17D5EFF", trackColor: "#28000066", borderColor: "#704D28FF", borderThickness: 1, font: { id: "coc:menu", size: 15 }, label: "HP" }
+      { type: "coc:bar", part: "enemy.lustBar", x: 14, y: 130, width: 290, height: 20, fillColor: "#880101FF", trackColor: "#28000066", borderColor: "#704D28FF", borderThickness: 1, font: { id: "coc:menu", size: 15 }, label: "LUST" }
+      { type: "coc:bar", part: "enemy.fatigueBar", x: 14, y: 158, width: 290, height: 20, fillColor: "#600000FF", trackColor: "#28000066", borderColor: "#704D28FF", borderThickness: 1, font: { id: "coc:menu", size: 15 }, label: "FATIGUE" }
+    ]
+  }
+}

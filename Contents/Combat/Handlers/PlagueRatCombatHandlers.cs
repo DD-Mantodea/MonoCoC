@@ -24,44 +24,44 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (context.Random.Next(3))
             {
                 case 0:
-                    context.Append("Scenes.PlagueRat.SwipeAttack.ClawLungeLead".Localized());
+                    context.AppendLog("Scenes.PlagueRat.SwipeAttack.ClawLungeLead".Localized());
 
                     if (Avoid(context, enemy, player).Outcome == AvoidOutcome.Hit)
                     {
-                        context.Append("Scenes.PlagueRat.SwipeAttack.ClawRips".Localized());
+                        context.AppendLog("Scenes.PlagueRat.SwipeAttack.ClawRips".Localized());
 
                         hit = true;
                     }
                     else
-                        context.Append("Scenes.PlagueRat.SwipeAttack.ClawMissSwing".Localized());
+                        context.AppendLog("Scenes.PlagueRat.SwipeAttack.ClawMissSwing".Localized());
 
                     break;
 
                 case 1:
-                    context.Append("Scenes.PlagueRat.SwipeAttack.TailFlickLead".Localized());
+                    context.AppendLog("Scenes.PlagueRat.SwipeAttack.TailFlickLead".Localized());
 
                     if (Avoid(context, enemy, player).Outcome == AvoidOutcome.Hit)
                     {
-                        context.Append("Scenes.PlagueRat.SwipeAttack.WhipSting".Localized());
+                        context.AppendLog("Scenes.PlagueRat.SwipeAttack.WhipSting".Localized());
 
                         hit = true;
                     }
                     else
-                        context.Append("Scenes.PlagueRat.SwipeAttack.ReflexDodge".Localized());
+                        context.AppendLog("Scenes.PlagueRat.SwipeAttack.ReflexDodge".Localized());
 
                     break;
 
                 default:
-                    context.Append("Scenes.PlagueRat.SwipeAttack.FerociousRunLead".Localized());
+                    context.AppendLog("Scenes.PlagueRat.SwipeAttack.FerociousRunLead".Localized());
 
                     if (Avoid(context, enemy, player).Outcome == AvoidOutcome.Hit)
                     {
-                        context.Append("Scenes.PlagueRat.SwipeAttack.StrikesLand".Localized());
+                        context.AppendLog("Scenes.PlagueRat.SwipeAttack.StrikesLand".Localized());
 
                         hit = true;
                     }
                     else
-                        context.Append("Scenes.PlagueRat.SwipeAttack.AggressionHandled".Localized());
+                        context.AppendLog("Scenes.PlagueRat.SwipeAttack.AggressionHandled".Localized());
 
                     break;
             }
@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.PlagueRat.Spit.SpitGlobLead".Localized());
+            context.AppendLog("Scenes.PlagueRat.Spit.SpitGlobLead".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -94,19 +94,19 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Scenes.PlagueRat.Spit.SpitMissed".Localized());
+                context.AppendLog("Scenes.PlagueRat.Spit.SpitMissed".Localized());
 
                 return;
             }
 
             if (player.Shield?.Is(ItemIds.DragonShield) == true && context.Random.Next(2) == 0)
             {
-                context.Append("Scenes.PlagueRat.Spit.DragonShellAbsorb".Localized());
+                context.AppendLog("Scenes.PlagueRat.Spit.DragonShellAbsorb".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.PlagueRat.Spit.SkinIrritation".Localized());
+            context.AppendLog("Scenes.PlagueRat.Spit.SkinIrritation".Localized());
 
             if (!player.HasStatusEffect(StatusEffectIds.Poison))
                 player.CreateStatusEffect(StatusEffectIds.Poison, 0, 1, 0, 0);
@@ -119,16 +119,16 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.PlagueRat.Gnash.ScreechSprintLead".Localized());
+            context.AppendLog("Scenes.PlagueRat.Gnash.ScreechSprintLead".Localized());
 
             if (Avoid(context, enemy, player).Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Scenes.PlagueRat.Gnash.BiteFailed".Localized());
+                context.AppendLog("Scenes.PlagueRat.Gnash.BiteFailed".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.PlagueRat.Gnash.ZigzagLeapGnaw".Localized());
+            context.AppendLog("Scenes.PlagueRat.Gnash.ZigzagLeapGnaw".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, enemy.Strength + enemy.WeaponAttack * 1.5f);
 

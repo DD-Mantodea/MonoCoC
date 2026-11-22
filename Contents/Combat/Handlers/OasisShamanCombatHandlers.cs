@@ -12,7 +12,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Scenes.Oasisshaman.ETease.SeductiveOffering".Localized());
+            context.AppendLog("Scenes.Oasisshaman.ETease.SeductiveOffering".Localized());
 
             var lust = 10 + player.Libido / 20f + context.Random.Next(Math.Max(1, (int)(player.Corruption / 20)));
 
@@ -26,7 +26,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Scenes.Oasisshaman.EArouse.ShimmeryLightGesture".Localized());
+            context.AppendLog("Scenes.Oasisshaman.EArouse.ShimmeryLightGesture".Localized());
 
             var lust = enemy.Intelligence / 10f + player.Libido / 10f + player.Sensitivity / 5f;
 

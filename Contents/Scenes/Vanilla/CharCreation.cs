@@ -1,4 +1,4 @@
-﻿using MonoCoC.Assets;
+using MonoCoC.Assets;
 using MonoCoC.Contents.Creatures;
 using MonoCoC.Contents.Datas.Vanilla;
 using MonoCoC.Contents.BodyParts.Vanilla;
@@ -50,7 +50,6 @@ namespace MonoCoC.Contents.Scenes.Vanilla
         {
             Configuration.OptionStore.ResetLocalOptions();
 
-            // 原版 CharCreation.hx:1623：新游戏直接标记为当前存档版本，避免进营地触发升级向导
             CoC.Instance.Flags.Set(GameFlagIds.ModSaveVersion, CampScene.CurrentSaveVersion);
 
             ClearOutput();
@@ -1505,8 +1504,6 @@ namespace MonoCoC.Contents.Scenes.Vanilla
                     break;
 
                 case "history_slut":
-                    // 原版 MasteryLib.hx:11：Tease 熟练度的 id 是 "Tease"（大写 T）；
-                    // 小写写法会与 UrtaQuestScene 里的 "Tease" 分裂成两条互不相认的熟练度
                     Player.AddMastery(new Identifier("coc", "Tease"), 2);
 
                     Player.Toughness += 5;
@@ -1627,7 +1624,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             var optionsView = new OptionsView
             {
                 InitialPage = 3,
-                OnStart = StartTheGame
+                BackHandler = StartTheGame
             };
 
             UIManager.Instance.Root.SwitchView(optionsView);
@@ -1826,7 +1823,6 @@ namespace MonoCoC.Contents.Scenes.Vanilla
             if (Flags.Get(GameFlagIds.NewGamePlusLevel) == 0)
                 return;
 
-            // 原版 CharCreation.hx:410-440：新转生流程重置非永久内容
             var keepPerks = Player.Perks
                 .Where(p => IsAscensionPerk(p.Id))
                 .Select(p => (p.Id, p.Values))
@@ -2312,7 +2308,7 @@ namespace MonoCoC.Contents.Scenes.Vanilla
 
         protected virtual void EnterCamp()
         {
-            UIManager.Instance?.Root.SwitchView(new CampView());
+            UI.Components.Views.GameView.SwitchTo<UI.Components.Views.CampView>();
 
             Go<CampScene>();
         }

@@ -99,11 +99,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void ClawAttack(CombatContext context, Player player)
         {
-            context.Write("Common.Text.WithAGrowlTheDragonLashes".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.WithAGrowlTheDragonLashes".Localized());
 
             if (HasStatusEffect(StatusEffectIds.Blind) && Random.Shared.Next(2) == 0)
             {
-                context.Write("Common.Text.EmberCompletelyMissesYouWithA".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.EmberCompletelyMissesYouWithA".Localized());
 
                 return;
             }
@@ -123,7 +123,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Write("Scenes.Ember.EmberAttack.ClawsWhistlePast".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Ember.EmberAttack.ClawsWhistlePast".Localized());
 
                 return;
             }
@@ -132,12 +132,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (damage <= 0)
             {
-                context.Write("Common.Text.EmbersClawsScrapeNoisilyButHarmlessly".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.EmbersClawsScrapeNoisilyButHarmlessly".Localized());
 
                 return;
             }
 
-            context.Write("Scenes.Ember.EmberAttack.ClawsRip".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Ember.EmberAttack.ClawsRip".Localized());
 
             player.HealthChange(-damage);
         }
@@ -148,14 +148,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (HasStatusEffect(StatusEffectIds.Blind) && Random.Shared.Next(2) == 0)
             {
-                context.Write("Common.Text.TheBlindedDragonTracksYouWith".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheBlindedDragonTracksYouWith".Localized());
 
                 Health = Math.Max(0, Health - 50);
 
                 return;
             }
 
-            context.Write("Common.Text.EmberInhalesDeeplyThenHerJaws".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.EmberInhalesDeeplyThenHerJaws".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -172,12 +172,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Write("Common.Text.ItsANarrowThingButYou".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.ItsANarrowThingButYou".Localized());
 
                 return;
             }
 
-            context.Write("Common.Text.ThePainAsTheDeadlyCombination".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.ThePainAsTheDeadlyCombination".Localized());
 
             float damage = 100 + Random.Shared.Next(100) + intensity * 4;
 
@@ -190,12 +190,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (HasStatusEffect(StatusEffectIds.Blind))
             {
-                context.Write("Common.Text.EmberCompletelyMissesYouWithA2".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.EmberCompletelyMissesYouWithA2".Localized());
 
                 return;
             }
 
-            context.Write("Common.Text.EmberSuddenlySpinsOnHerHeel".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.EmberSuddenlySpinsOnHerHeel".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -212,7 +212,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed || Random.Shared.Next(2) == 0)
             {
-                context.Write("Common.Text.YouDuckUnderTheTailAt".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouDuckUnderTheTailAt".Localized());
 
                 return;
             }
@@ -221,14 +221,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             damage = CombatCalculator.ReduceDamage(context, player, damage);
 
-            context.Write("Common.Text.TheTailSlamsIntoYouWith".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.TheTailSlamsIntoYouWith".Localized());
 
             player.HealthChange(-damage);
         }
 
         public void DragonForce(CombatContext context, Player player)
         {
-            context.Write("Common.Text.EmberBaresHerTeethAndReleases".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.EmberBaresHerTeethAndReleases".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -245,17 +245,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Write("Common.Text.YouQuicklyManageToJumpOut".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouQuicklyManageToJumpOut".Localized());
 
                 return;
             }
 
-            context.Write("Scenes.Ember.DragonFarce.BlastHits".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Ember.DragonFarce.BlastHits".Localized());
 
             var intensity = SceneInstance<EmberScene>.Get().EmberSparIntensity();
 
             if (player.Stun(0, intensity >= 30 ? 33 : 0))
-                context.Write("Scenes.Ember.DragonFarce.BalanceLost".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Ember.DragonFarce.BalanceLost".Localized());
 
             var cooldown = 4;
 
@@ -353,7 +353,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void MilkHeal(CombatContext context, Player player)
         {
-            context.Write("Scenes.Isabella.DrankMalkYaCunt.SucklesMilk".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Isabella.DrankMalkYaCunt.SucklesMilk".Localized());
 
             Health = Math.Min(MaxHealth, Health + 100);
 
@@ -364,7 +364,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void ShieldCharge(CombatContext context, Player player)
         {
-            context.Write("Common.Text.IsabellaSnortsAndLowersAShield".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.IsabellaSnortsAndLowersAShield".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -386,19 +386,19 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (damage < 0)
             {
-                context.Write("Scenes.Isabella.IsabellaAttack.CatchesCharge".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Isabella.IsabellaAttack.CatchesCharge".Localized());
 
                 return;
             }
 
-            context.Write("Scenes.Isabella.IsabellaAttack.ShieldHitsHard".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Isabella.IsabellaAttack.ShieldHitsHard".Localized());
 
             player.HealthChange(-damage);
         }
 
         public void ShieldStun(CombatContext context, Player player)
         {
-            context.Write("Common.Text.IsabellaSpinsHerShieldBackAt".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.IsabellaSpinsHerShieldBackAt".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -420,12 +420,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (damage < 0)
             {
-                context.Write("Common.Text.YouDeflectHerBlowAwayTaking".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouDeflectHerBlowAwayTaking".Localized());
 
                 return;
             }
 
-            context.Write("Scenes.Isabella.IsabellaStun.BackhandStaggers".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Isabella.IsabellaStun.BackhandStaggers".Localized());
 
             player.HealthChange(-damage);
 
@@ -434,7 +434,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void ThroatPunch(CombatContext context, Player player)
         {
-            context.Write("Common.Text.IsabellaPunchesOutFromBehindHer".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.IsabellaPunchesOutFromBehindHer".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -455,12 +455,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             var damage = CombatCalculator.ReduceDamage(context, player, Strength);
 
             if (damage <= 0)
-                context.Write("Common.Text.YouManageToBlockHerWith".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouManageToBlockHerWith".Localized());
             else if (player.HasPerk(PerkIds.Resolute) && player.Toughness >= 75)
-                context.Write("Common.Text.YouResolutelyIgnoreTheBlowThanks".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouResolutelyIgnoreTheBlowThanks".Localized());
             else
             {
-                context.Write("Scenes.Isabella.IsabellaThroatPunch.WindpipeCollapse".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Isabella.IsabellaThroatPunch.WindpipeCollapse".Localized());
 
                 player.HealthChange(-damage);
 
@@ -555,14 +555,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (damage <= 0)
             {
                 if (Random.Shared.Next((int)(player.ArmorDefense + player.Toughness)) < player.ArmorDefense)
-                    context.Write("You absorb and deflect every " + WeaponVerb + "Common.Text.WithYourArmor".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("You absorb and deflect every " + WeaponVerb + "Common.Text.WithYourArmor".Localized());
                 else
-                    context.Write("You deflect and block every " + WeaponVerb + "Common.Text.TheSalamanderThrowsAtYou".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("You deflect and block every " + WeaponVerb + "Common.Text.TheSalamanderThrowsAtYou".Localized());
 
                 return;
             }
 
-            context.Write("Scenes.Hel.HelAttack.SalamanderLungeHit".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Hel.HelAttack.SalamanderLungeHit".Localized());
 
             player.HealthChange(-damage);
         }
@@ -590,14 +590,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (damage <= 0)
             {
                 if (Random.Shared.Next((int)(player.ArmorDefense + player.Toughness)) < player.ArmorDefense)
-                    context.Write("Scenes.Hel.HelAttack2.TailDeflectsArmor".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Hel.HelAttack2.TailDeflectsArmor".Localized());
                 else
-                    context.Write("Scenes.Hel.HelAttack2.TailFailsToMove".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Hel.HelAttack2.TailFailsToMove".Localized());
 
                 return;
             }
 
-            context.Write("Scenes.Hel.HelAttack2.RushPastGuard".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Hel.HelAttack2.RushPastGuard".Localized());
 
             player.HealthChange(-damage);
         }
@@ -619,12 +619,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Write("Common.Text.ToYourSurpriseTheSalamanderSuddenly".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.ToYourSurpriseTheSalamanderSuddenly".Localized());
 
                 return;
             }
 
-            context.Write("Common.Text.ToYourSurpriseTheSalamanderSuddenly2".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.ToYourSurpriseTheSalamanderSuddenly2".Localized());
 
             var lustDamage = 20 + Random.Shared.Next(10) + player.Sensitivity / 10 + Random.Shared.Next(SceneInstance<HelScene>.Get().HeliaSparIntensity() / 10) + Random.Shared.Next((int)(player.Libido / 20));
 
@@ -703,7 +703,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void Kiss(CombatContext context, Player player)
         {
-            context.Write("Common.Text.SophieBobsAndWeavesAsShe".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SophieBobsAndWeavesAsShe".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -721,11 +721,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (avoid.AttackFailed)
                 return;
 
-            context.Write("Scenes.Sophie.SophieKissAttack.ChastePeck".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sophie.SophieKissAttack.ChastePeck".Localized());
 
             if (player.HasStatusEffect(StatusEffectIds.Luststick))
             {
-                context.Write("Common.Text.BloodRushesToYourCockAs".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.BloodRushesToYourCockAs".Localized());
 
                 SceneInstance<SophieScene>.Get().LuststickApplication(2);
 
@@ -733,7 +733,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             }
             else
             {
-                context.Write("Scenes.Sophie.SophieKissAttack.LipsTingle".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sophie.SophieKissAttack.LipsTingle".Localized());
 
                 SceneInstance<SophieScene>.Get().LuststickApplication(2);
 
@@ -743,7 +743,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void HarpyBoats(CombatContext context, Player player)
         {
-            context.Write("Common.Text.SophieFlapsHerWingsAndLaunches".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SophieFlapsHerWingsAndLaunches".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -761,28 +761,28 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (avoid.AttackFailed)
                 return;
 
-            context.Write("Scenes.Sophie.SophieHarpyBoatsPC.TalonsMiss".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sophie.SophieHarpyBoatsPC.TalonsMiss".Localized());
 
             player.TakeLustDamage(13 + player.Sensitivity / 10);
         }
 
         public void Compulsion(CombatContext context, Player player)
         {
-            context.Write("Common.Text.SophieSpreadsHerThickThighsAnd".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SophieSpreadsHerThickThighsAnd".Localized());
 
             if (player.Intelligence < 40 || (player.Intelligence < 80 && Random.Shared.Next(40) > player.Intelligence - 40))
             {
-                context.Write("Common.Text.YouMoanOutLoudAsYour".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouMoanOutLoudAsYour".Localized());
 
                 player.TakeLustDamage(15 + player.Corruption / 20 + player.Libido / 20);
             }
             else
-                context.Write("Scenes.Sophie.SophieCompulsionAttack.MagicCompulsion".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sophie.SophieCompulsionAttack.MagicCompulsion".Localized());
         }
 
         public void Talons(CombatContext context, Player player)
         {
-            context.Write("Common.Text.SophiePullsHerLegUpCocking".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SophiePullsHerLegUpCocking".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -800,7 +800,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (avoid.AttackFailed)
                 return;
 
-            context.Write("Common.Text.HerLegLashesForwardsLightningQuick".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.HerLegLashesForwardsLightningQuick".Localized());
 
             var damage = (Strength + WeaponAttack) * CombatCalculator.DamagePercent(context, player) * 0.01025f;
 
@@ -812,11 +812,11 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void Batter(CombatContext context, Player player)
         {
-            context.Write("Scenes.Sophie.BatterAttackSophie.WingFlurry".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sophie.BatterAttackSophie.WingFlurry".Localized());
 
             for (var i = 0; i < 4; i++)
             {
-                context.Write("Common.Text.HerWingBattersYou".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.HerWingBattersYou".Localized());
 
                 var damage = CombatCalculator.ReduceDamage(context, player, Strength);
 
@@ -895,7 +895,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             {
                 if (player.Tallness < 42 && Random.Shared.Next(2) == 0)
                 {
-                    context.Write("Common.Text.SheilaBouncesUpToYouAnd".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SheilaBouncesUpToYouAnd".Localized());
 
                     Health = Math.Max(0, Health - (3 + Random.Shared.Next(10)));
 
@@ -917,19 +917,19 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 if (avoid.AttackFailed || HasStatusEffect(StatusEffectIds.Blind))
                 {
-                    context.Write("Common.Text.SheilaBouncesUpToYouAnd2".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SheilaBouncesUpToYouAnd2".Localized());
 
                     player.TakeLustDamage(10 + Random.Shared.Next((int)(player.Sensitivity / 10)));
 
                     return;
                 }
 
-                context.Write("Scenes.Sheila.SheilaFrogPunch.FrogPunchTelegraphThree".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sheila.SheilaFrogPunch.FrogPunchTelegraphThree".Localized());
 
                 player.ChangeFatigue(5 + Random.Shared.Next(5));
 
                 if (player.Stun(1, 33))
-                    context.Write("Common.Text.BYouAreStunnedB".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.BYouAreStunnedB".Localized());
 
                 var damage = CombatCalculator.ReduceDamage(context, player, Strength + WeaponAttack);
 
@@ -963,17 +963,17 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
                 if (avoid.AttackFailed)
                 {
-                    context.Write("Scenes.Sheila.SheilaFlyingKick.KickTelegraphOne".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sheila.SheilaFlyingKick.KickTelegraphOne".Localized());
 
                     Health = Math.Max(0, Health - (3 + Random.Shared.Next(10)));
 
                     return;
                 }
 
-                context.Write("Scenes.Sheila.SheilaFlyingKick.KickTelegraphTwo".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sheila.SheilaFlyingKick.KickTelegraphTwo".Localized());
 
                 if (player.Stun(2, 100))
-                    context.Write("Common.Text.BYouAreStunnedB".Localized());
+                    MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.BYouAreStunnedB".Localized());
 
                 var damage = CombatCalculator.ReduceDamage(context, player, Strength + 50 + WeaponAttack);
 
@@ -1013,7 +1013,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
         public void SitAndPout(CombatContext context, Player player)
         {
-            context.Write("Common.Text.SheilaFrownsAtYouThenPlops".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SheilaFrownsAtYouThenPlops".Localized());
 
             Health = 0;
 
@@ -1021,7 +1021,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (player.Lust < 33)
             {
-                context.Write("Common.Text.YoureNotThatInterestedThoughSheila".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YoureNotThatInterestedThoughSheila".Localized());
 
                 CombatScene.CleanupAfterCombat();
             }
@@ -1031,19 +1031,19 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             if (HasStatusEffect(StatusEffectIds.Blind) && Random.Shared.Next(2) == 0)
             {
-                context.Write("Scenes.Sheila.SuspiciousGlint.BlindEyesGlint".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sheila.SuspiciousGlint.BlindEyesGlint".Localized());
 
                 return;
             }
 
             if (player.Intelligence / 15f + Random.Shared.Next(20) + 1 > 16)
             {
-                context.Write("Common.Text.SheilasEyesGlintSuspiciouslyAsShe".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SheilasEyesGlintSuspiciouslyAsShe".Localized());
 
                 return;
             }
 
-            context.Write("Common.Text.SheilasEyesGlintSuspiciouslyAndYou".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SheilasEyesGlintSuspiciouslyAndYou".Localized());
 
             if (!HasStatusEffect(StatusEffectIds.TwuWuv))
             {
@@ -1063,23 +1063,23 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var corruption = SceneInstance<SheilaScene>.Get().SheilaCorruption();
 
-            context.Write("Sheila giggles and strokes her " + SceneInstance<SheilaScene>.Get().SheilaCup() + "Common.Text.BreastsTryingToEnticeYou".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Sheila giggles and strokes her " + SceneInstance<SheilaScene>.Get().SheilaCup() + "Common.Text.BreastsTryingToEnticeYou".Localized());
 
             if (corruption < 20)
-                context.Write("Scenes.Sheila.TittyMonsterAttack.NothingToWork".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sheila.TittyMonsterAttack.NothingToWork".Localized());
             else if (corruption < 150)
             {
-                context.Write("Common.Text.AsHerHandsRunOverThe".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.AsHerHandsRunOverThe".Localized());
 
                 player.TakeLustDamage(25 + player.Libido / 10);
             }
             else
-                context.Write("Common.Text.SheHasTroubleEvenBudgingTits".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SheHasTroubleEvenBudgingTits".Localized());
         }
 
         public void Splash(CombatContext context, Player player)
         {
-            context.Write("Common.Text.SheilaWaitsPatientlyStaringAtYou".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SheilaWaitsPatientlyStaringAtYou".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -1096,12 +1096,12 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (avoid.AttackFailed)
             {
-                context.Write("Common.Text.YouEasilyLeanAwayFromThe".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YouEasilyLeanAwayFromThe".Localized());
 
                 return;
             }
 
-            context.Write("Scenes.Sheila.SplashAttackLookOutShellEvolveIntoGyrados.SplashHits".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Scenes.Sheila.SplashAttackLookOutShellEvolveIntoGyrados.SplashHits".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.Blind, 1, 0, 0, 0);
 
@@ -1112,37 +1112,37 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             var corruption = SceneInstance<SheilaScene>.Get().SheilaCorruption();
 
-            context.Write("Common.Text.ForAMomentAllGoesQuiet".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.ForAMomentAllGoesQuiet".Localized());
 
             if (corruption < 100)
             {
-                context.Write("The silence is broken with a giggle as the demon catches you in an embrace, pressing her " + SceneInstance<SheilaScene>.Get().SheilaCup() + "Common.Text.BreastsIntoYouYouShiverAs".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("The silence is broken with a giggle as the demon catches you in an embrace, pressing her " + SceneInstance<SheilaScene>.Get().SheilaCup() + "Common.Text.BreastsIntoYouYouShiverAs".Localized());
 
                 player.TakeLustDamage(15 + player.Sensitivity / 20 + player.Libido / 20);
             }
             else if (corruption < 300)
             {
-                context.Write("Common.Text.ASighEndsTheSilenceAs".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.ASighEndsTheSilenceAs".Localized());
 
                 player.TakeLustDamage(25 + player.Sensitivity / 20 + player.Libido / 20);
             }
             else
-                context.Write("Common.Text.YoureABitUnnervedButSoon".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YoureABitUnnervedButSoon".Localized());
         }
 
         public void LickEmAndStickEm(CombatContext context, Player player)
         {
-            context.Write("Common.Text.SheilasVoiceGetsCloserBecomingDisarmingly".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.SheilasVoiceGetsCloserBecomingDisarmingly".Localized());
 
             if (player.Intelligence / 15f + Random.Shared.Next(20) + 1 > 16)
             {
-                context.Write("Common.Text.BeforeTheFantasyCanAdvanceYou".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.BeforeTheFantasyCanAdvanceYou".Localized());
 
                 player.TakeLustDamage(15 + player.Sensitivity / 20 + player.Libido / 20);
             }
             else
             {
-                context.Write("Common.Text.YourEgosUrgentDangerWarningsAre".Localized());
+                MonoCoC.UI.Components.Views.GameView.Current.Write("Common.Text.YourEgosUrgentDangerWarningsAre".Localized());
 
                 player.TakeLustDamage(25 + player.Sensitivity / 20 + player.Libido / 20);
             }

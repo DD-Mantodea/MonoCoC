@@ -175,7 +175,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             text.Append("Scenes.TamanisDaughters.MidRoundMadness.ParagraphBreak".Localized());
 
-            context.WriteAction(text.ToString());
+            context.Log.Add(text.ToString());
         }
 
         public static void TamaniShowsUp(CombatContext context)
@@ -194,9 +194,9 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             TamanisDaughtersScene.TamaniPresent = true;
 
-            context.WriteAction("Scenes.TamanisDaughters.TamaniShowsUp.FamiliarVoiceCalls".Localized());
+            context.Log.Add("Scenes.TamanisDaughters.TamaniShowsUp.FamiliarVoiceCalls".Localized());
 
-            context.WriteAction("Scenes.TamanisDaughters.TamaniShowsUp.TamaniLurking".Localized());
+            context.Log.Add("Scenes.TamanisDaughters.TamaniShowsUp.TamaniLurking".Localized());
 
             var enemy = context.Enemy;
 

@@ -62,7 +62,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 _ => "Combat.Special.Kick.Generic"
             };
 
-            context.WriteAction(intro.Localized());
+            context.Log.Add(intro.Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.Special.Kick.Dodge".Localized());
+                context.AppendLog("Combat.Special.Kick.Dodge".Localized());
 
                 return;
             }
@@ -86,14 +86,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage <= 0)
             {
-                context.Append("Combat.Special.Kick.Blocked".Localized());
+                context.AppendLog("Combat.Special.Kick.Blocked".Localized());
 
                 return;
             }
 
             CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Melee);
 
-            context.Append("Combat.Special.Kick.Hit".Localized(damage));
+            context.AppendLog("Combat.Special.Kick.Hit".Localized(damage));
         }
 
         public static float GoreCalc(CombatContext context, Player player)
@@ -161,27 +161,27 @@ namespace MonoCoC.Contents.Combat.Handlers
                 var damage = GoreCalc(context, player);
 
                 if (context.Random.Next(4) > 0)
-                    context.WriteAction("Combat.Special.Gore.Hit".Localized());
+                    context.Log.Add("Combat.Special.Gore.Hit".Localized());
                 else
                 {
                     damage *= 2;
 
-                    context.WriteAction("Combat.Special.Gore.Crit".Localized());
+                    context.Log.Add("Combat.Special.Gore.Crit".Localized());
                 }
 
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Melee);
 
                 if (damage < 20)
-                    context.Append("Combat.Special.Gore.PullLight".Localized());
+                    context.AppendLog("Combat.Special.Gore.PullLight".Localized());
                 else if (damage < 40)
-                    context.Append("Combat.Special.Gore.PullHeavy".Localized());
+                    context.AppendLog("Combat.Special.Gore.PullHeavy".Localized());
                 else
-                    context.Append("Combat.Special.Gore.PullBrutal".Localized());
+                    context.AppendLog("Combat.Special.Gore.PullBrutal".Localized());
 
-                context.Append("Combat.Special.Gore.Damage".Localized(damage));
+                context.AppendLog("Combat.Special.Gore.Damage".Localized(damage));
             }
             else
-                context.WriteAction("Combat.Special.Gore.Miss".Localized());
+                context.Log.Add("Combat.Special.Gore.Miss".Localized());
         }
 
         public static float RamCalc(CombatContext context, Player player)
@@ -214,24 +214,24 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 var damage = RamCalc(context, player);
 
-                context.WriteAction("Combat.Special.HornStun.Hit".Localized());
+                context.Log.Add("Combat.Special.HornStun.Hit".Localized());
 
                 if (context.Random.NextDouble() < CombatCalculator.CriticalChance(player))
                 {
-                    context.Append("Combat.Special.HornStun.Crit".Localized());
+                    context.AppendLog("Combat.Special.HornStun.Crit".Localized());
 
                     damage *= 1.75f;
                 }
 
                 CombatCalculator.DamageEnemy(context, damage, CombatDamageKind.Melee);
 
-                context.Append("Combat.Special.HornStun.Damage".Localized(damage));
+                context.AppendLog("Combat.Special.HornStun.Damage".Localized(damage));
 
                 if (context.Enemy.Stun(2, (int)GoreChance(context)))
-                    context.Append("Combat.Special.HornStun.Stun".Localized());
+                    context.AppendLog("Combat.Special.HornStun.Stun".Localized());
             }
             else
-                context.WriteAction("Combat.Special.HornStun.Miss".Localized());
+                context.Log.Add("Combat.Special.HornStun.Miss".Localized());
         }
     }
 }

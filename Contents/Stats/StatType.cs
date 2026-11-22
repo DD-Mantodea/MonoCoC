@@ -1,5 +1,6 @@
 using MonoCoC.Extensions;
 using MonoCoC.Registry;
+using System.Linq;
 
 namespace MonoCoC.Contents.Stats
 {
@@ -20,7 +21,11 @@ namespace MonoCoC.Contents.Stats
         {
             get
             {
-                var key = $"Stats.{Id.Path}.Name";
+                var pascal = string.Concat(Id.Path.Split('_')
+                    .Where(part => part.Length > 0)
+                    .Select(part => char.ToUpperInvariant(part[0]) + part[1..]));
+
+                var key = $"Stats.{pascal}.Name";
 
                 var value = key.Localized();
 
@@ -35,6 +40,10 @@ namespace MonoCoC.Contents.Stats
         public StatFormat Format = StatFormat.Int;
 
         public bool Visible = true;
+
+        public string Group = "";
+
+        public int Order;
 
         public Stat Stat => new(Id);
     }

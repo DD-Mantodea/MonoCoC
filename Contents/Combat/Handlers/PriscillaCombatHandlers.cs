@@ -16,7 +16,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:priscilla_charge")]
         public static void Charge(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Scenes.Priscilla.ChargeWeapon.StaffChargeSpell".Localized());
+            context.AppendLog("Scenes.Priscilla.ChargeWeapon.StaffChargeSpell".Localized());
 
             context.Enemy.CreateStatusEffect(StatusEffectIds.ChargeWeapon, 25 * Multiplier(context), 0, 0, 0);
         }
@@ -24,22 +24,22 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:priscilla_blind")]
         public static void Blind(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Scenes.Priscilla.Blind.BlindingFlash".Localized());
+            context.AppendLog("Scenes.Priscilla.Blind.BlindingFlash".Localized());
 
             if (Random.Shared.Next(Math.Max(1, (int)context.Player.Intelligence / 5)) <= 4)
             {
                 context.Player.CreateStatusEffect(StatusEffectIds.Blind, 1 + Random.Shared.Next(3), 0, 0, 0);
 
-                context.Append("Scenes.Priscilla.Blind.BlindedStatus".Localized());
+                context.AppendLog("Scenes.Priscilla.Blind.BlindedStatus".Localized());
             }
             else
-                context.Append("Scenes.Priscilla.Blind.BlinkInTime".Localized());
+                context.AppendLog("Scenes.Priscilla.Blind.BlinkInTime".Localized());
         }
 
         [Register("coc:priscilla_whitefire")]
         public static void Whitefire(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Scenes.Priscilla.Whitefire.WhiteFireSpell".Localized());
+            context.AppendLog("Scenes.Priscilla.Whitefire.WhiteFireSpell".Localized());
 
             var damage = context.Enemy.Intelligence + Random.Shared.Next(50) * Multiplier(context);
 
@@ -47,7 +47,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 damage *= 1.5f;
 
-                context.Append("Scenes.Priscilla.Whitefire.SuperEffective".Localized());
+                context.AppendLog("Scenes.Priscilla.Whitefire.SuperEffective".Localized());
             }
 
             context.MonsterDamageType = DamageTypeIds.Fire;
@@ -58,7 +58,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:priscilla_arouse")]
         public static void Arouse(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Scenes.Priscilla.Arouse.LustDrainSpell".Localized());
+            context.AppendLog("Scenes.Priscilla.Arouse.LustDrainSpell".Localized());
 
             var lust = context.Enemy.Intelligence / 10f
 
@@ -72,7 +72,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:priscilla_heal")]
         public static void Heal(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Scenes.Priscilla.Heal.HealFocusSpell".Localized());
+            context.AppendLog("Scenes.Priscilla.Heal.HealFocusSpell".Localized());
 
             var heal = (10 + context.Enemy.Intelligence / 2f
 
@@ -80,15 +80,15 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             context.Enemy.HealthChange(heal);
 
-            context.Append("Scenes.Priscilla.Heal.WoundsKnitHpPlus".Localized("#00ff00", (int)heal));
+            context.AppendLog("Scenes.Priscilla.Heal.WoundsKnitHpPlus".Localized("#00ff00", (int)heal));
         }
 
         [Register("coc:priscilla_might")]
         public static void Might(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Scenes.Priscilla.Might.MightEmpowerSpell".Localized());
+            context.AppendLog("Scenes.Priscilla.Might.MightEmpowerSpell".Localized());
 
-            context.Append("Scenes.Priscilla.Might.PowerRush".Localized());
+            context.AppendLog("Scenes.Priscilla.Might.PowerRush".Localized());
 
             var boost = 20 * Multiplier(context);
 
@@ -102,7 +102,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:priscilla_slash")]
         public static void Slash(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Scenes.Priscilla.Slash.SwordChargeSlash".Localized());
+            context.AppendLog("Scenes.Priscilla.Slash.SwordChargeSlash".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -113,12 +113,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Scenes.Priscilla.Slash.SlashAvoided".Localized());
+                context.AppendLog("Scenes.Priscilla.Slash.SlashAvoided".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.Priscilla.Slash.SlashConnects".Localized());
+            context.AppendLog("Scenes.Priscilla.Slash.SlashConnects".Localized());
 
             var damage = context.Enemy.Strength + context.Enemy.WeaponAttack + Random.Shared.Next(40);
 
@@ -132,7 +132,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         [Register("coc:priscilla_shield_bash")]
         public static void ShieldBash(CombatContext context, CombatAbilityDefinition ability)
         {
-            context.Append("Scenes.Priscilla.ShieldBash.ShieldCharge".Localized());
+            context.AppendLog("Scenes.Priscilla.ShieldBash.ShieldCharge".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -143,15 +143,15 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Dodge)
             {
-                context.Append("Scenes.Priscilla.ShieldBash.BashAvoided".Localized());
+                context.AppendLog("Scenes.Priscilla.ShieldBash.BashAvoided".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.Priscilla.ShieldBash.ShieldHits".Localized());
+            context.AppendLog("Scenes.Priscilla.ShieldBash.ShieldHits".Localized());
 
             if (context.Player.Stun(1, 40))
-                context.Append("Scenes.Priscilla.ShieldBash.ConcussionStun".Localized());
+                context.AppendLog("Scenes.Priscilla.ShieldBash.ConcussionStun".Localized());
 
             var damage = context.Enemy.Strength + Random.Shared.Next(10);
 

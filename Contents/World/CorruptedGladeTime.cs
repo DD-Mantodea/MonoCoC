@@ -24,7 +24,7 @@ namespace MonoCoC.Contents.World
                 if (flags.Get(GameFlagIds.KihaDestroyingCorruptedGlades) > 0 && Random.Shared.Next(4) == 0)
                     destroyed += 1;
 
-                var time = UI.Components.Views.GameView.Instance?.Time;
+                var time = UI.Components.Views.GameView.Current?.Time;
 
                 if (time != null &&
                     time.Days % (3 + destroyed / 15) == 0 &&

@@ -1,0 +1,29 @@
+{
+  require: ["GlobalStyles"]
+  id: "GameOverView"
+  root: {
+    type: "coc:view"
+    width: 1600
+    height: 900
+    children: [
+      {
+        type: "coc:panel"
+        sizeType: "fill"
+        backgroundColor: "#00000088"
+        canHit: false
+      }
+      {
+        type: "coc:label"
+        part: "gameOver.title"
+        x: 0
+        y: 380
+        width: 1600
+        height: 120
+        font: { id: "coc:menu", size: 72 }
+        textColor: "#F2E5C7FF"
+        textHorizontalAlign: "center"
+        canHit: false
+      }
+    ]
+  }
+}

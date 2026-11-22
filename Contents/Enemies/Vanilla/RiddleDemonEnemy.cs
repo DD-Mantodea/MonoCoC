@@ -66,20 +66,20 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (context.Random.Next(100) < 10)
             {
-                context.Append("Combat.RiddleDemon.React.TheDemonMakes".Localized());
+                context.AppendLog("Combat.RiddleDemon.React.TheDemonMakes".Localized());
 
                 TookAction = true;
             }
             else if (DoloresFree)
                 if (context.Random.Next(100) < 10 && context.Player.Health < context.Player.MaxHealth)
                 {
-                    context.Append("Combat.RiddleDemon.React.ASlightMurmur".Localized());
+                    context.AppendLog("Combat.RiddleDemon.React.ASlightMurmur".Localized());
 
                     context.Player.HealthChange(context.Player.MaxHealth * 0.1f);
                 }
                 else if (context.Random.Next(100) < 10)
                 {
-                    context.Append("Combat.RiddleDemon.React.TheDemonIs".Localized());
+                    context.AppendLog("Combat.RiddleDemon.React.TheDemonIs".Localized());
 
                     HealthChange(-(50 + context.Random.Next(50)));
                 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using System;
 
 namespace MonoCoC.UI.Common
@@ -6,9 +6,9 @@ namespace MonoCoC.UI.Common
     public static class ScrollBar
     {
         // 厚度/最小滑块高度来自 Assets/UI/Components.hjson 的 scrollBar 块。
-        public static int Thickness => UIComponentStyles.ScrollBar.Thickness;
+        public static int Thickness => 15;
 
-        public static int MinThumb => UIComponentStyles.ScrollBar.MinThumb;
+        public static int MinThumb => 24;
 
         public static Rectangle Track(Rectangle area, int offsetX = 0) => new(area.Right - Thickness + offsetX, area.Y, Thickness, Math.Max(1, area.Height));
 

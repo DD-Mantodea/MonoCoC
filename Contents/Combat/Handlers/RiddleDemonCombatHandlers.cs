@@ -18,7 +18,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.RiddleDemon.Slash.TheDemonBears".Localized());
+            context.AppendLog("Combat.RiddleDemon.Slash.TheDemonBears".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -39,16 +39,16 @@ namespace MonoCoC.Contents.Combat.Handlers
                     return;
 
                 if (avoid.Outcome is AvoidOutcome.Block or AvoidOutcome.Parry)
-                    context.Append("Combat.RiddleDemon.Slash.TurnAside".Localized());
+                    context.AppendLog("Combat.RiddleDemon.Slash.TurnAside".Localized());
                 else if (avoid.Outcome == AvoidOutcome.Dodge && avoid.DodgeReason == "Blind")
-                    context.Append("Combat.RiddleDemon.Slash.AvoidBlind".Localized());
+                    context.AppendLog("Combat.RiddleDemon.Slash.AvoidBlind".Localized());
                 else
-                    context.Append("Combat.RiddleDemon.Slash.AvoidDodge".Localized());
+                    context.AppendLog("Combat.RiddleDemon.Slash.AvoidDodge".Localized());
 
                 return;
             }
 
-            context.Append("Combat.RiddleDemon.Slash.AndBeforeYou".Localized());
+            context.AppendLog("Combat.RiddleDemon.Slash.AndBeforeYou".Localized());
 
             if (!player.HasStatusEffect(StatusEffectIds.Poison))
                 player.CreateStatusEffect(StatusEffectIds.Poison, 0, 2, 0, 0);
@@ -67,18 +67,18 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.RiddleDemon.Feint.TheSlyDemon".Localized());
+            context.AppendLog("Combat.RiddleDemon.Feint.TheSlyDemon".Localized());
 
             var insight = Math.Min(100f, player.Intelligence) - 10;
 
             if (context.Random.Next(100) < insight)
             {
-                context.Append("Combat.RiddleDemon.Feint.ButYouRe".Localized());
+                context.AppendLog("Combat.RiddleDemon.Feint.ButYouRe".Localized());
 
                 return;
             }
 
-            context.Append("Combat.RiddleDemon.Feint.AllowingHimTo".Localized());
+            context.AppendLog("Combat.RiddleDemon.Feint.AllowingHimTo".Localized());
 
             var armor = player.ArmorDefense;
 
@@ -98,7 +98,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.RiddleDemon.Whisper.TheDemonDashes".Localized());
+            context.AppendLog("Combat.RiddleDemon.Whisper.TheDemonDashes".Localized());
 
             if (!player.HasStatusEffect(StatusEffectIds.Whispered))
                 player.CreateStatusEffect(StatusEffectIds.Whispered);

@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoCoC.Contents.Items;
 using MonoCoC.Extensions;
@@ -7,6 +7,13 @@ using MonoCoC.UI.Layout;
 using System;
 using System.Collections.Generic;
 
+using FontStashSharp;
+using FontStashSharp.RichText;
+using Hjson;
+using MonoCoC.UI.Data;
+using MonoCoC.UI.Structures;
+using MonoCoC.UI.Styles;
+using System.Runtime.CompilerServices;
 namespace MonoCoC.UI.Components
 {
     public sealed class EquipmentArea
@@ -33,8 +40,63 @@ namespace MonoCoC.UI.Components
         public List<string> RequiresTags = [];
     }
 
-    public class EquipmentGrid : Component
+    public class EquipmentGrid : Component, IFromHjson<EquipmentGrid>
     {
+        public static string TypeId => "coc:equipment_grid";
+
+        public static Component FromHjson(JsonObject node, UIBuildContext services)
+        {
+            var grid = new EquipmentGrid
+            {
+                Columns = node.Int("columns", 1),
+                SlotWidth = node.Int("slotWidth", 0),
+                SlotHeight = node.Int("slotHeight", 84),
+                Spacing = node.Int("spacing", 8),
+                ItemStyle = ItemSlotStyleResolver.Resolve(node, services.Document)
+            };
+
+            if (node.Array("areas") is { } areas)
+            {
+                foreach (var value in areas)
+                {
+                    if (value is not JsonObject area)
+                        continue;
+
+                    grid.Areas.Add(new EquipmentArea
+                    {
+                        Id = area.Str("id"),
+                        X = area.Int("x", 0),
+                        Y = area.Int("y", 0),
+                        Width = area.Int("width", 0),
+                        Height = area.Int("height", 0)
+                    });
+                }
+            }
+
+            if (node.Array("slots") is { } slots)
+            {
+                foreach (var value in slots)
+                {
+                    if (value is not JsonObject slot)
+                        continue;
+
+                    grid.Slots.Add(new EquipmentSlotSpec
+                    {
+                        Kind = slot.Str("kind", "weapon"),
+                        LabelKey = UILocalizedText.Resolve(slot, "label"),
+                        SlotIcon = slot.Str("slotIcon"),
+                        Area = slot.Str("area"),
+                        Order = slot.Int("order", 0)
+                    });
+                }
+            }
+
+            return grid;
+        }
+
+        [ModuleInitializer]
+        internal static void Register() => ComponentFactory.Register<EquipmentGrid>();
+
         public readonly List<EquipmentArea> Areas = [];
 
         public readonly List<EquipmentSlotSpec> Slots = [];
@@ -45,7 +107,7 @@ namespace MonoCoC.UI.Components
 
         public Action<Item?, string, string>? RightClicked;
 
-        public ItemSlotStyle? ItemTemplate;
+        public ItemSlotStyle? ItemStyle;
 
         public string? SelectedSlotId;
 
@@ -67,11 +129,11 @@ namespace MonoCoC.UI.Components
 
         private const int HeaderHeight = 24;
 
-        public Color SlotColor = UIComponentStyles.Slot.Background;
+        public Color SlotColor = UIParseUtils.ColorOf("#F7EFE0CC");
 
-        public Color BorderColor = UIComponentStyles.Slot.Border;
+        public Color BorderColor = UIParseUtils.ColorOf("#B79A70AA");
 
-        public Color TextColor = UIComponentStyles.Slot.Text;
+        public Color TextColor = UIParseUtils.ColorOf("#35291FFF");
 
         private readonly List<Label> _headerLabels = [];
 
@@ -177,7 +239,7 @@ namespace MonoCoC.UI.Components
                     child.LabelKey = spec.LabelKey;
                     child.SlotIcon = spec.SlotIcon;
                     child.ShowLabel = false;
-                    child.Style = ItemTemplate;
+                    child.Style = ItemStyle;
                     child.Selected = spec.Id == SelectedSlotId;
                     child.Disabled = false;
                     child.SlotColor = SlotColor;

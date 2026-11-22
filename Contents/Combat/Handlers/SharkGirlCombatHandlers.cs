@@ -15,7 +15,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Random.Next(2) == 0)
             {
-                context.Append("Combat.SharkGirl.SharkTease.YouChargeAt".Localized());
+                context.AppendLog("Combat.SharkGirl.SharkTease.YouChargeAt".Localized());
 
                 player.HealthChange(-(4 + context.Random.Next(4)));
 
@@ -23,7 +23,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
             else
             {
-                context.Append("Combat.SharkGirl.SharkTease.YouPullYour".Localized());
+                context.AppendLog("Combat.SharkGirl.SharkTease.YouPullYour".Localized());
 
                 player.HealthChange(-(4 + context.Random.Next(4)));
 

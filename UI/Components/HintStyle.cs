@@ -1,11 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using MonoCoC.UI.Common;
 
 namespace MonoCoC.UI.Components
 {
     /// <summary>
-    /// Per-button tooltip/hint menu configuration. The global ToolTipView
-    /// values remain the defaults when a Button has no HintSettings.
+    /// Per-button hint menu configuration.
     /// </summary>
     public class HintStyle
     {
@@ -47,11 +46,11 @@ namespace MonoCoC.UI.Components
 
         public int BorderThickness;
 
-        public Color HeaderColor = UIComponentStyles.ToolTip.Text;
+        public Color HeaderColor = new(0x00, 0x00, 0x00);
 
-        public Color BodyColor = UIComponentStyles.ToolTip.Text;
+        public Color BodyColor = new(0x00, 0x00, 0x00);
 
-        public Color SeparatorColor = UIComponentStyles.ToolTip.Separator;
+        public Color SeparatorColor = new(0x00, 0x00, 0x00);
 
         public static HintStyle Default { get; } = new();
     }

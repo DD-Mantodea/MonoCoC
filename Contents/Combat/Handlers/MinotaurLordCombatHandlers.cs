@@ -53,11 +53,11 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var enemy = context.Enemy;
 
-            context.Append("Combat.MinotaurLord.MinotaurDrankMalk.TheMinotaurLord".Localized());
+            context.AppendLog("Combat.MinotaurLord.MinotaurDrankMalk.TheMinotaurLord".Localized());
 
             if (enemy.StatusEffectValue(StatusEffectIds.MinoMilk, 0) < 3)
             {
-                context.Append("Combat.MinotaurLord.MinotaurDrankMalk.TheSuccubusThrows".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurDrankMalk.TheSuccubusThrows".Localized());
 
                 enemy.HealthChange(300);
 
@@ -70,9 +70,9 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
             else
             {
-                context.Append("Combat.MinotaurLord.MinotaurDrankMalk.TheSuccubusReplies".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurDrankMalk.TheSuccubusReplies".Localized());
 
-                context.Append("Combat.MinotaurLord.MinotaurDrankMalk.TheMinotaurGlares".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurDrankMalk.TheMinotaurGlares".Localized());
 
                 if (!enemy.HasStatusEffect(StatusEffectIds.MinoMilk))
                     enemy.CreateStatusEffect(StatusEffectIds.MinoMilk, 1);
@@ -88,20 +88,20 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (UrtaQuest)
             {
-                context.Append("Combat.MinotaurLord.MinotaurDisarm.TheGiantOf".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurDisarm.TheGiantOf".Localized());
 
-                context.Append("Combat.MinotaurLord.MinotaurDisarm.TheSuccubusLaughs".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurDisarm.TheSuccubusLaughs".Localized());
 
                 player.SetUnarmed();
 
                 return;
             }
 
-            context.Append("Combat.MinotaurLord.MinotaurDisarm.TheGiantOf2".Localized());
+            context.AppendLog("Combat.MinotaurLord.MinotaurDisarm.TheGiantOf2".Localized());
 
             if (!player.Weapon.IsAttached())
             {
-                context.Append("Combat.MinotaurLord.MinotaurDisarm.WithAStrong".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurDisarm.WithAStrong".Localized());
 
                 player.Disarm(player.Weapon);
             }
@@ -114,7 +114,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.MinotaurLord.MinotaurLordEntangle.TheMinotaurLord".Localized());
+            context.AppendLog("Combat.MinotaurLord.MinotaurLordEntangle.TheMinotaurLord".Localized());
 
             enemy.CreateStatusEffect(StatusEffectIds.Timer, 2 + context.Random.Next(4));
 
@@ -133,17 +133,17 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.Append("Combat.MinotaurLord.MinotaurLordEntangle.YouLeapOver".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurLordEntangle.YouLeapOver".Localized());
 
                 return;
             }
 
-            context.Append("Combat.MinotaurLord.MinotaurLordEntangle.YouTryTo".Localized());
+            context.AppendLog("Combat.MinotaurLord.MinotaurLordEntangle.YouTryTo".Localized());
 
             if (UrtaQuest)
-                context.Append("Combat.MinotaurLord.MinotaurLordEntangle.TheSuccubusLaughs".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurLordEntangle.TheSuccubusLaughs".Localized());
 
-            context.Append("Combat.MinotaurLord.MinotaurLordEntangle.YouReTangled".Localized());
+            context.AppendLog("Combat.MinotaurLord.MinotaurLordEntangle.YouReTangled".Localized());
 
             if (!player.HasStatusEffect(StatusEffectIds.MinotaurEntangled))
                 player.CreateStatusEffect(StatusEffectIds.MinotaurEntangled);
@@ -154,29 +154,29 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.MinotaurLord.MinotaurCumPress.TheMinotaurLord".Localized());
+            context.AppendLog("Combat.MinotaurLord.MinotaurCumPress.TheMinotaurLord".Localized());
 
             if (player.Lust >= player.MaxLust)
-                context.Append("Combat.MinotaurLord.MinotaurCumPress.YouRiseUp".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurCumPress.YouRiseUp".Localized());
             else
             {
-                context.Append("Combat.MinotaurLord.MinotaurCumPress.YouRealizeWhat".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurCumPress.YouRealizeWhat".Localized());
 
                 if (player.HasCock())
                 {
-                    context.Append("Combat.MinotaurLord.MinotaurCumPress.Rigid".Localized());
+                    context.AppendLog("Combat.MinotaurLord.MinotaurCumPress.Rigid".Localized());
 
                     if (player.LustPercent >= 80)
-                        context.Append("Combat.MinotaurLord.MinotaurCumPress.AndDrippy".Localized());
+                        context.AppendLog("Combat.MinotaurLord.MinotaurCumPress.AndDrippy".Localized());
 
-                    context.Append("Combat.MinotaurLord.MinotaurCumPress.YourCockHas".Localized());
+                    context.AppendLog("Combat.MinotaurLord.MinotaurCumPress.YourCockHas".Localized());
                 }
                 else if (player.HasVagina())
-                    context.Append("Combat.MinotaurLord.MinotaurCumPress.WetYourPussy".Localized());
+                    context.AppendLog("Combat.MinotaurLord.MinotaurCumPress.WetYourPussy".Localized());
                 else
-                    context.Append("Combat.MinotaurLord.MinotaurCumPress.ArousedYouFeel".Localized());
+                    context.AppendLog("Combat.MinotaurLord.MinotaurCumPress.ArousedYouFeel".Localized());
 
-                context.Append("Combat.MinotaurLord.MinotaurCumPress.YouWantAnother".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurCumPress.YouWantAnother".Localized());
             }
 
             player.TakeLustDamage(22 + player.Libido / 8f + player.Sensitivity / 8f);
@@ -189,13 +189,13 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.MinotaurLord.MinotaurPrecumTease.TheMinotaurSmiles".Localized());
+            context.AppendLog("Combat.MinotaurLord.MinotaurPrecumTease.TheMinotaurSmiles".Localized());
 
             if (context.Random.Next(2) == 0)
             {
-                context.Append("Combat.MinotaurLord.MinotaurPrecumTease.SlappingIntoYour".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurPrecumTease.SlappingIntoYour".Localized());
 
-                context.Append((player.LustPercent >= 70
+                context.AppendLog((player.LustPercent >= 70
 
                     ? "Combat.MinotaurLord.MinotaurPrecumTease.SwallowingItInto"
 
@@ -205,9 +205,9 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
             else
             {
-                context.Append("Combat.MinotaurLord.MinotaurPrecumTease.RightPastYour".Localized());
+                context.AppendLog("Combat.MinotaurLord.MinotaurPrecumTease.RightPastYour".Localized());
 
-                context.Append((UrtaQuest
+                context.AppendLog((UrtaQuest
 
                     ? "Combat.MinotaurLord.MinotaurPrecumTease.TheAnimalisticScent"
 
@@ -216,7 +216,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 player.TakeLustDamage(11 + player.Libido / 10f);
             }
 
-            context.Append((player.LustPercent <= 75
+            context.AppendLog((player.LustPercent <= 75
 
                 ? "Combat.MinotaurLord.MinotaurPrecumTease.YouShiverWith"
 
@@ -230,19 +230,19 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (!player.HasStatusEffect(StatusEffectIds.MinotaurEntangled))
                 return;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (player.Strength / 9f + context.Random.Next(20) + 1 >= 15)
             {
-                context.Append("Combat.MinotaurLord.Struggle.UtilizingEveryOunce".Localized());
+                context.AppendLog("Combat.MinotaurLord.Struggle.UtilizingEveryOunce".Localized());
 
                 player.RemoveStatusEffect(StatusEffectIds.MinotaurEntangled);
 
                 if (UrtaQuest)
-                    context.Append("Combat.MinotaurLord.Struggle.TheSuccubusSpits".Localized());
+                    context.AppendLog("Combat.MinotaurLord.Struggle.TheSuccubusSpits".Localized());
             }
             else
-                context.Append("Combat.MinotaurLord.Struggle.YouWiggleAnd".Localized());
+                context.AppendLog("Combat.MinotaurLord.Struggle.YouWiggleAnd".Localized());
         }
     }
 }

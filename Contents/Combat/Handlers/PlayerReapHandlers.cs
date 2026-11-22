@@ -24,11 +24,11 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Append("Combat.Special.Reap.Intro".Localized());
+            context.AppendLog("Combat.Special.Reap.Intro".Localized());
 
             player.HealthChange(-(100 + context.Random.Next(150)));
 
-            context.Append("Combat.Special.Reap.Mid".Localized());
+            context.AppendLog("Combat.Special.Reap.Mid".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -41,9 +41,9 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.AttackFailed)
             {
-                context.Append("Combat.Special.Reap.Miss1".Localized());
+                context.AppendLog("Combat.Special.Reap.Miss1".Localized());
 
-                context.Append("Combat.Special.Reap.Miss2".Localized());
+                context.AppendLog("Combat.Special.Reap.Miss2".Localized());
 
                 player.HealthChange(-(400 + context.Random.Next(150)));
 
@@ -52,7 +52,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.Append("Combat.Special.Reap.Hit".Localized());
+            context.AppendLog("Combat.Special.Reap.Hit".Localized());
 
             var damage = CombatCalculator.PhysicalDamage(context, player, enemy) * 1.5f;
 
@@ -65,7 +65,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             player.MasteryXP(ScytheMastery, 5 + context.Random.Next(11));
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
         }
     }
 }

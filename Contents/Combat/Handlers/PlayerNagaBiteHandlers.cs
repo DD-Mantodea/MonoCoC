@@ -29,7 +29,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             CombatCalculator.AddCombatBuff(host, GameStats.Speed, -amount, "NagaBite", StatusEffectIds.NagaBite);
 
-            context.Append("Combat.Effect.NagaBite.Round".Localized());
+            context.AppendLog("Combat.Effect.NagaBite.Round".Localized());
         }
 
         private static int NagaChance(CombatContext context)
@@ -58,14 +58,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (enemy.HasPerk(PerkIds.PoisonImmune))
             {
-                context.Append("Combat.Special.NagaBite.PoisonImmune".Localized());
+                context.AppendLog("Combat.Special.NagaBite.PoisonImmune".Localized());
 
                 return;
             }
 
             if (enemy.HasPerk(PerkIds.BiteImmune))
             {
-                context.Append("Combat.Special.NagaBite.BiteImmune".Localized());
+                context.AppendLog("Combat.Special.NagaBite.BiteImmune".Localized());
 
                 player.HealthChange(-5);
 
@@ -74,12 +74,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (NagaChance(context) <= context.Random.Next(100))
             {
-                context.Append("Combat.Special.NagaBite.Fail".Localized());
+                context.AppendLog("Combat.Special.NagaBite.Fail".Localized());
 
                 return;
             }
 
-            context.Append("Combat.Special.NagaBite.Hit".Localized());
+            context.AppendLog("Combat.Special.NagaBite.Hit".Localized());
 
             if (!enemy.HasStatusEffect(StatusEffectIds.NagaBite))
                 enemy.CreateStatusEffect(StatusEffectIds.NagaBite, 0, 0, 0, 0);
@@ -97,7 +97,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             CombatCalculator.AddCombatBuff(enemy, GameStats.Speed, -amount * stacks, "NagaBite", StatusEffectIds.NagaBite);
 
-            context.Append("Combat.Special.NagaBite.Reduced".Localized());
+            context.AppendLog("Combat.Special.NagaBite.Reduced".Localized());
         }
     }
 }

@@ -12,11 +12,11 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Scenes.Naga.NagaPoisonBiteAttack.CobraFangBite".Localized());
+            context.AppendLog("Scenes.Naga.NagaPoisonBiteAttack.CobraFangBite".Localized());
 
             if (!player.HasStatusEffect(StatusEffectIds.NagaVenom))
             {
-                context.Append("Scenes.Naga.NagaPoisonBiteAttack.VenomBlurFirst".Localized());
+                context.AppendLog("Scenes.Naga.NagaPoisonBiteAttack.VenomBlurFirst".Localized());
 
                 player.CreateStatusEffect(StatusEffectIds.NagaVenom, 0, 0, 0, 0);
 
@@ -25,7 +25,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
             else
             {
-                context.Append("Scenes.Naga.NagaPoisonBiteAttack.VenomBlurIntensify".Localized());
+                context.AppendLog("Scenes.Naga.NagaPoisonBiteAttack.VenomBlurIntensify".Localized());
 
                 player.ChangeStatusValue(StatusEffectIds.NagaVenom, 0, 1);
 
@@ -44,7 +44,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Scenes.Naga.NagaConstrict.CoilBind".Localized());
+            context.AppendLog("Scenes.Naga.NagaConstrict.CoilBind".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.NagaBind, 0, 0, 0, 0);
 
@@ -57,11 +57,11 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (enemy is Enemies.Vanilla.VolcanicGolemEnemy)
                 if (enemy.HasStatusEffect(StatusEffectIds.VolcanicFistProblem))
                 {
-                    context.Append("Combat.VolcanicGolem.ConstrictWrap".Localized());
+                    context.AppendLog("Combat.VolcanicGolem.ConstrictWrap".Localized());
 
                     if (player.Strength > 80 && !enemy.HasStatusEffect(StatusEffectIds.VolcanicFrenzy))
                     {
-                        context.Append("Combat.VolcanicGolem.ConstrictRipArm".Localized());
+                        context.AppendLog("Combat.VolcanicGolem.ConstrictRipArm".Localized());
 
                         enemy.CreateStatusEffect(StatusEffectIds.VolcanicWeapRed, 3, 0, 0, 0);
 
@@ -71,10 +71,10 @@ namespace MonoCoC.Contents.Combat.Handlers
                             enemy.WeaponAttack = 10;
                     }
                     else
-                        context.Append("Combat.VolcanicGolem.ConstrictTooWeak".Localized());
+                        context.AppendLog("Combat.VolcanicGolem.ConstrictTooWeak".Localized());
                 }
                 else
-                    context.Append("Combat.VolcanicGolem.ConstrictSwat".Localized());
+                    context.AppendLog("Combat.VolcanicGolem.ConstrictSwat".Localized());
         }
 
         [Register("coc:naga_tail_whip")]
@@ -82,30 +82,30 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Scenes.Naga.NagaTailWhip.TailWhipWindUp".Localized());
+            context.AppendLog("Scenes.Naga.NagaTailWhip.TailWhipWindUp".Localized());
 
             if (player.HasPerk(PerkIds.Evade) && context.Random.Next(6) == 0)
             {
-                context.Append("Scenes.Naga.NagaTailWhip.TailWhipEvaded".Localized());
+                context.AppendLog("Scenes.Naga.NagaTailWhip.TailWhipEvaded".Localized());
 
                 return;
             }
 
             if (player.HasPerk(PerkIds.Misdirection) && context.Random.Next(100) < 10)
             {
-                context.Append("Scenes.Naga.NagaTailWhip.TailWhipMisdirected".Localized());
+                context.AppendLog("Scenes.Naga.NagaTailWhip.TailWhipMisdirected".Localized());
 
                 return;
             }
 
             if (player.Speed > context.Random.Next(300))
             {
-                context.Append("Scenes.Naga.NagaTailWhip.TailWhipJumpDodge".Localized());
+                context.AppendLog("Scenes.Naga.NagaTailWhip.TailWhipJumpDodge".Localized());
 
                 return;
             }
 
-            context.Append("Scenes.Naga.NagaTailWhip.TailSlamHit".Localized());
+            context.AppendLog("Scenes.Naga.NagaTailWhip.TailSlamHit".Localized());
 
             var damage = 10f;
 

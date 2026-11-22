@@ -17,7 +17,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var player = context.Player;
 
-            context.Append("Combat.Ability.HarpyMobClawFlurry.Text".Localized());
+            context.AppendLog("Combat.Ability.HarpyMobClawFlurry.Text".Localized());
 
             var hits = 3 + Random.Shared.Next(3);
 
@@ -51,7 +51,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Ability.HarpyMobGangBang.Text".Localized());
+            context.AppendLog("Combat.Ability.HarpyMobGangBang.Text".Localized());
 
             player.CreateStatusEffect(StatusEffectIds.HarpyBind, 0, 0, 0, 0);
 
@@ -64,12 +64,12 @@ namespace MonoCoC.Contents.Combat.Handlers
             var player = context.Player;
 
             if (clearDisplay)
-                context.Clear();
+                MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             // 失败条件：rand(10) > 0 && Str/5 + rand(20) < 23
             if (context.Random.Next(10) > 0 && player.Strength / 5f + context.Random.Next(20) < 23)
             {
-                context.Append("Combat.HarpyMob.Struggle.Failed".Localized());
+                context.AppendLog("Combat.HarpyMob.Struggle.Failed".Localized());
 
                 player.HealthChange(-(80 + context.Random.Next(40)));
             }
@@ -77,7 +77,7 @@ namespace MonoCoC.Contents.Combat.Handlers
             {
                 player.RemoveStatusEffect(StatusEffectIds.HarpyBind);
 
-                context.Append("Combat.HarpyMob.Struggle.Escaped".Localized());
+                context.AppendLog("Combat.HarpyMob.Struggle.Escaped".Localized());
             }
         }
 
@@ -86,7 +86,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Ability.HarpyMobLustAttack.Text".Localized());
+            context.AppendLog("Combat.Ability.HarpyMobLustAttack.Text".Localized());
 
             var lust = 15;
 

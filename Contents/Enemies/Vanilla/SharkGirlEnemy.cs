@@ -70,7 +70,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             base.OutputAttack(context, damage);
 
             if (damage > 0 && context.Random.Next(3) == 0 && context.Player.Bleed(this))
-                context.Append("Combat.SharkGirl.OutputAttack.TheSharkGirl".Localized());
+                context.AppendLog("Combat.SharkGirl.OutputAttack.TheSharkGirl".Localized());
         }
 
         public override bool Defeated(bool hpVictory)

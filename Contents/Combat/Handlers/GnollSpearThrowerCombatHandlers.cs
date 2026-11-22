@@ -35,7 +35,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.WriteAction((damage < 10
+            context.Log.Add((damage < 10
 
                 ? "Combat.GnollSpearThrower.Attack.Glance"
 
@@ -58,7 +58,7 @@ namespace MonoCoC.Contents.Combat.Handlers
                 return;
             }
 
-            context.WriteAction((damage < 10
+            context.Log.Add((damage < 10
 
                 ? "Combat.GnollSpearThrower.Attack.Glance"
 
@@ -74,7 +74,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Enemy.HasStatusEffect(StatusEffectIds.Blind) && context.Random.Next(3) < 1)
             {
-                context.WriteAction("Combat.GnollSpearThrower.Javelin.BlindMiss".Localized());
+                context.Log.Add("Combat.GnollSpearThrower.Javelin.BlindMiss".Localized());
 
                 return;
             }
@@ -90,21 +90,21 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Block)
             {
-                context.WriteAction("Combat.GnollSpearThrower.Javelin.Blocked".Localized());
+                context.Log.Add("Combat.GnollSpearThrower.Javelin.Blocked".Localized());
 
                 return;
             }
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction(DodgeText(avoid.DodgeReason, "Combat.GnollSpearThrower.Javelin").Localized());
+                context.Log.Add(DodgeText(avoid.DodgeReason, "Combat.GnollSpearThrower.Javelin").Localized());
 
                 return;
             }
 
             if (player.HasPerk(PerkIds.Resolute) && player.Toughness >= 75)
             {
-                context.WriteAction("Combat.GnollSpearThrower.Javelin.Resolute".Localized());
+                context.Log.Add("Combat.GnollSpearThrower.Javelin.Resolute".Localized());
 
                 return;
             }
@@ -113,12 +113,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Random.Next(3) >= 1)
             {
-                context.WriteAction("Combat.GnollSpearThrower.Javelin.Entangled".Localized());
+                context.Log.Add("Combat.GnollSpearThrower.Javelin.Entangled".Localized());
 
                 player.CreateStatusEffect(StatusEffectIds.GnollSpear);
             }
             else
-                context.WriteAction("Combat.GnollSpearThrower.Javelin.Hit".Localized());
+                context.Log.Add("Combat.GnollSpearThrower.Javelin.Hit".Localized());
 
             player.HealthChange(-damage);
         }
@@ -130,7 +130,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (context.Enemy.HasStatusEffect(StatusEffectIds.Blind) && context.Random.Next(3) < 1)
             {
-                context.WriteAction("Combat.GnollSpearThrower.Kick.BlindMiss".Localized());
+                context.Log.Add("Combat.GnollSpearThrower.Kick.BlindMiss".Localized());
 
                 return;
             }
@@ -146,14 +146,14 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (avoid.Outcome == AvoidOutcome.Block)
             {
-                context.WriteAction("Combat.GnollSpearThrower.Kick.Blocked".Localized());
+                context.Log.Add("Combat.GnollSpearThrower.Kick.Blocked".Localized());
 
                 return;
             }
 
             if (avoid.Outcome != AvoidOutcome.Hit)
             {
-                context.WriteAction(DodgeText(avoid.DodgeReason, "Combat.GnollSpearThrower.Kick").Localized());
+                context.Log.Add(DodgeText(avoid.DodgeReason, "Combat.GnollSpearThrower.Kick").Localized());
 
                 return;
             }
@@ -164,17 +164,17 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (damage <= 0)
             {
-                context.WriteAction("Combat.GnollSpearThrower.Kick.BlockedHard".Localized());
+                context.Log.Add("Combat.GnollSpearThrower.Kick.BlockedHard".Localized());
 
                 return;
             }
 
-            context.WriteAction("Combat.GnollSpearThrower.Kick.Hit".Localized());
+            context.Log.Add("Combat.GnollSpearThrower.Kick.Hit".Localized());
 
             if (bust >= 1)
-                context.Append("Combat.GnollSpearThrower.Kick.HitBustyFragment".Localized());
+                context.AppendLog("Combat.GnollSpearThrower.Kick.HitBustyFragment".Localized());
 
-            context.Append("Combat.GnollSpearThrower.Kick.HitTauntFragment".Localized());
+            context.AppendLog("Combat.GnollSpearThrower.Kick.HitTauntFragment".Localized());
 
             player.HealthChange(-damage);
 
@@ -190,7 +190,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (player.Corruption + player.Libido > chance + 50)
             {
-                context.WriteAction("Combat.GnollSpearThrower.Arousal.Strong".Localized());
+                context.Log.Add("Combat.GnollSpearThrower.Arousal.Strong".Localized());
 
                 player.TakeLustDamage(25 + player.Libido / 20f + player.Sensitivity / 5f);
 
@@ -199,21 +199,21 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (20 + player.Corruption + player.Libido > chance)
             {
-                context.WriteAction("Combat.GnollSpearThrower.Arousal.Mild".Localized());
+                context.Log.Add("Combat.GnollSpearThrower.Arousal.Mild".Localized());
 
                 player.TakeLustDamage(15 + player.Libido / 20f + player.Sensitivity / 5f);
 
                 return;
             }
 
-            context.WriteAction("Combat.GnollSpearThrower.Arousal.Failed".Localized());
+            context.Log.Add("Combat.GnollSpearThrower.Arousal.Failed".Localized());
         }
 
         public static void WriteZeroDamageText(CombatContext context, Player player)
         {
             var absorbed = context.Random.Next((int)(player.ArmorDefense + player.Toughness)) < player.ArmorDefense;
 
-            context.WriteAction((absorbed
+            context.Log.Add((absorbed
 
                 ? "Combat.GnollSpearThrower.Attack.ChargedBlocked"
 

@@ -60,11 +60,11 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.WriteAction("Combat.BazaarGatekeeper.Scimitar.Opener".Localized());
+            context.Log.Add("Combat.BazaarGatekeeper.Scimitar.Opener".Localized());
 
             if (context.Enemy.HasStatusEffect(StatusEffectIds.Blind) && context.Random.Next(3) > 0)
             {
-                context.Append("Combat.BazaarGatekeeper.Scimitar.BlindMiss".Localized());
+                context.AppendLog("Combat.BazaarGatekeeper.Scimitar.BlindMiss".Localized());
 
                 return;
             }
@@ -97,12 +97,12 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (key != null)
             {
-                context.Append(key.Localized());
+                context.AppendLog(key.Localized());
 
                 return;
             }
 
-            context.Append("Combat.BazaarGatekeeper.Scimitar.Hit".Localized());
+            context.AppendLog("Combat.BazaarGatekeeper.Scimitar.Hit".Localized());
 
             var damage = CombatCalculator.ReduceDamage(context, player, context.Enemy.Strength + context.Enemy.WeaponAttack + 100f);
 
@@ -116,7 +116,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (!context.Enemy.HasStatusEffect(StatusEffectIds.Uber))
             {
-                context.WriteAction("Combat.BazaarGatekeeper.Cross.Telegraph".Localized());
+                context.Log.Add("Combat.BazaarGatekeeper.Cross.Telegraph".Localized());
 
                 context.Enemy.CreateStatusEffect(StatusEffectIds.Uber);
 
@@ -124,12 +124,12 @@ namespace MonoCoC.Contents.Combat.Handlers
             }
 
             if (player.HasWaited())
-                context.WriteAction("Combat.BazaarGatekeeper.Cross.Waited".Localized());
+                context.Log.Add("Combat.BazaarGatekeeper.Cross.Waited".Localized());
             else if (context.Enemy.HasStatusEffect(StatusEffectIds.Blind) && context.Random.Next(3) > 0)
-                context.WriteAction("Combat.BazaarGatekeeper.Cross.BlindMiss".Localized());
+                context.Log.Add("Combat.BazaarGatekeeper.Cross.BlindMiss".Localized());
             else
             {
-                context.WriteAction("Combat.BazaarGatekeeper.Cross.Hit".Localized());
+                context.Log.Add("Combat.BazaarGatekeeper.Cross.Hit".Localized());
 
                 var damage = CombatCalculator.ReduceDamage(context, player, context.Enemy.Strength + context.Enemy.WeaponAttack + 250f);
 

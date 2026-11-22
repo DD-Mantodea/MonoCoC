@@ -20,7 +20,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var enemy = context.Enemy;
 
-            context.Write("Combat.Clara.NotMurbleEnjoysTheLacticAcid.ClaraSuddenlyStarts".Localized());
+            MonoCoC.UI.Components.Views.GameView.Current.Write("Combat.Clara.NotMurbleEnjoysTheLacticAcid.ClaraSuddenlyStarts".Localized());
 
             enemy.Health = Math.Min(enemy.MaxHealth, enemy.Health + 45);
 
@@ -36,7 +36,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             var red = context.Random.Next(2) == 0;
 
-            context.Append("Combat.Clara.ClaraDrugAttack.ClaraSuddenlySnatches".Localized());
+            context.AppendLog("Combat.Clara.ClaraDrugAttack.ClaraSuddenlySnatches".Localized());
 
             var evaded = (player.HasPerk(PerkIds.Evade) && context.Random.Next(10) <= 3)
 
@@ -44,21 +44,21 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (evaded)
             {
-                context.Append("Combat.Clara.ClaraDrugAttack.YouNarrowlyAvoid".Localized());
+                context.AppendLog("Combat.Clara.ClaraDrugAttack.YouNarrowlyAvoid".Localized());
 
                 return;
             }
 
             if (red)
             {
-                context.Append("Combat.Clara.ClaraDrugAttack.TheRedFluids".Localized());
+                context.AppendLog("Combat.Clara.ClaraDrugAttack.TheRedFluids".Localized());
 
                 if (!player.HasStatusEffect(StatusEffectIds.TemporaryHeat))
                     player.CreateStatusEffect(StatusEffectIds.TemporaryHeat, 0, 1, 0, 0);
             }
             else
             {
-                context.Append("Combat.Clara.ClaraDrugAttack.TheBlackFluid".Localized());
+                context.AppendLog("Combat.Clara.ClaraDrugAttack.TheBlackFluid".Localized());
 
                 player.ChangeFatigue(10 + context.Random.Next(25));
             }
@@ -72,17 +72,17 @@ namespace MonoCoC.Contents.Combat.Handlers
             switch (context.Random.Next(3))
             {
                 case 0:
-                    context.Append("Combat.Clara.ClaraTeaseAttack.ClaraHesitatesThen".Localized());
+                    context.AppendLog("Combat.Clara.ClaraTeaseAttack.ClaraHesitatesThen".Localized());
 
                     break;
 
                 case 1:
-                    context.Append("Combat.Clara.ClaraTeaseAttack.ClaraSeemsTo".Localized());
+                    context.AppendLog("Combat.Clara.ClaraTeaseAttack.ClaraSeemsTo".Localized());
 
                     break;
 
                 default:
-                    context.Append("Combat.Clara.ClaraTeaseAttack.InsteadOfAttacking".Localized());
+                    context.AppendLog("Combat.Clara.ClaraTeaseAttack.InsteadOfAttacking".Localized());
 
                     break;
             }
@@ -95,16 +95,16 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Clara.ClaraCastsBlind.ClaraGlaresAt".Localized());
+            context.AppendLog("Combat.Clara.ClaraCastsBlind.ClaraGlaresAt".Localized());
 
             if (player.Intelligence / 5f + context.Random.Next(20) + 1 < 14)
             {
-                context.Append("Combat.Clara.ClaraCastsBlind.ABrightFlash".Localized());
+                context.AppendLog("Combat.Clara.ClaraCastsBlind.ABrightFlash".Localized());
 
                 player.CreateStatusEffect(StatusEffectIds.Blind, 1, 0, 0, 0);
             }
             else
-                context.Append("Combat.Clara.ClaraCastsBlind.YouManageTo".Localized());
+                context.AppendLog("Combat.Clara.ClaraCastsBlind.YouManageTo".Localized());
         }
 
         public static void GropesBlind(CombatContext context)
@@ -112,11 +112,11 @@ namespace MonoCoC.Contents.Combat.Handlers
             var player = context.Player;
 
             if (player.HasCock() && (!player.HasVagina() || context.Random.Next(2) == 0))
-                context.Append("Combat.Clara.ClaraGropesBlindPCs.SuddenlyClaraWraps".Localized(player.MultiCockDescriptLight()));
+                context.AppendLog("Combat.Clara.ClaraGropesBlindPCs.SuddenlyClaraWraps".Localized(player.MultiCockDescriptLight()));
             else if (player.HasVagina())
-                context.Append("Combat.Clara.ClaraGropesBlindPCs.ASuddenRush".Localized());
+                context.AppendLog("Combat.Clara.ClaraGropesBlindPCs.ASuddenRush".Localized());
             else
-                context.Append("Combat.Clara.ClaraGropesBlindPCs.ThanksToClara".Localized());
+                context.AppendLog("Combat.Clara.ClaraGropesBlindPCs.ThanksToClara".Localized());
 
             player.TakeLustDamage(7 + player.Libido / 15f, true);
         }
@@ -125,7 +125,7 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Combat.Clara.ClaraBonusBaseLustDamage.TheEarlyEffects".Localized());
+            context.AppendLog("Combat.Clara.ClaraBonusBaseLustDamage.TheEarlyEffects".Localized());
 
             player.TakeLustDamage(2 + player.Libido / 20f, true);
         }

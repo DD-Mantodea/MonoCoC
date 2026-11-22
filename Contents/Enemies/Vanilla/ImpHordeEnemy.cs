@@ -69,14 +69,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
         {
             CoC.Instance.Flags.Set(GameFlagIds.ZetazImpHordeDefeated, 1);
 
-            CombatController.Instance?.Context.Append("Dungeons.ImpHorde.Victory".Localized());
+            CombatController.Instance?.Context.AppendLog("Dungeons.ImpHorde.Victory".Localized());
 
             return false;
         }
 
         public override bool Won(bool hpVictory)
         {
-            CombatController.Instance?.Context.Append("Dungeons.ImpHorde.Defeat".Localized());
+            CombatController.Instance?.Context.AppendLog("Dungeons.ImpHorde.Defeat".Localized());
 
             return false;
         }

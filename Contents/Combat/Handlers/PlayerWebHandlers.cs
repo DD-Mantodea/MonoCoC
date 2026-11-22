@@ -36,7 +36,7 @@ namespace MonoCoC.Contents.Combat.Handlers
 
             if (tail.Venom < WebbingCost(player))
             {
-                context.Append("Combat.Special.Web.NoWebbing".Localized());
+                context.AppendLog("Combat.Special.Web.NoWebbing".Localized());
 
                 return;
             }
@@ -44,9 +44,9 @@ namespace MonoCoC.Contents.Combat.Handlers
             tail.Venom -= WebbingCost(player);
 
             if (player.HasStatusEffect(StatusEffectIds.Blind))
-                context.Append("Combat.Special.Web.Blind".Localized());
+                context.AppendLog("Combat.Special.Web.Blind".Localized());
             else
-                context.Append("Combat.Special.Web.Intro".Localized());
+                context.AppendLog("Combat.Special.Web.Intro".Localized());
 
             var avoid = CombatCalculator.Avoid(context, new AvoidDamageParameters
             {
@@ -58,27 +58,27 @@ namespace MonoCoC.Contents.Combat.Handlers
             if (avoid.AttackFailed)
             {
                 if (avoid.Outcome == AvoidOutcome.Dodge)
-                    context.Append("Combat.Special.Web.Miss".Localized());
+                    context.AppendLog("Combat.Special.Web.Miss".Localized());
                 else if (avoid.Outcome == AvoidOutcome.Block)
-                    context.Append("Combat.Special.Web.Block".Localized());
+                    context.AppendLog("Combat.Special.Web.Block".Localized());
 
                 return;
             }
 
             if (enemy.Speed < 1)
-                context.Append(enemy.Plural
+                context.AppendLog(enemy.Plural
 
                     ? "Combat.Special.Web.OverwebPlural".Localized()
 
                     : "Combat.Special.Web.Overweb".Localized());
             else
             {
-                context.Append("Combat.Special.Web.Hit".Localized());
+                context.AppendLog("Combat.Special.Web.Hit".Localized());
 
                 enemy.Speed = Math.Max(0, enemy.Speed - 45);
             }
 
-            context.Append("[pg]");
+            context.AppendLog("[pg]");
         }
     }
 }

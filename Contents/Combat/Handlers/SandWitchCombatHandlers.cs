@@ -12,21 +12,21 @@ namespace MonoCoC.Contents.Combat.Handlers
         {
             var player = context.Player;
 
-            context.Append("Scenes.SandWitch.LustMagicAttack.SummoningChant".Localized());
+            context.AppendLog("Scenes.SandWitch.LustMagicAttack.SummoningChant".Localized());
 
             float lust;
 
             if (player.HasStatusEffect(StatusEffectIds.StoneLust))
             {
-                context.Append("Scenes.SandWitch.LustMagicAttack.OrbHeatRush".Localized());
+                context.AppendLog("Scenes.SandWitch.LustMagicAttack.OrbHeatRush".Localized());
 
                 lust = 8 + player.Sensitivity / 10f;
             }
             else
             {
-                context.Append("Scenes.SandWitch.LustMagicAttack.SandSlipsClothes".Localized());
+                context.AppendLog("Scenes.SandWitch.LustMagicAttack.SandSlipsClothes".Localized());
 
-                context.Append(player.HasVagina()
+                context.AppendLog(player.HasVagina()
 
                     ? "Scenes.SandWitch.LustMagicAttack.SandEntersVagina".Localized()
 

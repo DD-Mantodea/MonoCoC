@@ -51,14 +51,14 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!context.Player.HasStatusEffect(Datas.Vanilla.StatusEffectIds.TentacleBind))
                 return true;
 
-            context.Clear();
+            MonoCoC.UI.Components.Views.GameView.Current.ClearOutput();
 
             if (context.Player.HasCock())
-                context.WriteAction("Combat.TentacleBeast.React.TheCreatureContinuesSpiralingAroundYour".Localized());
+                context.Log.Add("Combat.TentacleBeast.React.TheCreatureContinuesSpiralingAroundYour".Localized());
             else if (context.Player.HasVagina())
-                context.WriteAction("Combat.TentacleBeast.React.TheCreatureContinuesSuckingYourClit".Localized());
+                context.Log.Add("Combat.TentacleBeast.React.TheCreatureContinuesSuckingYourClit".Localized());
             else
-                context.WriteAction("Combat.TentacleBeast.React.TheCreatureContinuesProbingAtYour".Localized((int)context.Player.TotalNipples()));
+                context.Log.Add("Combat.TentacleBeast.React.TheCreatureContinuesProbingAtYour".Localized((int)context.Player.TotalNipples()));
 
             var lust = 8 + context.Player.Sensitivity / 10f;
 
@@ -74,7 +74,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
             if (!context.Player.HasStatusEffect(Datas.Vanilla.StatusEffectIds.TentacleBind))
                 return;
 
-            context.WriteAction("Combat.TentacleBeast.Struggle.YouStruggleWithAllOfYour".Localized());
+            context.Log.Add("Combat.TentacleBeast.Struggle.YouStruggleWithAllOfYour".Localized());
 
             var escaped = context.Random.Next(3) == 0 ||
 
@@ -82,7 +82,7 @@ namespace MonoCoC.Contents.Enemies.Vanilla
 
             if (escaped)
             {
-                context.WriteAction("Combat.TentacleBeast.Struggle.AsTheCreatureAttemptsToAdjust".Localized());
+                context.Log.Add("Combat.TentacleBeast.Struggle.AsTheCreatureAttemptsToAdjust".Localized());
 
                 context.Player.RemoveStatusEffect(Datas.Vanilla.StatusEffectIds.TentacleBind);
 
@@ -91,16 +91,16 @@ namespace MonoCoC.Contents.Enemies.Vanilla
                 return;
             }
 
-            context.WriteAction("Combat.TentacleBeast.Struggle.DespiteTryingToEscapeTheCreature".Localized());
+            context.Log.Add("Combat.TentacleBeast.Struggle.DespiteTryingToEscapeTheCreature".Localized());
 
             context.Player.HealthChange(-5);
 
             if (context.Player.HasCock())
-                context.WriteAction("Combat.TentacleBeast.Struggle.TheCreatureContinuesSpiralingAroundYour".Localized());
+                context.Log.Add("Combat.TentacleBeast.Struggle.TheCreatureContinuesSpiralingAroundYour".Localized());
             else if (context.Player.HasVagina())
-                context.WriteAction("Combat.TentacleBeast.Struggle.TheCreatureContinuesSuckingYourClit".Localized());
+                context.Log.Add("Combat.TentacleBeast.Struggle.TheCreatureContinuesSuckingYourClit".Localized());
             else
-                context.WriteAction("Combat.TentacleBeast.Struggle.TheCreatureContinuesProbingAtYour".Localized((int)context.Player.TotalNipples()));
+                context.Log.Add("Combat.TentacleBeast.Struggle.TheCreatureContinuesProbingAtYour".Localized((int)context.Player.TotalNipples()));
 
             var lust = 3 + context.Player.Sensitivity / 10f + context.Player.Libido / 20f;
 
